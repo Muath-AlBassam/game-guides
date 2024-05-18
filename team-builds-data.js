@@ -813,11 +813,11 @@ function getHSRCharacters() {
             imageUrl: 'https://www.prydwen.gg/static/b24ce106a4a283e6cf1a077413fbf9d0/60b4d/6_sm.webp',
             rarity: '5'
         }],
-        ['Topaz', {
-            name: 'Topaz',
-            imageUrl: 'https://www.prydwen.gg/static/0ab4d7f7d2a2e2afc7c5979531904fe1/60b4d/38_sm.webp',
-            rarity: '5'
-        }],
+        // ['Topaz', {
+        //     name: 'Topaz',
+        //     imageUrl: 'https://www.prydwen.gg/static/0ab4d7f7d2a2e2afc7c5979531904fe1/60b4d/38_sm.webp',
+        //     rarity: '5'
+        // }],
         ['Gepard', {
             name: 'Gepard',
             imageUrl: 'https://www.prydwen.gg/static/cff01461a4e4266e9b213e4d73c6c5c3/60b4d/15_sm.webp',
