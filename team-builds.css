@@ -1,0 +1,148 @@
+body {
+    font-family: Calibri;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+span, th, td {
+    cursor: default;
+}
+
+/* Bootstrap classes */
+.tooltip-inner {
+    max-width: 1000px !important;
+}
+.tooltip.show {
+    opacity: 1 !important;
+} 
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-color: #23242a !important;
+    border-bottom: none;
+}
+.nav-tabs {
+    border-bottom: none;
+}
+
+/* Tab styles */
+.tab-text {
+    cursor: pointer;
+    padding-inline-start: 10px;
+    font-weight: bold;
+    /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+    text-shadow: 1px 1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px -1px 0 #fff,
+        0px 1px 0 #fff,
+        0px -1px 0 #fff,
+        -1px 0px 0 #fff,
+        1px 0px 0 #fff,
+        2px 2px 0 #fff,
+        -2px 2px 0 #fff,
+        2px -2px 0 #fff,
+        -2px -2px 0 #fff,
+        0px 2px 0 #fff,
+        0px -2px 0 #fff,
+        -2px 0px 0 #fff,
+        2px 0px 0 #fff,
+        1px 2px 0 #fff,
+        -1px 2px 0 #fff,
+        1px -2px 0 #fff,
+        -1px -2px 0 #fff,
+        2px 1px 0 #fff,
+        -2px 1px 0 #fff,
+        2px -1px 0 #fff,
+        -2px -1px 0 #fff;
+}
+
+/* Table styles */
+.table td, .table th {
+    padding: 0;
+    white-space: nowrap !important;
+}
+.table thead th {
+    font-size: 24px;
+    border: 3px double black;
+    padding: 1px;
+}
+.table thead th:nth-child(even) {
+    color: white;
+    background-color: #a5a5a5;
+}
+.table thead th:nth-child(odd) {
+    color: white;
+    background-color: #7f7f7f;
+}
+
+/* Styles for specific columns */
+/* Team name + icon */
+.team-name {
+    position: relative;
+    text-align: center;
+    height: 30px; /* Set a height to the th element for vertical centering */
+    line-height: 30px; /* Ensure text is vertically centered */
+}
+.team-icon  {
+    width: 2%;
+    border-right: 1px hidden transparent;
+}
+/* Team members */
+.character {
+    width: 105px;
+    height: 105px;
+    background-color: #23242a !important; /* rgba(35, 36, 42, 1) */
+    color: white !important;
+}
+
+/* Center */
+.h-center {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.v-center {
+    justify-content: center;
+    vertical-align: middle;
+}
+
+/* Character rarity background */
+.GI-rarity-5 {
+    background-image: url(https://genshinbuilds.aipurrjects.com/genshin/5-Star.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.GI-rarity-4 {
+    background-image: url(https://genshinbuilds.aipurrjects.com/genshin/4-Star.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.HSR-rarity-5 {
+    background: #885550;
+    background: linear-gradient(180deg, #885550, #c9a36a 53%);
+    border-bottom-color: #c9a36a;
+}
+.HSR-rarity-4 {
+    background: #343659;
+    background: linear-gradient(180deg, #343659, #8a5fcc 53%);
+    border-bottom-color: #8a5fcc;
+}
+
+/* Image classes */
+.game-background {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.game-logo {
+    max-height: 150px;
+    min-height: 150px;
+    position: absolute;
+    right: 0;
+}
