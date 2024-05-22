@@ -23,16 +23,17 @@ function loadTabs() {
     const games = getGames();
     const tabsElement = document.getElementById('gamesTabs');
     games.forEach(g => {
-        const a = createElement('a', 'nav-link', null);
+        const a = createElement('a', 'nav-link');
         a.setAttribute('href', `#${g.code}`);
 
-        const logo = createElement('img', null, 'height: 20px; width: 30px;');
+        const logo = createElement('img', null, 'height: 20px;');
         logo.setAttribute('src', g.logoUrl);
         a.appendChild(logo);
 
         const label = createElement('span', 'tab-text', null, g.label);
         a.appendChild(label);
 
+        // link to guide page
         // const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', '<i class="fa fa-external-link"></i>');
         // link.setAttribute('href', g.guideUrl);
         // link.setAttribute('target', '_blank');

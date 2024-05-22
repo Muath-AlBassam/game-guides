@@ -43,7 +43,7 @@ function createCharacterImage(charmd, dimenstion = 105, asString = false) {
                     width'${dimenstion}' height='${dimenstion}' 
                 />`;
     } else {
-        let img = createElement('img', `${gameCode}-rarity-${charmd?.rarity ?? ''}`);
+        let img = createElement('img', `${gameCode}-rarity-${charmd.rarity ?? ''}`);
         img.setAttribute('src', charmd.imageUrl ?? '');
         img.setAttribute('alt', charmd.name);
         img.setAttribute('title', charmd.name);
@@ -51,13 +51,6 @@ function createCharacterImage(charmd, dimenstion = 105, asString = false) {
         img.setAttribute('height', dimenstion);
         return img;
     }
-}
-
-function createCharacterEmptyImage(name, dimenstion = 105) {
-    return `<img 
-                src='' alt='${name}'
-                width'${dimenstion}' height='${dimenstion}' 
-            />`;
 }
 
 // create characters' name tag + image tooltip

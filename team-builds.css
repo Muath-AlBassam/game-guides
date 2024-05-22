@@ -2,7 +2,7 @@ body {
     font-family: Calibri;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
 }
 
