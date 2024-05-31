@@ -34,10 +34,10 @@ function loadTabs() {
         a.appendChild(label);
 
         // link to guide page
-        // const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', '<i class="fa fa-external-link"></i>');
-        // link.setAttribute('href', g.guideUrl);
-        // link.setAttribute('target', '_blank');
-        // a.appendChild(link);
+        const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', '<i class="fa fa-external-link"></i>');
+        link.setAttribute('href', g.guideUrl);
+        link.setAttribute('target', '_blank');
+        a.appendChild(link);
         
         const li = createElement('li', 'nav-item');
         li.appendChild(a);
