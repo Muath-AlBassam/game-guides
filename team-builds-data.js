@@ -275,29 +275,32 @@ function getHSRTeams() {
             iconUrl: 'assets/hsr/HonkaiStarRail_Physical.jpg',
             characters: [
                 {
-                    name: 'Lynx',
-                    role: 'Heal + Aggro',
+                    name: 'Gallagher',
+                    role: 'Heal',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Clara',
-                    role: 'Main <b>[FUA + Skill]</b>',
+                    name: 'Boothill',
+                    role: 'Main <b>[Skill + Ult]</b> + Break',
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: 'Ruan Mei',
-                    role: 'DMG & RES PEN Buff',
+                    name: 'MC (Harmony)',
+                    role: 'Break Buff + Super Break',
                     isMain: false,
-                    replacedBy: ['Sparkle', 'Robin'],
+                    replacedBy: [],
                 },
                 {
-                    name: 'Tingyun',
-                    role: 'ER + Atk Buff',
+                    name: 'Ruan Mei',
+                    role: 'DMG & RES PEN & Break Buff',
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            variations: [
+                ['Lynx', 'Clara', 'Ruan Mei', 'Tingyun']
             ]
         },
         {
@@ -708,6 +711,11 @@ function getGICharacters() {
 
 function getHSRCharacters() {
     return new Map([
+        ['MC (Harmony)', {
+            name: 'MC (Harmony)',
+            imageUrl: 'https://www.prydwen.gg/static/286541431fc0e4242b16eb307e2a71b0/60b4d/img_mc_icon.webp',
+            rarity: '5'
+        }],
         ['Lynx', {
             name: 'Lynx',
             imageUrl: 'https://www.prydwen.gg/static/033124afa0122cd8b0ae20b533140ec5/60b4d/35_sm.webp',
@@ -831,6 +839,16 @@ function getHSRCharacters() {
         ['Hanya', {
             name: 'Hanya',
             imageUrl: 'https://www.prydwen.gg/static/a4e55e309e35bc1f4d5ed3808c8dcf51/60b4d/42_sm.webp',
+            rarity: '4'
+        }],
+        ['Boothill', {
+            name: 'Boothill',
+            imageUrl: 'https://www.prydwen.gg/static/b57af11d0edb3f76d9e130bb9611c63b/60b4d/53_sm.webp',
+            rarity: '5'
+        }],
+        ['Gallagher', {
+            name: 'Gallagher',
+            imageUrl: 'https://www.prydwen.gg/static/014e5fd9e1557e4dbef87ae673e12116/60b4d/51_sm.webp',
             rarity: '4'
         }]
     ]);

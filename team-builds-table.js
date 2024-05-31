@@ -40,7 +40,7 @@ function generateTeamNameCell(team) {
     if (team.iconUrl != null) {
         const img = createElement('img');
         img.setAttribute('src', team.iconUrl);
-        img.setAttribute('lat', team.name);
+        img.setAttribute('alt', team.name);
         img.setAttribute('title', team.name);
         img.setAttribute('width', '35px');
         img.setAttribute('height', '35px');
