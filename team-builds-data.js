@@ -516,36 +516,36 @@ function getHSRTeams() {
                 }
             ]
         },
-        {
-            name: 'Follow-up',
-            iconUrl: null,
-            characters: [
-                {
-                    name: 'Gepard',
-                    role: 'Shield',
-                    isMain: false,
-                    replacedBy: [],
-                },
-                {
-                    name: 'Dr. Ratio',
-                    role: 'Main <b>[Skill + FUA]</b>',
-                    isMain: true,
-                    replacedBy: [],
-                },
-                {
-                    name: 'Topaz',
-                    role: 'Main <b>[Skill + FUA]</b>',
-                    isMain: true,
-                    replacedBy: [],
-                },
-                {
-                    name: 'Robin',
-                    role: 'ATK & FUA DMG Buff',
-                    isMain: false,
-                    replacedBy: ['Ruan Mei'],
-                }
-            ]
-        },
+        // {
+        //     name: 'Follow-up',
+        //     iconUrl: null,
+        //     characters: [
+        //         {
+        //             name: 'Gepard',
+        //             role: 'Shield',
+        //             isMain: false,
+        //             replacedBy: [],
+        //         },
+        //         {
+        //             name: 'Dr. Ratio',
+        //             role: 'Main <b>[Skill + FUA]</b>',
+        //             isMain: true,
+        //             replacedBy: [],
+        //         },
+        //         {
+        //             name: 'Topaz',
+        //             role: 'Main <b>[Skill + FUA]</b>',
+        //             isMain: true,
+        //             replacedBy: [],
+        //         },
+        //         {
+        //             name: 'Robin',
+        //             role: 'ATK & FUA DMG Buff',
+        //             isMain: false,
+        //             replacedBy: ['Ruan Mei'],
+        //         }
+        //     ]
+        // },
     ]
 }
 
