@@ -117,26 +117,26 @@ function getGITeams() {
             iconUrl: 'assets/gi/GenshinImpact_Electro.png',
             characters: [
                 {
-                    name: 'Yae Miko',
-                    role: null,
+                    name: 'Clorinde',
+                    role: 'Main <b>[Skill + Ult]</b>',
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Xingqiu',
+                    role: 'Electro-charge',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Nahida',
+                    role: 'Dendro reaction',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Zhongli',
+                    role: 'Shield',
                     isMain: false,
                     replacedBy: [],
                 }
@@ -706,6 +706,11 @@ function getGICharacters() {
             imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/yelan/image.png?strip=all&quality=75&w=256',
             rarity: '5'
         }],
+        ['Clorinde', {
+            name: 'Clorinde',
+            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/clorinde/image.png?strip=all&quality=75&w=256',
+            rarity: '5'
+        }]
     ]);
 }
 
