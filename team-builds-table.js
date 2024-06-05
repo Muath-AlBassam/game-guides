@@ -145,5 +145,14 @@ function generateTeamVariatons(team) {
 
 // 6th cell : team rotations
 function generateTeamRotationsCell(team) {
-    return createElement('td');
+    let content = '';
+    if (team.rotations) {
+        team.rotations.forEach(step => {
+            content += step[0];
+            content += ' ';
+            content += `<b>${step[1]}</b>`;
+            content += '<br>';
+        })
+    }
+    return createElement('td', 'v-center', 'padding-left: 1em', content);
 }

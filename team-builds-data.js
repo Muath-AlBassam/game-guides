@@ -1,3 +1,5 @@
+const arrow = '&#8594;';
+
 function getGames() {
     return [
         {
@@ -47,6 +49,12 @@ function getGITeams() {
                     isMain: false,
                     replacedBy: ['Kazuha'],
                 }
+            ],
+            rotations: [
+                ['Zhongli', `Skill ${arrow}`],
+                ['Bennett', `Ult ${arrow}`],
+                ['Yelan', `Ult ${arrow}`],
+                ['Arlecchino', `Skill ${arrow} CA ${arrow} NA`],
             ]
         },
         {
@@ -77,6 +85,13 @@ function getGITeams() {
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            rotations: [
+                ['Neuvillette', `1NA ${arrow}`],
+                ['Kazuha', `Skill ${arrow}`],
+                ['Raiden Shogun', `Skill ${arrow}`],
+                ['Furina', `Skill + Ult ${arrow}`],
+                ['Neuvillette', `Skill/CA ${arrow} CA`],
             ]
         },
         {
@@ -110,6 +125,13 @@ function getGITeams() {
             ],
             variations: [
                 ['Nahida', 'Nilou', 'Kirara', 'Kokomi']
+            ],
+            rotations: [
+                ['Nahida', `Ult ${arrow} Skill ${arrow}`],
+                ['Furina', `Skill + Ult (optional) ${arrow}`],
+                ['Raiden Shogun', `Skill ${arrow}`],
+                ['Kuki Shinobu', `Skill ${arrow}`],
+                ['Nahida', `NA + CA`],
             ]
         },
         {
@@ -124,7 +146,7 @@ function getGITeams() {
                 },
                 {
                     name: 'Xingqiu',
-                    role: 'Electro-charge',
+                    role: 'Electro-Charge',
                     isMain: false,
                     replacedBy: [],
                 },
@@ -170,6 +192,12 @@ function getGITeams() {
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            rotations: [
+                ['Zhongli', `Skill ${arrow}`],
+                ['Xianyun', `Ult ${arrow}`],
+                ['Faruzan', `Ult ${arrow}`],
+                ['Lynette', `Ult ${arrow} Skill + NA/Plunge`],
             ]
         },
         {
@@ -200,6 +228,12 @@ function getGITeams() {
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            rotations: [
+                ['Wriothesley', `1NA ${arrow}`],
+                ['Kazuha', `Skill ${arrow}`],
+                ['Kokomi', `Skill ${arrow}`],
+                ['Wriothesley', `Skill ${arrow} NA + CA`],
             ]
         },
         {
@@ -233,6 +267,12 @@ function getGITeams() {
             ],
             variations: [
                 ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli']
+            ],
+            rotations: [
+                ['Zhongli', `Skill ${arrow}`],
+                ['Fischl', `Skill ${arrow}`],
+                ['Xingqiu', `Ult ${arrow}`],
+                ['Navia', `Ult ${arrow} Skill + NA`],
             ]
         },
         {
@@ -263,6 +303,12 @@ function getGITeams() {
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            rotations: [
+                ['Zhongli', `Skill ${arrow}`],
+                ['Raiden Shogun', `Skill ${arrow}`],
+                ['Mika', `Skill ${arrow}`],
+                ['Eula', `NA + Skill + Ult`],
             ]
         }
     ]
