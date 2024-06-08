@@ -56,10 +56,12 @@ function createCharacterImage(charmd, dimenstion = 105, asString = false) {
 // create characters' name tag + image tooltip
 function createCharacterNameAndTooltipTag(gameCode, chars, imgDimenstion = 90) {
     let imgs = '';
+    // create images tage
     chars.forEach(charname => {
         const charmd = getCharacterMetadata(gameCode, charname);
         imgs += createCharacterImage(charmd, imgDimenstion, true);
     });
+    // add images as tooltip
     const charTag = createElement('span', null, null, chars.join(' - '));
     charTag.setAttribute('data-bs-toggle', 'tooltip');
     charTag.setAttribute('data-bs-placement', 'right');

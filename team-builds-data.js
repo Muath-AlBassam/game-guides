@@ -26,7 +26,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Arlecchino',
-                    role: 'Main <b>[NA]</b>',
+                    role: 'Main [NA]',
                     isMain: true,
                     replacedBy: ['Diluc', 'Hu Tao'],
                 },
@@ -67,7 +67,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Neuvillette',
-                    role: 'Main <b>[CA]</b>',
+                    role: 'Main [CA]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -104,7 +104,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Nahida',
-                    role: 'Main <b>[NA + CA + Skill + Ult]</b>',
+                    role: 'Main [NA + CA + Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -144,7 +144,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Clorinde',
-                    role: 'Main <b>[Skill + Ult]</b>',
+                    role: 'Main [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -177,7 +177,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Lynette',
-                    role: 'Main <b>[Skill + NA + Ult]</b>',
+                    role: 'Main [Skill + NA + Ult]',
                     isMain: true,
                     replacedBy: ['Xiao'],
                 },
@@ -213,7 +213,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Wriothesley',
-                    role: 'Main <b>[NA + CA]</b>',
+                    role: 'Main [NA + CA]',
                     isMain: true,
                     replacedBy: ['Ayaka', 'Ganyu'],
                 },
@@ -249,7 +249,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Navia',
-                    role: 'Main <b>[Skill + NA + Ult]</b>',
+                    role: 'Main [Skill + NA + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -288,7 +288,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Eula',
-                    role: 'Main <b>[NA + Skill + Ult]</b>',
+                    role: 'Main [NA + Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -333,14 +333,8 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Boothill',
-                    role: 'Main <b>[Skill + Ult]</b> + Break',
+                    role: 'Main [Skill + Ult] + Break',
                     isMain: true,
-                    replacedBy: [],
-                },
-                {
-                    name: 'MC (Harmony)',
-                    role: 'Break Buff + Super Break',
-                    isMain: false,
                     replacedBy: [],
                 },
                 {
@@ -348,6 +342,12 @@ const TeamBuildsData = {
                     role: 'DMG & RES PEN & Break Buff',
                     isMain: false,
                     replacedBy: [],
+                },
+                {
+                    name: 'MC (Harmony)',
+                    role: 'Break Buff + Super Break',
+                    isMain: false,
+                    replacedBy: ['Bronya'],
                 }
             ],
             variations: [
@@ -366,7 +366,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Topaz',
-                    role: 'Main <b>[FUA + Skill]</b>',
+                    role: 'Main [FUA + Skill]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -396,7 +396,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Jingliu',
-                    role: 'Main <b>[Skill + Ult]</b>',
+                    role: 'Main [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -426,7 +426,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Acheron',
-                    role: 'Main <b>[Skill + Ult]</b>',
+                    role: 'Main [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -456,7 +456,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Blade',
-                    role: 'Main DPS <b>[Basic + Ult]</b>',
+                    role: 'Main [Basic + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -486,7 +486,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Seele',
-                    role: 'Main <b>[Skill + Ult]</b>',
+                    role: 'Main [Skill + Ult]',
                     isMain: true,
                     replacedBy: ['Xueyi'],
                 },
@@ -516,7 +516,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Dang Heng · IL', // to get the dot: alt+0183
-                    role: 'Main <b>[Basic]</b>',
+                    role: 'Main [Basic]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -549,7 +549,7 @@ const TeamBuildsData = {
                 },
                 {
                     name: 'Kafka',
-                    role: 'Main <b>[Skill + Ult]</b> + DoT Ignition',
+                    role: 'Main [Skill + Ult] + DoT Ignition',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -579,13 +579,13 @@ const TeamBuildsData = {
         //         },
         //         {
         //             name: 'Dr. Ratio',
-        //             role: 'Main <b>[Skill + FUA]</b>',
+        //             role: 'Main [Skill + FUA]',
         //             isMain: true,
         //             replacedBy: [],
         //         },
         //         {
         //             name: 'Topaz',
-        //             role: 'Main <b>[Skill + FUA]</b>',
+        //             role: 'Main [Skill + FUA]',
         //             isMain: true,
         //             replacedBy: [],
         //         },

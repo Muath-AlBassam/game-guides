@@ -85,7 +85,8 @@ function generateTeamRolesCell(team) {
     let characterRoles = '';
     team.characters.forEach(character => {
         if (character.role != null) {
-            characterRoles += `<u>${character.name}</u> - ${character.role}<br/>`;
+            const parsedRole = character.role.replaceAll('[', '<b>[').replaceAll(']', ']</b>');
+            characterRoles += `<u>${character.name}</u> - ${parsedRole}<br/>`;
         }
     });
     return createElement('td', 'v-center', 'padding-left: 1em', characterRoles)
