@@ -34,7 +34,7 @@ function loadTabs() {
         a.appendChild(label);
 
         // link to guide page
-        const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', '<i class="fa fa-external-link"></i>');
+        const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${TeamBuildsConstants.icons.externalLink}"></i>`);
         link.setAttribute('href', g.guideUrl);
         link.setAttribute('target', '_blank');
         a.appendChild(link);

@@ -459,7 +459,7 @@ const TeamBuildsData = {
                     name: 'Bronya',
                     role: 'DMG & Crit Buff',
                     isMain: false,
-                    replacedBy: [],
+                    replacedBy: ['Sparkle'],
                 },
                 {
                     name: 'Ruan Mei',
