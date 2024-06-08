@@ -1,4 +1,4 @@
-const arrow = TeamBuildsConstants.arrow;
+const arrow = TeamBuildsConstants.unicode.arrow;
 
 
 const TeamBuildsData = {
@@ -94,8 +94,8 @@ const TeamBuildsData = {
                 ['Neuvillette', `1NA ${arrow}`],
                 ['Kazuha', `Skill ${arrow}`],
                 ['Raiden Shogun', `Skill ${arrow}`],
-                ['Furina', `Skill + Ult ${arrow}`],
-                ['Neuvillette', `Skill/CA ${arrow} CA`],
+                ['Furina', `Skill ${arrow} Ult ${arrow}`],
+                ['Neuvillette', `Skill/Ult ${arrow} CA`],
             ]
         },
         {
@@ -132,7 +132,7 @@ const TeamBuildsData = {
             ],
             rotations: [
                 ['Nahida', `Ult ${arrow} Skill ${arrow}`],
-                ['Furina', `Skill + Ult (optional) ${arrow}`],
+                ['Furina', `Skill ${arrow} Ult (optional) ${arrow}`],
                 ['Yae Miko', `Skill ${arrow}`],
                 ['Kuki Shinobu', `Skill ${arrow}`],
                 ['Nahida', `NA + CA`],
@@ -155,20 +155,26 @@ const TeamBuildsData = {
                     replacedBy: ['Fischl'],
                 },
                 {
+                    name: 'Xianling',
+                    role: 'Overload',
+                    isMain: false,
+                    replacedBy: ['Bennett'],
+                },
+                {
                     name: 'Chevreuse',
                     role: 'Buff + RES Shred + Heal',
                     isMain: false,
                     replacedBy: [],
-                },
-                {
-                    name: 'Bennett',
-                    role: 'Buff + Heal + Energy',
-                    isMain: false,
-                    replacedBy: ['Xianling'],
                 }
             ],
             variations: [
                 ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli']
+            ],
+            rotations: [
+                ['Raiden Shogun', `Skill ${arrow}`],
+                ['Xianling', `Ult ${arrow}`],
+                ['Chevreuse', `Skill (Hold) ${arrow}`],
+                ['Clorinde', `Skill + Ult`]
             ]
         },
         {

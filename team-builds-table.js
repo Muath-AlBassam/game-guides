@@ -107,7 +107,7 @@ function generateTeamReplacementsCell(team) {
             }
             
             // split current team member from their replacements
-            const separatorTag = createElement('span', null, null, ` ${TeamBuildsConstants.arrow} `);
+            const separatorTag = createElement('span', null, null, ` ${TeamBuildsConstants.unicode.arrow} `);
             appendAll(cell, [charTag, separatorTag]);
             
             // add repalcements' names with tooltip image

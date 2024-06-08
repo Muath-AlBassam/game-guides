@@ -1,5 +1,8 @@
 const TeamBuildsConstants = {
-    arrow: '&#8594;',
+    unicode: {
+        arrow: '&rightarrow;',
+        twoWayArrow: '&LeftRightArrow;'
+    },
     icons: {
         externalLink: 'fa fa-external-link'
     }
