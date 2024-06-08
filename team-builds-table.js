@@ -154,5 +154,14 @@ function generateTeamRotationsCell(team) {
             content += '<br>';
         })
     }
+    // use character index in team instead of team
+    // if (team.rotations && team.name == 'Pyro') {
+    //     team.rotations.forEach(step => {
+    //         content += team.characters[step[0]].name;
+    //         content += ' ';
+    //         content += `<b>${step[1]}</b>`;
+    //         content += '<br>';
+    //     })
+    // }
     return createElement('td', 'v-center', 'padding-left: 1em', content);
 }
