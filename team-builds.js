@@ -20,7 +20,7 @@ function loadData() {
 }
 
 function loadTabs() {
-    const games = getGames();
+    const games = TeamBuildsData.games;
     const tabsElement = document.getElementById('gamesTabs');
     games.forEach(g => {
         const a = createElement('a', 'nav-link');
@@ -59,7 +59,7 @@ function setActiveTab() {
 
 // refresh table & active nav
 function refreshPageContent() {
-    const games = getGames();
+    const games = TeamBuildsData.games;
     const activeGame = games.filter(g => g.code ==  window.location.hash.replace('#', ''))[0];
 
     setActiveTab();

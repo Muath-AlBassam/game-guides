@@ -9,9 +9,9 @@ function loadTeamsTable(gcode) {
    
     let tableData = null;
     if (gameCode == 'HSR') {
-        tableData = getHSRTeams();
+        tableData = TeamBuildsData.HSRTeams;
     } else {
-        tableData = getGITeams();
+        tableData = TeamBuildsData.GITeams;
     }
     // build table rows & cells
     tableData.forEach((team, index) => {

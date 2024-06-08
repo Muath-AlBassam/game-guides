@@ -1,7 +1,8 @@
 const arrow = '&#8594;';
 
-function getGames() {
-    return [
+
+const TeamBuildsData = {
+    games: [
         {
             label: 'Genshin Impact',
             code: 'GI',
@@ -16,11 +17,9 @@ function getGames() {
             backgroundUrl: 'assets/hsr/HonkaiStarRail_BG.png',
             guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
         }
-    ]
-}
+    ],
 
-function getGITeams() {
-    return [
+    GITeams: [
         {
             name: 'Pyro',
             iconUrl: 'assets/gi/GenshinImpact_Pyro.png',
@@ -311,11 +310,9 @@ function getGITeams() {
                 ['Eula', `NA + Skill + Ult`],
             ]
         }
-    ]
-}
+    ],
 
-function getHSRTeams() {
-    return [
+    HSRTeams: [
         {
             name: 'Physical',
             iconUrl: 'assets/hsr/HonkaiStarRail_Physical.jpg',
@@ -592,11 +589,9 @@ function getHSRTeams() {
         //         }
         //     ]
         // },
-    ]
-}
+    ],
 
-function getGICharacters() {
-    return new Map([
+    GICharacters: new Map([
         ['Arlecchino', {
             name: 'Arlecchino',
             imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/arlecchino/image.png?strip=all&quality=75&w=256',
@@ -756,12 +751,20 @@ function getGICharacters() {
             name: 'Clorinde',
             imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/clorinde/image.png?strip=all&quality=75&w=256',
             rarity: '5'
+        }],
+        ['Chevreuse', {
+            name: 'Chevreuse',
+            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/chevreuse/image.png?strip=all&quality=75&w=256',
+            rarity: '4'
+        }],
+        ['Xianling', {
+            name: 'Xianling',
+            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/xiangling/image.png?strip=all&quality=75&w=256',
+            rarity: '4'
         }]
-    ]);
-}
+    ]),
 
-function getHSRCharacters() {
-    return new Map([
+    HSRCharacters: new Map([
         ['MC (Harmony)', {
             name: 'MC (Harmony)',
             imageUrl: 'https://www.prydwen.gg/static/286541431fc0e4242b16eb307e2a71b0/60b4d/img_mc_icon.webp',
@@ -902,5 +905,5 @@ function getHSRCharacters() {
             imageUrl: 'https://www.prydwen.gg/static/014e5fd9e1557e4dbef87ae673e12116/60b4d/51_sm.webp',
             rarity: '4'
         }]
-    ]);
+    ]),
 }

@@ -26,9 +26,9 @@ function appendAll(parent, children) {
 function getCharacterMetadata(gameCode, characterName) {
     switch(gameCode) {
         case 'GI':
-            return getGICharacters().get(characterName) ?? { name: characterName };
+            return TeamBuildsData.GICharacters.get(characterName) ?? { name: characterName };
         case 'HSR':
-            return getHSRCharacters().get(characterName) ?? { name: characterName };
+            return TeamBuildsData.HSRCharacters.get(characterName) ?? { name: characterName };
         default:
             return { name: characterName };
     }
