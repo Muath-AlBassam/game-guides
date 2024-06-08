@@ -104,10 +104,10 @@ const TeamBuildsData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Raiden Shogun',
+                    name: 'Yae Miko',
                     role: 'Dendro reaction',
                     isMain: false,
-                    replacedBy: ['Yae Miko'],
+                    replacedBy: ['Raiden Shogun'],
                 },
                 {
                     name: 'Kuki Shinobu',
@@ -128,7 +128,7 @@ const TeamBuildsData = {
             rotations: [
                 ['Nahida', `Ult ${arrow} Skill ${arrow}`],
                 ['Furina', `Skill + Ult (optional) ${arrow}`],
-                ['Raiden Shogun', `Skill ${arrow}`],
+                ['Yae Miko', `Skill ${arrow}`],
                 ['Kuki Shinobu', `Skill ${arrow}`],
                 ['Nahida', `NA + CA`],
             ]
@@ -144,23 +144,26 @@ const TeamBuildsData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Xingqiu',
-                    role: 'Electro-Charge',
+                    name: 'Raiden Shogun',
+                    role: 'Overload',
+                    isMain: false,
+                    replacedBy: ['Fischl'],
+                },
+                {
+                    name: 'Chevreuse',
+                    role: 'Buff + RES Shred + Heal',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Nahida',
-                    role: 'Dendro reaction',
+                    name: 'Bennett',
+                    role: 'Buff + Heal + Energy',
                     isMain: false,
-                    replacedBy: [],
-                },
-                {
-                    name: 'Zhongli',
-                    role: 'Shield',
-                    isMain: false,
-                    replacedBy: [],
+                    replacedBy: ['Xianling'],
                 }
+            ],
+            variations: [
+                ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli']
             ]
         },
         {
