@@ -1,4 +1,4 @@
-const arrow = '&#8594;';
+const arrow = TeamBuildsConstants.arrow;
 
 
 const TeamBuildsData = {
