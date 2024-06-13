@@ -1,3 +1,4 @@
+// Event Listeners ----------------------------------------
 window.addEventListener('load', () => {
     loadData();
 })
@@ -19,6 +20,7 @@ function loadData() {
     refreshPageContent();
 }
 
+// --------------------------------------------------------
 function loadTabs() {
     const games = TeamBuildsData.games;
     const tabsElement = document.getElementById('gamesTabs');
@@ -57,7 +59,7 @@ function setActiveTab() {
     })
 }
 
-// refresh table & active nav
+// refresh table & active tab
 function refreshPageContent() {
     const games = TeamBuildsData.games;
     const activeGame = games.filter(g => g.code ==  window.location.hash.replace('#', ''))[0];

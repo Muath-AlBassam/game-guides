@@ -1,3 +1,5 @@
+// JS Utils -----------------------------------------------
+
 function createElement(tag, classes = null, styles = null, content = null, id = null) {
     let ele = document.createElement(tag);
     if (classes != null) {
@@ -22,7 +24,19 @@ function appendAll(parent, children) {
     return parent;
 }
 
-// get character details
+// TeamBuilds Utils ---------------------------------------
+
+function getTeams(gameCode) {
+    switch(gameCode) {
+        case 'GI':
+            return TeamBuildsData.GITeams;
+        case 'HSR':
+            return TeamBuildsData.HSRTeams;
+        default:
+            return null;
+    }
+}
+
 function getCharacterMetadata(gameCode, characterName) {
     switch(gameCode) {
         case 'GI':
@@ -34,12 +48,12 @@ function getCharacterMetadata(gameCode, characterName) {
     }
 }
 
-
 // create character image tag
 function createCharacterImage(charmd, dimenstion = 105, asString = false) {
     if (asString) {
         return `<img    
                     src='${charmd.imageUrl ?? ''}' alt='${charmd.name}' title='${charmd.name}'
+                    class='${gameCode}-rarity-${charmd.rarity ?? ''}'
                     width'${dimenstion}' height='${dimenstion}' 
                 />`;
     } else {

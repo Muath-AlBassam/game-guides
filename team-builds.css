@@ -27,7 +27,7 @@ span, th, td {
     border-bottom: none;
 }
 
-/* Tab styles */
+/* Tab styles --------------------------------------------- */
 .tab-text {
     cursor: pointer;
     padding-inline-start: 10px;
@@ -59,7 +59,7 @@ span, th, td {
         -2px -1px 0 #fff;
 }
 
-/* Table styles */
+/* Table styles ------------------------------------------- */
 .table td, .table th {
     padding: 0;
     white-space: nowrap !important;
@@ -78,7 +78,7 @@ span, th, td {
     background-color: #7f7f7f;
 }
 
-/* Styles for specific columns */
+/* Styles for specific columns ---------------------------- */
 /* Team name + icon */
 .team-name {
     position: relative;
@@ -98,7 +98,7 @@ span, th, td {
     color: white !important;
 }
 
-/* Center */
+/* Center ------------------------------------------------- */
 .h-center {
     justify-content: center;
     text-align: center;
@@ -109,7 +109,7 @@ span, th, td {
     vertical-align: middle;
 }
 
-/* Character rarity background */
+/* Character rarity background ---------------------------- */
 .GI-rarity-5 {
     background-image: url(https://genshinbuilds.aipurrjects.com/genshin/5-Star.webp);
     background-size: cover;
@@ -134,12 +134,11 @@ span, th, td {
     border-bottom-color: #8a5fcc;
 }
 
-/* Image classes */
+/* Game images -------------------------------------------- */
 .game-background {
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 .game-logo {
     max-height: 150px;
     min-height: 150px;

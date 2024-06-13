@@ -7,12 +7,7 @@ function loadTeamsTable(gcode) {
     const tablebody = document.getElementById('tablebody');
     tablebody.innerHTML = '';
    
-    let tableData = null;
-    if (gameCode == 'HSR') {
-        tableData = TeamBuildsData.HSRTeams;
-    } else {
-        tableData = TeamBuildsData.GITeams;
-    }
+    let tableData = getTeams(gameCode);
     // build table rows & cells
     tableData.forEach((team, index) => {
         let tableRow = createElement('tr');
@@ -35,8 +30,8 @@ function generateTeamNumberCell(index) {
 
 // 2nd cell : team name + icon
 function generateTeamNameCell(team) {
-    // team image/icon ()
-    const iconCell = createElement('th', 'h-center v-center team-icon');
+    // team icon
+    const iconCell = createElement('th', 'h-center v-center team-icon', 'padding: 0 1em');
     if (team.iconUrl != null) {
         const img = createElement('img');
         img.setAttribute('src', team.iconUrl);
@@ -155,14 +150,5 @@ function generateTeamRotationsCell(team) {
             content += '<br>';
         })
     }
-    // use character index in team instead of team
-    // if (team.rotations && team.name == 'Pyro') {
-    //     team.rotations.forEach(step => {
-    //         content += team.characters[step[0]].name;
-    //         content += ' ';
-    //         content += `<b>${step[1]}</b>`;
-    //         content += '<br>';
-    //     })
-    // }
     return createElement('td', 'v-center', 'padding-left: 1em', content);
 }

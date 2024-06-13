@@ -50,11 +50,6 @@ const TeamBuildsData = {
                 }
             ],
             rotations: [
-                // use character index in team instead of team
-                // [3, `Skill ${arrow}`],
-                // [2, `Ult ${arrow}`],
-                // [1, `Ult ${arrow}`],
-                // [0, `Skill ${arrow} CA ${arrow} NA`],
                 ['Zhongli', `Skill ${arrow}`],
                 ['Bennett', `Ult ${arrow}`],
                 ['Yelan', `Ult ${arrow}`],
