@@ -365,28 +365,28 @@ const TeamBuildsData = {
             iconUrl: 'assets/hsr/HonkaiStarRail_Fire.jpg',
             characters: [
                 {
-                    name: 'Gepard',
-                    role: 'Shield',
+                    name: null,
+                    role: null,
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Topaz',
-                    role: 'Main [FUA + Skill]',
+                    name: 'Firefly',
+                    role: null,
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: 'Sparkle',
-                    role: 'DMG & Crit Buff',
+                    name: null,
+                    role: null,
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Robin',
-                    role: 'ATK & FUA DMG Buff',
+                    name: null,
+                    role: null,
                     isMain: false,
-                    replacedBy: ['Ruan Mei'],
+                    replacedBy: null,
                 }
             ]
         },
