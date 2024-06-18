@@ -49,7 +49,7 @@ function generateTeamNameCell(team) {
     // description of team => names of main team members
     const teamMainMembers = team.characters.filter(c => c.isMain);
     const description = teamMainMembers.length > 0 ? teamMainMembers.map(c => c.name).join(' + ') : '...';
-    const descSpan = createElement('span', null, 'font-size: 15px', `(${description})`);
+    const descSpan = createElement('span', null, 'font-size: 15px', `${description}`);
     appendAll(nameCell, [nameSpan, br, descSpan]);
 
     return [iconCell, nameCell];

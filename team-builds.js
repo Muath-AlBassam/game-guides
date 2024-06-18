@@ -36,10 +36,13 @@ function loadTabs() {
         a.appendChild(label);
 
         // link to guide page
-        const link = createElement('a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${TeamBuildsConstants.icons.externalLink}"></i>`);
+        if (g.guideUrl) {
+            const link = createElement(
+                'a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${TeamBuildsConstants.icons.externalLink}"></i>`);
         link.setAttribute('href', g.guideUrl);
         link.setAttribute('target', '_blank');
         a.appendChild(link);
+        }
         
         const li = createElement('li', 'nav-item');
         li.appendChild(a);
@@ -67,8 +70,12 @@ function refreshPageContent() {
     setActiveTab();
     loadTeamsTable(activeGame.code);
 
+    // set Team Members header col size
+    document.getElementById('membersHeader').colSpan = activeGame.teamSize;
+
     // set background image & logo
-    document.body.setAttribute('style', `background-image: url(${activeGame.backgroundUrl})`);
+    document.body.setAttribute(
+        'style', `background-image: url(${activeGame.backgroundUrl}); background-position: center center;`);
     document.getElementById('gamelogo').setAttribute('src', activeGame.logoUrl);
 
     // enable tooltips

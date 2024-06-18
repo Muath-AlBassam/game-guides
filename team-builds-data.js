@@ -6,6 +6,7 @@ const TeamBuildsData = {
         {
             label: 'Genshin Impact',
             code: 'GI',
+            teamSize: 4,
             logoUrl: 'assets/gi/GenshinImpact_Logo.png',
             backgroundUrl: 'assets/gi/GenshinImpact_BG.png',
             guideUrl: 'https://genshin-builds.com/characters'
@@ -13,6 +14,7 @@ const TeamBuildsData = {
         {
             label: 'Honkai Star Rail',
             code: 'HSR',
+            teamSize: 4,
             logoUrl: 'assets/hsr/HonkaiStarRail_Logo.png',
             backgroundUrl: 'assets/hsr/HonkaiStarRail_BG.png',
             guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
