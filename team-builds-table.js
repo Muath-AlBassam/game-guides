@@ -9,18 +9,20 @@ function loadTeamsTable(gcode) {
    
     let tableData = getTeams(gameCode);
     // build table rows & cells
-    tableData.forEach((team, index) => {
-        let tableRow = createElement('tr');
-        appendAll(tableRow, [
-            generateTeamNumberCell(index),
-            ...generateTeamNameCell(team),
-            ...generateTeamMembersCell(team),
-            generateTeamRolesCell(team),
-            generateTeamReplacementsCell(team),
-            generateTeamRotationsCell(team)
-        ])
-        tablebody.appendChild(tableRow);
-    })
+    if (tableData) {
+        tableData.forEach((team, index) => {
+            let tableRow = createElement('tr');
+            appendAll(tableRow, [
+                generateTeamNumberCell(index),
+                ...generateTeamNameCell(team),
+                ...generateTeamMembersCell(team),
+                generateTeamRolesCell(team),
+                generateTeamReplacementsCell(team),
+                generateTeamRotationsCell(team)
+            ])
+            tablebody.appendChild(tableRow);
+        })
+    }
 }
 
 // 1st cell : number
@@ -31,16 +33,14 @@ function generateTeamNumberCell(index) {
 // 2nd cell : team name + icon
 function generateTeamNameCell(team) {
     // team icon
-    const iconCell = createElement('th', 'h-center v-center team-icon', 'padding: 0 1em');
-    if (team.iconUrl != null) {
-        const img = createElement('img');
-        img.setAttribute('src', team.iconUrl);
-        img.setAttribute('alt', team.name);
-        img.setAttribute('title', team.name);
-        img.setAttribute('width', '35px');
-        img.setAttribute('height', '35px');
-        iconCell.appendChild(img);
-    }
+    const iconCell = createElement('th', 'h-center v-center team-icon', 'padding: 0 1em;');
+    const img = createElement('img');
+    img.setAttribute('src', team.iconUrl ?? TeamBuildsConstants.images.transparentIcon);
+    img.setAttribute('alt', team.name);
+    img.setAttribute('title', team.name);
+    img.setAttribute('width', '35px');
+    img.setAttribute('height', '35px');
+    iconCell.appendChild(img);
 
     // team name + description
     const nameCell = createElement('th', 'h-center v-center team-name');

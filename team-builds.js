@@ -39,9 +39,9 @@ function loadTabs() {
         if (g.guideUrl) {
             const link = createElement(
                 'a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${TeamBuildsConstants.icons.externalLink}"></i>`);
-        link.setAttribute('href', g.guideUrl);
-        link.setAttribute('target', '_blank');
-        a.appendChild(link);
+            link.setAttribute('href', g.guideUrl);
+            link.setAttribute('target', '_blank');
+            a.appendChild(link);
         }
         
         const li = createElement('li', 'nav-item');
