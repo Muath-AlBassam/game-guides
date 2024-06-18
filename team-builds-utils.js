@@ -32,6 +32,8 @@ function getTeams(gameCode) {
             return TeamBuildsData.GITeams;
         case 'HSR':
             return TeamBuildsData.HSRTeams;
+        case 'HI3':
+            return TeamBuildsData.HI3Teams;
         default:
             return null;
     }
@@ -43,6 +45,8 @@ function getCharacterMetadata(gameCode, characterName) {
             return TeamBuildsData.GICharacters.get(characterName) ?? { name: characterName };
         case 'HSR':
             return TeamBuildsData.HSRCharacters.get(characterName) ?? { name: characterName };
+        case 'HI3':
+            return TeamBuildsData.HI3Characters.get(characterName) ?? { name: characterName };
         default:
             return { name: characterName };
     }

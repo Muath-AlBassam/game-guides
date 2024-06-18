@@ -18,6 +18,14 @@ const TeamBuildsData = {
             logoUrl: 'assets/hsr/HonkaiStarRail_Logo.png',
             backgroundUrl: 'assets/hsr/HonkaiStarRail_BG.png',
             guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
+        },
+        {
+            label: 'Honkai Impact 3rd',
+            code: 'HI3',
+            teamSize: 3,
+            logoUrl: 'assets/hi3/HonkaiImpact3rd_Logo.png',
+            backgroundUrl: 'assets/hi3/HonkaiImpact3rd_BG.jpg',
+            guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
         }
     ],
 
@@ -602,6 +610,129 @@ const TeamBuildsData = {
         // },
     ],
 
+    HI3Teams: [
+        {
+            name: 'Fire',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Lantern',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ]
+        },
+        {
+            name: 'Lightning',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Lunar Vow',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Eden',
+                    role: 'Buff?',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Bronya (Truth)',
+                    role: 'Lightning DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ]
+        },
+        {
+            name: 'Ice',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Elysia',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ]
+        },
+        {
+            name: 'Physical',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Durandal',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: null,
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ]
+        },
+        {
+            name: 'Trio Herrscher',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Kiana (Finality)',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Mei (Origin)',
+                    role: 'Main',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Bronya (Truth)',
+                    role: 'Fire & Lightning DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ]
+        },
+    ],
+
     GICharacters: new Map([
         ['Arlecchino', {
             name: 'Arlecchino',
@@ -917,4 +1048,67 @@ const TeamBuildsData = {
             rarity: '4'
         }]
     ]),
+
+    HI3Characters: new Map([
+        ['Kiana (Finality)', {
+            name: 'Kiana (Finality)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/content-v2/bh3/106465/43af2fa9982de4057823e4b4acab9c34_2359781441771530851.png',
+            rarity: 'S'
+        }],
+        ['Kiana (Flamescion)', {
+            name: 'Kiana (Flamescion)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/7a39f094c7c5c2eb6ee5be0f1c3c3d87_3836757876260027273.png',
+            rarity: 'S'
+        }],
+        ['Mei (Origin)', {
+            name: 'Mei (Origin)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/content-v2/bh3/106464/a12be74e3fc641ab26882893df1e13bc_7895934126129485958.png',
+            rarity: 'S'
+        }],
+        ['Mei (Thunder)', {
+            name: 'Mei (Thunder)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/e875c7b7b191d3630d0d4d44c475e529_8491859648500634990.png',
+            rarity: 'S'
+        }],
+        ['Bronya (Truth)', {
+            name: 'Bronya (Truth)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/3d23575aeff9cd0834b843c756f45fd8_7910243926780422038.png',
+            rarity: 'S'
+        }],
+        ['Bronya (Reason)', {
+            name: 'Bronya (Reason)',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/78f5b9cb683c471307d0fd3721373efb_8309173550830057042.png',
+            rarity: 'S'
+        }],
+        ['Elysia', {
+            name: 'Elysia',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/3761d9c301a6b4e9c76fb7ceadfeab00_8358303087609118910.png',
+            rarity: 'S'
+        }],
+        ['Aponia', {
+            name: 'Aponia',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/28b89f04499eda9f440643b9b94eaad1_7429427251492566339.png',
+            rarity: 'S'
+        }],
+        ['Eden', {
+            name: 'Eden',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/2168a109bdf99ecd0bd42663ca426e3d_4359629639516317217.png',
+            rarity: 'A'
+        }],
+        ['Lunar Vow', {
+            name: 'Lunar Vow',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/5c43575612b164af8ee792ff719766f5_1774145765586399421.png',
+            rarity: 'S'
+        }],
+        ['Durandal', {
+            name: 'Durandal',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/5db36df0e233241539fc446d5c5efd41_864049022999020706.png',
+            rarity: 'S'
+        }],
+        ['Lantern', {
+            name: 'Lantern',
+            imageUrl: 'https://fastcdn.hoyoverse.com/content-v2/bh3/123889/0126d4c686166a882dedd458f9ec6bca_5343513819856290934.png',
+            rarity: 'S'
+        }],
+    ])
 }
