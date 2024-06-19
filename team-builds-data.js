@@ -1,5 +1,8 @@
 const arrow = TeamBuildsConstants.unicode.arrow;
 const twoWayArrow = TeamBuildsConstants.unicode.twoWayArrow;
+const times = TeamBuildsConstants.unicode.times;
+
+smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
 
 
 const TeamBuildsData = {
@@ -138,7 +141,7 @@ const TeamBuildsData = {
             ],
             rotations: [
                 ['Nahida', `Ult ${arrow} Skill ${arrow}`],
-                ['Furina', `Skill ${arrow} Ult (optional) ${arrow}`],
+                ['Furina', `Skill ${arrow} Ult ${smallText('(optional)')} ${arrow}`],
                 ['Yae Miko', `Skill ${arrow}`],
                 ['Kuki Shinobu', `Skill ${arrow}`],
                 ['Nahida', `NA + CA`],
@@ -638,8 +641,8 @@ const TeamBuildsData = {
             rotations: [
                 ['Bronya (Truth)', `Skill ${arrow}`],
                 ['Ai', `QTE ${arrow} Skill ${arrow}`],
-                ['Bronya (Truth)', `Ult ${arrow}`],
-                ['Lantern', `QTE ${arrow} Basic ${twoWayArrow} Skill ${arrow} Charged ${arrow} Ult`],
+                ['Bronya (Truth)', `Ult ${times}2 ${arrow}`],
+                ['Lantern', `QTE ${arrow} Basic + Skill ${arrow} Charged ${arrow} Ult`],
             ]
         },
         {
@@ -664,6 +667,11 @@ const TeamBuildsData = {
                     isMain: false,
                     replacedBy: [],
                 },
+            ],
+            rotations: [
+                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
+                ['Eden', `QTE ${arrow} Ult ${arrow}`],
+                ['Lunar Vow', `QTE ${arrow} Skill ${arrow} Ult`]
             ]
         },
         {
@@ -712,6 +720,12 @@ const TeamBuildsData = {
                     isMain: false,
                     replacedBy: [],
                 },
+            ],
+            rotations: [
+                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
+                ['Kiana (Finality)', `QTE ${arrow} Basic ${arrow} Charged ${arrow}`],
+                ['Mei (Origin)', `Basic ${arrow} Charged ${arrow} Ult ${arrow}`],
+                ['Kiana (Finality)', `QTE ${arrow} Skill ${arrow} Basic ${arrow} Charged ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
             ]
         },
     ],
