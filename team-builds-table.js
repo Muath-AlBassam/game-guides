@@ -157,5 +157,5 @@ function generateTeamRotationsCell(team) {
             content += '<br>';
         })
     }
-    return createElement('td', 'v-center', 'padding-left: 1em', content);
+    return createElement('td', 'v-center', 'padding: 0 1em;', content);
 }

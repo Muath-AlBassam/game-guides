@@ -614,7 +614,7 @@ const TeamBuildsData = {
     HI3Teams: [
         {
             name: 'Fire',
-            iconUrl: null,
+            iconUrl: 'assets/hi3/HonkaiImpact3rd_Fire.png',
             characters: [
                 {
                     name: 'Lantern',
@@ -644,7 +644,7 @@ const TeamBuildsData = {
         },
         {
             name: 'Lightning',
-            iconUrl: null,
+            iconUrl: 'assets/hi3/HonkaiImpact3rd_Lightning.png',
             characters: [
                 {
                     name: 'Lunar Vow',
@@ -668,7 +668,7 @@ const TeamBuildsData = {
         },
         {
             name: 'Ice',
-            iconUrl: null,
+            iconUrl: 'assets/hi3/HonkaiImpact3rd_Ice.png',
             characters: [
                 {
                     name: 'Elysia',
@@ -680,7 +680,7 @@ const TeamBuildsData = {
         },
         {
             name: 'Physical',
-            iconUrl: null,
+            iconUrl: 'assets/hi3/HonkaiImpact3rd_Physical.png',
             characters: [
                 {
                     name: 'Durandal',
