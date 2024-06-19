@@ -189,7 +189,7 @@ const TeamBuildsData = {
             characters: [
                 {
                     name: 'Lynette',
-                    role: 'Main [Skill + NA + Ult]',
+                    role: 'Main [NA + Skill + Ult]',
                     isMain: true,
                     replacedBy: ['Xiao'],
                 },
@@ -371,28 +371,28 @@ const TeamBuildsData = {
             iconUrl: 'assets/hsr/HonkaiStarRail_Fire.jpg',
             characters: [
                 {
-                    name: null,
-                    role: null,
+                    name: 'Gallagher',
+                    role: 'Heal',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
                     name: 'Firefly',
-                    role: null,
+                    role: 'Main [Skill + Ult] + Break',
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Ruan Mei',
+                    role: 'DMG & RES PEN & Break Buff',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'MC (Harmony)',
+                    role: 'Break Buff + Super Break',
                     isMain: false,
-                    replacedBy: null,
+                    replacedBy: [],
                 }
             ]
         },
@@ -1053,7 +1053,12 @@ const TeamBuildsData = {
             name: 'Gallagher',
             imageUrl: 'https://www.prydwen.gg/static/014e5fd9e1557e4dbef87ae673e12116/60b4d/51_sm.webp',
             rarity: '4'
-        }]
+        }],
+        ['Firefly', {
+            name: 'Firefly',
+            imageUrl: 'https://www.prydwen.gg/static/39bcd42f98f9fa99f53d18d1aa88865a/60b4d/54_sm.webp',
+            rarity: '5'
+        }],
     ]),
 
     HI3Characters: new Map([
