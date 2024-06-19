@@ -26,6 +26,11 @@ function appendAll(parent, children) {
 
 // TeamBuilds Utils ---------------------------------------
 
+function getGame(gameCode) {
+    const games = TeamBuildsData.games;
+    return games.find(g => g.code ==  gameCode);
+}
+
 function getTeams(gameCode) {
     switch(gameCode) {
         case 'GI':

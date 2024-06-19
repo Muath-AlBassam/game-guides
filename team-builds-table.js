@@ -58,20 +58,27 @@ function generateTeamNameCell(team) {
 // 3rd cell : team members (images)
 function generateTeamMembersCell(team) {
     let cells = []
-    team.characters.forEach(character => {
+    const teamSize = getGame(gameCode).teamSize;
+    for (let i = 0; i < teamSize; i++) {
         let td = createElement('td', 'h-center v-center character d-table-cell');
-        const charmd = getCharacterMetadata(gameCode, character.name);
-        if (charmd?.imageUrl != null) {
+        const character = team.characters[i]
+        const charmd = getCharacterMetadata(gameCode, character?.name);
+        if (charmd?.imageUrl) {
+            // print character image + name
             td.appendChild(createCharacterImage(charmd));
-            // add character name under image
             td.appendChild(createElement('br'))
             td.appendChild(createElement('span', null, null, character.name))
-        } else {
-            let nameSpan = createElement('span', null, null, character.name ?? '...');
+        } else if (character) {
+            // print character name
+            let nameSpan = createElement('span', null, null, character.name);
             td.appendChild(nameSpan);
+        } else {
+            // print empty cell
+            let emptySpan = createElement('span', null, null, '...');
+            td.appendChild(emptySpan);
         }
         cells.push(td);
-    })
+    }
     return cells;
 }
 

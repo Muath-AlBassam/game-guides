@@ -64,8 +64,7 @@ function setActiveTab() {
 
 // refresh table & active tab
 function refreshPageContent() {
-    const games = TeamBuildsData.games;
-    const activeGame = games.filter(g => g.code ==  window.location.hash.replace('#', ''))[0];
+    const activeGame = getGame(window.location.hash.replace('#', ''));
 
     setActiveTab();
     loadTeamsTable(activeGame.code);

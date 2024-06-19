@@ -676,18 +676,6 @@ const TeamBuildsData = {
                     isMain: true,
                     replacedBy: [],
                 },
-                {
-                    name: null,
-                    role: null,
-                    isMain: false,
-                    replacedBy: [],
-                },
-                {
-                    name: null,
-                    role: null,
-                    isMain: false,
-                    replacedBy: [],
-                },
             ]
         },
         {
@@ -698,18 +686,6 @@ const TeamBuildsData = {
                     name: 'Durandal',
                     role: 'Main',
                     isMain: true,
-                    replacedBy: [],
-                },
-                {
-                    name: null,
-                    role: null,
-                    isMain: false,
-                    replacedBy: [],
-                },
-                {
-                    name: null,
-                    role: null,
-                    isMain: false,
                     replacedBy: [],
                 },
             ]
