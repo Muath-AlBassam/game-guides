@@ -1,4 +1,5 @@
 const arrow = TeamBuildsConstants.unicode.arrow;
+const twoWayArrow = TeamBuildsConstants.unicode.twoWayArrow;
 
 
 const TeamBuildsData = {
@@ -622,17 +623,23 @@ const TeamBuildsData = {
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Ai',
+                    role: 'Fire DMG Buff + Ignite',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: null,
-                    role: null,
+                    name: 'Bronya (Truth)',
+                    role: 'Fire DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
+            ],
+            rotations: [
+                ['Bronya (Truth)', `Skill ${arrow}`],
+                ['Ai', `QTE ${arrow} Skill ${arrow}`],
+                ['Bronya (Truth)', `Ult ${arrow}`],
+                ['Lantern', `QTE ${arrow} Basic ${twoWayArrow} Skill ${arrow} Charged ${arrow} Ult`],
             ]
         },
         {
@@ -708,19 +715,19 @@ const TeamBuildsData = {
             ]
         },
         {
-            name: 'Trio Herrscher',
+            name: 'Herrscher Trio',
             iconUrl: null,
             characters: [
                 {
                     name: 'Kiana (Finality)',
                     role: 'Main',
-                    isMain: true,
+                    isMain: false,
                     replacedBy: [],
                 },
                 {
                     name: 'Mei (Origin)',
                     role: 'Main',
-                    isMain: true,
+                    isMain: false,
                     replacedBy: [],
                 },
                 {
@@ -1109,6 +1116,11 @@ const TeamBuildsData = {
             name: 'Lantern',
             imageUrl: 'https://fastcdn.hoyoverse.com/content-v2/bh3/123889/0126d4c686166a882dedd458f9ec6bca_5343513819856290934.png',
             rarity: 'S'
+        }],
+        ['Ai', {
+            name: 'Ai',
+            imageUrl: 'https://fastcdn.hoyoverse.com/static-resource-v2/2023/11/29/cba5a8dab8232d7515aaba6033e2fab1_5193210831169590339.png',
+            rarity: 'A'
         }],
     ])
 }
