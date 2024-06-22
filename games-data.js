@@ -10,24 +10,24 @@ const GamesData = {
             label: 'Genshin Impact',
             code: 'GI',
             teamSize: 4,
-            logoUrl: 'assets/gi/GenshinImpact_Logo.png',
-            backgroundUrl: 'assets/gi/GenshinImpact_BG.png',
+            logoUrl: 'assets/gi/GI_Logo.png',
+            backgroundUrl: 'assets/gi/GI_BG.png',
             guideUrl: 'https://genshin-builds.com/characters'
         },
         {
             label: 'Honkai Star Rail',
             code: 'HSR',
             teamSize: 4,
-            logoUrl: 'assets/hsr/HonkaiStarRail_Logo.png',
-            backgroundUrl: 'assets/hsr/HonkaiStarRail_BG.png',
+            logoUrl: 'assets/hsr/HSR_Logo.png',
+            backgroundUrl: 'assets/hsr/HSR_BG.png',
             guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
         },
         {
             label: 'Honkai Impact 3rd',
             code: 'HI3',
             teamSize: 3,
-            logoUrl: 'assets/hi3/HonkaiImpact3rd_Logo.png',
-            backgroundUrl: 'assets/hi3/HonkaiImpact3rd_BG.jpg',
+            logoUrl: 'assets/hi3/HI3_Logo.png',
+            backgroundUrl: 'assets/hi3/HI3_BG.jpg',
             guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
         }
     ],
@@ -35,7 +35,7 @@ const GamesData = {
     GITeams: [
         {
             name: 'Pyro',
-            iconUrl: 'assets/gi/GenshinImpact_Pyro.png',
+            iconUrl: 'assets/gi/GI_Pyro.png',
             characters: [
                 {
                     name: 'Arlecchino',
@@ -71,7 +71,7 @@ const GamesData = {
         },
         {
             name: 'Hydro',
-            iconUrl: 'assets/gi/GenshinImpact_Hydro.png',
+            iconUrl: 'assets/gi/GI_Hydro.png',
             characters: [
                 {
                     name: 'Neuvillette',
@@ -108,7 +108,7 @@ const GamesData = {
         },
         {
             name: 'Dendro',
-            iconUrl: 'assets/gi/GenshinImpact_Dendro.png',
+            iconUrl: 'assets/gi/GI_Dendro.png',
             characters: [
                 {
                     name: 'Nahida',
@@ -148,7 +148,7 @@ const GamesData = {
         },
         {
             name: 'Electro',
-            iconUrl: 'assets/gi/GenshinImpact_Electro.png',
+            iconUrl: 'assets/gi/GI_Electro.png',
             characters: [
                 {
                     name: 'Clorinde',
@@ -187,7 +187,7 @@ const GamesData = {
         },
         {
             name: 'Anemo',
-            iconUrl: 'assets/gi/GenshinImpact_Anemo.png',
+            iconUrl: 'assets/gi/GI_Anemo.png',
             characters: [
                 {
                     name: 'Lynette',
@@ -223,7 +223,7 @@ const GamesData = {
         },
         {
             name: 'Cryo',
-            iconUrl: 'assets/gi/GenshinImpact_Cryo.png',
+            iconUrl: 'assets/gi/GI_Cryo.png',
             characters: [
                 {
                     name: 'Wriothesley',
@@ -259,7 +259,7 @@ const GamesData = {
         },
         {
             name: 'Geo',
-            iconUrl: 'assets/gi/GenshinImpact_Geo.png',
+            iconUrl: 'assets/gi/GI_Geo.png',
             characters: [
                 {
                     name: 'Navia',
@@ -298,7 +298,7 @@ const GamesData = {
         },
         {
             name: 'Physical',
-            iconUrl: 'assets/gi/GenshinImpact_Physical.png',
+            iconUrl: 'assets/gi/GI_Physical.png',
             characters: [
                 {
                     name: 'Eula',
@@ -337,7 +337,7 @@ const GamesData = {
     HSRTeams: [
         {
             name: 'Physical',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Physical.jpg',
+            iconUrl: 'assets/hsr/HSR_Physical.jpg',
             characters: [
                 {
                     name: 'Gallagher',
@@ -370,7 +370,7 @@ const GamesData = {
         },
         {
             name: 'Fire',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Fire.jpg',
+            iconUrl: 'assets/hsr/HSR_Fire.jpg',
             characters: [
                 {
                     name: 'Gallagher',
@@ -400,7 +400,7 @@ const GamesData = {
         },
         {
             name: 'Ice',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Ice.jpg',
+            iconUrl: 'assets/hsr/HSR_Ice.jpg',
             characters: [
                 {
                     name: 'Luocha',
@@ -430,7 +430,7 @@ const GamesData = {
         },
         {
             name: 'Lightning',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Lightning.jpg',
+            iconUrl: 'assets/hsr/HSR_Lightning.jpg',
             characters: [
                 {
                     name: 'Fu Xuan',
@@ -460,7 +460,7 @@ const GamesData = {
         },
         {
             name: 'Wind',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Wind.jpg',
+            iconUrl: 'assets/hsr/HSR_Wind.jpg',
             characters: [
                 {
                     name: 'Luocha',
@@ -490,7 +490,7 @@ const GamesData = {
         },
         {
             name: 'Quantum',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Quantum.jpg',
+            iconUrl: 'assets/hsr/HSR_Quantum.jpg',
             characters: [
                 {
                     name: 'Fu Xuan',
@@ -520,7 +520,7 @@ const GamesData = {
         },
         {
             name: 'Imaginary',
-            iconUrl: 'assets/hsr/HonkaiStarRail_Imaginary.jpg',
+            iconUrl: 'assets/hsr/HSR_Imaginary.jpg',
             characters: [
                 {
                     name: 'Luocha',
@@ -553,7 +553,7 @@ const GamesData = {
         },
         {
             name: 'DoT',
-            iconUrl: 'assets/hsr/HonkaiStarRail_DoT.png',
+            iconUrl: 'assets/hsr/HSR_DoT.png',
             characters: [
                 {
                     name: 'Huohuo',
@@ -616,7 +616,7 @@ const GamesData = {
     HI3Teams: [
         {
             name: 'Fire',
-            iconUrl: 'assets/hi3/HonkaiImpact3rd_Fire.png',
+            iconUrl: 'assets/hi3/HI3_Fire.png',
             characters: [
                 {
                     name: 'Lantern',
@@ -646,7 +646,7 @@ const GamesData = {
         },
         {
             name: 'Lightning',
-            iconUrl: 'assets/hi3/HonkaiImpact3rd_Lightning.png',
+            iconUrl: 'assets/hi3/HI3_Lightning.png',
             characters: [
                 {
                     name: 'Lunar Vow',
@@ -675,7 +675,7 @@ const GamesData = {
         },
         {
             name: 'Ice',
-            iconUrl: 'assets/hi3/HonkaiImpact3rd_Ice.png',
+            iconUrl: 'assets/hi3/HI3_Ice.png',
             characters: [
                 {
                     name: 'Elysia',
@@ -687,7 +687,7 @@ const GamesData = {
         },
         {
             name: 'Physical',
-            iconUrl: 'assets/hi3/HonkaiImpact3rd_Physical.png',
+            iconUrl: 'assets/hi3/HI3_Physical.png',
             characters: [
                 {
                     name: 'Durandal',
