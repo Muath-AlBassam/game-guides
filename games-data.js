@@ -732,172 +732,172 @@ const GamesData = {
     GICharacters: new Map([
         ['Arlecchino', {
             name: 'Arlecchino',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/arlecchino/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Arlecchino.png',
             rarity: '5'
         }],
         ['Chiori', {
             name: 'Chiori',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/chiori/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Chiori.png',
             rarity: '5'
         }],
         ['Bennett', {
             name: 'Bennett',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/bennett/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Bennett.png',
             rarity: '4'
         }],
         ['Diluc', {
             name: 'Diluc',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/diluc/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Diluc.png',
             rarity: '5'
         }],
         ['Eula', {
             name: 'Eula',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/eula/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Eula.png',
             rarity: '5'
         }],
         ['Faruzan', {
             name: 'Faruzan',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/faruzan/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Faruzan.png',
             rarity: '4'
         }],
         ['Fischl', {
             name: 'Fischl',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/fischl/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Fischl.png',
             rarity: '4'
         }],
         ['Furina', {
             name: 'Furina',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/furina/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Furina.png',
             rarity: '5'
         }],
         ['Ayaka', {
             name: 'Ayaka',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kamisato_ayaka/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Ayaka.png',
             rarity: '5'
         }],
         ['Kazuha', {
             name: 'Kazuha',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kaedehara_kazuha/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Kazuha.png',
             rarity: '5'
         }],
         ['Hu Tao', {
             name: 'Hu Tao',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/hu_tao/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_HuTao.png',
             rarity: '5'
         }],
         ['Gorou', {
             name: 'Gorou',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/gorou/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Gorou.png',
             rarity: '4'
         }],
         ['Ganyu', {
             name: 'Ganyu',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/ganyu/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Ganyu.png',
             rarity: '5'
         }],
         ['Kirara', {
             name: 'Kirara',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kirara/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Kirara.png',
             rarity: '4'
         }],
         ['Kuki Shinobu', {
             name: 'Kuki Shinobu',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/kuki_shinobu/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_KukiShinobu.png',
             rarity: '4'
         }],
         ['Lynette', {
             name: 'Lynette',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/lynette/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Lynette.png',
             rarity: '4'
         }],
         ['Nilou', {
             name: 'Nilou',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/nilou/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Nilou.png',
             rarity:  '5'
         }],
         ['Neuvillette', {
             name: 'Neuvillette',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/neuvillette/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Neuvillette.png.png',
             rarity: '5'
         }],
         ['Navia', {
             name: 'Navia',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/navia/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Navia.png',
             rarity: '5'
         }],
         ['Nahida', {
             name: 'Nahida',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/nahida/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Nahida.png',
             rarity: '5'
         }],
         ['Mika', {
             name: 'Mika',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/mika/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Mika.png',
             rarity: '4'
         }],
         ['Raiden Shogun', {
             name: 'Raiden Shogun',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/raiden_shogun/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_RaidenShogun.png',
             rarity: '5'
         }],
         ['Kokomi', {
             name: 'Kokomi',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/sangonomiya_kokomi/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Kokomi.png',
             rarity: '5'
         }],
         ['Wriothesley', {
             name: 'Wriothesley',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/wriothesley/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Wriothesley.png.png',
             rarity: '5'
         }],
         ['Xianyun', {
             name: 'Xianyun',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/xianyun/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Xianyun.png',
             rarity: '5'
         }],
         ['Xiao', {
             name: 'Xiao',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/xiao/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Xiao.png',
             rarity: '5'
         }],
         ['Xingqiu', {
             name: 'Xingqiu',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/xingqiu/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Xingqiu.png',
             rarity: '4'
         }],
         ['Yae Miko', {
             name: 'Yae Miko',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/yae_miko/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_YaeMiko.png',
             rarity: '5'
         }],
         ['Zhongli', {
             name: 'Zhongli',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/zhongli/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Zhongli.png',
             rarity: '5'
         }],
         ['Yun Jin', {
             name: 'Yun Jin',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/yun_jin/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_YunJin.png',
             rarity: '4'
         }],
         ['Yelan', {
             name: 'Yelan',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/yelan/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Yelan.png',
             rarity: '5'
         }],
         ['Clorinde', {
             name: 'Clorinde',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/clorinde/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Clorinde.png',
             rarity: '5'
         }],
         ['Chevreuse', {
             name: 'Chevreuse',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/chevreuse/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Chevreuse.png',
             rarity: '4'
         }],
         ['Xianling', {
             name: 'Xianling',
-            imageUrl: 'https://i2.wp.com/genshinbuilds.aipurrjects.com/genshin/characters/xiangling/image.png?strip=all&quality=75&w=256',
+            imageUrl: 'assets/gi/GI_Xianling.png',
             rarity: '4'
         }]
     ]),
