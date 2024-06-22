@@ -6,7 +6,6 @@ const Constants = {
     },
     unicode: {
         arrow: '&rightarrow;',
-        twoWayArrow: '&LeftRightArrow;',
         times: '&times;'
     },
     icons: {
