@@ -905,147 +905,147 @@ const GamesData = {
     HSRCharacters: new Map([
         ['MC (Harmony)', {
             name: 'MC (Harmony)',
-            imageUrl: 'https://www.prydwen.gg/static/286541431fc0e4242b16eb307e2a71b0/60b4d/img_mc_icon.webp',
+            imageUrl: 'assets/hsr/HSR_MCHarmony.jpg',
             rarity: '5'
         }],
         ['Lynx', {
             name: 'Lynx',
-            imageUrl: 'https://www.prydwen.gg/static/033124afa0122cd8b0ae20b533140ec5/60b4d/35_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Lynx.jpg',
             rarity: '4'
         }],
         ['Clara', {
             name: 'Clara',
-            imageUrl: 'https://www.prydwen.gg/static/a3d2d3e7db3d202b575b6fa1d95baf2c/60b4d/18_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Clara.jpg',
             rarity: '5'
         }],
         ['Tingyun', {
             name: 'Tingyun',
-            imageUrl: 'https://www.prydwen.gg/static/03bcec36a01c78f33767b7098f6fa1f0/60b4d/25_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Tingyun.jpg',
             rarity: '4'
         }],
         ['Ruan Mei', {
             name: 'Ruan Mei',
-            imageUrl: 'https://www.prydwen.gg/static/ab077ecba896b3a6d406c1c170a7a471/60b4d/43_sm.webp',
+            imageUrl: 'assets/hsr/HSR_RuanMei.jpg',
             rarity: '5'
         }],
         ['Acheron', {
             name: 'Acheron',
-            imageUrl: 'https://www.prydwen.gg/static/dfb18cf34a31662aa1393c25266ed749/60b4d/47_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Acheron.jpg',
             rarity: '5'
         }],
         ['Dang Heng · IL', {
             name: 'Dang Heng · IL',
-            imageUrl: 'https://www.prydwen.gg/static/4604f205c9f9e6cf4a1d8b90943b8ed6/60b4d/34_sm.webp',
+            imageUrl: 'assets/hsr/HSR_DanHengIL.jpg',
             rarity: '5'
         }],
         ['Jingliu', {
             name: 'Jingliu',
-            imageUrl: 'https://www.prydwen.gg/static/90e9d33472fcc0b7fbd1251cd0beb6e5/60b4d/35_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Jingliu.jpg',
             rarity: '5'
         }],
         ['Kafka', {
             name: 'Kafka',
-            imageUrl: 'https://www.prydwen.gg/static/5eaaf9ec3518805762b5f5a69091d86c/60b4d/7_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Kafka.jpg',
             rarity: '5'
         }],
         ['Sparkle', {
             name: 'Sparkle',
-            imageUrl: 'https://www.prydwen.gg/static/c52297074e0c2fff0184fe534ac31617/60b4d/47_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Sparkle.jpg',
             rarity: '5'
         }],
         ['Fu Xuan', {
             name: 'Fu Xuan',
-            imageUrl: 'https://www.prydwen.gg/static/e454e011effe543ecd5f2706541c8cbb/60b4d/29_sm.webp',
+            imageUrl: 'assets/hsr/HSR_FuXuan.jpg',
             rarity: '5'
         }],
         ['Dr. Ratio', {
             name: 'Dr. Ratio',
-            imageUrl: 'https://www.prydwen.gg/static/26f302952d6728c2b270c9160566e614/60b4d/44_sm.webp',
+            imageUrl: 'assets/hsr/HSR_DrRatio.jpg',
             rarity: '5'
         }],
         ['Seele', {
             name: 'Seele',
-            imageUrl: 'https://www.prydwen.gg/static/7bf27624888af02b16ed1ad2fdec10f2/60b4d/13_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Seele.jpg',
             rarity: '5'
         }],
         ['Black Swan', {
             name: 'Black Swan',
-            imageUrl: 'https://www.prydwen.gg/static/f3045047e4708b372aff23fe67fe63d7/60b4d/46_sm.webp',
+            imageUrl: 'assets/hsr/HSR_BlackSwan.jpg',
             rarity: '5'
         }],
         ['Bronya', {
             name: 'Bronya',
-            imageUrl: 'https://www.prydwen.gg/static/3c0e87556bcf541135c909a18f87ec6a/60b4d/12_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Bronya.jpg',
             rarity: '5'
         }],
         ['Silver Wolf', {
             name: 'Silver Wolf',
-            imageUrl: 'https://www.prydwen.gg/static/46b350599121f6a83272a0635061d071/60b4d/8_sm.webp',
+            imageUrl: 'assets/hsr/HSR_SilverWolf.jpg',
             rarity: '5'
         }],
         ['Huohuo', {
             name: 'Huohuo',
-            imageUrl: 'https://www.prydwen.gg/static/35eddc3b09b3d2c610af2013992e732f/60b4d/40.webp',
+            imageUrl: 'assets/hsr/HSR_Huohuo.jpg',
             rarity: '5'
         }],
         ['Luocha', {
             name: 'Luocha',
-            imageUrl: 'https://www.prydwen.gg/static/3db1e95f0be0c78a233f851614ff4620/60b4d/21_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Luocha.jpg',
             rarity: '5'
         }],
         ['Blade', {
             name: 'Blade',
-            imageUrl: 'https://www.prydwen.gg/static/f2663c739baa73864052b7c8daff327b/60b4d/28_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Blade.jpg',
             rarity: '5'
         }],
         ['Xueyi', {
             name: 'Xueyi',
-            imageUrl: 'https://www.prydwen.gg/static/255178791ab42f44cb633b15df66c30f/60b4d/45_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Xueyi.jpg',
             rarity: '4'
         }],
         ['Pela', {
             name: 'Pela',
-            imageUrl: 'https://www.prydwen.gg/static/b8f7e6d5e067908eea06f4286a3381fa/60b4d/17_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Pela.jpg',
             rarity: '4'
         }],
         ['Welt', {
             name: 'Welt',
-            imageUrl: 'https://www.prydwen.gg/static/b24ce106a4a283e6cf1a077413fbf9d0/60b4d/6_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Welt.jpg',
             rarity: '5'
         }],
         ['Topaz', {
             name: 'Topaz',
-            imageUrl: 'https://www.prydwen.gg/static/0ab4d7f7d2a2e2afc7c5979531904fe1/60b4d/38_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Topaz.jpg',
             rarity: '5'
         }],
         ['Gepard', {
             name: 'Gepard',
-            imageUrl: 'https://www.prydwen.gg/static/cff01461a4e4266e9b213e4d73c6c5c3/60b4d/15_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Gepard.jpg',
             rarity: '5'
         }],
         ['Robin', {
             name: 'Robin',
-            imageUrl: 'https://www.prydwen.gg/static/887bd7ed4c8537a52cd285d35931ab4d/60b4d/52_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Robin.jpg',
             rarity: '5'
         }],
         ['Hanya', {
             name: 'Hanya',
-            imageUrl: 'https://www.prydwen.gg/static/a4e55e309e35bc1f4d5ed3808c8dcf51/60b4d/42_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Hanya.jpg',
             rarity: '4'
         }],
         ['Boothill', {
             name: 'Boothill',
-            imageUrl: 'https://www.prydwen.gg/static/b57af11d0edb3f76d9e130bb9611c63b/60b4d/53_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Boothill.jpg',
             rarity: '5'
         }],
         ['Gallagher', {
             name: 'Gallagher',
-            imageUrl: 'https://www.prydwen.gg/static/014e5fd9e1557e4dbef87ae673e12116/60b4d/51_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Gallagher.jpg',
             rarity: '4'
         }],
         ['Firefly', {
             name: 'Firefly',
-            imageUrl: 'https://www.prydwen.gg/static/39bcd42f98f9fa99f53d18d1aa88865a/60b4d/54_sm.webp',
+            imageUrl: 'assets/hsr/HSR_Firefly.jpg',
             rarity: '5'
         }],
     ]),
