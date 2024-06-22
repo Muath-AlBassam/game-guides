@@ -27,18 +27,22 @@ function appendAll(parent, children) {
 // TeamBuilds Utils ---------------------------------------
 
 function getGame(gameCode) {
-    const games = TeamBuildsData.games;
+    const games = GamesData.games;
     return games.find(g => g.code ==  gameCode);
+}
+
+function getAllGames() {
+    return GamesData.games;
 }
 
 function getTeams(gameCode) {
     switch(gameCode) {
         case 'GI':
-            return TeamBuildsData.GITeams;
+            return GamesData.GITeams;
         case 'HSR':
-            return TeamBuildsData.HSRTeams;
+            return GamesData.HSRTeams;
         case 'HI3':
-            return TeamBuildsData.HI3Teams;
+            return GamesData.HI3Teams;
         default:
             return null;
     }
@@ -47,11 +51,11 @@ function getTeams(gameCode) {
 function getCharacterMetadata(gameCode, characterName) {
     switch(gameCode) {
         case 'GI':
-            return TeamBuildsData.GICharacters.get(characterName) ?? { name: characterName };
+            return GamesData.GICharacters.get(characterName) ?? { name: characterName };
         case 'HSR':
-            return TeamBuildsData.HSRCharacters.get(characterName) ?? { name: characterName };
+            return GamesData.HSRCharacters.get(characterName) ?? { name: characterName };
         case 'HI3':
-            return TeamBuildsData.HI3Characters.get(characterName) ?? { name: characterName };
+            return GamesData.HI3Characters.get(characterName) ?? { name: characterName };
         default:
             return { name: characterName };
     }

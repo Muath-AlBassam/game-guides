@@ -1,11 +1,10 @@
-const arrow = TeamBuildsConstants.unicode.arrow;
-const twoWayArrow = TeamBuildsConstants.unicode.twoWayArrow;
-const times = TeamBuildsConstants.unicode.times;
+const arrow = Constants.unicode.arrow;
+const times = Constants.unicode.times;
 
 smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
 
 
-const TeamBuildsData = {
+const GamesData = {
     games: [
         {
             label: 'Genshin Impact',

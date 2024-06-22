@@ -35,7 +35,7 @@ function generateTeamNameCell(team) {
     // team icon
     const iconCell = createElement('th', 'h-center v-center team-icon', 'padding: 0 1em;');
     const img = createElement('img');
-    img.setAttribute('src', team.iconUrl ?? TeamBuildsConstants.images.transparentIcon);
+    img.setAttribute('src', team.iconUrl ?? Constants.images.transparent);
     img.setAttribute('alt', team.name);
     img.setAttribute('title', team.name);
     img.setAttribute('width', '35px');
@@ -109,7 +109,7 @@ function generateTeamReplacementsCell(team) {
             }
             
             // split current team member from their replacements
-            const separatorTag = createElement('span', null, null, ` ${TeamBuildsConstants.unicode.arrow} `);
+            const separatorTag = createElement('span', null, null, ` ${Constants.unicode.arrow} `);
             appendAll(cell, [charTag, separatorTag]);
             
             // add repalcements' names with tooltip image

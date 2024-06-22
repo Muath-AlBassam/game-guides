@@ -1,8 +1,8 @@
 // https://www.compart.com/en/unicode/html
 
-const TeamBuildsConstants = {
+const Constants = {
     images: {
-        transparentIcon: 'assets/Placeholder_Logo.png'
+        transparent: 'assets/Placeholder_Logo.png'
     },
     unicode: {
         arrow: '&rightarrow;',

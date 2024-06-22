@@ -22,7 +22,7 @@ function loadData() {
 
 // --------------------------------------------------------
 function loadTabs() {
-    const games = TeamBuildsData.games;
+    const games = getAllGames();
     const tabsElement = document.getElementById('gamesTabs');
     games.forEach(g => {
         const a = createElement('a', 'nav-link');
@@ -38,7 +38,7 @@ function loadTabs() {
         // link to guide page
         if (g.guideUrl) {
             const link = createElement(
-                'a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${TeamBuildsConstants.icons.externalLink}"></i>`);
+                'a', 'tab-text', 'padding-inline-start: 10px;', `<i class="${Constants.icons.externalLink}"></i>`);
             link.setAttribute('href', g.guideUrl);
             link.setAttribute('target', '_blank');
             a.appendChild(link);
