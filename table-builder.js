@@ -1,8 +1,11 @@
 let gameCode = '';
 
 // build table content
-function loadTeamsTable(gcode) {
-    gameCode = gcode;
+function loadTeamsTable(activeGame) {
+    gameCode = activeGame.code;
+    
+    // set Team Members header col size
+    document.getElementById('membersHeader').colSpan = activeGame.teamSize;
 
     const tablebody = document.getElementById('tablebody');
     tablebody.innerHTML = '';
@@ -25,12 +28,12 @@ function loadTeamsTable(gcode) {
     }
 }
 
-// 1st cell : number
+// Number cell
 function generateTeamNumberCell(index) {
     return createElement('th', 'h-center v-center', null, index + 1);
 }
 
-// 2nd cell : team name + icon
+// Team name + icon
 function generateTeamNameCell(team) {
     // team icon
     const iconCell = createElement('th', 'h-center v-center team-icon', 'padding: 0 1em;');
@@ -55,7 +58,7 @@ function generateTeamNameCell(team) {
     return [iconCell, nameCell];
 }
 
-// 3rd cell : team members (images)
+// Team members (images)
 function generateTeamMembersCell(team) {
     let cells = []
     const teamSize = getGame(gameCode).teamSize;
@@ -82,7 +85,7 @@ function generateTeamMembersCell(team) {
     return cells;
 }
 
-// 4th cell : roles of team members
+// Roles of team members
 function generateTeamRolesCell(team) {
     let characterRoles = '';
     team.characters.forEach(character => {
@@ -94,7 +97,7 @@ function generateTeamRolesCell(team) {
     return createElement('td', 'v-center', 'padding-left: 1em', characterRoles)
 }
 
-// 5th cell (part 1) : replacements of each cell
+// Replacements of each team member
 function generateTeamReplacementsCell(team) {
     const cell = createElement('td', 'v-center', 'padding-left: 1em');
 
@@ -132,7 +135,7 @@ function generateTeamReplacementsCell(team) {
     return cell;
 }
 
-// 5th cell (part 2) : team variations
+// Team variations
 function generateTeamVariatons(team) {
     if (team.variations != null && team.variations.length > 0) {
         const ulTag = createElement('ul', null, 'padding-top: 0.5rem;');
@@ -146,7 +149,7 @@ function generateTeamVariatons(team) {
     return createElement('span');
 }
 
-// 6th cell : team rotations
+// Team rotations
 function generateTeamRotationsCell(team) {
     let content = '';
     if (team.rotations) {

@@ -1,4 +1,4 @@
-// JS Utils -----------------------------------------------
+// JS Utils -------------------------------------------------------------------
 
 function createElement(tag, classes = null, styles = null, content = null, id = null) {
     let ele = document.createElement(tag);
@@ -24,19 +24,19 @@ function appendAll(parent, children) {
     return parent;
 }
 
-// TeamBuilds Utils ---------------------------------------
-
-function getGame(gameCode) {
-    const games = GamesData.games;
-    return games.find(g => g.code ==  gameCode);
-}
+// TeamBuilds Utils -----------------------------------------------------------
 
 function getAllGames() {
     return GamesData.games;
 }
 
+function getGame(gameCode) {
+    const games = getAllGames();
+    return games.find(g => g.code ==  gameCode);
+}
+
 function getTeams(gameCode) {
-    switch(gameCode) {
+    switch (gameCode) {
         case 'GI':
             return GamesData.GITeams;
         case 'HSR':
@@ -49,16 +49,19 @@ function getTeams(gameCode) {
 }
 
 function getCharacterMetadata(gameCode, characterName) {
-    switch(gameCode) {
+    let data;
+    switch (gameCode) {
         case 'GI':
-            return GamesData.GICharacters.get(characterName) ?? { name: characterName };
+            data = GamesData.GICharacters.get(characterName);
+            break;
         case 'HSR':
-            return GamesData.HSRCharacters.get(characterName) ?? { name: characterName };
+            data = GamesData.HSRCharacters.get(characterName);
+            break;
         case 'HI3':
-            return GamesData.HI3Characters.get(characterName) ?? { name: characterName };
-        default:
-            return { name: characterName };
+            data = GamesData.HI3Characters.get(characterName);
+            break;
     }
+    return data ?? { name: characterName }
 }
 
 // create character image tag

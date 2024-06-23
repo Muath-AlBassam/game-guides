@@ -1,4 +1,4 @@
-// Event Listeners ----------------------------------------
+// Event Listeners ------------------------------------------------------------
 window.addEventListener('load', () => {
     loadData();
 })
@@ -20,7 +20,7 @@ function loadData() {
     refreshPageContent();
 }
 
-// --------------------------------------------------------
+// Tabs -----------------------------------------------------------------------
 function loadTabs() {
     const games = getAllGames();
     const tabsElement = document.getElementById('gamesTabs');
@@ -62,15 +62,12 @@ function setActiveTab() {
     })
 }
 
-// refresh table & active tab
+// refresh content ------------------------------------------------------------
 function refreshPageContent() {
     const activeGame = getGame(window.location.hash.replace('#', ''));
 
     setActiveTab();
-    loadTeamsTable(activeGame.code);
-
-    // set Team Members header col size
-    document.getElementById('membersHeader').colSpan = activeGame.teamSize;
+    loadTeamsTable(activeGame);
 
     // set background image & logo
     document.body.setAttribute(
