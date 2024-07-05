@@ -41,6 +41,8 @@ function getTeams(gameCode) {
             return GamesData.GITeams;
         case 'HSR':
             return GamesData.HSRTeams;
+        case 'ZZZ':
+            return GamesData.ZZZTeams;
         case 'HI3':
             return GamesData.HI3Teams;
         default:
@@ -56,6 +58,9 @@ function getCharacterMetadata(gameCode, characterName) {
             break;
         case 'HSR':
             data = GamesData.HSRCharacters.get(characterName);
+            break;
+        case 'ZZZ':
+            data = GamesData.ZZZCharacters.get(characterName);
             break;
         case 'HI3':
             data = GamesData.HI3Characters.get(characterName);

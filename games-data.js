@@ -621,6 +621,33 @@ const GamesData = {
         // },
     ],
 
+    ZZZTeams: [
+        {
+            name: 'Ice',
+            iconUrl: 'assets/zzz/ZZZ_Ice.jpg',
+            characters: [
+                {
+                    name: 'Ellen',
+                    role: 'Main [Basic + Special + Dodge]',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Lycaon',
+                    role: '...',
+                    isMain: false,
+                    replacedBy: ['Anby'],
+                },
+                {
+                    name: 'Soukaku',
+                    role: 'DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ]
+        }
+    ],
+
     HI3Teams: [
         {
             name: 'Fire',
@@ -1055,6 +1082,24 @@ const GamesData = {
             name: 'Firefly',
             imageUrl: 'assets/hsr/HSR_Firefly.jpg',
             rarity: '5'
+        }],
+    ]),
+
+    ZZZCharacters: new Map([
+        ['Ellen', {
+            name: 'Ellen',
+            imageUrl: 'assets/zzz/ZZZ_Ellen.jpg',
+            rarity: 'S'
+        }],
+        ['Soukaku', {
+            name: 'Soukaku',
+            imageUrl: 'assets/zzz/ZZZ_Soukaku.jpg',
+            rarity: 'A'
+        }],
+        ['Anby', {
+            name: 'Anby',
+            imageUrl: 'assets/zzz/ZZZ_Anby.jpg',
+            rarity: 'A'
         }],
     ]),
 
