@@ -134,6 +134,17 @@ span, th, td {
     border-bottom-color: #8a5fcc;
 }
 
+.ZZZ-rarity-S {
+    background: #d7bc57;
+    background: linear-gradient(0deg, #d7bc57, #d19910);
+    border-bottom-color: #d7bc57;
+}
+.ZZZ-rarity-A {
+    background: #be6fed;
+    background: linear-gradient(0deg, #be6fed, #8c37bd);
+    border-bottom-color: #952fd2;
+}
+
 /* Game images -------------------------------------------- */
 .game-background {
     background-size: cover;

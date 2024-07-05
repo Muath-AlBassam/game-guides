@@ -23,6 +23,14 @@ const GamesData = {
             guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
         },
         {
+            label: 'Zenless Zone Zero',
+            code: 'ZZZ',
+            teamSize: 3,
+            logoUrl: 'assets/zzz/ZZZ_Logo.png',
+            backgroundUrl: 'assets/zzz/ZZZ_BG.png',
+            guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
+        },
+        {
             label: 'Honkai Impact 3rd',
             code: 'HI3',
             teamSize: 3,
