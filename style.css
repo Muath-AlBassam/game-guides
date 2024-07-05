@@ -111,13 +111,13 @@ span, th, td {
 
 /* Character rarity background ---------------------------- */
 .GI-rarity-5 {
-    background-image: url(https://genshinbuilds.aipurrjects.com/genshin/5-Star.webp);
+    background-image: url(assets/gi/GI_Rarity5.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
 }
 .GI-rarity-4 {
-    background-image: url(https://genshinbuilds.aipurrjects.com/genshin/4-Star.webp);
+    background-image: url(assets/gi/GI_Rarity4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
