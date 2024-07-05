@@ -634,7 +634,7 @@ const GamesData = {
                 },
                 {
                     name: 'Lycaon',
-                    role: '...',
+                    role: 'Ice RES Shred + Stun',
                     isMain: false,
                     replacedBy: ['Anby'],
                 },
