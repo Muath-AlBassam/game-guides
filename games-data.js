@@ -639,22 +639,28 @@ const GamesData = {
             characters: [
                 {
                     name: 'Ellen',
-                    role: 'Main [Basic + Special + Dodge]',
+                    role: 'Main [Basic + EX Special]',
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: 'Lycaon',
-                    role: 'Ice RES Shred + Stun',
+                    name: 'Anby',
+                    role: 'Stun',
                     isMain: false,
-                    replacedBy: ['Anby'],
+                    replacedBy: [],
                 },
                 {
                     name: 'Soukaku',
-                    role: 'DMG Buff',
+                    role: 'Atk Buff',
                     isMain: false,
                     replacedBy: [],
                 }
+            ],
+            rotations: [
+                ['Ellen', `Dash + Basic ${smallText('(hold)')} ${arrow}`],
+                ['Anby', `(Basic${times}3 ${arrow} Basic ${smallText('(hold)')}) / EX Special ${arrow} Stun ${arrow}`],
+                ['Soukaku', `Special ${smallText('(hold)')} ${arrow} Chain/Quick-Assist ${arrow}`],
+                ['Ellen', `Basic + EX Special`],
             ]
         },
         {
