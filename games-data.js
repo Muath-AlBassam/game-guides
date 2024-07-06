@@ -2,6 +2,7 @@ const arrow = Constants.unicode.arrow;
 const times = Constants.unicode.times;
 
 smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
+tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`
 
 
 const GamesData = {
@@ -623,6 +624,16 @@ const GamesData = {
 
     ZZZTeams: [
         {
+            name: 'Physical',
+            iconUrl: 'assets/zzz/ZZZ_Physical.jpg',
+            characters: []
+        },
+        {
+            name: 'Fire',
+            iconUrl: 'assets/zzz/ZZZ_Fire.jpg',
+            characters: []
+        },
+        {
             name: 'Ice',
             iconUrl: 'assets/zzz/ZZZ_Ice.jpg',
             characters: [
@@ -645,7 +656,17 @@ const GamesData = {
                     replacedBy: [],
                 }
             ]
-        }
+        },
+        {
+            name: 'Electric',
+            iconUrl: 'assets/zzz/ZZZ_Electric.jpg',
+            characters: []
+        },
+        {
+            name: 'Ether',
+            iconUrl: 'assets/zzz/ZZZ_Ether.jpg',
+            characters: []
+        },
     ],
 
     HI3Teams: [
