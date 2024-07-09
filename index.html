@@ -11,52 +11,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="style.css">
-      
+
+        <!-- Utilities -->
         <script type="text/javascript" src="constants.js"></script>
         <script type="text/javascript" src="games-data.js"></script>
         <script type="text/javascript" src="utils.js"></script>
+
+        <!-- Components -->
+        <script src="nav.js" type="text/javascript" defer></script>
+
         <script type="text/javascript" src="table-builder.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </head>
-    <body class="game-background">
+    <body>
+        <nav-component></nav-component>
 
-        <div class="shadow-lg" style="margin: 1rem 4rem 0; padding: 1rem; position: relative;">
-            <div class="game-logo">
-                <img src="" height="150" id="gamelogo">
-            </div>
-
-            <ul class="nav nav-tabs" style="margin-bottom: 1rem; margin-top: 100px;" id="gamesTabs"></ul>
-
-            <div class="tab-pane">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="table">
-                        <thead>
-                            <tr>
-                                <th class="h-center v-center double-border" style="width: 1.5%;">
-                                    #
-                                </th>
-                                <th class="h-center v-center" colspan="2" style="width: 20%;">
-                                    Team
-                                </th>
-                                <th class="h-center v-center" colspan="4" id="membersHeader">
-                                    Members
-                                </th>
-                                <th class="h-center v-center" style="width: 20%;">
-                                    Character Roles
-                                </th>
-                                <th class="h-center v-center" style="width: 20%;">
-                                    Replacements / Variations
-                                </th>
-                                <th class="h-center v-center">
-                                    Rotations
-                                </th>
-                            </tr>
-                        </thead>
-                        <!-- table content is appended to this #tablebody -->
-                        <tbody id="tablebody"></tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="main-content" id="page-content">
+            test
         </div>
     </body>
 </html>
