@@ -77,6 +77,10 @@ class Nav extends HTMLElement {
                 border-radius: 0.8em;
             }
 
+            .sidebar ul li i {
+                text-shadow: 2px 2px grey;
+            }
+
             .sidebar ul li a:hover {
                 background-color: #fff;
                 color: #12171e;
@@ -123,7 +127,7 @@ class Nav extends HTMLElement {
             const a = createElement('a', 'sidebar-item');
             a.setAttribute('href', `#${g.code}`);
 
-            a.appendChild(createElement('i', null, null, g.code));
+            a.appendChild(createElement('i', 'text-shadow', null, g.code));
             a.appendChild(createElement('span', 'nav-item', null, g.label));
 
             const li = createElement('li');
