@@ -1,3 +1,9 @@
+:root {
+    --background-color: #23242a;
+    --text-color: #fff;
+    --sidebar-color: #1c1d21;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,33 +15,50 @@
     display: none;
 }
 
-span, th, td {
-    cursor: default;
+.nav-component ~ .main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+.nav-component.active ~ .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
 }
 
+.main-content {
+    padding: 75px;
+    /* height: 300vh; */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.5s ease;
+}
+
+.content-header {
+    border-bottom: 2px solid #6b6b6b;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* span, th, td {
+    cursor: default;
+} */
+
 /* Bootstrap classes */
-.tooltip-inner {
+/* .tooltip-inner {
     max-width: 1000px !important;
 }
 .tooltip.show {
     opacity: 1 !important;
-} 
-
-.nav-link.active {
-    background-color: rgba(255, 255, 255, 0) !important;
-    border-color: #23242a !important;
-    border-bottom: none;
-}
-.nav-tabs {
-    border-bottom: none;
-}
+}  */
 
 /* Tab styles --------------------------------------------- */
-.tab-text {
+/* .tab-text {
     cursor: pointer;
     padding-inline-start: 10px;
     font-weight: bold;
-    /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
     text-shadow: 1px 1px 0 #fff,
         -1px 1px 0 #fff,
         1px -1px 0 #fff,
@@ -60,10 +83,10 @@ span, th, td {
         -2px 1px 0 #fff,
         2px -1px 0 #fff,
         -2px -1px 0 #fff;
-}
+} */
 
 /* Table styles ------------------------------------------- */
-.table td, .table th {
+/* .table td, .table th {
     padding: 0;
     white-space: nowrap !important;
 }
@@ -79,30 +102,30 @@ span, th, td {
 .table thead th:nth-child(odd) {
     color: white;
     background-color: #7f7f7f;
-}
+} */
 
 /* Styles for specific columns ---------------------------- */
 /* Team name + icon */
-.team-name {
+/* .team-name {
     position: relative;
     text-align: center;
-    height: 30px; /* Set a height to the th element for vertical centering */
-    line-height: 30px; /* Ensure text is vertically centered */
+    height: 30px;
+    line-height: 30px;
 }
 .team-icon  {
     width: 2%;
     border-right: 1px hidden transparent;
-}
+} */
 /* Team members */
-.character {
+/* .character {
     width: 105px;
     height: 105px;
-    background-color: #23242a !important; /* rgba(35, 36, 42, 1) */
+    background-color: #23242a !important;
     color: white !important;
-}
+} */
 
 /* Center ------------------------------------------------- */
-.h-center {
+/* .h-center {
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -110,7 +133,7 @@ span, th, td {
 .v-center {
     justify-content: center;
     vertical-align: middle;
-}
+} */
 
 /* Character rarity background ---------------------------- */
 .GI-rarity-5 {
@@ -149,7 +172,7 @@ span, th, td {
 }
 
 /* Game images -------------------------------------------- */
-.game-background {
+/* .game-background {
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -158,4 +181,4 @@ span, th, td {
     min-height: 150px;
     position: absolute;
     right: 1em;
-}
+} */

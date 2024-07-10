@@ -1,4 +1,4 @@
-// credits
+// CSS credits
 // https://www.youtube.com/watch?v=uy1tgKOnPB0
 
 class Nav extends HTMLElement {
@@ -10,19 +10,14 @@ class Nav extends HTMLElement {
         this.innerHTML = `
         <style>
             .sidebar {
-                position: absolute;
+                position: fixed;
                 top: 0;
                 left: 0;
                 height: 100vh;
                 width: 80px;
-                background-color: #12171e;
+                background-color: var(--sidebar-color);
                 padding: 0.4em 0.8em;
                 transition: all 0.5s ease;
-            }
-
-            .sidebar.active ~ .main-content {
-                left: 250px;
-                width: calc(100% - 250px);
             }
 
             .sidebar.active {
@@ -83,7 +78,12 @@ class Nav extends HTMLElement {
 
             .sidebar ul li a:hover {
                 background-color: #fff;
-                color: #12171e;
+                color: var(--sidebar-color);
+            }
+
+            .sidebar .sidebar-item.active {
+                background-color: #fff;
+                color: var(--sidebar-color);
             }
 
             .sidebar ul li a i {
@@ -122,28 +122,40 @@ class Nav extends HTMLElement {
     createGamesNav() {
         const games = getAllGames();
         let navContent = '';
-
         games.forEach(g => {
             const a = createElement('a', 'sidebar-item');
             a.setAttribute('href', `#${g.code}`);
-
             a.appendChild(createElement('i', 'text-shadow', null, g.code));
             a.appendChild(createElement('span', 'nav-item', null, g.label));
-
             const li = createElement('li');
             li.appendChild(a);
-
             navContent += li.outerHTML;
         });
-
         return navContent;
     }
-
 
 }
 
 customElements.define('nav-component', Nav);
 
+//------------------------------------------
+
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.nav-component').classList.toggle('active');
+}
+
+window.addEventListener('hashchange', () => {
+    setActiveNav();
+});
+
+function setActiveNav() {
+    const navs = document.querySelectorAll('.sidebar-item');
+    navs.forEach(tab => {
+        if (tab.href.includes(window.location.hash)) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    })
 }
