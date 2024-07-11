@@ -1,7 +1,7 @@
 // CSS credits
 // https://www.youtube.com/watch?v=uy1tgKOnPB0
 
-class Nav extends HTMLElement {
+class NavComponent extends HTMLElement {
 
     componentStyle = `
         <style>
@@ -138,9 +138,9 @@ class Nav extends HTMLElement {
 
 }
 
-customElements.define('nav-component', Nav);
+customElements.define('nav-component', NavComponent);
 
-//------------------------------------------
+//------------------------------------------------------------------------------------
 
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');

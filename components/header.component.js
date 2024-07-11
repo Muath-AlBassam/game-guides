@@ -1,4 +1,4 @@
-class Header extends HTMLElement {
+class HeaderComponent extends HTMLElement {
 
     componentStyle = `
         <style>
@@ -14,7 +14,7 @@ class Header extends HTMLElement {
                 background-position: center;
                 opacity: 0.5;
             }
-            </style>`;
+        </style>`;
 
     constructor() {
       super();
@@ -42,7 +42,9 @@ class Header extends HTMLElement {
     }
 }
 
-customElements.define('header-component', Header);
+customElements.define('header-component', HeaderComponent);
+
+//------------------------------------------------------------------------------------
 
 window.addEventListener('hashchange', () => {
     setGameDetails();

@@ -1,4 +1,4 @@
-class TeamsTable extends HTMLElement {
+class TeamsListComponent extends HTMLElement {
     
     // attribute that on change will trigger "attributeChangedCallback"
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes
@@ -125,7 +125,9 @@ class TeamsTable extends HTMLElement {
     }
 }
 
-customElements.define('teams-list-component', TeamsTable);
+customElements.define('teams-list-component', TeamsListComponent);
+
+//------------------------------------------------------------------------------------
 
 window.addEventListener('hashchange', () => {
     // change attribute to trigger "attributeChangedCallback"
