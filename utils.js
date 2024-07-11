@@ -32,7 +32,9 @@ function getAllGames() {
 
 function getGame(gameCode) {
     const games = getAllGames();
-    return games.find(g => g.code ==  gameCode);
+    const game = games.find(g => g.code == gameCode);
+    // return default game if not found
+    return game ?? games.find(g => g.code == 'GI');
 }
 
 function getTeams(gameCode) {

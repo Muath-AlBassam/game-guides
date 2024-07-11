@@ -31,7 +31,7 @@ class TeamsTable extends HTMLElement {
                 background-color: #2c2d33;
                 border-radius: 0;
                 display: grid;
-                grid-template-columns: 33% 33% 33%;
+                grid-template-columns: 30% 40% 30%;
                 justify-content: space-between;
                 position: relative;
                 width: 100%;
