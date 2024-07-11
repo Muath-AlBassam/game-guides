@@ -2,12 +2,8 @@
 // https://www.youtube.com/watch?v=uy1tgKOnPB0
 
 class Nav extends HTMLElement {
-    constructor() {
-      super();
-    }
-  
-    connectedCallback() {
-        this.innerHTML = `
+
+    componentStyle = `
         <style>
             .sidebar {
                 position: fixed;
@@ -102,20 +98,26 @@ class Nav extends HTMLElement {
             .sidebar.active .nav-item {
                 display: block;
             }
-        </style>
+        </style>`;
 
-        <div class="sidebar">
-            <div class="top">
-                <div class="logo">
-                    <span>Game Guides</span>
+    constructor() {
+      super();
+    }
+  
+    connectedCallback() {
+        this.innerHTML = 
+            this.componentStyle +
+            `<div class="sidebar">
+                <div class="top">
+                    <div class="logo">
+                        <span>Game Guides</span>
+                    </div>
+                    <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
                 </div>
-                <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
-            </div>
-            <ul style="padding-left: 0">`
-            + this.createGamesNav() +
-            `</ul>
-        </div>
-      `;
+                <ul style="padding-left: 0">`
+                + this.createGamesNav() +
+                `</ul>
+            </div>`;
       // ul style to disable bootstrap effect
     }
 

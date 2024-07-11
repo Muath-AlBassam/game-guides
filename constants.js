@@ -1,4 +1,8 @@
+// Unicode
 // https://www.compart.com/en/unicode/html
+
+// SVG
+// https://www.svgrepo.com/
 
 const Constants = {
     images: {
