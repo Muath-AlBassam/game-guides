@@ -108,7 +108,7 @@ const GamesData = {
                 }
             ],
             rotations: [
-                ['Neuvillette', `1NA ${arrow}`],
+                ['Neuvillette', `NA${times}1 ${arrow}`],
                 ['Kazuha', `Skill ${arrow}`],
                 ['Raiden Shogun', `Skill ${arrow}`],
                 ['Furina', `Skill ${arrow} Ult ${arrow}`],
@@ -260,7 +260,7 @@ const GamesData = {
                 }
             ],
             rotations: [
-                ['Wriothesley', `1NA ${arrow}`],
+                ['Wriothesley', `NA${times}1 ${arrow}`],
                 ['Kazuha', `Skill ${arrow}`],
                 ['Kokomi', `Skill ${arrow}`],
                 ['Wriothesley', `Skill ${arrow} NA + CA`],
@@ -655,7 +655,7 @@ const GamesData = {
                 }
             ],
             rotations: [
-                ['Koleda', `Basic ${times}2 ${arrow} Stun ${arrow}`],
+                ['Koleda', `Basic${times}2 ${arrow} Stun ${arrow}`],
                 ['Lucy', `EX Special ${arrow}`],
                 ['Soldier 11', `(EX Special ${arrow} Basic) / Timed Basic`],
             ]
@@ -733,17 +733,17 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Fire DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow}`],
-                ['Ai', `QTE ${arrow} Skill ${arrow}`],
-                ['Bronya (Truth)', `Ult ${times}2 ${arrow}`],
-                ['Lantern', `QTE ${arrow} Basic + Skill ${arrow} Charged ${arrow} Ult`],
+                ['Bronya (HoT)', `Skill ${arrow} QTE ${arrow}`],
+                ['Ai', `Skill ${arrow}`],
+                ['Bronya (HoT)', `Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Lantern', `Basic + Skill ${arrow} Charged ${arrow} Ult`],
             ]
         },
         {
@@ -763,16 +763,16 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Lightning DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
-                ['Eden', `QTE ${arrow} Ult ${arrow}`],
-                ['Lunar Vow', `QTE ${arrow} Skill ${arrow} Ult`]
+                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Eden', `Ult ${arrow} QTE ${arrow}`],
+                ['Lunar Vow', `Skill ${arrow} Ult`]
             ]
         },
         {
@@ -797,6 +797,23 @@ const GamesData = {
                     isMain: true,
                     replacedBy: [],
                 },
+                {
+                    name: 'Carole',
+                    role: 'Physical & Total DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Fu Hua (HoS)',
+                    role: 'DEF Reduction',
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ],
+            rotations: [
+                ['Fu Hua (HoS)', `Basic ${smallText('(Spear combo)')} ${arrow} QTE ${arrow}`],
+                ['Carole', `CA ${arrow} Ult ${arrow} QTE ${arrow}`],
+                ['Durandal', `Basic + CA + Ult`]
             ]
         },
         {
@@ -804,29 +821,29 @@ const GamesData = {
             iconUrl: null,
             characters: [
                 {
-                    name: 'Kiana (Finality)',
+                    name: 'Kiana (HoFi)',
                     role: 'Main',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Mei (Origin)',
+                    name: 'Mei (HoO)',
                     role: 'Main',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Fire & Lightning DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
-                ['Kiana (Finality)', `QTE ${arrow} Basic ${arrow} Charged ${arrow}`],
-                ['Mei (Origin)', `Basic ${arrow} Charged ${arrow} Ult ${arrow}`],
-                ['Kiana (Finality)', `QTE ${arrow} Skill ${arrow} Basic ${arrow} Charged ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
+                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Kiana (HoFi)', `Basic ${arrow} CA ${arrow}`],
+                ['Mei (HoO)', `Basic ${arrow} CA ${arrow} Ult ${arrow} QTE ${arrow}`],
+                ['Kiana (HoFi)', `Skill ${arrow} Basic ${arrow} CA ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
             ]
         },
     ],
@@ -1245,34 +1262,34 @@ const GamesData = {
     ]),
 
     HI3Characters: new Map([
-        ['Kiana (Finality)', {
-            name: 'Kiana (Finality)',
-            imageUrl: 'assets/hi3/HI3_KianaFinality.png',
+        ['Kiana (HoFi)', {
+            name: 'Kiana (HoFi)',
+            imageUrl: 'assets/hi3/HI3_Kiana_HoFi.png',
             rarity: 'S'
         }],
-        ['Kiana (Flamescion)', {
-            name: 'Kiana (Flamescion)',
-            imageUrl: 'assets/hi3/HI3_KianaFlamescion.png',
+        ['Kiana (HoF)', {
+            name: 'Kiana (HoF)',
+            imageUrl: 'assets/hi3/HI3_Kiana_HoF.png',
             rarity: 'S'
         }],
-        ['Mei (Origin)', {
-            name: 'Mei (Origin)',
-            imageUrl: 'assets/hi3/HI3_MeiOrigin.png',
+        ['Mei (HoO)', {
+            name: 'Mei (HoO)',
+            imageUrl: 'assets/hi3/HI3_Mei_HoO.png',
             rarity: 'S'
         }],
-        ['Mei (Thunder)', {
-            name: 'Mei (Thunder)',
-            imageUrl: 'assets/hi3/HI3_MeiThunder.png',
+        ['Mei (HoT)', {
+            name: 'Mei (HoT)',
+            imageUrl: 'assets/hi3/HI3_Mei_HoT.png',
             rarity: 'S'
         }],
-        ['Bronya (Truth)', {
-            name: 'Bronya (Truth)',
-            imageUrl: 'assets/hi3/HI3_BronyaTruth.png',
+        ['Bronya (HoT)', {
+            name: 'Bronya (HoT)',
+            imageUrl: 'assets/hi3/HI3_Bronya_HoT.png',
             rarity: 'S'
         }],
-        ['Bronya (Reason)', {
-            name: 'Bronya (Reason)',
-            imageUrl: 'assets/hi3/HI3_BronyaReason.png',
+        ['Bronya (HoR)', {
+            name: 'Bronya (HoR)',
+            imageUrl: 'assets/hi3/HI3_Bronya_HoR.png',
             rarity: 'S'
         }],
         ['Elysia', {
@@ -1308,6 +1325,16 @@ const GamesData = {
         ['Ai', {
             name: 'Ai',
             imageUrl: 'assets/hi3/HI3_Ai.png',
+            rarity: 'A'
+        }],
+        ['Fu Hua (HoS)', {
+            name: 'Fu Hua (HoS)',
+            imageUrl: 'assets/hi3/HI3_FuHua_HoS.png',
+            rarity: 'S'
+        }],
+        ['Carole', {
+            name: 'Carole',
+            imageUrl: 'assets/hi3/HI3_Carole.png',
             rarity: 'A'
         }],
     ]),
