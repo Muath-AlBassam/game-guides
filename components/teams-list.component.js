@@ -62,8 +62,7 @@ class TeamsListComponent extends HTMLElement {
                 justify-content: center;
             }
             
-            .team-actions .action {
-                margin: 10px;
+            .action {
                 cursor: pointer;
             }
 
@@ -120,7 +119,7 @@ class TeamsListComponent extends HTMLElement {
 
     // a row for one team
     buildTeamContainer(activeGame, team, teamId, index) {
-        return `<div class="team-container">
+        return `<div class="team-container action" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
                         <div class="team-name">
@@ -130,7 +129,7 @@ class TeamsListComponent extends HTMLElement {
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
                         <div class="team-actions">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
-                                class="action" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                                class="action">
                             </img>
                         </div>
                     </div>
