@@ -68,7 +68,7 @@ function generateTeamMembersCell(team) {
         const charmd = getCharacterMetadata(gameCode, character?.name);
         if (charmd?.imageUrl) {
             // print character image + name
-            td.appendChild(createCharacterImage(charmd));
+            td.appendChild(createCharacterImage(gameCode, charmd));
             td.appendChild(createElement('br'))
             td.appendChild(createElement('span', null, null, character.name))
         } else if (character) {

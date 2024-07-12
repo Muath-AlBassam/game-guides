@@ -100,16 +100,11 @@ class TeamsListComponent extends HTMLElement {
 
         let teamsListHTML = '';
         teams.forEach((team, index) => {
-            let characters = ``;
+            let membersImages = ``;
             for (let i = 0; i < activeGame.teamSize; i++) {
                 const character = team.characters[i]
                 const charmd = getCharacterMetadata(activeGame.code, character?.name);
-                characters +=  
-                    `<img 
-                        src='${charmd.imageUrl ?? 'assets/Unknown.png'}' alt='${charmd.name}' title='${charmd.name ?? '?'}'
-                        class='${activeGame.code}-rarity-${charmd.rarity ?? ''}'
-                        width='100' height='100' style='margin: 10px;'
-                    />`;
+                membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;', true);
             }
 
             let content = 
@@ -120,7 +115,7 @@ class TeamsListComponent extends HTMLElement {
                             <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30"></img>
                             <span>${team.name}</span>
                         </div>
-                        <div class="team-members">${characters}</div>
+                        <div class="team-members">${membersImages}</div>
                         <div class="team-actions">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
                                 class="action" data-bs-toggle="collapse" data-bs-target="#${activeGame.code}-${team.name}-roles">

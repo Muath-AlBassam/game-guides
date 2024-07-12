@@ -72,12 +72,12 @@ function getCharacterMetadata(gameCode, characterName) {
 }
 
 // create character image tag
-function createCharacterImage(charmd, dimenstion = 105, asString = false) {
+function createCharacterImage(gameCode, charmd, dimenstion = 105, style = '', asString = false) {
     if (asString) {
         return `<img    
-                    src='${charmd.imageUrl ?? ''}' alt='${charmd.name}' title='${charmd.name}'
+                    src='${charmd.imageUrl ?? 'assets/Unknown.png'}' alt='${charmd.name}' title='${charmd.name ?? '?'}'
                     class='${gameCode}-rarity-${charmd.rarity ?? ''}'
-                    width'${dimenstion}' height='${dimenstion}' 
+                    width'${dimenstion}' height='${dimenstion}' style='${style}'
                 />`;
     } else {
         let img = createElement('img', `${gameCode}-rarity-${charmd.rarity ?? ''}`);
@@ -96,7 +96,7 @@ function createCharacterNameAndTooltipTag(gameCode, chars, imgDimenstion = 90) {
     // create images tage
     chars.forEach(charname => {
         const charmd = getCharacterMetadata(gameCode, charname);
-        imgs += createCharacterImage(charmd, imgDimenstion, true);
+        imgs += createCharacterImage(gameCode, charmd, imgDimenstion, null, true);
     });
     // add images as tooltip
     const charTag = createElement('span', null, null, chars.join(' - '));

@@ -25,11 +25,7 @@ class RolesComponent extends HTMLElement {
             rolesContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
-                        <img 
-                            src='${charmd.imageUrl ?? 'assets/Unknown.png'}' alt='${charmd.name}' title='${charmd.name ?? '?'}'
-                            class='${activeGame.code}-rarity-${charmd.rarity ?? ''}'
-                            width='40' height='40' style='margin: 5px 10px;'
-                        />
+                       ${createCharacterImage(gameCode, charmd, 40, 'margin: 5px 10px;', true)}
                         <span>${charmd.name}</span>
                     </td>
                     <td>
@@ -40,7 +36,7 @@ class RolesComponent extends HTMLElement {
 
         this.innerHTML = 
             this.componentStyle + 
-            `<div class="roles-container team-details-container">
+            `<div class="team-details-container roles-container">
                 <div>
                     <h5 class="content-header">Roles</h5>
                 </div>
