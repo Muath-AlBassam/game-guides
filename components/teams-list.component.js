@@ -5,77 +5,77 @@ class TeamsListComponent extends HTMLElement {
     static observedAttributes = ["name"];
 
     componentStyle = `
-        <style>
-            .team-container {
-                border: 1px solid #33343a;
-                border-radius: 0;
-                display: flex;
-                margin: 20px 0 0 0;
-                height: 150px;
-                width: 100%;
-            }
+    <style>
+        .team-container {
+            border: 1px solid #33343a;
+            border-radius: 0;
+            display: flex;
+            margin: 20px 0 0 0;
+            height: 150px;
+            width: 100%;
+        }
 
-            .team-container .team-number {
-                align-items: center;
-                background-color: #ef5350;
-                color: #191817;
-                display: flex;
-                font-size: 22px;
-                font-weight: 700;
-                justify-content: center;
-                width: 65px;
-            }
+        .team-container .team-number {
+            align-items: center;
+            background-color: #ef5350;
+            color: #191817;
+            display: flex;
+            font-size: 22px;
+            font-weight: 700;
+            justify-content: center;
+            width: 65px;
+        }
 
-            .team-container .team-container-item {
-                grid-gap: 0;
-                background-color: #2c2d33;
-                border-radius: 0;
-                display: grid;
-                grid-template-columns: 30% 40% 30%;
-                justify-content: space-between;
-                position: relative;
-                width: 100%;
-            }
+        .team-container .team-container-item {
+            grid-gap: 0;
+            background-color: #2c2d33;
+            border-radius: 0;
+            display: grid;
+            grid-template-columns: 30% 40% 30%;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
 
-            .team-container-item div:nth-child(even) {
-                background-color: #36373f;
-            }
+        .team-container-item div:nth-child(even) {
+            background-color: #36373f;
+        }
 
-            .team-container-item .team-name {
-                font-size: 30px;
-                font-weight: bold;
-                display: grid;
-                grid-template-columns: 20% 80%;
-                align-items: center;
-                justify-items: center;
-            }
+        .team-container-item .team-name {
+            font-size: 30px;
+            font-weight: bold;
+            display: grid;
+            grid-template-columns: 20% 80%;
+            align-items: center;
+            justify-items: center;
+        }
 
-            .team-container-item .team-members {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+        .team-container-item .team-members {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-            .team-container-item .team-actions {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .action {
-                cursor: pointer;
-            }
+        .team-container-item .team-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .action {
+            cursor: pointer;
+        }
 
-            .team-details {
-                display: grid;
-                grid-template-columns: 25% 25% 25% 25%;
-            }
+        .team-details {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+        }
 
-            .accordion-content {
-                display: none;
-                transition: all 0.5s ease;
-            }
-        </style>`;
+        .accordion-content {
+            display: none;
+            transition: all 0.5s ease;
+        }
+    </style>`;
     
     constructor() {
       super();
@@ -96,10 +96,10 @@ class TeamsListComponent extends HTMLElement {
     }
 
     buildHTML(activeGame, teams) {
-        return this.componentStyle +
-        `<div id="teams">`
-        + this.buildTeams(activeGame, teams) +
-        `</div>`;
+        return this.componentStyle
+        + `<div id="teams">`
+        + this.buildTeams(activeGame, teams)
+        + `</div>`;
     }
 
     // all teams
@@ -123,14 +123,12 @@ class TeamsListComponent extends HTMLElement {
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
                         <div class="team-name">
-                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30"></img>
+                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30">
                             <span>${team.name}</span>
                         </div>
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
                         <div class="team-actions">
-                            <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
-                                class="action">
-                            </img>
+                            <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
                         </div>
                     </div>
                 </div>`;

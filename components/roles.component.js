@@ -1,11 +1,11 @@
 class RolesComponent extends HTMLElement {
 
     componentStyle = `
-        <style>
-            .roles-container {
-                /**/
-            }
-        </style>`;
+    <style>
+        .roles-container {
+            /**/
+        }
+    </style>`;
 
     constructor() {
       super();
@@ -21,11 +21,11 @@ class RolesComponent extends HTMLElement {
     }
 
     buildHTML(activeGame, currentTeam) {
-        return this.componentStyle + 
-        `<div class="team-details-container roles-container">
+        return this.componentStyle + `
+        <div class="team-details-container roles-container">
             <div>
                 <h5 class="content-header">
-                    <img src="assets/svg/roles.svg" height="20" class="action"></img>
+                    <img src="assets/svg/roles.svg" height="20" class="action">
                     Roles
                 </h5>
             </div>
@@ -46,18 +46,18 @@ class RolesComponent extends HTMLElement {
             let roleImage = '';
             if (charmd.role) {
                 const rolemd = getRoles(activeGame.code).find(role => role.name == charmd.role);
-                roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin: 0 10px 0 5px;"></img>`;
+                roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin: 0 10px 0 5px;">`;
             }
-            rolesContent +=  
-                `<tr>
-                    <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
-                    </td>
-                    <td>
-                        ${roleImage}
-                        ${character.role ?? ''}
-                    </td>
-                </tr>`;
+            rolesContent += `
+            <tr>
+                <td style="width: 50px; text-align: center">
+                    ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
+                </td>
+                <td>
+                    ${roleImage}
+                    ${character.role ?? ''}
+                </td>
+            </tr>`;
         });
 
         return rolesContent;

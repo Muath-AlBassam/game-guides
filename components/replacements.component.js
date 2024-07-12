@@ -1,11 +1,11 @@
 class ReplacementsComponent extends HTMLElement {
 
     componentStyle = `
-        <style>
-            .replacements-container {
-                /**/
-            }
-        </style>`;
+    <style>
+        .replacements-container {
+            /**/
+        }
+    </style>`;
 
     constructor() {
       super();
@@ -21,10 +21,10 @@ class ReplacementsComponent extends HTMLElement {
     }
 
     buildHTML(activeGame, currentTeam) {
-        return this.componentStyle + 
-        `<div class="team-details-container replacements-container">
+        return this.componentStyle + `
+        <div class="team-details-container replacements-container">
             <h5 class="content-header">
-                <img src="assets/svg/replacements.svg" height="20" class="action"></img>
+                <img src="assets/svg/replacements.svg" height="20" class="action">
                 Replacements
             </h5>
             <table class="table table-striped table-bordered">
@@ -50,15 +50,15 @@ class ReplacementsComponent extends HTMLElement {
                 })
             }
 
-            replacementsContent +=  
-                `<tr>
-                    <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
-                    </td>
-                    <td>
-                        ${charReplacements}
-                    </td>
-                </tr>`;
+            replacementsContent += `
+            <tr>
+                <td style="width: 50px; text-align: center">
+                    ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
+                </td>
+                <td>
+                    ${charReplacements}
+                </td>
+            </tr>`;
         });
 
         return replacementsContent;

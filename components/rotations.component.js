@@ -1,11 +1,11 @@
 class RotationsComponent extends HTMLElement {
 
     componentStyle = `
-        <style>
-            .rotations-container {
-                /**/
-            }
-        </style>`;
+    <style>
+        .rotations-container {
+            /**/
+        }
+    </style>`;
 
     constructor() {
       super();
@@ -21,10 +21,10 @@ class RotationsComponent extends HTMLElement {
     }
 
     buildHTML(activeGame, currentTeam) {
-        return this.componentStyle + 
-        `<div class="team-details-container roles-container">
+        return this.componentStyle + `
+        <div class="team-details-container roles-container">
             <h5 class="content-header">
-                <img src="assets/svg/rotations.svg" height="20" class="action"></img>
+                <img src="assets/svg/rotations.svg" height="20" class="action">
                 Rotations
             </h5>
             <div>
@@ -39,9 +39,9 @@ class RotationsComponent extends HTMLElement {
         if (currentTeam.rotations) {
             currentTeam.rotations.forEach(step => {
                 const charmd = getCharacterMetadata(activeGame.code, step[0]);
-                rotationsContent += 
-                    `${createCharacterImage(activeGame.code, charmd, 40, 'margin: 5px 10px 5px 0;')}
-                    <b style="margin-right: 8px;">${step[1]}</b>`;
+                rotationsContent += `
+                <span>${createCharacterImage(activeGame.code, charmd, 40, 'margin: 5px 10px 5px 0;')}</span>
+                <b style="margin-right: 8px;">${step[1]}</b>`;
             })
         }
 
