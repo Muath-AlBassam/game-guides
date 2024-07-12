@@ -10,7 +10,7 @@ class TeamsListComponent extends HTMLElement {
                 border: 1px solid #33343a;
                 border-radius: 0;
                 display: flex;
-                margin: 10px 0;
+                margin: 20px 0 0 0;
                 height: 150px;
                 width: 100%;
             }
@@ -61,9 +61,20 @@ class TeamsListComponent extends HTMLElement {
                 align-items: center;
                 justify-content: center;
             }
+            
             .team-actions .action {
                 margin: 10px;
                 cursor: pointer;
+            }
+
+            .team-details {
+                display: grid;
+                grid-template-columns: 25% 25% 25% 25%;
+            }
+
+            .accordion-content {
+                display: none;
+                transition: all 0.5s ease;
             }
         </style>`;
     
@@ -102,22 +113,26 @@ class TeamsListComponent extends HTMLElement {
             }
 
             let content = 
-            `<div class="team-container">
-                <div class="team-number">${index + 1}</div>
-                <div class="team-container-item">
-                    <div class="team-name">
-                        <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30"></img>
-                        <span>${team.name}</span>
-                    </div>
-                    <div class="team-members">${characters}</div>
-                    <div class="team-actions">
-                        <img src="assets/svg/roles.svg" height="40" title="Roles" class="action"></img>
-                        <img src="assets/svg/replacements.svg" height="40" title="Replacements" class="action"></img>
-                        <img src="assets/svg/variations.svg" height="40" title="Variations" class="action"></img>
-                        <img src="assets/svg/rotations.svg" height="40" title="Rotations" class="action"></img>
+                `<div class="team-container">
+                    <div class="team-number">${index + 1}</div>
+                    <div class="team-container-item">
+                        <div class="team-name">
+                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30"></img>
+                            <span>${team.name}</span>
+                        </div>
+                        <div class="team-members">${characters}</div>
+                        <div class="team-actions">
+                            <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
+                                class="action" data-bs-toggle="collapse" data-bs-target="#${activeGame.code}-${team.name}-roles">
+                            </img>
+                        </div>
                     </div>
                 </div>
-            </div>`;
+                <div class="team-details">
+                    <roles-component class="collapse" id="${activeGame.code}-${team.name}-roles" 
+                        data-bs-parent="#teams" game="${activeGame.code}" team="${team.name}">
+                    </roles-component>
+                </div>`;
             teamsListHTML += content;
         });
 
