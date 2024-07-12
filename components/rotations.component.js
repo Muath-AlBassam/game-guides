@@ -33,9 +33,10 @@ class RotationsComponent extends HTMLElement {
         this.innerHTML = 
             this.componentStyle + 
             `<div class="team-details-container roles-container">
-                <div>
-                    <h5 class="content-header">Rotations</h5>
-                </div>
+                <h5 class="content-header">
+                    <img src="assets/svg/rotations.svg" height="20" class="action"></img>
+                    Rotations
+                </h5>
                 <div>
                     ${rotationsContent}
                 </div>

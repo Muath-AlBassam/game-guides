@@ -45,9 +45,10 @@ class ReplacementsComponent extends HTMLElement {
         this.innerHTML = 
             this.componentStyle + 
             `<div class="team-details-container replacements-container">
-                <div>
-                    <h5 class="content-header">Replacements</h5>
-                </div>
+                <h5 class="content-header">
+                    <img src="assets/svg/replacements.svg" height="20" class="action"></img>
+                    Replacements
+                </h5>
                 <table class="table table-striped table-bordered">
                     <tbody>
                     ${replacementsContent}

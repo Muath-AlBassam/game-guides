@@ -37,7 +37,10 @@ class RolesComponent extends HTMLElement {
             this.componentStyle + 
             `<div class="team-details-container roles-container">
                 <div>
-                    <h5 class="content-header">Roles</h5>
+                    <h5 class="content-header">
+                        <img src="assets/svg/roles.svg" height="20" class="action"></img>
+                        Roles
+                    </h5>
                 </div>
                 <table class="table table-striped table-bordered">
                     <tbody>
