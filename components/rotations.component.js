@@ -43,6 +43,10 @@ class RotationsComponent extends HTMLElement {
                 <span>${createCharacterImage(activeGame.code, charmd, 40, 'margin: 5px 10px 5px 0;')}</span>
                 <b style="margin-right: 8px;">${step[1]}</b>`;
             })
+        } else {
+            rotationsContent += `
+                <h1 class="empty-details">...</h1>
+            `;
         }
 
         return rotationsContent;

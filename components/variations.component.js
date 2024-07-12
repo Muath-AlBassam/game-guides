@@ -50,6 +50,10 @@ class VariationsComponent extends HTMLElement {
                 })
                 variationsContent += `</td></tr>`;
             })
+        } else {
+            variationsContent += `
+                <h1 class="empty-details">...</h1>
+            `;
         }
 
         return variationsContent;

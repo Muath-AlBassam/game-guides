@@ -75,6 +75,17 @@ class TeamsListComponent extends HTMLElement {
             display: none;
             transition: all 0.5s ease;
         }
+
+        @media (max-width: 768px) {
+            /* not complete */
+            .team-container .team-container-item {
+                grid-template-columns: 1fr;
+            }
+
+            .team-details {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>`;
     
     constructor() {
