@@ -22,12 +22,19 @@ class RolesComponent extends HTMLElement {
 
         currentTeam.characters.forEach(character => {
             const charmd = getCharacterMetadata(activeGame.code, character?.name);
+            let roleImage = '';
+            if (charmd.role) {
+                const rolemd = getRoles(gameCode).find(role => role.name == charmd.role);
+                console.log(charmd.role, rolemd);
+                roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin-right: 10px;"></img>`;
+            }
             rolesContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
                        ${createCharacterImage(gameCode, charmd, 40, 'margin: 5px 10px;', true)}
                     </td>
                     <td>
+                        ${roleImage}
                         ${character.role ?? ''}
                     </td>
                 </tr>`;

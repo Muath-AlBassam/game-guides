@@ -71,6 +71,17 @@ function getCharacterMetadata(gameCode, characterName) {
     return data ?? { name: characterName }
 }
 
+function getRoles(gameCode) {
+    switch (gameCode) {
+        case 'HSR':
+            return GamesData.HSRRoles;
+        case 'ZZZ':
+            return GamesData.ZZZRoles;
+        default:
+            return null;
+    }
+}
+
 // create character image tag
 function createCharacterImage(gameCode, charmd, dimenstion = 105, style = '', asString = false) {
     if (asString) {

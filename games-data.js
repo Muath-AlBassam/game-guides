@@ -2,7 +2,7 @@ const arrow = Constants.unicode.arrow;
 const times = Constants.unicode.times;
 
 smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
-tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`
+tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
 
 
 const GamesData = {
@@ -1008,156 +1008,187 @@ const GamesData = {
         ['MC (Harmony)', {
             name: 'MC (Harmony)',
             imageUrl: 'assets/hsr/HSR_MCHarmony.jpg',
+            role: 'Harmony',
             rarity: '5'
         }],
         ['Lynx', {
             name: 'Lynx',
             imageUrl: 'assets/hsr/HSR_Lynx.jpg',
+            role: 'Abundance',
             rarity: '4'
         }],
         ['Clara', {
             name: 'Clara',
             imageUrl: 'assets/hsr/HSR_Clara.jpg',
+            role: 'Destruction',
             rarity: '5'
         }],
         ['Tingyun', {
             name: 'Tingyun',
             imageUrl: 'assets/hsr/HSR_Tingyun.jpg',
+            role: 'Harmony',
             rarity: '4'
         }],
         ['Ruan Mei', {
             name: 'Ruan Mei',
             imageUrl: 'assets/hsr/HSR_RuanMei.jpg',
+            role: 'Harmony',
             rarity: '5'
         }],
         ['Acheron', {
             name: 'Acheron',
             imageUrl: 'assets/hsr/HSR_Acheron.jpg',
+            role: 'Nihility',
             rarity: '5'
         }],
         ['Dang Heng · IL', {
             name: 'Dang Heng · IL',
             imageUrl: 'assets/hsr/HSR_DanHengIL.jpg',
+            role: 'Destruction',
             rarity: '5'
         }],
         ['Jingliu', {
             name: 'Jingliu',
             imageUrl: 'assets/hsr/HSR_Jingliu.jpg',
+            role: 'Destruction',
             rarity: '5'
         }],
         ['Kafka', {
             name: 'Kafka',
             imageUrl: 'assets/hsr/HSR_Kafka.jpg',
+            role: 'Nihility',
             rarity: '5'
         }],
         ['Sparkle', {
             name: 'Sparkle',
             imageUrl: 'assets/hsr/HSR_Sparkle.jpg',
+            role: 'Harmony',
             rarity: '5'
         }],
         ['Fu Xuan', {
             name: 'Fu Xuan',
             imageUrl: 'assets/hsr/HSR_FuXuan.jpg',
+            role: 'Preservation',
             rarity: '5'
         }],
         ['Dr. Ratio', {
             name: 'Dr. Ratio',
             imageUrl: 'assets/hsr/HSR_DrRatio.jpg',
+            role: 'Hunt',
             rarity: '5'
         }],
         ['Seele', {
             name: 'Seele',
             imageUrl: 'assets/hsr/HSR_Seele.jpg',
+            role: 'Hunt',
             rarity: '5'
         }],
         ['Black Swan', {
             name: 'Black Swan',
             imageUrl: 'assets/hsr/HSR_BlackSwan.jpg',
+            role: 'Nihility',
             rarity: '5'
         }],
         ['Bronya', {
             name: 'Bronya',
             imageUrl: 'assets/hsr/HSR_Bronya.jpg',
+            role: 'Harmony',
             rarity: '5'
         }],
         ['Silver Wolf', {
             name: 'Silver Wolf',
             imageUrl: 'assets/hsr/HSR_SilverWolf.jpg',
+            role: 'Nihility',
             rarity: '5'
         }],
         ['Huohuo', {
             name: 'Huohuo',
             imageUrl: 'assets/hsr/HSR_Huohuo.jpg',
+            role: 'Abundance',
             rarity: '5'
         }],
         ['Luocha', {
             name: 'Luocha',
             imageUrl: 'assets/hsr/HSR_Luocha.jpg',
+            role: 'Abundance',
             rarity: '5'
         }],
         ['Blade', {
             name: 'Blade',
             imageUrl: 'assets/hsr/HSR_Blade.jpg',
+            role: 'Destruction',
             rarity: '5'
         }],
         ['Xueyi', {
             name: 'Xueyi',
             imageUrl: 'assets/hsr/HSR_Xueyi.jpg',
+            role: 'Destruction',
             rarity: '4'
         }],
         ['Pela', {
             name: 'Pela',
             imageUrl: 'assets/hsr/HSR_Pela.jpg',
+            role: 'Nihility',
             rarity: '4'
         }],
         ['Welt', {
             name: 'Welt',
             imageUrl: 'assets/hsr/HSR_Welt.jpg',
+            role: 'Nihility',
             rarity: '5'
         }],
         ['Topaz', {
             name: 'Topaz',
             imageUrl: 'assets/hsr/HSR_Topaz.jpg',
+            role: 'Hunt',
             rarity: '5'
         }],
         ['Gepard', {
             name: 'Gepard',
             imageUrl: 'assets/hsr/HSR_Gepard.jpg',
+            role: 'Preservation',
             rarity: '5'
         }],
         ['Robin', {
             name: 'Robin',
             imageUrl: 'assets/hsr/HSR_Robin.jpg',
+            role: 'Harmony',
             rarity: '5'
         }],
         ['Hanya', {
             name: 'Hanya',
             imageUrl: 'assets/hsr/HSR_Hanya.jpg',
+            role: 'Harmony',
             rarity: '4'
         }],
         ['Boothill', {
             name: 'Boothill',
             imageUrl: 'assets/hsr/HSR_Boothill.jpg',
+            role: 'Hunt',
             rarity: '5'
         }],
         ['Gallagher', {
             name: 'Gallagher',
             imageUrl: 'assets/hsr/HSR_Gallagher.jpg',
+            role: 'Abundance',
             rarity: '4'
         }],
         ['Firefly', {
             name: 'Firefly',
             imageUrl: 'assets/hsr/HSR_Firefly.jpg',
+            role: 'Destruction',
             rarity: '5'
         }],
         ['Jade', {
             name: 'Jade',
             imageUrl: 'assets/hsr/HSR_Jade.jpg',
+            role: 'Erudition',
             rarity: '5'
         }],
         ['Herta', {
             name: 'Herta',
             imageUrl: 'assets/hsr/HSR_Herta.jpg',
+            role: 'Erudition',
             rarity: '4'
         }],
     ]),
@@ -1166,41 +1197,49 @@ const GamesData = {
         ['Ellen', {
             name: 'Ellen',
             imageUrl: 'assets/zzz/ZZZ_Ellen.jpg',
+            role: 'Attack',
             rarity: 'S'
         }],
         ['Soukaku', {
             name: 'Soukaku',
             imageUrl: 'assets/zzz/ZZZ_Soukaku.jpg',
+            role: 'Support',
             rarity: 'A'
         }],
         ['Anby', {
             name: 'Anby',
             imageUrl: 'assets/zzz/ZZZ_Anby.jpg',
+            role: 'Stun',
             rarity: 'A'
         }],
         ['Lycaon', {
             name: 'Lycaon',
             imageUrl: 'assets/zzz/ZZZ_Lycaon.jpg',
+            role: 'Stun',
             rarity: 'S'
         }],
         ['Grace', {
             name: 'Grace',
             imageUrl: 'assets/zzz/ZZZ_Grace.jpg',
+            role: 'Anomaly',
             rarity: 'S'
         }],
         ['Koleda', {
             name: 'Koleda',
             imageUrl: 'assets/zzz/ZZZ_Koleda.jpg',
+            role: 'Stun',
             rarity: 'S'
         }],
         ['Soldier 11', {
             name: 'Soldier 11',
             imageUrl: 'assets/zzz/ZZZ_Soldier11.jpg',
+            role: 'Attack',
             rarity: 'S'
         }],
         ['Lucy', {
             name: 'Lucy',
             imageUrl: 'assets/zzz/ZZZ_Lucy.jpg',
+            role: 'Support',
             rarity: 'A'
         }],
     ]),
@@ -1271,5 +1310,23 @@ const GamesData = {
             imageUrl: 'assets/hi3/HI3_Ai.png',
             rarity: 'A'
         }],
-    ])
+    ]),
+
+    HSRRoles: [
+        { name: 'Abundance', imageUrl: 'assets/hsr/HSR_Path_Abundance.jpg' },
+        { name: 'Destruction', imageUrl: 'assets/hsr/HSR_Path_Destruction.jpg' },
+        { name: 'Erudition', imageUrl: 'assets/hsr/HSR_Path_Erudition.jpg' },
+        { name: 'Harmony', imageUrl: 'assets/hsr/HSR_Path_Harmony.jpg' },
+        { name: 'Hunt', imageUrl: 'assets/hsr/HSR_Path_Hunt.jpg' },
+        { name: 'Nihility', imageUrl: 'assets/hsr/HSR_Path_Nihility.jpg' },
+        { name: 'Preservation', imageUrl: 'assets/hsr/HSR_Path_Preservation.jpg' },
+    ],
+
+    ZZZRoles: [
+        { name: 'Anomaly', imageUrl: 'assets/zzz/ZZZ_Style_Anomaly.jpg' },
+        { name: 'Attack', imageUrl: 'assets/zzz/ZZZ_Style_Attack.jpg' },
+        { name: 'Defence', imageUrl: 'assets/zzz/ZZZ_Style_Defence.jpg' },
+        { name: 'Stun', imageUrl: 'assets/zzz/ZZZ_Style_Stun.jpg' },
+        { name: 'Support', imageUrl: 'assets/zzz/ZZZ_Style_Support.jpg' },
+    ]
 }
