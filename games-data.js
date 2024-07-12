@@ -525,6 +525,9 @@ const GamesData = {
                     isMain: false,
                     replacedBy: ['Ruan Mei'],
                 }
+            ],
+            variations: [
+                ['Fu Xuan', 'Jade', 'Herta', 'Robin']
             ]
         },
         {
@@ -1109,6 +1112,16 @@ const GamesData = {
             name: 'Firefly',
             imageUrl: 'assets/hsr/HSR_Firefly.jpg',
             rarity: '5'
+        }],
+        ['Jade', {
+            name: 'Jade',
+            imageUrl: 'assets/hsr/HSR_Jade.jpg',
+            rarity: '5'
+        }],
+        ['Herta', {
+            name: 'Herta',
+            imageUrl: 'assets/hsr/HSR_Herta.jpg',
+            rarity: '4'
         }],
     ]),
 
