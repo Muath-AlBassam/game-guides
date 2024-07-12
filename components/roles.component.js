@@ -28,7 +28,7 @@ class RolesComponent extends HTMLElement {
                        ${createCharacterImage(gameCode, charmd, 40, 'margin: 5px 10px;', true)}
                     </td>
                     <td>
-                        ${character.role}
+                        ${character.role ?? ''}
                     </td>
                 </tr>`;
         })

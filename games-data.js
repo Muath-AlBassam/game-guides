@@ -634,7 +634,31 @@ const GamesData = {
         {
             name: 'Fire',
             iconUrl: 'assets/zzz/ZZZ_Fire.jpg',
-            characters: []
+            characters: [
+                {
+                    name: 'Soldier 11',
+                    role: 'Main [Basic + EX Special]',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Koleda',
+                    role: 'Stun',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Lucy',
+                    role: 'Atk Buff',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ],
+            rotations: [
+                ['Koleda', `Basic ${times}2 ${arrow} Stun ${arrow}`],
+                ['Lucy', `EX Special ${arrow}`],
+                ['Soldier 11', `(EX Special ${arrow} Basic) / Timed Basic`],
+            ]
         },
         {
             name: 'Ice',
@@ -647,7 +671,7 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Anby',
+                    name: 'Lycaon',
                     role: 'Stun',
                     isMain: false,
                     replacedBy: [],
@@ -661,7 +685,7 @@ const GamesData = {
             ],
             rotations: [
                 ['Ellen', `Dash + Basic ${smallText('(hold)')} ${arrow}`],
-                ['Anby', `(Basic${times}3 ${arrow} Basic ${smallText('(hold)')}) / EX Special ${arrow} Stun ${arrow}`],
+                ['Lycaon', `CA / EX Special ${arrow} Stun ${arrow}`],
                 ['Soukaku', `Special ${smallText('(hold)')} ${arrow} Chain/Quick-Assist ${arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]
@@ -669,7 +693,20 @@ const GamesData = {
         {
             name: 'Electric',
             iconUrl: 'assets/zzz/ZZZ_Electric.jpg',
-            characters: []
+            characters: [
+                {
+                    name: 'Grace',
+                    role: null,
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Anby',
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ]
         },
         {
             name: 'Ether',
@@ -1139,6 +1176,31 @@ const GamesData = {
         ['Anby', {
             name: 'Anby',
             imageUrl: 'assets/zzz/ZZZ_Anby.jpg',
+            rarity: 'A'
+        }],
+        ['Lycaon', {
+            name: 'Lycaon',
+            imageUrl: 'assets/zzz/ZZZ_Lycaon.jpg',
+            rarity: 'S'
+        }],
+        ['Grace', {
+            name: 'Grace',
+            imageUrl: 'assets/zzz/ZZZ_Grace.jpg',
+            rarity: 'S'
+        }],
+        ['Koleda', {
+            name: 'Koleda',
+            imageUrl: 'assets/zzz/ZZZ_Koleda.jpg',
+            rarity: 'S'
+        }],
+        ['Soldier 11', {
+            name: 'Soldier 11',
+            imageUrl: 'assets/zzz/ZZZ_Soldier11.jpg',
+            rarity: 'S'
+        }],
+        ['Lucy', {
+            name: 'Lucy',
+            imageUrl: 'assets/zzz/ZZZ_Lucy.jpg',
             rarity: 'A'
         }],
     ]),
