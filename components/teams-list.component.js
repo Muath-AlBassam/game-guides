@@ -129,6 +129,7 @@ class TeamsListComponent extends HTMLElement {
                     <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
                     <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
                     <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
+                    <rotations-component game="${activeGame.code}" team="${team.name}"></rotations-component>
                 </div>`;
             teamsListHTML += content;
         });
