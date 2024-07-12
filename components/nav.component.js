@@ -125,13 +125,13 @@ class NavComponent extends HTMLElement {
         const games = getAllGames();
         let navContent = '';
         games.forEach(g => {
-            const a = createElement('a', 'sidebar-item');
-            a.setAttribute('href', `#${g.code}`);
-            a.appendChild(createElement('i', 'text-shadow', null, g.code));
-            a.appendChild(createElement('span', 'nav-item', null, g.label));
-            const li = createElement('li');
-            li.appendChild(a);
-            navContent += li.outerHTML;
+            navContent +=
+                `<li>
+                    <a class="sidebar-item" href="#${g.code}">
+                        <i class="text-shadow">${g.code}</i>
+                        <span class="nav-item">${g.label}</span>
+                    </a>
+                </li>`;
         });
         return navContent;
     }

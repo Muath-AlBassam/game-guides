@@ -25,13 +25,12 @@ class RolesComponent extends HTMLElement {
             let roleImage = '';
             if (charmd.role) {
                 const rolemd = getRoles(gameCode).find(role => role.name == charmd.role);
-                console.log(charmd.role, rolemd);
-                roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin-right: 10px;"></img>`;
+                roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin: 0 10px 0 5px;"></img>`;
             }
             rolesContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(gameCode, charmd, 40, 'margin: 5px 10px;', true)}
+                       ${createCharacterImage(gameCode, charmd, 60, 'margin: 5px 10px;')}
                     </td>
                     <td>
                         ${roleImage}

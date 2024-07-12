@@ -27,14 +27,14 @@ class ReplacementsComponent extends HTMLElement {
             if (character.replacedBy) {
                 character.replacedBy.forEach(rep => {
                     const repmd = getCharacterMetadata(activeGame.code, rep);
-                    charReplacements += createCharacterImage(gameCode, repmd, 40, 'margin: 5px 10px;', true);
+                    charReplacements += createCharacterImage(gameCode, repmd, 60, 'margin: 5px 10px;');
                 })
             }
 
             replacementsContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(gameCode, charmd, 40, 'margin: 5px 10px;', true)}
+                       ${createCharacterImage(gameCode, charmd, 60, 'margin: 5px 10px;')}
                     </td>
                     <td>
                         ${charReplacements}

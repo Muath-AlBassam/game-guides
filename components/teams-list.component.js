@@ -104,7 +104,7 @@ class TeamsListComponent extends HTMLElement {
             for (let i = 0; i < activeGame.teamSize; i++) {
                 const character = team.characters[i]
                 const charmd = getCharacterMetadata(activeGame.code, character?.name);
-                membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;', true);
+                membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;');
             }
 
             const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;

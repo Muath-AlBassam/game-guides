@@ -15,6 +15,18 @@
     display: none;
 }
 
+/* Common styles ----------------------------------------------------------- */
+.content-header {
+    border-bottom: 2px solid #6b6b6b;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* Side nav ---------------------------------------------------------------- */
 .nav-component ~ .main-content {
     margin-left: 80px;
     width: calc(100% - 80px);
@@ -32,16 +44,7 @@
     transition: all 0.5s ease;
 }
 
-.content-header {
-    border-bottom: 2px solid #6b6b6b;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 20px;
-    margin: 25px 0 15px;
-    padding-bottom: 8px;
-    text-transform: uppercase;
-}
-
+/* Team container ---------------------------------------------------------- */
 .team-details {
     border: 2px solid #33343a;
     /* 
@@ -82,100 +85,7 @@
     justify-content: center;
 }
 
-/* span, th, td {
-    cursor: default;
-} */
-
-/* Bootstrap classes */
-/* .tooltip-inner {
-    max-width: 1000px !important;
-}
-.tooltip.show {
-    opacity: 1 !important;
-}  */
-
-/* Tab styles --------------------------------------------- */
-/* .tab-text {
-    cursor: pointer;
-    padding-inline-start: 10px;
-    font-weight: bold;
-    text-shadow: 1px 1px 0 #fff,
-        -1px 1px 0 #fff,
-        1px -1px 0 #fff,
-        -1px -1px 0 #fff,
-        0px 1px 0 #fff,
-        0px -1px 0 #fff,
-        -1px 0px 0 #fff,
-        1px 0px 0 #fff,
-        2px 2px 0 #fff,
-        -2px 2px 0 #fff,
-        2px -2px 0 #fff,
-        -2px -2px 0 #fff,
-        0px 2px 0 #fff,
-        0px -2px 0 #fff,
-        -2px 0px 0 #fff,
-        2px 0px 0 #fff,
-        1px 2px 0 #fff,
-        -1px 2px 0 #fff,
-        1px -2px 0 #fff,
-        -1px -2px 0 #fff,
-        2px 1px 0 #fff,
-        -2px 1px 0 #fff,
-        2px -1px 0 #fff,
-        -2px -1px 0 #fff;
-} */
-
-/* Table styles ------------------------------------------- */
-/* .table td, .table th {
-    padding: 0;
-    white-space: nowrap !important;
-}
-.table thead th {
-    font-size: 24px;
-    border: 3px double black;
-    padding: 1px;
-}
-.table thead th:nth-child(even) {
-    color: white;
-    background-color: #a5a5a5;
-}
-.table thead th:nth-child(odd) {
-    color: white;
-    background-color: #7f7f7f;
-} */
-
-/* Styles for specific columns ---------------------------- */
-/* Team name + icon */
-/* .team-name {
-    position: relative;
-    text-align: center;
-    height: 30px;
-    line-height: 30px;
-}
-.team-icon  {
-    width: 2%;
-    border-right: 1px hidden transparent;
-} */
-/* Team members */
-/* .character {
-    width: 105px;
-    height: 105px;
-    background-color: #23242a !important;
-    color: white !important;
-} */
-
-/* Center ------------------------------------------------- */
-/* .h-center {
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-.v-center {
-    justify-content: center;
-    vertical-align: middle;
-} */
-
-/* Character rarity background ---------------------------- */
+/* Character rarity background --------------------------------------------- */
 .GI-rarity-5 {
     background-image: url(assets/gi/GI_Rarity5.jpg);
     background-size: cover;
@@ -210,15 +120,3 @@
     background: linear-gradient(0deg, #be6fed, #8c37bd);
     border-bottom-color: #952fd2;
 }
-
-/* Game images -------------------------------------------- */
-/* .game-background {
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.game-logo {
-    max-height: 150px;
-    min-height: 150px;
-    position: absolute;
-    right: 1em;
-} */
