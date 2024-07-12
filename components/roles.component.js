@@ -3,34 +3,7 @@ class RolesComponent extends HTMLElement {
     componentStyle = `
         <style>
             .roles-container {
-                border: 2px solid #33343a;
-                padding: 0 10px;
-            }
-
-            .roles-container td {
-                color: var(--text-color);
-            }
-
-            .table {
-                border: 1px solid #33343a;
-                vertical-align: middle;
-            }
-
-            .table.table-striped>tbody>tr:nth-of-type(odd)>* {
-                background-color: #2c2d33;
-                box-shadow: none;
-                color: #fff;
-            }
-
-            .table.table-striped>tbody>tr:nth-of-type(even)>* {
-                background-color: transparent;
-                box-shadow: none;
-                color: #fff;
-            }
-
-            .table.table-striped td {
-                align-items: center;
-                justify-content: center;
+                /**/
             }
         </style>`;
 
@@ -67,7 +40,7 @@ class RolesComponent extends HTMLElement {
 
         this.innerHTML = 
             this.componentStyle + 
-            `<div class="roles-container">
+            `<div class="roles-container team-details-container">
                 <div>
                     <h5 class="content-header">Roles</h5>
                 </div>
