@@ -14,6 +14,12 @@ class HeaderComponent extends HTMLElement {
                 background-position: center;
                 opacity: 0.5;
             }
+
+            #guide-url {
+                text-decoration: none;
+                color: var(--text-color);
+                margin-left: 15px;
+            }
         </style>`;
 
     constructor() {
@@ -33,6 +39,9 @@ class HeaderComponent extends HTMLElement {
                     <h1 id="header-title">
                         ${activeGame.label}
                     </h1>
+                    <a href="${activeGame.guideUrl}" id="guide-url" target="_blank">
+                        <i class="fa fa-external-link"></i>
+                    </a>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <img height="100" src="${activeGame.logoUrl}" id="header-logo"></img>
@@ -57,6 +66,7 @@ function setGameDetails() {
     const activeGame = getGame(window.location.hash.replace('#', ''));
     // update header title & images
     document.getElementById('header-title').innerHTML = activeGame.label;
+    document.getElementById('guide-url').href = activeGame.guideUrl;
     document.getElementById('header-logo').src = activeGame.logoUrl;
     document.getElementById('header-background').style.backgroundImage = `url(${activeGame.backgroundUrl})`;
 }
