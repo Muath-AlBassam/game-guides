@@ -15,7 +15,7 @@ class RolesComponent extends HTMLElement {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
         const activeGame = getGame(gameCode);
-        const currentTeam = getTeams(gameCode).find(team => team.name == teamName);
+        const currentTeam = getTeam(gameCode, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, currentTeam);
     }

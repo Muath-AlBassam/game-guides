@@ -84,14 +84,14 @@ class TeamsListComponent extends HTMLElement {
 
     connectedCallback() {
         const activeGame = getGame(window.location.hash.replace('#', ''));
-        const teams = getTeams(activeGame.code);
+        const teams = getAllTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(activeGame, teams);
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
         const activeGame = getGame(window.location.hash.replace('#', ''));
-        const teams = getTeams(activeGame.code);
+        const teams = getAllTeams(activeGame.code);
 
         document.getElementById('teams').innerHTML = this.buildTeams(activeGame, teams);
     }

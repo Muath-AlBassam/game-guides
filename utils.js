@@ -24,7 +24,7 @@ function appendAll(parent, children) {
     return parent;
 }
 
-// TeamBuilds Utils -----------------------------------------------------------
+// Game Data Utils ------------------------------------------------------------
 
 function getAllGames() {
     return GamesData.games;
@@ -37,7 +37,7 @@ function getGame(gameCode) {
     return game ?? games.find(g => g.code == 'GI');
 }
 
-function getTeams(gameCode) {
+function getAllTeams(gameCode) {
     switch (gameCode) {
         case 'GI':
             return GamesData.GITeams;
@@ -48,8 +48,13 @@ function getTeams(gameCode) {
         case 'HI3':
             return GamesData.HI3Teams;
         default:
-            return null;
+            return [];
     }
+}
+
+function getTeam(gameCode, teamName) {
+    let teams = getAllTeams(gameCode);
+    return teams.find(team => team.name == teamName);
 }
 
 function getCharacterMetadata(gameCode, characterName) {
