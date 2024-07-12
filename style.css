@@ -46,6 +46,7 @@
     border: 2px solid #33343a;
     padding: 0 10px;
 }
+
 .team-details-container td {
     color: var(--text-color);
 }

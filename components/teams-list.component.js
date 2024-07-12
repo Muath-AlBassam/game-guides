@@ -107,6 +107,8 @@ class TeamsListComponent extends HTMLElement {
                 membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;', true);
             }
 
+            const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
+
             let content = 
                 `<div class="team-container">
                     <div class="team-number">${index + 1}</div>
@@ -118,15 +120,15 @@ class TeamsListComponent extends HTMLElement {
                         <div class="team-members">${membersImages}</div>
                         <div class="team-actions">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
-                                class="action" data-bs-toggle="collapse" data-bs-target="#${activeGame.code}-${team.name}-roles">
+                                class="action" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             </img>
                         </div>
                     </div>
                 </div>
-                <div class="team-details">
-                    <roles-component class="collapse" id="${activeGame.code}-${team.name}-roles" 
-                        data-bs-parent="#teams" game="${activeGame.code}" team="${team.name}">
-                    </roles-component>
+                <div class="team-details collapse" data-bs-parent="#teams" id="${teamId}">
+                    <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
+                    <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
+                    <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
                 </div>`;
             teamsListHTML += content;
         });
