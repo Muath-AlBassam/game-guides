@@ -14,10 +14,29 @@ class ReplacementsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        
         const activeGame = getGame(gameCode);
         const currentTeam = getTeams(gameCode).find(team => team.name == teamName);
 
+        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+    }
+
+    buildHTML(activeGame, currentTeam) {
+        return this.componentStyle + 
+        `<div class="team-details-container replacements-container">
+            <h5 class="content-header">
+                <img src="assets/svg/replacements.svg" height="20" class="action"></img>
+                Replacements
+            </h5>
+            <table class="table table-striped table-bordered">
+                <tbody>
+                ${this.buildReplacements(activeGame, currentTeam)}
+                </tbody>
+            </table>
+        </div>`;
+    }
+
+    // build <tr> for each team member replacement
+    buildReplacements(activeGame, currentTeam) {
         let replacementsContent = '';
 
         currentTeam.characters.forEach(character => {
@@ -27,34 +46,22 @@ class ReplacementsComponent extends HTMLElement {
             if (character.replacedBy) {
                 character.replacedBy.forEach(rep => {
                     const repmd = getCharacterMetadata(activeGame.code, rep);
-                    charReplacements += createCharacterImage(gameCode, repmd, 60, 'margin: 5px 10px;');
+                    charReplacements += createCharacterImage(activeGame.code, repmd, 60, 'margin: 5px 10px;');
                 })
             }
 
             replacementsContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(gameCode, charmd, 60, 'margin: 5px 10px;')}
+                       ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
                     </td>
                     <td>
                         ${charReplacements}
                     </td>
                 </tr>`;
-        })
+        });
 
-        this.innerHTML = 
-            this.componentStyle + 
-            `<div class="team-details-container replacements-container">
-                <h5 class="content-header">
-                    <img src="assets/svg/replacements.svg" height="20" class="action"></img>
-                    Replacements
-                </h5>
-                <table class="table table-striped table-bordered">
-                    <tbody>
-                    ${replacementsContent}
-                    </tbody>
-                </table>
-            </div>`;
+        return replacementsContent;
     }
 }
 

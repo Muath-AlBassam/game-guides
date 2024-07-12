@@ -14,46 +14,53 @@ class RolesComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        
         const activeGame = getGame(gameCode);
         const currentTeam = getTeams(gameCode).find(team => team.name == teamName);
 
+        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+    }
+
+    buildHTML(activeGame, currentTeam) {
+        return this.componentStyle + 
+        `<div class="team-details-container roles-container">
+            <div>
+                <h5 class="content-header">
+                    <img src="assets/svg/roles.svg" height="20" class="action"></img>
+                    Roles
+                </h5>
+            </div>
+            <table class="table table-striped table-bordered">
+                <tbody>
+                ${this.buildRolesContent(activeGame, currentTeam)}
+                </tbody>
+            </table>
+        </div>`;
+    }
+
+    // build <tr> for each team member role
+    buildRolesContent(activeGame, currentTeam) {
         let rolesContent = '';
 
         currentTeam.characters.forEach(character => {
             const charmd = getCharacterMetadata(activeGame.code, character?.name);
             let roleImage = '';
             if (charmd.role) {
-                const rolemd = getRoles(gameCode).find(role => role.name == charmd.role);
+                const rolemd = getRoles(activeGame.code).find(role => role.name == charmd.role);
                 roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin: 0 10px 0 5px;"></img>`;
             }
             rolesContent +=  
                 `<tr>
                     <td style="width: 50px; text-align: center">
-                       ${createCharacterImage(gameCode, charmd, 60, 'margin: 5px 10px;')}
+                       ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
                     </td>
                     <td>
                         ${roleImage}
                         ${character.role ?? ''}
                     </td>
                 </tr>`;
-        })
+        });
 
-        this.innerHTML = 
-            this.componentStyle + 
-            `<div class="team-details-container roles-container">
-                <div>
-                    <h5 class="content-header">
-                        <img src="assets/svg/roles.svg" height="20" class="action"></img>
-                        Roles
-                    </h5>
-                </div>
-                <table class="table table-striped table-bordered">
-                    <tbody>
-                    ${rolesContent}
-                    </tbody>
-                </table>
-            </div>`;
+        return rolesContent;
     }
 }
 

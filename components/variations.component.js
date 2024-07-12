@@ -14,10 +14,30 @@ class VariationsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        
         const activeGame = getGame(gameCode);
         const currentTeam = getTeams(gameCode).find(team => team.name == teamName);
 
+        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+    }
+
+    buildHTML(activeGame, currentTeam) {
+        return this.componentStyle + 
+        `<div class="team-details-container variations-container">
+            <div>
+                <h5 class="content-header">
+                    <img src="assets/svg/variations.svg" height="20" class="action"></img>
+                    Variations
+                </h5>
+            </div>
+            <table class="table table-striped table-bordered">
+                <tbody>
+                ${this.buildVariationsContent(activeGame, currentTeam)}
+                </tbody>
+            </table>
+        </div>`;
+    }
+
+    buildVariationsContent(activeGame, currentTeam) {
         let variationsContent = '';
 
         if (currentTeam.variations) {
@@ -25,27 +45,13 @@ class VariationsComponent extends HTMLElement {
                 variationsContent += '<tr><td style="width: 50px; text-align: center">';
                 vari.forEach(character => {
                     const charmd = getCharacterMetadata(activeGame.code, character);
-                    variationsContent += createCharacterImage(gameCode, charmd, 60, 'margin: 5px 10px;');
+                    variationsContent += createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;');
                 })
                 variationsContent += '</td></tr>';
             })
         }
 
-        this.innerHTML = 
-            this.componentStyle + 
-            `<div class="team-details-container variations-container">
-                <div>
-                    <h5 class="content-header">
-                        <img src="assets/svg/variations.svg" height="20" class="action"></img>
-                        Variations
-                    </h5>
-                </div>
-                <table class="table table-striped table-bordered">
-                    <tbody>
-                    ${variationsContent}
-                    </tbody>
-                </table>
-            </div>`;
+        return variationsContent;
     }
 }
 

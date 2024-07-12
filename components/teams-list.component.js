@@ -83,58 +83,78 @@ class TeamsListComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        this.innerHTML = 
-            this.componentStyle +
-            `<div id="teams">`
-            + this.createTeams() +
-            `</div>`;
-    }
-    
-    attributeChangedCallback(name, oldValue, newValue) {
-        document.getElementById('teams').innerHTML = this.createTeams();
-    }
-
-    createTeams() {
         const activeGame = getGame(window.location.hash.replace('#', ''));
         const teams = getTeams(activeGame.code);
 
+        this.innerHTML = this.buildHTML(activeGame, teams);
+    }
+    
+    attributeChangedCallback(name, oldValue, newValue) {
+        const activeGame = getGame(window.location.hash.replace('#', ''));
+        const teams = getTeams(activeGame.code);
+
+        document.getElementById('teams').innerHTML = this.buildTeams(activeGame, teams);
+    }
+
+    buildHTML(activeGame, teams) {
+        return this.componentStyle +
+        `<div id="teams">`
+        + this.buildTeams(activeGame, teams) +
+        `</div>`;
+    }
+
+    // all teams
+    buildTeams(activeGame, teams) {
         let teamsListHTML = '';
         teams.forEach((team, index) => {
-            let membersImages = ``;
-            for (let i = 0; i < activeGame.teamSize; i++) {
-                const character = team.characters[i]
-                const charmd = getCharacterMetadata(activeGame.code, character?.name);
-                membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;');
-            }
-
             const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
 
             let content = 
-                `<div class="team-container">
+                this.buildTeamContainer(activeGame, team, teamId, index) +
+                this.buildTeamDetails(activeGame, team, teamId);
+            teamsListHTML += content;
+        });
+
+        return teamsListHTML;
+    }
+
+    // a row for one team
+    buildTeamContainer(activeGame, team, teamId, index) {
+        return `<div class="team-container">
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
                         <div class="team-name">
                             <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30"></img>
                             <span>${team.name}</span>
                         </div>
-                        <div class="team-members">${membersImages}</div>
+                        <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
                         <div class="team-actions">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" 
                                 class="action" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             </img>
                         </div>
                     </div>
-                </div>
-                <div class="team-details collapse" data-bs-parent="#teams" id="${teamId}">
+                </div>`;
+    }
+
+    buildMemebersImages(activeGame, team) {
+        let membersImages = ``;
+        for (let i = 0; i < activeGame.teamSize; i++) {
+            const character = team.characters[i]
+            const charmd = getCharacterMetadata(activeGame.code, character?.name);
+            membersImages += createCharacterImage(activeGame.code, charmd, 100, 'margin: 5px 10px;');
+        }
+        return membersImages;
+    }
+
+    // team details (collapsable/accordion content)
+    buildTeamDetails(activeGame, team, teamId) {
+        return `<div class="team-details collapse" data-bs-parent="#teams" id="${teamId}">
                     <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
                     <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
                     <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
                     <rotations-component game="${activeGame.code}" team="${team.name}"></rotations-component>
                 </div>`;
-            teamsListHTML += content;
-        });
-
-        return teamsListHTML;
     }
 }
 

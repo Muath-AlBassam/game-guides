@@ -105,20 +105,23 @@ class NavComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.innerHTML = 
-            this.componentStyle +
-            `<div class="sidebar">
-                <div class="top">
-                    <div class="logo">
-                        <span>Game Guides</span>
-                    </div>
-                    <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
+        this.innerHTML = this.buildHTML();
+    }
+
+    buildHTML() {
+        return this.componentStyle +
+        `<div class="sidebar">
+            <div class="top">
+                <div class="logo">
+                    <span>Game Guides</span>
                 </div>
-                <ul style="padding-left: 0">`
-                + this.createGamesNav() +
-                `</ul>
-            </div>`;
-      // ul style to disable bootstrap effect
+                <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
+            </div>
+            <ul style="padding-left: 0">`
+            + this.createGamesNav() +
+            `</ul>
+        </div>`;
+        // <ul> style to disable bootstrap effect
     }
 
     createGamesNav() {

@@ -21,24 +21,27 @@ class HeaderComponent extends HTMLElement {
     }
   
     connectedCallback() {
+        this.innerHTML = this.buildHTML();
+    }
+
+    buildHTML() {
         const activeGame = getGame(null);
-        this.innerHTML = 
-            this.componentStyle + 
-            `<div class="header">
-                <div class="row">
-                    <div class="col-md-6 title">
-                        <h1 id="header-title">
-                            ${activeGame.label}
-                        </h1>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-end">
-                        <img height="100" src="${activeGame.logoUrl}" id="header-logo"></img>
-                    </div>
-                    <div class="col-md-12 game-background" id="header-background" 
-                        style="background-image: url(${activeGame.backgroundUrl});">
-                    </div>
+        return this.componentStyle + 
+        `<div class="header">
+            <div class="row">
+                <div class="col-md-6 title">
+                    <h1 id="header-title">
+                        ${activeGame.label}
+                    </h1>
                 </div>
-            </div>`;
+                <div class="col-md-6 d-flex justify-content-end">
+                    <img height="100" src="${activeGame.logoUrl}" id="header-logo"></img>
+                </div>
+                <div class="col-md-12 game-background" id="header-background" 
+                    style="background-image: url(${activeGame.backgroundUrl});">
+                </div>
+            </div>
+        </div>`;
     }
 }
 
