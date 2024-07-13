@@ -24,6 +24,12 @@ function appendAll(parent, children) {
     return parent;
 }
 
+// Other Utils ----------------------------------------------------------------
+
+function getGameFromUrl() {
+    return window.location.hash.replace('#', '');
+}
+
 // Game Data Utils ------------------------------------------------------------
 
 function getAllGames() {
@@ -34,18 +40,18 @@ function getGame(gameCode) {
     const games = getAllGames();
     const game = games.find(g => g.code == gameCode);
     // return default game if not found
-    return game ?? games.find(g => g.code == 'GI');
+    return game ?? games.find(g => g.code == Constants.games.GI);
 }
 
 function getAllTeams(gameCode) {
     switch (gameCode) {
-        case 'GI':
+        case Constants.games.GI:
             return GamesData.GITeams;
-        case 'HSR':
+        case Constants.games.HSR:
             return GamesData.HSRTeams;
-        case 'ZZZ':
+        case Constants.games.ZZZ:
             return GamesData.ZZZTeams;
-        case 'HI3':
+        case Constants.games.HI3:
             return GamesData.HI3Teams;
         default:
             return [];
@@ -60,16 +66,16 @@ function getTeam(gameCode, teamName) {
 function getCharacterMetadata(gameCode, characterName) {
     let data;
     switch (gameCode) {
-        case 'GI':
+        case Constants.games.GI:
             data = GamesData.GICharacters.get(characterName);
             break;
-        case 'HSR':
+        case Constants.games.HSR:
             data = GamesData.HSRCharacters.get(characterName);
             break;
-        case 'ZZZ':
+        case Constants.games.ZZZ:
             data = GamesData.ZZZCharacters.get(characterName);
             break;
-        case 'HI3':
+        case Constants.games.HI3:
             data = GamesData.HI3Characters.get(characterName);
             break;
     }
@@ -78,9 +84,9 @@ function getCharacterMetadata(gameCode, characterName) {
 
 function getRoles(gameCode) {
     switch (gameCode) {
-        case 'HSR':
+        case Constants.games.HSR:
             return GamesData.HSRRoles;
-        case 'ZZZ':
+        case Constants.games.ZZZ:
             return GamesData.ZZZRoles;
         default:
             return null;

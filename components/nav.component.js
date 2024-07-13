@@ -157,7 +157,7 @@ window.addEventListener('hashchange', () => {
 function setActiveNav() {
     const navs = document.querySelectorAll('.sidebar-item');
     navs.forEach(tab => {
-        if (tab.href.includes(window.location.hash)) {
+        if (tab.href.includes(getGameFromUrl())) {
             tab.classList.add('active');
         } else {
             tab.classList.remove('active');

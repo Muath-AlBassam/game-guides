@@ -9,7 +9,7 @@ const GamesData = {
     games: [
         {
             label: 'Genshin Impact',
-            code: 'GI',
+            code: Constants.games.GI,
             teamSize: 4,
             logoUrl: 'assets/gi/GI_Logo.png',
             backgroundUrl: 'assets/gi/GI_BG.png',
@@ -17,7 +17,7 @@ const GamesData = {
         },
         {
             label: 'Honkai Star Rail',
-            code: 'HSR',
+            code: Constants.games.HSR,
             teamSize: 4,
             logoUrl: 'assets/hsr/HSR_Logo.png',
             backgroundUrl: 'assets/hsr/HSR_BG.png',
@@ -25,7 +25,7 @@ const GamesData = {
         },
         {
             label: 'Zenless Zone Zero',
-            code: 'ZZZ',
+            code: Constants.games.ZZZ,
             teamSize: 3,
             logoUrl: 'assets/zzz/ZZZ_Logo.png',
             backgroundUrl: 'assets/zzz/ZZZ_BG.png',
@@ -33,7 +33,7 @@ const GamesData = {
         },
         {
             label: 'Honkai Impact 3rd',
-            code: 'HI3',
+            code: Constants.games.HI3,
             teamSize: 3,
             logoUrl: 'assets/hi3/HI3_Logo.png',
             backgroundUrl: 'assets/hi3/HI3_BG.jpg',

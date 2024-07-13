@@ -93,14 +93,14 @@ class TeamsListComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const activeGame = getGame(window.location.hash.replace('#', ''));
+        const activeGame = getGame(getGameFromUrl());
         const teams = getAllTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(activeGame, teams);
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
-        const activeGame = getGame(window.location.hash.replace('#', ''));
+        const activeGame = getGame(getGameFromUrl());
         const teams = getAllTeams(activeGame.code);
 
         document.getElementById('teams').innerHTML = this.buildTeams(activeGame, teams);
@@ -172,5 +172,5 @@ customElements.define('teams-list-component', TeamsListComponent);
 
 window.addEventListener('hashchange', () => {
     // change attribute to trigger "attributeChangedCallback"
-    document.getElementsByTagName('teams-list-component')[0].setAttribute('name', window.location.hash.replace('#', ''));
+    document.getElementsByTagName('teams-list-component')[0].setAttribute('name', getGameFromUrl());
 });
