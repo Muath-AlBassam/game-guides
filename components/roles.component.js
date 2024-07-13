@@ -45,7 +45,7 @@ class RolesComponent extends HTMLElement {
             const charmd = getCharacterMetadata(activeGame.code, character?.name);
             let roleImage = '';
             if (charmd.role) {
-                const rolemd = getRoles(activeGame.code).find(role => role.name == charmd.role);
+                const rolemd = getRole(activeGame.code, charmd.role);
                 roleImage = `<img src="${rolemd.imageUrl}" height="20" title="${rolemd.name}" style="margin: 0 10px 0 5px;">`;
             }
             rolesContent += `

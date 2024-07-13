@@ -95,7 +95,7 @@ function getTeam(gameCode, teamName) {
     return teams.find(team => team.name == teamName);
 }
 
-function getRoles(gameCode) {
+function getAllRoles(gameCode) {
     switch (gameCode) {
         case Constants.games.HSR:
             return GamesData.HSRRoles;
@@ -104,6 +104,11 @@ function getRoles(gameCode) {
         default:
             return null;
     }
+}
+
+function getRole(gameCode, roleName) {
+    let roles = getAllRoles(gameCode);
+    return roles.find(role => role.name == roleName);
 }
 
 function getCharacterMetadata(gameCode, characterName) {
