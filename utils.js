@@ -30,6 +30,38 @@ function getGameFromUrl() {
     return window.location.hash.replace('#', '');
 }
 
+// 
+
+function getWeaponsLabel(gameCode) {
+    switch (gameCode) {
+        case Constants.games.GI:
+            return 'Weapon';
+        case Constants.games.HSR:
+            return 'Light Cone';
+        case Constants.games.ZZZ:
+            return 'W-Engine';
+        case Constants.games.HI3:
+            return 'Weapon';
+        default:
+            return '';
+    }    
+}
+
+function getArtifactsLabel(gameCode) {
+    switch (gameCode) {
+        case Constants.games.GI:
+            return 'Artifacts';
+        case Constants.games.HSR:
+            return 'Relics & Planar';
+        case Constants.games.ZZZ:
+            return 'Drive Discs';
+        case Constants.games.HI3:
+            return 'Stigmata';
+        default:
+            return '';
+    }    
+}
+
 // Game Data Utils ------------------------------------------------------------
 
 function getAllGames() {

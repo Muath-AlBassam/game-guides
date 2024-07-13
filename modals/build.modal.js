@@ -26,26 +26,43 @@ class BuildModal extends HTMLElement {
             width: 20%;
         }
 
-        .build-modal-content td {
-            color: var(--text-color);
-        }
-        .build-modal-content .table {
-            border: 1px solid #33343a;
-            vertical-align: middle;
-        }
-        .build-modal-content .table.table-striped>tbody>tr:nth-of-type(odd)>* {
+        .build-container {
             background-color: #2c2d33;
-            box-shadow: none;
-            color: #fff;
+            border: 2px solid #484950;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
         }
-        .build-modal-content .table.table-striped>tbody>tr:nth-of-type(even)>* {
-            background-color: transparent;
-            box-shadow: none;
-            color: #fff;
+
+        .build-container .build-header {
+            grid-gap: 0;
+            align-items: center;
+            background-color: #36373d;
+            border-bottom: 1px solid #484950;
+            display: grid;
+            grid-template-columns: 80px calc(100% - 80px);
+            justify-content: space-between;
+            width: 100%;
         }
-        .build-modal-content .table.table-striped td {
+
+        .build-container .build-header .build-icon {
+            display: flex;
             align-items: center;
             justify-content: center;
+            height: 70px;
+            width: 70px;
+        }
+
+        .build-container .build-header .build-info {
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+        }
+
+        .build-container .build-header .build-info .piece-count {
+            color: hsla(0, 0%, 100%, .75);
+            display: inline;
+            padding-right: 5px;
         }
 
         .close-modal {
@@ -75,49 +92,48 @@ class BuildModal extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = window.location.hash.replace('#', '');
+        const activeGame = getGame(getGameFromUrl());
         const character = this.getAttribute('character');
 
-        this.innerHTML = this.buildHTML(gameCode, character);
+        this.innerHTML = this.buildHTML(activeGame, character);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        const gameCode = window.location.hash.replace('#', '');
+        const activeGame = getGame(getGameFromUrl());
         const character = this.getAttribute('character');
 
-        document.getElementById('modal-body').innerHTML = this.buildDialogContent(gameCode, character);
+        document.getElementById('modal-body').innerHTML = this.buildDialogContent(activeGame, character);
     }
 
-    buildHTML(gameCode, character) {
+    buildHTML(activeGame, character) {
         return this.componentStyle + `
         <div class="build-modal" id="modal">
             <div class="build-modal-content" id="modal-body">
-                ${this.buildDialogContent(gameCode, character)}
+                ${this.buildDialogContent(activeGame, character)}
             </div>
         </div>`;
     }
 
-    buildDialogContent(gameCode, character) {
-        let charmd = getCharacterMetadata(gameCode, character);
-
+    buildDialogContent(activeGame, character) {
         let buildContent = '';
-        buildContent += this.buildModalHeader(charmd, gameCode);
+        let charmd = getCharacterMetadata(activeGame.code, character);
+        buildContent += this.buildModalHeader(charmd);
         if (charmd?.build) {
-            buildContent += this.buildWeaponTable(charmd, gameCode);
-            buildContent += this.buildArtifactsTable(charmd);
+            buildContent += this.buildWeaponTable(charmd, activeGame.code);
+            buildContent += this.buildArtifactsTable(charmd, activeGame.code);
         } else {
             buildContent += `<h1 class="empty-dialog">...</h1>`
         }
         return buildContent;
     }
 
-    buildModalHeader(charmd, gameCode) {
+    buildModalHeader(charmd) {
         return `
         <div class="close-modal" onclick="closeBuildModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-            <img src="${charmd.imageUrl}" height="70" /> 
-            <h5 style="margin-left: 10px;">${charmd.name}</h5>
+                <img src="${charmd.imageUrl}" height="70" /> 
+                <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>
         `;
@@ -129,45 +145,44 @@ class BuildModal extends HTMLElement {
             const weapon = charmd.build.weapon;
             content = `
             <h5 class="content-header">
-                Weapon
+                ${getWeaponsLabel(gameCode)}
             </h5>
-            <table class="table table-striped table-bordered">
-                <tbody>
-                    <tr>
-                        <td style="width: 50px; text-align: center">
-                            <img src="${weapon.imageUrl}" class="${gameCode}-rarity-${weapon.rarity}" height="70" />
-                        </td>
-                        <td>
-                            ${weapon.name}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>`;
+            <div class="build-container">
+                <div class="build-header">
+                    <div class="build-icon">
+                        <img src="${weapon.imageUrl}" class="${gameCode}-rarity-${weapon.rarity}" height="70" />
+                    </div>
+                    <div class="build-info">
+                        <h5 style="margin-bottom: 0;">${weapon.name}</h5>
+                    </div>
+                </div>
+            </div>`;
         }
         return content;
     }
 
-    buildArtifactsTable(charmd) {
+    buildArtifactsTable(charmd, gameCode) {
         let content = '';
         if (charmd.build.artifacts) {
             content += `
             <h5 class="content-header">
-                Artifacts
+                ${getArtifactsLabel(gameCode)}
             </h5>
-            <table class="table table-striped table-bordered"><tbody>`;
+            <div class="build-container">`;
             
             charmd.build.artifacts.forEach(art => {
                 content += `
-                <tr>
-                    <td style="width: 50px; text-align: center">
-                        <img src='${art.imageUrl}' height="70" />
-                    </td>
-                    <td>
-                        ${art.name}
-                    </td>
-                </tr>`;
+                <div class="build-header">
+                    <div class="build-icon">
+                        <img src="${art.imageUrl}" height="70" />
+                    </div>
+                    <div class="build-info">
+                        <span class="piece-count">(${art.pieceCount})</span>
+                        <h5 style="margin-bottom: 0;">${art.name}</h5>
+                    </div>
+                </div>`;
             });
-            content += `</tbody></table>`
+            content += `</div>`
         }
         return content;
     }

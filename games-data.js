@@ -1102,8 +1102,8 @@ const GamesData = {
             build: {
                 weapon: { name: 'In the Night', rarity: '5', imageUrl: 'assets/hsr/build/HSR_Weapon_InTheNight.jpg' },
                 artifacts: [
-                    { name: 'Genius of Brilliant Stars', imageUrl: 'assets/hsr/build/HSR_Set_GeniusOfBrilliantStars.jpg' },
-                    { name: 'Inert Salsotto', imageUrl: 'assets/hsr/build/HSR_Planar_InsertSalsotto.jpg' }
+                    { name: 'Genius of Brilliant Stars', pieceCount: '4', imageUrl: 'assets/hsr/build/HSR_Set_GeniusOfBrilliantStars.jpg' },
+                    { name: 'Inert Salsotto', pieceCount: '2', imageUrl: 'assets/hsr/build/HSR_Planar_InsertSalsotto.jpg' }
                 ]
             }
         }],

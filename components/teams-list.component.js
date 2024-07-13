@@ -107,10 +107,15 @@ class TeamsListComponent extends HTMLElement {
     }
 
     buildHTML(activeGame, teams) {
-        return this.componentStyle
-        + `<div id="teams">`
-        + this.buildTeams(activeGame, teams)
-        + `</div>`;
+        return this.componentStyle + `
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-header">Teams</div>
+            </div>
+        </div>
+        <div id="teams">
+            ${this.buildTeams(activeGame, teams)}
+        </div>`;
     }
 
     // all teams
