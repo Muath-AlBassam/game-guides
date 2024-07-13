@@ -851,7 +851,7 @@ const GamesData = {
     GICharacters: new Map([
         ['Arlecchino', {
             name: 'Arlecchino',
-            imageUrl: 'assets/gi/GI_Arlecchino.png',
+            imageUrl: 'assets/gi/character/GI_Arlecchino.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Crimson Moon\'s Semblance' }
@@ -859,7 +859,7 @@ const GamesData = {
         }],
         ['Chiori', {
             name: 'Chiori',
-            imageUrl: 'assets/gi/GI_Chiori.png',
+            imageUrl: 'assets/gi/character/GI_Chiori.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Uraku Misugiri' }
@@ -867,7 +867,7 @@ const GamesData = {
         }],
         ['Bennett', {
             name: 'Bennett',
-            imageUrl: 'assets/gi/GI_Bennett.png',
+            imageUrl: 'assets/gi/character/GI_Bennett.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Skyward Blade' }
@@ -875,7 +875,7 @@ const GamesData = {
         }],
         ['Diluc', {
             name: 'Diluc',
-            imageUrl: 'assets/gi/GI_Diluc.png',
+            imageUrl: 'assets/gi/character/GI_Diluc.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Wolf\'s Gravestone' }
@@ -883,7 +883,7 @@ const GamesData = {
         }],
         ['Eula', {
             name: 'Eula',
-            imageUrl: 'assets/gi/GI_Eula.png',
+            imageUrl: 'assets/gi/character/GI_Eula.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Song of Broken Pines' }
@@ -891,7 +891,7 @@ const GamesData = {
         }],
         ['Faruzan', {
             name: 'Faruzan',
-            imageUrl: 'assets/gi/GI_Faruzan.png',
+            imageUrl: 'assets/gi/character/GI_Faruzan.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Warbow' }
@@ -899,7 +899,7 @@ const GamesData = {
         }],
         ['Fischl', {
             name: 'Fischl',
-            imageUrl: 'assets/gi/GI_Fischl.png',
+            imageUrl: 'assets/gi/character/GI_Fischl.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Mitternachts Waltz' }
@@ -907,7 +907,7 @@ const GamesData = {
         }],
         ['Furina', {
             name: 'Furina',
-            imageUrl: 'assets/gi/GI_Furina.png',
+            imageUrl: 'assets/gi/character/GI_Furina.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Splendor of Tranquil Waters' }
@@ -915,7 +915,7 @@ const GamesData = {
         }],
         ['Ayaka', {
             name: 'Ayaka',
-            imageUrl: 'assets/gi/GI_Ayaka.png',
+            imageUrl: 'assets/gi/character/GI_Ayaka.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Mistsplitter Reforged' }
@@ -923,7 +923,7 @@ const GamesData = {
         }],
         ['Kazuha', {
             name: 'Kazuha',
-            imageUrl: 'assets/gi/GI_Kazuha.png',
+            imageUrl: 'assets/gi/character/GI_Kazuha.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Xiphos\' Moonlight' }
@@ -931,7 +931,7 @@ const GamesData = {
         }],
         ['Hu Tao', {
             name: 'Hu Tao',
-            imageUrl: 'assets/gi/GI_HuTao.png',
+            imageUrl: 'assets/gi/character/GI_HuTao.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Staff of Homa' }
@@ -939,7 +939,7 @@ const GamesData = {
         }],
         ['Gorou', {
             name: 'Gorou',
-            imageUrl: 'assets/gi/GI_Gorou.png',
+            imageUrl: 'assets/gi/character/GI_Gorou.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Warbow' }
@@ -947,7 +947,7 @@ const GamesData = {
         }],
         ['Ganyu', {
             name: 'Ganyu',
-            imageUrl: 'assets/gi/GI_Ganyu.png',
+            imageUrl: 'assets/gi/character/GI_Ganyu.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Amos\' Bow' }
@@ -955,7 +955,7 @@ const GamesData = {
         }],
         ['Kirara', {
             name: 'Kirara',
-            imageUrl: 'assets/gi/GI_Kirara.png',
+            imageUrl: 'assets/gi/character/GI_Kirara.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Sacrificial Sword' }
@@ -963,7 +963,7 @@ const GamesData = {
         }],
         ['Kuki Shinobu', {
             name: 'Kuki Shinobu',
-            imageUrl: 'assets/gi/GI_KukiShinobu.png',
+            imageUrl: 'assets/gi/character/GI_KukiShinobu.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Iron Sting' }
@@ -971,7 +971,7 @@ const GamesData = {
         }],
         ['Lynette', {
             name: 'Lynette',
-            imageUrl: 'assets/gi/GI_Lynette.png',
+            imageUrl: 'assets/gi/character/GI_Lynette.png',
             rarity: '4',
             build: {
                 weapon: { name: 'The Black Sword' }
@@ -979,7 +979,7 @@ const GamesData = {
         }],
         ['Nilou', {
             name: 'Nilou',
-            imageUrl: 'assets/gi/GI_Nilou.png',
+            imageUrl: 'assets/gi/character/GI_Nilou.png',
             rarity:  '5',
             build: {
                 weapon: { name: 'Key of Khaj-Nisut' }
@@ -987,7 +987,7 @@ const GamesData = {
         }],
         ['Neuvillette', {
             name: 'Neuvillette',
-            imageUrl: 'assets/gi/GI_Neuvillette.png.png',
+            imageUrl: 'assets/gi/character/GI_Neuvillette.png.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Tome of the Eternal Flow' }
@@ -995,7 +995,7 @@ const GamesData = {
         }],
         ['Navia', {
             name: 'Navia',
-            imageUrl: 'assets/gi/GI_Navia.png',
+            imageUrl: 'assets/gi/character/GI_Navia.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Verdict' }
@@ -1003,7 +1003,7 @@ const GamesData = {
         }],
         ['Nahida', {
             name: 'Nahida',
-            imageUrl: 'assets/gi/GI_Nahida.png',
+            imageUrl: 'assets/gi/character/GI_Nahida.png',
             rarity: '5',
             build: {
                 weapon: { name: 'A Thousand Floating Dreams' }
@@ -1011,7 +1011,7 @@ const GamesData = {
         }],
         ['Mika', {
             name: 'Mika',
-            imageUrl: 'assets/gi/GI_Mika.png',
+            imageUrl: 'assets/gi/character/GI_Mika.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Lance' }
@@ -1019,7 +1019,7 @@ const GamesData = {
         }],
         ['Raiden Shogun', {
             name: 'Raiden Shogun',
-            imageUrl: 'assets/gi/GI_RaidenShogun.png',
+            imageUrl: 'assets/gi/character/GI_RaidenShogun.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Engulfing Lightning' }
@@ -1027,7 +1027,7 @@ const GamesData = {
         }],
         ['Kokomi', {
             name: 'Kokomi',
-            imageUrl: 'assets/gi/GI_Kokomi.png',
+            imageUrl: 'assets/gi/character/GI_Kokomi.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Jadefall\'s Splendor' }
@@ -1035,7 +1035,7 @@ const GamesData = {
         }],
         ['Wriothesley', {
             name: 'Wriothesley',
-            imageUrl: 'assets/gi/GI_Wriothesley.png.png',
+            imageUrl: 'assets/gi/character/GI_Wriothesley.png.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Cashflow Supervision' }
@@ -1043,7 +1043,7 @@ const GamesData = {
         }],
         ['Xianyun', {
             name: 'Xianyun',
-            imageUrl: 'assets/gi/GI_Xianyun.png',
+            imageUrl: 'assets/gi/character/GI_Xianyun.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Oathsworn Eye' }
@@ -1051,7 +1051,7 @@ const GamesData = {
         }],
         ['Xiao', {
             name: 'Xiao',
-            imageUrl: 'assets/gi/GI_Xiao.png',
+            imageUrl: 'assets/gi/character/GI_Xiao.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Primordial Jade Winged-Spear' }
@@ -1059,7 +1059,7 @@ const GamesData = {
         }],
         ['Xingqiu', {
             name: 'Xingqiu',
-            imageUrl: 'assets/gi/GI_Xingqiu.png',
+            imageUrl: 'assets/gi/character/GI_Xingqiu.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Sacrificial Sword' }
@@ -1067,7 +1067,7 @@ const GamesData = {
         }],
         ['Yae Miko', {
             name: 'Yae Miko',
-            imageUrl: 'assets/gi/GI_YaeMiko.png',
+            imageUrl: 'assets/gi/character/GI_YaeMiko.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Kagura\'s Verity' }
@@ -1075,7 +1075,7 @@ const GamesData = {
         }],
         ['Zhongli', {
             name: 'Zhongli',
-            imageUrl: 'assets/gi/GI_Zhongli.png',
+            imageUrl: 'assets/gi/character/GI_Zhongli.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Black Tassel' }
@@ -1083,7 +1083,7 @@ const GamesData = {
         }],
         ['Yun Jin', {
             name: 'Yun Jin',
-            imageUrl: 'assets/gi/GI_YunJin.png',
+            imageUrl: 'assets/gi/character/GI_YunJin.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Lance' }
@@ -1091,7 +1091,7 @@ const GamesData = {
         }],
         ['Yelan', {
             name: 'Yelan',
-            imageUrl: 'assets/gi/GI_Yelan.png',
+            imageUrl: 'assets/gi/character/GI_Yelan.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Favonius Warbow' }
@@ -1099,7 +1099,7 @@ const GamesData = {
         }],
         ['Clorinde', {
             name: 'Clorinde',
-            imageUrl: 'assets/gi/GI_Clorinde.png',
+            imageUrl: 'assets/gi/character/GI_Clorinde.png',
             rarity: '5',
             build: {
                 weapon: { name: 'Absolution' }
@@ -1107,7 +1107,7 @@ const GamesData = {
         }],
         ['Chevreuse', {
             name: 'Chevreuse',
-            imageUrl: 'assets/gi/GI_Chevreuse.png',
+            imageUrl: 'assets/gi/character/GI_Chevreuse.png',
             rarity: '4',
             build: {
                 weapon: { name: 'Dialogues of the Desert Sages' }
@@ -1115,7 +1115,7 @@ const GamesData = {
         }],
         ['Xianling', {
             name: 'Xianling',
-            imageUrl: 'assets/gi/GI_Xianling.png',
+            imageUrl: 'assets/gi/character/GI_Xianling.png',
             rarity: '4',
             build: {
                 weapon: { name: 'The Catch' }
@@ -1126,7 +1126,7 @@ const GamesData = {
     HSRCharacters: new Map([
         ['MC (Harmony)', {
             name: 'MC (Harmony)',
-            imageUrl: 'assets/hsr/HSR_MCHarmony.jpg',
+            imageUrl: 'assets/hsr/character/HSR_MCHarmony.jpg',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -1139,7 +1139,7 @@ const GamesData = {
         }],
         ['Lynx', {
             name: 'Lynx',
-            imageUrl: 'assets/hsr/HSR_Lynx.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Lynx.jpg',
             role: 'Abundance',
             rarity: '4',
             build: {
@@ -1153,7 +1153,7 @@ const GamesData = {
         }],
         ['Clara', {
             name: 'Clara',
-            imageUrl: 'assets/hsr/HSR_Clara.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Clara.jpg',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -1166,7 +1166,7 @@ const GamesData = {
         }],
         ['Tingyun', {
             name: 'Tingyun',
-            imageUrl: 'assets/hsr/HSR_Tingyun.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Tingyun.jpg',
             role: 'Harmony',
             rarity: '4',
             build: {
@@ -1180,7 +1180,7 @@ const GamesData = {
         }],
         ['Ruan Mei', {
             name: 'Ruan Mei',
-            imageUrl: 'assets/hsr/HSR_RuanMei.jpg',
+            imageUrl: 'assets/hsr/character/HSR_RuanMei.jpg',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -1194,7 +1194,7 @@ const GamesData = {
         }],
         ['Acheron', {
             name: 'Acheron',
-            imageUrl: 'assets/hsr/HSR_Acheron.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Acheron.jpg',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -1207,7 +1207,7 @@ const GamesData = {
         }],
         ['Dang Heng · IL', {
             name: 'Dang Heng · IL',
-            imageUrl: 'assets/hsr/HSR_DanHengIL.jpg',
+            imageUrl: 'assets/hsr/character/HSR_DanHengIL.jpg',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -1221,7 +1221,7 @@ const GamesData = {
         }],
         ['Jingliu', {
             name: 'Jingliu',
-            imageUrl: 'assets/hsr/HSR_Jingliu.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Jingliu.jpg',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -1234,7 +1234,7 @@ const GamesData = {
         }],
         ['Kafka', {
             name: 'Kafka',
-            imageUrl: 'assets/hsr/HSR_Kafka.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Kafka.jpg',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -1247,7 +1247,7 @@ const GamesData = {
         }],
         ['Sparkle', {
             name: 'Sparkle',
-            imageUrl: 'assets/hsr/HSR_Sparkle.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Sparkle.jpg',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -1260,7 +1260,7 @@ const GamesData = {
         }],
         ['Fu Xuan', {
             name: 'Fu Xuan',
-            imageUrl: 'assets/hsr/HSR_FuXuan.jpg',
+            imageUrl: 'assets/hsr/character/HSR_FuXuan.jpg',
             role: 'Preservation',
             rarity: '5',
             build: {
@@ -1274,7 +1274,7 @@ const GamesData = {
         }],
         ['Dr. Ratio', {
             name: 'Dr. Ratio',
-            imageUrl: 'assets/hsr/HSR_DrRatio.jpg',
+            imageUrl: 'assets/hsr/character/HSR_DrRatio.jpg',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -1288,7 +1288,7 @@ const GamesData = {
         }],
         ['Seele', {
             name: 'Seele',
-            imageUrl: 'assets/hsr/HSR_Seele.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Seele.jpg',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -1301,7 +1301,7 @@ const GamesData = {
         }],
         ['Black Swan', {
             name: 'Black Swan',
-            imageUrl: 'assets/hsr/HSR_BlackSwan.jpg',
+            imageUrl: 'assets/hsr/character/HSR_BlackSwan.jpg',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -1314,7 +1314,7 @@ const GamesData = {
         }],
         ['Bronya', {
             name: 'Bronya',
-            imageUrl: 'assets/hsr/HSR_Bronya.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Bronya.jpg',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -1328,7 +1328,7 @@ const GamesData = {
         }],
         ['Silver Wolf', {
             name: 'Silver Wolf',
-            imageUrl: 'assets/hsr/HSR_SilverWolf.jpg',
+            imageUrl: 'assets/hsr/character/HSR_SilverWolf.jpg',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -1342,7 +1342,7 @@ const GamesData = {
         }],
         ['Huohuo', {
             name: 'Huohuo',
-            imageUrl: 'assets/hsr/HSR_Huohuo.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Huohuo.jpg',
             role: 'Abundance',
             rarity: '5',
             build: {
@@ -1356,7 +1356,7 @@ const GamesData = {
         }],
         ['Luocha', {
             name: 'Luocha',
-            imageUrl: 'assets/hsr/HSR_Luocha.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Luocha.jpg',
             role: 'Abundance',
             rarity: '5',
             build: {
@@ -1370,7 +1370,7 @@ const GamesData = {
         }],
         ['Blade', {
             name: 'Blade',
-            imageUrl: 'assets/hsr/HSR_Blade.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Blade.jpg',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -1383,7 +1383,7 @@ const GamesData = {
         }],
         ['Xueyi', {
             name: 'Xueyi',
-            imageUrl: 'assets/hsr/HSR_Xueyi.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Xueyi.jpg',
             role: 'Destruction',
             rarity: '4',
             build: {
@@ -1396,7 +1396,7 @@ const GamesData = {
         }],
         ['Pela', {
             name: 'Pela',
-            imageUrl: 'assets/hsr/HSR_Pela.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Pela.jpg',
             role: 'Nihility',
             rarity: '4',
             build: {
@@ -1410,7 +1410,7 @@ const GamesData = {
         }],
         ['Welt', {
             name: 'Welt',
-            imageUrl: 'assets/hsr/HSR_Welt.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Welt.jpg',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -1423,7 +1423,7 @@ const GamesData = {
         }],
         ['Topaz', {
             name: 'Topaz',
-            imageUrl: 'assets/hsr/HSR_Topaz.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Topaz.jpg',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -1436,7 +1436,7 @@ const GamesData = {
         }],
         ['Gepard', {
             name: 'Gepard',
-            imageUrl: 'assets/hsr/HSR_Gepard.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Gepard.jpg',
             role: 'Preservation',
             rarity: '5',
             build: {
@@ -1449,7 +1449,7 @@ const GamesData = {
         }],
         ['Robin', {
             name: 'Robin',
-            imageUrl: 'assets/hsr/HSR_Robin.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Robin.jpg',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -1463,7 +1463,7 @@ const GamesData = {
         }],
         ['Hanya', {
             name: 'Hanya',
-            imageUrl: 'assets/hsr/HSR_Hanya.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Hanya.jpg',
             role: 'Harmony',
             rarity: '4',
             build: {
@@ -1476,7 +1476,7 @@ const GamesData = {
         }],
         ['Boothill', {
             name: 'Boothill',
-            imageUrl: 'assets/hsr/HSR_Boothill.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Boothill.jpg',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -1489,7 +1489,7 @@ const GamesData = {
         }],
         ['Gallagher', {
             name: 'Gallagher',
-            imageUrl: 'assets/hsr/HSR_Gallagher.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Gallagher.jpg',
             role: 'Abundance',
             rarity: '4',
             build: {
@@ -1503,7 +1503,7 @@ const GamesData = {
         }],
         ['Firefly', {
             name: 'Firefly',
-            imageUrl: 'assets/hsr/HSR_Firefly.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Firefly.jpg',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -1516,7 +1516,7 @@ const GamesData = {
         }],
         ['Jade', {
             name: 'Jade',
-            imageUrl: 'assets/hsr/HSR_Jade.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Jade.jpg',
             role: 'Erudition',
             rarity: '5',
             build: {
@@ -1529,7 +1529,7 @@ const GamesData = {
         }],
         ['Herta', {
             name: 'Herta',
-            imageUrl: 'assets/hsr/HSR_Herta.jpg',
+            imageUrl: 'assets/hsr/character/HSR_Herta.jpg',
             role: 'Erudition',
             rarity: '4',
             build: {
@@ -1545,49 +1545,49 @@ const GamesData = {
     ZZZCharacters: new Map([
         ['Ellen', {
             name: 'Ellen',
-            imageUrl: 'assets/zzz/ZZZ_Ellen.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Ellen.jpg',
             role: 'Attack',
             rarity: 'S'
         }],
         ['Soukaku', {
             name: 'Soukaku',
-            imageUrl: 'assets/zzz/ZZZ_Soukaku.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Soukaku.jpg',
             role: 'Support',
             rarity: 'A'
         }],
         ['Anby', {
             name: 'Anby',
-            imageUrl: 'assets/zzz/ZZZ_Anby.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Anby.jpg',
             role: 'Stun',
             rarity: 'A'
         }],
         ['Lycaon', {
             name: 'Lycaon',
-            imageUrl: 'assets/zzz/ZZZ_Lycaon.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Lycaon.jpg',
             role: 'Stun',
             rarity: 'S'
         }],
         ['Grace', {
             name: 'Grace',
-            imageUrl: 'assets/zzz/ZZZ_Grace.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Grace.jpg',
             role: 'Anomaly',
             rarity: 'S'
         }],
         ['Koleda', {
             name: 'Koleda',
-            imageUrl: 'assets/zzz/ZZZ_Koleda.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Koleda.jpg',
             role: 'Stun',
             rarity: 'S'
         }],
         ['Soldier 11', {
             name: 'Soldier 11',
-            imageUrl: 'assets/zzz/ZZZ_Soldier11.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Soldier11.jpg',
             role: 'Attack',
             rarity: 'S'
         }],
         ['Lucy', {
             name: 'Lucy',
-            imageUrl: 'assets/zzz/ZZZ_Lucy.jpg',
+            imageUrl: 'assets/zzz/character/ZZZ_Lucy.jpg',
             role: 'Support',
             rarity: 'A'
         }],
@@ -1596,77 +1596,77 @@ const GamesData = {
     HI3Characters: new Map([
         ['Kiana (HoFi)', {
             name: 'Kiana (HoFi)',
-            imageUrl: 'assets/hi3/HI3_Kiana_HoFi.png',
+            imageUrl: 'assets/hi3/character/HI3_Kiana_HoFi.png',
             rarity: 'S'
         }],
         ['Kiana (HoF)', {
             name: 'Kiana (HoF)',
-            imageUrl: 'assets/hi3/HI3_Kiana_HoF.png',
+            imageUrl: 'assets/hi3/character/HI3_Kiana_HoF.png',
             rarity: 'S'
         }],
         ['Mei (HoO)', {
             name: 'Mei (HoO)',
-            imageUrl: 'assets/hi3/HI3_Mei_HoO.png',
+            imageUrl: 'assets/hi3/character/HI3_Mei_HoO.png',
             rarity: 'S'
         }],
         ['Mei (HoT)', {
             name: 'Mei (HoT)',
-            imageUrl: 'assets/hi3/HI3_Mei_HoT.png',
+            imageUrl: 'assets/hi3/character/HI3_Mei_HoT.png',
             rarity: 'S'
         }],
         ['Bronya (HoT)', {
             name: 'Bronya (HoT)',
-            imageUrl: 'assets/hi3/HI3_Bronya_HoT.png',
+            imageUrl: 'assets/hi3/character/HI3_Bronya_HoT.png',
             rarity: 'S'
         }],
         ['Bronya (HoR)', {
             name: 'Bronya (HoR)',
-            imageUrl: 'assets/hi3/HI3_Bronya_HoR.png',
+            imageUrl: 'assets/hi3/character/HI3_Bronya_HoR.png',
             rarity: 'S'
         }],
         ['Elysia', {
             name: 'Elysia',
-            imageUrl: 'assets/hi3/HI3_Elysia.png',
+            imageUrl: 'assets/hi3/character/HI3_Elysia.png',
             rarity: 'S'
         }],
         ['Aponia', {
             name: 'Aponia',
-            imageUrl: 'assets/hi3/HI3_Aponia.png',
+            imageUrl: 'assets/hi3/character/HI3_Aponia.png',
             rarity: 'S'
         }],
         ['Eden', {
             name: 'Eden',
-            imageUrl: 'assets/hi3/HI3_Eden.png',
+            imageUrl: 'assets/hi3/character/HI3_Eden.png',
             rarity: 'A'
         }],
         ['Lunar Vow', {
             name: 'Lunar Vow',
-            imageUrl: 'assets/hi3/HI3_LunarVow.png',
+            imageUrl: 'assets/hi3/character/HI3_LunarVow.png',
             rarity: 'S'
         }],
         ['Durandal', {
             name: 'Durandal',
-            imageUrl: 'assets/hi3/HI3_Durandal.png',
+            imageUrl: 'assets/hi3/character/HI3_Durandal.png',
             rarity: 'S'
         }],
         ['Lantern', {
             name: 'Lantern',
-            imageUrl: 'assets/hi3/HI3_Lantern.png',
+            imageUrl: 'assets/hi3/character/HI3_Lantern.png',
             rarity: 'S'
         }],
         ['Ai', {
             name: 'Ai',
-            imageUrl: 'assets/hi3/HI3_Ai.png',
+            imageUrl: 'assets/hi3/character/HI3_Ai.png',
             rarity: 'A'
         }],
         ['Fu Hua (HoS)', {
             name: 'Fu Hua (HoS)',
-            imageUrl: 'assets/hi3/HI3_FuHua_HoS.png',
+            imageUrl: 'assets/hi3/character/HI3_FuHua_HoS.png',
             rarity: 'S'
         }],
         ['Carole', {
             name: 'Carole',
-            imageUrl: 'assets/hi3/HI3_Carole.png',
+            imageUrl: 'assets/hi3/character/HI3_Carole.png',
             rarity: 'A'
         }],
     ]),
