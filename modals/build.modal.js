@@ -5,8 +5,20 @@ class BuildModal extends HTMLElement {
     
     componentStyle = `
     <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
        .build-modal {
             display: none;
+            opacity: 0;
             position: fixed;
             z-index: 1;
             padding-top: 23vh;
@@ -18,12 +30,18 @@ class BuildModal extends HTMLElement {
             background-color: rgba(0, 0, 0, 0.6);
         }
 
+        .build-modal.modal-shown {
+            display: block;
+            opacity: 1;
+        }
+
         .build-modal-content {
             background-color: var(--background-color);
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
             width: 20%;
+            animation: fade-in .5s;
         }
 
         .build-container {
@@ -196,10 +214,10 @@ function openBuildModal(character) {
     const modalComponent = document.getElementById('build-modal');
     modalComponent.setAttribute('character', character);
     const modal = document.getElementById('modal');
-    modal.style.display = "block";
+    modal.classList.toggle('modal-shown');
 }
 
 function closeBuildModal() {
     const modal = document.getElementById('modal');
-    modal.style.display = "none";
+    modal.classList.toggle('modal-shown');
 }
