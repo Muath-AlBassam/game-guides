@@ -362,15 +362,15 @@ const GamesData = {
                 },
                 {
                     name: 'Ruan Mei',
-                    role: 'DMG & RES PEN & Break Buff',
+                    role: 'DMG, RES PEN & Break Efficiency Buff',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'MC (Harmony)',
-                    role: 'Break Buff + Super Break',
+                    name: 'Bronya',
+                    role: 'Advance',
                     isMain: false,
-                    replacedBy: ['Bronya'],
+                    replacedBy: ['MC (Harmony)'],
                 }
             ],
             variations: [
@@ -395,7 +395,7 @@ const GamesData = {
                 },
                 {
                     name: 'Ruan Mei',
-                    role: 'DMG & RES PEN & Break Buff',
+                    role: 'DMG, RES PEN & Break Efficiency Buff',
                     isMain: false,
                     replacedBy: [],
                 },

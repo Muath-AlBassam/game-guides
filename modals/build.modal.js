@@ -16,6 +16,7 @@ class BuildModal extends HTMLElement {
             }
         }
         
+        /* style of the dialog background (shadow overlay) */
        .build-modal {
             display: none;
             opacity: 0;
@@ -40,6 +41,7 @@ class BuildModal extends HTMLElement {
             margin: auto;
             padding: 20px;
             border: 1px solid #888;
+            border-radius: 5px;
             width: 20%;
             animation: fade-in .2s;
         }
