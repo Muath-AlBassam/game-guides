@@ -93,5 +93,6 @@ function createCharacterImage(gameCode, charmd, dimenstion = 100, style = '') {
                 src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
                 class="${gameCode}-rarity-${charmd.rarity ?? ''}"
                 width="${dimenstion}" height="${dimenstion}" style="${style}"
+                onclick="openBuildModal('${charmd.name}')"
             />`;
 }

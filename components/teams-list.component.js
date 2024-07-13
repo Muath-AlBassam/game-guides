@@ -130,15 +130,15 @@ class TeamsListComponent extends HTMLElement {
 
     // a row for one team
     buildTeamContainer(activeGame, team, teamId, index) {
-        return `<div class="team-container action" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+        return `<div class="team-container action">
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
-                        <div class="team-name">
+                        <div class="team-name" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30">
                             <span>${team.name}</span>
                         </div>
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
-                        <div class="team-actions">
+                        <div class="team-actions" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
                         </div>
                     </div>

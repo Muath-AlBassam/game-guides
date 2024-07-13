@@ -15,10 +15,15 @@
         <!-- General style -->
         <link rel="stylesheet" href="style.css">
 
+        <script type="text/javascript" src="main.js"></script>
+        
         <!-- Utilities -->
         <script type="text/javascript" src="constants.js"></script>
         <script type="text/javascript" src="games-data.js"></script>
         <script type="text/javascript" src="utils.js"></script>
+                
+        <!-- Modal -->
+        <script src="components/build-modal.component.js" type="text/javascript" defer></script>
 
         <!-- Components -->
         <script src="components/nav.component.js" type="text/javascript" defer></script>
@@ -28,8 +33,6 @@
         <script src="components/replacements.component.js" type="text/javascript" defer></script>
         <script src="components/rotations.component.js" type="text/javascript" defer></script>
         <script src="components/teams-list.component.js" type="text/javascript" defer></script>
-
-        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <nav-component class="nav-component"></nav-component>
@@ -42,7 +45,7 @@
                     <div class="content-header">Teams</div>
                 </div>
             </div>
-
+            <build-modal id="build-modal"></build-modal>
             <teams-list-component></teams-table-component>
         </div>
     </body>

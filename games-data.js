@@ -1098,7 +1098,14 @@ const GamesData = {
             name: 'Seele',
             imageUrl: 'assets/hsr/HSR_Seele.jpg',
             role: 'Hunt',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'In the Night', rarity: '5', imageUrl: 'assets/hsr/build/HSR_Weapon_InTheNight.jpg' },
+                artifacts: [
+                    { name: 'Genius of Brilliant Stars', imageUrl: 'assets/hsr/build/HSR_Set_GeniusOfBrilliantStars.jpg' },
+                    { name: 'Inert Salsotto', imageUrl: 'assets/hsr/build/HSR_Planar_InsertSalsotto.jpg' }
+                ]
+            }
         }],
         ['Black Swan', {
             name: 'Black Swan',

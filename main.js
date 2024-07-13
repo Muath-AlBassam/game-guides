@@ -4,3 +4,10 @@ window.addEventListener('load', () => {
     }
     window.dispatchEvent(new Event("hashchange"));
 });
+
+// close modal on clicking outside
+window.onclick = function(event) {
+    if (event.target == document.getElementById('modal')) {
+        modal.style.display = "none";
+    }
+}

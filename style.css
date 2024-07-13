@@ -26,11 +26,10 @@
     text-transform: uppercase;
 }
 
-.empty-details {
+.center-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
 }
 
 /* Side nav ---------------------------------------------------------------- */
@@ -97,6 +96,12 @@
     justify-content: center;
 }
 
+.empty-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
+}
 /* Character rarity background --------------------------------------------- */
 .GI-rarity-5 {
     background-image: url(assets/gi/GI_Rarity5.jpg);
