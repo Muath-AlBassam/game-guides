@@ -115,6 +115,12 @@
     background-repeat: no-repeat;
     background-position: 50%;
 }
+.GI-rarity-3 {
+    background-image: url(assets/gi/GI_Rarity3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 
 .HSR-rarity-5 {
     background: #885550;

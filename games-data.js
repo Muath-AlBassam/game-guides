@@ -852,172 +852,274 @@ const GamesData = {
         ['Arlecchino', {
             name: 'Arlecchino',
             imageUrl: 'assets/gi/GI_Arlecchino.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Crimson Moon\'s Semblance' }
+            }
         }],
         ['Chiori', {
             name: 'Chiori',
             imageUrl: 'assets/gi/GI_Chiori.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Uraku Misugiri' }
+            }
         }],
         ['Bennett', {
             name: 'Bennett',
             imageUrl: 'assets/gi/GI_Bennett.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Skyward Blade' }
+            }
         }],
         ['Diluc', {
             name: 'Diluc',
             imageUrl: 'assets/gi/GI_Diluc.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Wolf\'s Gravestone' }
+            }
         }],
         ['Eula', {
             name: 'Eula',
             imageUrl: 'assets/gi/GI_Eula.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Song of Broken Pines' }
+            }
         }],
         ['Faruzan', {
             name: 'Faruzan',
             imageUrl: 'assets/gi/GI_Faruzan.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Favonius Warbow' }
+            }
         }],
         ['Fischl', {
             name: 'Fischl',
             imageUrl: 'assets/gi/GI_Fischl.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Mitternachts Waltz' }
+            }
         }],
         ['Furina', {
             name: 'Furina',
             imageUrl: 'assets/gi/GI_Furina.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Splendor of Tranquil Waters' }
+            }
         }],
         ['Ayaka', {
             name: 'Ayaka',
             imageUrl: 'assets/gi/GI_Ayaka.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Mistsplitter Reforged' }
+            }
         }],
         ['Kazuha', {
             name: 'Kazuha',
             imageUrl: 'assets/gi/GI_Kazuha.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Xiphos\' Moonlight' }
+            }
         }],
         ['Hu Tao', {
             name: 'Hu Tao',
             imageUrl: 'assets/gi/GI_HuTao.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Staff of Homa' }
+            }
         }],
         ['Gorou', {
             name: 'Gorou',
             imageUrl: 'assets/gi/GI_Gorou.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Favonius Warbow' }
+            }
         }],
         ['Ganyu', {
             name: 'Ganyu',
             imageUrl: 'assets/gi/GI_Ganyu.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Amos\' Bow' }
+            }
         }],
         ['Kirara', {
             name: 'Kirara',
             imageUrl: 'assets/gi/GI_Kirara.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Sacrificial Sword' }
+            }
         }],
         ['Kuki Shinobu', {
             name: 'Kuki Shinobu',
             imageUrl: 'assets/gi/GI_KukiShinobu.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Iron Sting' }
+            }
         }],
         ['Lynette', {
             name: 'Lynette',
             imageUrl: 'assets/gi/GI_Lynette.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'The Black Sword' }
+            }
         }],
         ['Nilou', {
             name: 'Nilou',
             imageUrl: 'assets/gi/GI_Nilou.png',
-            rarity:  '5'
+            rarity:  '5',
+            build: {
+                weapon: { name: 'Key of Khaj-Nisut' }
+            }
         }],
         ['Neuvillette', {
             name: 'Neuvillette',
             imageUrl: 'assets/gi/GI_Neuvillette.png.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Tome of the Eternal Flow' }
+            }
         }],
         ['Navia', {
             name: 'Navia',
             imageUrl: 'assets/gi/GI_Navia.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Verdict' }
+            }
         }],
         ['Nahida', {
             name: 'Nahida',
             imageUrl: 'assets/gi/GI_Nahida.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'A Thousand Floating Dreams' }
+            }
         }],
         ['Mika', {
             name: 'Mika',
             imageUrl: 'assets/gi/GI_Mika.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Favonius Lance' }
+            }
         }],
         ['Raiden Shogun', {
             name: 'Raiden Shogun',
             imageUrl: 'assets/gi/GI_RaidenShogun.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Engulfing Lightning' }
+            }
         }],
         ['Kokomi', {
             name: 'Kokomi',
             imageUrl: 'assets/gi/GI_Kokomi.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Jadefall\'s Splendor' }
+            }
         }],
         ['Wriothesley', {
             name: 'Wriothesley',
             imageUrl: 'assets/gi/GI_Wriothesley.png.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Cashflow Supervision' }
+            }
         }],
         ['Xianyun', {
             name: 'Xianyun',
             imageUrl: 'assets/gi/GI_Xianyun.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Oathsworn Eye' }
+            }
         }],
         ['Xiao', {
             name: 'Xiao',
             imageUrl: 'assets/gi/GI_Xiao.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Primordial Jade Winged-Spear' }
+            }
         }],
         ['Xingqiu', {
             name: 'Xingqiu',
             imageUrl: 'assets/gi/GI_Xingqiu.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Sacrificial Sword' }
+            }
         }],
         ['Yae Miko', {
             name: 'Yae Miko',
             imageUrl: 'assets/gi/GI_YaeMiko.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Kagura\'s Verity' }
+            }
         }],
         ['Zhongli', {
             name: 'Zhongli',
             imageUrl: 'assets/gi/GI_Zhongli.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Black Tassel' }
+            }
         }],
         ['Yun Jin', {
             name: 'Yun Jin',
             imageUrl: 'assets/gi/GI_YunJin.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Favonius Lance' }
+            }
         }],
         ['Yelan', {
             name: 'Yelan',
             imageUrl: 'assets/gi/GI_Yelan.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Favonius Warbow' }
+            }
         }],
         ['Clorinde', {
             name: 'Clorinde',
             imageUrl: 'assets/gi/GI_Clorinde.png',
-            rarity: '5'
+            rarity: '5',
+            build: {
+                weapon: { name: 'Absolution' }
+            }
         }],
         ['Chevreuse', {
             name: 'Chevreuse',
             imageUrl: 'assets/gi/GI_Chevreuse.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'Dialogues of the Desert Sages' }
+            }
         }],
         ['Xianling', {
             name: 'Xianling',
             imageUrl: 'assets/gi/GI_Xianling.png',
-            rarity: '4'
+            rarity: '4',
+            build: {
+                weapon: { name: 'The Catch' }
+            }
         }]
     ]),
 
@@ -1586,6 +1688,159 @@ const GamesData = {
         { name: 'Stun', imageUrl: 'assets/zzz/ZZZ_Style_Stun.jpg' },
         { name: 'Support', imageUrl: 'assets/zzz/ZZZ_Style_Support.jpg' },
     ],
+
+    GIWeapons: new Map([
+        ['Absolution', {
+            name: 'Absolution',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_Absolution.png',
+            rarity: '5'
+        }],
+        ['A Thousand Floating Dreams', {
+            name: 'A Thousand Floating Dreams',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_AThousandFloatingDreams.png',
+            rarity: '5'
+        }],
+        ['Amos\' Bow', {
+            name: 'Amos\' Bow',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_AmosBow.png',
+            rarity: '5'
+        }],
+        ['Cashflow Supervision', {
+            name: 'Cashflow Supervision',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_CashflowSupervision.png',
+            rarity: '5'
+        }],
+        ['Crimson Moon\'s Semblance', {
+            name: 'Crimson Moon\'s Semblance',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_CrimsonMoonsSemblance.png',
+            rarity: '5'
+        }],
+        ['Engulfing Lightning', {
+            name: 'Engulfing Lightning',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_EngulfingLightning.png',
+            rarity: '5'
+        }],
+        ['Jadefall\'s Splendor', {
+            name: 'Jadefall\'s Splendor',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_JadefallsSplendor.png',
+            rarity: '5'
+        }],
+        ['Kagura\'s Verity', {
+            name: 'Kagura\'s Verity',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_KagurasVerity.png',
+            rarity: '5'
+        }],
+        ['Key of Khaj-Nisut', {
+            name: 'Key of Khaj-Nisut',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_KeyOfKhajNisut.png',
+            rarity: '5'
+        }],
+        ['Mistsplitter Reforged', {
+            name: 'Mistsplitter Reforged',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_MistsplitterReforged.png',
+            rarity: '5'
+        }],
+        ['Primordial Jade Winged-Spear', {
+            name: 'Primordial Jade Winged-Spear',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_PrimordialJadeWingedSpear.png',
+            rarity: '5'
+        }],
+        ['Skyward Blade', {
+            name: 'Skyward Blade',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_SkywardBlade.png',
+            rarity: '5'
+        }],
+        ['Song of Broken Pines', {
+            name: 'Song of Broken Pines',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_SongOfBrokenPines.png',
+            rarity: '5'
+        }],
+        ['Splendor of Tranquil Waters', {
+            name: 'Splendor of Tranquil Waters',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_SplendorOfTranquilWaters.png',
+            rarity: '5'
+        }],
+        ['Staff of Homa', {
+            name: 'Staff of Homa',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_StaffOfHoma.png',
+            rarity: '5'
+        }],
+        ['Tome of the Eternal Flow', {
+            name: 'Tome of the Eternal Flow',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_TomeOfTheEternalFlow.png',
+            rarity: '5'
+        }],
+        ['Uraku Misugiri', {
+            name: 'Uraku Misugiri',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_UrakuMisugiri.png',
+            rarity: '5'
+        }],
+        ['Verdict', {
+            name: 'Verdict',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_Verdict.png',
+            rarity: '5'
+        }],
+        ['Wolf\'s Gravestone', {
+            name: 'Wolf\'s Gravestone',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_WolfsGravestone.png',
+            rarity: '5'
+        }],
+        ['Favonius Lance', {
+            name: 'Favonius Lance',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_FavoniusLance.png',
+            rarity: '4'
+        }],
+        ['Favonius Warbow', {
+            name: 'Favonius Warbow',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_FavoniusWarbow.png',
+            rarity: '4'
+        }],
+        ['Iron Sting', {
+            name: 'Iron Sting',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_IronSting.png',
+            rarity: '4'
+        }],
+        ['Mitternachts Waltz', {
+            name: 'Mitternachts Waltz',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_MitternachtsWaltz.png',
+            rarity: '4'
+        }],
+        ['Oathsworn Eye', {
+            name: 'Oathsworn Eye',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_OathswornEye.png',
+            rarity: '4'
+        }],
+        ['Sacrificial Sword', {
+            name: 'Sacrificial Sword',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_SacrificialSword.png',
+            rarity: '4'
+        }],
+        ['The Black Sword', {
+            name: 'The Black Sword',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_TheBlackSword.png',
+            rarity: '4'
+        }],
+        ['The Catch', {
+            name: 'The Catch',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_TheCatch.png',
+            rarity: '4'
+        }],
+        ['Xiphos\' Moonlight', {
+            name: 'Xiphos\' Moonlight',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_XiphosMoonlight.png',
+            rarity: '4'
+        }],
+        ['Dialogues of the Desert Sages', {
+            name: 'Dialogues of the Desert Sages',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_DialoguesOfTheDesertSages.png',
+            rarity: '4'
+        }],
+        ['Black Tassel', {
+            name: 'Black Tassel',
+            imageUrl: 'assets/gi/weapon/GI_Weapon_BlackTassel.png',
+            rarity: '3'
+        }]
+    ]),
 
     HSRLightCones: new Map([
         ['Along the Passing Shore', {

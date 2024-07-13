@@ -133,6 +133,9 @@ function getCharacterMetadata(gameCode, characterName) {
 function getWeaponMetadata(gameCode, weaponName) {
     let data;
     switch (gameCode) {
+        case Constants.games.GI:
+            data = GamesData.GIWeapons.get(weaponName);
+            break;
         case Constants.games.HSR:
             data = GamesData.HSRLightCones.get(weaponName);
             break;
