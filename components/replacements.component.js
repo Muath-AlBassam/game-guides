@@ -46,7 +46,7 @@ class ReplacementsComponent extends HTMLElement {
             if (character.replacedBy) {
                 character.replacedBy.forEach(rep => {
                     const repmd = getCharacterMetadata(activeGame.code, rep);
-                    charReplacements += createCharacterImage(activeGame.code, repmd, 60, 'margin: 5px 10px;');
+                    charReplacements += createCharacterImage(activeGame.code, repmd, 60, 'margin: 5px 10px;', true);
                 })
             }
 

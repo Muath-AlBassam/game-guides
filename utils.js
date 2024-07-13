@@ -47,7 +47,7 @@ function getWeaponsLabel(gameCode) {
     }    
 }
 
-function getArtifactsLabel(gameCode) {
+function getSetsLabel(gameCode) {
     switch (gameCode) {
         case Constants.games.GI:
             return 'Artifacts';
@@ -95,6 +95,17 @@ function getTeam(gameCode, teamName) {
     return teams.find(team => team.name == teamName);
 }
 
+function getRoles(gameCode) {
+    switch (gameCode) {
+        case Constants.games.HSR:
+            return GamesData.HSRRoles;
+        case Constants.games.ZZZ:
+            return GamesData.ZZZRoles;
+        default:
+            return null;
+    }
+}
+
 function getCharacterMetadata(gameCode, characterName) {
     let data;
     switch (gameCode) {
@@ -114,23 +125,32 @@ function getCharacterMetadata(gameCode, characterName) {
     return data ?? { name: characterName }
 }
 
-function getRoles(gameCode) {
+function getWeaponMetadata(gameCode, weaponName) {
+    let data;
     switch (gameCode) {
         case Constants.games.HSR:
-            return GamesData.HSRRoles;
-        case Constants.games.ZZZ:
-            return GamesData.ZZZRoles;
-        default:
-            return null;
+            data = GamesData.HSRLightCones.get(weaponName);
+            break;
     }
+    return data ?? { name: weaponName }
+}
+
+function getSetMetadata(gameCode, setName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.HSR:
+            data = GamesData.HSRSets.get(setName);
+            break;
+    }
+    return data ?? { name: setName }
 }
 
 // create character image tag
-function createCharacterImage(gameCode, charmd, dimenstion = 100, style = '') {
+function createCharacterImage(gameCode, charmd, dimenstion = 100, style = '', withBuild = false) {
     return `<img    
                 src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
                 class="${gameCode}-rarity-${charmd.rarity ?? ''}"
-                width="${dimenstion}" height="${dimenstion}" style="${style}"
-                onclick="openBuildModal('${charmd.name}')"
+                width="${dimenstion}" height="${dimenstion}" style="cursor: pointer; ${style}"
+                ${withBuild ? 'onclick="openBuildModal(\'' + charmd.name + '\')"' : ''}
             />`;
 }

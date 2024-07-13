@@ -41,7 +41,7 @@ class BuildModal extends HTMLElement {
             padding: 20px;
             border: 1px solid #888;
             width: 20%;
-            animation: fade-in .5s;
+            animation: fade-in .2s;
         }
 
         .build-container {
@@ -138,7 +138,7 @@ class BuildModal extends HTMLElement {
         buildContent += this.buildModalHeader(charmd);
         if (charmd?.build) {
             buildContent += this.buildWeaponTable(charmd, activeGame.code);
-            buildContent += this.buildArtifactsTable(charmd, activeGame.code);
+            buildContent += this.buildSetsTable(charmd, activeGame.code);
         } else {
             buildContent += `<h1 class="empty-dialog">...</h1>`
         }
@@ -150,7 +150,7 @@ class BuildModal extends HTMLElement {
         <div class="close-modal" onclick="closeBuildModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                <img src="${charmd.imageUrl}" height="70" /> 
+                <!-- <img src="${charmd.imageUrl}" height="70" /> --> 
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>
@@ -160,7 +160,7 @@ class BuildModal extends HTMLElement {
     buildWeaponTable(charmd, gameCode) {
         let content = '';
         if (charmd.build.weapon) {
-            const weapon = charmd.build.weapon;
+            const weaponmd = getWeaponMetadata(gameCode, charmd.build.weapon.name);
             content = `
             <h5 class="content-header">
                 ${getWeaponsLabel(gameCode)}
@@ -168,10 +168,10 @@ class BuildModal extends HTMLElement {
             <div class="build-container">
                 <div class="build-header">
                     <div class="build-icon">
-                        <img src="${weapon.imageUrl}" class="${gameCode}-rarity-${weapon.rarity}" height="70" />
+                        <img src="${weaponmd.imageUrl}" class="${gameCode}-rarity-${weaponmd.rarity}" height="70" />
                     </div>
                     <div class="build-info">
-                        <h5 style="margin-bottom: 0;">${weapon.name}</h5>
+                        <h5 style="margin-bottom: 0;">${weaponmd.name}</h5>
                     </div>
                 </div>
             </div>`;
@@ -179,24 +179,25 @@ class BuildModal extends HTMLElement {
         return content;
     }
 
-    buildArtifactsTable(charmd, gameCode) {
+    buildSetsTable(charmd, gameCode) {
         let content = '';
-        if (charmd.build.artifacts) {
+        if (charmd.build.sets) {
             content += `
             <h5 class="content-header">
-                ${getArtifactsLabel(gameCode)}
+                ${getSetsLabel(gameCode)}
             </h5>
             <div class="build-container">`;
             
-            charmd.build.artifacts.forEach(art => {
+            charmd.build.sets.forEach(set => {
+                const setmd = getSetMetadata(gameCode, set.name);
                 content += `
                 <div class="build-header">
                     <div class="build-icon">
-                        <img src="${art.imageUrl}" height="70" />
+                        <img src="${setmd.imageUrl}" height="70" />
                     </div>
                     <div class="build-info">
-                        <span class="piece-count">(${art.pieceCount})</span>
-                        <h5 style="margin-bottom: 0;">${art.name}</h5>
+                        <span class="piece-count">(${set.pieceCount})</span>
+                        <h5 style="margin-bottom: 0;">${setmd.name}</h5>
                     </div>
                 </div>`;
             });
