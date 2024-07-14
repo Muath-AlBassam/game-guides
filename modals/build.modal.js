@@ -5,45 +5,8 @@ class BuildModal extends HTMLElement {
     
     componentStyle = `
     <style>
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        /* style of the dialog background (shadow overlay) */
-       .build-modal {
-            display: none;
-            opacity: 0;
-            position: fixed;
-            z-index: 1;
-            padding-top: 23vh;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-
-        .build-modal.modal-shown {
-            display: block;
-            opacity: 1;
-        }
-
         .build-modal-content {
-            background-color: var(--background-color);
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            border-radius: 5px;
-            width: 20%;
-            animation: fade-in .2s;
+            /* */
         }
 
         .build-container {
@@ -127,8 +90,8 @@ class BuildModal extends HTMLElement {
 
     buildHTML(activeGame, character) {
         return this.componentStyle + `
-        <div class="build-modal" id="modal">
-            <div class="build-modal-content" id="modal-body">
+        <div class="gagu-modal" id="modal">
+            <div class="gagu-modal-content" id="modal-body">
                 ${this.buildDialogContent(activeGame, character)}
             </div>
         </div>`;
