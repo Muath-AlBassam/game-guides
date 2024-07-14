@@ -32,8 +32,8 @@ class BuildModal extends HTMLElement {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 70px;
-            width: 70px;
+            height: 80px;
+            width: 80px;
         }
 
         .build-container .build-header .build-info {
@@ -133,7 +133,7 @@ class BuildModal extends HTMLElement {
             <div class="build-container">
                 <div class="build-header">
                     <div class="build-icon">
-                        <img src="${weaponmd.imageUrl}" class="${gameCode}-rarity-${weaponmd.rarity}" height="70" />
+                        <img src="${weaponmd.imageUrl}" class="${gameCode}-rarity-${weaponmd.rarity}" height="80" />
                     </div>
                     <div class="build-info">
                         <h5 style="margin-bottom: 0;">${weaponmd.name}</h5>
@@ -158,7 +158,7 @@ class BuildModal extends HTMLElement {
                 content += `
                 <div class="build-header">
                     <div class="build-icon">
-                        <img src="${setmd.imageUrl}" height="70" />
+                        <img src="${setmd.imageUrl}" height="70" style="margin: 5px;" />
                     </div>
                     <div class="build-info">
                         <span class="piece-count">(${set.pieceCount})</span>
