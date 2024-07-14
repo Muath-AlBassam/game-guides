@@ -1547,49 +1547,73 @@ const GamesData = {
             name: 'Ellen',
             imageUrl: 'assets/zzz/character/ZZZ_Ellen.jpg',
             role: 'Attack',
-            rarity: 'S'
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Deep Sea Visitor' }
+            }
         }],
         ['Soukaku', {
             name: 'Soukaku',
             imageUrl: 'assets/zzz/character/ZZZ_Soukaku.jpg',
             role: 'Support',
-            rarity: 'A'
+            rarity: 'A',
+            build: {
+                weapon: { name: 'Bashful Demon' }
+            }
         }],
         ['Anby', {
             name: 'Anby',
             imageUrl: 'assets/zzz/character/ZZZ_Anby.jpg',
             role: 'Stun',
-            rarity: 'A'
+            rarity: 'A',
+            build: {
+                weapon: { name: 'Demara Battery Mark II' }
+            }
         }],
         ['Lycaon', {
             name: 'Lycaon',
             imageUrl: 'assets/zzz/character/ZZZ_Lycaon.jpg',
             role: 'Stun',
-            rarity: 'S'
+            rarity: 'S',
+            build: {
+                weapon: { name: 'The Restrained' }
+            }
         }],
         ['Grace', {
             name: 'Grace',
             imageUrl: 'assets/zzz/character/ZZZ_Grace.jpg',
             role: 'Anomaly',
-            rarity: 'S'
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Fusion Compiler' }
+            }
         }],
         ['Koleda', {
             name: 'Koleda',
             imageUrl: 'assets/zzz/character/ZZZ_Koleda.jpg',
             role: 'Stun',
-            rarity: 'S'
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Hellfire Gears' }
+            }
         }],
         ['Soldier 11', {
             name: 'Soldier 11',
             imageUrl: 'assets/zzz/character/ZZZ_Soldier11.jpg',
             role: 'Attack',
-            rarity: 'S'
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Starlight Engine' }
+            }
         }],
         ['Lucy', {
             name: 'Lucy',
             imageUrl: 'assets/zzz/character/ZZZ_Lucy.jpg',
             role: 'Support',
-            rarity: 'A'
+            rarity: 'A',
+            build: {
+                weapon: { name: 'Kaboom the Cannon' }
+            }
         }],
     ]),
 
@@ -1988,6 +2012,49 @@ const GamesData = {
             imageUrl: 'assets/hsr/lc/HSR_LC_DanceDanceDance.jpg',
             rarity: '4'
         }]
+    ]),
+
+    ZZZWEngines: new Map([
+        ['Fusion Compiler', {
+            name: 'Fusion Compiler',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_FusionCompiler.jpg',
+            rarity: 'S'
+        }],
+        ['Deep Sea Visitor', {
+            name: 'Deep Sea Visitor',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DeepSeaVisitor.jpg',
+            rarity: 'S'
+        }],
+        ['Hellfire Gears', {
+            name: 'Hellfire Gears',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_HellfireGears.jpg',
+            rarity: 'S'
+        }],
+        ['The Restrained', {
+            name: 'The Restrained',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheRestrained.jpg',
+            rarity: 'S'
+        }],
+        ['Starlight Engine', {
+            name: 'Starlight Engine',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_StarlightEngine.jpg',
+            rarity: 'A'
+        }],
+        ['Demara Battery Mark II', {
+            name: 'Demara Battery Mark II',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DemaraBatteryMarkII.jpg',
+            rarity: 'A'
+        }],
+        ['Bashful Demon', {
+            name: 'Bashful Demon',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_BashfulDemon.jpg',
+            rarity: 'A'
+        }],
+        ['Kaboom the Cannon', {
+            name: 'Kaboom the Cannon',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_KaboomTheCannon.jpg',
+            rarity: 'A'
+        }],
     ]),
 
     HSRSets: new Map([

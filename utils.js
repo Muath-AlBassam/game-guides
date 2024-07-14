@@ -139,6 +139,9 @@ function getWeaponMetadata(gameCode, weaponName) {
         case Constants.games.HSR:
             data = GamesData.HSRLightCones.get(weaponName);
             break;
+        case Constants.games.ZZZ:
+            data = GamesData.ZZZWEngines.get(weaponName);
+            break;
     }
     return data ?? { name: weaponName }
 }
