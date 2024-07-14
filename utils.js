@@ -149,6 +149,9 @@ function getWeaponMetadata(gameCode, weaponName) {
 function getSetMetadata(gameCode, setName) {
     let data;
     switch (gameCode) {
+        case Constants.games.GI:
+            data = GamesData.GISets.get(setName);
+            break;
         case Constants.games.HSR:
             data = GamesData.HSRSets.get(setName);
             break;

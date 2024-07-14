@@ -854,7 +854,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Arlecchino.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Crimson Moon\'s Semblance' }
+                weapon: { name: 'Crimson Moon\'s Semblance' },
+                sets: [
+                    { name: 'Gladiator\'s Finale', pieceCount: '4' }
+                ]
             }
         }],
         ['Chiori', {
@@ -862,7 +865,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Chiori.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Uraku Misugiri' }
+                weapon: { name: 'Uraku Misugiri' },
+                sets: [
+                    { name: 'Husk of Opulent Dreams', pieceCount: '4' }
+                ]
             }
         }],
         ['Bennett', {
@@ -870,7 +876,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Bennett.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Skyward Blade' }
+                weapon: { name: 'Skyward Blade' },
+                sets: [
+                    { name: 'Noblesse Oblige', pieceCount: '4' }
+                ]
             }
         }],
         ['Diluc', {
@@ -878,7 +887,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Diluc.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Wolf\'s Gravestone' }
+                weapon: { name: 'Wolf\'s Gravestone' },
+                sets: [
+                    { name: 'Crimson Witch of Flames', pieceCount: '4' }
+                ]
             }
         }],
         ['Eula', {
@@ -886,7 +898,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Eula.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Song of Broken Pines' }
+                weapon: { name: 'Song of Broken Pines' },
+                sets: [
+                    { name: 'Bloodstained Chivalry', pieceCount: '2' },
+                    { name: 'Pale Flame', pieceCount: '2' }
+                ]
             }
         }],
         ['Faruzan', {
@@ -894,7 +910,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Faruzan.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Favonius Warbow' }
+                weapon: { name: 'Favonius Warbow' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '4' }
+                ]
             }
         }],
         ['Fischl', {
@@ -902,7 +921,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Fischl.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Mitternachts Waltz' }
+                weapon: { name: 'Mitternachts Waltz' },
+                sets: [
+                    { name: 'Golden Troupe', pieceCount: '4' }
+                ]
             }
         }],
         ['Furina', {
@@ -910,7 +932,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Furina.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Splendor of Tranquil Waters' }
+                weapon: { name: 'Splendor of Tranquil Waters' },
+                sets: [
+                    { name: 'Golden Troupe', pieceCount: '4' }
+                ]
             }
         }],
         ['Ayaka', {
@@ -918,7 +943,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Ayaka.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Mistsplitter Reforged' }
+                weapon: { name: 'Mistsplitter Reforged' },
+                sets: [
+                    { name: 'Blizzard Strayer', pieceCount: '4' }
+                ]
             }
         }],
         ['Kazuha', {
@@ -926,7 +954,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Kazuha.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Xiphos\' Moonlight' }
+                weapon: { name: 'Xiphos\' Moonlight' },
+                sets: [
+                    { name: 'Viridescent Venerer', pieceCount: '4' }
+                ]
             }
         }],
         ['Hu Tao', {
@@ -934,7 +965,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_HuTao.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Staff of Homa' }
+                weapon: { name: 'Staff of Homa' },
+                sets: [
+                    { name: 'Crimson Witch of Flames', pieceCount: '4' }
+                ]
             }
         }],
         ['Gorou', {
@@ -942,7 +976,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Gorou.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Favonius Warbow' }
+                weapon: { name: 'Favonius Warbow' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '2' }
+                ]
             }
         }],
         ['Ganyu', {
@@ -950,7 +987,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Ganyu.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Amos\' Bow' }
+                weapon: { name: 'Amos\' Bow' },
+                sets: [
+                    { name: 'Blizzard Strayer', pieceCount: '4' }
+                ]
             }
         }],
         ['Kirara', {
@@ -958,7 +998,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Kirara.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Sacrificial Sword' }
+                weapon: { name: 'Sacrificial Sword' },
+                sets: [
+                    { name: 'Tenacity of the Millelith', pieceCount: '2' },
+                    { name: 'Vourukasha\'s Glow', pieceCount: '2' }
+                ]
             }
         }],
         ['Kuki Shinobu', {
@@ -966,7 +1010,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_KukiShinobu.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Iron Sting' }
+                weapon: { name: 'Iron Sting' },
+                sets: [
+                    { name: 'Flower of Paradise Lost', pieceCount: '4' }
+                ]
             }
         }],
         ['Lynette', {
@@ -974,7 +1021,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Lynette.png',
             rarity: '4',
             build: {
-                weapon: { name: 'The Black Sword' }
+                weapon: { name: 'The Black Sword' },
+                sets: [
+                    { name: 'Viridescent Venerer', pieceCount: '2' },
+                    { name: 'Echoes of an Offering', pieceCount: '2' }
+                ]
             }
         }],
         ['Nilou', {
@@ -982,7 +1033,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Nilou.png',
             rarity:  '5',
             build: {
-                weapon: { name: 'Key of Khaj-Nisut' }
+                weapon: { name: 'Key of Khaj-Nisut' },
+                sets: [
+                    { name: 'Tenacity of the Millelith', pieceCount: '2' },
+                    { name: 'Vourukasha\'s Glow', pieceCount: '2' }
+                ]
             }
         }],
         ['Neuvillette', {
@@ -990,7 +1045,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Neuvillette.png.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Tome of the Eternal Flow' }
+                weapon: { name: 'Tome of the Eternal Flow' },
+                sets: [
+                    { name: 'Marechaussee Hunter', pieceCount: '4' }
+                ]
             }
         }],
         ['Navia', {
@@ -998,7 +1056,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Navia.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Verdict' }
+                weapon: { name: 'Verdict' },
+                sets: [
+                    { name: 'Nighttime Whispers in the Echoing Woods', pieceCount: '4' }
+                ]
             }
         }],
         ['Nahida', {
@@ -1006,7 +1067,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Nahida.png',
             rarity: '5',
             build: {
-                weapon: { name: 'A Thousand Floating Dreams' }
+                weapon: { name: 'A Thousand Floating Dreams' },
+                sets: [
+                    { name: 'Deepwood Memories', pieceCount: '4' }
+                ]
             }
         }],
         ['Mika', {
@@ -1014,7 +1078,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Mika.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Favonius Lance' }
+                weapon: { name: 'Favonius Lance' },
+                sets: [
+                    { name: 'Noblesse Oblige', pieceCount: '2' },
+                    { name: 'Emblem of Severed Fate', pieceCount: '2' }
+                ]
             }
         }],
         ['Raiden Shogun', {
@@ -1022,7 +1090,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_RaidenShogun.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Engulfing Lightning' }
+                weapon: { name: 'Engulfing Lightning' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '4' }
+                ]
             }
         }],
         ['Kokomi', {
@@ -1030,7 +1101,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Kokomi.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Jadefall\'s Splendor' }
+                weapon: { name: 'Jadefall\'s Splendor' },
+                sets: [
+                    { name: 'Ocean-Hued Clam', pieceCount: '4' }
+                ]
             }
         }],
         ['Wriothesley', {
@@ -1038,7 +1112,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Wriothesley.png.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Cashflow Supervision' }
+                weapon: { name: 'Cashflow Supervision' },
+                sets: [
+                    { name: 'Marechaussee Hunter', pieceCount: '4' }
+                ]
             }
         }],
         ['Xianyun', {
@@ -1046,7 +1123,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Xianyun.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Oathsworn Eye' }
+                weapon: { name: 'Oathsworn Eye' },
+                sets: [
+                    { name: 'Gladiator\'s Finale', pieceCount: '2' },
+                    { name: 'Nighttime Whispers in the Echoing Woods', pieceCount: '2' },
+                ]
             }
         }],
         ['Xiao', {
@@ -1054,7 +1135,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Xiao.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Primordial Jade Winged-Spear' }
+                weapon: { name: 'Primordial Jade Winged-Spear' },
+                sets: [
+                    { name: 'Gladiator\'s Finale', pieceCount: '2' },
+                    { name: 'Viridescent Venerer', pieceCount: '2' },
+                ]
             }
         }],
         ['Xingqiu', {
@@ -1062,7 +1147,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Xingqiu.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Sacrificial Sword' }
+                weapon: { name: 'Sacrificial Sword' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '4' }
+                ]
             }
         }],
         ['Yae Miko', {
@@ -1070,7 +1158,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_YaeMiko.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Kagura\'s Verity' }
+                weapon: { name: 'Kagura\'s Verity' },
+                sets: [
+                    { name: 'Gladiator\'s Finale', pieceCount: '2' },
+                    { name: 'Shimenawa\'s Reminiscence', pieceCount: '2' },
+                ]
             }
         }],
         ['Zhongli', {
@@ -1078,7 +1170,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Zhongli.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Black Tassel' }
+                weapon: { name: 'Black Tassel' },
+                sets: [
+                    { name: 'Tenacity of the Millelith', pieceCount: '4' }
+                ]
             }
         }],
         ['Yun Jin', {
@@ -1086,7 +1181,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_YunJin.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Favonius Lance' }
+                weapon: { name: 'Favonius Lance' },
+                sets: [
+                    { name: 'Husk of Opulent Dreams', pieceCount: '2' }
+                ]
             }
         }],
         ['Yelan', {
@@ -1094,7 +1192,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Yelan.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Favonius Warbow' }
+                weapon: { name: 'Favonius Warbow' },
+                sets: [
+                    { name: 'Tenacity of the Millelith', pieceCount: '2' },
+                    { name: 'Heart of Depth', pieceCount: '2' },
+                ]
             }
         }],
         ['Clorinde', {
@@ -1102,7 +1204,10 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Clorinde.png',
             rarity: '5',
             build: {
-                weapon: { name: 'Absolution' }
+                weapon: { name: 'Absolution' },
+                sets: [
+                    { name: 'Fragment of Harmonic Whimsy', pieceCount: '4' }
+                ]
             }
         }],
         ['Chevreuse', {
@@ -1110,7 +1215,11 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Chevreuse.png',
             rarity: '4',
             build: {
-                weapon: { name: 'Dialogues of the Desert Sages' }
+                weapon: { name: 'Dialogues of the Desert Sages' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '2' },
+                    { name: 'Tenacity of the Millelith', pieceCount: '2' },
+                ]
             }
         }],
         ['Xianling', {
@@ -1118,7 +1227,8 @@ const GamesData = {
             imageUrl: 'assets/gi/character/GI_Xianling.png',
             rarity: '4',
             build: {
-                weapon: { name: 'The Catch' }
+                weapon: { name: 'The Catch' },
+                sets: []
             }
         }]
     ]),
@@ -2137,6 +2247,10 @@ const GamesData = {
         ['Vourukasha\'s Glow', {
             name: 'Vourukasha\'s Glow',
             imageUrl: 'assets/gi/set/GI_Set_VourukashasGlow.png'
+        }],
+        ['Echoes of an Offering', {
+            name: 'Echoes of an Offering',
+            imageUrl: 'assets/gi/set/GI_Set_EchoesOfAnOffering.png'
         }],
     ]),
 
