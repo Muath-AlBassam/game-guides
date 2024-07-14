@@ -78,13 +78,13 @@ function getGame(gameCode) {
 function getAllTeams(gameCode) {
     switch (gameCode) {
         case Constants.games.GI:
-            return GamesData.GITeams;
+            return GIData.GITeams;
         case Constants.games.HSR:
-            return GamesData.HSRTeams;
+            return HSRData.HSRTeams;
         case Constants.games.ZZZ:
-            return GamesData.ZZZTeams;
+            return ZZZData.ZZZTeams;
         case Constants.games.HI3:
-            return GamesData.HI3Teams;
+            return HI3Data.HI3Teams;
         default:
             return [];
     }
@@ -98,9 +98,9 @@ function getTeam(gameCode, teamName) {
 function getAllRoles(gameCode) {
     switch (gameCode) {
         case Constants.games.HSR:
-            return GamesData.HSRRoles;
+            return HSRData.HSRRoles;
         case Constants.games.ZZZ:
-            return GamesData.ZZZRoles;
+            return ZZZData.ZZZRoles;
         default:
             return null;
     }
@@ -115,16 +115,16 @@ function getCharacterMetadata(gameCode, characterName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GamesData.GICharacters.get(characterName);
+            data = GIData.GICharacters.get(characterName);
             break;
         case Constants.games.HSR:
-            data = GamesData.HSRCharacters.get(characterName);
+            data = HSRData.HSRCharacters.get(characterName);
             break;
         case Constants.games.ZZZ:
-            data = GamesData.ZZZCharacters.get(characterName);
+            data = ZZZData.ZZZCharacters.get(characterName);
             break;
         case Constants.games.HI3:
-            data = GamesData.HI3Characters.get(characterName);
+            data = HI3Data.HI3Characters.get(characterName);
             break;
     }
     return data ?? { name: characterName }
@@ -134,13 +134,13 @@ function getWeaponMetadata(gameCode, weaponName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GamesData.GIWeapons.get(weaponName);
+            data = GIData.GIWeapons.get(weaponName);
             break;
         case Constants.games.HSR:
-            data = GamesData.HSRLightCones.get(weaponName);
+            data = HSRData.HSRLightCones.get(weaponName);
             break;
         case Constants.games.ZZZ:
-            data = GamesData.ZZZWEngines.get(weaponName);
+            data = ZZZData.ZZZWEngines.get(weaponName);
             break;
     }
     return data ?? { name: weaponName }
@@ -150,10 +150,10 @@ function getSetMetadata(gameCode, setName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GamesData.GISets.get(setName);
+            data = GIData.GISets.get(setName);
             break;
         case Constants.games.HSR:
-            data = GamesData.HSRSets.get(setName);
+            data = HSRData.HSRSets.get(setName);
             break;
     }
     return data ?? { name: setName }
