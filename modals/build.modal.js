@@ -6,7 +6,7 @@ class BuildModal extends HTMLElement {
     componentStyle = `
     <style>
         .build-modal-content {
-            /* */
+            width: 20%;
         }
 
         .build-container {
@@ -91,7 +91,7 @@ class BuildModal extends HTMLElement {
     buildHTML(activeGame, character) {
         return this.componentStyle + `
         <div class="gagu-modal" id="modal">
-            <div class="gagu-modal-content" id="modal-body">
+            <div class="gagu-modal-content build-modal-content" id="modal-body">
                 ${this.buildDialogContent(activeGame, character)}
             </div>
         </div>`;
@@ -176,9 +176,17 @@ customElements.define('build-modal', BuildModal);
 
 //------------------------------------------------------------------------------------
 
-function openBuildModal(character) {
+function openBuildModal(character, imageUrl) {
+    // trigger attributeChangedCallback & set data
     const modalComponent = document.getElementById('build-modal');
     modalComponent.setAttribute('character', character);
+
+    // set modal background image
+    const modalBody = document.getElementById('modal-body');
+    modalBody.style.background = 'linear-gradient(#23242af0, #23242af0), url(' + imageUrl + ') no-repeat center center';
+    modalBody.style.backgroundSize = 'cover';
+
+    // add show class to modal
     const modal = document.getElementById('modal');
     modal.classList.toggle('modal-shown');
 }
