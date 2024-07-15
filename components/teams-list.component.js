@@ -108,6 +108,7 @@ class TeamsListComponent extends HTMLElement {
 
     buildHTML(activeGame, teams) {
         return this.componentStyle + `
+        <build-modal id="build-modal"></build-modal>
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Teams</div>
