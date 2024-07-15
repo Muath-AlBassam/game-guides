@@ -46,7 +46,8 @@ class VariationsComponent extends HTMLElement {
                 variationsContent += `<tr><td style="width: 50px; text-align: center">`;
                 vari.forEach(character => {
                     const charmd = getCharacterMetadata(activeGame.code, character);
-                    variationsContent += createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;', true);
+                    variationsContent += createCharacterImage(activeGame.code, charmd, 
+                        {dimensions: 60, styles: 'margin: 5px 10px;', withBuildModal: true});
                 })
                 variationsContent += `</td></tr>`;
             })

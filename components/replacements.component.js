@@ -46,14 +46,15 @@ class ReplacementsComponent extends HTMLElement {
             if (character.replacedBy) {
                 character.replacedBy.forEach(rep => {
                     const repmd = getCharacterMetadata(activeGame.code, rep);
-                    charReplacements += createCharacterImage(activeGame.code, repmd, 60, 'margin: 5px 10px;', true);
+                    charReplacements += createCharacterImage(activeGame.code, repmd, 
+                        {dimensions: 60, styles: 'margin: 5px 10px;', withBuildModal: true});
                 })
             }
 
             replacementsContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
-                    ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
+                    ${createCharacterImage(activeGame.code, charmd, {dimensions: 60, styles: 'margin: 5px 10px;'})}
                 </td>
                 <td>
                     ${charReplacements}

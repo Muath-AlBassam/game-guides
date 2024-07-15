@@ -120,10 +120,7 @@ class BuildModal extends HTMLElement {
         <div class="close-modal" onclick="closeBuildModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                <img    
-                    src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
-                    width="100" height="100" class="character-image"
-                />
+                ${createCharacterImage(gameCode, charmd, {classes: 'character-image', withBackgroundClass: false})}
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>

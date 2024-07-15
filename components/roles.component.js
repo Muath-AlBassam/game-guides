@@ -51,7 +51,7 @@ class RolesComponent extends HTMLElement {
             rolesContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
-                    ${createCharacterImage(activeGame.code, charmd, 60, 'margin: 5px 10px;')}
+                    ${createCharacterImage(activeGame.code, charmd, {dimensions: 60, styles: 'margin: 5px 10px;'})}
                 </td>
                 <td>
                     ${roleImage}
