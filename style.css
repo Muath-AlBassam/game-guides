@@ -63,6 +63,9 @@
     display: block;
     opacity: 1;
 }
+body.modal-shown {
+    overflow: hidden;
+}
 
 .gagu-modal-content {
     background-color: var(--background-color);

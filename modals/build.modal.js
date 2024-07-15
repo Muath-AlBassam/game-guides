@@ -183,14 +183,13 @@ customElements.define('build-modal', BuildModal);
 
 function openBuildModal(character, imageUrl) {
     // trigger attributeChangedCallback & set data
-    const modalComponent = document.getElementById('build-modal');
-    modalComponent.setAttribute('character', character);
+    document.getElementById('build-modal').setAttribute('character', character);
     // add show class to modal
-    const modal = document.getElementById('modal');
-    modal.classList.toggle('modal-shown');
+    document.getElementById('modal').classList.add('modal-shown');
+    document.getElementById('body').classList.add('modal-shown');
 }
 
 function closeBuildModal() {
-    const modal = document.getElementById('modal');
-    modal.classList.toggle('modal-shown');
+    document.getElementById('modal').classList.remove('modal-shown');
+    document.getElementById('body').classList.remove('modal-shown');
 }
