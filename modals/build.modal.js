@@ -8,6 +8,11 @@ class BuildModal extends HTMLElement {
         .build-modal-content {
             width: 20%;
         }
+        
+        .build-modal-content .character-image {
+            border: 2px solid #484950;
+            border-radius: 100%; 
+        }
 
         .build-container {
             background-color: #2c2d33;
@@ -17,7 +22,7 @@ class BuildModal extends HTMLElement {
             padding: 0;
         }
 
-        .build-container .build-header {
+        .build-container .build-item {
             grid-gap: 0;
             align-items: center;
             background-color: #36373d;
@@ -28,7 +33,7 @@ class BuildModal extends HTMLElement {
             width: 100%;
         }
 
-        .build-container .build-header .build-icon {
+        .build-container .build-item .build-image {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,13 +41,13 @@ class BuildModal extends HTMLElement {
             width: 80px;
         }
 
-        .build-container .build-header .build-info {
+        .build-container .build-item .build-name {
             display: flex;
             align-items: center;
             padding-left: 15px;
         }
 
-        .build-container .build-header .build-info .piece-count {
+        .build-container .build-item .build-name .piece-count {
             color: hsla(0, 0%, 100%, .75);
             display: inline;
             padding-right: 5px;
@@ -100,29 +105,32 @@ class BuildModal extends HTMLElement {
     buildDialogContent(activeGame, character) {
         let buildContent = '';
         let charmd = getCharacterMetadata(activeGame.code, character);
-        buildContent += this.buildModalHeader(charmd);
+        buildContent += this.buildModalHeader(activeGame.code, charmd);
         if (charmd?.build) {
-            buildContent += this.buildWeaponTable(charmd, activeGame.code);
-            buildContent += this.buildSetsTable(charmd, activeGame.code);
+            buildContent += this.buildWeaponTable(activeGame.code, charmd);
+            buildContent += this.buildSetsTable(activeGame.code, charmd);
         } else {
             buildContent += `<h1 class="empty-dialog">...</h1>`
         }
         return buildContent;
     }
 
-    buildModalHeader(charmd) {
+    buildModalHeader(gameCode, charmd) {
         return `
         <div class="close-modal" onclick="closeBuildModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                <!-- <img src="${charmd.imageUrl}" height="70" /> --> 
+                <img    
+                    src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
+                    width="100" height="100" class="character-image"
+                />
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>
         `;
     }
 
-    buildWeaponTable(charmd, gameCode) {
+    buildWeaponTable(gameCode, charmd) {
         let content = '';
         if (charmd.build.weapon) {
             const weaponmd = getWeaponMetadata(gameCode, charmd.build.weapon.name);
@@ -131,11 +139,11 @@ class BuildModal extends HTMLElement {
                 ${getWeaponsLabel(gameCode)}
             </h5>
             <div class="build-container">
-                <div class="build-header">
-                    <div class="build-icon">
+                <div class="build-item">
+                    <div class="build-image">
                         <img src="${weaponmd.imageUrl}" class="${gameCode}-rarity-${weaponmd.rarity}" height="80" />
                     </div>
-                    <div class="build-info">
+                    <div class="build-name">
                         <h5 style="margin-bottom: 0;">${weaponmd.name}</h5>
                     </div>
                 </div>
@@ -144,7 +152,7 @@ class BuildModal extends HTMLElement {
         return content;
     }
 
-    buildSetsTable(charmd, gameCode) {
+    buildSetsTable(gameCode, charmd) {
         let content = '';
         if (charmd.build.sets) {
             content += `
@@ -156,11 +164,11 @@ class BuildModal extends HTMLElement {
             charmd.build.sets.forEach(set => {
                 const setmd = getSetMetadata(gameCode, set.name);
                 content += `
-                <div class="build-header">
-                    <div class="build-icon">
+                <div class="build-item">
+                    <div class="build-image">
                         <img src="${setmd.imageUrl}" height="70" style="margin: 5px;" />
                     </div>
-                    <div class="build-info">
+                    <div class="build-name">
                         <span class="piece-count">(${set.pieceCount})</span>
                         <h5 style="margin-bottom: 0;">${setmd.name}</h5>
                     </div>
@@ -180,12 +188,6 @@ function openBuildModal(character, imageUrl) {
     // trigger attributeChangedCallback & set data
     const modalComponent = document.getElementById('build-modal');
     modalComponent.setAttribute('character', character);
-
-    // set modal background image
-    const modalBody = document.getElementById('modal-body');
-    modalBody.style.background = 'linear-gradient(#23242af0, #23242af0), url(' + imageUrl + ') no-repeat center center';
-    modalBody.style.backgroundSize = 'cover';
-
     // add show class to modal
     const modal = document.getElementById('modal');
     modal.classList.toggle('modal-shown');
