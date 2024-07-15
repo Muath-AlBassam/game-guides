@@ -61,6 +61,16 @@ class TeamsListComponent extends HTMLElement {
             align-items: center;
             justify-content: center;
         }
+
+        .team-actions img {
+            transition: all 0.5s ease-out;
+        }
+        .team-actions:not(.collapsed) img {
+            transform: rotate(-180deg);
+        }
+        .team-actions.collapsed img {
+            transform: rotate(0deg);
+        }
         
         .action {
             cursor: pointer;
@@ -128,7 +138,7 @@ class TeamsListComponent extends HTMLElement {
             let content = 
                 this.buildTeamContainer(activeGame, team, teamId, index) +
                 this.buildTeamDetails(activeGame, team, teamId);
-            teamsListHTML += content;
+            teamsListHTML += `<div> ${content} </div>`;
         });
 
         return teamsListHTML;
@@ -139,12 +149,12 @@ class TeamsListComponent extends HTMLElement {
         return `<div class="team-container action">
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
-                        <div class="team-name" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                        <div class="team-name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30">
                             <span>${team.name}</span>
                         </div>
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
-                        <div class="team-actions" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                        <div class="team-actions collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                             <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
                         </div>
                     </div>
