@@ -171,10 +171,18 @@ function createCharacterImage(
         withBackgroundClass = true
     } = {}
 ) {
+    let extraAtt = '';
+    let styleVal = styles;
+    let classVal = `${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
+    let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
+    if (withBuildModal && charmd.build) {
+        extraAtt += ` onclick="openBuildModal('${charmd.name}')"`;
+        styleVal += '; cursor: pointer;';
+    }
+
     return `<img    
-                src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
-                class="${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}"
-                width="${dimensions}" height="${dimensions}" style="${withBuildModal && charmd.build ? 'cursor: pointer;' : ''} ${styles}"
-                ${(withBuildModal && charmd.build) ? 'onclick="openBuildModal(\'' + charmd.name + '\')"' : ''}
+                src="${imgSrc}"  alt="${charmd.name}" title="${charmd.name ?? '?'}"
+                class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
+                ${extraAtt}
             />`;
 }
