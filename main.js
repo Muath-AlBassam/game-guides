@@ -8,6 +8,11 @@ window.addEventListener('load', () => {
 // close modal on clicking outside
 window.onclick = function(event) {
     if (event.target == document.getElementById('modal')) {
-        closeBuildModal();
+        closeModal();
     }
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.remove('modal-shown');
+    document.getElementById('body').classList.remove('modal-shown');
 }

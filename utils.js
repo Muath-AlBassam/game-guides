@@ -175,6 +175,6 @@ function createCharacterImage(
                 src="${charmd.imageUrl ?? 'assets/Unknown.png'}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
                 class="${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}"
                 width="${dimensions}" height="${dimensions}" style="${withBuildModal && charmd.build ? 'cursor: pointer;' : ''} ${styles}"
-                ${(withBuildModal && charmd.build) ? 'onclick="openBuildModal(\'' + charmd.name + '\', \'' + charmd.imageUrl + '\')"' : ''}
+                ${(withBuildModal && charmd.build) ? 'onclick="openBuildModal(\'' + charmd.name + '\')"' : ''}
             />`;
 }

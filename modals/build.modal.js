@@ -117,7 +117,7 @@ class BuildModal extends HTMLElement {
 
     buildModalHeader(gameCode, charmd) {
         return `
-        <div class="close-modal" onclick="closeBuildModal()">&times;</div>
+        <div class="close-modal" onclick="closeModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
                 ${createCharacterImage(gameCode, charmd, {classes: 'character-image', withBackgroundClass: false})}
@@ -181,15 +181,11 @@ customElements.define('build-modal', BuildModal);
 
 //------------------------------------------------------------------------------------
 
-function openBuildModal(character, imageUrl) {
+function openBuildModal(character) {
+    console.log('open');
     // trigger attributeChangedCallback & set data
     document.getElementById('build-modal').setAttribute('character', character);
     // add show class to modal
     document.getElementById('modal').classList.add('modal-shown');
     document.getElementById('body').classList.add('modal-shown');
-}
-
-function closeBuildModal() {
-    document.getElementById('modal').classList.remove('modal-shown');
-    document.getElementById('body').classList.remove('modal-shown');
 }
