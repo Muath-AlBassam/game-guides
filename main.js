@@ -14,5 +14,4 @@ window.onclick = function(event) {
 
 function closeModal() {
     document.getElementById('modal').classList.remove('modal-shown');
-    document.getElementById('body').classList.remove('modal-shown');
 }

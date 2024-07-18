@@ -187,5 +187,4 @@ function openBuildModal(character) {
     document.getElementById('build-modal').setAttribute('character', character);
     // add show class to modal
     document.getElementById('modal').classList.add('modal-shown');
-    document.getElementById('body').classList.add('modal-shown');
 }
