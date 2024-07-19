@@ -133,7 +133,7 @@ class BuildModal extends HTMLElement {
             const weaponmd = getWeaponMetadata(gameCode, charmd.build.weapon.name);
             content = `
             <h5 class="content-header">
-                ${getWeaponsLabel(gameCode)}
+                ${this.getWeaponsLabel(gameCode)}
             </h5>
             <div class="build-container">
                 <div class="build-item">
@@ -154,7 +154,7 @@ class BuildModal extends HTMLElement {
         if (charmd.build.sets) {
             content += `
             <h5 class="content-header">
-                ${getSetsLabel(gameCode)}
+                ${this.getSetsLabel(gameCode)}
             </h5>
             <div class="build-container">`;
             
@@ -175,6 +175,36 @@ class BuildModal extends HTMLElement {
         }
         return content;
     }
+
+    getWeaponsLabel(gameCode) {
+        switch (gameCode) {
+            case Constants.games.GI:
+                return 'Weapon';
+            case Constants.games.HSR:
+                return 'Light Cone';
+            case Constants.games.ZZZ:
+                return 'W-Engine';
+            case Constants.games.HI3:
+                return 'Weapon';
+            default:
+                return '';
+        }    
+    }
+    
+    getSetsLabel(gameCode) {
+        switch (gameCode) {
+            case Constants.games.GI:
+                return 'Artifacts';
+            case Constants.games.HSR:
+                return 'Relics & Planar';
+            case Constants.games.ZZZ:
+                return 'Drive Discs';
+            case Constants.games.HI3:
+                return 'Stigmata';
+            default:
+                return '';
+        }    
+    }
 }
 
 customElements.define('build-modal', BuildModal);
@@ -182,7 +212,6 @@ customElements.define('build-modal', BuildModal);
 //------------------------------------------------------------------------------------
 
 function openBuildModal(character) {
-    console.log('open');
     // trigger attributeChangedCallback & set data
     document.getElementById('build-modal').setAttribute('character', character);
     // add show class to modal
