@@ -171,18 +171,25 @@ function createCharacterImage(
         withBackgroundClass = true
     } = {}
 ) {
-    let extraAtt = '';
-    let styleVal = styles;
-    let classVal = `${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
+    const showBuild = withBuildModal && charmd.build;
+
+    let styleVal = `${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
+    let classVal = `pfp ${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
     let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
-    if (withBuildModal && charmd.build) {
-        extraAtt += ` onclick="openBuildModal('${charmd.name}')"`;
-        styleVal += '; cursor: pointer;';
+    let imgTag = `<img    
+                src="${imgSrc}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
+                class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
+            />`;
+
+    if (showBuild) {
+        imgTag = `
+            <div class="character-container">
+                ${imgTag}
+                <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 
+                    title="View build" onclick="openBuildModal('${charmd.name}')"/>
+            </div>
+        `;
     }
 
-    return `<img    
-                src="${imgSrc}"  alt="${charmd.name}" title="${charmd.name ?? '?'}"
-                class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
-                ${extraAtt}
-            />`;
+    return imgTag;
 }
