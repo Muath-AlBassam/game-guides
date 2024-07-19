@@ -11,8 +11,30 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
 ::-webkit-scrollbar {
     display: none;
+}
+
+/* Main content placement after Sidenav ------------------------------------ */
+.nav-component ~ .main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+.nav-component.active ~ .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.main-content {
+    padding: 75px;
+    /* height: 300vh; */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.5s ease;
 }
 
 /* Common styles ----------------------------------------------------------- */
@@ -77,24 +99,6 @@ body:has(div.modal-shown) {
     border: 1px solid #888;
     border-radius: 5px;
     animation: fade-in .2s;
-}
-
-/* Main content placement after Sidenav ------------------------------------ */
-.nav-component ~ .main-content {
-    margin-left: 80px;
-    width: calc(100% - 80px);
-}
-.nav-component.active ~ .main-content {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-}
-
-.main-content {
-    padding: 75px;
-    /* height: 300vh; */
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: all 0.5s ease;
 }
 
 /* Team container ---------------------------------------------------------- */

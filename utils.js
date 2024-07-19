@@ -37,40 +37,37 @@ function getAllGames() {
 }
 
 function getGame(gameCode) {
-    const games = getAllGames();
-    const game = games.find(g => g.code == gameCode);
-    // return default game if not found
-    return game ?? games.find(g => g.code == Constants.games.GI);
+    gameCode = gameCode == '' || gameCode == null ? Constants.games.GI : gameCode; 
+    return getAllGames().get(gameCode);
 }
 
 function getAllTeams(gameCode) {
     switch (gameCode) {
         case Constants.games.GI:
-            return GIData.GITeams;
+            return TeamsRepository.GITeams;
         case Constants.games.HSR:
-            return HSRData.HSRTeams;
+            return TeamsRepository.HSRTeams;
         case Constants.games.ZZZ:
-            return ZZZData.ZZZTeams;
+            return TeamsRepository.ZZZTeams;
         case Constants.games.HI3:
-            return HI3Data.HI3Teams;
+            return TeamsRepository.HI3Teams;
         default:
-            return [];
+            return new Map([]);
     }
 }
 
 function getTeam(gameCode, teamName) {
-    let teams = getAllTeams(gameCode);
-    return teams.find(team => team.name == teamName);
+    return getAllTeams(gameCode).get(teamName);
 }
 
 function getAllRoles(gameCode) {
     switch (gameCode) {
         case Constants.games.HSR:
-            return HSRData.HSRRoles;
+            return RolesRepository.HSRRoles;
         case Constants.games.ZZZ:
-            return ZZZData.ZZZRoles;
+            return RolesRepository.ZZZRoles;
         default:
-            return null;
+            return [];
     }
 }
 
@@ -83,16 +80,16 @@ function getCharacterMetadata(gameCode, characterName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GIData.GICharacters.get(characterName);
+            data = CharactersRepository.GICharacters.get(characterName);
             break;
         case Constants.games.HSR:
-            data = HSRData.HSRCharacters.get(characterName);
+            data = CharactersRepository.HSRCharacters.get(characterName);
             break;
         case Constants.games.ZZZ:
-            data = ZZZData.ZZZCharacters.get(characterName);
+            data = CharactersRepository.ZZZCharacters.get(characterName);
             break;
         case Constants.games.HI3:
-            data = HI3Data.HI3Characters.get(characterName);
+            data = CharactersRepository.HI3Characters.get(characterName);
             break;
     }
     return data ?? { name: characterName }
@@ -102,13 +99,13 @@ function getWeaponMetadata(gameCode, weaponName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GIData.GIWeapons.get(weaponName);
+            data = WeaponsRepository.GIWeapons.get(weaponName);
             break;
         case Constants.games.HSR:
-            data = HSRData.HSRLightCones.get(weaponName);
+            data = WeaponsRepository.HSRLightCones.get(weaponName);
             break;
         case Constants.games.ZZZ:
-            data = ZZZData.ZZZWEngines.get(weaponName);
+            data = WeaponsRepository.ZZZWEngines.get(weaponName);
             break;
     }
     return data ?? { name: weaponName }
@@ -118,10 +115,10 @@ function getSetMetadata(gameCode, setName) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = GIData.GISets.get(setName);
+            data = SetsRepository.GISets.get(setName);
             break;
         case Constants.games.HSR:
-            data = HSRData.HSRSets.get(setName);
+            data = SetsRepository.HSRSets.get(setName);
             break;
     }
     return data ?? { name: setName }

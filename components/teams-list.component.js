@@ -132,13 +132,15 @@ class TeamsListComponent extends HTMLElement {
     // all teams
     buildTeams(activeGame, teams) {
         let teamsListHTML = '';
-        teams.forEach((team, index) => {
+        let index = 0;
+        teams.forEach((team, key) => {
             const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
 
             let content = 
                 this.buildTeamContainer(activeGame, team, teamId, index) +
                 this.buildTeamDetails(activeGame, team, teamId);
             teamsListHTML += `<div> ${content} </div>`;
+            index++;
         });
 
         return teamsListHTML;
