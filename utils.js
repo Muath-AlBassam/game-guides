@@ -57,7 +57,8 @@ function getAllTeams(gameCode) {
 }
 
 function getTeam(gameCode, teamName) {
-    return getAllTeams(gameCode).get(teamName);
+    let team = getAllTeams(gameCode).get(teamName);
+    return team ?? { name: teamName }
 }
 
 function getAllRoles(gameCode) {
@@ -67,13 +68,13 @@ function getAllRoles(gameCode) {
         case Constants.games.ZZZ:
             return RolesRepository.ZZZRoles;
         default:
-            return [];
+            return new Map([]);
     }
 }
 
 function getRole(gameCode, roleName) {
-    let roles = getAllRoles(gameCode);
-    return roles.find(role => role.name == roleName);
+    let role = getAllRoles(gameCode).get(roleName);
+    return role ?? { name: roleName }
 }
 
 function getCharacterMetadata(gameCode, characterName) {
