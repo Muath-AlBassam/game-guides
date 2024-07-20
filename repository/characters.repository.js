@@ -379,7 +379,10 @@ const CharactersRepository = {
             rarity: '4',
             build: {
                 weapon: { name: 'The Catch' },
-                sets: []
+                sets: [
+                    { name: 'Noblesse Oblige', pieceCount: '2' },
+                    { name: 'Emblem of Severed Fate', pieceCount: '2' }
+                ]
             }
         }]
     ]),
