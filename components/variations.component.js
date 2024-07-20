@@ -1,6 +1,5 @@
 class VariationsComponent extends HTMLElement {
 
-    /*html*/
     componentStyle = `
     <style>
         .variations-container {
