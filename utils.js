@@ -24,84 +24,138 @@ function appendAll(parent, children) {
     return parent;
 }
 
-// TeamBuilds Utils -----------------------------------------------------------
+// Other Utils ----------------------------------------------------------------
+
+function getGameFromUrl() {
+    return window.location.hash.replace('#', '');
+}
+
+// Game Data Utils ------------------------------------------------------------
 
 function getAllGames() {
     return GamesData.games;
 }
 
 function getGame(gameCode) {
-    const games = getAllGames();
-    return games.find(g => g.code ==  gameCode);
+    gameCode = gameCode == '' || gameCode == null ? Constants.games.GI : gameCode; 
+    return getAllGames().get(gameCode);
 }
 
-function getTeams(gameCode) {
+function getAllTeams(gameCode) {
     switch (gameCode) {
-        case 'GI':
-            return GamesData.GITeams;
-        case 'HSR':
-            return GamesData.HSRTeams;
-        case 'ZZZ':
-            return GamesData.ZZZTeams;
-        case 'HI3':
-            return GamesData.HI3Teams;
+        case Constants.games.GI:
+            return TeamsRepository.GITeams;
+        case Constants.games.HSR:
+            return TeamsRepository.HSRTeams;
+        case Constants.games.ZZZ:
+            return TeamsRepository.ZZZTeams;
+        case Constants.games.HI3:
+            return TeamsRepository.HI3Teams;
         default:
-            return null;
+            return new Map([]);
     }
+}
+
+function getTeam(gameCode, teamName) {
+    let team = getAllTeams(gameCode).get(teamName);
+    return team ?? { name: teamName }
+}
+
+function getAllRoles(gameCode) {
+    switch (gameCode) {
+        case Constants.games.HSR:
+            return RolesRepository.HSRRoles;
+        case Constants.games.ZZZ:
+            return RolesRepository.ZZZRoles;
+        default:
+            return new Map([]);
+    }
+}
+
+function getRole(gameCode, roleName) {
+    let role = getAllRoles(gameCode).get(roleName);
+    return role ?? { name: roleName }
 }
 
 function getCharacterMetadata(gameCode, characterName) {
     let data;
     switch (gameCode) {
-        case 'GI':
-            data = GamesData.GICharacters.get(characterName);
+        case Constants.games.GI:
+            data = CharactersRepository.GICharacters.get(characterName);
             break;
-        case 'HSR':
-            data = GamesData.HSRCharacters.get(characterName);
+        case Constants.games.HSR:
+            data = CharactersRepository.HSRCharacters.get(characterName);
             break;
-        case 'ZZZ':
-            data = GamesData.ZZZCharacters.get(characterName);
+        case Constants.games.ZZZ:
+            data = CharactersRepository.ZZZCharacters.get(characterName);
             break;
-        case 'HI3':
-            data = GamesData.HI3Characters.get(characterName);
+        case Constants.games.HI3:
+            data = CharactersRepository.HI3Characters.get(characterName);
             break;
     }
     return data ?? { name: characterName }
 }
 
-// create character image tag
-function createCharacterImage(charmd, dimenstion = 105, asString = false) {
-    if (asString) {
-        return `<img    
-                    src='${charmd.imageUrl ?? ''}' alt='${charmd.name}' title='${charmd.name}'
-                    class='${gameCode}-rarity-${charmd.rarity ?? ''}'
-                    width'${dimenstion}' height='${dimenstion}' 
-                />`;
-    } else {
-        let img = createElement('img', `${gameCode}-rarity-${charmd.rarity ?? ''}`);
-        img.setAttribute('src', charmd.imageUrl ?? '');
-        img.setAttribute('alt', charmd.name);
-        img.setAttribute('title', charmd.name);
-        img.setAttribute('width', dimenstion);
-        img.setAttribute('height', dimenstion);
-        return img;
+function getWeaponMetadata(gameCode, weaponName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.GI:
+            data = WeaponsRepository.GIWeapons.get(weaponName);
+            break;
+        case Constants.games.HSR:
+            data = WeaponsRepository.HSRLightCones.get(weaponName);
+            break;
+        case Constants.games.ZZZ:
+            data = WeaponsRepository.ZZZWEngines.get(weaponName);
+            break;
     }
+    return data ?? { name: weaponName }
 }
 
-// create characters' name tag + image tooltip
-function createCharacterNameAndTooltipTag(gameCode, chars, imgDimenstion = 90) {
-    let imgs = '';
-    // create images tage
-    chars.forEach(charname => {
-        const charmd = getCharacterMetadata(gameCode, charname);
-        imgs += createCharacterImage(charmd, imgDimenstion, true);
-    });
-    // add images as tooltip
-    const charTag = createElement('span', null, null, chars.join(' - '));
-    charTag.setAttribute('data-bs-toggle', 'tooltip');
-    charTag.setAttribute('data-bs-placement', 'right');
-    charTag.setAttribute('data-bs-container', 'body');
-    charTag.setAttribute('data-bs-html', 'true');
-    charTag.setAttribute('data-bs-title', imgs.length == 0 ? '...' : imgs);
-    return charTag;
+function getSetMetadata(gameCode, setName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.GI:
+            data = SetsRepository.GISets.get(setName);
+            break;
+        case Constants.games.HSR:
+            data = SetsRepository.HSRSets.get(setName);
+            break;
+    }
+    return data ?? { name: setName }
+}
+
+// create character image tag
+function createCharacterImage(
+    gameCode, 
+    charmd, 
+    {
+        dimensions = 100, 
+        styles = '', 
+        classes = '', 
+        withBuildModal = false, 
+        withBackgroundClass = true
+    } = {}
+) {
+    const showBuild = withBuildModal && charmd.build;
+
+    let styleVal = `${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
+    let classVal = `pfp ${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
+    let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
+    let imgTag = `<img    
+                src="${imgSrc}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
+                class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
+            />`;
+
+    if (showBuild) {
+        imgTag = `
+            <div class="character-container">
+                ${imgTag}
+                <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 
+                    title="View build" onclick="openBuildModal('${charmd.name}')"/>
+            </div>
+        `;
+    }
+
+    return imgTag;
 }

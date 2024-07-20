@@ -1,48 +1,6 @@
-const arrow = Constants.unicode.arrow;
-const times = Constants.unicode.times;
-
-smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
-tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`
-
-
-const GamesData = {
-    games: [
-        {
-            label: 'Genshin Impact',
-            code: 'GI',
-            teamSize: 4,
-            logoUrl: 'assets/gi/GI_Logo.png',
-            backgroundUrl: 'assets/gi/GI_BG.png',
-            guideUrl: 'https://genshin-builds.com/characters'
-        },
-        {
-            label: 'Honkai Star Rail',
-            code: 'HSR',
-            teamSize: 4,
-            logoUrl: 'assets/hsr/HSR_Logo.png',
-            backgroundUrl: 'assets/hsr/HSR_BG.png',
-            guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
-        },
-        {
-            label: 'Zenless Zone Zero',
-            code: 'ZZZ',
-            teamSize: 3,
-            logoUrl: 'assets/zzz/ZZZ_Logo.png',
-            backgroundUrl: 'assets/zzz/ZZZ_BG.png',
-            guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
-        },
-        {
-            label: 'Honkai Impact 3rd',
-            code: 'HI3',
-            teamSize: 3,
-            logoUrl: 'assets/hi3/HI3_Logo.png',
-            backgroundUrl: 'assets/hi3/HI3_BG.jpg',
-            guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
-        }
-    ],
-
-    GITeams: [
-        {
+const TeamsRepository = {
+    GITeams: new Map([
+        ['Pyro', {
             name: 'Pyro',
             iconUrl: 'assets/gi/GI_Pyro.png',
             characters: [
@@ -77,8 +35,8 @@ const GamesData = {
                 ['Yelan', `Ult ${arrow}`],
                 ['Arlecchino', `Skill ${arrow} CA ${arrow} NA`],
             ]
-        },
-        {
+        }],
+        ['Hydro', {
             name: 'Hydro',
             iconUrl: 'assets/gi/GI_Hydro.png',
             characters: [
@@ -108,14 +66,14 @@ const GamesData = {
                 }
             ],
             rotations: [
-                ['Neuvillette', `1NA ${arrow}`],
+                ['Neuvillette', `NA${times}1 ${arrow}`],
                 ['Kazuha', `Skill ${arrow}`],
                 ['Raiden Shogun', `Skill ${arrow}`],
                 ['Furina', `Skill ${arrow} Ult ${arrow}`],
                 ['Neuvillette', `Skill/Ult ${arrow} CA`],
             ]
-        },
-        {
+        }],
+        ['Dendro', {
             name: 'Dendro',
             iconUrl: 'assets/gi/GI_Dendro.png',
             characters: [
@@ -154,8 +112,8 @@ const GamesData = {
                 ['Kuki Shinobu', `Skill ${arrow}`],
                 ['Nahida', `NA + CA`],
             ]
-        },
-        {
+        }],
+        ['Electro', {
             name: 'Electro',
             iconUrl: 'assets/gi/GI_Electro.png',
             characters: [
@@ -190,11 +148,11 @@ const GamesData = {
             rotations: [
                 ['Raiden Shogun', `Skill ${arrow}`],
                 ['Xianling', `Ult ${arrow}`],
-                ['Chevreuse', `Skill (Hold) ${arrow}`],
+                ['Chevreuse', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Clorinde', `Skill + Ult`]
             ]
-        },
-        {
+        }],
+        ['Anemo', {
             name: 'Anemo',
             iconUrl: 'assets/gi/GI_Anemo.png',
             characters: [
@@ -229,8 +187,8 @@ const GamesData = {
                 ['Faruzan', `Ult ${arrow}`],
                 ['Lynette', `Ult ${arrow} Skill + NA/Plunge`],
             ]
-        },
-        {
+        }],
+        ['Cryo', {
             name: 'Cryo',
             iconUrl: 'assets/gi/GI_Cryo.png',
             characters: [
@@ -260,13 +218,13 @@ const GamesData = {
                 }
             ],
             rotations: [
-                ['Wriothesley', `1NA ${arrow}`],
+                ['Wriothesley', `NA${times}1 ${arrow}`],
                 ['Kazuha', `Skill ${arrow}`],
                 ['Kokomi', `Skill ${arrow}`],
                 ['Wriothesley', `Skill ${arrow} NA + CA`],
             ]
-        },
-        {
+        }],
+        ['Geo', {
             name: 'Geo',
             iconUrl: 'assets/gi/GI_Geo.png',
             characters: [
@@ -304,8 +262,8 @@ const GamesData = {
                 ['Xingqiu', `Ult ${arrow}`],
                 ['Navia', `Ult ${arrow} Skill + NA`],
             ]
-        },
-        {
+        }],
+        ['Physical', {
             name: 'Physical',
             iconUrl: 'assets/gi/GI_Physical.png',
             characters: [
@@ -340,11 +298,11 @@ const GamesData = {
                 ['Mika', `Skill ${arrow}`],
                 ['Eula', `NA + Skill + Ult`],
             ]
-        }
-    ],
+        }]
+    ]),
 
-    HSRTeams: [
-        {
+    HSRTeams: new Map([
+        ['Physical', {
             name: 'Physical',
             iconUrl: 'assets/hsr/HSR_Physical.jpg',
             characters: [
@@ -362,22 +320,22 @@ const GamesData = {
                 },
                 {
                     name: 'Ruan Mei',
-                    role: 'DMG & RES PEN & Break Buff',
+                    role: 'DMG, RES PEN & Break Efficiency Buff',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'MC (Harmony)',
-                    role: 'Break Buff + Super Break',
+                    name: 'Bronya',
+                    role: 'Advance',
                     isMain: false,
-                    replacedBy: ['Bronya'],
+                    replacedBy: ['MC (Harmony)'],
                 }
             ],
             variations: [
                 ['Lynx', 'Clara', 'Ruan Mei', 'Tingyun']
             ]
-        },
-        {
+        }],
+        ['Fire', {
             name: 'Fire',
             iconUrl: 'assets/hsr/HSR_Fire.jpg',
             characters: [
@@ -395,7 +353,7 @@ const GamesData = {
                 },
                 {
                     name: 'Ruan Mei',
-                    role: 'DMG & RES PEN & Break Buff',
+                    role: 'DMG, RES PEN & Break Efficiency Buff',
                     isMain: false,
                     replacedBy: [],
                 },
@@ -406,8 +364,8 @@ const GamesData = {
                     replacedBy: [],
                 }
             ]
-        },
-        {
+        }],
+        ['Ice', {
             name: 'Ice',
             iconUrl: 'assets/hsr/HSR_Ice.jpg',
             characters: [
@@ -436,8 +394,8 @@ const GamesData = {
                     replacedBy: ['Tingyun'],
                 }
             ]
-        },
-        {
+        }],
+        ['Lightning', {
             name: 'Lightning',
             iconUrl: 'assets/hsr/HSR_Lightning.jpg',
             characters: [
@@ -466,8 +424,8 @@ const GamesData = {
                     replacedBy: ['Silver Wolf'],
                 }
             ]
-        },
-        {
+        }],
+        ['Wind', {
             name: 'Wind',
             iconUrl: 'assets/hsr/HSR_Wind.jpg',
             characters: [
@@ -496,8 +454,8 @@ const GamesData = {
                     replacedBy: [],
                 }
             ]
-        },
-        {
+        }],
+        ['Quantum', {
             name: 'Quantum',
             iconUrl: 'assets/hsr/HSR_Quantum.jpg',
             characters: [
@@ -525,9 +483,12 @@ const GamesData = {
                     isMain: false,
                     replacedBy: ['Ruan Mei'],
                 }
+            ],
+            variations: [
+                ['Fu Xuan', 'Jade', 'Herta', 'Robin']
             ]
-        },
-        {
+        }],
+        ['Imaginary', {
             name: 'Imaginary',
             iconUrl: 'assets/hsr/HSR_Imaginary.jpg',
             characters: [
@@ -559,8 +520,8 @@ const GamesData = {
             variations: [
                 ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei']
             ]
-        },
-        {
+        }],
+        ['DoT', {
             name: 'DoT',
             iconUrl: 'assets/hsr/HSR_DoT.png',
             characters: [
@@ -589,8 +550,8 @@ const GamesData = {
                     replacedBy: ['Tingyun', 'Silver Wolf'],
                 }
             ]
-        },
-        // {
+        }],
+        // ['Follow-up', {
         //     name: 'Follow-up',
         //     iconUrl: null,
         //     characters: [
@@ -619,21 +580,45 @@ const GamesData = {
         //             replacedBy: ['Ruan Mei'],
         //         }
         //     ]
-        // },
-    ],
+        // }],
+    ]),
 
-    ZZZTeams: [
-        {
+    ZZZTeams: new Map([
+        ['Physical',  {
             name: 'Physical',
             iconUrl: 'assets/zzz/ZZZ_Physical.jpg',
             characters: []
-        },
-        {
+        }],
+        ['Fire', {
             name: 'Fire',
             iconUrl: 'assets/zzz/ZZZ_Fire.jpg',
-            characters: []
-        },
-        {
+            characters: [
+                {
+                    name: 'Soldier 11',
+                    role: 'Main [Basic + EX Special]',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Koleda',
+                    role: 'Stun',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Lucy',
+                    role: 'Atk Buff',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ],
+            rotations: [
+                ['Koleda', `Basic${times}2 ${arrow} Stun ${arrow}`],
+                ['Lucy', `EX Special ${arrow}`],
+                ['Soldier 11', `(EX Special ${arrow} Basic) / Timed Basic`],
+            ]
+        }],
+        ['Ice', {
             name: 'Ice',
             iconUrl: 'assets/zzz/ZZZ_Ice.jpg',
             characters: [
@@ -644,7 +629,7 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Anby',
+                    name: 'Lycaon',
                     role: 'Stun',
                     isMain: false,
                     replacedBy: [],
@@ -658,25 +643,38 @@ const GamesData = {
             ],
             rotations: [
                 ['Ellen', `Dash + Basic ${smallText('(hold)')} ${arrow}`],
-                ['Anby', `(Basic${times}3 ${arrow} Basic ${smallText('(hold)')}) / EX Special ${arrow} Stun ${arrow}`],
+                ['Lycaon', `CA / EX Special ${arrow} Stun ${arrow}`],
                 ['Soukaku', `Special ${smallText('(hold)')} ${arrow} Chain/Quick-Assist ${arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]
-        },
-        {
+        }],
+        ['Electric', {
             name: 'Electric',
             iconUrl: 'assets/zzz/ZZZ_Electric.jpg',
-            characters: []
-        },
-        {
+            characters: [
+                {
+                    name: 'Grace',
+                    role: null,
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Anby',
+                    role: null,
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ]
+        }],
+        ['Ether', {
             name: 'Ether',
             iconUrl: 'assets/zzz/ZZZ_Ether.jpg',
             characters: []
-        },
-    ],
+        }]
+    ]),
 
-    HI3Teams: [
-        {
+    HI3Teams: new Map([
+        ['Fire', {
             name: 'Fire',
             iconUrl: 'assets/hi3/HI3_Fire.png',
             characters: [
@@ -693,20 +691,20 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Fire DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow}`],
-                ['Ai', `QTE ${arrow} Skill ${arrow}`],
-                ['Bronya (Truth)', `Ult ${times}2 ${arrow}`],
-                ['Lantern', `QTE ${arrow} Basic + Skill ${arrow} Charged ${arrow} Ult`],
+                ['Bronya (HoT)', `Skill ${arrow} QTE ${arrow}`],
+                ['Ai', `Skill ${arrow}`],
+                ['Bronya (HoT)', `Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Lantern', `Basic + Skill ${arrow} Charged ${arrow} Ult`],
             ]
-        },
-        {
+        }],
+        ['Lightning', {
             name: 'Lightning',
             iconUrl: 'assets/hi3/HI3_Lightning.png',
             characters: [
@@ -723,19 +721,19 @@ const GamesData = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Lightning DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
-                ['Eden', `QTE ${arrow} Ult ${arrow}`],
-                ['Lunar Vow', `QTE ${arrow} Skill ${arrow} Ult`]
+                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Eden', `Ult ${arrow} QTE ${arrow}`],
+                ['Lunar Vow', `Skill ${arrow} Ult`]
             ]
-        },
-        {
+        }],
+        ['Ice', {
             name: 'Ice',
             iconUrl: 'assets/hi3/HI3_Ice.png',
             characters: [
@@ -746,8 +744,8 @@ const GamesData = {
                     replacedBy: [],
                 },
             ]
-        },
-        {
+        }],
+        ['Physical', {
             name: 'Physical',
             iconUrl: 'assets/hi3/HI3_Physical.png',
             characters: [
@@ -757,444 +755,54 @@ const GamesData = {
                     isMain: true,
                     replacedBy: [],
                 },
+                {
+                    name: 'Carole',
+                    role: 'Physical & Total DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Fu Hua (HoS)',
+                    role: 'DEF Reduction',
+                    isMain: false,
+                    replacedBy: [],
+                },
+            ],
+            rotations: [
+                ['Fu Hua (HoS)', `Basic ${smallText('(Spear combo)')} ${arrow} QTE ${arrow}`],
+                ['Carole', `CA ${arrow} Ult ${arrow} QTE ${arrow}`],
+                ['Durandal', `Basic + CA + Ult`]
             ]
-        },
-        {
+        }],
+        ['Herrscher Trio', {
             name: 'Herrscher Trio',
             iconUrl: null,
             characters: [
                 {
-                    name: 'Kiana (Finality)',
+                    name: 'Kiana (HoFi)',
                     role: 'Main',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Mei (Origin)',
+                    name: 'Mei (HoO)',
                     role: 'Main',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya (Truth)',
+                    name: 'Bronya (HoT)',
                     role: 'Fire & Lightning DMG Buff',
                     isMain: false,
                     replacedBy: [],
                 },
             ],
             rotations: [
-                ['Bronya (Truth)', `Skill ${arrow} Ult ${times}2 ${arrow}`],
-                ['Kiana (Finality)', `QTE ${arrow} Basic ${arrow} Charged ${arrow}`],
-                ['Mei (Origin)', `Basic ${arrow} Charged ${arrow} Ult ${arrow}`],
-                ['Kiana (Finality)', `QTE ${arrow} Skill ${arrow} Basic ${arrow} Charged ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
+                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
+                ['Kiana (HoFi)', `Basic ${arrow} CA ${arrow}`],
+                ['Mei (HoO)', `Basic ${arrow} CA ${arrow} Ult ${arrow} QTE ${arrow}`],
+                ['Kiana (HoFi)', `Skill ${arrow} Basic ${arrow} CA ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
             ]
-        },
-    ],
-
-    GICharacters: new Map([
-        ['Arlecchino', {
-            name: 'Arlecchino',
-            imageUrl: 'assets/gi/GI_Arlecchino.png',
-            rarity: '5'
-        }],
-        ['Chiori', {
-            name: 'Chiori',
-            imageUrl: 'assets/gi/GI_Chiori.png',
-            rarity: '5'
-        }],
-        ['Bennett', {
-            name: 'Bennett',
-            imageUrl: 'assets/gi/GI_Bennett.png',
-            rarity: '4'
-        }],
-        ['Diluc', {
-            name: 'Diluc',
-            imageUrl: 'assets/gi/GI_Diluc.png',
-            rarity: '5'
-        }],
-        ['Eula', {
-            name: 'Eula',
-            imageUrl: 'assets/gi/GI_Eula.png',
-            rarity: '5'
-        }],
-        ['Faruzan', {
-            name: 'Faruzan',
-            imageUrl: 'assets/gi/GI_Faruzan.png',
-            rarity: '4'
-        }],
-        ['Fischl', {
-            name: 'Fischl',
-            imageUrl: 'assets/gi/GI_Fischl.png',
-            rarity: '4'
-        }],
-        ['Furina', {
-            name: 'Furina',
-            imageUrl: 'assets/gi/GI_Furina.png',
-            rarity: '5'
-        }],
-        ['Ayaka', {
-            name: 'Ayaka',
-            imageUrl: 'assets/gi/GI_Ayaka.png',
-            rarity: '5'
-        }],
-        ['Kazuha', {
-            name: 'Kazuha',
-            imageUrl: 'assets/gi/GI_Kazuha.png',
-            rarity: '5'
-        }],
-        ['Hu Tao', {
-            name: 'Hu Tao',
-            imageUrl: 'assets/gi/GI_HuTao.png',
-            rarity: '5'
-        }],
-        ['Gorou', {
-            name: 'Gorou',
-            imageUrl: 'assets/gi/GI_Gorou.png',
-            rarity: '4'
-        }],
-        ['Ganyu', {
-            name: 'Ganyu',
-            imageUrl: 'assets/gi/GI_Ganyu.png',
-            rarity: '5'
-        }],
-        ['Kirara', {
-            name: 'Kirara',
-            imageUrl: 'assets/gi/GI_Kirara.png',
-            rarity: '4'
-        }],
-        ['Kuki Shinobu', {
-            name: 'Kuki Shinobu',
-            imageUrl: 'assets/gi/GI_KukiShinobu.png',
-            rarity: '4'
-        }],
-        ['Lynette', {
-            name: 'Lynette',
-            imageUrl: 'assets/gi/GI_Lynette.png',
-            rarity: '4'
-        }],
-        ['Nilou', {
-            name: 'Nilou',
-            imageUrl: 'assets/gi/GI_Nilou.png',
-            rarity:  '5'
-        }],
-        ['Neuvillette', {
-            name: 'Neuvillette',
-            imageUrl: 'assets/gi/GI_Neuvillette.png.png',
-            rarity: '5'
-        }],
-        ['Navia', {
-            name: 'Navia',
-            imageUrl: 'assets/gi/GI_Navia.png',
-            rarity: '5'
-        }],
-        ['Nahida', {
-            name: 'Nahida',
-            imageUrl: 'assets/gi/GI_Nahida.png',
-            rarity: '5'
-        }],
-        ['Mika', {
-            name: 'Mika',
-            imageUrl: 'assets/gi/GI_Mika.png',
-            rarity: '4'
-        }],
-        ['Raiden Shogun', {
-            name: 'Raiden Shogun',
-            imageUrl: 'assets/gi/GI_RaidenShogun.png',
-            rarity: '5'
-        }],
-        ['Kokomi', {
-            name: 'Kokomi',
-            imageUrl: 'assets/gi/GI_Kokomi.png',
-            rarity: '5'
-        }],
-        ['Wriothesley', {
-            name: 'Wriothesley',
-            imageUrl: 'assets/gi/GI_Wriothesley.png.png',
-            rarity: '5'
-        }],
-        ['Xianyun', {
-            name: 'Xianyun',
-            imageUrl: 'assets/gi/GI_Xianyun.png',
-            rarity: '5'
-        }],
-        ['Xiao', {
-            name: 'Xiao',
-            imageUrl: 'assets/gi/GI_Xiao.png',
-            rarity: '5'
-        }],
-        ['Xingqiu', {
-            name: 'Xingqiu',
-            imageUrl: 'assets/gi/GI_Xingqiu.png',
-            rarity: '4'
-        }],
-        ['Yae Miko', {
-            name: 'Yae Miko',
-            imageUrl: 'assets/gi/GI_YaeMiko.png',
-            rarity: '5'
-        }],
-        ['Zhongli', {
-            name: 'Zhongli',
-            imageUrl: 'assets/gi/GI_Zhongli.png',
-            rarity: '5'
-        }],
-        ['Yun Jin', {
-            name: 'Yun Jin',
-            imageUrl: 'assets/gi/GI_YunJin.png',
-            rarity: '4'
-        }],
-        ['Yelan', {
-            name: 'Yelan',
-            imageUrl: 'assets/gi/GI_Yelan.png',
-            rarity: '5'
-        }],
-        ['Clorinde', {
-            name: 'Clorinde',
-            imageUrl: 'assets/gi/GI_Clorinde.png',
-            rarity: '5'
-        }],
-        ['Chevreuse', {
-            name: 'Chevreuse',
-            imageUrl: 'assets/gi/GI_Chevreuse.png',
-            rarity: '4'
-        }],
-        ['Xianling', {
-            name: 'Xianling',
-            imageUrl: 'assets/gi/GI_Xianling.png',
-            rarity: '4'
         }]
     ]),
-
-    HSRCharacters: new Map([
-        ['MC (Harmony)', {
-            name: 'MC (Harmony)',
-            imageUrl: 'assets/hsr/HSR_MCHarmony.jpg',
-            rarity: '5'
-        }],
-        ['Lynx', {
-            name: 'Lynx',
-            imageUrl: 'assets/hsr/HSR_Lynx.jpg',
-            rarity: '4'
-        }],
-        ['Clara', {
-            name: 'Clara',
-            imageUrl: 'assets/hsr/HSR_Clara.jpg',
-            rarity: '5'
-        }],
-        ['Tingyun', {
-            name: 'Tingyun',
-            imageUrl: 'assets/hsr/HSR_Tingyun.jpg',
-            rarity: '4'
-        }],
-        ['Ruan Mei', {
-            name: 'Ruan Mei',
-            imageUrl: 'assets/hsr/HSR_RuanMei.jpg',
-            rarity: '5'
-        }],
-        ['Acheron', {
-            name: 'Acheron',
-            imageUrl: 'assets/hsr/HSR_Acheron.jpg',
-            rarity: '5'
-        }],
-        ['Dang Heng · IL', {
-            name: 'Dang Heng · IL',
-            imageUrl: 'assets/hsr/HSR_DanHengIL.jpg',
-            rarity: '5'
-        }],
-        ['Jingliu', {
-            name: 'Jingliu',
-            imageUrl: 'assets/hsr/HSR_Jingliu.jpg',
-            rarity: '5'
-        }],
-        ['Kafka', {
-            name: 'Kafka',
-            imageUrl: 'assets/hsr/HSR_Kafka.jpg',
-            rarity: '5'
-        }],
-        ['Sparkle', {
-            name: 'Sparkle',
-            imageUrl: 'assets/hsr/HSR_Sparkle.jpg',
-            rarity: '5'
-        }],
-        ['Fu Xuan', {
-            name: 'Fu Xuan',
-            imageUrl: 'assets/hsr/HSR_FuXuan.jpg',
-            rarity: '5'
-        }],
-        ['Dr. Ratio', {
-            name: 'Dr. Ratio',
-            imageUrl: 'assets/hsr/HSR_DrRatio.jpg',
-            rarity: '5'
-        }],
-        ['Seele', {
-            name: 'Seele',
-            imageUrl: 'assets/hsr/HSR_Seele.jpg',
-            rarity: '5'
-        }],
-        ['Black Swan', {
-            name: 'Black Swan',
-            imageUrl: 'assets/hsr/HSR_BlackSwan.jpg',
-            rarity: '5'
-        }],
-        ['Bronya', {
-            name: 'Bronya',
-            imageUrl: 'assets/hsr/HSR_Bronya.jpg',
-            rarity: '5'
-        }],
-        ['Silver Wolf', {
-            name: 'Silver Wolf',
-            imageUrl: 'assets/hsr/HSR_SilverWolf.jpg',
-            rarity: '5'
-        }],
-        ['Huohuo', {
-            name: 'Huohuo',
-            imageUrl: 'assets/hsr/HSR_Huohuo.jpg',
-            rarity: '5'
-        }],
-        ['Luocha', {
-            name: 'Luocha',
-            imageUrl: 'assets/hsr/HSR_Luocha.jpg',
-            rarity: '5'
-        }],
-        ['Blade', {
-            name: 'Blade',
-            imageUrl: 'assets/hsr/HSR_Blade.jpg',
-            rarity: '5'
-        }],
-        ['Xueyi', {
-            name: 'Xueyi',
-            imageUrl: 'assets/hsr/HSR_Xueyi.jpg',
-            rarity: '4'
-        }],
-        ['Pela', {
-            name: 'Pela',
-            imageUrl: 'assets/hsr/HSR_Pela.jpg',
-            rarity: '4'
-        }],
-        ['Welt', {
-            name: 'Welt',
-            imageUrl: 'assets/hsr/HSR_Welt.jpg',
-            rarity: '5'
-        }],
-        ['Topaz', {
-            name: 'Topaz',
-            imageUrl: 'assets/hsr/HSR_Topaz.jpg',
-            rarity: '5'
-        }],
-        ['Gepard', {
-            name: 'Gepard',
-            imageUrl: 'assets/hsr/HSR_Gepard.jpg',
-            rarity: '5'
-        }],
-        ['Robin', {
-            name: 'Robin',
-            imageUrl: 'assets/hsr/HSR_Robin.jpg',
-            rarity: '5'
-        }],
-        ['Hanya', {
-            name: 'Hanya',
-            imageUrl: 'assets/hsr/HSR_Hanya.jpg',
-            rarity: '4'
-        }],
-        ['Boothill', {
-            name: 'Boothill',
-            imageUrl: 'assets/hsr/HSR_Boothill.jpg',
-            rarity: '5'
-        }],
-        ['Gallagher', {
-            name: 'Gallagher',
-            imageUrl: 'assets/hsr/HSR_Gallagher.jpg',
-            rarity: '4'
-        }],
-        ['Firefly', {
-            name: 'Firefly',
-            imageUrl: 'assets/hsr/HSR_Firefly.jpg',
-            rarity: '5'
-        }],
-    ]),
-
-    ZZZCharacters: new Map([
-        ['Ellen', {
-            name: 'Ellen',
-            imageUrl: 'assets/zzz/ZZZ_Ellen.jpg',
-            rarity: 'S'
-        }],
-        ['Soukaku', {
-            name: 'Soukaku',
-            imageUrl: 'assets/zzz/ZZZ_Soukaku.jpg',
-            rarity: 'A'
-        }],
-        ['Anby', {
-            name: 'Anby',
-            imageUrl: 'assets/zzz/ZZZ_Anby.jpg',
-            rarity: 'A'
-        }],
-    ]),
-
-    HI3Characters: new Map([
-        ['Kiana (Finality)', {
-            name: 'Kiana (Finality)',
-            imageUrl: 'assets/hi3/HI3_KianaFinality.png',
-            rarity: 'S'
-        }],
-        ['Kiana (Flamescion)', {
-            name: 'Kiana (Flamescion)',
-            imageUrl: 'assets/hi3/HI3_KianaFlamescion.png',
-            rarity: 'S'
-        }],
-        ['Mei (Origin)', {
-            name: 'Mei (Origin)',
-            imageUrl: 'assets/hi3/HI3_MeiOrigin.png',
-            rarity: 'S'
-        }],
-        ['Mei (Thunder)', {
-            name: 'Mei (Thunder)',
-            imageUrl: 'assets/hi3/HI3_MeiThunder.png',
-            rarity: 'S'
-        }],
-        ['Bronya (Truth)', {
-            name: 'Bronya (Truth)',
-            imageUrl: 'assets/hi3/HI3_BronyaTruth.png',
-            rarity: 'S'
-        }],
-        ['Bronya (Reason)', {
-            name: 'Bronya (Reason)',
-            imageUrl: 'assets/hi3/HI3_BronyaReason.png',
-            rarity: 'S'
-        }],
-        ['Elysia', {
-            name: 'Elysia',
-            imageUrl: 'assets/hi3/HI3_Elysia.png',
-            rarity: 'S'
-        }],
-        ['Aponia', {
-            name: 'Aponia',
-            imageUrl: 'assets/hi3/HI3_Aponia.png',
-            rarity: 'S'
-        }],
-        ['Eden', {
-            name: 'Eden',
-            imageUrl: 'assets/hi3/HI3_Eden.png',
-            rarity: 'A'
-        }],
-        ['Lunar Vow', {
-            name: 'Lunar Vow',
-            imageUrl: 'assets/hi3/HI3_LunarVow.png',
-            rarity: 'S'
-        }],
-        ['Durandal', {
-            name: 'Durandal',
-            imageUrl: 'assets/hi3/HI3_Durandal.png',
-            rarity: 'S'
-        }],
-        ['Lantern', {
-            name: 'Lantern',
-            imageUrl: 'assets/hi3/HI3_Lantern.png',
-            rarity: 'S'
-        }],
-        ['Ai', {
-            name: 'Ai',
-            imageUrl: 'assets/hi3/HI3_Ai.png',
-            rarity: 'A'
-        }],
-    ])
 }
