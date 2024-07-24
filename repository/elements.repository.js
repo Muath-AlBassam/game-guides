@@ -1,3 +1,26 @@
+
+function getAllElements(gameCode) {
+    switch (gameCode) {
+        case Constants.games.GI:
+            return ElementsRepository.GIElements;
+        case Constants.games.HSR:
+            return ElementsRepository.HSRElements;
+        case Constants.games.ZZZ:
+            return ElementsRepository.ZZZElements;
+        case Constants.games.HI3:
+            return ElementsRepository.HI3Elements;
+        default:
+            return new Map([]);
+    }
+}
+
+function getElement(gameCode, elementName) {
+    let element = getAllElements(gameCode).get(elementName);
+    return element ?? { name: elementName }
+}
+
+// ----------------------------------------------------------------------------
+
 const ElementsRepository = {
     GIElements: new Map([
         ['Pyro', {

@@ -39,10 +39,12 @@ function createCharacterImage(
         styles = '', 
         classes = '', 
         withBuildModal = false, 
-        withBackgroundClass = true
+        withBackgroundClass = true,
+        withElement = false
     } = {}
 ) {
     const showBuild = withBuildModal && charmd.build;
+    const showElement = withElement && charmd.element;
 
     let styleVal = 'border-radius: 5px;';
     styleVal += ` ${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
@@ -53,15 +55,20 @@ function createCharacterImage(
                 class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
             />`;
 
-    if (showBuild) {
-        imgTag = `
-            <div class="character-container">
-                ${imgTag}
-                <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 
-                    title="View build" onclick="openBuildModal('${charmd.name}')"/>
-            </div>
-        `;
-    }
+    let buildIcon = showBuild ? `
+        <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 
+        title="View build" onclick="openBuildModal('${charmd.name}')"/>` 
+        : '';
 
-    return imgTag;
+    let elementIcon = showElement ? `
+        <img src="${getElement(gameCode, charmd.element).imageUrl}" width="26" height="26" class="element-icon" title="${charmd.element}"/>`
+        : '';
+
+    return `
+        <div class="character-container">
+            ${imgTag}
+            ${buildIcon}
+            ${elementIcon}
+        </div>
+    `;
 }

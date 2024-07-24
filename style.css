@@ -127,6 +127,16 @@ body:has(div.modal-shown) {
     background-color: #999;
 }
 
+.character-container .element-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3px;
+    background-color: #36373f;
+    border: 1px solid #1c1d21;
+    border-radius: 50%;
+}
+
 /* Character rarity background --------------------------------------------- */
 .GI-rarity-5 {
     background-image: url(assets/gi/GI_Rarity5.jpg);
