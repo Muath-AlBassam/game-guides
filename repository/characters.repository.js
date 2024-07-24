@@ -447,6 +447,7 @@ const CharactersRepository = {
         ['MC (Harmony)', {
             name: 'MC (Harmony)',
             imageUrl: 'assets/hsr/character/HSR_MCHarmony.jpg',
+            element: 'Imaginary',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -460,6 +461,7 @@ const CharactersRepository = {
         ['Lynx', {
             name: 'Lynx',
             imageUrl: 'assets/hsr/character/HSR_Lynx.jpg',
+            element: 'Quantum',
             role: 'Abundance',
             rarity: '4',
             build: {
@@ -474,6 +476,7 @@ const CharactersRepository = {
         ['Clara', {
             name: 'Clara',
             imageUrl: 'assets/hsr/character/HSR_Clara.jpg',
+            element: 'Physical',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -487,6 +490,7 @@ const CharactersRepository = {
         ['Tingyun', {
             name: 'Tingyun',
             imageUrl: 'assets/hsr/character/HSR_Tingyun.jpg',
+            element: 'Lightning',
             role: 'Harmony',
             rarity: '4',
             build: {
@@ -501,6 +505,7 @@ const CharactersRepository = {
         ['Ruan Mei', {
             name: 'Ruan Mei',
             imageUrl: 'assets/hsr/character/HSR_RuanMei.jpg',
+            element: 'Ice',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -515,6 +520,7 @@ const CharactersRepository = {
         ['Acheron', {
             name: 'Acheron',
             imageUrl: 'assets/hsr/character/HSR_Acheron.jpg',
+            element: 'Lightning',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -528,6 +534,7 @@ const CharactersRepository = {
         ['Dang Heng · IL', {
             name: 'Dang Heng · IL',
             imageUrl: 'assets/hsr/character/HSR_DanHengIL.jpg',
+            element: 'Imaginary',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -542,6 +549,7 @@ const CharactersRepository = {
         ['Jingliu', {
             name: 'Jingliu',
             imageUrl: 'assets/hsr/character/HSR_Jingliu.jpg',
+            element: 'Ice',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -555,6 +563,7 @@ const CharactersRepository = {
         ['Kafka', {
             name: 'Kafka',
             imageUrl: 'assets/hsr/character/HSR_Kafka.jpg',
+            element: 'Lightning',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -568,6 +577,7 @@ const CharactersRepository = {
         ['Sparkle', {
             name: 'Sparkle',
             imageUrl: 'assets/hsr/character/HSR_Sparkle.jpg',
+            element: 'Quantum',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -581,6 +591,7 @@ const CharactersRepository = {
         ['Fu Xuan', {
             name: 'Fu Xuan',
             imageUrl: 'assets/hsr/character/HSR_FuXuan.jpg',
+            element: 'Quantum',
             role: 'Preservation',
             rarity: '5',
             build: {
@@ -595,6 +606,7 @@ const CharactersRepository = {
         ['Dr. Ratio', {
             name: 'Dr. Ratio',
             imageUrl: 'assets/hsr/character/HSR_DrRatio.jpg',
+            element: 'Imaginary',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -609,6 +621,7 @@ const CharactersRepository = {
         ['Seele', {
             name: 'Seele',
             imageUrl: 'assets/hsr/character/HSR_Seele.jpg',
+            element: 'Quantum',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -622,6 +635,7 @@ const CharactersRepository = {
         ['Black Swan', {
             name: 'Black Swan',
             imageUrl: 'assets/hsr/character/HSR_BlackSwan.jpg',
+            element: 'Wind',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -635,6 +649,7 @@ const CharactersRepository = {
         ['Bronya', {
             name: 'Bronya',
             imageUrl: 'assets/hsr/character/HSR_Bronya.jpg',
+            element: 'Wind',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -649,6 +664,7 @@ const CharactersRepository = {
         ['Silver Wolf', {
             name: 'Silver Wolf',
             imageUrl: 'assets/hsr/character/HSR_SilverWolf.jpg',
+            element: 'Quantum',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -663,6 +679,7 @@ const CharactersRepository = {
         ['Huohuo', {
             name: 'Huohuo',
             imageUrl: 'assets/hsr/character/HSR_Huohuo.jpg',
+            element: 'Wind',
             role: 'Abundance',
             rarity: '5',
             build: {
@@ -677,6 +694,7 @@ const CharactersRepository = {
         ['Luocha', {
             name: 'Luocha',
             imageUrl: 'assets/hsr/character/HSR_Luocha.jpg',
+            element: 'Imaginary',
             role: 'Abundance',
             rarity: '5',
             build: {
@@ -691,6 +709,7 @@ const CharactersRepository = {
         ['Blade', {
             name: 'Blade',
             imageUrl: 'assets/hsr/character/HSR_Blade.jpg',
+            element: 'Wind',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -704,6 +723,7 @@ const CharactersRepository = {
         ['Xueyi', {
             name: 'Xueyi',
             imageUrl: 'assets/hsr/character/HSR_Xueyi.jpg',
+            element: 'Quantum',
             role: 'Destruction',
             rarity: '4',
             build: {
@@ -717,6 +737,7 @@ const CharactersRepository = {
         ['Pela', {
             name: 'Pela',
             imageUrl: 'assets/hsr/character/HSR_Pela.jpg',
+            element: 'Ice',
             role: 'Nihility',
             rarity: '4',
             build: {
@@ -731,6 +752,7 @@ const CharactersRepository = {
         ['Welt', {
             name: 'Welt',
             imageUrl: 'assets/hsr/character/HSR_Welt.jpg',
+            element: 'Imaginary',
             role: 'Nihility',
             rarity: '5',
             build: {
@@ -744,6 +766,7 @@ const CharactersRepository = {
         ['Topaz', {
             name: 'Topaz',
             imageUrl: 'assets/hsr/character/HSR_Topaz.jpg',
+            element: 'Fire',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -757,6 +780,7 @@ const CharactersRepository = {
         ['Gepard', {
             name: 'Gepard',
             imageUrl: 'assets/hsr/character/HSR_Gepard.jpg',
+            element: 'Ice',
             role: 'Preservation',
             rarity: '5',
             build: {
@@ -770,6 +794,7 @@ const CharactersRepository = {
         ['Robin', {
             name: 'Robin',
             imageUrl: 'assets/hsr/character/HSR_Robin.jpg',
+            element: 'Physical',
             role: 'Harmony',
             rarity: '5',
             build: {
@@ -784,6 +809,7 @@ const CharactersRepository = {
         ['Hanya', {
             name: 'Hanya',
             imageUrl: 'assets/hsr/character/HSR_Hanya.jpg',
+            element: 'Physical',
             role: 'Harmony',
             rarity: '4',
             build: {
@@ -797,6 +823,7 @@ const CharactersRepository = {
         ['Boothill', {
             name: 'Boothill',
             imageUrl: 'assets/hsr/character/HSR_Boothill.jpg',
+            element: 'Physical',
             role: 'Hunt',
             rarity: '5',
             build: {
@@ -810,6 +837,7 @@ const CharactersRepository = {
         ['Gallagher', {
             name: 'Gallagher',
             imageUrl: 'assets/hsr/character/HSR_Gallagher.jpg',
+            element: 'Fire',
             role: 'Abundance',
             rarity: '4',
             build: {
@@ -824,6 +852,7 @@ const CharactersRepository = {
         ['Firefly', {
             name: 'Firefly',
             imageUrl: 'assets/hsr/character/HSR_Firefly.jpg',
+            element: 'Fire',
             role: 'Destruction',
             rarity: '5',
             build: {
@@ -837,6 +866,7 @@ const CharactersRepository = {
         ['Jade', {
             name: 'Jade',
             imageUrl: 'assets/hsr/character/HSR_Jade.jpg',
+            element: 'Quantum',
             role: 'Erudition',
             rarity: '5',
             build: {
@@ -850,6 +880,7 @@ const CharactersRepository = {
         ['Herta', {
             name: 'Herta',
             imageUrl: 'assets/hsr/character/HSR_Herta.jpg',
+            element: 'Ice',
             role: 'Erudition',
             rarity: '4',
             build: {
@@ -866,6 +897,7 @@ const CharactersRepository = {
         ['Ellen', {
             name: 'Ellen',
             imageUrl: 'assets/zzz/character/ZZZ_Ellen.jpg',
+            element: 'Ice',
             role: 'Attack',
             rarity: 'S',
             build: {
@@ -879,6 +911,7 @@ const CharactersRepository = {
         ['Soukaku', {
             name: 'Soukaku',
             imageUrl: 'assets/zzz/character/ZZZ_Soukaku.jpg',
+            element: 'Ice',
             role: 'Support',
             rarity: 'A',
             build: {
@@ -891,6 +924,7 @@ const CharactersRepository = {
         ['Anby', {
             name: 'Anby',
             imageUrl: 'assets/zzz/character/ZZZ_Anby.jpg',
+            element: 'Electric',
             role: 'Stun',
             rarity: 'A',
             build: {
@@ -903,6 +937,7 @@ const CharactersRepository = {
         ['Lycaon', {
             name: 'Lycaon',
             imageUrl: 'assets/zzz/character/ZZZ_Lycaon.jpg',
+            element: 'Ice',
             role: 'Stun',
             rarity: 'S',
             build: {
@@ -915,6 +950,7 @@ const CharactersRepository = {
         ['Grace', {
             name: 'Grace',
             imageUrl: 'assets/zzz/character/ZZZ_Grace.jpg',
+            element: 'Electric',
             role: 'Anomaly',
             rarity: 'S',
             build: {
@@ -924,6 +960,7 @@ const CharactersRepository = {
         ['Koleda', {
             name: 'Koleda',
             imageUrl: 'assets/zzz/character/ZZZ_Koleda.jpg',
+            element: 'Fire',
             role: 'Stun',
             rarity: 'S',
             build: {
@@ -936,6 +973,7 @@ const CharactersRepository = {
         ['Soldier 11', {
             name: 'Soldier 11',
             imageUrl: 'assets/zzz/character/ZZZ_Soldier11.jpg',
+            element: 'Fire',
             role: 'Attack',
             rarity: 'S',
             build: {
@@ -945,6 +983,7 @@ const CharactersRepository = {
         ['Lucy', {
             name: 'Lucy',
             imageUrl: 'assets/zzz/character/ZZZ_Lucy.jpg',
+            element: 'Fire',
             role: 'Support',
             rarity: 'A',
             build: {
@@ -957,6 +996,7 @@ const CharactersRepository = {
         ['Zhu Yuan', {
             name: 'Zhu Yuan',
             imageUrl: 'assets/zzz/character/ZZZ_ZhuYuan.jpg',
+            element: 'Ether',
             role: 'Attack',
             rarity: 'S',
             build: {
@@ -970,6 +1010,7 @@ const CharactersRepository = {
         ['Nicole', {
             name: 'Nicole',
             imageUrl: 'assets/zzz/character/ZZZ_Nicole.jpg',
+            element: 'Ether',
             role: 'Support',
             rarity: 'A',
             build: {
@@ -985,76 +1026,91 @@ const CharactersRepository = {
         ['Kiana (HoFi)', {
             name: 'Kiana (HoFi)',
             imageUrl: 'assets/hi3/character/HI3_Kiana_HoFi.png',
+            element: 'Fire',
             rarity: 'S'
         }],
         ['Kiana (HoF)', {
             name: 'Kiana (HoF)',
             imageUrl: 'assets/hi3/character/HI3_Kiana_HoF.png',
+            element: 'Fire',
             rarity: 'S'
         }],
         ['Mei (HoO)', {
             name: 'Mei (HoO)',
             imageUrl: 'assets/hi3/character/HI3_Mei_HoO.png',
+            element: 'Lightning',
             rarity: 'S'
         }],
         ['Mei (HoT)', {
             name: 'Mei (HoT)',
             imageUrl: 'assets/hi3/character/HI3_Mei_HoT.png',
+            element: 'Lightning',
             rarity: 'S'
         }],
         ['Bronya (HoT)', {
             name: 'Bronya (HoT)',
             imageUrl: 'assets/hi3/character/HI3_Bronya_HoT.png',
+            element: 'Ice',
             rarity: 'S'
         }],
         ['Bronya (HoR)', {
             name: 'Bronya (HoR)',
             imageUrl: 'assets/hi3/character/HI3_Bronya_HoR.png',
+            element: 'Ice',
             rarity: 'S'
         }],
         ['Elysia', {
             name: 'Elysia',
             imageUrl: 'assets/hi3/character/HI3_Elysia.png',
+            element: 'Ice',
             rarity: 'S'
         }],
         ['Aponia', {
             name: 'Aponia',
             imageUrl: 'assets/hi3/character/HI3_Aponia.png',
+            element: 'Lightning',
             rarity: 'S'
         }],
         ['Eden', {
             name: 'Eden',
             imageUrl: 'assets/hi3/character/HI3_Eden.png',
+            element: 'Lightning',
             rarity: 'A'
         }],
         ['Lunar Vow', {
             name: 'Lunar Vow',
             imageUrl: 'assets/hi3/character/HI3_LunarVow.png',
+            element: 'Lightning',
             rarity: 'S'
         }],
         ['Durandal', {
             name: 'Durandal',
             imageUrl: 'assets/hi3/character/HI3_Durandal.png',
+            element: 'Physical',
             rarity: 'S'
         }],
         ['Lantern', {
             name: 'Lantern',
             imageUrl: 'assets/hi3/character/HI3_Lantern.png',
+            element: 'Fire',
             rarity: 'S'
         }],
         ['Ai', {
             name: 'Ai',
             imageUrl: 'assets/hi3/character/HI3_Ai.png',
+            element: 'Fire',
             rarity: 'A'
         }],
         ['Fu Hua (HoS)', {
             name: 'Fu Hua (HoS)',
             imageUrl: 'assets/hi3/character/HI3_FuHua_HoS.png',
+            element: 'Physical',
             rarity: 'S'
         }],
         ['Carole', {
             name: 'Carole',
             imageUrl: 'assets/hi3/character/HI3_Carole.png',
+            element: 'Physical',
             rarity: 'A'
         }],
     ]),
