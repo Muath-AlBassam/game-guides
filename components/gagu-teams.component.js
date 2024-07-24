@@ -1,8 +1,4 @@
-class TeamsListComponent extends HTMLElement {
-    
-    // attribute that on change will trigger "attributeChangedCallback"
-    // https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes
-    static observedAttributes = ["name"];
+class TeamsComponent extends HTMLElement {
 
     characterPFPSize = 125;
 
@@ -127,13 +123,6 @@ class TeamsListComponent extends HTMLElement {
 
         this.innerHTML = this.buildHTML(activeGame, teams);
     }
-    
-    attributeChangedCallback(name, oldValue, newValue) {
-        const activeGame = getGame(getGameFromUrl());
-        const teams = getAllTeams(activeGame.code);
-
-        document.getElementById('teams').innerHTML = this.buildTeams(activeGame, teams);
-    }
 
     buildHTML(activeGame, teams) {
         return this.componentStyle + `
@@ -204,11 +193,4 @@ class TeamsListComponent extends HTMLElement {
     }
 }
 
-customElements.define('teams-list-component', TeamsListComponent);
-
-//------------------------------------------------------------------------------------
-
-window.addEventListener('hashchange', () => {
-    // change attribute to trigger "attributeChangedCallback"
-    document.getElementsByTagName('teams-list-component')[0].setAttribute('name', getGameFromUrl());
-});
+customElements.define('gagu-teams-component', TeamsComponent);
