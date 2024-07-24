@@ -111,6 +111,40 @@ class TeamsComponent extends HTMLElement {
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Style for accoridon content ----------------------------------------------- */
+        .team-details-container {
+            padding: 0 15px;
+        }
+
+        .team-details-container td {
+            color: var(--text-color);
+        }
+        .team-details-container .table {
+            border: 1px solid #33343a;
+            vertical-align: middle;
+        }
+        .team-details-container .table.table-striped>tbody>tr:nth-of-type(odd)>* {
+            background-color: #2c2d33;
+            box-shadow: none;
+            color: #fff;
+        }
+        .team-details-container .table.table-striped>tbody>tr:nth-of-type(even)>* {
+            background-color: transparent;
+            box-shadow: none;
+            color: #fff;
+        }
+        .team-details-container .table.table-striped td {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty-details {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
+        }
     </style>`;
     
     constructor() {
