@@ -46,6 +46,13 @@ const GamesData = {
             logoUrl: 'assets/hi3/HI3_Logo.png',
             backgroundUrl: 'assets/hi3/HI3_BG.jpg',
             guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
+        }],
+        [Constants.games.T8, {
+            label: 'Tekken 8',
+            code: Constants.games.T8,
+            style: 'FIGHT',
+            logoUrl: 'assets/t8/T8_Logo.png',
+            backgroundUrl: 'assets/t8/T8_BG.jpg',
         }]
     ]),
 }

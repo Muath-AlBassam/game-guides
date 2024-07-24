@@ -10,6 +10,7 @@ const Constants = {
         HSR: 'HSR',
         ZZZ: 'ZZZ',
         HI3: 'HI3',
+        T8: 'T8'
     },
     images: {
         transparent: 'assets/Placeholder_Logo.png'

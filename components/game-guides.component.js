@@ -37,7 +37,7 @@ class GameGuidesComponent extends HTMLElement {
             case 'TEAM':
                 return `<gagu-teams-component name="${activeGame.code}"></gagu-teams-component>`;
             default:
-                return '';
+                return `<div class="center-content"><h1>...</h1></div>`;
         }
     }
 }
