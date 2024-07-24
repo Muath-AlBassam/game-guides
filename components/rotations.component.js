@@ -1,6 +1,6 @@
 class RotationsComponent extends HTMLElement {
 
-    characterPFPSize = 60;
+    characterPFPSize = 40;
 
     componentStyle = `
     <style>
@@ -29,7 +29,7 @@ class RotationsComponent extends HTMLElement {
                 <img src="assets/svg/rotations.svg" height="20" class="action">
                 Rotations
             </h5>
-            <div>
+            <div style="font-size: 1.2em;">
                 ${this.buildRotationsContent(activeGame, currentTeam)}
             </div>
         </div>`;
@@ -46,7 +46,7 @@ class RotationsComponent extends HTMLElement {
                     ${createCharacterImage(activeGame.code, charmd, 
                         {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px 5px 0; border-radius: 100%;'})}
                 </span>
-                <b style="margin-right: 8px; font-size: 1.2em;">${step[1]}</b>`;
+                <b style="margin-right: 8px;">${step[1]}</b>`;
             })
         } else {
             rotationsContent += `
