@@ -29,7 +29,7 @@ class GameGuidesComponent extends HTMLElement {
 
         setTimeout(() => {
             this.innerHTML = this.componentStyle + this.getGameComponent(activeGame);
-        }, 1000);
+        }, 500);
     }
 
     getGameComponent(activeGame) {

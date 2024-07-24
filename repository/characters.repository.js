@@ -25,6 +25,7 @@ const CharactersRepository = {
         ['Arlecchino', {
             name: 'Arlecchino',
             imageUrl: 'assets/gi/character/GI_Arlecchino.png',
+            element: 'Pyro',
             rarity: '5',
             build: {
                 weapon: { name: 'Crimson Moon\'s Semblance' },
@@ -36,6 +37,7 @@ const CharactersRepository = {
         ['Chiori', {
             name: 'Chiori',
             imageUrl: 'assets/gi/character/GI_Chiori.png',
+            element: 'Geo',
             rarity: '5',
             build: {
                 weapon: { name: 'Uraku Misugiri' },
@@ -47,6 +49,7 @@ const CharactersRepository = {
         ['Bennett', {
             name: 'Bennett',
             imageUrl: 'assets/gi/character/GI_Bennett.png',
+            element: 'Pyro',
             rarity: '4',
             build: {
                 weapon: { name: 'Skyward Blade' },
@@ -58,6 +61,7 @@ const CharactersRepository = {
         ['Diluc', {
             name: 'Diluc',
             imageUrl: 'assets/gi/character/GI_Diluc.png',
+            element: 'Pyro',
             rarity: '5',
             build: {
                 weapon: { name: 'Wolf\'s Gravestone' },
@@ -69,6 +73,7 @@ const CharactersRepository = {
         ['Eula', {
             name: 'Eula',
             imageUrl: 'assets/gi/character/GI_Eula.png',
+            element: 'Cryo',
             rarity: '5',
             build: {
                 weapon: { name: 'Song of Broken Pines' },
@@ -81,6 +86,7 @@ const CharactersRepository = {
         ['Faruzan', {
             name: 'Faruzan',
             imageUrl: 'assets/gi/character/GI_Faruzan.png',
+            element: 'Anemo',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Warbow' },
@@ -92,6 +98,7 @@ const CharactersRepository = {
         ['Fischl', {
             name: 'Fischl',
             imageUrl: 'assets/gi/character/GI_Fischl.png',
+            element: 'Electro',
             rarity: '4',
             build: {
                 weapon: { name: 'Mitternachts Waltz' },
@@ -103,6 +110,7 @@ const CharactersRepository = {
         ['Furina', {
             name: 'Furina',
             imageUrl: 'assets/gi/character/GI_Furina.png',
+            element: 'Hydro',
             rarity: '5',
             build: {
                 weapon: { name: 'Splendor of Tranquil Waters' },
@@ -114,6 +122,7 @@ const CharactersRepository = {
         ['Ayaka', {
             name: 'Ayaka',
             imageUrl: 'assets/gi/character/GI_Ayaka.png',
+            element: 'Cryo',
             rarity: '5',
             build: {
                 weapon: { name: 'Mistsplitter Reforged' },
@@ -125,6 +134,7 @@ const CharactersRepository = {
         ['Kazuha', {
             name: 'Kazuha',
             imageUrl: 'assets/gi/character/GI_Kazuha.png',
+            element: 'Anemo',
             rarity: '5',
             build: {
                 weapon: { name: 'Xiphos\' Moonlight' },
@@ -136,6 +146,7 @@ const CharactersRepository = {
         ['Hu Tao', {
             name: 'Hu Tao',
             imageUrl: 'assets/gi/character/GI_HuTao.png',
+            element: 'Pyro',
             rarity: '5',
             build: {
                 weapon: { name: 'Staff of Homa' },
@@ -147,6 +158,7 @@ const CharactersRepository = {
         ['Gorou', {
             name: 'Gorou',
             imageUrl: 'assets/gi/character/GI_Gorou.png',
+            element: 'Geo',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Warbow' },
@@ -158,6 +170,7 @@ const CharactersRepository = {
         ['Ganyu', {
             name: 'Ganyu',
             imageUrl: 'assets/gi/character/GI_Ganyu.png',
+            element: 'Cryo',
             rarity: '5',
             build: {
                 weapon: { name: 'Amos\' Bow' },
@@ -169,6 +182,7 @@ const CharactersRepository = {
         ['Kirara', {
             name: 'Kirara',
             imageUrl: 'assets/gi/character/GI_Kirara.png',
+            element: 'Dendro',
             rarity: '4',
             build: {
                 weapon: { name: 'Sacrificial Sword' },
@@ -181,6 +195,7 @@ const CharactersRepository = {
         ['Kuki Shinobu', {
             name: 'Kuki Shinobu',
             imageUrl: 'assets/gi/character/GI_KukiShinobu.png',
+            element: 'Electro',
             rarity: '4',
             build: {
                 weapon: { name: 'Iron Sting' },
@@ -192,6 +207,7 @@ const CharactersRepository = {
         ['Lynette', {
             name: 'Lynette',
             imageUrl: 'assets/gi/character/GI_Lynette.png',
+            element: 'Anemo',
             rarity: '4',
             build: {
                 weapon: { name: 'The Black Sword' },
@@ -204,6 +220,7 @@ const CharactersRepository = {
         ['Nilou', {
             name: 'Nilou',
             imageUrl: 'assets/gi/character/GI_Nilou.png',
+            element: 'Hydro',
             rarity:  '5',
             build: {
                 weapon: { name: 'Key of Khaj-Nisut' },
@@ -216,6 +233,7 @@ const CharactersRepository = {
         ['Neuvillette', {
             name: 'Neuvillette',
             imageUrl: 'assets/gi/character/GI_Neuvillette.png.png',
+            element: 'Hydro',
             rarity: '5',
             build: {
                 weapon: { name: 'Tome of the Eternal Flow' },
@@ -227,6 +245,7 @@ const CharactersRepository = {
         ['Navia', {
             name: 'Navia',
             imageUrl: 'assets/gi/character/GI_Navia.png',
+            element: 'Geo',
             rarity: '5',
             build: {
                 weapon: { name: 'Verdict' },
@@ -238,6 +257,7 @@ const CharactersRepository = {
         ['Nahida', {
             name: 'Nahida',
             imageUrl: 'assets/gi/character/GI_Nahida.png',
+            element: 'Dendro',
             rarity: '5',
             build: {
                 weapon: { name: 'A Thousand Floating Dreams' },
@@ -249,6 +269,7 @@ const CharactersRepository = {
         ['Mika', {
             name: 'Mika',
             imageUrl: 'assets/gi/character/GI_Mika.png',
+            element: 'Cryo',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Lance' },
@@ -261,6 +282,7 @@ const CharactersRepository = {
         ['Raiden Shogun', {
             name: 'Raiden Shogun',
             imageUrl: 'assets/gi/character/GI_RaidenShogun.png',
+            element: 'Electro',
             rarity: '5',
             build: {
                 weapon: { name: 'Engulfing Lightning' },
@@ -272,6 +294,7 @@ const CharactersRepository = {
         ['Kokomi', {
             name: 'Kokomi',
             imageUrl: 'assets/gi/character/GI_Kokomi.png',
+            element: 'Hydro',
             rarity: '5',
             build: {
                 weapon: { name: 'Jadefall\'s Splendor' },
@@ -283,6 +306,7 @@ const CharactersRepository = {
         ['Wriothesley', {
             name: 'Wriothesley',
             imageUrl: 'assets/gi/character/GI_Wriothesley.png.png',
+            element: 'Cryo',
             rarity: '5',
             build: {
                 weapon: { name: 'Cashflow Supervision' },
@@ -294,6 +318,7 @@ const CharactersRepository = {
         ['Xianyun', {
             name: 'Xianyun',
             imageUrl: 'assets/gi/character/GI_Xianyun.png',
+            element: 'Anemo',
             rarity: '5',
             build: {
                 weapon: { name: 'Oathsworn Eye' },
@@ -306,6 +331,7 @@ const CharactersRepository = {
         ['Xiao', {
             name: 'Xiao',
             imageUrl: 'assets/gi/character/GI_Xiao.png',
+            element: 'Anemo',
             rarity: '5',
             build: {
                 weapon: { name: 'Primordial Jade Winged-Spear' },
@@ -318,6 +344,7 @@ const CharactersRepository = {
         ['Xingqiu', {
             name: 'Xingqiu',
             imageUrl: 'assets/gi/character/GI_Xingqiu.png',
+            element: 'Hydro',
             rarity: '4',
             build: {
                 weapon: { name: 'Sacrificial Sword' },
@@ -329,6 +356,7 @@ const CharactersRepository = {
         ['Yae Miko', {
             name: 'Yae Miko',
             imageUrl: 'assets/gi/character/GI_YaeMiko.png',
+            element: 'Electro',
             rarity: '5',
             build: {
                 weapon: { name: 'Kagura\'s Verity' },
@@ -341,6 +369,7 @@ const CharactersRepository = {
         ['Zhongli', {
             name: 'Zhongli',
             imageUrl: 'assets/gi/character/GI_Zhongli.png',
+            element: 'Geo',
             rarity: '5',
             build: {
                 weapon: { name: 'Black Tassel' },
@@ -352,6 +381,7 @@ const CharactersRepository = {
         ['Yun Jin', {
             name: 'Yun Jin',
             imageUrl: 'assets/gi/character/GI_YunJin.png',
+            element: 'Geo',
             rarity: '4',
             build: {
                 weapon: { name: 'Favonius Lance' },
@@ -363,6 +393,7 @@ const CharactersRepository = {
         ['Yelan', {
             name: 'Yelan',
             imageUrl: 'assets/gi/character/GI_Yelan.png',
+            element: 'Hydro',
             rarity: '5',
             build: {
                 weapon: { name: 'Favonius Warbow' },
@@ -375,6 +406,7 @@ const CharactersRepository = {
         ['Clorinde', {
             name: 'Clorinde',
             imageUrl: 'assets/gi/character/GI_Clorinde.png',
+            element: 'Electro',
             rarity: '5',
             build: {
                 weapon: { name: 'Absolution' },
@@ -386,6 +418,7 @@ const CharactersRepository = {
         ['Chevreuse', {
             name: 'Chevreuse',
             imageUrl: 'assets/gi/character/GI_Chevreuse.png',
+            element: 'Pyro',
             rarity: '4',
             build: {
                 weapon: { name: 'Dialogues of the Desert Sages' },
@@ -398,6 +431,7 @@ const CharactersRepository = {
         ['Xianling', {
             name: 'Xianling',
             imageUrl: 'assets/gi/character/GI_Xianling.png',
+            element: 'Pyro',
             rarity: '4',
             build: {
                 weapon: { name: 'The Catch' },
