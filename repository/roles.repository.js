@@ -1,3 +1,22 @@
+
+function getAllRoles(gameCode) {
+    switch (gameCode) {
+        case Constants.games.HSR:
+            return RolesRepository.HSRRoles;
+        case Constants.games.ZZZ:
+            return RolesRepository.ZZZRoles;
+        default:
+            return new Map([]);
+    }
+}
+
+function getRole(gameCode, roleName) {
+    let role = getAllRoles(gameCode).get(roleName);
+    return role ?? { name: roleName }
+}
+
+// ----------------------------------------------------------------------------
+
 const RolesRepository = {
     HSRRoles: new Map([
         ['Abundance', { 

@@ -1,9 +1,13 @@
-const arrow = Constants.unicode.arrow;
-const times = Constants.unicode.times;
+function getAllGames() {
+    return GamesData.games;
+}
 
-smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
-tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
+function getGame(gameCode) {
+    gameCode = gameCode == '' || gameCode == null ? Constants.games.GI : gameCode; 
+    return getAllGames().get(gameCode);
+}
 
+// ----------------------------------------------------------------------------
 
 const GamesData = {
     games: new Map ([

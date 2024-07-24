@@ -1,3 +1,32 @@
+
+function getAllTeams(gameCode) {
+    switch (gameCode) {
+        case Constants.games.GI:
+            return TeamsRepository.GITeams;
+        case Constants.games.HSR:
+            return TeamsRepository.HSRTeams;
+        case Constants.games.ZZZ:
+            return TeamsRepository.ZZZTeams;
+        case Constants.games.HI3:
+            return TeamsRepository.HI3Teams;
+        default:
+            return new Map([]);
+    }
+}
+
+function getTeam(gameCode, teamName) {
+    let team = getAllTeams(gameCode).get(teamName);
+    return team ?? { name: teamName }
+}
+
+// ----------------------------------------------------------------------------
+
+const arrow = Constants.unicode.arrow;
+const times = Constants.unicode.times;
+
+smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
+tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
+
 const TeamsRepository = {
     GITeams: new Map([
         ['Pyro', {

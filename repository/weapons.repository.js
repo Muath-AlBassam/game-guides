@@ -1,3 +1,22 @@
+
+function getWeaponMetadata(gameCode, weaponName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.GI:
+            data = WeaponsRepository.GIWeapons.get(weaponName);
+            break;
+        case Constants.games.HSR:
+            data = WeaponsRepository.HSRLightCones.get(weaponName);
+            break;
+        case Constants.games.ZZZ:
+            data = WeaponsRepository.ZZZWEngines.get(weaponName);
+            break;
+    }
+    return data ?? { name: weaponName }
+}
+
+// ----------------------------------------------------------------------------
+
 const WeaponsRepository = {
     GIWeapons: new Map([
         ['Absolution', {

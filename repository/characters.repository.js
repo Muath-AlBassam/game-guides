@@ -1,3 +1,25 @@
+
+function getCharacterMetadata(gameCode, characterName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.GI:
+            data = CharactersRepository.GICharacters.get(characterName);
+            break;
+        case Constants.games.HSR:
+            data = CharactersRepository.HSRCharacters.get(characterName);
+            break;
+        case Constants.games.ZZZ:
+            data = CharactersRepository.ZZZCharacters.get(characterName);
+            break;
+        case Constants.games.HI3:
+            data = CharactersRepository.HI3Characters.get(characterName);
+            break;
+    }
+    return data ?? { name: characterName }
+}
+
+// ----------------------------------------------------------------------------
+
 const CharactersRepository = {
     GICharacters: new Map([
         ['Arlecchino', {

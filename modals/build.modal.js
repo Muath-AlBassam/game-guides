@@ -119,7 +119,7 @@ class BuildModal extends HTMLElement {
 
     buildModalHeader(gameCode, charmd) {
         return `
-        <div class="close-modal" onclick="closeModal()">&times;</div>
+        <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
                 ${createCharacterImage(gameCode, charmd, 

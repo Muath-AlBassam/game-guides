@@ -1,3 +1,22 @@
+
+function getSetMetadata(gameCode, setName) {
+    let data;
+    switch (gameCode) {
+        case Constants.games.GI:
+            data = SetsRepository.GISets.get(setName);
+            break;
+        case Constants.games.HSR:
+            data = SetsRepository.HSRSets.get(setName);
+            break;
+        case Constants.games.ZZZ:
+            data = SetsRepository.ZZZSets.get(setName);
+            break;
+    }
+    return data ?? { name: setName }
+}
+
+// ----------------------------------------------------------------------------
+
 const SetsRepository = {
     GISets: new Map([
         ['Blizzard Strayer', {
