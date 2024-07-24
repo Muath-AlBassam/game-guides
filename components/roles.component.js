@@ -56,7 +56,7 @@ class RolesComponent extends HTMLElement {
                     ${createCharacterImage(activeGame.code, charmd, 
                         {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;'})}
                 </td>
-                <td>
+                <td style="font-size: 1.2em; font-weight: bold;">
                     ${roleImage}
                     ${character.role ?? ''}
                 </td>

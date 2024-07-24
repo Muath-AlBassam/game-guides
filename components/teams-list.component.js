@@ -81,6 +81,22 @@ class TeamsListComponent extends HTMLElement {
         .team-details {
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
+            border: 2px solid #33343a;
+        }
+        @media (min-width: 769px) {
+            /* none mobile view only */
+            .team-details {
+                /* 
+                    split container into 4 vertical sections separated by lines (3 lines) 
+                    https://stackoverflow.com/questions/43628280/create-a-div-with-7-dividing-vertical-lines
+                */
+                background:linear-gradient(
+                    to right, 
+                    transparent, transparent calc(100% / 4 * 1 - 3px), #33343a, transparent calc(100% / 4 * 1), 
+                    transparent, transparent calc(100% / 4 * 2 - 3px), #33343a, transparent calc(100% / 4 * 2), 
+                    transparent, transparent calc(100% / 4 * 3 - 3px), #33343a, transparent calc(100% / 4 * 3)
+                );
+            }
         }
 
         .accordion-content {
