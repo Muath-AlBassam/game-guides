@@ -123,7 +123,7 @@ class BuildModal extends HTMLElement {
         <div>
             <div class="center-content" style="margin-top: 20px;">
                 ${createCharacterImage(gameCode, charmd, 
-                    {dimensions: this.characterPFPSize, classes: 'character-image', withBackgroundClass: false})}
+                    {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false})}
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>

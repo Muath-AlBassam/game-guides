@@ -642,7 +642,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Ellen', `Dash + Basic ${smallText('(hold)')} ${arrow}`],
+                ['Ellen', `Dash + CA ${arrow}`],
                 ['Lycaon', `CA / EX Special ${arrow} Stun ${arrow}`],
                 ['Soukaku', `Special ${smallText('(hold)')} ${arrow} Chain/Quick-Assist ${arrow}`],
                 ['Ellen', `Basic + EX Special`],
@@ -669,7 +669,31 @@ const TeamsRepository = {
         ['Ether', {
             name: 'Ether',
             iconUrl: 'assets/zzz/ZZZ_Ether.jpg',
-            characters: []
+            characters: [
+                {
+                    name: 'Zhu Yuan',
+                    role: 'Main [Ex Special + CA]',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Anby',
+                    role: 'Stun',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Nicole',
+                    role: 'Debuff',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ],
+            rotations: [
+                ['Anby', `Basic${times}3 ${arrow} CA ${arrow} EX Special ${arrow} Stun ${arrow}`],
+                ['Nicole', `EX Special ${smallText('(hold)')} ${arrow} Basic${times}1 ${arrow}`],
+                ['Zhu Yuan', `CA ${smallText('(hold)')} ${arrow} EX Special`],
+            ]
         }]
     ]),
 

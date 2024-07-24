@@ -121,6 +121,9 @@ function getSetMetadata(gameCode, setName) {
         case Constants.games.HSR:
             data = SetsRepository.HSRSets.get(setName);
             break;
+        case Constants.games.ZZZ:
+            data = SetsRepository.ZZZSets.get(setName);
+            break;
     }
     return data ?? { name: setName }
 }

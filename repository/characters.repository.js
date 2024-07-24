@@ -813,7 +813,11 @@ const CharactersRepository = {
             role: 'Attack',
             rarity: 'S',
             build: {
-                weapon: { name: 'Deep Sea Visitor' }
+                weapon: { name: 'Deep Sea Visitor' },
+                sets: [
+                    { name: 'Polar Metal', pieceCount: '4' },
+                    { name: 'Woodpecker Electro', pieceCount: '2' },
+                ]
             }
         }],
         ['Soukaku', {
@@ -822,7 +826,10 @@ const CharactersRepository = {
             role: 'Support',
             rarity: 'A',
             build: {
-                weapon: { name: 'Bashful Demon' }
+                weapon: { name: 'Bashful Demon' },
+                // sets: [
+                //     { name: 'Hormone Punk', pieceCount: '4' }
+                // ]
             }
         }],
         ['Anby', {
@@ -831,7 +838,10 @@ const CharactersRepository = {
             role: 'Stun',
             rarity: 'A',
             build: {
-                weapon: { name: 'Demara Battery Mark II' }
+                weapon: { name: 'Demara Battery Mark II' },
+                sets: [
+                    { name: 'Shockstar Disco', pieceCount: '4' }
+                ]
             }
         }],
         ['Lycaon', {
@@ -840,7 +850,10 @@ const CharactersRepository = {
             role: 'Stun',
             rarity: 'S',
             build: {
-                weapon: { name: 'The Restrained' }
+                weapon: { name: 'The Restrained' },
+                sets: [
+                    { name: 'Shockstar Disco', pieceCount: '4' }
+                ]
             }
         }],
         ['Grace', {
@@ -858,7 +871,10 @@ const CharactersRepository = {
             role: 'Stun',
             rarity: 'S',
             build: {
-                weapon: { name: 'Hellfire Gears' }
+                weapon: { name: 'Hellfire Gears' },
+                // sets: [
+                //     { name: 'Shockstar Disco', pieceCount: '4' }
+                // ]
             }
         }],
         ['Soldier 11', {
@@ -876,7 +892,35 @@ const CharactersRepository = {
             role: 'Support',
             rarity: 'A',
             build: {
-                weapon: { name: 'Kaboom the Cannon' }
+                weapon: { name: 'Kaboom the Cannon' },
+                // sets: [
+                //     { name: 'Hormone Punk', pieceCount: '4' }
+                // ]
+            }
+        }],
+        ['Zhu Yuan', {
+            name: 'Zhu Yuan',
+            imageUrl: 'assets/zzz/character/ZZZ_ZhuYuan.jpg',
+            role: 'Attack',
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Riot Suppressor Mark VI' },
+                sets: [
+                    { name: 'Chaotic Metal', pieceCount: '4' },
+                    { name: 'Woodpecker Electro', pieceCount: '2' },
+                ]
+            }
+        }],
+        ['Nicole', {
+            name: 'Nicole',
+            imageUrl: 'assets/zzz/character/ZZZ_Nicole.jpg',
+            role: 'Support',
+            rarity: 'A',
+            build: {
+                weapon: { name: 'The Vault' },
+                sets: [
+                    { name: 'Swing Jazz', pieceCount: '4' }
+                ]
             }
         }],
     ]),

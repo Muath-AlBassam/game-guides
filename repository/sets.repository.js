@@ -212,4 +212,31 @@ const SetsRepository = {
             imageUrl: 'assets/hsr/set/HSR_Set_TaliaKingdomOfBanditry.jpg'
         }],
     ]),
+
+    ZZZSets: new Map([
+        ['Chaotic Metal', {
+            name: 'Chaotic Metal',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ChaoticMetal.jpg'
+        }],
+        ['Hormone Punk', {
+            name: 'Hormone Punk',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_HormonePunk.jpg'
+        }],
+        ['Polar Metal', {
+            name: 'Polar Metal',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_PolarMetal.jpg'
+        }],
+        ['Shockstar Disco', {
+            name: 'Shockstar Disco',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ShockstarDisco.jpg'
+        }],
+        ['Swing Jazz', {
+            name: 'Swing Jazz',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_SwingJazz.jpg'
+        }],
+        ['Woodpecker Electro', {
+            name: 'Woodpecker Electro',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_WoodpeckerElectro.jpg'
+        }],
+    ])
 }

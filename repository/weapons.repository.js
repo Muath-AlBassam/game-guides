@@ -341,5 +341,15 @@ const WeaponsRepository = {
             imageUrl: 'assets/zzz/w-engine/ZZZ_WE_KaboomTheCannon.jpg',
             rarity: 'A'
         }],
+        ['Riot Suppressor Mark VI', {
+            name: 'Riot Suppressor Mark VI',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_RiotSuppressorMarkVI.jpg',
+            rarity: 'S'
+        }],
+        ['The Vault', {
+            name: 'The Vault',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheVault.jpg',
+            rarity: 'A'
+        }],
     ]),
 }
