@@ -28,10 +28,17 @@ class GameGuidesComponent extends HTMLElement {
         `;
 
         setTimeout(() => {
-            this.innerHTML = this.componentStyle + `
-                <gagu-teams-component name="${activeGame.code}"></gagu-teams-component>
-            `;
-        }, 2000);
+            this.innerHTML = this.componentStyle + this.getGameComponent(activeGame);
+        }, 1000);
+    }
+
+    getGameComponent(activeGame) {
+        switch (activeGame.style) {
+            case 'TEAM':
+                return `<gagu-teams-component name="${activeGame.code}"></gagu-teams-component>`;
+            default:
+                return '';
+        }
     }
 }
 
