@@ -1,5 +1,7 @@
 class RotationsComponent extends HTMLElement {
 
+    characterPFPSize = 60;
+
     componentStyle = `
     <style>
         .rotations-container {
@@ -41,7 +43,8 @@ class RotationsComponent extends HTMLElement {
                 const charmd = getCharacterMetadata(activeGame.code, step[0]);
                 rotationsContent += `
                 <span>
-                    ${createCharacterImage(activeGame.code, charmd, {dimensions: 40, styles: 'margin: 5px 10px 5px 0;'})}
+                    ${createCharacterImage(activeGame.code, charmd, 
+                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px 5px 0; border-radius: 100%;'})}
                 </span>
                 <b style="margin-right: 8px;">${step[1]}</b>`;
             })

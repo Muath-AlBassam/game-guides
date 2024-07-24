@@ -4,6 +4,8 @@ class TeamsListComponent extends HTMLElement {
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes
     static observedAttributes = ["name"];
 
+    characterPFPSize = 125;
+
     componentStyle = `
     <style>
         .team-container {
@@ -11,7 +13,7 @@ class TeamsListComponent extends HTMLElement {
             border-radius: 0;
             display: flex;
             margin: 20px 0 0 0;
-            height: 150px;
+            height: ${this.characterPFPSize + 50}px;
             width: 100%;
         }
 
@@ -169,7 +171,7 @@ class TeamsListComponent extends HTMLElement {
             const character = team.characters[i]
             const charmd = getCharacterMetadata(activeGame.code, character?.name);
             membersImages += createCharacterImage(activeGame.code, charmd, 
-                {styles: 'margin: 5px 10px;', withBuildModal: true});
+                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true});
         }
         return membersImages;
     }

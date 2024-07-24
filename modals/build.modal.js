@@ -2,6 +2,8 @@
 class BuildModal extends HTMLElement {
 
     static observedAttributes = ["character"];
+
+    characterPFPSize = 125;
     
     componentStyle = `
     <style>
@@ -120,7 +122,8 @@ class BuildModal extends HTMLElement {
         <div class="close-modal" onclick="closeModal()">&times;</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                ${createCharacterImage(gameCode, charmd, {classes: 'character-image', withBackgroundClass: false})}
+                ${createCharacterImage(gameCode, charmd, 
+                    {dimensions: this.characterPFPSize, classes: 'character-image', withBackgroundClass: false})}
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>
         </div>

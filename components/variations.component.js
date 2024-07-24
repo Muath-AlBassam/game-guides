@@ -1,5 +1,7 @@
 class VariationsComponent extends HTMLElement {
 
+    characterPFPSize = 80;
+
     componentStyle = `
     <style>
         .variations-container {
@@ -46,7 +48,7 @@ class VariationsComponent extends HTMLElement {
                 vari.forEach(character => {
                     const charmd = getCharacterMetadata(activeGame.code, character);
                     variationsContent += createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: 60, styles: 'margin: 5px 10px;', withBuildModal: true});
+                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true});
                 })
                 variationsContent += `</td></tr>`;
             })

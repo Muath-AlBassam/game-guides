@@ -1,5 +1,7 @@
 class ReplacementsComponent extends HTMLElement {
 
+    characterPFPSize = 80;
+
     componentStyle = `
     <style>
         .replacements-container {
@@ -47,14 +49,15 @@ class ReplacementsComponent extends HTMLElement {
                 character.replacedBy.forEach(rep => {
                     const repmd = getCharacterMetadata(activeGame.code, rep);
                     charReplacements += createCharacterImage(activeGame.code, repmd, 
-                        {dimensions: 60, styles: 'margin: 5px 10px;', withBuildModal: true});
+                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true});
                 })
             }
 
             replacementsContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
-                    ${createCharacterImage(activeGame.code, charmd, {dimensions: 60, styles: 'margin: 5px 10px;'})}
+                    ${createCharacterImage(activeGame.code, charmd, 
+                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;'})}
                 </td>
                 <td>
                     ${charReplacements}
