@@ -139,7 +139,8 @@ function createCharacterImage(
 ) {
     const showBuild = withBuildModal && charmd.build;
 
-    let styleVal = `${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
+    let styleVal = 'border-radius: 5px;';
+    styleVal += ` ${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
     let classVal = `pfp ${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
     let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
     let imgTag = `<img    

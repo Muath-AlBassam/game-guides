@@ -13,8 +13,8 @@ class TeamsListComponent extends HTMLElement {
             border-radius: 0;
             display: flex;
             margin: 20px 0 0 0;
-            height: ${this.characterPFPSize + 50}px;
             width: 100%;
+            height: ${this.characterPFPSize + 50}px;
         }
 
         .team-container .team-number {
@@ -83,6 +83,12 @@ class TeamsListComponent extends HTMLElement {
             grid-template-columns: 25% 25% 25% 25%;
             border: 2px solid #33343a;
         }
+
+        .accordion-content {
+            display: none;
+            transition: all 0.5s ease;
+        }
+
         @media (min-width: 769px) {
             /* none mobile view only */
             .team-details {
@@ -97,11 +103,6 @@ class TeamsListComponent extends HTMLElement {
                     transparent, transparent calc(100% / 4 * 3 - 3px), #33343a, transparent calc(100% / 4 * 3)
                 );
             }
-        }
-
-        .accordion-content {
-            display: none;
-            transition: all 0.5s ease;
         }
 
         @media (max-width: 768px) {
@@ -170,7 +171,7 @@ class TeamsListComponent extends HTMLElement {
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
                         <div class="team-name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="30">
+                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="50">
                             <span>${team.name}</span>
                         </div>
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
