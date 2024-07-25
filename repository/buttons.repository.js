@@ -1,5 +1,3 @@
-// https://opengameart.org/content/free-keyboard-and-controllers-prompts-pack
-// https://github.com/spironan/TekinputGenerator/tree/master/Images/Inputs
 
 function getAllButtons(gameCode) {
     switch (gameCode) {
@@ -16,6 +14,9 @@ function getButton(gameCode, buttonName) {
 }
 
 // ----------------------------------------------------------------------------
+
+// https://opengameart.org/content/free-keyboard-and-controllers-prompts-pack
+// https://github.com/spironan/TekinputGenerator/tree/master/Images/Inputs
 
 const ButtonsRepository = {
     TK8Buttons: new Map([
@@ -35,35 +36,35 @@ const ButtonsRepository = {
             name: 'Y',
             imageUrl: 'assets/tk8/button/TK8_Y.png'
         }],
-        ['Up', {
+        ['U', {
             name: 'Up',
             imageUrl: 'assets/tk8/button/TK8_Up.png'
         }],
-        ['UpLeft', {
+        ['UL', {
             name: 'UpLeft',
             imageUrl: 'assets/tk8/button/TK8_UpLeft.png'
         }],
-        ['UpRight', {
+        ['UR', {
             name: 'UpRight',
             imageUrl: 'assets/tk8/button/TK8_UpRight.png'
         }],
-        ['Down', {
+        ['D', {
             name: 'Down',
             imageUrl: 'assets/tk8/button/TK8_Down.png'
         }],
-        ['DownLeft', {
+        ['DL', {
             name: 'DownLeft',
             imageUrl: 'assets/tk8/button/TK8_DownLeft.png'
         }],
-        ['DownRight', {
+        ['DR', {
             name: 'DownRight',
             imageUrl: 'assets/tk8/button/TK8_DownRight.png'
         }],
-        ['Left', {
+        ['L', {
             name: 'Left',
             imageUrl: 'assets/tk8/button/TK8_Left.png'
         }],
-        ['Right', {
+        ['R', {
             name: 'Right',
             imageUrl: 'assets/tk8/button/TK8_Right.png'
         }]

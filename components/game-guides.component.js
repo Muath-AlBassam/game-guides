@@ -36,6 +36,8 @@ class GameGuidesComponent extends HTMLElement {
         switch (activeGame.style) {
             case 'TEAM':
                 return `<gagu-teams-component name="${activeGame.code}"></gagu-teams-component>`;
+            case 'FIGHT':
+                return `<gagu-fight-component name="${activeGame.code}"></gagu-fight-component>`;
             default:
                 return `<div class="center-content"><h1>...</h1></div>`;
         }

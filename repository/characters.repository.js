@@ -1,20 +1,26 @@
 
-function getCharacterMetadata(gameCode, characterName) {
+const button_append = Constants.buttons.append;
+
+function getAllCharacters(gameCode) {
     let data;
     switch (gameCode) {
         case Constants.games.GI:
-            data = CharactersRepository.GICharacters.get(characterName);
-            break;
+            return CharactersRepository.GICharacters;
         case Constants.games.HSR:
-            data = CharactersRepository.HSRCharacters.get(characterName);
-            break;
+            return CharactersRepository.HSRCharacters;
         case Constants.games.ZZZ:
-            data = CharactersRepository.ZZZCharacters.get(characterName);
-            break;
+            return CharactersRepository.ZZZCharacters;
         case Constants.games.HI3:
-            data = CharactersRepository.HI3Characters.get(characterName);
-            break;
+            return CharactersRepository.HI3Characters;
+        case Constants.games.TK8:
+            return CharactersRepository.TK8Characters;
+        default:
+            return new Map([]);
     }
+}
+
+function getCharacterMetadata(gameCode, characterName) {
+    let data = getAllCharacters(gameCode).get(characterName)
     return data ?? { name: characterName }
 }
 
@@ -1119,7 +1125,14 @@ const CharactersRepository = {
     TK8Characters: new Map([
         ['Reina', {
             name: 'Reina',
-            imageUrl: 'assets/tk8/character/TK8_Reina.png'
+            imageUrl: 'assets/tk8/character/TK8_Reina.png',
+            combos: [
+                [button_append + 'X', button_append + 'X', button_append + 'Y'],
+                [button_append + 'X', button_append + 'Y', button_append + 'Y'],
+                [button_append + 'Y', button_append + 'Y', button_append + 'X'],
+                [button_append + 'X', '+', button_append + 'Y'],
+                [button_append + 'DR', button_append + 'X', button_append + 'Y'],
+            ]
         }]
     ])
 }
