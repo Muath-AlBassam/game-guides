@@ -1115,4 +1115,11 @@ const CharactersRepository = {
             rarity: 'A'
         }],
     ]),
+
+    TK8Characters: new Map([
+        ['Reina', {
+            name: 'Reina',
+            imageUrl: 'assets/tk8/character/TK8_Reina.png'
+        }]
+    ])
 }
