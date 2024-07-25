@@ -886,7 +886,8 @@ const CharactersRepository = {
             build: {
                 weapon: { name: 'Night on the Milky Way' },
                 sets: [
-                    { name: 'Hunter of Glacial Forest', pieceCount: '4' },
+                    { name: 'Hunter of Glacial Forest', pieceCount: '2' },
+                    { name: 'The Ashblazing Grand Duke', pieceCount: '2' },
                     { name: 'Inert Salsotto', pieceCount: '2' }
                 ]
             }
