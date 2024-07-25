@@ -24,7 +24,7 @@ class VariationsComponent extends HTMLElement {
 
     buildHTML(activeGame, currentTeam) {
         return this.componentStyle + `
-        <div class="team-details-container variations-container">
+        <div class="container variations-container">
             <div>
                 <h5 class="content-header">
                     <img src="assets/svg/variations.svg" height="20" class="action">

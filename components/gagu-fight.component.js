@@ -4,7 +4,7 @@ class FightComponent extends HTMLElement {
     
     componentStyle = `
     <style>
-        .fight__character-container {
+        .fight__container {
             border: 1px solid #33343a;
             border-radius: 0;
             display: flex;
@@ -13,7 +13,7 @@ class FightComponent extends HTMLElement {
             height: ${this.characterPFPSize + 100}px;
         }
 
-        .fight__character-container .number {
+        .fight__container .number {
             align-items: center;
             background-color: #ef5350;
             color: #191817;
@@ -24,7 +24,7 @@ class FightComponent extends HTMLElement {
             width: 65px;
         }
 
-        .fight__character-container .item {
+        .fight__container .item {
             grid-gap: 0;
             background-color: #2c2d33;
             border-radius: 0;
@@ -35,11 +35,11 @@ class FightComponent extends HTMLElement {
             width: 100%;
         }
 
-        .fight__character-container .item>div:nth-child(odd) {
+        .fight__container .item>div:nth-child(odd) {
             background-color: #36373f;
         }
 
-        .fight__character-container .item .character {
+        .fight__container .item .character {
             font-size: 30px;
             font-weight: bold;
             display: grid;
@@ -47,7 +47,7 @@ class FightComponent extends HTMLElement {
             justify-items: center;
         }
 
-        .fight__character-container .item .character .name {
+        .fight__container .item .character .name {
             border-top: 2px solid #6b6b6b;
             font-size: 20px;
             font-weight: bold;
@@ -58,7 +58,7 @@ class FightComponent extends HTMLElement {
             justify-items: center;
         }
 
-        .fight__character-container .item .combos {
+        .fight__container .item .combos {
             margin: 0 2em;
         }
     </style>`;
@@ -98,7 +98,7 @@ class FightComponent extends HTMLElement {
 
     buildCharacter(activeGame, character, index) {
         return `
-        <div class="fight__character-container">
+        <div class="fight__container">
             <div class="number">${index + 1}</div>
             <div class="item">
                 <div class="character">

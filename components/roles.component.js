@@ -24,7 +24,7 @@ class RolesComponent extends HTMLElement {
 
     buildHTML(activeGame, currentTeam) {
         return this.componentStyle + `
-        <div class="team-details-container roles-container">
+        <div class="container roles-container">
             <div>
                 <h5 class="content-header">
                     <img src="assets/svg/roles.svg" height="20" class="action">

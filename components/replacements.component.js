@@ -24,7 +24,7 @@ class ReplacementsComponent extends HTMLElement {
 
     buildHTML(activeGame, currentTeam) {
         return this.componentStyle + `
-        <div class="team-details-container replacements-container">
+        <div class="container replacements-container">
             <h5 class="content-header">
                 <img src="assets/svg/replacements.svg" height="20" class="action">
                 Replacements

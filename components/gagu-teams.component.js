@@ -4,7 +4,7 @@ class TeamsComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        .team-container {
+        .teams__container {
             border: 1px solid #33343a;
             border-radius: 0;
             display: flex;
@@ -13,7 +13,7 @@ class TeamsComponent extends HTMLElement {
             height: ${this.characterPFPSize + 50}px;
         }
 
-        .team-container .team-number {
+        .teams__container .number {
             align-items: center;
             background-color: #ef5350;
             color: #191817;
@@ -24,7 +24,7 @@ class TeamsComponent extends HTMLElement {
             width: 65px;
         }
 
-        .team-container .team-container-item {
+        .teams__container .item {
             grid-gap: 0;
             background-color: #2c2d33;
             border-radius: 0;
@@ -35,11 +35,11 @@ class TeamsComponent extends HTMLElement {
             width: 100%;
         }
 
-        .team-container-item div:nth-child(even) {
+        .teams__container .item div:nth-child(even) {
             background-color: #36373f;
         }
 
-        .team-container-item .team-name {
+        .teams__container .item .name {
             font-size: 30px;
             font-weight: bold;
             display: grid;
@@ -48,25 +48,25 @@ class TeamsComponent extends HTMLElement {
             justify-items: center;
         }
 
-        .team-container-item .team-members {
+        .teams__container .item .members {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .team-container-item .team-actions {
+        .teams__container .item .actions {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .team-actions img {
+        .teams__container .item .actions img {
             transition: all 0.5s ease-out;
         }
-        .team-actions:not(.collapsed) img {
+        .actions:not(.collapsed) img {
             transform: rotate(-180deg);
         }
-        .team-actions.collapsed img {
+        .actions.collapsed img {
             transform: rotate(0deg);
         }
         
@@ -74,7 +74,7 @@ class TeamsComponent extends HTMLElement {
             cursor: pointer;
         }
 
-        .team-details {
+        .teams__details {
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
             border: 2px solid #33343a;
@@ -87,7 +87,7 @@ class TeamsComponent extends HTMLElement {
 
         @media (min-width: 769px) {
             /* none mobile view only */
-            .team-details {
+            .teams__details {
                 /* 
                     split container into 4 vertical sections separated by lines (3 lines) 
                     https://stackoverflow.com/questions/43628280/create-a-div-with-7-dividing-vertical-lines
@@ -103,38 +103,38 @@ class TeamsComponent extends HTMLElement {
 
         @media (max-width: 768px) {
             /* not complete */
-            .team-container .team-container-item {
+            .teams__container .item {
                 grid-template-columns: 1fr;
             }
 
-            .team-details {
+            .teams__details {
                 grid-template-columns: 1fr;
             }
         }
 
         /* Style for accoridon content ----------------------------------------------- */
-        .team-details-container {
+        .teams__details .container {
             padding: 0 15px;
         }
 
-        .team-details-container td {
+        .teams__details .container td {
             color: var(--text-color);
         }
-        .team-details-container .table {
+        .teams__details .container .table {
             border: 1px solid #33343a;
             vertical-align: middle;
         }
-        .team-details-container .table.table-striped>tbody>tr:nth-of-type(odd)>* {
+        .teams__details .container .table.table-striped>tbody>tr:nth-of-type(odd)>* {
             background-color: #2c2d33;
             box-shadow: none;
             color: #fff;
         }
-        .team-details-container .table.table-striped>tbody>tr:nth-of-type(even)>* {
+        .teams__details .container .table.table-striped>tbody>tr:nth-of-type(even)>* {
             background-color: transparent;
             box-shadow: none;
             color: #fff;
         }
-        .team-details-container .table.table-striped td {
+        .teams__details .container .table.table-striped td {
             align-items: center;
             justify-content: center;
         }
@@ -190,19 +190,20 @@ class TeamsComponent extends HTMLElement {
 
     // a row for one team
     buildTeamContainer(activeGame, team, teamId, index) {
-        return `<div class="team-container action">
-                    <div class="team-number">${index + 1}</div>
-                    <div class="team-container-item">
-                        <div class="team-name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
-                            <span>${team.name}</span>
-                        </div>
-                        <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
-                        <div class="team-actions collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                            <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
-                        </div>
-                    </div>
-                </div>`;
+        return `
+        <div class="teams__container action">
+            <div class="number">${index + 1}</div>
+            <div class="item">
+                <div class="name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                    <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
+                    <span>${team.name}</span>
+                </div>
+                <div class="members">${this.buildMemebersImages(activeGame, team)}</div>
+                <div class="actions collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                    <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
+                </div>
+            </div>
+        </div>`;
     }
 
     buildMemebersImages(activeGame, team) {
@@ -218,12 +219,13 @@ class TeamsComponent extends HTMLElement {
 
     // team details (collapsable/accordion content)
     buildTeamDetails(activeGame, team, teamId) {
-        return `<div class="team-details collapse" data-bs-parent="#teams" id="${teamId}">
-                    <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
-                    <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
-                    <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
-                    <rotations-component game="${activeGame.code}" team="${team.name}"></rotations-component>
-                </div>`;
+        return `
+        <div class="teams__details collapse" data-bs-parent="#teams" id="${teamId}">
+            <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
+            <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
+            <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
+            <rotations-component game="${activeGame.code}" team="${team.name}"></rotations-component>
+        </div>`;
     }
 }
 
