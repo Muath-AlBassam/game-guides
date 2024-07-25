@@ -12,6 +12,10 @@ const Constants = {
         HI3: 'HI3',
         TK8: 'TK8'
     },
+    gameStyles: {
+        TEAMS: 'TEAMS',
+        FIGHT: 'FIGHT'
+    },
     images: {
         transparent: 'assets/Placeholder_Logo.png'
     },

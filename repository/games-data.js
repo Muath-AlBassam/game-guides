@@ -14,7 +14,7 @@ const GamesData = {
         [Constants.games.GI, {
             label: 'Genshin Impact',
             code: Constants.games.GI,
-            style: 'TEAM',
+            style: Constants.gameStyles.TEAMS,
             teamSize: 4,
             logoUrl: 'assets/gi/GI_Logo.png',
             backgroundUrl: 'assets/gi/GI_BG.png',
@@ -23,7 +23,7 @@ const GamesData = {
         [Constants.games.HSR, {
             label: 'Honkai Star Rail',
             code: Constants.games.HSR,
-            style: 'TEAM',
+            style: Constants.gameStyles.TEAMS,
             teamSize: 4,
             logoUrl: 'assets/hsr/HSR_Logo.png',
             backgroundUrl: 'assets/hsr/HSR_BG.png',
@@ -32,7 +32,7 @@ const GamesData = {
         [Constants.games.ZZZ, {
             label: 'Zenless Zone Zero',
             code: Constants.games.ZZZ,
-            style: 'TEAM',
+            style: Constants.gameStyles.TEAMS,
             teamSize: 3,
             logoUrl: 'assets/zzz/ZZZ_Logo.png',
             backgroundUrl: 'assets/zzz/ZZZ_BG.png',
@@ -41,7 +41,7 @@ const GamesData = {
         [Constants.games.HI3, {
             label: 'Honkai Impact 3rd',
             code: Constants.games.HI3,
-            style: 'TEAM',
+            style: Constants.gameStyles.TEAMS,
             teamSize: 3,
             logoUrl: 'assets/hi3/HI3_Logo.png',
             backgroundUrl: 'assets/hi3/HI3_BG.jpg',
@@ -50,7 +50,7 @@ const GamesData = {
         [Constants.games.TK8, {
             label: 'Tekken 8',
             code: Constants.games.TK8,
-            style: 'FIGHT',
+            style: Constants.gameStyles.FIGHT,
             logoUrl: 'assets/tk8/TK8_Logo.png',
             backgroundUrl: 'assets/tk8/TK8_BG.jpg',
             guideUrl: 'https://en.bandainamcoent.eu/tekken/tekken-8/characters'
