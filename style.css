@@ -109,7 +109,6 @@ body:has(div.modal-shown) {
 
 .character-container .pfp {
     display: block;
-    height: auto;
 }
 
 .character-container .build-icon {

@@ -40,20 +40,26 @@ function createCharacterImage(
         classes = '', 
         withBuildModal = false, 
         withBackgroundClass = true,
-        withElement = false
+        withElement = false,
+        withContainer = true
     } = {}
 ) {
     const showBuild = withBuildModal && charmd.build;
     const showElement = withElement && charmd.element;
+    const addRarityClass = withBackgroundClass && charmd.rarity;
 
     let styleVal = 'border-radius: 5px;';
     styleVal += ` ${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
-    let classVal = `pfp ${withBackgroundClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
+    let classVal = `pfp ${addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
     let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
     let imgTag = `<img    
                 src="${imgSrc}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
-                class="${classVal}" style="${styleVal}" width="${dimensions}" height="${dimensions}" 
+                class="${classVal}" style="${styleVal}" width="${dimensions}" 
             />`;
+    
+    if (!withContainer) {
+        return imgTag;
+    }
 
     let buildIcon = showBuild ? `
         <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 

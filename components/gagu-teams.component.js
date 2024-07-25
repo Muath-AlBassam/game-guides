@@ -194,7 +194,7 @@ class TeamsComponent extends HTMLElement {
                     <div class="team-number">${index + 1}</div>
                     <div class="team-container-item">
                         <div class="team-name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="50">
+                            <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
                             <span>${team.name}</span>
                         </div>
                         <div class="team-members">${this.buildMemebersImages(activeGame, team)}</div>
