@@ -27,7 +27,4 @@ const Constants = {
     icons: {
         externalLink: 'fa fa-external-link'
     },
-    buttons: {
-        append: 'B_'
-    }
 }

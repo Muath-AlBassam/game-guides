@@ -1,6 +1,4 @@
 
-const button_append = Constants.buttons.append;
-
 function getAllCharacters(gameCode) {
     let data;
     switch (gameCode) {
@@ -1127,11 +1125,11 @@ const CharactersRepository = {
             name: 'Reina',
             imageUrl: 'assets/tk8/character/TK8_Reina.png',
             combos: [
-                [button_append + 'X', button_append + 'X', button_append + 'Y'],
-                [button_append + 'X', button_append + 'Y', button_append + 'Y'],
-                [button_append + 'Y', button_append + 'Y', button_append + 'X'],
-                [button_append + 'X', '+', button_append + 'Y'],
-                [button_append + 'DR', button_append + 'X', button_append + 'Y'],
+                ['X', 'X', 'Y'],
+                ['X', 'Y', 'Y'],
+                ['Y', 'Y', 'X'],
+                ['X', '+', 'Y'],
+                ['DR', 'X', 'Y'],
             ]
         }]
     ])

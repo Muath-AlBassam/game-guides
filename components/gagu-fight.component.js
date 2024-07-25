@@ -132,9 +132,8 @@ class FightComponent extends HTMLElement {
     }
 
     generateButtonImage(gameCode, buttonCode) {
-        if (buttonCode.includes(Constants.buttons.append)) {
-            buttonCode = buttonCode.replace(Constants.buttons.append, '');
-            const button = getButton(gameCode, buttonCode);
+        const button = getButton(gameCode, buttonCode);
+        if (button.imageUrl) {
             buttonCode = `<img src="${button.imageUrl}" width="30" />`;
         }
         return buttonCode;
