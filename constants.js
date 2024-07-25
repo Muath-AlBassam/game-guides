@@ -22,7 +22,8 @@ const Constants = {
     unicode: {
         arrow: '&rightarrow;',
         twoWayArrow: '&leftrightarrow;',
-        times: '&times;'
+        times: '&times;',
+        space: '&#10240;'
     },
     icons: {
         externalLink: 'fa fa-external-link'

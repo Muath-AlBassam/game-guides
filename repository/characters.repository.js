@@ -1,4 +1,6 @@
 
+const space = Constants.unicode.space;
+
 function getAllCharacters(gameCode) {
     let data;
     switch (gameCode) {
@@ -1125,11 +1127,11 @@ const CharactersRepository = {
             name: 'Reina',
             imageUrl: 'assets/tk8/character/TK8_Reina.png',
             combos: [
-                ['X', 'X', 'Y'],
-                ['X', 'Y', 'Y'],
-                ['Y', 'Y', 'X'],
+                ['X', space, 'X', space, 'Y'],
+                ['X', space, 'Y', space, 'Y'],
+                ['Y', space, 'Y', space, 'X'],
                 ['X', '+', 'Y'],
-                ['DR', 'X', 'Y'],
+                ['DR', space, 'X', space, 'Y'],
             ]
         }]
     ])
