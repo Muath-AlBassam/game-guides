@@ -24,7 +24,7 @@ class RotationsComponent extends HTMLElement {
 
     buildHTML(activeGame, currentTeam) {
         return this.componentStyle + `
-        <div class="container roles-container">
+        <div class="container rotations-container">
             <h5 class="content-header">
                 <img src="assets/svg/rotations.svg" height="20" class="action">
                 Rotations
