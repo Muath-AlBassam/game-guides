@@ -22,19 +22,35 @@ const ButtonsRepository = {
     TK8Buttons: new Map([
         ['A', {
             name: 'A',
-            imageUrl: 'assets/tk8/button/TK8_A.png'
+            imageUrl: 'assets/xbox/XBX_A.png'
         }],
         ['B', {
             name: 'B',
-            imageUrl: 'assets/tk8/button/TK8_B.png'
+            imageUrl: 'assets/xbox/XBX_B.png'
         }],
         ['X', {
             name: 'X',
-            imageUrl: 'assets/tk8/button/TK8_X.png'
+            imageUrl: 'assets/xbox/XBX_X.png'
         }],
         ['Y', {
             name: 'Y',
-            imageUrl: 'assets/tk8/button/TK8_Y.png'
+            imageUrl: 'assets/xbox/XBX_Y.png'
+        }],
+        ['AB', {
+            name: 'AB',
+            imageUrl: 'assets/xbox/XBX_AB.png'
+        }],
+        ['AX', {
+            name: 'AX',
+            imageUrl: 'assets/xbox/XBX_AX.png'
+        }],
+        ['YB', {
+            name: 'YB',
+            imageUrl: 'assets/xbox/XBX_YB.png'
+        }],
+        ['YX', {
+            name: 'YX',
+            imageUrl: 'assets/xbox/XBX_YX.png'
         }],
         ['U', {
             name: 'Up',

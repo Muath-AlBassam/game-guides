@@ -1130,7 +1130,7 @@ const CharactersRepository = {
                 ['X', space, 'X', space, 'Y'],
                 ['X', space, 'Y', space, 'Y'],
                 ['Y', space, 'Y', space, 'X'],
-                ['X', '+', 'Y'],
+                ['YX'],
                 ['DR', space, 'X', space, 'Y'],
             ]
         }]
