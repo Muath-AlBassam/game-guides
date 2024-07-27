@@ -257,5 +257,13 @@ const SetsRepository = {
             name: 'Woodpecker Electro',
             imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_WoodpeckerElectro.jpg'
         }],
+        ['Freedom Blues', {
+            name: 'Freedom Blues',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_FreedomBlues.jpg'
+        }],
+        ['Thunder Metal', {
+            name: 'Thunder Metal',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ThunderMetal.jpg'
+        }]
     ])
 }

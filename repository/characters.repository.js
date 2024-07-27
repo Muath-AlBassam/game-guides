@@ -924,7 +924,8 @@ const CharactersRepository = {
             build: {
                 weapon: { name: 'Bashful Demon' },
                 // sets: [
-                //     { name: 'Hormone Punk', pieceCount: '4' }
+                //     { name: 'Swing Jazz', pieceCount: '4' },
+                //     { name: 'Hormone Punk', pieceCount: '2' }
                 // ]
             }
         }],
@@ -937,7 +938,8 @@ const CharactersRepository = {
             build: {
                 weapon: { name: 'Demara Battery Mark II' },
                 sets: [
-                    { name: 'Shockstar Disco', pieceCount: '4' }
+                    { name: 'Shockstar Disco', pieceCount: '4' },
+                    { name: 'Swing Jazz', pieceCount: '2' }
                 ]
             }
         }],
@@ -950,7 +952,8 @@ const CharactersRepository = {
             build: {
                 weapon: { name: 'The Restrained' },
                 sets: [
-                    { name: 'Shockstar Disco', pieceCount: '4' }
+                    { name: 'Shockstar Disco', pieceCount: '4' },
+                    { name: 'Swing Jazz', pieceCount: '2' }
                 ]
             }
         }],
@@ -961,7 +964,11 @@ const CharactersRepository = {
             role: 'Anomaly',
             rarity: 'S',
             build: {
-                weapon: { name: 'Fusion Compiler' }
+                weapon: { name: 'Fusion Compiler' },
+                // sets: [
+                //     { name: 'Freedom Blues', pieceCount: '4' },
+                //     { name: 'Thunder Metal', pieceCount: '2' }
+                // ]
             }
         }],
         ['Koleda', {
@@ -1023,7 +1030,8 @@ const CharactersRepository = {
             build: {
                 weapon: { name: 'The Vault' },
                 sets: [
-                    { name: 'Swing Jazz', pieceCount: '4' }
+                    { name: 'Swing Jazz', pieceCount: '4' },
+                    { name: 'Freedom Blues', pieceCount: '2'}
                 ]
             }
         }],
