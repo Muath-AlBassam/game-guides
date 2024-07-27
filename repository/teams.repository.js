@@ -26,6 +26,9 @@ const times = Constants.unicode.times;
 
 smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
 tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
+repeat = (text) => `<span class="arrow-border">${text}</span>`;
+
+const zzzQTE = tooltip('QTE', 'Chain/Quick-Assist');
 
 const TeamsRepository = {
     GITeams: new Map([
@@ -642,7 +645,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Koleda', `Basic${times}2 ${arrow} Stun ${arrow}`],
+                ['Koleda', `${repeat(`Basic${times}2 ${arrow} Special`)} ${arrow} Stun ${arrow}`],
                 ['Lucy', `EX Special ${arrow}`],
                 ['Soldier 11', `(EX Special ${arrow} Basic) / Timed Basic`],
             ]
@@ -672,8 +675,8 @@ const TeamsRepository = {
             ],
             rotations: [
                 ['Ellen', `Dash + CA ${arrow}`],
-                ['Lycaon', `CA / EX Special ${arrow} Stun ${arrow}`],
-                ['Soukaku', `Special ${smallText('(hold)')} ${arrow} Chain/Quick-Assist ${arrow}`],
+                ['Lycaon', `${repeat('CA + EX Special')} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
+                ['Soukaku', `Special ${smallText('(hold)')} ${arrow} ${zzzQTE} ${arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]
         }],
@@ -719,7 +722,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Anby', `Basic${times}3 ${arrow} EX Special ${arrow} CA ${arrow} Stun ${arrow}`],
+                ['Anby', `${repeat(`Basic${times}3 ${arrow} Special ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
                 ['Nicole', `EX Special ${smallText('(hold)')} ${arrow} Basic${times}1 ${arrow}`],
                 ['Zhu Yuan', `CA ${smallText('(hold)')} + EX Special`],
             ]

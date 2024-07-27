@@ -101,7 +101,7 @@ body:has(div.modal-shown) {
     animation: fade-in .2s;
 }
 
-/* Character build icon ---------------------------------------------------- */
+/* Character pfp + icon ---------------------------------------------------- */
 .character-container {
     position: relative;
     display: inline-block;
@@ -134,6 +134,27 @@ body:has(div.modal-shown) {
     background-color: #36373f;
     border: 1px solid #1c1d21;
     border-radius: 50%;
+}
+
+/* Team rotations ---------------------------------------------------------- */
+.arrow-border {
+    position: relative;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    padding: 8px;
+}
+  
+.arrow-border:after {
+    position: absolute;
+    margin-left: -15px;
+    content: ">";
+    bottom: -0.75em;
+}
+
+.arrow-border:before {
+    position: absolute;
+    content: "<";
+    top: -0.8em;
 }
 
 /* Character rarity background --------------------------------------------- */
