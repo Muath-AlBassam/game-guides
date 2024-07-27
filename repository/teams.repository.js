@@ -24,7 +24,7 @@ function getTeam(gameCode, teamName) {
 const arrow = Constants.unicode.arrow;
 const times = Constants.unicode.times;
 
-smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal">${text}</span>`;
+smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal;">${text}</span>`;
 tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
 repeat = (text) => `<span class="arrow-border">${text}</span>`;
 
@@ -62,7 +62,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Zhongli', `Skill ${arrow}`],
+                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Bennett', `Ult ${arrow}`],
                 ['Yelan', `Ult ${arrow}`],
                 ['Arlecchino', `Skill ${arrow} CA ${arrow} NA`],
@@ -140,7 +140,7 @@ const TeamsRepository = {
             rotations: [
                 ['Nahida', `Ult ${arrow} Skill ${arrow}`],
                 ['Furina', `Skill ${arrow} Ult ${smallText('(optional)')} ${arrow}`],
-                ['Yae Miko', `Skill ${arrow}`],
+                ['Yae Miko', `Skill${times}3 ${arrow}`],
                 ['Kuki Shinobu', `Skill ${arrow}`],
                 ['Nahida', `NA + CA`],
             ]
@@ -214,7 +214,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Zhongli', `Skill ${arrow}`],
+                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Xianyun', `Ult ${arrow}`],
                 ['Faruzan', `Ult ${arrow}`],
                 ['Lynette', `Ult ${arrow} Skill + NA/Plunge`],
@@ -289,7 +289,7 @@ const TeamsRepository = {
                 ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli']
             ],
             rotations: [
-                ['Zhongli', `Skill ${arrow}`],
+                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Fischl', `Skill ${arrow}`],
                 ['Xingqiu', `Ult ${arrow}`],
                 ['Navia', `Ult ${arrow} Skill + NA`],
@@ -325,7 +325,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Zhongli', `Skill ${arrow}`],
+                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Raiden Shogun', `Skill ${arrow}`],
                 ['Mika', `Skill ${arrow}`],
                 ['Eula', `NA + Skill + Ult`],

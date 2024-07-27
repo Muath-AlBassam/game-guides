@@ -42,11 +42,13 @@ class RotationsComponent extends HTMLElement {
             currentTeam.rotations.forEach(step => {
                 const charmd = getCharacterMetadata(activeGame.code, step[0]);
                 rotationsContent += `
-                <span>
-                    ${createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px 5px 0; border-radius: 100%;', withContainer: false})}
-                </span>
-                <b style="margin-right: 8px;">${step[1]}</b>`;
+                <div>
+                    <span>
+                        ${createCharacterImage(activeGame.code, charmd, 
+                            {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px 5px 0; border-radius: 100%;', withContainer: false})}
+                    </span>
+                    <b style="margin-right: 8px;">${step[1]}</b>
+                </div>`;
             })
         } else {
             rotationsContent += `
