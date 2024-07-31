@@ -316,6 +316,11 @@ const WeaponsRepository = {
             name: 'Dance! Dance! Dance!',
             imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceDanceDance.jpg',
             rarity: '4'
+        }],
+        ['Dance at Sunset', {
+            name: 'Dance at Sunset',
+            imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceAtSunset.jpg',
+            rarity: '5'
         }]
     ]),
 

@@ -898,6 +898,20 @@ const CharactersRepository = {
                 ]
             }
         }],
+        ['Yunli', {
+            name: 'Yunli',
+            imageUrl: 'assets/hsr/character/HSR_Yunli.jpg',
+            element: 'Physical',
+            role: 'Destruction',
+            rarity: '5',
+            build: {
+                weapon: { name: 'Dance at Sunset' },
+                sets: [
+                    { name: 'The Wind-Soaring Valorous', pieceCount: '4' },
+                    { name: 'Duran, Dynasty of Running Wolves', pieceCount: '2' }
+                ]
+            }
+        }],
     ]),
 
     ZZZCharacters: new Map([

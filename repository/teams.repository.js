@@ -339,32 +339,33 @@ const TeamsRepository = {
             iconUrl: 'assets/hsr/HSR_Physical.jpg',
             characters: [
                 {
-                    name: 'Gallagher',
-                    role: 'Heal',
+                    name: 'Huohuo',
+                    role: 'Heal + Energy Regeneration',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Boothill',
-                    role: 'Main [Skill + Ult] + Break',
+                    name: 'Yunli',
+                    role: 'Main [Ult + Skill]',
                     isMain: true,
                     replacedBy: [],
                 },
                 {
-                    name: 'Ruan Mei',
-                    role: 'DMG, RES PEN & Break Efficiency Buff',
+                    name: 'Tingyun',
+                    role: 'Energy Regeneration + Atk Buff',
                     isMain: false,
                     replacedBy: [],
                 },
                 {
-                    name: 'Bronya',
-                    role: 'Advance',
+                    name: 'Robin',
+                    role: 'Advance + Atk Buff',
                     isMain: false,
-                    replacedBy: ['MC (Harmony)'],
+                    replacedBy: [],
                 }
             ],
             variations: [
-                ['Lynx', 'Clara', 'Ruan Mei', 'Tingyun']
+                ['Lynx', 'Clara', 'Ruan Mei', 'Tingyun'],
+                ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'],
             ]
         }],
         ['Fire', {
