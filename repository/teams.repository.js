@@ -516,9 +516,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: ['Ruan Mei'],
                 }
-            ],
-            variations: [
-                ['Fu Xuan', 'Jade', 'Herta', 'Robin']
             ]
         }],
         ['Imaginary', {
@@ -584,36 +581,36 @@ const TeamsRepository = {
                 }
             ]
         }],
-        // ['Follow-up', {
-        //     name: 'Follow-up',
-        //     iconUrl: null,
-        //     characters: [
-        //         {
-        //             name: 'Gepard',
-        //             role: 'Shield',
-        //             isMain: false,
-        //             replacedBy: [],
-        //         },
-        //         {
-        //             name: 'Dr. Ratio',
-        //             role: 'Main [Skill + FUA]',
-        //             isMain: true,
-        //             replacedBy: [],
-        //         },
-        //         {
-        //             name: 'Topaz',
-        //             role: 'Main [Skill + FUA]',
-        //             isMain: true,
-        //             replacedBy: [],
-        //         },
-        //         {
-        //             name: 'Robin',
-        //             role: 'ATK & FUA DMG Buff',
-        //             isMain: false,
-        //             replacedBy: ['Ruan Mei'],
-        //         }
-        //     ]
-        // }],
+        ['FUA', {
+            name: 'FUA',
+            iconUrl: null,
+            characters: [
+                {
+                    name: 'Fu Xuan',
+                    role: 'Tank + Crit Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Jade',
+                    role: 'Sub DPS [Skill + FUA + Ult]',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Herta',
+                    role: 'Sub DPS [Skill + FUA + Ult]',
+                    isMain: true,
+                    replacedBy: ['Blade'],
+                },
+                {
+                    name: 'Robin',
+                    role: 'Atk & FUA DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ]
+        }],
     ]),
 
     ZZZTeams: new Map([
