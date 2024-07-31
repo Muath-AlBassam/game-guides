@@ -144,17 +144,17 @@ body:has(div.modal-shown) {
     padding: 8px;
 }
   
-.arrow-border:after {
+.arrow-border::after {
     position: absolute;
     margin-left: -15px;
     content: ">";
     bottom: -0.75em;
 }
 
-.arrow-border:before {
+.arrow-border::before {
     position: absolute;
     content: "<";
-    top: -0.8em;
+    top: -0.85em;
 }
 
 /* Character rarity background --------------------------------------------- */

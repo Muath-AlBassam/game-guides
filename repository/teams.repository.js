@@ -21,14 +21,14 @@ function getTeam(gameCode, teamName) {
 
 // ----------------------------------------------------------------------------
 
-const arrow = Constants.unicode.arrow;
+const arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
 const times = Constants.unicode.times;
 
-smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal;">${text}</span>`;
+smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 5px;">${text}</span>`;
 tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
 repeat = (text) => `<span class="arrow-border">${text}</span>`;
 
-const zzzQTE = tooltip('QTE', 'Chain/Quick-Assist');
+const zzzQTE = tooltip('QTE', 'Chain / Quick-Assist');
 
 const TeamsRepository = {
     GITeams: new Map([
