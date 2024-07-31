@@ -937,10 +937,10 @@ const CharactersRepository = {
             rarity: 'A',
             build: {
                 weapon: { name: 'Bashful Demon' },
-                // sets: [
-                //     { name: 'Swing Jazz', pieceCount: '4' },
-                //     { name: 'Hormone Punk', pieceCount: '2' }
-                // ]
+                sets: [
+                    { name: 'Swing Jazz', pieceCount: '4' },
+                    { name: 'Hormone Punk', pieceCount: '2' }
+                ]
             }
         }],
         ['Anby', {
@@ -979,10 +979,10 @@ const CharactersRepository = {
             rarity: 'S',
             build: {
                 weapon: { name: 'Fusion Compiler' },
-                // sets: [
-                //     { name: 'Freedom Blues', pieceCount: '4' },
-                //     { name: 'Thunder Metal', pieceCount: '2' }
-                // ]
+                sets: [
+                    { name: 'Thunder Metal', pieceCount: '4' },
+                    { name: 'Freedom Blues', pieceCount: '2' }
+                ]
             }
         }],
         ['Koleda', {
