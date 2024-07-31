@@ -38,7 +38,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Arlecchino',
-                    role: 'Main [NA]',
+                    role: 'DPS [NA]',
                     isMain: true,
                     replacedBy: ['Diluc', 'Hu Tao'],
                 },
@@ -74,7 +74,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Neuvillette',
-                    role: 'Main [CA]',
+                    role: 'DPS [CA]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -111,7 +111,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Nahida',
-                    role: 'Main [NA + CA + Skill + Ult]',
+                    role: 'Dendro Applicator [NA + CA + Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -151,7 +151,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Clorinde',
-                    role: 'Main [Skill + Ult]',
+                    role: 'DPS [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -190,7 +190,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Lynette',
-                    role: 'Main [NA + Skill + Ult]',
+                    role: 'DPS [NA + Skill + Ult]',
                     isMain: true,
                     replacedBy: ['Xiao'],
                 },
@@ -226,7 +226,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Wriothesley',
-                    role: 'Main [NA + CA]',
+                    role: 'DPS [NA + CA]',
                     isMain: true,
                     replacedBy: ['Ayaka', 'Ganyu'],
                 },
@@ -262,7 +262,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Navia',
-                    role: 'Main [Skill + NA + Ult]',
+                    role: 'DPS [Skill + NA + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -301,7 +301,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Eula',
-                    role: 'Main [NA + Skill + Ult]',
+                    role: 'DPS [NA + Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -346,7 +346,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Yunli',
-                    role: 'Main [Ult + Skill]',
+                    role: 'DPS [Ult + Skill]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -380,7 +380,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Firefly',
-                    role: 'Main [Skill + Ult] + Break',
+                    role: 'DPS [Skill + Ult] + Break',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -410,7 +410,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Jingliu',
-                    role: 'Main [Skill + Ult]',
+                    role: 'DPS [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -440,7 +440,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Acheron',
-                    role: 'Main [Skill + Ult]',
+                    role: 'DPS [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -470,7 +470,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Blade',
-                    role: 'Main [Basic + Ult]',
+                    role: 'DPS [Basic + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -500,7 +500,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Seele',
-                    role: 'Main [Skill + Ult]',
+                    role: 'DPS [Skill + Ult]',
                     isMain: true,
                     replacedBy: ['Xueyi'],
                 },
@@ -533,7 +533,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Dang Heng · IL', // to get the dot: alt+0183
-                    role: 'Main [Basic]',
+                    role: 'DPS [Basic]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -566,7 +566,7 @@ const TeamsRepository = {
                 },
                 {
                     name: 'Kafka',
-                    role: 'Main [Skill + Ult] + DoT Ignition',
+                    role: 'DoT Ignition [Skill + Ult]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -628,7 +628,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Soldier 11',
-                    role: 'Main [Basic + EX Special]',
+                    role: 'DPS [Basic + EX Special]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -657,7 +657,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Ellen',
-                    role: 'Main [Basic + EX Special]',
+                    role: 'DPS [Basic + EX Special]',
                     isMain: true,
                     replacedBy: [],
                 },
@@ -705,7 +705,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Zhu Yuan',
-                    role: 'Main [Ex Special + CA]',
+                    role: 'DPS [Ex Special + CA]',
                     isMain: false,
                     replacedBy: [],
                 },
