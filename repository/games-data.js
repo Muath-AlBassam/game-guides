@@ -18,7 +18,10 @@ const GamesData = {
             teamSize: 4,
             logoUrl: 'assets/gi/GI_Logo.png',
             backgroundUrl: 'assets/gi/GI_BG.png',
-            guideUrl: 'https://genshin-builds.com/characters'
+            // sets & weapons : https://genshin.gg/
+            // character image : https://genshin-impact.fandom.com/wiki/Character/List
+            // -- open image change url path variable (50) to 256 then download
+            guideUrl: 'https://genshin-impact.fandom.com/wiki/Character/List'
         }],
         [Constants.games.HSR, {
             label: 'Honkai Star Rail',

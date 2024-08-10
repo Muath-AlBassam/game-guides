@@ -1,6 +1,6 @@
 class TeamsComponent extends HTMLElement {
 
-    characterPFPSize = 125;
+    characterPFPSize = 160;
 
     componentStyle = `
     <style>
@@ -29,7 +29,7 @@ class TeamsComponent extends HTMLElement {
             background-color: #2c2d33;
             border-radius: 0;
             display: grid;
-            grid-template-columns: 30% 40% 30%;
+            grid-template-columns: 25% 50% 25%;
             justify-content: space-between;
             position: relative;
             width: 100%;
