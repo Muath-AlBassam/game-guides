@@ -446,6 +446,18 @@ const CharactersRepository = {
                     { name: 'Emblem of Severed Fate', pieceCount: '2' }
                 ]
             }
+        }],
+        ['Emilie', {
+            name: 'Emilie',
+            imageUrl: 'assets/gi/character/GI_Emilie.png',
+            element: 'Dendro',
+            rarity: '5',
+            build: {
+                weapon: { name: 'Deathmatch' },
+                sets: [
+                    { name: 'Unfinished Reverie', pieceCount: '4' }
+                ]
+            }
         }]
     ]),
 

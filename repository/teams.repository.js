@@ -135,7 +135,8 @@ const TeamsRepository = {
                 }
             ],
             variations: [
-                ['Nahida', 'Nilou', 'Kirara', 'Kokomi']
+                ['Nahida', 'Nilou', 'Kirara', 'Kokomi'],
+                ['Emilie', 'Bennett', 'Xianling', 'Kazuha'],
             ],
             rotations: [
                 ['Nahida', `Ult ${arrow} Skill ${arrow}`],

@@ -168,6 +168,11 @@ const WeaponsRepository = {
             name: 'Black Tassel',
             imageUrl: 'assets/gi/weapon/GI_Weapon_BlackTassel.png',
             rarity: '3'
+        }],
+        ['Deathmatch', {
+            name: 'Deathmatch',
+            imageUrl: 'assets/gi/weapon/GI_W_Deathmatch.png',
+            rarity: '4'
         }]
     ]),
 

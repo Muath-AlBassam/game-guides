@@ -103,6 +103,10 @@ const SetsRepository = {
             name: 'Echoes of an Offering',
             imageUrl: 'assets/gi/set/GI_Set_EchoesOfAnOffering.png'
         }],
+        ['Unfinished Reverie', {
+            name: 'Unfinished Reverie',
+            imageUrl: 'assets/gi/set/GI_Set_UnfinishedReverie.png'
+        }]
     ]),
 
     HSRSets: new Map([
