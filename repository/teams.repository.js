@@ -30,6 +30,8 @@ repeat = (text) => `<span class="arrow-border">${text}</span>`;
 
 const zzzQTE = tooltip('QTE', 'Chain / Quick-Assist');
 
+// TODO : add team variation name
+
 const TeamsRepository = {
     GITeams: new Map([
         ['Pyro', {
