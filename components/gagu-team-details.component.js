@@ -213,3 +213,9 @@ class TeamDetailsComponent extends HTMLElement {
 }
 
 customElements.define('gagu-team-details-component', TeamDetailsComponent);
+
+//------------------------------------------------------------------------------------
+
+document.addEventListener('shown.bs.collapse', function (event) {
+    event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
