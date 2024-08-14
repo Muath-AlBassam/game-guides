@@ -2,7 +2,6 @@
 const space = Constants.unicode.space;
 
 function getAllCharacters(gameCode) {
-    let data;
     switch (gameCode) {
         case Constants.games.GI:
             return CharactersRepository.GICharacters;

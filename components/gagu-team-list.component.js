@@ -13,7 +13,7 @@ class TeamListComponent extends HTMLElement {
 
     connectedCallback() {
         const activeGame = getGame(getGameFromUrl());
-        const teams = getAllTeams(activeGame.code);
+        const teams = getAllMainTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(teams);
     }

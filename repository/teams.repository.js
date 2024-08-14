@@ -19,6 +19,11 @@ function getTeam(gameCode, teamName) {
     return team ?? { name: teamName }
 }
 
+function getAllMainTeams(gameCode) {
+    let teams = getAllTeams(gameCode);
+    return new Map([...teams].filter(([key, value]) => value.parent == null));
+}
+
 // ----------------------------------------------------------------------------
 
 const arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
