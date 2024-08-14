@@ -453,7 +453,7 @@ const CharactersRepository = {
             element: 'Dendro',
             rarity: '5',
             build: {
-                weapon: { name: 'Deathmatch' },
+                weapon: { name: 'Lumidouce Elegy' },
                 sets: [
                     { name: 'Unfinished Reverie', pieceCount: '4' }
                 ]

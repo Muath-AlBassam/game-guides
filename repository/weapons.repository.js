@@ -173,6 +173,11 @@ const WeaponsRepository = {
             name: 'Deathmatch',
             imageUrl: 'assets/gi/weapon/GI_W_Deathmatch.png',
             rarity: '4'
+        }],
+        ['Lumidouce Elegy', {
+            name: 'Lumidouce Elegy',
+            imageUrl: 'assets/gi/weapon/GI_W_LumidouceElegy.png',
+            rarity: '5'
         }]
     ]),
 
