@@ -1,4 +1,4 @@
-class TeamsComponent extends HTMLElement {
+class TeamDetailsComponent extends HTMLElement {
 
     characterPFPSize = 160;
 
@@ -152,47 +152,30 @@ class TeamsComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const activeGame = getGame(getGameFromUrl());
-        const teams = getAllTeams(activeGame.code);
+        const teamName = this.getAttribute('teamName');
+        const teamIndex = this.getAttribute('teamIndex');
 
-        this.innerHTML = this.buildHTML(activeGame, teams);
+        const activeGame = getGame(getGameFromUrl());
+        const team = getTeam(activeGame.code, this.getAttribute('teamName'));
+
+        this.innerHTML = this.buildHTML(activeGame, team, teamIndex);
     }
 
-    buildHTML(activeGame, teams) {
+    buildHTML(activeGame, team, teamIndex) {
+        const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
+
         return this.componentStyle + `
-        <build-modal id="build-modal"></build-modal>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content-header">Teams</div>
-            </div>
-        </div>
-        <div id="teams">
-            ${this.buildTeams(activeGame, teams)}
+        <div>
+            ${this.buildTeamContainer(activeGame, team, teamId, teamIndex)}
+            ${this.buildTeamDetails(activeGame, team, teamId)}
         </div>`;
     }
 
-    // all teams
-    buildTeams(activeGame, teams) {
-        let teamsListHTML = '';
-        let index = 0;
-        teams.forEach((team, key) => {
-            const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
-
-            let content = 
-                this.buildTeamContainer(activeGame, team, teamId, index) +
-                this.buildTeamDetails(activeGame, team, teamId);
-            teamsListHTML += `<div> ${content} </div>`;
-            index++;
-        });
-
-        return teamsListHTML;
-    }
-
-    // a row for one team
-    buildTeamContainer(activeGame, team, teamId, index) {
+    // team index + name + members
+    buildTeamContainer(activeGame, team, teamId, teamIndex) {
         return `
         <div class="teams__container action">
-            <div class="number">${index + 1}</div>
+            ${teamIndex > 0 ? `<div class="number">${teamIndex}</div>` : ''}
             <div class="item">
                 <div class="name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
@@ -229,4 +212,4 @@ class TeamsComponent extends HTMLElement {
     }
 }
 
-customElements.define('gagu-teams-component', TeamsComponent);
+customElements.define('gagu-team-details-component', TeamDetailsComponent);
