@@ -28,6 +28,7 @@ function getAllMainTeams(gameCode) {
 
 const arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
 const times = Constants.unicode.times;
+const infinity = Constants.unicode.infinity;
 
 smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 5px;">${text}</span>`;
 tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
@@ -689,20 +690,7 @@ const TeamsRepository = {
         ['Electric', {
             name: 'Electric',
             iconUrl: 'assets/zzz/ZZZ_Electric.jpg',
-            characters: [
-                {
-                    name: 'Grace',
-                    role: null,
-                    isMain: true,
-                    replacedBy: [],
-                },
-                {
-                    name: 'Anby',
-                    role: null,
-                    isMain: false,
-                    replacedBy: [],
-                }
-            ]
+            characters: []
         }],
         ['Ether', {
             name: 'Ether',
@@ -715,10 +703,10 @@ const TeamsRepository = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Anby',
+                    name: 'Qingyi',
                     role: 'Stun',
                     isMain: false,
-                    replacedBy: [],
+                    replacedBy: ['Anby'],
                 },
                 {
                     name: 'Nicole',
@@ -728,7 +716,7 @@ const TeamsRepository = {
                 }
             ],
             rotations: [
-                ['Anby', `${repeat(`Basic${times}3 ${arrow} Special ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
+                ['Qingyi', `${repeat(`Basic ${times + ' ' + infinity} ${smallText('(Until 75%+ Voltage)')} ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
                 ['Nicole', `EX Special ${smallText('(hold)')} ${arrow} Basic${times}1 ${arrow}`],
                 ['Zhu Yuan', `CA ${smallText('(hold)')} + EX Special`],
             ]

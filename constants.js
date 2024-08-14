@@ -23,7 +23,8 @@ const Constants = {
         arrow: '&rightarrow;',
         twoWayArrow: '&leftrightarrow;',
         times: '&times;',
-        space: '&#10240;'
+        space: '&#10240;',
+        infinity: '&infin;'
     },
     icons: {
         externalLink: 'fa fa-external-link'

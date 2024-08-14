@@ -385,5 +385,10 @@ const WeaponsRepository = {
             imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheVault.jpg',
             rarity: 'A'
         }],
+        ['The Brimstone', {
+            name: 'The Brimstone',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheBrimstone.jpg',
+            rarity: 'S'
+        }],
     ]),
 }

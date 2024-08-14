@@ -1016,7 +1016,7 @@ const CharactersRepository = {
             role: 'Attack',
             rarity: 'S',
             build: {
-                weapon: { name: 'Starlight Engine' }
+                weapon: { name: 'The Brimstone' }
             }
         }],
         ['Lucy', {
@@ -1057,6 +1057,20 @@ const CharactersRepository = {
                 sets: [
                     { name: 'Swing Jazz', pieceCount: '4' },
                     { name: 'Freedom Blues', pieceCount: '2'}
+                ]
+            }
+        }],
+        ['Qingyi', {
+            name: 'Qingyi',
+            imageUrl: 'assets/zzz/character/ZZZ_Qingyi.jpg',
+            element: 'Electric',
+            role: 'Stun',
+            rarity: 'S',
+            build: {
+                weapon: { name: 'The Restrained' },
+                sets: [
+                    { name: 'Shockstar Disco', pieceCount: '4' },
+                    { name: 'Swing Jazz', pieceCount: '2' }
                 ]
             }
         }],
