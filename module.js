@@ -8,8 +8,9 @@ function loadScript(url, isDefer = false) {
 }
 
 function loadAllScripts() {
-    // Constant
-    loadScript("constants.js");
+    // Utilities
+    loadScript("utils/constants.js");
+    loadScript("utils/utils.js");
 
     // Repositories
     loadScript("repository/games-data.js");
@@ -21,24 +22,22 @@ function loadAllScripts() {
     loadScript("repository/elements.repository.js");
     loadScript("repository/buttons.repository.js");
 
-    // Utilities
-    loadScript("utils.js");
-
     // Modals
     loadScript("modals/build.modal.js", true);
 
     // Components
-    loadScript("components/loader.component.js", true);
-
-    loadScript("components/nav.component.js", true);
-    loadScript("components/header.component.js", true);
-    loadScript("components/roles.component.js", true);
-    loadScript("components/variations.component.js", true);
-    loadScript("components/replacements.component.js", true);
-    loadScript("components/rotations.component.js", true);
-    loadScript("components/gagu-team-details.component.js", true);
-    loadScript("components/gagu-team-list.component.js", true);
-    loadScript("components/gagu-fight.component.js", true);
-
     loadScript("components/game-guides.component.js", true); 
+    // Layout
+    loadScript("components/layout/nav.component.js", true);
+    loadScript("components/layout/header.component.js", true);
+    loadScript("components/layout/loader.component.js", true);
+    // Team
+    loadScript("components/team/gagu-team-list.component.js", true);
+    loadScript("components/team/gagu-team-details.component.js", true);
+    loadScript("components/team/roles.component.js", true);
+    loadScript("components/team/variations.component.js", true);
+    loadScript("components/team/replacements.component.js", true);
+    loadScript("components/team/rotations.component.js", true);
+    // Fight
+    loadScript("components/fight/gagu-fight.component.js", true);
 }
