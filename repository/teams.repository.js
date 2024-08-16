@@ -718,7 +718,7 @@ const TeamsRepository = {
             rotations: [
                 ['Qingyi', `${repeat(`Basic ${times + ' ' + infinity} ${smallText('(Until 75%+ Voltage)')} ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
                 ['Nicole', `EX Special ${smallText('(hold)')} ${arrow} Basic${times}1 ${arrow}`],
-                ['Zhu Yuan', `CA ${smallText('(hold)')} + EX Special`],
+                ['Zhu Yuan', `CA + EX Special`],
             ]
         }]
     ]),
