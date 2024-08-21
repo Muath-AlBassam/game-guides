@@ -156,7 +156,7 @@ class TeamDetailsComponent extends HTMLElement {
         const teamIndex = this.getAttribute('teamIndex');
 
         const activeGame = getGame(getGameFromUrl());
-        const team = getTeam(activeGame.code, this.getAttribute('teamName'));
+        const team = getTeam(activeGame.code, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, team, teamIndex);
     }

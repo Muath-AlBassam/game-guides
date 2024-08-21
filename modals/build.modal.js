@@ -92,13 +92,13 @@ class BuildModal extends HTMLElement {
         const activeGame = getGame(getGameFromUrl());
         const character = this.getAttribute('character');
 
-        document.getElementById('modal-body').innerHTML = this.buildDialogContent(activeGame, character);
+        document.getElementById('build-modal-content').innerHTML = this.buildDialogContent(activeGame, character);
     }
 
     buildHTML(activeGame, character) {
         return this.componentStyle + `
-        <div class="gagu-modal" id="modal">
-            <div class="gagu-modal-content build-modal-content" id="modal-body">
+        <div class="gagu-modal" id="build-modal-body">
+            <div class="gagu-modal-content build-modal-content" id="build-modal-content">
                 ${this.buildDialogContent(activeGame, character)}
             </div>
         </div>`;
@@ -218,5 +218,5 @@ function openBuildModal(character) {
     // trigger attributeChangedCallback & set data
     document.getElementById('build-modal').setAttribute('character', character);
     // add show class to modal
-    document.getElementById('modal').classList.add('modal-shown');
+    document.getElementById('build-modal-body').classList.add('modal-shown');
 }

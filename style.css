@@ -68,7 +68,7 @@ body {
 
 .gagu-modal {
     /* style of the modal content */
-    padding-top: 23vh;
+    padding-top: 10vh;
     /* style of the modal background (shadow overlay) */
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
