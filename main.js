@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // close modal on clicking outside
 window.onclick = function(event) {
-    if (event.target == document.getElementById('modal')) {
+    if (Array.from(document.getElementsByClassName('gagu-modal')).includes(event.target)) {
         closeModal();
     }
 }
 
 function closeModal() {
-    document.getElementById('modal').classList.remove('modal-shown');
+    Array.from(document.getElementsByClassName('modal-shown')).forEach(elemnt => {
+        elemnt.classList.remove('modal-shown');
+    })
 }
