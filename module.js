@@ -24,6 +24,7 @@ function loadAllScripts() {
 
     // Modals
     loadScript("modals/build.modal.js", true);
+    loadScript("modals/team-details.modal.js", true);
 
     // Components
     loadScript("components/game-guides.component.js", true); 

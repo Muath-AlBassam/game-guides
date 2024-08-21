@@ -42,13 +42,25 @@ class VariationsComponent extends HTMLElement {
     buildVariationsContent(activeGame, currentTeam) {
         let variationsContent = '';
 
-        if (currentTeam.variations) {
+        let childTeams = getTeamsByParent(activeGame.code, currentTeam.name);
+        if (childTeams != null && childTeams.size > 0) {
+            childTeams.forEach((v, k) => {
+                variationsContent += `<tr><td style="width: 50px; text-align: center">`;
+                variationsContent += `
+                    <img src="assets/svg/info.svg" width="26" height="26" title="View details" 
+                        onclick="openTeamDetailsModal('${k}')"
+                        style="cursor: pointer; margin-top: -50%; transform: translateY(360%)"/>`;
+                
+                v.characters.forEach(character => {
+                    variationsContent += this.createCharacterContent(activeGame, character.name, false);
+                })
+                variationsContent += `</td></tr>`;
+            })
+        } else if (currentTeam.variations) {
             currentTeam.variations.forEach(vari => {
                 variationsContent += `<tr><td style="width: 50px; text-align: center">`;
                 vari.forEach(character => {
-                    const charmd = getCharacterMetadata(activeGame.code, character);
-                    variationsContent += createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
+                    variationsContent += this.createCharacterContent(activeGame, character, true);
                 })
                 variationsContent += `</td></tr>`;
             })
@@ -59,6 +71,12 @@ class VariationsComponent extends HTMLElement {
         }
 
         return variationsContent;
+    }
+
+    createCharacterContent(activeGame, characterName, withBuildModal) {
+        const charmd = getCharacterMetadata(activeGame.code, characterName);
+        return createCharacterImage(activeGame.code, charmd, 
+            {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: withBuildModal, withElement: true});
     }
 }
 

@@ -21,7 +21,12 @@ function getTeam(gameCode, teamName) {
 
 function getAllMainTeams(gameCode) {
     let teams = getAllTeams(gameCode);
-    return new Map([...teams].filter(([key, value]) => value.parent == null));
+    return new Map([...teams].filter(([k, v]) => v.parent == null));
+}
+
+function getTeamsByParent(gameCode, parentTeamName) {
+    let teams = getAllTeams(gameCode);
+    return new Map([...teams].filter(([k, v]) => v.parent == parentTeamName));
 }
 
 // ----------------------------------------------------------------------------
@@ -294,14 +299,48 @@ const TeamsRepository = {
                     replacedBy: [],
                 }
             ],
-            variations: [
-                ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli']
-            ],
             rotations: [
                 ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
                 ['Fischl', `Skill ${arrow}`],
                 ['Xingqiu', `Ult ${arrow}`],
                 ['Navia', `Ult ${arrow} Skill + NA`],
+            ]
+        }],
+        ['Geo 2', {
+            name: 'Geo 2',
+            iconUrl: 'assets/gi/GI_Geo.png',
+            parent: 'Geo',
+            characters: [
+                {
+                    name: 'Chiori',
+                    role: 'DPS [Skill + NA]',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Gorou',
+                    role: 'DMG Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Yun Jin',
+                    role: 'DMG & Atk SPD Buff',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Zhongli',
+                    role: 'Shield',
+                    isMain: false,
+                    replacedBy: [],
+                }
+            ],
+            rotations: [
+                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
+                ['Gorou', `Skill ${arrow} Ult ${arrow}`],
+                ['Yun Jin', `Ult ${arrow}`],
+                ['Chiori', `Skill ${arrow} NA`],
             ]
         }],
         ['Physical', {
