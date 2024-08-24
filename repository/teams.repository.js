@@ -19,11 +19,6 @@ function getTeam(gameCode, teamName) {
     return team ?? { name: teamName }
 }
 
-function getAllMainTeams(gameCode) {
-    let teams = getAllTeams(gameCode);
-    return new Map([...teams].filter(([key, value]) => value.parent == null));
-}
-
 // ----------------------------------------------------------------------------
 
 const arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
@@ -349,15 +344,15 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Huohuo',
-                    role: 'Heal + Energy Regeneration',
+                    role: 'Heal + Energy Regeneration + Atk Buff',
                     isMain: false,
-                    replacedBy: [],
+                    replacedBy: ['Lynx'],
                 },
                 {
                     name: 'Yunli',
-                    role: 'DPS [Ult + Skill]',
+                    role: 'DPS [Ult + FUA]',
                     isMain: true,
-                    replacedBy: [],
+                    replacedBy: ['Clara'],
                 },
                 {
                     name: 'Tingyun',
@@ -373,7 +368,6 @@ const TeamsRepository = {
                 }
             ],
             variations: [
-                ['Lynx', 'Clara', 'Ruan Mei', 'Tingyun'],
                 ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'],
             ]
         }],
@@ -383,7 +377,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Gallagher',
-                    role: 'Heal',
+                    role: 'Heal + Debuff',
                     isMain: false,
                     replacedBy: [],
                 },
@@ -433,7 +427,7 @@ const TeamsRepository = {
                     name: 'Ruan Mei',
                     role: 'DMG & RES PEN Buff',
                     isMain: false,
-                    replacedBy: ['Tingyun'],
+                    replacedBy: ['Tingyun', 'Pela'],
                 }
             ]
         }],
@@ -538,7 +532,7 @@ const TeamsRepository = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Dang Heng · IL', // to get the dot: alt+0183
+                    name: 'Dang Heng · IL', // to get the dot: alt+0183 
                     role: 'DPS [Basic]',
                     isMain: true,
                     replacedBy: [],
@@ -566,7 +560,7 @@ const TeamsRepository = {
             characters: [
                 {
                     name: 'Huohuo',
-                    role: 'Heal',
+                    role: 'Heal + Atk Buff',
                     isMain: false,
                     replacedBy: [],
                 },
