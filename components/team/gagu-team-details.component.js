@@ -70,7 +70,7 @@ class TeamDetailsComponent extends HTMLElement {
             transform: rotate(0deg);
         }
         
-        .action {
+        .pointer {
             cursor: pointer;
         }
 
@@ -174,15 +174,15 @@ class TeamDetailsComponent extends HTMLElement {
     // team index + name + members
     buildTeamContainer(activeGame, team, teamId, teamIndex) {
         return `
-        <div class="teams__container action">
+        <div class="teams__container">
             ${teamIndex > 0 ? `<div class="number">${teamIndex}</div>` : ''}
             <div class="item">
-                <div class="name collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
                     <span>${team.name}</span>
                 </div>
                 <div class="members">${this.buildMemebersImages(activeGame, team)}</div>
-                <div class="actions collapsed" data-bs-toggle="collapse" data-bs-target="#${teamId}">
+                <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
                 </div>
             </div>
