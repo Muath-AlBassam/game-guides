@@ -45,7 +45,7 @@ class RotationsComponent extends HTMLElement {
                 <div>
                     <span>
                         ${createCharacterImage(activeGame.code, charmd, 
-                            {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px 5px 0; border-radius: 100%;', withContainer: false})}
+                            {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px; border-radius: 100%;', withContainer: false})}
                     </span>
                     <b style="margin-right: 8px; display: inline-flex; align-items: center;">
                         ${step[1]}
