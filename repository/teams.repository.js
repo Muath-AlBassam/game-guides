@@ -620,7 +620,26 @@ const TeamsRepository = {
         ['Physical',  {
             name: 'Physical',
             iconUrl: 'assets/zzz/ZZZ_Physical.jpg',
-            characters: []
+            characters: [
+                {
+                    name: 'Jane',
+                    role: '...',
+                    isMain: true,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Seth',
+                    role: '...',
+                    isMain: false,
+                    replacedBy: [],
+                },
+                {
+                    name: 'Anby',
+                    role: '...',
+                    isMain: false,
+                    replacedBy: ['Qingyi'],
+                }
+            ]
         }],
         ['Fire', {
             name: 'Fire',

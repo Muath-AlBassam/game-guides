@@ -1074,6 +1074,34 @@ const CharactersRepository = {
                 ]
             }
         }],
+        ['Jane', {
+            name: 'Jane',
+            imageUrl: 'assets/zzz/character/ZZZ_Jane.jpg',
+            element: 'Physical',
+            role: 'Anomaly',
+            rarity: 'S',
+            build: {
+                weapon: { name: 'Sharpened Stinger' },
+                sets: [
+                    { name: 'Fanged Metal', pieceCount: '4' },
+                    { name: 'Freedom Blues', pieceCount: '2' }
+                ]
+            }
+        }],
+        ['Seth', {
+            name: 'Seth',
+            imageUrl: 'assets/zzz/character/ZZZ_Seth.jpg',
+            element: 'Electric',
+            role: 'Defence',
+            rarity: 'A',
+            build: {
+                weapon: { name: 'Peacekeeper - Specialized' },
+                sets: [
+                    { name: 'Swing Jazz', pieceCount: '4' },
+                    { name: 'Hormone Punk', pieceCount: '2' }
+                ]
+            }
+        }],
     ]),
 
     HI3Characters: new Map([

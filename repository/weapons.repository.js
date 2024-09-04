@@ -390,5 +390,15 @@ const WeaponsRepository = {
             imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheBrimstone.jpg',
             rarity: 'S'
         }],
+        ['Sharpened Stinger', {
+            name: 'Sharpened Stinger',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_SharpenedStinger.jpg',
+            rarity: 'S'
+        }],
+        ['Peacekeeper - Specialized', {
+            name: 'Peacekeeper - Specialized',
+            imageUrl: 'assets/zzz/w-engine/ZZZ_WE_PeacekeeperSpecialized.jpg',
+            rarity: 'A'
+        }],
     ]),
 }

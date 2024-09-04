@@ -268,6 +268,10 @@ const SetsRepository = {
         ['Thunder Metal', {
             name: 'Thunder Metal',
             imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ThunderMetal.jpg'
+        }],
+        ['Fanged Metal', {
+            name: 'Fanged Metal',
+            imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_FangedMetal.jpg'
         }]
     ])
 }
