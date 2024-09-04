@@ -639,6 +639,11 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: ['Qingyi', 'Lucy'],
                 }
+            ],
+            rotations: [
+                ['Anby', `${repeat(`Basic${times}3 ${arrow} Special ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
+                ['Seth', `Special ${smallText('(Hold)')} ${arrow} ${zzzQTE} ${arrow}`],
+                ['Jane', `Basic ${smallText('(Until Passion State)')} ${arrow} Basic + CA + Special`]
             ]
         }],
         ['Fire', {
