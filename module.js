@@ -26,6 +26,7 @@ function loadAllScripts() {
     loadScript("modals/build.modal.js", true);
 
     // Components
+    loadScript("components/gagu-searh.component.js", true); 
     loadScript("components/game-guides.component.js", true); 
     // Layout
     loadScript("components/layout/nav.component.js", true);

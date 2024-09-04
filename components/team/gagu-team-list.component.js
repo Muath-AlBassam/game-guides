@@ -16,6 +16,10 @@ class TeamListComponent extends HTMLElement {
         const teams = getAllTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(teams);
+
+        window.addEventListener('search', (event) => {
+            this.filterTeams(event.detail);
+        })
     }
 
     buildHTML(teams) {
@@ -26,9 +30,37 @@ class TeamListComponent extends HTMLElement {
                 <div class="content-header">Teams</div>
             </div>
         </div>
+        <gagu-search-component></gagu-search-component>
         <div id="teams">
             ${this.buildTeams(teams)}
         </div>`;
+    }
+
+    filterTeams(searchTerm) {
+        const activeGame = getGame(getGameFromUrl());
+        const allTeams = getAllTeams(activeGame.code);
+        // map all characters' names into a list
+        const filtered = new Map([...allTeams].filter((teamMapItem) => {
+            let team = teamMapItem[1]
+            let charactersNames = [];
+            if (team.characters) {
+                team.characters.forEach(ch => {
+                    charactersNames.push(ch.name);
+                    if (ch.replacedBy && ch.replacedBy.length > 0) {
+                        charactersNames.push(...ch.replacedBy);
+                    }
+                });
+            }
+            if (team.variations) {
+                team.variations.forEach(vari => {
+                    charactersNames.push(...vari)
+                })
+            }
+            // true if one item from the list contains the searchTerm
+            return charactersNames.some(name => name.toLowerCase().includes(searchTerm.toLowerCase()))
+        }))
+
+        document.getElementById('teams').innerHTML = this.buildTeams(filtered);
     }
 
     buildTeams(teams) {
