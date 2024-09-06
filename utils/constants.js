@@ -4,29 +4,33 @@
 // SVG
 // https://www.svgrepo.com/
 
-const Constants = {
-    games: {
+class Constants {
+    static games = {
         GI: 'GI',
         HSR: 'HSR',
         ZZZ: 'ZZZ',
         HI3: 'HI3',
         TK8: 'TK8'
-    },
-    gameStyles: {
+    }
+
+    static gameStyles = {
         TEAMS: 'TEAMS',
         FIGHT: 'FIGHT'
-    },
-    images: {
+    }
+
+    static images = {
         transparent: 'assets/Placeholder_Logo.png'
-    },
-    unicode: {
+    }
+
+    static unicode = {
         arrow: '&rightarrow;',
         twoWayArrow: '&leftrightarrow;',
         times: '&times;',
         space: '&#10240;',
         infinity: '&infin;'
-    },
-    icons: {
+    }
+
+    static icons = {
         externalLink: 'fa fa-external-link'
-    },
+    }
 }
