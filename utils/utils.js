@@ -1,31 +1,3 @@
-class JSUtils {
-    static createElement(tag, classes = null, styles = null, content = null, id = null) {
-        let ele = document.createElement(tag);
-        if (classes != null) {
-            ele.setAttribute('class', classes);
-        }
-        if (styles != null) {
-            ele.setAttribute('style', styles);
-        }
-        if (content != null) {
-            ele.innerHTML = content;
-        }
-        if (id != null) {
-            ele.setAttribute('id', id);
-        }
-        return ele;
-    }
-    
-    static appendAll(parent, children) {
-        if (children != null) {
-            children.forEach(c => parent.appendChild(c));
-        }
-        return parent;
-    }
-}
-
-// ----------------------------------------------------------------------------
-
 class Utils {
     static getGameFromUrl() {
         return window.location.hash.replace('#', '');
