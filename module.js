@@ -13,7 +13,7 @@ function loadAllScripts() {
     loadScript("utils/utils.js");
 
     // Repositories
-    loadScript("repository/games-data.js");
+    loadScript("repository/games.repository.js");
     loadScript("repository/characters.repository.js");
     loadScript("repository/teams.repository.js");
     loadScript("repository/rotations.repository.js");
