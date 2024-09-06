@@ -12,13 +12,13 @@ class TeamListComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const activeGame = getGame(getGameFromUrl());
-        const teams = getAllTeams(activeGame.code);
+        const activeGame = GamesRepository.getGame(getGameFromUrl());
+        const teams = TeamsRepository.getAllTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(teams);
 
         window.addEventListener('search', (event) => {
-            this.filterTeams(event.detail);
+            this.filterTeams(event.detail, activeGame, teams);
         })
     }
 
@@ -36,9 +36,7 @@ class TeamListComponent extends HTMLElement {
         </div>`;
     }
 
-    filterTeams(searchTerm) {
-        const activeGame = getGame(getGameFromUrl());
-        const allTeams = getAllTeams(activeGame.code);
+    filterTeams(searchTerm, activeGame, allTeams) {
         // map all characters' names into a list
         const filtered = new Map([...allTeams].filter((teamMapItem) => {
             let team = teamMapItem[1]

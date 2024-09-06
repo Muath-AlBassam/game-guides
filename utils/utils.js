@@ -66,8 +66,9 @@ function createCharacterImage(
         title="View build" onclick="openBuildModal('${charmd.name}')"/>` 
         : '';
 
+    let elementImgUrl = ElementsRepository.getElement(gameCode, charmd.element).imageUrl;
     let elementIcon = showElement ? `
-        <img src="${getElement(gameCode, charmd.element).imageUrl}" width="26" height="26" class="element-icon" title="${charmd.element}"/>`
+        <img src="${elementImgUrl}" width="26" height="26" class="element-icon" title="${charmd.element}"/>`
         : '';
 
     return `

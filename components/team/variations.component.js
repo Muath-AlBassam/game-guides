@@ -16,8 +16,8 @@ class VariationsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        const activeGame = getGame(gameCode);
-        const currentTeam = getTeam(gameCode, teamName);
+        const activeGame = GamesRepository.getGame(gameCode);
+        const currentTeam = TeamsRepository.getTeam(gameCode, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, currentTeam);
     }
@@ -46,7 +46,7 @@ class VariationsComponent extends HTMLElement {
             currentTeam.variations.forEach(vari => {
                 variationsContent += `<tr><td style="width: 50px; text-align: center">`;
                 vari.forEach(character => {
-                    const charmd = getCharacterMetadata(activeGame.code, character);
+                    const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character);
                     variationsContent += createCharacterImage(activeGame.code, charmd, 
                         {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
                 })

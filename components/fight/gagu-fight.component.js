@@ -68,8 +68,8 @@ class FightComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const activeGame = getGame(this.getAttribute("name"));
-        const characters = getAllCharacters(activeGame.code);
+        const activeGame = GamesRepository.getGame(this.getAttribute("name"));
+        const characters = CharactersRepository.getAllCharacters(activeGame.code);
         this.innerHTML = this.buildHTML(activeGame, characters);
     }
 
@@ -132,7 +132,7 @@ class FightComponent extends HTMLElement {
     }
 
     generateButtonImage(gameCode, buttonCode) {
-        const button = getButton(gameCode, buttonCode);
+        const button = ButtonsRepository.getButton(gameCode, buttonCode);
         if (button.imageUrl) {
             buttonCode = `<img src="${button.imageUrl}" width="40" title="${buttonCode}" />`;
         }

@@ -125,7 +125,7 @@ class NavComponent extends HTMLElement {
     }
 
     createGamesNav() {
-        const games = getAllGames();
+        const games = GamesRepository.getAllGames();
         let navContent = '';
         games.forEach(g => {
             navContent += `

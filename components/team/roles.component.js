@@ -16,8 +16,8 @@ class RolesComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        const activeGame = getGame(gameCode);
-        const currentTeam = getTeam(gameCode, teamName);
+        const activeGame = GamesRepository.getGame(gameCode);
+        const currentTeam = TeamsRepository.getTeam(gameCode, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, currentTeam);
     }
@@ -44,10 +44,10 @@ class RolesComponent extends HTMLElement {
         let rolesContent = '';
 
         currentTeam.characters.forEach(character => {
-            const charmd = getCharacterMetadata(activeGame.code, character?.name);
+            const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
             let roleImage = '';
             if (charmd.role) {
-                const rolemd = getRole(activeGame.code, charmd.role);
+                const rolemd = RolesRepository.getRole(activeGame.code, charmd.role);
                 roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 10px 0 5px;">`;
             }
             rolesContent += `

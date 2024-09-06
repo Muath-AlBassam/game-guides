@@ -16,8 +16,8 @@ class ReplacementsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        const activeGame = getGame(gameCode);
-        const currentTeam = getTeam(gameCode, teamName);
+        const activeGame = GamesRepository.getGame(gameCode);
+        const currentTeam = TeamsRepository.getTeam(gameCode, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, currentTeam);
     }
@@ -42,12 +42,12 @@ class ReplacementsComponent extends HTMLElement {
         let replacementsContent = '';
 
         currentTeam.characters.forEach(character => {
-            const charmd = getCharacterMetadata(activeGame.code, character?.name);
+            const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
 
             let charReplacements = '';
             if (character.replacedBy) {
                 character.replacedBy.forEach(rep => {
-                    const repmd = getCharacterMetadata(activeGame.code, rep);
+                    const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
                     charReplacements += createCharacterImage(activeGame.code, repmd, 
                         {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
                 })

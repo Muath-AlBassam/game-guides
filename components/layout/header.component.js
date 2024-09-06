@@ -32,7 +32,7 @@ class HeaderComponent extends HTMLElement {
     }
 
     buildHTML() {
-        const activeGame = getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(getGameFromUrl());
         return this.componentStyle + `
         <div class="header">
             <div class="row">
@@ -64,7 +64,7 @@ window.addEventListener('hashchange', () => {
 });
 
 function setGameDetails() {
-    const activeGame = getGame(getGameFromUrl());
+    const activeGame = GamesRepository.getGame(getGameFromUrl());
     // update header title & images
     document.getElementById('header-title').innerHTML = activeGame.label;
     document.getElementById('header-logo').src = activeGame.logoUrl;

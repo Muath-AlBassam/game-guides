@@ -82,14 +82,14 @@ class BuildModal extends HTMLElement {
     }
   
     connectedCallback() {
-        const activeGame = getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(getGameFromUrl());
         const character = this.getAttribute('character');
 
         this.innerHTML = this.buildHTML(activeGame, character);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        const activeGame = getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(getGameFromUrl());
         const character = this.getAttribute('character');
 
         document.getElementById('build-modal-content').innerHTML = this.buildDialogContent(activeGame, character);
@@ -106,7 +106,7 @@ class BuildModal extends HTMLElement {
 
     buildDialogContent(activeGame, character) {
         let buildContent = '';
-        let charmd = getCharacterMetadata(activeGame.code, character);
+        let charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character);
         buildContent += this.buildModalHeader(activeGame.code, charmd);
         if (charmd?.build) {
             buildContent += this.buildWeaponTable(activeGame.code, charmd);
@@ -133,7 +133,7 @@ class BuildModal extends HTMLElement {
     buildWeaponTable(gameCode, charmd) {
         let content = '';
         if (charmd.build.weapon) {
-            const weaponmd = getWeaponMetadata(gameCode, charmd.build.weapon.name);
+            const weaponmd = WeaponsRepository.getWeaponMetadata(gameCode, charmd.build.weapon.name);
             content = `
             <h5 class="content-header">
                 ${this.getWeaponsLabel(gameCode)}
@@ -162,7 +162,7 @@ class BuildModal extends HTMLElement {
             <div class="build-container">`;
             
             charmd.build.sets.forEach(set => {
-                const setmd = getSetMetadata(gameCode, set.name);
+                const setmd = SetsRepository.getSetMetadata(gameCode, set.name);
                 content += `
                 <div class="build-item">
                     <div class="build-image">

@@ -39,7 +39,7 @@ class RotationsComponent extends HTMLElement {
 
         if (teamRotations) {
             teamRotations.forEach(step => {
-                const charmd = getCharacterMetadata(gameCode, step[0]);
+                const charmd = CharactersRepository.getCharacterMetadata(gameCode, step[0]);
                 rotationsContent += `
                 <div>
                     <span>

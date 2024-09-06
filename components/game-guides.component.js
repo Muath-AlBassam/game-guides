@@ -22,7 +22,7 @@ class GameGuidesComponent extends HTMLElement {
     }
 
     buildHTML() {
-        const activeGame = getGame(this.getAttribute("name"));
+        const activeGame = GamesRepository.getGame(this.getAttribute("name"));
         this.innerHTML = this.componentStyle + `
             <loader-component></loader-component>
         `;
