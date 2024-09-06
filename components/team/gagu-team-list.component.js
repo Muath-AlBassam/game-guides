@@ -12,7 +12,7 @@ class TeamListComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const activeGame = GamesRepository.getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         const teams = TeamsRepository.getAllTeams(activeGame.code);
 
         this.innerHTML = this.buildHTML(teams);

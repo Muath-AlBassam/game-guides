@@ -155,7 +155,7 @@ class TeamDetailsComponent extends HTMLElement {
         const teamName = this.getAttribute('teamName');
         const teamIndex = this.getAttribute('teamIndex');
 
-        const activeGame = GamesRepository.getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         const team = TeamsRepository.getTeam(activeGame.code, teamName);
 
         this.innerHTML = this.buildHTML(activeGame, team, teamIndex);
@@ -194,7 +194,7 @@ class TeamDetailsComponent extends HTMLElement {
         for (let i = 0; i < activeGame.teamSize; i++) {
             const character = team.characters[i]
             const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
-            membersImages += createCharacterImage(activeGame.code, charmd, 
+            membersImages += Utils.createCharacterImage(activeGame.code, charmd, 
                 {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
         }
         return membersImages;

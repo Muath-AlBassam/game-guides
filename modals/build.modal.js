@@ -82,14 +82,14 @@ class BuildModal extends HTMLElement {
     }
   
     connectedCallback() {
-        const activeGame = GamesRepository.getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         const character = this.getAttribute('character');
 
         this.innerHTML = this.buildHTML(activeGame, character);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        const activeGame = GamesRepository.getGame(getGameFromUrl());
+        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         const character = this.getAttribute('character');
 
         document.getElementById('build-modal-content').innerHTML = this.buildDialogContent(activeGame, character);
@@ -122,7 +122,7 @@ class BuildModal extends HTMLElement {
         <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                ${createCharacterImage(gameCode, charmd, 
+                ${Utils.createCharacterImage(gameCode, charmd, 
                     {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false})}
                 <h5 style="margin-left: 10px;">${charmd.name}</h5>
             </div>

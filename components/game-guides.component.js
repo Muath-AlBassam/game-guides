@@ -55,6 +55,6 @@ window.addEventListener('hashchange', () => {
 function setPageContent() {
     const components = document.getElementsByTagName('game-guides-component');
     if (components.length == 1) {
-        components[0].setAttribute("name", getGameFromUrl());
+        components[0].setAttribute("name", Utils.getGameFromUrl());
     }
 }

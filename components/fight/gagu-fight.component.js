@@ -102,7 +102,7 @@ class FightComponent extends HTMLElement {
             <div class="number">${index + 1}</div>
             <div class="item">
                 <div class="character">
-                    ${createCharacterImage(activeGame.code, character, {dimensions: this.characterPFPSize})}
+                    ${Utils.createCharacterImage(activeGame.code, character, {dimensions: this.characterPFPSize})}
                     <div class="name">
                         ${character.name}
                     </div>
