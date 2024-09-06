@@ -634,15 +634,16 @@ const TeamsRepository = {
                     replacedBy: [],
                 },
                 {
-                    name: 'Anby',
-                    role: 'Stun',
+                    name: 'Lucy',
+                    role: 'Atk Buff',
                     isMain: false,
-                    replacedBy: ['Qingyi', 'Lucy'],
+                    replacedBy: ['Anby', 'Grace'],
                 }
             ],
             rotations: [
-                ['Anby', `${repeat(`Basic${times}3 ${arrow} Special ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
-                ['Seth', `Special ${smallText('(Hold)')} ${arrow} ${zzzQTE} ${arrow}`],
+                ['Seth', `Basic/Special ${smallText('(Until 75%+ Resolve)')} ${arrow}`],
+                ['Lucy', `Special ${smallText('(Hold)')} ${arrow}`],
+                ['Seth', `Basic ${smallText('(Hold)')} ${arrow} ${zzzQTE} ${arrow}`],
                 ['Jane', `Basic ${smallText('(Until Passion State)')} ${arrow} Basic + CA + Special`]
             ]
         }],
