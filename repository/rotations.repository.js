@@ -1,3 +1,4 @@
+// TODO make it a class...
 
 function getAllRotations(gameCode) {
     switch (gameCode) {
