@@ -21,16 +21,6 @@ function getTeam(gameCode, teamName) {
 
 // ----------------------------------------------------------------------------
 
-const arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
-const times = Constants.unicode.times;
-const infinity = Constants.unicode.infinity;
-
-smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 5px;">${text}</span>`;
-tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
-repeat = (text) => `<span class="arrow-border">${text}</span>`;
-
-const zzzQTE = tooltip('QTE', 'Chain / Quick-Assist');
-
 // TODO : add team variation name
 
 const TeamsRepository = {
@@ -64,12 +54,6 @@ const TeamsRepository = {
                     replacedBy: ['Kazuha'],
                 }
             ],
-            rotations: [
-                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
-                ['Bennett', `Ult ${arrow}`],
-                ['Yelan', `Ult ${arrow}`],
-                ['Arlecchino', `Skill ${arrow} CA ${arrow} NA`],
-            ]
         }],
         ['Hydro', {
             name: 'Hydro',
@@ -100,13 +84,6 @@ const TeamsRepository = {
                     replacedBy: [],
                 }
             ],
-            rotations: [
-                ['Neuvillette', `NA${times}1 ${arrow}`],
-                ['Kazuha', `Skill ${arrow}`],
-                ['Raiden Shogun', `Skill ${arrow}`],
-                ['Furina', `Skill ${arrow} Ult ${arrow}`],
-                ['Neuvillette', `Skill/Ult ${arrow} CA`],
-            ]
         }],
         ['Dendro', {
             name: 'Dendro',
@@ -141,13 +118,6 @@ const TeamsRepository = {
                 ['Nahida', 'Nilou', 'Kirara', 'Kokomi'],
                 ['Emilie', 'Bennett', 'Xianling', 'Kazuha'],
             ],
-            rotations: [
-                ['Nahida', `Ult ${arrow} Skill ${arrow}`],
-                ['Furina', `Skill ${arrow} Ult ${smallText('(optional)')} ${arrow}`],
-                ['Yae Miko', `Skill${times}3 ${arrow}`],
-                ['Kuki Shinobu', `Skill ${arrow}`],
-                ['Nahida', `NA + CA`],
-            ]
         }],
         ['Electro', {
             name: 'Electro',
@@ -181,12 +151,6 @@ const TeamsRepository = {
             variations: [
                 ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli']
             ],
-            rotations: [
-                ['Raiden Shogun', `Skill ${arrow}`],
-                ['Xianling', `Ult ${arrow}`],
-                ['Chevreuse', `Skill ${smallText('(Hold)')} ${arrow}`],
-                ['Clorinde', `Skill + Ult`]
-            ]
         }],
         ['Anemo', {
             name: 'Anemo',
@@ -217,12 +181,6 @@ const TeamsRepository = {
                     replacedBy: [],
                 }
             ],
-            rotations: [
-                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
-                ['Xianyun', `Ult ${arrow}`],
-                ['Faruzan', `Ult ${arrow}`],
-                ['Lynette', `Ult ${arrow} Skill + NA/Plunge`],
-            ]
         }],
         ['Cryo', {
             name: 'Cryo',
@@ -253,12 +211,6 @@ const TeamsRepository = {
                     replacedBy: [],
                 }
             ],
-            rotations: [
-                ['Wriothesley', `NA${times}1 ${arrow}`],
-                ['Kazuha', `Skill ${arrow}`],
-                ['Kokomi', `Skill ${arrow}`],
-                ['Wriothesley', `Skill ${arrow} NA + CA`],
-            ]
         }],
         ['Geo', {
             name: 'Geo',
@@ -292,12 +244,6 @@ const TeamsRepository = {
             variations: [
                 ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli']
             ],
-            rotations: [
-                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
-                ['Fischl', `Skill ${arrow}`],
-                ['Xingqiu', `Ult ${arrow}`],
-                ['Navia', `Ult ${arrow} Skill + NA`],
-            ]
         }],
         ['Physical', {
             name: 'Physical',
@@ -328,12 +274,6 @@ const TeamsRepository = {
                     replacedBy: [],
                 }
             ],
-            rotations: [
-                ['Zhongli', `Skill ${smallText('(Hold)')} ${arrow}`],
-                ['Raiden Shogun', `Skill ${arrow}`],
-                ['Mika', `Skill ${arrow}`],
-                ['Eula', `NA + Skill + Ult`],
-            ]
         }]
     ]),
 
@@ -639,12 +579,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: ['Anby', 'Grace'],
                 }
-            ],
-            rotations: [
-                ['Seth', `Basic/Special ${smallText('(Until 75%+ Resolve)')} ${arrow}`],
-                ['Lucy', `Special ${smallText('(Hold)')} ${arrow}`],
-                ['Seth', `Basic ${smallText('(Hold)')} ${arrow} ${zzzQTE} ${arrow}`],
-                ['Jane', `Basic ${smallText('(Until Passion State)')} ${arrow} Basic + CA + Special`]
             ]
         }],
         ['Fire', {
@@ -669,11 +603,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 }
-            ],
-            rotations: [
-                ['Koleda', `${repeat(`Basic${times}2 ${arrow} Special`)} ${arrow} Stun ${arrow}`],
-                ['Lucy', `EX Special ${arrow}`],
-                ['Soldier 11', `(EX Special ${arrow} Basic) / Timed Basic`],
             ]
         }],
         ['Ice', {
@@ -698,12 +627,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 }
-            ],
-            rotations: [
-                ['Ellen', `Dash + CA ${arrow}`],
-                ['Lycaon', `${repeat('CA + EX Special')} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
-                ['Soukaku', `Special ${smallText('(hold)')} ${arrow} ${zzzQTE} ${arrow}`],
-                ['Ellen', `Basic + EX Special`],
             ]
         }],
         ['Electric', {
@@ -733,11 +656,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 }
-            ],
-            rotations: [
-                ['Qingyi', `${repeat(`Basic ${times + ' ' + infinity} ${smallText('(Until 75%+ Voltage)')} ${arrow} CA`)} ${arrow} Stun ${arrow} ${zzzQTE} ${arrow}`],
-                ['Nicole', `EX Special ${smallText('(hold)')} ${arrow} Basic${times}1 ${arrow}`],
-                ['Zhu Yuan', `CA + EX Special`],
             ]
         }]
     ]),
@@ -765,12 +683,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 },
-            ],
-            rotations: [
-                ['Bronya (HoT)', `Skill ${arrow} QTE ${arrow}`],
-                ['Ai', `Skill ${arrow}`],
-                ['Bronya (HoT)', `Ult${times}2 ${arrow} QTE ${arrow}`],
-                ['Lantern', `Basic + Skill ${arrow} Charged ${arrow} Ult`],
             ]
         }],
         ['Lightning', {
@@ -795,11 +707,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 },
-            ],
-            rotations: [
-                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
-                ['Eden', `Ult ${arrow} QTE ${arrow}`],
-                ['Lunar Vow', `Skill ${arrow} Ult`]
             ]
         }],
         ['Ice', {
@@ -836,11 +743,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 },
-            ],
-            rotations: [
-                ['Fu Hua (HoS)', `Basic ${smallText('(Spear combo)')} ${arrow} QTE ${arrow}`],
-                ['Carole', `CA ${arrow} Ult ${arrow} QTE ${arrow}`],
-                ['Durandal', `Basic + CA + Ult`]
             ]
         }],
         ['Herrscher Trio', {
@@ -865,12 +767,6 @@ const TeamsRepository = {
                     isMain: false,
                     replacedBy: [],
                 },
-            ],
-            rotations: [
-                ['Bronya (HoT)', `Skill ${arrow} Ult${times}2 ${arrow} QTE ${arrow}`],
-                ['Kiana (HoFi)', `Basic ${arrow} CA ${arrow}`],
-                ['Mei (HoO)', `Basic ${arrow} CA ${arrow} Ult ${arrow} QTE ${arrow}`],
-                ['Kiana (HoFi)', `Skill ${arrow} Basic ${arrow} CA ${arrow} Evade ${smallText('(Hold)')} ${arrow} Basic ${arrow} Ult`],
             ]
         }]
     ]),

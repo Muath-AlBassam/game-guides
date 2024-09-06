@@ -16,6 +16,7 @@ function loadAllScripts() {
     loadScript("repository/games-data.js");
     loadScript("repository/characters.repository.js");
     loadScript("repository/teams.repository.js");
+    loadScript("repository/rotations.repository.js");
     loadScript("repository/weapons.repository.js");
     loadScript("repository/sets.repository.js");
     loadScript("repository/roles.repository.js");

@@ -16,13 +16,12 @@ class RotationsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        const activeGame = getGame(gameCode);
-        const currentTeam = getTeam(gameCode, teamName);
+        const teamRotations = getRotations(gameCode, teamName);
 
-        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+        this.innerHTML = this.buildHTML(gameCode, teamRotations);
     }
 
-    buildHTML(activeGame, currentTeam) {
+    buildHTML(gameCode, teamRotations) {
         return this.componentStyle + `
         <div class="container rotations-container">
             <h5 class="content-header">
@@ -30,21 +29,21 @@ class RotationsComponent extends HTMLElement {
                 Rotations
             </h5>
             <div style="font-size: 1.2em;">
-                ${this.buildRotationsContent(activeGame, currentTeam)}
+                ${this.buildRotationsContent(gameCode, teamRotations)}
             </div>
         </div>`;
     }
 
-    buildRotationsContent(activeGame, currentTeam) {
+    buildRotationsContent(gameCode, teamRotations) {
         let rotationsContent = '';
 
-        if (currentTeam.rotations) {
-            currentTeam.rotations.forEach(step => {
-                const charmd = getCharacterMetadata(activeGame.code, step[0]);
+        if (teamRotations) {
+            teamRotations.forEach(step => {
+                const charmd = getCharacterMetadata(gameCode, step[0]);
                 rotationsContent += `
                 <div>
                     <span>
-                        ${createCharacterImage(activeGame.code, charmd, 
+                        ${createCharacterImage(gameCode, charmd, 
                             {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px; border-radius: 100%;', withContainer: false})}
                     </span>
                     <b style="margin-right: 8px; display: inline-flex; align-items: center;">
