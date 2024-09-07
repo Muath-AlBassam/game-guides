@@ -17,7 +17,10 @@ class Utils {
             withContainer = true
         } = {}
     ) {
-        const showBuild = withBuildModal && charmd.build;
+        let showBuild = false;
+        if (withBuildModal) {
+            showBuild = null != BuildsRepository.getCharacterBuild(gameCode, charmd.name);
+        }
         const showElement = withElement && charmd.element;
         const addRarityClass = withBackgroundClass && charmd.rarity;
     

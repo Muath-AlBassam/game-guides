@@ -106,18 +106,19 @@ class BuildModal extends HTMLElement {
 
     buildDialogContent(activeGame, character) {
         let buildContent = '';
-        let charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character);
-        buildContent += this.buildModalHeader(activeGame.code, charmd);
-        if (charmd?.build) {
-            buildContent += this.buildWeaponTable(activeGame.code, charmd);
-            buildContent += this.buildSetsTable(activeGame.code, charmd);
+        buildContent += this.buildModalHeader(activeGame.code, character);
+        let buildmd = BuildsRepository.getCharacterBuild(activeGame.code, character);
+        if (buildmd) {
+            buildContent += this.buildWeaponTable(activeGame.code, buildmd);
+            buildContent += this.buildSetsTable(activeGame.code, buildmd);
         } else {
             buildContent += `<h1 class="empty-dialog">...</h1>`
         }
         return buildContent;
     }
 
-    buildModalHeader(gameCode, charmd) {
+    buildModalHeader(gameCode, character) {
+        let charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
         return `
         <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
         <div>
@@ -130,10 +131,10 @@ class BuildModal extends HTMLElement {
         `;
     }
 
-    buildWeaponTable(gameCode, charmd) {
+    buildWeaponTable(gameCode, buildmd) {
         let content = '';
-        if (charmd.build.weapon) {
-            const weaponmd = WeaponsRepository.getWeaponMetadata(gameCode, charmd.build.weapon.name);
+        if (buildmd.weapon) {
+            const weaponmd = WeaponsRepository.getWeaponMetadata(gameCode, buildmd.weapon.name);
             content = `
             <h5 class="content-header">
                 ${this.getWeaponsLabel(gameCode)}
@@ -152,16 +153,16 @@ class BuildModal extends HTMLElement {
         return content;
     }
 
-    buildSetsTable(gameCode, charmd) {
+    buildSetsTable(gameCode, buildmd) {
         let content = '';
-        if (charmd.build.sets) {
+        if (buildmd.sets) {
             content += `
             <h5 class="content-header">
                 ${this.getSetsLabel(gameCode)}
             </h5>
             <div class="build-container">`;
             
-            charmd.build.sets.forEach(set => {
+            buildmd.sets.forEach(set => {
                 const setmd = SetsRepository.getSetMetadata(gameCode, set.name);
                 content += `
                 <div class="build-item">
