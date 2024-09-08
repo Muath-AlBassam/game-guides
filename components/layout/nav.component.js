@@ -106,6 +106,10 @@ class NavComponent extends HTMLElement {
   
     connectedCallback() {
         this.innerHTML = this.buildHTML();
+
+        window.addEventListener('hashchange', () => {
+            this.setActiveNav();
+        });
     }
 
     buildHTML() {
@@ -139,6 +143,16 @@ class NavComponent extends HTMLElement {
         return navContent;
     }
 
+    setActiveNav() {
+        const navs = document.querySelectorAll('.sidebar-item');
+        navs.forEach(tab => {
+            if (tab.href.includes(Utils.getGameFromUrl())) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        })
+    }
 }
 
 customElements.define('app-nav', NavComponent);
@@ -148,19 +162,4 @@ customElements.define('app-nav', NavComponent);
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');
     document.getElementsByTagName('app-nav')[0].classList.toggle('active');
-}
-
-window.addEventListener('hashchange', () => {
-    setActiveNav();
-});
-
-function setActiveNav() {
-    const navs = document.querySelectorAll('.sidebar-item');
-    navs.forEach(tab => {
-        if (tab.href.includes(Utils.getGameFromUrl())) {
-            tab.classList.add('active');
-        } else {
-            tab.classList.remove('active');
-        }
-    })
 }
