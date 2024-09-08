@@ -15,14 +15,14 @@ class GameGuidesComponent extends HTMLElement {
   
     connectedCallback() {
         this.buildHTML();
-    }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        this.buildHTML();
+        window.addEventListener('hashchange', () => {
+            this.buildHTML();
+        });
     }
 
     buildHTML() {
-        const activeGame = GamesRepository.getGame(this.getAttribute("name"));
+        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         this.innerHTML = this.componentStyle + `
             <app-loader></app-loader>
         `;
@@ -45,16 +45,3 @@ class GameGuidesComponent extends HTMLElement {
 }
 
 customElements.define('app-game-guides', GameGuidesComponent);
-
-//------------------------------------------------------------------------------------
-
-window.addEventListener('hashchange', () => {
-    setPageContent();
-});
-
-function setPageContent() {
-    const components = document.getElementsByTagName('app-game-guides');
-    if (components.length == 1) {
-        components[0].setAttribute("name", Utils.getGameFromUrl());
-    }
-}
