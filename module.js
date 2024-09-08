@@ -28,19 +28,19 @@ function loadAllScripts() {
     loadScript("modals/build.modal.js", true);
 
     // Components
-    loadScript("components/gagu-searh.component.js", true); 
+    loadScript("components/searh.component.js", true); 
     loadScript("components/game-guides.component.js", true); 
     // Layout
     loadScript("components/layout/nav.component.js", true);
     loadScript("components/layout/header.component.js", true);
     loadScript("components/layout/loader.component.js", true);
     // Team
-    loadScript("components/team/gagu-team-list.component.js", true);
-    loadScript("components/team/gagu-team-details.component.js", true);
-    loadScript("components/team/roles.component.js", true);
-    loadScript("components/team/variations.component.js", true);
-    loadScript("components/team/replacements.component.js", true);
-    loadScript("components/team/rotations.component.js", true);
+    loadScript("components/team/team-list.component.js", true);
+    loadScript("components/team/team-details.component.js", true);
+    loadScript("components/team/team-roles.component.js", true);
+    loadScript("components/team/team-variations.component.js", true);
+    loadScript("components/team/team-replacements.component.js", true);
+    loadScript("components/team/team-rotations.component.js", true);
     // Fight
-    loadScript("components/fight/gagu-fight.component.js", true);
+    loadScript("components/fight/fight-list.component.js", true);
 }
