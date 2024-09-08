@@ -18,25 +18,25 @@ class TeamListComponent extends HTMLElement {
         this.innerHTML = this.buildHTML(teams);
 
         window.addEventListener('search', (event) => {
-            this.filterTeams(event.detail, activeGame, teams);
+            this.filterTeams(event.detail, teams);
         })
     }
 
     buildHTML(teams) {
         return this.componentStyle + `
-        <build-modal id="build-modal"></build-modal>
+        <app-build-modal id="build-modal"></app-build-modal>
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Teams</div>
             </div>
         </div>
-        <gagu-search-component></gagu-search-component>
+        <app-search></app-search>
         <div id="teams">
             ${this.buildTeams(teams)}
         </div>`;
     }
 
-    filterTeams(searchTerm, activeGame, allTeams) {
+    filterTeams(searchTerm, allTeams) {
         // map all characters' names into a list
         const filtered = new Map([...allTeams].filter((teamMapItem) => {
             let team = teamMapItem[1]
@@ -66,9 +66,7 @@ class TeamListComponent extends HTMLElement {
         let index = 1;
         teams.forEach((team, key) => {
             teamsListHTML += `
-            <gagu-team-details-component teamName="${team.name}" teamIndex="${index}">
-            </gagu-team-details-component>`;
-
+                <app-team-details teamName="${team.name}" teamIndex="${index}"></app-team-details>`;
             index++;
         });
 
@@ -76,4 +74,4 @@ class TeamListComponent extends HTMLElement {
     }
 }
 
-customElements.define('gagu-team-list-component', TeamListComponent);
+customElements.define('app-team-list', TeamListComponent);

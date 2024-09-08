@@ -24,7 +24,7 @@ class GameGuidesComponent extends HTMLElement {
     buildHTML() {
         const activeGame = GamesRepository.getGame(this.getAttribute("name"));
         this.innerHTML = this.componentStyle + `
-            <loader-component></loader-component>
+            <app-loader></app-loader>
         `;
 
         setTimeout(() => {
@@ -35,16 +35,16 @@ class GameGuidesComponent extends HTMLElement {
     getGameComponent(activeGame) {
         switch (activeGame.style) {
             case Constants.gameStyles.TEAMS:
-                return `<gagu-team-list-component name="${activeGame.code}"></gagu-team-list-component>`;
+                return `<app-team-list name="${activeGame.code}"></app-team-list>`;
             case Constants.gameStyles.FIGHT:
-                return `<gagu-fight-component name="${activeGame.code}"></gagu-fight-component>`;
+                return `<app-fight-list name="${activeGame.code}"></app-fight-list>`;
             default:
                 return `<div class="center-content"><h1>...</h1></div>`;
         }
     }
 }
 
-customElements.define('game-guides-component', GameGuidesComponent);
+customElements.define('app-game-guides', GameGuidesComponent);
 
 //------------------------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ window.addEventListener('hashchange', () => {
 });
 
 function setPageContent() {
-    const components = document.getElementsByTagName('game-guides-component');
+    const components = document.getElementsByTagName('app-game-guides');
     if (components.length == 1) {
         components[0].setAttribute("name", Utils.getGameFromUrl());
     }

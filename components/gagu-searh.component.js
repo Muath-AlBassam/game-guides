@@ -61,7 +61,7 @@ class SearchComponent extends HTMLElement {
     }
 }
 
-customElements.define('gagu-search-component', SearchComponent);
+customElements.define('app-search', SearchComponent);
 
 //------------------------------------------------------------------------------------
 

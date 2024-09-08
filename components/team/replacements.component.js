@@ -69,4 +69,4 @@ class ReplacementsComponent extends HTMLElement {
     }
 }
 
-customElements.define('replacements-component', ReplacementsComponent);
+customElements.define('app-team-replacements', ReplacementsComponent);

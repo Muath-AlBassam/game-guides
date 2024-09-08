@@ -49,4 +49,4 @@ class LoaderComponent extends HTMLElement {
 
 }
 
-customElements.define('loader-component', LoaderComponent);
+customElements.define('app-loader', LoaderComponent);

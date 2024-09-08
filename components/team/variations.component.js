@@ -62,4 +62,4 @@ class VariationsComponent extends HTMLElement {
     }
 }
 
-customElements.define('variations-component', VariationsComponent);
+customElements.define('app-team-variations', VariationsComponent);

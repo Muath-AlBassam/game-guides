@@ -211,7 +211,7 @@ class BuildModal extends HTMLElement {
     }
 }
 
-customElements.define('build-modal', BuildModal);
+customElements.define('app-build-modal', BuildModal);
 
 //------------------------------------------------------------------------------------
 

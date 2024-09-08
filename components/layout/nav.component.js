@@ -141,13 +141,13 @@ class NavComponent extends HTMLElement {
 
 }
 
-customElements.define('nav-component', NavComponent);
+customElements.define('app-nav', NavComponent);
 
 //------------------------------------------------------------------------------------
 
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');
-    document.querySelector('.nav-component').classList.toggle('active');
+    document.getElementsByTagName('app-nav')[0].classList.toggle('active');
 }
 
 window.addEventListener('hashchange', () => {

@@ -204,15 +204,15 @@ class TeamDetailsComponent extends HTMLElement {
     buildTeamDetails(activeGame, team, teamId) {
         return `
         <div class="teams__details collapse" data-bs-parent="#teams" id="${teamId}">
-            <roles-component game="${activeGame.code}" team="${team.name}"></roles-component>
-            <variations-component game="${activeGame.code}" team="${team.name}"></variations-component>
-            <replacements-component game="${activeGame.code}" team="${team.name}"></replacements-component>
-            <rotations-component game="${activeGame.code}" team="${team.name}"></rotations-component>
+            <app-team-roles game="${activeGame.code}" team="${team.name}"></app-team-roles>
+            <app-team-variations game="${activeGame.code}" team="${team.name}"></app-team-variations>
+            <app-team-replacements game="${activeGame.code}" team="${team.name}"></app-team-replacements>
+            <app-team-rotations game="${activeGame.code}" team="${team.name}"></app-team-rotations>
         </div>`;
     }
 }
 
-customElements.define('gagu-team-details-component', TeamDetailsComponent);
+customElements.define('app-team-details', TeamDetailsComponent);
 
 //------------------------------------------------------------------------------------
 

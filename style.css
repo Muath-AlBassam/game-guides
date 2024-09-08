@@ -20,11 +20,11 @@ body {
 }
 
 /* Main content placement after Sidenav ------------------------------------ */
-.nav-component ~ .main-content {
+app-nav ~ .main-content {
     margin-left: 80px;
     width: calc(100% - 80px);
 }
-.nav-component.active ~ .main-content {
+app-nav.active ~ .main-content {
     margin-left: 250px;
     width: calc(100% - 250px);
 }

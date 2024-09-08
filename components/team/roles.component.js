@@ -67,4 +67,4 @@ class RolesComponent extends HTMLElement {
     }
 }
 
-customElements.define('roles-component', RolesComponent);
+customElements.define('app-team-roles', RolesComponent);

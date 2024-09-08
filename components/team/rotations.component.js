@@ -61,4 +61,4 @@ class RotationsComponent extends HTMLElement {
     }
 }
 
-customElements.define('rotations-component', RotationsComponent);
+customElements.define('app-team-rotations', RotationsComponent);

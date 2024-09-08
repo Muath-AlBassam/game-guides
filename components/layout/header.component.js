@@ -59,4 +59,4 @@ class HeaderComponent extends HTMLElement {
     }
 }
 
-customElements.define('header-component', HeaderComponent);
+customElements.define('app-header', HeaderComponent);

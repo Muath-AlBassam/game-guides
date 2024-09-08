@@ -140,4 +140,4 @@ class FightComponent extends HTMLElement {
     }
 }
 
-customElements.define('gagu-fight-component', FightComponent);
+customElements.define('app-fight-list', FightComponent);
