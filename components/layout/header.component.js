@@ -29,6 +29,10 @@ class HeaderComponent extends HTMLElement {
   
     connectedCallback() {
         this.innerHTML = this.buildHTML();
+
+        window.addEventListener('hashchange', () => {
+            this.innerHTML = this.buildHTML();
+        });
     }
 
     buildHTML() {
@@ -56,21 +60,3 @@ class HeaderComponent extends HTMLElement {
 }
 
 customElements.define('header-component', HeaderComponent);
-
-//------------------------------------------------------------------------------------
-
-window.addEventListener('hashchange', () => {
-    setGameDetails();
-});
-
-function setGameDetails() {
-    const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-    // update header title & images
-    document.getElementById('header-title').innerHTML = activeGame.label;
-    document.getElementById('header-logo').src = activeGame.logoUrl;
-    document.getElementById('header-background').style.backgroundImage = `url(${activeGame.backgroundUrl})`;
-
-    const guideUrl = document.getElementById('guide-url');
-    guideUrl.href = activeGame.guideUrl;
-    guideUrl.style.display = activeGame.guideUrl ? 'block' : 'none';
-}
