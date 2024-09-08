@@ -4,13 +4,13 @@ class BuildsRepository {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
-                data = BuildsRepository.data.GIBuilds.get(characterName);
+                data = this.data.GIBuilds.get(characterName);
                 break;
             case Constants.games.HSR:
-                data = BuildsRepository.data.HSRBuilds.get(characterName);
+                data = this.data.HSRBuilds.get(characterName);
                 break;
             case Constants.games.ZZZ:
-                data = BuildsRepository.data.ZZZBuilds.get(characterName);
+                data = this.data.ZZZBuilds.get(characterName);
                 break;
         }
         return data;

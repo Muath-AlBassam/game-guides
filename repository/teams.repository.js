@@ -3,20 +3,20 @@ class TeamsRepository {
     static getAllTeams(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
-                return TeamsRepository.data.GITeams;
+                return this.data.GITeams;
             case Constants.games.HSR:
-                return TeamsRepository.data.HSRTeams;
+                return this.data.HSRTeams;
             case Constants.games.ZZZ:
-                return TeamsRepository.data.ZZZTeams;
+                return this.data.ZZZTeams;
             case Constants.games.HI3:
-                return TeamsRepository.data.HI3Teams;
+                return this.data.HI3Teams;
             default:
                 return new Map([]);
         }
     }
     
     static getTeam(gameCode, teamName) {
-        let team = TeamsRepository.getAllTeams(gameCode).get(teamName);
+        let team = this.getAllTeams(gameCode).get(teamName);
         return team ?? { name: teamName }
     }
 

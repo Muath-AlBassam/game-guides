@@ -3,20 +3,20 @@ class ElementsRepository {
     static getAllElements(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
-                return ElementsRepository.data.GIElements;
+                return this.data.GIElements;
             case Constants.games.HSR:
-                return ElementsRepository.data.HSRElements;
+                return this.data.HSRElements;
             case Constants.games.ZZZ:
-                return ElementsRepository.data.ZZZElements;
+                return this.data.ZZZElements;
             case Constants.games.HI3:
-                return ElementsRepository.data.HI3Elements;
+                return this.data.HI3Elements;
             default:
                 return new Map([]);
         }
     }
     
     static getElement(gameCode, elementName) {
-        let element = ElementsRepository.getAllElements(gameCode).get(elementName);
+        let element = this.getAllElements(gameCode).get(elementName);
         return element ?? { name: elementName }
     }
 

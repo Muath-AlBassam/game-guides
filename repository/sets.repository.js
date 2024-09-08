@@ -4,13 +4,13 @@ class SetsRepository {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
-                data = SetsRepository.data.GISets.get(setName);
+                data = this.data.GISets.get(setName);
                 break;
             case Constants.games.HSR:
-                data = SetsRepository.data.HSRSets.get(setName);
+                data = this.data.HSRSets.get(setName);
                 break;
             case Constants.games.ZZZ:
-                data = SetsRepository.data.ZZZSets.get(setName);
+                data = this.data.ZZZSets.get(setName);
                 break;
         }
         return data ?? { name: setName }

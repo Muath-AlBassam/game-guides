@@ -3,16 +3,16 @@ class RolesRepository {
     static getAllRoles(gameCode) {
         switch (gameCode) {
             case Constants.games.HSR:
-                return RolesRepository.data.HSRRoles;
+                return this.data.HSRRoles;
             case Constants.games.ZZZ:
-                return RolesRepository.data.ZZZRoles;
+                return this.data.ZZZRoles;
             default:
                 return new Map([]);
         }
     }
     
     static getRole(gameCode, roleName) {
-        let role = RolesRepository.getAllRoles(gameCode).get(roleName);
+        let role = this.getAllRoles(gameCode).get(roleName);
         return role ?? { name: roleName }
     }
 

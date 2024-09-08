@@ -1,12 +1,12 @@
 
 class GamesRepository {
     static getAllGames() {
-        return GamesRepository.data.games;
+        return this.data.games;
     }
     
     static getGame(gameCode) {
         gameCode = gameCode == '' || gameCode == null ? Constants.games.GI : gameCode; 
-        return GamesRepository.getAllGames().get(gameCode);
+        return this.getAllGames().get(gameCode);
     }
 
     static data = {

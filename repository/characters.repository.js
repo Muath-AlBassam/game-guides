@@ -3,22 +3,22 @@ class CharactersRepository {
     static getAllCharacters(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
-                return CharactersRepository.data.GICharacters;
+                return this.data.GICharacters;
             case Constants.games.HSR:
-                return CharactersRepository.data.HSRCharacters;
+                return this.data.HSRCharacters;
             case Constants.games.ZZZ:
-                return CharactersRepository.data.ZZZCharacters;
+                return this.data.ZZZCharacters;
             case Constants.games.HI3:
-                return CharactersRepository.data.HI3Characters;
+                return this.data.HI3Characters;
             case Constants.games.TK8:
-                return CharactersRepository.data.TK8Characters;
+                return this.data.TK8Characters;
             default:
                 return new Map([]);
         }
     }
     
     static getCharacterMetadata(gameCode, characterName) {
-        let data = CharactersRepository.getAllCharacters(gameCode).get(characterName)
+        let data = this.getAllCharacters(gameCode).get(characterName)
         return data ?? { name: characterName }
     }
     

@@ -3,14 +3,14 @@ class ButtonsRepository {
     static getAllButtons(gameCode) {
         switch (gameCode) {
             case Constants.games.TK8:
-                return ButtonsRepository.data.TK8Buttons;
+                return this.data.TK8Buttons;
             default:
                 return new Map([]);
         }
     }
     
     static getButton(gameCode, buttonName) {
-        const button = ButtonsRepository.getAllButtons(gameCode).get(buttonName);
+        const button = this.getAllButtons(gameCode).get(buttonName);
         return button ?? { name: buttonName };
     }
 

@@ -4,13 +4,13 @@ class WeaponsRepository {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
-                data = WeaponsRepository.data.GIWeapons.get(weaponName);
+                data = this.data.GIWeapons.get(weaponName);
                 break;
             case Constants.games.HSR:
-                data = WeaponsRepository.data.HSRLightCones.get(weaponName);
+                data = this.data.HSRLightCones.get(weaponName);
                 break;
             case Constants.games.ZZZ:
-                data = WeaponsRepository.data.ZZZWEngines.get(weaponName);
+                data = this.data.ZZZWEngines.get(weaponName);
                 break;
         }
         return data ?? { name: weaponName }
