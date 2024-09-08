@@ -16,7 +16,7 @@ class RotationsComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = this.getAttribute('game');
         const teamName = this.getAttribute('team');
-        const teamRotations = getRotations(gameCode, teamName);
+        const teamRotations = RotationsRepository.getRotations(gameCode, teamName);
 
         this.innerHTML = this.buildHTML(gameCode, teamRotations);
     }
