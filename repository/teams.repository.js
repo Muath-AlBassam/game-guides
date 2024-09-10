@@ -278,7 +278,7 @@ class TeamsRepository {
         HSRTeams: new Map([
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/hsr/HSR_Physical.jpg',
+                iconUrl: 'assets/hsr/HSR_Physical.png',
                 characters: [
                     {
                         name: 'Huohuo',
@@ -311,7 +311,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/hsr/HSR_Fire.jpg',
+                iconUrl: 'assets/hsr/HSR_Fire.png',
                 characters: [
                     {
                         name: 'Gallagher',
@@ -341,7 +341,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/hsr/HSR_Ice.jpg',
+                iconUrl: 'assets/hsr/HSR_Ice.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -371,7 +371,7 @@ class TeamsRepository {
             }],
             ['Lightning', {
                 name: 'Lightning',
-                iconUrl: 'assets/hsr/HSR_Lightning.jpg',
+                iconUrl: 'assets/hsr/HSR_Lightning.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -401,7 +401,7 @@ class TeamsRepository {
             }],
             ['Wind', {
                 name: 'Wind',
-                iconUrl: 'assets/hsr/HSR_Wind.jpg',
+                iconUrl: 'assets/hsr/HSR_Wind.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -431,7 +431,7 @@ class TeamsRepository {
             }],
             ['Quantum', {
                 name: 'Quantum',
-                iconUrl: 'assets/hsr/HSR_Quantum.jpg',
+                iconUrl: 'assets/hsr/HSR_Quantum.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -461,7 +461,7 @@ class TeamsRepository {
             }],
             ['Imaginary', {
                 name: 'Imaginary',
-                iconUrl: 'assets/hsr/HSR_Imaginary.jpg',
+                iconUrl: 'assets/hsr/HSR_Imaginary.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -560,7 +560,7 @@ class TeamsRepository {
         ZZZTeams: new Map([
             ['Physical',  {
                 name: 'Physical',
-                iconUrl: 'assets/zzz/ZZZ_Physical.jpg',
+                iconUrl: 'assets/zzz/ZZZ_Physical.png',
                 characters: [
                     {
                         name: 'Jane',
@@ -584,7 +584,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/zzz/ZZZ_Fire.jpg',
+                iconUrl: 'assets/zzz/ZZZ_Fire.png',
                 characters: [
                     {
                         name: 'Soldier 11',
@@ -608,7 +608,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/zzz/ZZZ_Ice.jpg',
+                iconUrl: 'assets/zzz/ZZZ_Ice.png',
                 characters: [
                     {
                         name: 'Ellen',
@@ -632,12 +632,12 @@ class TeamsRepository {
             }],
             ['Electric', {
                 name: 'Electric',
-                iconUrl: 'assets/zzz/ZZZ_Electric.jpg',
+                iconUrl: 'assets/zzz/ZZZ_Electric.png',
                 characters: []
             }],
             ['Ether', {
                 name: 'Ether',
-                iconUrl: 'assets/zzz/ZZZ_Ether.jpg',
+                iconUrl: 'assets/zzz/ZZZ_Ether.png',
                 characters: [
                     {
                         name: 'Zhu Yuan',
