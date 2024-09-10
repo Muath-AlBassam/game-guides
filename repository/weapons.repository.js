@@ -346,67 +346,62 @@ class WeaponsRepository {
         ZZZWEngines: new Map([
             ['Fusion Compiler', {
                 name: 'Fusion Compiler',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_FusionCompiler.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_FusionCompiler.png',
                 rarity: 'S'
             }],
             ['Deep Sea Visitor', {
                 name: 'Deep Sea Visitor',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DeepSeaVisitor.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DeepSeaVisitor.png',
                 rarity: 'S'
             }],
             ['Hellfire Gears', {
                 name: 'Hellfire Gears',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_HellfireGears.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_HellfireGears.png',
                 rarity: 'S'
             }],
             ['The Restrained', {
                 name: 'The Restrained',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheRestrained.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheRestrained.png',
                 rarity: 'S'
-            }],
-            ['Starlight Engine', {
-                name: 'Starlight Engine',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_StarlightEngine.jpg',
-                rarity: 'A'
             }],
             ['Demara Battery Mark II', {
                 name: 'Demara Battery Mark II',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DemaraBatteryMarkII.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_DemaraBatteryMarkII.png',
                 rarity: 'A'
             }],
             ['Bashful Demon', {
                 name: 'Bashful Demon',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_BashfulDemon.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_BashfulDemon.png',
                 rarity: 'A'
             }],
             ['Kaboom the Cannon', {
                 name: 'Kaboom the Cannon',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_KaboomTheCannon.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_KaboomTheCannon.png',
                 rarity: 'A'
             }],
             ['Riot Suppressor Mark VI', {
                 name: 'Riot Suppressor Mark VI',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_RiotSuppressorMarkVI.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_RiotSuppressorMarkVI.png',
                 rarity: 'S'
             }],
             ['The Vault', {
                 name: 'The Vault',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheVault.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheVault.png',
                 rarity: 'A'
             }],
             ['The Brimstone', {
                 name: 'The Brimstone',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheBrimstone.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TheBrimstone.png',
                 rarity: 'S'
             }],
             ['Sharpened Stinger', {
                 name: 'Sharpened Stinger',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_SharpenedStinger.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_SharpenedStinger.png',
                 rarity: 'S'
             }],
             ['Peacekeeper - Specialized', {
                 name: 'Peacekeeper - Specialized',
-                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_PeacekeeperSpecialized.jpg',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_PeacekeeperSpecialized.png',
                 rarity: 'A'
             }],
         ]),
