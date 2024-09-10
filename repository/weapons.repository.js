@@ -330,6 +330,16 @@ class WeaponsRepository {
                 name: 'Dance at Sunset',
                 imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceAtSunset.jpg',
                 rarity: '5'
+            }],
+            ['Worrisome, Blissful', {
+                name: 'Worrisome, Blissful',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_WorrisomeBlissful.jpg',
+                rarity: '5'
+            }],
+            ['I Venture Forth to Hunt', {
+                name: 'I Venture Forth to Hunt',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_IVentureForthToHunt.jpg',
+                rarity: '5'
             }]
         ]),
     

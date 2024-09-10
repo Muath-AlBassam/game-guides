@@ -461,6 +461,13 @@ class CharactersRepository {
                 role: 'Destruction',
                 rarity: '5',
             }],
+            ['Feixiao', {
+                name: 'Feixiao',
+                imageUrl: 'assets/hsr/character/HSR_Feixiao.jpg',
+                element: 'Wind',
+                role: 'Hunt',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([

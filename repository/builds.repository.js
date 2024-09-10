@@ -407,12 +407,11 @@ class BuildsRepository {
                     { name: 'Pan-Cosmic Commercial Enterprise', pieceCount: '2' }
                 ]
             }],
-            // TODO missing build names
             ['Topaz', {
-                weapon: { name: '...' },
+                weapon: { name: 'Worrisome, Blissful' },
                 sets: [
-                    { name: '...', pieceCount: '4' },
-                    { name: '...', pieceCount: '2' }
+                    { name: 'The Ashblazing Grand Duke', pieceCount: '4' },
+                    { name: 'Inert Salsotto', pieceCount: '2' }
                 ]
             }],
             ['Gepard', {
@@ -476,6 +475,13 @@ class BuildsRepository {
             }],
             ['Yunli', {
                 weapon: { name: 'Dance at Sunset' },
+                sets: [
+                    { name: 'The Wind-Soaring Valorous', pieceCount: '4' },
+                    { name: 'Duran, Dynasty of Running Wolves', pieceCount: '2' }
+                ]
+            }],
+            ['Feixiao', {
+                weapon: { name: 'I Venture Forth to Hunt' },
                 sets: [
                     { name: 'The Wind-Soaring Valorous', pieceCount: '4' },
                     { name: 'Duran, Dynasty of Running Wolves', pieceCount: '2' }

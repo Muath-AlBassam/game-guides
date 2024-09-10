@@ -542,7 +542,7 @@ class TeamsRepository {
                         name: 'Herta',
                         role: 'Sub DPS',
                         isMain: true,
-                        replacedBy: ['Blade'],
+                        replacedBy: ['Blade', 'Xueyi'],
                     },
                     {
                         name: 'Robin',
@@ -550,8 +550,11 @@ class TeamsRepository {
                         isMain: false,
                         replacedBy: [],
                     }
+                ],
+                variations: [
+                    ['Fu Xuan', 'Feixiao', 'Topaz', 'Sparkle']
                 ]
-            }],
+            }]
         ]),
     
         ZZZTeams: new Map([
