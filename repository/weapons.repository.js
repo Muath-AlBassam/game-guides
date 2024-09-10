@@ -183,162 +183,162 @@ class WeaponsRepository {
         HSRLightCones: new Map([
             ['Along the Passing Shore', {
                 name: 'Along the Passing Shore',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_AlongThePassingShore.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_AlongThePassingShore.png',
                 rarity: '5'
             }],
             ['Baptism of Pure Thought', {
                 name: 'Baptism of Pure Thought',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_BaptismOfPureThought.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_BaptismOfPureThought.png',
                 rarity: '5'
             }],
             ['Brighter Than the Sun', {
                 name: 'Brighter Than the Sun',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_BrighterThanTheSun.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_BrighterThanTheSun.png',
                 rarity: '5'
             }],
             ['But the Battle Isn\'t Over', {
                 name: 'But the Battle Isn\'t Over',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_ButTheBattleIsntOver.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_ButTheBattleIsntOver.png',
                 rarity: '5'
             }],
             ['Earthly Escapade', {
                 name: 'Earthly Escapade',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_EarthlyEscapade.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_EarthlyEscapade.png',
                 rarity: '5'
             }],
             ['Flowing Nightglow', {
                 name: 'Flowing Nightglow',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_FlowingNightglow.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_FlowingNightglow.png',
                 rarity: '5'
             }],
             ['I Shall Be My Own Sword', {
                 name: 'I Shall Be My Own Sword',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_IShallBeMyOwnSword.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_IShallBeMyOwnSword.png',
                 rarity: '5'
             }],
             ['In the Name of the World', {
                 name: 'In the Name of the World',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_InTheNameOfTheWorld.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_InTheNameOfTheWorld.png',
                 rarity: '5'
             }],
             ['In the Night', {
                 name: 'In the Night',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_InTheNight.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_InTheNight.png',
                 rarity: '5'
             }],
             ['Moment of Victory', {
                 name: 'Moment of Victory',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_MomentOfVictory.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_MomentOfVictory.png',
                 rarity: '5'
             }],
             ['Night on the Milky Way', {
                 name: 'Night on the Milky Way',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_NightOnTheMilkyWay.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_NightOnTheMilkyWay.png',
                 rarity: '5'
             }],
             ['Past Self in Mirror', {
                 name: 'Past Self in Mirror',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_PastSelfInMirror.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_PastSelfInMirror.png',
                 rarity: '5'
             }],
             ['Patience Is All You Need', {
                 name: 'Patience Is All You Need',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_PatienceIsAllYouNeed.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_PatienceIsAllYouNeed.png',
                 rarity: '5'
             }],
             ['Reforged Remembrance', {
                 name: 'Reforged Remembrance',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_ReforgedRemembrance.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_ReforgedRemembrance.png',
                 rarity: '5'
             }],
             ['Sailing Towards A Second Life', {
                 name: 'Sailing Towards A Second Life',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_SailingTowardsASecondLife.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_SailingTowardsASecondLife.png',
                 rarity: '5'
             }],
             ['She Already Shut Her Eyes', {
                 name: 'She Already Shut Her Eyes',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_SheAlreadyShutHerEyes.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_SheAlreadyShutHerEyes.png',
                 rarity: '5'
             }],
             ['Something Irreplaceable', {
                 name: 'Something Irreplaceable',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_SomethingIrreplaceable.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_SomethingIrreplaceable.png',
                 rarity: '5'
             }],
             ['The Unreachable Side', {
                 name: 'The Unreachable Side',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_TheUnreachableSide.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_TheUnreachableSide.png',
                 rarity: '5'
             }],
             ['Whereabouts Should Dreams Rest', {
                 name: 'Whereabouts Should Dreams Rest',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_WhereaboutsShouldDreamsRest.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_WhereaboutsShouldDreamsRest.png',
                 rarity: '5'
             }],
             ['Yet Hope Is Priceless', {
                 name: 'Yet Hope Is Priceless',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_YetHopeIsPriceless.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_YetHopeIsPriceless.png',
                 rarity: '5'
             }],
             ['Before the Tutorial Mission Starts', {
                 name: 'Before the Tutorial Mission Starts',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_BeforeTheTutorialMissionStarts.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_BeforeTheTutorialMissionStarts.png',
                 rarity: '4'
             }],
             ['Carve the Moon, Weave the Clouds', {
                 name: 'Carve the Moon, Weave the Clouds',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_CarveTheMoonWeaveTheClouds.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_CarveTheMoonWeaveTheClouds.png',
                 rarity: '4'
             }],
             ['Hey, Over Here', {
                 name: 'Hey, Over Here',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_HeyOverHere.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_HeyOverHere.png',
                 rarity: '4'
             }],
             ['Memories of the Past', {
                 name: 'Memories of the Past',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_MemoriesOfThePast.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_MemoriesOfThePast.png',
                 rarity: '4'
             }],
             ['Perfect Timing', {
                 name: 'Perfect Timing',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_PerfectTiming.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_PerfectTiming.png',
                 rarity: '4'
             }],
             ['Resolution Shines As Pearls of Sweat', {
                 name: 'Resolution Shines As Pearls of Sweat',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_ResolutionShinesAsPearlsOfSweat.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_ResolutionShinesAsPearlsOfSweat.png',
                 rarity: '4'
             }],
             ['Warmth Shortens Cold Nights', {
                 name: 'Warmth Shortens Cold Nights',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_WarmthShortensColdNights.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_WarmthShortensColdNights.png',
                 rarity: '4'
             }],
             ['What Is Real?', {
                 name: 'What Is Real?',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_WhatIsReal.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_WhatIsReal.png',
                 rarity: '4'
             }],
             ['Dance! Dance! Dance!', {
                 name: 'Dance! Dance! Dance!',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceDanceDance.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceDanceDance.png',
                 rarity: '4'
             }],
             ['Dance at Sunset', {
                 name: 'Dance at Sunset',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceAtSunset.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_DanceAtSunset.png',
                 rarity: '5'
             }],
             ['Worrisome, Blissful', {
                 name: 'Worrisome, Blissful',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_WorrisomeBlissful.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_WorrisomeBlissful.png',
                 rarity: '5'
             }],
             ['I Venture Forth to Hunt', {
                 name: 'I Venture Forth to Hunt',
-                imageUrl: 'assets/hsr/light-cone/HSR_LC_IVentureForthToHunt.jpg',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_IVentureForthToHunt.png',
                 rarity: '5'
             }]
         ]),
