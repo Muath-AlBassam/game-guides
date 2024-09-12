@@ -233,6 +233,18 @@ class CharactersRepository {
                 imageUrl: 'assets/gi/character/GI_Emilie.png',
                 element: 'Dendro',
                 rarity: '5',
+            }],
+            ['Dehya', {
+                name: 'Dehya',
+                imageUrl: 'assets/gi/character/GI_Dehya.png',
+                element: 'Pyro',
+                rarity: '5',
+            }],
+            ['Mualani', {
+                name: 'Mualani',
+                imageUrl: 'assets/gi/character/GI_Mualani.png',
+                element: 'Hydro',
+                rarity: '5',
             }]
         ]),
     

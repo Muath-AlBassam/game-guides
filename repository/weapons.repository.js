@@ -177,6 +177,16 @@ class WeaponsRepository {
                 name: 'Lumidouce Elegy',
                 imageUrl: 'assets/gi/weapon/GI_W_LumidouceElegy.png',
                 rarity: '5'
+            }],
+            ['Beacon of the Reed Sea', {
+                name: 'Beacon of the Reed Sea',
+                imageUrl: 'assets/gi/weapon/GI_W_BeaconOfTheReedSea.png',
+                rarity: '5'
+            }],
+            ['Surf\'s Up', {
+                name: 'Surf\'s Up',
+                imageUrl: 'assets/gi/weapon/GI_W_SurfsUp.png',
+                rarity: '5'
             }]
         ]),
     

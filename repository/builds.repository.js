@@ -238,7 +238,19 @@ class BuildsRepository {
                 sets: [
                     { name: 'Unfinished Reverie', pieceCount: '4' }
                 ]
-            }]
+            }],
+            ['Dehya', {
+                weapon: { name: 'Beacon of the Reed Sea' },
+                sets: [
+                    { name: 'Vourukasha\'s Glow', pieceCount: '2' }
+                ]
+            }],
+            ['Mualani', {
+                weapon: { name: 'Surf\'s Up' },
+                sets: [
+                    { name: 'Obsidian Codex', pieceCount: '4' }
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

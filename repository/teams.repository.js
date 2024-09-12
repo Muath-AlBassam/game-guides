@@ -82,6 +82,9 @@ class TeamsRepository {
                         replacedBy: [],
                     }
                 ],
+                variations: [
+                    ['Mualani', 'Dehya', 'Kazuha', 'Zhongli']
+                ]
             }],
             ['Dendro', {
                 name: 'Dendro',

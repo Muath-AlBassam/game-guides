@@ -105,6 +105,10 @@ class SetsRepository {
             ['Unfinished Reverie', {
                 name: 'Unfinished Reverie',
                 imageUrl: 'assets/gi/set/GI_Set_UnfinishedReverie.png'
+            }],
+            ['Obsidian Codex', {
+                name: 'Obsidian Codex',
+                imageUrl: 'assets/gi/set/GI_Set_ObsidianCodex.png'
             }]
         ]),
     
