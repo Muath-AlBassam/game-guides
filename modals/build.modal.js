@@ -80,35 +80,36 @@ class BuildModal extends HTMLElement {
     }
   
     connectedCallback() {
-        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        const gameCode = Utils.getGameFromUrl();
         const character = this.getAttribute('character');
 
-        this.innerHTML = this.buildHTML(activeGame, character);
+        this.innerHTML = this.buildHTML(gameCode, character);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        const gameCode = Utils.getGameFromUrl();
         const character = this.getAttribute('character');
 
-        this.innerHTML = this.buildHTML(activeGame, character);
+        this.innerHTML = this.buildHTML(gameCode, character);
     }
 
-    buildHTML(activeGame, character) {
+    buildHTML(gameCode, character) {
         return this.componentStyle + `
-        <div class="gagu-modal" id="build-modal-body">
-            <div class="gagu-modal-content build-modal-content" id="build-modal-content">
-                ${this.buildDialogContent(activeGame, character)}
+        <div class="gagu-modal" style="padding-top: 15vh;" id="build-modal-body">
+            <div class="gagu-modal-content build-modal-content">
+                <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
+                ${this.buildDialogContent(gameCode, character)}
             </div>
         </div>`;
     }
 
-    buildDialogContent(activeGame, character) {
+    buildDialogContent(gameCode, character) {
         let buildContent = '';
-        buildContent += this.buildModalHeader(activeGame.code, character);
-        let buildmd = BuildsRepository.getCharacterBuild(activeGame.code, character);
+        buildContent += this.buildModalHeader(gameCode, character);
+        let buildmd = BuildsRepository.getCharacterBuild(gameCode, character);
         if (buildmd) {
-            buildContent += this.buildWeaponTable(activeGame.code, buildmd);
-            buildContent += this.buildSetsTable(activeGame.code, buildmd);
+            buildContent += this.buildWeaponTable(gameCode, buildmd);
+            buildContent += this.buildSetsTable(gameCode, buildmd);
         } else {
             buildContent += `<h1 class="empty-dialog">...</h1>`
         }
@@ -118,7 +119,6 @@ class BuildModal extends HTMLElement {
     buildModalHeader(gameCode, character) {
         let charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
         return `
-        <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
         <div>
             <div class="center-content" style="margin-top: 20px;">
                 ${Utils.createCharacterImage(gameCode, charmd, 
@@ -192,7 +192,7 @@ class BuildModal extends HTMLElement {
                 return 'Weapon';
             default:
                 return '';
-        }    
+        }
     }
     
     getSetsLabel(gameCode) {
@@ -207,7 +207,7 @@ class BuildModal extends HTMLElement {
                 return 'Stigmata';
             default:
                 return '';
-        }    
+        }
     }
 }
 
