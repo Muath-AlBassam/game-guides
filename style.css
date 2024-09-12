@@ -99,6 +99,11 @@ body:has(div.modal-shown) {
     border-radius: 5px;
     animation: fade-in .2s;
 }
+.gagu-modal-content__transparent {
+    margin: auto;
+    padding: 20px;
+    animation: fade-in .2s;
+}
 
 /* Character pfp + icon ---------------------------------------------------- */
 .character-container {

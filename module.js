@@ -26,6 +26,7 @@ function loadAllScripts() {
 
     // Modals
     loadScript("modals/build.modal.js", true);
+    loadScript("modals/character-art.modal.js", true);
 
     // Components
     loadScript("components/searh.component.js", true); 

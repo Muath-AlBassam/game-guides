@@ -27,6 +27,7 @@ class CharactersRepository {
             ['Arlecchino', {
                 name: 'Arlecchino',
                 imageUrl: 'assets/gi/character/GI_Arlecchino.png',
+                fullImageUrl: 'assets/gi/character/GI_Arlecchino_Full.png',
                 element: 'Pyro',
                 rarity: '5',
             }],

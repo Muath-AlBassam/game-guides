@@ -30,7 +30,8 @@ class Utils {
         let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
         let imgTag = `<img    
                     src="${imgSrc}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
-                    class="${classVal}" style="${styleVal}" width="${dimensions}" 
+                    class="${classVal}" style="${styleVal}" width="${dimensions}"
+                    onclick="openCharacterArtModal('${charmd.name}')"
                 />`;
         
         if (!withContainer) {
