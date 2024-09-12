@@ -48,7 +48,7 @@ class RolesComponent extends HTMLElement {
             let roleImage = '';
             if (charmd.role) {
                 const rolemd = RolesRepository.getRole(activeGame.code, charmd.role);
-                roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 10px 0 5px;">`;
+                roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 5px;">`;
             }
             rolesContent += `
             <tr>
@@ -58,7 +58,7 @@ class RolesComponent extends HTMLElement {
                 </td>
                 <td style="font-size: 1.2em; font-weight: bold;">
                     ${roleImage}
-                    ${character.role ?? ''}
+                    <span style="margin-left: 5px;">${character.role ?? ''}</span>
                 </td>
             </tr>`;
         });
