@@ -57,10 +57,8 @@ class BuildModal extends HTMLElement {
 
         .close-modal {
             color: #aaaaaa;
-            top: 0;
-            right: 0;
-            float: right;
             font-size: 28px;
+            height: 28px;
             font-weight: bold;
         }
         .close-modal:hover, .close-modal:focus {
@@ -92,7 +90,7 @@ class BuildModal extends HTMLElement {
         const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         const character = this.getAttribute('character');
 
-        document.getElementById('build-modal-content').innerHTML = this.buildDialogContent(activeGame, character);
+        this.innerHTML = this.buildHTML(activeGame, character);
     }
 
     buildHTML(activeGame, character) {
@@ -125,7 +123,9 @@ class BuildModal extends HTMLElement {
             <div class="center-content" style="margin-top: 20px;">
                 ${Utils.createCharacterImage(gameCode, charmd, 
                     {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false})}
-                <h5 style="margin-left: 10px;">${charmd.name}</h5>
+            </div>
+            <div class="center-content">
+                <h5>${charmd.name}</h5>
             </div>
         </div>
         `;
