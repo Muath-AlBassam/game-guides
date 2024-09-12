@@ -270,7 +270,7 @@ class TeamsRepository {
                     },
                     {
                         name: 'Zhongli',
-                        role: 'Shield + Phys RES Shred',
+                        role: 'Shield + Physical RES Shred',
                         isMain: false,
                         replacedBy: [],
                     }
@@ -365,10 +365,10 @@ class TeamsRepository {
                         replacedBy: ['Sparkle'],
                     },
                     {
-                        name: 'Ruan Mei',
-                        role: 'DMG & RES PEN Buff',
+                        name: 'Pela',
+                        role: 'Ice RES Shred + DEF Reduction',
                         isMain: false,
-                        replacedBy: ['Tingyun', 'Pela'],
+                        replacedBy: ['Tingyun', 'Ruan Mei'],
                     }
                 ]
             }],
@@ -396,7 +396,7 @@ class TeamsRepository {
                     },
                     {
                         name: 'Pela',
-                        role: 'Debuff',
+                        role: 'DEF Reduction',
                         isMain: false,
                         replacedBy: ['Silver Wolf'],
                     }
@@ -536,26 +536,26 @@ class TeamsRepository {
                         replacedBy: [],
                     },
                     {
-                        name: 'Jade',
-                        role: 'Sub DPS',
+                        name: 'Feixiao',
+                        role: 'DPS',
                         isMain: true,
                         replacedBy: [],
                     },
                     {
-                        name: 'Herta',
-                        role: 'Sub DPS',
+                        name: 'Topaz',
+                        role: 'DPS',
                         isMain: true,
-                        replacedBy: ['Blade', 'Xueyi'],
+                        replacedBy: [],
                     },
                     {
                         name: 'Robin',
                         role: 'Atk & FUA DMG Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacedBy: ['Sparkle'],
                     }
                 ],
                 variations: [
-                    ['Fu Xuan', 'Feixiao', 'Topaz', 'Sparkle']
+                    ['Fu Xuan', 'Jade', 'Herta', 'Robin']
                 ]
             }]
         ]),
