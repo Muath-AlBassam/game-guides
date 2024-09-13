@@ -45,8 +45,8 @@ class ReplacementsComponent extends HTMLElement {
             const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
 
             let charReplacements = '';
-            if (character.replacedBy) {
-                character.replacedBy.forEach(rep => {
+            if (character.replacements) {
+                character.replacements.forEach(rep => {
                     const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
                     charReplacements += Utils.createCharacterImage(activeGame.code, repmd, 
                         {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});

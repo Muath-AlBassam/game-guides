@@ -44,8 +44,8 @@ class TeamListComponent extends HTMLElement {
             if (team.characters) {
                 team.characters.forEach(ch => {
                     charactersNames.push(ch.name);
-                    if (ch.replacedBy && ch.replacedBy.length > 0) {
-                        charactersNames.push(...ch.replacedBy);
+                    if (ch.replacements && ch.replacements.length > 0) {
+                        charactersNames.push(...ch.replacements);
                     }
                 });
             }

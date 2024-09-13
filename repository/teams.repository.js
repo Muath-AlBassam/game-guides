@@ -31,25 +31,25 @@ class TeamsRepository {
                         name: 'Arlecchino',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: ['Diluc', 'Hu Tao'],
+                        replacements: ['Diluc', 'Hu Tao'],
                     },
                     {
                         name: 'Yelan',
                         role: 'Vaporize',
                         isMain: false,
-                        replacedBy: ['Xingqiu'],
+                        replacements: ['Xingqiu'],
                     },
                     {
                         name: 'Bennett',
                         role: 'Atk Buff + Heal + Energy',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Zhongli',
                         role: 'Shield',
                         isMain: false,
-                        replacedBy: ['Kazuha'],
+                        replacements: ['Kazuha'],
                     }
                 ],
             }],
@@ -61,25 +61,25 @@ class TeamsRepository {
                         name: 'Neuvillette',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Raiden Shogun',
                         role: 'Electro-Charge + Energy',
                         isMain: false,
-                        replacedBy: ['Fischl'],
+                        replacements: ['Fischl'],
                     },
                     {
                         name: 'Kazuha',
                         role: 'Hydro Swirl',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Furina',
                         role: 'Sub DPS + DMG Buff + Heal',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
                 variations: [
@@ -94,25 +94,25 @@ class TeamsRepository {
                         name: 'Nahida',
                         role: 'Dendro Applicator',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Yae Miko',
                         role: 'Sub DPS + Dendro reaction',
                         isMain: false,
-                        replacedBy: ['Raiden Shogun'],
+                        replacements: ['Raiden Shogun'],
                     },
                     {
                         name: 'Kuki Shinobu',
                         role: 'Dendro reaction + Heal',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Furina',
                         role: 'Sub DPS + Dendro reaction + DMG Buff',
                         isMain: false,
-                        replacedBy: ['Xingqiu'],
+                        replacements: ['Xingqiu'],
                     }
                 ],
                 variations: [
@@ -128,25 +128,25 @@ class TeamsRepository {
                         name: 'Clorinde',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Raiden Shogun',
                         role: 'Overload',
                         isMain: false,
-                        replacedBy: ['Fischl'],
+                        replacements: ['Fischl'],
                     },
                     {
                         name: 'Xianling',
                         role: 'Overload',
                         isMain: false,
-                        replacedBy: ['Bennett'],
+                        replacements: ['Bennett'],
                     },
                     {
                         name: 'Chevreuse',
                         role: 'Atk Buff + RES Shred + Heal',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
                 variations: [
@@ -161,25 +161,25 @@ class TeamsRepository {
                         name: 'Lynette',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: ['Xiao'],
+                        replacements: ['Xiao'],
                     },
                     {
                         name: 'Faruzan',
                         role: 'Anemo DMG Buff + RES Shred',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Xianyun',
                         role: 'Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Zhongli',
                         role: 'Shield',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
             }],
@@ -191,25 +191,25 @@ class TeamsRepository {
                         name: 'Wriothesley',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: ['Ayaka', 'Ganyu'],
+                        replacements: ['Ayaka', 'Ganyu'],
                     },
                     {
                         name: 'Shenhe',
                         role: null,
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Kazuha',
                         role: 'Cryo Swirl',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Kokomi',
                         role: 'Heal + Freeze',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
             }],
@@ -221,25 +221,25 @@ class TeamsRepository {
                         name: 'Navia',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Fischl',
                         role: 'Crystalize',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Xingqiu',
                         role: 'Crystalize',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Zhongli',
                         role: 'Shield + Crystalize',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
                 variations: [
@@ -254,25 +254,25 @@ class TeamsRepository {
                         name: 'Eula',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Raiden Shogun',
                         role: 'Superconduct + Energy',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Mika',
                         role: 'Physical DMG & Atk SPD Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Zhongli',
                         role: 'Shield + Physical RES Shred',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
             }]
@@ -287,25 +287,25 @@ class TeamsRepository {
                         name: 'Huohuo',
                         role: 'Heal + Energy Regeneration + Atk Buff',
                         isMain: false,
-                        replacedBy: ['Lynx'],
+                        replacements: ['Lynx'],
                     },
                     {
                         name: 'Yunli',
                         role: 'DPS [Ult + FUA]',
                         isMain: true,
-                        replacedBy: ['Clara'],
+                        replacements: ['Clara'],
                     },
                     {
                         name: 'Tingyun',
                         role: 'Energy Regeneration + Atk Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Robin',
                         role: 'Advance + Atk Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ],
                 variations: [
@@ -320,25 +320,25 @@ class TeamsRepository {
                         name: 'Gallagher',
                         role: 'Heal + Debuff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Firefly',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Ruan Mei',
                         role: 'DMG, RES PEN & Break Efficiency Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'MC (Harmony)',
                         role: 'Break Effect Buff + Super Break',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ]
             }],
@@ -350,25 +350,25 @@ class TeamsRepository {
                         name: 'Luocha',
                         role: 'Heal',
                         isMain: false,
-                        replacedBy: ['Fu Xuan', 'Huohuo'],
+                        replacements: ['Fu Xuan', 'Huohuo'],
                     },
                     {
                         name: 'Jingliu',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Bronya',
                         role: 'DMG & Crit Buff',
                         isMain: false,
-                        replacedBy: ['Sparkle'],
+                        replacements: ['Sparkle'],
                     },
                     {
                         name: 'Pela',
                         role: 'Ice RES Shred + DEF Reduction',
                         isMain: false,
-                        replacedBy: ['Tingyun', 'Ruan Mei'],
+                        replacements: ['Tingyun', 'Ruan Mei'],
                     }
                 ]
             }],
@@ -380,25 +380,25 @@ class TeamsRepository {
                         name: 'Fu Xuan',
                         role: 'Tank + Crit Buff + Debuff',
                         isMain: false,
-                        replacedBy: ['Gepard'],
+                        replacements: ['Gepard'],
                     },
                     {
                         name: 'Acheron',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Sparkle',
                         role: 'DMG & Crit Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Pela',
                         role: 'DEF Reduction',
                         isMain: false,
-                        replacedBy: ['Silver Wolf'],
+                        replacements: ['Silver Wolf'],
                     }
                 ]
             }],
@@ -410,25 +410,25 @@ class TeamsRepository {
                         name: 'Luocha',
                         role: 'Heal',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Blade',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Bronya',
                         role: 'DMG & Crit Buff',
                         isMain: false,
-                        replacedBy: ['Sparkle'],
+                        replacements: ['Sparkle'],
                     },
                     {
                         name: 'Ruan Mei',
                         role: 'DMG & RES PEN Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ]
             }],
@@ -440,25 +440,25 @@ class TeamsRepository {
                         name: 'Fu Xuan',
                         role: 'Tank + Crit Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Seele',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: ['Xueyi'],
+                        replacements: ['Xueyi'],
                     },
                     {
                         name: 'Bronya',
                         role: 'DMG & Crit Buff',
                         isMain: false,
-                        replacedBy: ['Sparkle'],
+                        replacements: ['Sparkle'],
                     },
                     {
                         name: 'Silver Wolf',
                         role: 'Debuff',
                         isMain: false,
-                        replacedBy: ['Ruan Mei'],
+                        replacements: ['Ruan Mei'],
                     }
                 ]
             }],
@@ -470,25 +470,25 @@ class TeamsRepository {
                         name: 'Luocha',
                         role: 'Heal',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Dang Heng · IL', // to get the dot: alt+0183 
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Sparkle',
                         role: 'DMG & Crit Buff + SP Recovery',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Welt',
                         role: 'Break + Debuff',
                         isMain: false,
-                        replacedBy: ['Hanya'],
+                        replacements: ['Hanya'],
                     }
                 ],
                 variations: [
@@ -503,25 +503,25 @@ class TeamsRepository {
                         name: 'Huohuo',
                         role: 'Heal + Atk Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Kafka',
                         role: 'DoT Ignition',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Black Swan',
                         role: 'DoT + Debuff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Ruan Mei',
                         role: 'DMG & RES PEN Buff',
                         isMain: false,
-                        replacedBy: ['Robin', 'Silver Wolf'],
+                        replacements: ['Robin', 'Silver Wolf'],
                     }
                 ]
             }],
@@ -533,25 +533,25 @@ class TeamsRepository {
                         name: 'Fu Xuan',
                         role: 'Tank + Crit Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Feixiao',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Topaz',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Robin',
                         role: 'Atk & FUA DMG Buff',
                         isMain: false,
-                        replacedBy: ['Sparkle'],
+                        replacements: ['Sparkle'],
                     }
                 ],
                 variations: [
@@ -569,19 +569,19 @@ class TeamsRepository {
                         name: 'Jane',
                         role: 'Assault Anomaly',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Seth',
                         role: 'Anomaly Proficiency Buff + Shield',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Lucy',
                         role: 'Atk Buff',
                         isMain: false,
-                        replacedBy: ['Anby', 'Grace'],
+                        replacements: ['Anby', 'Grace'],
                     }
                 ]
             }],
@@ -593,19 +593,19 @@ class TeamsRepository {
                         name: 'Soldier 11',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Koleda',
                         role: 'Stun',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Lucy',
                         role: 'Atk Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ]
             }],
@@ -617,19 +617,19 @@ class TeamsRepository {
                         name: 'Ellen',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Lycaon',
                         role: 'Stun + Ice RES Shred',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Soukaku',
                         role: 'Atk Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ]
             }],
@@ -646,19 +646,19 @@ class TeamsRepository {
                         name: 'Zhu Yuan',
                         role: 'DPS',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Qingyi',
                         role: 'Stun',
                         isMain: false,
-                        replacedBy: ['Anby'],
+                        replacements: ['Anby'],
                     },
                     {
                         name: 'Nicole',
                         role: 'Ether DMG Buff + DEF Reduction',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     }
                 ]
             }]
@@ -673,19 +673,19 @@ class TeamsRepository {
                         name: 'Lantern',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Ai',
                         role: 'Fire DMG Buff + Ignite',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Bronya (HoT)',
                         role: 'Fire DMG Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                 ]
             }],
@@ -697,19 +697,19 @@ class TeamsRepository {
                         name: 'Lunar Vow',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Eden',
                         role: 'Buff?',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Bronya (HoT)',
                         role: 'Lightning DMG Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                 ]
             }],
@@ -721,7 +721,7 @@ class TeamsRepository {
                         name: 'Elysia',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                 ]
             }],
@@ -733,19 +733,19 @@ class TeamsRepository {
                         name: 'Durandal',
                         role: 'DPS',
                         isMain: true,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Carole',
                         role: 'Physical & Total DMG Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Fu Hua (HoS)',
                         role: 'DEF Reduction',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                 ]
             }],
@@ -757,19 +757,19 @@ class TeamsRepository {
                         name: 'Kiana (HoFi)',
                         role: 'DPS',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Mei (HoO)',
                         role: 'DPS',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                     {
                         name: 'Bronya (HoT)',
                         role: 'Fire & Lightning DMG Buff',
                         isMain: false,
-                        replacedBy: [],
+                        replacements: [],
                     },
                 ]
             }]
