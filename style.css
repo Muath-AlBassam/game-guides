@@ -64,7 +64,7 @@ app-nav.active ~ .main-content {
     justify-content: center;
 }
 
-/* Modal styles ------------------------------------------------------------ */
+/* Dialog styles ----------------------------------------------------------- */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -76,9 +76,9 @@ app-nav.active ~ .main-content {
     }
 }
 
-.gagu-modal {
-    /* style of the modal content */
-    /* style of the modal background (shadow overlay) */
+.gagu-dialog {
+    /* style of the dialog content */
+    /* style of the dialog background (shadow overlay) */
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
     /* shared */
@@ -92,16 +92,16 @@ app-nav.active ~ .main-content {
     height: 100%;
 }
 
-.gagu-modal.modal-shown {
+.gagu-dialog.dialog-shown {
     display: block;
     opacity: 1;
 }
-body:has(div.modal-shown) {
-    /* disable scroll when modal is open */
+body:has(div.dialog-shown) {
+    /* disable scroll when dialog is open */
     overflow: hidden;
 }
 
-.gagu-modal-content {
+.gagu-dialog-content {
     background-color: var(--background-color);
     margin: auto;
     padding: 20px;

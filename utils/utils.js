@@ -11,14 +11,14 @@ class Utils {
             dimensions = 100, 
             styles = '', 
             classes = '', 
-            withBuildModal = false, 
+            withBuildDialog = false, 
             withBackgroundClass = true,
             withElement = false,
             withContainer = true
         } = {}
     ) {
         let showBuild = false;
-        if (withBuildModal) {
+        if (withBuildDialog) {
             showBuild = null != BuildsRepository.getCharacterBuild(gameCode, charmd.name);
         }
         const showElement = withElement && charmd.element;
@@ -39,7 +39,7 @@ class Utils {
     
         let buildIcon = showBuild ? `
             <img src="assets/svg/armor.svg" width="26" height="26" class="build-icon" 
-            title="View build" onclick="openBuildModal('${charmd.name}')"/>` 
+            title="View build" onclick="openBuildDialog('${charmd.name}')"/>` 
             : '';
     
         let elementImgUrl = ElementsRepository.getElement(gameCode, charmd.element).imageUrl;

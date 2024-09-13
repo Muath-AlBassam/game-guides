@@ -1,5 +1,5 @@
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
-class BuildModal extends HTMLElement {
+class BuildDialog extends HTMLElement {
 
     static observedAttributes = ["character"];
 
@@ -7,11 +7,11 @@ class BuildModal extends HTMLElement {
     
     componentStyle = `
     <style>
-        .build-modal-content {
+        .build-dialog-content {
             width: 20%;
         }
         
-        .build-modal-content .character-image {
+        .build-dialog-content .character-image {
             border: 2px solid #484950;
             border-radius: 100%; 
         }
@@ -55,13 +55,13 @@ class BuildModal extends HTMLElement {
             padding-right: 5px;
         }
 
-        .close-modal {
+        .close-dialog {
             color: #aaaaaa;
             font-size: 28px;
             height: 28px;
             font-weight: bold;
         }
-        .close-modal:hover, .close-modal:focus {
+        .close-dialog:hover, .close-dialog:focus {
             color: #fff;
             text-decoration: none;
             cursor: pointer;
@@ -95,9 +95,9 @@ class BuildModal extends HTMLElement {
 
     buildHTML(gameCode, character) {
         return this.componentStyle + `
-        <div class="gagu-modal" style="padding-top: 15vh;" id="build-modal-body">
-            <div class="gagu-modal-content build-modal-content">
-                <div class="close-modal" onclick="closeModal()">${Constants.unicode.times}</div>
+        <div class="gagu-dialog" style="padding-top: 15vh;" id="build-dialog-body">
+            <div class="gagu-dialog-content build-dialog-content">
+                <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 ${this.buildDialogContent(gameCode, character)}
             </div>
         </div>`;
@@ -105,7 +105,7 @@ class BuildModal extends HTMLElement {
 
     buildDialogContent(gameCode, character) {
         let buildContent = '';
-        buildContent += this.buildModalHeader(gameCode, character);
+        buildContent += this.buildDialogHeader(gameCode, character);
         let buildmd = BuildsRepository.getCharacterBuild(gameCode, character);
         if (buildmd) {
             buildContent += this.buildWeaponTable(gameCode, buildmd);
@@ -116,7 +116,7 @@ class BuildModal extends HTMLElement {
         return buildContent;
     }
 
-    buildModalHeader(gameCode, character) {
+    buildDialogHeader(gameCode, character) {
         let charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
         return `
         <div>
@@ -211,13 +211,13 @@ class BuildModal extends HTMLElement {
     }
 }
 
-customElements.define('app-build-modal', BuildModal);
+customElements.define('app-build', BuildDialog);
 
 //------------------------------------------------------------------------------------
 
-function openBuildModal(character) {
+function openBuildDialog(character) {
     // trigger attributeChangedCallback & set data
-    document.getElementById('build-modal').setAttribute('character', character);
-    // add show class to modal
-    document.getElementById('build-modal-body').classList.add('modal-shown');
+    document.getElementById('build-dialog').setAttribute('character', character);
+    // add show class to dialog
+    document.getElementById('build-dialog-body').classList.add('dialog-shown');
 }

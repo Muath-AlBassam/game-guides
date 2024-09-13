@@ -24,9 +24,6 @@ function loadAllScripts() {
     loadScript("repository/elements.repository.js");
     loadScript("repository/buttons.repository.js");
 
-    // Modals
-    loadScript("modals/build.modal.js", true);
-
     // Components
     loadScript("components/searh.component.js", true); 
     loadScript("components/game-guides.component.js", true); 
@@ -41,6 +38,7 @@ function loadAllScripts() {
     loadScript("components/team/team-variations.component.js", true);
     loadScript("components/team/team-replacements.component.js", true);
     loadScript("components/team/team-rotations.component.js", true);
+    loadScript("components/team/build.dialog.js", true);
     // Fight
     loadScript("components/fight/fight-list.component.js", true);
 }

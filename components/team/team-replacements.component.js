@@ -49,7 +49,7 @@ class ReplacementsComponent extends HTMLElement {
                 character.replacedBy.forEach(rep => {
                     const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
                     charReplacements += Utils.createCharacterImage(activeGame.code, repmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
+                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
                 })
             }
 

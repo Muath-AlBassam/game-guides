@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAllScripts();
 });
 
-// close modal on clicking outside
+// close dialog on clicking outside
 window.onclick = function(event) {
-    if (Array.from(document.getElementsByClassName('gagu-modal')).includes(event.target)) {
-        closeModal();
+    if (Array.from(document.getElementsByClassName('gagu-dialog')).includes(event.target)) {
+        closeDialog();
     }
 }
 
-function closeModal() {
-    Array.from(document.getElementsByClassName('modal-shown')).forEach(elemnt => {
-        elemnt.classList.remove('modal-shown');
+function closeDialog() {
+    Array.from(document.getElementsByClassName('dialog-shown')).forEach(elemnt => {
+        elemnt.classList.remove('dialog-shown');
     })
 }

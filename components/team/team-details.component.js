@@ -195,7 +195,7 @@ class TeamDetailsComponent extends HTMLElement {
             const character = team.characters[i]
             const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
             membersImages += Utils.createCharacterImage(activeGame.code, charmd, 
-                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildModal: true, withElement: true});
+                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
         }
         return membersImages;
     }
