@@ -31,11 +31,13 @@ class VariationsComponent extends HTMLElement {
                     Variations
                 </h5>
             </div>
-            <table class="table table-striped table-bordered">
-                <tbody>
-                ${this.buildVariationsContent(activeGame, currentTeam)}
-                </tbody>
-            </table>
+            <div style="height: ${107 * activeGame.teamSize}px; overflow: auto;">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    ${this.buildVariationsContent(activeGame, currentTeam)}
+                    </tbody>
+                </table>
+            </div>
         </div>`;
     }
 
@@ -44,7 +46,7 @@ class VariationsComponent extends HTMLElement {
 
         if (currentTeam.variations) {
             currentTeam.variations.forEach(vari => {
-                variationsContent += `<tr><td style="width: 50px; text-align: center">`;
+                variationsContent += `<tr><td style="display: flex; text-align: center">`;
                 vari.forEach(character => {
                     const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character);
                     variationsContent += Utils.createCharacterImage(activeGame.code, charmd, 
