@@ -86,11 +86,11 @@ class ElementsRepository {
         ZZZElements: new Map([
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/zzz/ZZZ_Physical.jpg'
+                imageUrl: 'assets/zzz/ZZZ_Physical.png'
             }],
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/zzz/ZZZ_Fire.jpg'
+                imageUrl: 'assets/zzz/ZZZ_Fire.png'
             }],
             ['Ice', {
                 name: 'Ice',
@@ -98,11 +98,11 @@ class ElementsRepository {
             }],
             ['Electric', {
                 name: 'Electric',
-                imageUrl: 'assets/zzz/ZZZ_Electric.jpg'
+                imageUrl: 'assets/zzz/ZZZ_Electric.png'
             }],
             ['Ether', {
                 name: 'Ether',
-                imageUrl: 'assets/zzz/ZZZ_Ether.jpg'
+                imageUrl: 'assets/zzz/ZZZ_Ether.png'
             }],
         ]),
     
