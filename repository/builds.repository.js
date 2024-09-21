@@ -251,6 +251,19 @@ class BuildsRepository {
                     { name: 'Obsidian Codex', pieceCount: '4' }
                 ]
             }],
+            ['Kinich', {
+                weapon: { name: 'Fang of the Mountain King' },
+                sets: [
+                    { name: 'Obsidian Codex', pieceCount: '4' }
+                ]
+            }],
+            ['Thoma', {
+                weapon: { name: 'Favonius Lance' },
+                sets: [
+                    { name: 'Emblem of Severed Fate', pieceCount: '2' },
+                    { name: 'Tenacity of the Millelith', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

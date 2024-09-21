@@ -245,7 +245,19 @@ class CharactersRepository {
                 imageUrl: 'assets/gi/character/GI_Mualani.png',
                 element: 'Hydro',
                 rarity: '5',
-            }]
+            }],
+            ['Kinich', {
+                name: 'Kinich',
+                imageUrl: 'assets/gi/character/GI_Kinich.png',
+                element: 'Dendro',
+                rarity: '5',
+            }],
+            ['Thoma', {
+                name: 'Thoma',
+                imageUrl: 'assets/gi/character/GI_Thoma.png',
+                element: 'Pyro',
+                rarity: '4',
+            }],
         ]),
     
         HSRCharacters: new Map([

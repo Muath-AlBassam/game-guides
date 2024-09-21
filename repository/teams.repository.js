@@ -117,7 +117,7 @@ class TeamsRepository {
                 ],
                 variations: [
                     ['Nahida', 'Nilou', 'Kirara', 'Kokomi'],
-                    ['Emilie', 'Bennett', 'Xianling', 'Kazuha'],
+                    ['Kinich', 'Emilie',  'Thoma', 'Bennett'],
                 ],
             }],
             ['Electro', {

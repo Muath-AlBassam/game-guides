@@ -187,7 +187,12 @@ class WeaponsRepository {
                 name: 'Surf\'s Up',
                 imageUrl: 'assets/gi/weapon/GI_W_SurfsUp.png',
                 rarity: '5'
-            }]
+            }],
+            ['Fang of the Mountain King', {
+                name: 'Fang of the Mountain King',
+                imageUrl: 'assets/gi/weapon/GI_W_FangOfTheMountainKing.png',
+                rarity: '5'
+            }],
         ]),
     
         HSRLightCones: new Map([
