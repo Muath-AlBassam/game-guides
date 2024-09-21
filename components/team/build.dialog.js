@@ -118,6 +118,11 @@ class BuildDialog extends HTMLElement {
 
     buildDialogHeader(gameCode, character) {
         let charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
+        let roleImage = '';
+        if (charmd.role) {
+            const rolemd = RolesRepository.getRole(gameCode, charmd.role);
+            roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 5px;">`;
+        }
         return `
         <div>
             <div class="center-content" style="margin-top: 20px;">
@@ -125,7 +130,7 @@ class BuildDialog extends HTMLElement {
                     {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false})}
             </div>
             <div class="center-content">
-                <h5>${charmd.name}</h5>
+                ${roleImage} <h5>${charmd.name}</h5>
             </div>
         </div>
         `;
