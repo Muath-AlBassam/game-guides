@@ -137,10 +137,10 @@ class TeamsRepository {
                         replacements: ['Fischl'],
                     },
                     {
-                        name: 'Xianling',
-                        role: 'Overload',
+                        name: 'Thoma',
+                        role: 'Overload + NA Buff + Sheild',
                         isMain: false,
-                        replacements: ['Bennett'],
+                        replacements: ['Xianling', 'Bennett'],
                     },
                     {
                         name: 'Chevreuse',
