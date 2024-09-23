@@ -45,7 +45,7 @@ class GamesRepository {
                 backgroundUrl: 'assets/zzz/ZZZ_BG.png',
                 // characters : https://www.prydwen.gg/zenless/tier-list
                 // weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
-                // sets & characters : https://www.prydwen.gg/zenless/tier-list
+                // sets : https://www.prydwen.gg/zenless/tier-list
                 guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
             }],
             [Constants.games.HI3, {

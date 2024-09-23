@@ -52,7 +52,7 @@ class VariationsComponent extends HTMLElement {
                     variationsContent += `<h6 style="width: 75px">${vari.name}</h6>`;
                 }
                 // add characters
-                variationsContent += this.addCharactersImages(vari.characters, activeGame.code);
+                variationsContent += this.buildCharactersImages(vari.characters, activeGame.code);
                 variationsContent += `</td></tr>`;
             })
         } else {
@@ -64,7 +64,7 @@ class VariationsComponent extends HTMLElement {
         return variationsContent;
     }
 
-    addCharactersImages(variationCharacters, gameCode) {
+    buildCharactersImages(variationCharacters, gameCode) {
         let content = '';
         variationCharacters.forEach(character => {
             const charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
