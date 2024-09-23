@@ -83,7 +83,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Mualani', 'Dehya', 'Kazuha', 'Zhongli']
+                    { name: 'Vaporize', characters: ['Mualani', 'Dehya', 'Kazuha', 'Zhongli'] }
                 ]
             }],
             ['Dendro', {
@@ -116,8 +116,8 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Nahida', 'Nilou', 'Kirara', 'Kokomi'],
-                    ['Kinich', 'Emilie',  'Thoma', 'Bennett'],
+                    { name: 'Nilou Bloom', characters: ['Nahida', 'Nilou', 'Kirara', 'Kokomi'] },
+                    { name: 'Burning', characters: ['Kinich', 'Emilie',  'Thoma', 'Bennett'] },
                 ],
             }],
             ['Electro', {
@@ -150,7 +150,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli']
+                    { name: 'Hyper Bloom', characters: ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli'] }
                 ],
             }],
             ['Anemo', {
@@ -243,7 +243,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli']
+                    { name: 'Mono Geo', characters: ['Chiori', 'Gorou', 'Yun Jin', 'Zhongli'] }
                 ],
             }],
             ['Physical', {
@@ -309,7 +309,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'],
+                    { name: null, characters: ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'] },
                 ]
             }],
             ['Fire', {
@@ -492,7 +492,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei']
+                    { name: null, characters: ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei'] }
                 ]
             }],
             ['DoT', {
@@ -555,7 +555,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    ['Fu Xuan', 'Jade', 'Herta', 'Robin']
+                    { name: null, characters: ['Fu Xuan', 'Jade', 'Herta', 'Robin'] }
                 ]
             }]
         ]),

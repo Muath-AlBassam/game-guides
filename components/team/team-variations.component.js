@@ -41,17 +41,18 @@ class VariationsComponent extends HTMLElement {
         </div>`;
     }
 
-    buildVariationsContent(activeGame, currentTeam) {
+    buildVariationsContent(activeGame, team) {
         let variationsContent = '';
 
-        if (currentTeam.variations) {
-            currentTeam.variations.forEach(vari => {
+        if (team.variations) {
+            team.variations.forEach(vari => {
                 variationsContent += `<tr><td style="display: flex; text-align: center">`;
-                vari.forEach(character => {
-                    const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character);
-                    variationsContent += Utils.createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
-                })
+                // add name
+                if (vari.name) {
+                    variationsContent += `<h6 style="width: 75px">${vari.name}</h6>`;
+                }
+                // add characters
+                variationsContent += this.addCharactersImages(vari.characters, activeGame.code);
                 variationsContent += `</td></tr>`;
             })
         } else {
@@ -61,6 +62,16 @@ class VariationsComponent extends HTMLElement {
         }
 
         return variationsContent;
+    }
+
+    addCharactersImages(variationCharacters, gameCode) {
+        let content = '';
+        variationCharacters.forEach(character => {
+            const charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
+            content += Utils.createCharacterImage(gameCode, charmd, 
+                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+        });
+        return content;
     }
 }
 
