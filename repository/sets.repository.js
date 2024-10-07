@@ -275,6 +275,14 @@ class SetsRepository {
             ['Fanged Metal', {
                 name: 'Fanged Metal',
                 imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_FangedMetal.jpg'
+            }],
+            ['Proto Punk', {
+                name: 'Proto Punk',
+                imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ProtoPunk.jpg'
+            }],
+            ['Inferno Metal', {
+                name: 'Inferno Metal',
+                imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_InfernoMetal.jpg'
             }]
         ])
     }

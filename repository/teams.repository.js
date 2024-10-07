@@ -581,7 +581,7 @@ class TeamsRepository {
                         name: 'Lucy',
                         role: 'Atk Buff',
                         isMain: false,
-                        replacements: ['Anby', 'Grace'],
+                        replacements: ['Caesar', 'Anby', 'Grace'],
                     }
                 ]
             }],
@@ -599,7 +599,7 @@ class TeamsRepository {
                         name: 'Koleda',
                         role: 'Stun',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Caesar'],
                     },
                     {
                         name: 'Lucy',

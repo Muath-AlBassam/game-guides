@@ -586,6 +586,13 @@ class CharactersRepository {
                 role: 'Defence',
                 rarity: 'A',
             }],
+            ['Caesar', {
+                name: 'Caesar',
+                imageUrl: 'assets/zzz/character/ZZZ_Caesar.jpg',
+                element: 'Physical',
+                role: 'Defence',
+                rarity: 'S',
+            }],
         ]),
     
         HI3Characters: new Map([

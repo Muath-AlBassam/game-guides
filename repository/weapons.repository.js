@@ -419,6 +419,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/zzz/w-engine/ZZZ_WE_PeacekeeperSpecialized.png',
                 rarity: 'A'
             }],
+            ['Tusks of Fury', {
+                name: 'Tusks of Fury',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TusksOfFury.png',
+                rarity: 'S'
+            }],
         ]),
     }
 }

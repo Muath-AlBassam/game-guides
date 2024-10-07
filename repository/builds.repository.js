@@ -552,12 +552,17 @@ class BuildsRepository {
             }],
             ['Koleda', {
                 weapon: { name: 'Hellfire Gears' },
-                // sets: [
-                //     { name: 'Shockstar Disco', pieceCount: '4' }
-                // ]
+                sets: [
+                    { name: 'Shockstar Disco', pieceCount: '4' },
+                    { name: 'Swing Jazz', pieceCount: '2' }
+                ]
             }],
             ['Soldier 11', {
-                weapon: { name: 'The Brimstone' }
+                weapon: { name: 'The Brimstone' },
+                sets: [
+                    { name: 'Inferno Metal', pieceCount: '4' },
+                    { name: 'Woodpecker Electro', pieceCount: '2' },
+                ]
             }],
             ['Lucy', {
                 weapon: { name: 'Kaboom the Cannon' },
@@ -599,6 +604,13 @@ class BuildsRepository {
                 sets: [
                     { name: 'Swing Jazz', pieceCount: '4' },
                     { name: 'Hormone Punk', pieceCount: '2' }
+                ]
+            }],
+            ['Caesar', {
+                weapon: { name: 'Tusks of Fury' },
+                sets: [
+                    { name: 'Proto Punk', pieceCount: '4' },
+                    { name: 'Shockstar Disco', pieceCount: '2' }
                 ]
             }],
         ]),
