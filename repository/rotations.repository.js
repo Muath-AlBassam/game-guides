@@ -35,7 +35,7 @@ class RotationsRepository {
                 ['Zhongli', `Skill ${this.smallText('(Hold)')} ${this.arrow}`],
                 ['Bennett', `Ult ${this.arrow}`],
                 ['Yelan', `Ult ${this.arrow}`],
-                ['Arlecchino', `Skill ${this.arrow} CA ${this.arrow} NA`],
+                ['Arlecchino', `Skill ${this.arrow} CA ${this.arrow} ${this.repeat(`NA ${this.smallText('(Until BoL is 0)')}`)}`],
             ]],
             ['Hydro', [
                 ['Neuvillette', `NA${this.times}1 ${this.arrow}`],
@@ -49,13 +49,13 @@ class RotationsRepository {
                 ['Furina', `Skill ${this.arrow} Ult ${this.smallText('(optional)')} ${this.arrow}`],
                 ['Yae Miko', `Skill${this.times}3 ${this.arrow}`],
                 ['Kuki Shinobu', `Skill ${this.arrow}`],
-                ['Nahida', `NA + CA`],
+                ['Nahida', `${this.repeat('NA + CA')}`],
             ]],
             ['Electro', [
                 ['Raiden Shogun', `Skill ${this.arrow}`],
-                ['Xianling', `Ult ${this.arrow}`],
-                ['Chevreuse', `Skill ${this.smallText('(Hold)')} ${this.arrow}`],
-                ['Clorinde', `Skill + Ult`]
+                ['Chevreuse', `Skill ${this.smallText('(Hold)')} ${this.arrow} Ult ${this.arrow}`],
+                ['Thoma', `Ult ${this.arrow} Skill ${this.arrow}`],
+                ['Clorinde', `${this.repeat('Skill + NA')} ${this.arrow} Ult`]
             ]],
             ['Anemo', [
                 ['Zhongli', `Skill ${this.smallText('(Hold)')} ${this.arrow}`],
@@ -67,7 +67,7 @@ class RotationsRepository {
                 ['Wriothesley', `NA${this.times}1 ${this.arrow}`],
                 ['Kazuha', `Skill ${this.arrow}`],
                 ['Kokomi', `Skill ${this.arrow}`],
-                ['Wriothesley', `Skill ${this.arrow} NA + CA`],
+                ['Wriothesley', `Skill ${this.arrow} ${this.repeat('NA + CA')}`],
             ]],
             ['Geo', [
                 ['Zhongli', `Skill ${this.smallText('(Hold)')} ${this.arrow}`],
@@ -98,12 +98,12 @@ class RotationsRepository {
             ['Ice', [
                 ['Ellen', `Dash + CA ${this.arrow}`],
                 ['Lycaon', `${this.repeat('CA + EX Special')} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Soukaku', `Special ${this.smallText('(hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
+                ['Soukaku', `Special ${this.smallText('(Hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]],
             ['Ether', [
                 ['Qingyi', `${this.repeat(`Basic ${this.times + ' ' + this.infinity} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} CA`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Nicole', `EX Special ${this.smallText('(hold)')} ${this.arrow} Basic${this.times}1 ${this.arrow}`],
+                ['Nicole', `EX Special ${this.smallText('(Hold)')} ${this.arrow} Basic${this.times}1 ${this.arrow}`],
                 ['Zhu Yuan', `CA + EX Special`],
             ]]
         ]),
