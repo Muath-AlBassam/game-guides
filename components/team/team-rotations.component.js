@@ -37,7 +37,7 @@ class RotationsComponent extends HTMLElement {
     buildRotationsContent(gameCode, teamRotations) {
         let rotationsContent = '';
 
-        if (teamRotations) {
+        if (teamRotations && teamRotations.length > 0) {
             teamRotations.forEach(step => {
                 const charmd = CharactersRepository.getCharacterMetadata(gameCode, step[0]);
                 rotationsContent += `

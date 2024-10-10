@@ -596,10 +596,10 @@ class TeamsRepository {
                         replacements: [],
                     },
                     {
-                        name: 'Koleda',
-                        role: 'Stun',
+                        name: 'Caesar',
+                        role: 'Stun + Atk Buff + Shield',
                         isMain: false,
-                        replacements: ['Caesar'],
+                        replacements: ['Koleda'],
                     },
                     {
                         name: 'Lucy',

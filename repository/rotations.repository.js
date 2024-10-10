@@ -91,7 +91,7 @@ class RotationsRepository {
                 ['Jane', `Basic ${this.smallText('(Until Passion State)')} ${this.arrow} Basic + CA + Special`]
             ]],
             ['Fire', [
-                ['Koleda', `${this.repeat(`Basic${this.times}2 ${this.arrow} Special`)} ${this.arrow} Stun ${this.arrow}`],
+                ['Caesar', `${this.repeat(`EX Special ${this.smallText('(Parry)')} + Basic ${this.smallText('(Hold)')}`)} ${this.arrow} Stun ${this.arrow}`],
                 ['Lucy', `EX Special ${this.arrow}`],
                 ['Soldier 11', `(EX Special ${this.arrow} Basic) / Timed Basic`],
             ]],
@@ -101,7 +101,6 @@ class RotationsRepository {
                 ['Soukaku', `Special ${this.smallText('(hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]],
-            ['Electric', []],
             ['Ether', [
                 ['Qingyi', `${this.repeat(`Basic ${this.times + ' ' + this.infinity} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} CA`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Nicole', `EX Special ${this.smallText('(hold)')} ${this.arrow} Basic${this.times}1 ${this.arrow}`],
