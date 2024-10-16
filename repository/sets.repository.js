@@ -109,7 +109,11 @@ class SetsRepository {
             ['Obsidian Codex', {
                 name: 'Obsidian Codex',
                 imageUrl: 'assets/gi/set/GI_Set_ObsidianCodex.png'
-            }]
+            }],
+            ['Scroll of the Hero of Cinder City', {
+                name: 'Scroll of the Hero of Cinder City',
+                imageUrl: 'assets/gi/set/GI_Set_ScrollOfTheHeroOfCinderCity.png'
+            }],
         ]),
     
         HSRSets: new Map([
@@ -283,7 +287,11 @@ class SetsRepository {
             ['Inferno Metal', {
                 name: 'Inferno Metal',
                 imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_InfernoMetal.jpg'
-            }]
+            }],
+            ['Chaos Jazz', {
+                name: 'Chaos Jazz',
+                imageUrl: 'assets/zzz/drive-disk/ZZZ_DD_ChaosJazz.jpg'
+            }],
         ])
     }
 }

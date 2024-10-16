@@ -258,6 +258,12 @@ class CharactersRepository {
                 element: 'Pyro',
                 rarity: '4',
             }],
+            ['Xilonen', {
+                name: 'Xilonen',
+                imageUrl: 'assets/gi/character/GI_Xilonen.png',
+                element: 'Geo',
+                rarity: '5',
+            }],
         ]),
     
         HSRCharacters: new Map([
@@ -591,6 +597,13 @@ class CharactersRepository {
                 imageUrl: 'assets/zzz/character/ZZZ_Caesar.jpg',
                 element: 'Physical',
                 role: 'Defence',
+                rarity: 'S',
+            }],
+            ['Burnice', {
+                name: 'Burnice',
+                imageUrl: 'assets/zzz/character/ZZZ_Burnice.jpg',
+                element: 'Fire',
+                role: 'Anomaly',
                 rarity: 'S',
             }],
         ]),

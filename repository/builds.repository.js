@@ -264,6 +264,12 @@ class BuildsRepository {
                     { name: 'Tenacity of the Millelith', pieceCount: '2' }
                 ]
             }],
+            ['Xilonen', {
+                weapon: { name: 'Flute of Ezpitzal' },
+                sets: [
+                    { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([
@@ -611,6 +617,13 @@ class BuildsRepository {
                 sets: [
                     { name: 'Proto Punk', pieceCount: '4' },
                     { name: 'Shockstar Disco', pieceCount: '2' }
+                ]
+            }],
+            ['Burnice', {
+                weapon: { name: 'Flamemaker Shaker' },
+                sets: [
+                    { name: 'Chaos Jazz', pieceCount: '4' },
+                    { name: 'Freedom Blues', pieceCount: '2' }
                 ]
             }],
         ]),

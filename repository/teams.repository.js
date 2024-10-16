@@ -83,7 +83,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: 'Vaporize', characters: ['Mualani', 'Dehya', 'Kazuha', 'Zhongli'] }
+                    { name: 'Vaporize', characters: ['Mualani', 'Dehya', 'Xilonen', 'Zhongli'] }
                 ]
             }],
             ['Dendro', {
@@ -605,7 +605,7 @@ class TeamsRepository {
                         name: 'Lucy',
                         role: 'Atk Buff',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Burnice'],
                     }
                 ]
             }],

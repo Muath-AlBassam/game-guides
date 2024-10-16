@@ -193,6 +193,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/gi/weapon/GI_W_FangOfTheMountainKing.png',
                 rarity: '5'
             }],
+            ['Flute of Ezpitzal', {
+                name: 'Flute of Ezpitzal',
+                imageUrl: 'assets/gi/weapon/GI_W_FluteOfEzpitzal.png',
+                rarity: '4'
+            }],
         ]),
     
         HSRLightCones: new Map([
@@ -422,6 +427,11 @@ class WeaponsRepository {
             ['Tusks of Fury', {
                 name: 'Tusks of Fury',
                 imageUrl: 'assets/zzz/w-engine/ZZZ_WE_TusksOfFury.png',
+                rarity: 'S'
+            }],
+            ['Flamemaker Shaker', {
+                name: 'Flamemaker Shaker',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_FlamemakerShaker.png',
                 rarity: 'S'
             }],
         ]),
