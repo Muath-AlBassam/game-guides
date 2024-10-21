@@ -578,10 +578,10 @@ class TeamsRepository {
                         replacements: [],
                     },
                     {
-                        name: 'Lucy',
-                        role: 'Atk Buff',
+                        name: 'Caesar',
+                        role: 'Stun + Atk Buff + Shield',
                         isMain: false,
-                        replacements: ['Caesar', 'Anby', 'Grace'],
+                        replacements: ['Lucy', 'Anby'],
                     }
                 ]
             }],
@@ -657,6 +657,30 @@ class TeamsRepository {
                     {
                         name: 'Nicole',
                         role: 'Ether DMG Buff + DEF Reduction',
+                        isMain: false,
+                        replacements: [],
+                    }
+                ]
+            }],
+            ['Disorder', {
+                name: 'Disorder',
+                iconUrl: null,
+                characters: [
+                    {
+                        name: 'Grace',
+                        role: 'Shock Anomaly',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Burnice',
+                        role: 'Burn Anomaly',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Caesar',
+                        role: 'Stun + Atk Buff + Shield',
                         isMain: false,
                         replacements: [],
                     }

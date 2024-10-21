@@ -85,13 +85,12 @@ class RotationsRepository {
     
         ZZZRotations: new Map([
             ['Physical',  [
-                ['Seth', `Basic/Special ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow}`],
-                ['Lucy', `Special ${this.smallText('(Hold)')} ${this.arrow}`],
-                ['Seth', `Basic ${this.smallText('(Hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
+                ['Caesar', `EX Special ${this.arrow}`],
+                ['Seth', `Basic/Special ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} CA ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Jane', `Basic ${this.smallText('(Until Passion State)')} ${this.arrow} Basic + CA + Special`]
             ]],
             ['Fire', [
-                ['Caesar', `${this.repeat(`EX Special ${this.smallText('(Parry)')} + Basic ${this.smallText('(Hold)')}`)} ${this.arrow} Stun ${this.arrow}`],
+                ['Caesar', `${this.repeat(`EX Special ${this.smallText('(Parry)')} + CA`)} ${this.arrow} Stun ${this.arrow}`],
                 ['Lucy', `EX Special ${this.arrow}`],
                 ['Soldier 11', `(EX Special ${this.arrow} Basic) / Timed Basic`],
             ]],
@@ -105,7 +104,12 @@ class RotationsRepository {
                 ['Qingyi', `${this.repeat(`Basic ${this.times + ' ' + this.infinity} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} CA`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Nicole', `EX Special ${this.smallText('(Hold)')} ${this.arrow} Basic${this.times}1 ${this.arrow}`],
                 ['Zhu Yuan', `CA + EX Special`],
-            ]]
+            ]],
+            ['Disorder', [
+                ['Caesar', `EX Special ${this.arrow}`],
+                ['Grace', `${this.repeat(`Basic ${this.times} 3 ${this.arrow} Special`)} ${this.arrow} Shock ${this.arrow}`],
+                ['Burnice', `${this.repeat(`Basic / EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Burn`],
+            ]],
         ]),
     
         HI3Rotations: new Map([
