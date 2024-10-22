@@ -596,17 +596,17 @@ class TeamsRepository {
                         replacements: [],
                     },
                     {
+                        name: 'Burnice',
+                        role: 'Burn + Sub DPS',
+                        isMain: false,
+                        replacements: ['Lucy'],
+                    },
+                    {
                         name: 'Caesar',
                         role: 'Stun + Atk Buff + Shield',
                         isMain: false,
                         replacements: ['Koleda'],
                     },
-                    {
-                        name: 'Lucy',
-                        role: 'Atk Buff',
-                        isMain: false,
-                        replacements: ['Burnice'],
-                    }
                 ]
             }],
             ['Ice', {

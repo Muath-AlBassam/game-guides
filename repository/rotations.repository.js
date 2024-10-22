@@ -3,7 +3,6 @@ class RotationsRepository {
 
     static arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
     static times = Constants.unicode.times;
-    static infinity = Constants.unicode.infinity;
 
     static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 5px;">${text}</span>`;
     static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
@@ -86,29 +85,29 @@ class RotationsRepository {
         ZZZRotations: new Map([
             ['Physical',  [
                 ['Caesar', `EX Special ${this.arrow}`],
-                ['Seth', `Basic/Special ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} CA ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Jane', `Basic ${this.smallText('(Until Passion State)')} ${this.arrow} Basic + CA + Special`]
+                ['Seth', `Basic / EX Special ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} CA ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
+                ['Jane', `Basic ${this.smallText('(Until Passion State)')} ${this.arrow} Basic + CA + EX Special`]
             ]],
             ['Fire', [
-                ['Caesar', `${this.repeat(`EX Special ${this.smallText('(Parry)')} + CA`)} ${this.arrow} Stun ${this.arrow}`],
-                ['Lucy', `EX Special ${this.arrow}`],
+                ['Caesar', `${this.repeat(`EX Special ${this.smallText('(Parry)')} + Basic + CA`)} ${this.arrow} Stun ${this.arrow}`],
+                ['Burnice', `${this.repeat(`CA / EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Burn`],
                 ['Soldier 11', `(EX Special ${this.arrow} Basic) / Timed Basic`],
             ]],
             ['Ice', [
-                ['Ellen', `Dash + CA ${this.arrow}`],
+                ['Ellen', `Dash + CA / Basic ${this.arrow}`],
                 ['Lycaon', `${this.repeat('CA + EX Special')} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Soukaku', `Special ${this.smallText('(Hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Ellen', `Basic + EX Special`],
             ]],
             ['Ether', [
-                ['Qingyi', `${this.repeat(`Basic ${this.times + ' ' + this.infinity} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} CA`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
+                ['Qingyi', `${this.repeat(`Basic ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} CA`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Nicole', `EX Special ${this.smallText('(Hold)')} ${this.arrow} Basic${this.times}1 ${this.arrow}`],
                 ['Zhu Yuan', `CA + EX Special`],
             ]],
             ['Disorder', [
                 ['Caesar', `EX Special ${this.arrow}`],
-                ['Grace', `${this.repeat(`Basic ${this.times} 3 ${this.arrow} Special`)} ${this.arrow} Shock ${this.arrow}`],
-                ['Burnice', `${this.repeat(`Basic / EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Burn`],
+                ['Grace', `${this.repeat(`Basic ${this.times} 1-3 ${this.arrow} Special`)} ${this.arrow} Shock ${this.arrow}`],
+                ['Burnice', `${this.repeat(`CA / EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Burn`],
             ]],
         ]),
     
