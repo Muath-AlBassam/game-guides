@@ -360,7 +360,12 @@ class WeaponsRepository {
                 name: 'I Venture Forth to Hunt',
                 imageUrl: 'assets/hsr/light-cone/HSR_LC_IVentureForthToHunt.png',
                 rarity: '5'
-            }]
+            }],
+            ['Ninjutsu Inscription: Dazzling Evilbreaker', {
+                name: 'Ninjutsu Inscription: Dazzling Evilbreaker',
+                imageUrl: 'assets/hsr/light-cone/HSR_LC_NinjutsuInscriptionDazzlingEvilbreaker.png',
+                rarity: '5'
+            }],
         ]),
     
         ZZZWEngines: new Map([
@@ -432,6 +437,11 @@ class WeaponsRepository {
             ['Flamemaker Shaker', {
                 name: 'Flamemaker Shaker',
                 imageUrl: 'assets/zzz/w-engine/ZZZ_WE_FlamemakerShaker.png',
+                rarity: 'S'
+            }],
+            ['Timeweaver', {
+                name: 'Timeweaver',
+                imageUrl: 'assets/zzz/w-engine/ZZZ_WE_Timeweaver.png',
                 rarity: 'S'
             }],
         ]),

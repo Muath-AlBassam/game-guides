@@ -498,6 +498,13 @@ class CharactersRepository {
                 role: 'Hunt',
                 rarity: '5',
             }],
+            ['Rappa', {
+                name: 'Rappa',
+                imageUrl: 'assets/hsr/character/HSR_Rappa.jpg',
+                element: 'Imaginary',
+                role: 'Erudition',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([
@@ -603,6 +610,13 @@ class CharactersRepository {
                 name: 'Burnice',
                 imageUrl: 'assets/zzz/character/ZZZ_Burnice.jpg',
                 element: 'Fire',
+                role: 'Anomaly',
+                rarity: 'S',
+            }],
+            ['Yanagi', {
+                name: 'Yanagi',
+                imageUrl: 'assets/zzz/character/ZZZ_Yanagi.jpg',
+                element: 'Electric',
                 role: 'Anomaly',
                 rarity: 'S',
             }],

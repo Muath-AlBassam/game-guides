@@ -106,8 +106,8 @@ class RotationsRepository {
             ]],
             ['Disorder', [
                 ['Caesar', `EX Special ${this.arrow}`],
-                ['Grace', `${this.repeat(`Basic ${this.times} 1-3 ${this.arrow} Special`)} ${this.arrow} Shock ${this.arrow}`],
                 ['Burnice', `${this.repeat(`CA / EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Burn`],
+                ['Yanagi', `${this.repeat(`Basic + Special + EX Special ${this.smallText('(Hold)')}`)} ${this.arrow} Shock ${this.arrow}`],
             ]],
         ]),
     

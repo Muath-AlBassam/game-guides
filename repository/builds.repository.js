@@ -518,6 +518,13 @@ class BuildsRepository {
                     { name: 'Duran, Dynasty of Running Wolves', pieceCount: '2' }
                 ]
             }],
+            ['Rappa', {
+                weapon: { name: 'Ninjutsu Inscription: Dazzling Evilbreaker' },
+                sets: [
+                    { name: 'Iron Cavalry Against the Scourge', pieceCount: '4' },
+                    { name: 'Talia: Kingdom of Banditry', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         ZZZBuilds: new Map([
@@ -621,6 +628,13 @@ class BuildsRepository {
             }],
             ['Burnice', {
                 weapon: { name: 'Flamemaker Shaker' },
+                sets: [
+                    { name: 'Chaos Jazz', pieceCount: '4' },
+                    { name: 'Freedom Blues', pieceCount: '2' }
+                ]
+            }],
+            ['Yanagi', {
+                weapon: { name: 'Timeweaver' },
                 sets: [
                     { name: 'Chaos Jazz', pieceCount: '4' },
                     { name: 'Freedom Blues', pieceCount: '2' }

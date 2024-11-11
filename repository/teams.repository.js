@@ -309,7 +309,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: null, characters: ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'] },
+                    { name: 'Gunslinger', characters: ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'] },
                 ]
             }],
             ['Fire', {
@@ -492,7 +492,8 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: null, characters: ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei'] }
+                    { name: 'L-Ratio', characters: ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei'] },
+                    { name: 'AoE Break', characters: ['Gallagher', 'Rappa', 'Ruan Mei', 'MC (Harmony)'] }
                 ]
             }],
             ['DoT', {
@@ -555,7 +556,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: null, characters: ['Fu Xuan', 'Jade', 'Herta', 'Robin'] }
+                    { name: 'AoE FUA', characters: ['Fu Xuan', 'Jade', 'Herta', 'Robin'] }
                 ]
             }]
         ]),
@@ -567,7 +568,7 @@ class TeamsRepository {
                 characters: [
                     {
                         name: 'Jane',
-                        role: 'Assault Anomaly',
+                        role: 'Assault',
                         isMain: true,
                         replacements: [],
                     },
@@ -667,14 +668,14 @@ class TeamsRepository {
                 iconUrl: null,
                 characters: [
                     {
-                        name: 'Grace',
-                        role: 'Shock Anomaly',
+                        name: 'Yanagi',
+                        role: 'Shock + Disorder',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Grace'],
                     },
                     {
                         name: 'Burnice',
-                        role: 'Burn Anomaly',
+                        role: 'Burn + Sub DPS',
                         isMain: false,
                         replacements: [],
                     },
