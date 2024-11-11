@@ -18,10 +18,6 @@ class GamesRepository {
                 teamSize: 4,
                 logoUrl: 'assets/gi/GI_Logo.png',
                 backgroundUrl: 'assets/gi/GI_BG.png',
-                // characters : https://genshin-impact.fandom.com/wiki/Character/List
-                // weapons : https://genshin-impact.fandom.com/wiki/Weapon
-                // sets : https://genshin-impact.fandom.com/wiki/Artifact
-                // -- open image change url path variable (50) to 256 then download
                 guideUrl: 'https://genshin-impact.fandom.com/wiki/Character/List'
             }],
             [Constants.games.HSR, {
@@ -31,9 +27,6 @@ class GamesRepository {
                 teamSize: 4,
                 logoUrl: 'assets/hsr/HSR_Logo.png',
                 backgroundUrl: 'assets/hsr/HSR_BG.png',
-                // characters : https://www.prydwen.gg/star-rail/tier-list
-                // weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
-                // sets : https://www.hoyolab.com/accountCenter/postList?id=17195645
                 guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
             }],
             [Constants.games.ZZZ, {
@@ -43,9 +36,6 @@ class GamesRepository {
                 teamSize: 3,
                 logoUrl: 'assets/zzz/ZZZ_Logo.png',
                 backgroundUrl: 'assets/zzz/ZZZ_BG.png',
-                // characters : https://www.prydwen.gg/zenless/tier-list
-                // weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
-                // sets : https://www.prydwen.gg/zenless/disk-drives
                 guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
             }],
             [Constants.games.HI3, {
