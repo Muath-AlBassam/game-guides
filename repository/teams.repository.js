@@ -531,10 +531,10 @@ class TeamsRepository {
                 iconUrl: null,
                 characters: [
                     {
-                        name: 'Fu Xuan',
-                        role: 'Tank + Crit Buff',
+                        name: 'Aventurine',
+                        role: 'Shield',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Fu Xuan'],
                     },
                     {
                         name: 'Feixiao',

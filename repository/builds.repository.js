@@ -525,6 +525,13 @@ class BuildsRepository {
                     { name: 'Talia: Kingdom of Banditry', pieceCount: '2' }
                 ]
             }],
+            ['Aventurine', {
+                weapon: { name: 'Moment of Victory' },
+                sets: [
+                    { name: 'Knight of Purity Palace', pieceCount: '4' },
+                    { name: 'Belobog of the Architects', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         ZZZBuilds: new Map([

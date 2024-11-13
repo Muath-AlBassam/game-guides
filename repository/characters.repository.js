@@ -505,6 +505,13 @@ class CharactersRepository {
                 role: 'Erudition',
                 rarity: '5',
             }],
+            ['Aventurine', {
+                name: 'Aventurine',
+                imageUrl: 'assets/hsr/character/HSR_Aventurine.jpg',
+                element: 'Imaginary',
+                role: 'Preservation',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([
