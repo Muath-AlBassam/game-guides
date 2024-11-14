@@ -25,7 +25,7 @@ class TeamsRepository {
         GITeams: new Map([
             ['Pyro', {
                 name: 'Pyro',
-                iconUrl: 'assets/gi/GI_Pyro.png',
+                iconUrl: 'assets/gi/icons/GI_Pyro.png',
                 characters: [
                     {
                         name: 'Arlecchino',
@@ -55,7 +55,7 @@ class TeamsRepository {
             }],
             ['Hydro', {
                 name: 'Hydro',
-                iconUrl: 'assets/gi/GI_Hydro.png',
+                iconUrl: 'assets/gi/icons/GI_Hydro.png',
                 characters: [
                     {
                         name: 'Neuvillette',
@@ -88,7 +88,7 @@ class TeamsRepository {
             }],
             ['Dendro', {
                 name: 'Dendro',
-                iconUrl: 'assets/gi/GI_Dendro.png',
+                iconUrl: 'assets/gi/icons/GI_Dendro.png',
                 characters: [
                     {
                         name: 'Nahida',
@@ -122,7 +122,7 @@ class TeamsRepository {
             }],
             ['Electro', {
                 name: 'Electro',
-                iconUrl: 'assets/gi/GI_Electro.png',
+                iconUrl: 'assets/gi/icons/GI_Electro.png',
                 characters: [
                     {
                         name: 'Clorinde',
@@ -155,7 +155,7 @@ class TeamsRepository {
             }],
             ['Anemo', {
                 name: 'Anemo',
-                iconUrl: 'assets/gi/GI_Anemo.png',
+                iconUrl: 'assets/gi/icons/GI_Anemo.png',
                 characters: [
                     {
                         name: 'Lynette',
@@ -185,7 +185,7 @@ class TeamsRepository {
             }],
             ['Cryo', {
                 name: 'Cryo',
-                iconUrl: 'assets/gi/GI_Cryo.png',
+                iconUrl: 'assets/gi/icons/GI_Cryo.png',
                 characters: [
                     {
                         name: 'Wriothesley',
@@ -215,7 +215,7 @@ class TeamsRepository {
             }],
             ['Geo', {
                 name: 'Geo',
-                iconUrl: 'assets/gi/GI_Geo.png',
+                iconUrl: 'assets/gi/icons/GI_Geo.png',
                 characters: [
                     {
                         name: 'Navia',
@@ -248,7 +248,7 @@ class TeamsRepository {
             }],
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/gi/GI_Physical.png',
+                iconUrl: 'assets/gi/icons/GI_Physical.png',
                 characters: [
                     {
                         name: 'Eula',
@@ -281,7 +281,7 @@ class TeamsRepository {
         HSRTeams: new Map([
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/hsr/HSR_Physical.png',
+                iconUrl: 'assets/hsr/icons/HSR_Physical.png',
                 characters: [
                     {
                         name: 'Huohuo',
@@ -314,7 +314,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/hsr/HSR_Fire.png',
+                iconUrl: 'assets/hsr/icons/HSR_Fire.png',
                 characters: [
                     {
                         name: 'Gallagher',
@@ -344,7 +344,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/hsr/HSR_Ice.png',
+                iconUrl: 'assets/hsr/icons/HSR_Ice.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -374,7 +374,7 @@ class TeamsRepository {
             }],
             ['Lightning', {
                 name: 'Lightning',
-                iconUrl: 'assets/hsr/HSR_Lightning.png',
+                iconUrl: 'assets/hsr/icons/HSR_Lightning.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -404,7 +404,7 @@ class TeamsRepository {
             }],
             ['Wind', {
                 name: 'Wind',
-                iconUrl: 'assets/hsr/HSR_Wind.png',
+                iconUrl: 'assets/hsr/icons/HSR_Wind.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -434,7 +434,7 @@ class TeamsRepository {
             }],
             ['Quantum', {
                 name: 'Quantum',
-                iconUrl: 'assets/hsr/HSR_Quantum.png',
+                iconUrl: 'assets/hsr/icons/HSR_Quantum.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -464,7 +464,7 @@ class TeamsRepository {
             }],
             ['Imaginary', {
                 name: 'Imaginary',
-                iconUrl: 'assets/hsr/HSR_Imaginary.png',
+                iconUrl: 'assets/hsr/icons/HSR_Imaginary.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -498,7 +498,7 @@ class TeamsRepository {
             }],
             ['DoT', {
                 name: 'DoT',
-                iconUrl: 'assets/hsr/HSR_DoT.png',
+                iconUrl: 'assets/hsr/icons/HSR_DoT.png',
                 characters: [
                     {
                         name: 'Huohuo',
@@ -564,7 +564,7 @@ class TeamsRepository {
         ZZZTeams: new Map([
             ['Physical',  {
                 name: 'Physical',
-                iconUrl: 'assets/zzz/ZZZ_Physical.png',
+                iconUrl: 'assets/zzz/icons/ZZZ_Physical.png',
                 characters: [
                     {
                         name: 'Jane',
@@ -588,7 +588,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/zzz/ZZZ_Fire.png',
+                iconUrl: 'assets/zzz/icons/ZZZ_Fire.png',
                 characters: [
                     {
                         name: 'Soldier 11',
@@ -612,7 +612,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/zzz/ZZZ_Ice.png',
+                iconUrl: 'assets/zzz/icons/ZZZ_Ice.png',
                 characters: [
                     {
                         name: 'Ellen',
@@ -636,12 +636,12 @@ class TeamsRepository {
             }],
             ['Electric', {
                 name: 'Electric',
-                iconUrl: 'assets/zzz/ZZZ_Electric.png',
+                iconUrl: 'assets/zzz/icons/ZZZ_Electric.png',
                 characters: []
             }],
             ['Ether', {
                 name: 'Ether',
-                iconUrl: 'assets/zzz/ZZZ_Ether.png',
+                iconUrl: 'assets/zzz/icons/ZZZ_Ether.png',
                 characters: [
                     {
                         name: 'Zhu Yuan',
@@ -692,7 +692,7 @@ class TeamsRepository {
         HI3Teams: new Map([
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/hi3/HI3_Fire.png',
+                iconUrl: 'assets/hi3/icons/HI3_Fire.png',
                 characters: [
                     {
                         name: 'Lantern',
@@ -716,7 +716,7 @@ class TeamsRepository {
             }],
             ['Lightning', {
                 name: 'Lightning',
-                iconUrl: 'assets/hi3/HI3_Lightning.png',
+                iconUrl: 'assets/hi3/icons/HI3_Lightning.png',
                 characters: [
                     {
                         name: 'Lunar Vow',
@@ -740,7 +740,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/hi3/HI3_Ice.png',
+                iconUrl: 'assets/hi3/icons/HI3_Ice.png',
                 characters: [
                     {
                         name: 'Elysia',
@@ -752,7 +752,7 @@ class TeamsRepository {
             }],
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/hi3/HI3_Physical.png',
+                iconUrl: 'assets/hi3/icons/HI3_Physical.png',
                 characters: [
                     {
                         name: 'Durandal',

@@ -23,9 +23,9 @@ class RotationsRepository {
     static zzzSpecial = this.imageOf('assets/zzz/icons/ZZZ_Special.png', 'Special');
     static zzzQTE = this.imageOf('assets/zzz/icons/ZZZ_QTE.png', 'Chain / Quick-Assist');
     static zzzDash = this.imageOf('assets/zzz/icons/ZZZ_Dash.png', 'Dash');
-    static zzzAssault = this.imageOf('assets/zzz/ZZZ_Physical.png', 'Assault');
-    static zzzBurn = this.imageOf('assets/zzz/ZZZ_Fire.png', 'Burn');
-    static zzzShock = this.imageOf('assets/zzz/ZZZ_Electric.png', 'Shock');
+    static zzzAssault = this.imageOf('assets/zzz/icons/ZZZ_Physical.png', 'Assault');
+    static zzzBurn = this.imageOf('assets/zzz/icons/ZZZ_Fire.png', 'Burn');
+    static zzzShock = this.imageOf('assets/zzz/icons/ZZZ_Electric.png', 'Shock');
 
 
     static getAllRotations(gameCode) {

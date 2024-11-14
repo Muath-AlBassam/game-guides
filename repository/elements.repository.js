@@ -24,104 +24,104 @@ class ElementsRepository {
         GIElements: new Map([
             ['Pyro', {
                 name: 'Pyro',
-                imageUrl: 'assets/gi/GI_Pyro.png'
+                imageUrl: 'assets/gi/icons/GI_Pyro.png'
             }],
             ['Hydro', {
                 name: 'Hydro',
-                imageUrl: 'assets/gi/GI_Hydro.png'
+                imageUrl: 'assets/gi/icons/GI_Hydro.png'
             }],
             ['Dendro', {
                 name: 'Dendro',
-                imageUrl: 'assets/gi/GI_Dendro.png'
+                imageUrl: 'assets/gi/icons/GI_Dendro.png'
             }],
             ['Electro', {
                 name: 'Electro',
-                imageUrl: 'assets/gi/GI_Electro.png'
+                imageUrl: 'assets/gi/icons/GI_Electro.png'
             }],
             ['Anemo', {
                 name: 'Anemo',
-                imageUrl: 'assets/gi/GI_Anemo.png'
+                imageUrl: 'assets/gi/icons/GI_Anemo.png'
             }],
             ['Cryo', {
                 name: 'Cryo',
-                imageUrl: 'assets/gi/GI_Cryo.png'
+                imageUrl: 'assets/gi/icons/GI_Cryo.png'
             }],
             ['Geo', {
                 name: 'Geo',
-                imageUrl: 'assets/gi/GI_Geo.png'
+                imageUrl: 'assets/gi/icons/GI_Geo.png'
             }]
         ]),
     
         HSRElements: new Map([
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/hsr/HSR_Physical.png'
+                imageUrl: 'assets/hsr/icons/HSR_Physical.png'
             }],
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/hsr/HSR_Fire.png'
+                imageUrl: 'assets/hsr/icons/HSR_Fire.png'
             }],
             ['Ice', {
                 name: 'Ice',
-                imageUrl: 'assets/hsr/HSR_Ice.png'
+                imageUrl: 'assets/hsr/icons/HSR_Ice.png'
             }],
             ['Lightning', {
                 name: 'Lightning',
-                imageUrl: 'assets/hsr/HSR_Lightning.png'
+                imageUrl: 'assets/hsr/icons/HSR_Lightning.png'
             }],
             ['Wind', {
                 name: 'Wind',
-                imageUrl: 'assets/hsr/HSR_Wind.png'
+                imageUrl: 'assets/hsr/icons/HSR_Wind.png'
             }],
             ['Quantum', {
                 name: 'Quantum',
-                imageUrl: 'assets/hsr/HSR_Quantum.png'
+                imageUrl: 'assets/hsr/icons/HSR_Quantum.png'
             }],
             ['Imaginary', {
                 name: 'Imaginary',
-                imageUrl: 'assets/hsr/HSR_Imaginary.png'
+                imageUrl: 'assets/hsr/icons/HSR_Imaginary.png'
             }],
         ]),
     
         ZZZElements: new Map([
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/zzz/ZZZ_Physical.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Physical.png'
             }],
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/zzz/ZZZ_Fire.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Fire.png'
             }],
             ['Ice', {
                 name: 'Ice',
-                imageUrl: 'assets/zzz/ZZZ_Ice.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Ice.png'
             }],
             ['Electric', {
                 name: 'Electric',
-                imageUrl: 'assets/zzz/ZZZ_Electric.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Electric.png'
             }],
             ['Ether', {
                 name: 'Ether',
-                imageUrl: 'assets/zzz/ZZZ_Ether.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Ether.png'
             }],
         ]),
     
         HI3Elements: new Map([
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/hi3/HI3_Fire.png'
+                imageUrl: 'assets/hi3/icons/HI3_Fire.png'
             }],
             ['Lightning', {
                 name: 'Lightning',
-                imageUrl: 'assets/hi3/HI3_Lightning.png'
+                imageUrl: 'assets/hi3/icons/HI3_Lightning.png'
             }],
             ['Ice', {
                 name: 'Ice',
-                imageUrl: 'assets/hi3/HI3_Ice.png'
+                imageUrl: 'assets/hi3/icons/HI3_Ice.png'
             }],
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/hi3/HI3_Physical.png'
+                imageUrl: 'assets/hi3/icons/HI3_Physical.png'
             }],
         ]),
     }

@@ -20,54 +20,54 @@ class RolesRepository {
         HSRRoles: new Map([
             ['Abundance', { 
                 name: 'Abundance', 
-                imageUrl: 'assets/hsr/HSR_Path_Abundance.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Abundance.png' 
             }],
             ['Destruction',{ 
                 name: 'Destruction', 
-                imageUrl: 'assets/hsr/HSR_Path_Destruction.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Destruction.png' 
             }],
             ['Erudition',{ 
                 name: 'Erudition', 
-                imageUrl: 'assets/hsr/HSR_Path_Erudition.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Erudition.png' 
             }],
             ['Harmony',{ 
                 name: 'Harmony', 
-                imageUrl: 'assets/hsr/HSR_Path_Harmony.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Harmony.png' 
             }],
             ['Hunt',{ 
                 name: 'Hunt', 
-                imageUrl: 'assets/hsr/HSR_Path_Hunt.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Hunt.png' 
             }],
             ['Nihility',{ 
                 name: 'Nihility', 
-                imageUrl: 'assets/hsr/HSR_Path_Nihility.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Nihility.png' 
             }],
             ['Preservation',{ 
                 name: 'Preservation', 
-                imageUrl: 'assets/hsr/HSR_Path_Preservation.png' 
+                imageUrl: 'assets/hsr/icons/HSR_Path_Preservation.png' 
             }],
         ]),
     
         ZZZRoles: new Map([
             ['Anomaly', { 
                 name: 'Anomaly', 
-                imageUrl: 'assets/zzz/ZZZ_Style_Anomaly.png' 
+                imageUrl: 'assets/zzz/icons/ZZZ_Style_Anomaly.png' 
             }],
             ['Attack', {
                 name: 'Attack', 
-                imageUrl: 'assets/zzz/ZZZ_Style_Attack.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Style_Attack.png'
             }],
             ['Defence', {
                 name: 'Defence', 
-                imageUrl: 'assets/zzz/ZZZ_Style_Defence.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Style_Defence.png'
             }],
             ['Stun', {
                 name: 'Stun', 
-                imageUrl: 'assets/zzz/ZZZ_Style_Stun.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Style_Stun.png'
             }],
             ['Support', {
                 name: 'Support', 
-                imageUrl: 'assets/zzz/ZZZ_Style_Support.png'
+                imageUrl: 'assets/zzz/icons/ZZZ_Style_Support.png'
             }],
         ]),
     }
