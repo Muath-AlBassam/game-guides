@@ -52,35 +52,35 @@ class ButtonsRepository {
             }],
             ['U', {
                 name: 'Up',
-                imageUrl: 'assets/tk8/button/TK8_Up.png'
+                imageUrl: 'assets/images/tk8/button/TK8_Up.png'
             }],
             ['UL', {
                 name: 'UpLeft',
-                imageUrl: 'assets/tk8/button/TK8_UpLeft.png'
+                imageUrl: 'assets/images/tk8/button/TK8_UpLeft.png'
             }],
             ['UR', {
                 name: 'UpRight',
-                imageUrl: 'assets/tk8/button/TK8_UpRight.png'
+                imageUrl: 'assets/images/tk8/button/TK8_UpRight.png'
             }],
             ['D', {
                 name: 'Down',
-                imageUrl: 'assets/tk8/button/TK8_Down.png'
+                imageUrl: 'assets/images/tk8/button/TK8_Down.png'
             }],
             ['DL', {
                 name: 'DownLeft',
-                imageUrl: 'assets/tk8/button/TK8_DownLeft.png'
+                imageUrl: 'assets/images/tk8/button/TK8_DownLeft.png'
             }],
             ['DR', {
                 name: 'DownRight',
-                imageUrl: 'assets/tk8/button/TK8_DownRight.png'
+                imageUrl: 'assets/images/tk8/button/TK8_DownRight.png'
             }],
             ['L', {
                 name: 'Left',
-                imageUrl: 'assets/tk8/button/TK8_Left.png'
+                imageUrl: 'assets/images/tk8/button/TK8_Left.png'
             }],
             ['R', {
                 name: 'Right',
-                imageUrl: 'assets/tk8/button/TK8_Right.png'
+                imageUrl: 'assets/images/tk8/button/TK8_Right.png'
             }]
         ])
     }

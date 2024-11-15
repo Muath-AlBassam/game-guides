@@ -725,7 +725,7 @@ class CharactersRepository {
         TK8Characters: new Map([
             ['Reina', {
                 name: 'Reina',
-                imageUrl: 'assets/tk8/character/TK8_Reina.png',
+                imageUrl: 'assets/images/tk8/character/TK8_Reina.png',
                 combos: [
                     ['X', Constants.unicode.space, 'X', Constants.unicode.space, 'Y'],
                     ['X', Constants.unicode.space, 'Y', Constants.unicode.space, 'Y'],
