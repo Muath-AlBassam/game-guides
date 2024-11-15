@@ -109,19 +109,19 @@ class ElementsRepository {
         HI3Elements: new Map([
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/hi3/icons/HI3_Fire.png'
+                imageUrl: 'assets/images/hi3/icons/HI3_Fire.png'
             }],
             ['Lightning', {
                 name: 'Lightning',
-                imageUrl: 'assets/hi3/icons/HI3_Lightning.png'
+                imageUrl: 'assets/images/hi3/icons/HI3_Lightning.png'
             }],
             ['Ice', {
                 name: 'Ice',
-                imageUrl: 'assets/hi3/icons/HI3_Ice.png'
+                imageUrl: 'assets/images/hi3/icons/HI3_Ice.png'
             }],
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/hi3/icons/HI3_Physical.png'
+                imageUrl: 'assets/images/hi3/icons/HI3_Physical.png'
             }],
         ]),
     }

@@ -43,8 +43,8 @@ class GamesRepository {
                 code: Constants.games.HI3,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 3,
-                logoUrl: 'assets/hi3/HI3_Logo.png',
-                backgroundUrl: 'assets/hi3/HI3_BG.jpg',
+                logoUrl: 'assets/images/hi3/HI3_Logo.png',
+                backgroundUrl: 'assets/images/hi3/HI3_BG.jpg',
                 guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
             }],
             [Constants.games.TK8, {

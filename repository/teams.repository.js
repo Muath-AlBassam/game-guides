@@ -692,7 +692,7 @@ class TeamsRepository {
         HI3Teams: new Map([
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/hi3/icons/HI3_Fire.png',
+                iconUrl: 'assets/images/hi3/icons/HI3_Fire.png',
                 characters: [
                     {
                         name: 'Lantern',
@@ -716,7 +716,7 @@ class TeamsRepository {
             }],
             ['Lightning', {
                 name: 'Lightning',
-                iconUrl: 'assets/hi3/icons/HI3_Lightning.png',
+                iconUrl: 'assets/images/hi3/icons/HI3_Lightning.png',
                 characters: [
                     {
                         name: 'Lunar Vow',
@@ -740,7 +740,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/hi3/icons/HI3_Ice.png',
+                iconUrl: 'assets/images/hi3/icons/HI3_Ice.png',
                 characters: [
                     {
                         name: 'Elysia',
@@ -752,7 +752,7 @@ class TeamsRepository {
             }],
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/hi3/icons/HI3_Physical.png',
+                iconUrl: 'assets/images/hi3/icons/HI3_Physical.png',
                 characters: [
                     {
                         name: 'Durandal',
