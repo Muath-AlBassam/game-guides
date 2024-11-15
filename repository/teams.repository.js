@@ -564,7 +564,7 @@ class TeamsRepository {
         ZZZTeams: new Map([
             ['Physical',  {
                 name: 'Physical',
-                iconUrl: 'assets/zzz/icons/ZZZ_Physical.png',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Physical.png',
                 characters: [
                     {
                         name: 'Jane',
@@ -588,7 +588,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/zzz/icons/ZZZ_Fire.png',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Fire.png',
                 characters: [
                     {
                         name: 'Soldier 11',
@@ -612,7 +612,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/zzz/icons/ZZZ_Ice.png',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Ice.png',
                 characters: [
                     {
                         name: 'Ellen',
@@ -636,12 +636,12 @@ class TeamsRepository {
             }],
             ['Electric', {
                 name: 'Electric',
-                iconUrl: 'assets/zzz/icons/ZZZ_Electric.png',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Electric.png',
                 characters: []
             }],
             ['Ether', {
                 name: 'Ether',
-                iconUrl: 'assets/zzz/icons/ZZZ_Ether.png',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Ether.png',
                 characters: [
                     {
                         name: 'Zhu Yuan',

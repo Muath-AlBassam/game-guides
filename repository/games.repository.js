@@ -34,8 +34,8 @@ class GamesRepository {
                 code: Constants.games.ZZZ,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 3,
-                logoUrl: 'assets/zzz/ZZZ_Logo.png',
-                backgroundUrl: 'assets/zzz/ZZZ_BG.png',
+                logoUrl: 'assets/images/zzz/ZZZ_Logo.png',
+                backgroundUrl: 'assets/images/zzz/ZZZ_BG.png',
                 guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
             }],
             [Constants.games.HI3, {

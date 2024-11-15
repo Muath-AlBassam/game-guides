@@ -51,23 +51,23 @@ class RolesRepository {
         ZZZRoles: new Map([
             ['Anomaly', { 
                 name: 'Anomaly', 
-                imageUrl: 'assets/zzz/icons/ZZZ_Style_Anomaly.png' 
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Style_Anomaly.png' 
             }],
             ['Attack', {
                 name: 'Attack', 
-                imageUrl: 'assets/zzz/icons/ZZZ_Style_Attack.png'
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Style_Attack.png'
             }],
             ['Defence', {
                 name: 'Defence', 
-                imageUrl: 'assets/zzz/icons/ZZZ_Style_Defence.png'
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Style_Defence.png'
             }],
             ['Stun', {
                 name: 'Stun', 
-                imageUrl: 'assets/zzz/icons/ZZZ_Style_Stun.png'
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Style_Stun.png'
             }],
             ['Support', {
                 name: 'Support', 
-                imageUrl: 'assets/zzz/icons/ZZZ_Style_Support.png'
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Style_Support.png'
             }],
         ]),
     }

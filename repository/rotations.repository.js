@@ -22,15 +22,15 @@ class RotationsRepository {
     static giPlunge = this.tooltip('Plunge', 'Plunge');
 
     // ZZZ moves shortcuts
-    static zzzBasic = this.imageOf('assets/zzz/icons/ZZZ_Basic.png', 'Basic');
+    static zzzBasic = this.imageOf('assets/images/zzz/icons/ZZZ_Basic.png', 'Basic');
     static zzzCharged = this.tooltip('CA', 'Charged Attack');
-    static zzzExSpecial = this.imageOf('assets/zzz/icons/ZZZ_ExSpecial.png', 'EX Special');
-    static zzzSpecial = this.imageOf('assets/zzz/icons/ZZZ_Special.png', 'Special');
-    static zzzQTE = this.imageOf('assets/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)');
-    static zzzDash = this.imageOf('assets/zzz/icons/ZZZ_Dash.png', 'Dash');
-    static zzzAssault = this.imageOf('assets/zzz/icons/ZZZ_Physical.png', 'Assault');
-    static zzzBurn = this.imageOf('assets/zzz/icons/ZZZ_Fire.png', 'Burn');
-    static zzzShock = this.imageOf('assets/zzz/icons/ZZZ_Electric.png', 'Shock');
+    static zzzExSpecial = this.imageOf('assets/images/zzz/icons/ZZZ_ExSpecial.png', 'EX Special');
+    static zzzSpecial = this.imageOf('assets/images/zzz/icons/ZZZ_Special.png', 'Special');
+    static zzzQTE = this.imageOf('assets/images/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)');
+    static zzzDash = this.imageOf('assets/images/zzz/icons/ZZZ_Dash.png', 'Dash');
+    static zzzAssault = this.imageOf('assets/images/zzz/icons/ZZZ_Physical.png', 'Assault');
+    static zzzBurn = this.imageOf('assets/images/zzz/icons/ZZZ_Fire.png', 'Burn');
+    static zzzShock = this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock');
 
 
     static getAllRotations(gameCode) {
