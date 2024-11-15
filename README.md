@@ -13,13 +13,17 @@
 
 > Zenless Zone Zero
 - Characters : https://www.prydwen.gg/zenless/tier-list
+  - Select character and open wiki, then download image
+  - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
+  - Sizes around 256px~330px
 - Weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
 - Sets : https://www.prydwen.gg/zenless/disk-drives
 
-## TODO
+<br>
+<br>
+<br>
 
-> Enhance rotations
-- Add action name shortcut (Basic -> B)
+## TODO
 
 > Add game notes
 - Meaning of rotations shortcut (B: Basic)
@@ -29,7 +33,5 @@
 - Character weapon in a team
 - Simple rotation notes
 - etc.
-
-> Find better quality images for ZZZ
 
 > Find better quality images for HSR
