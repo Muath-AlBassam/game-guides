@@ -55,31 +55,31 @@ class ElementsRepository {
         HSRElements: new Map([
             ['Physical', {
                 name: 'Physical',
-                imageUrl: 'assets/hsr/icons/HSR_Physical.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Physical.png'
             }],
             ['Fire', {
                 name: 'Fire',
-                imageUrl: 'assets/hsr/icons/HSR_Fire.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Fire.png'
             }],
             ['Ice', {
                 name: 'Ice',
-                imageUrl: 'assets/hsr/icons/HSR_Ice.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Ice.png'
             }],
             ['Lightning', {
                 name: 'Lightning',
-                imageUrl: 'assets/hsr/icons/HSR_Lightning.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Lightning.png'
             }],
             ['Wind', {
                 name: 'Wind',
-                imageUrl: 'assets/hsr/icons/HSR_Wind.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Wind.png'
             }],
             ['Quantum', {
                 name: 'Quantum',
-                imageUrl: 'assets/hsr/icons/HSR_Quantum.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Quantum.png'
             }],
             ['Imaginary', {
                 name: 'Imaginary',
-                imageUrl: 'assets/hsr/icons/HSR_Imaginary.png'
+                imageUrl: 'assets/images/hsr/icons/HSR_Imaginary.png'
             }],
         ]),
     

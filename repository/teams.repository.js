@@ -281,7 +281,7 @@ class TeamsRepository {
         HSRTeams: new Map([
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/hsr/icons/HSR_Physical.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Physical.png',
                 characters: [
                     {
                         name: 'Huohuo',
@@ -314,7 +314,7 @@ class TeamsRepository {
             }],
             ['Fire', {
                 name: 'Fire',
-                iconUrl: 'assets/hsr/icons/HSR_Fire.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Fire.png',
                 characters: [
                     {
                         name: 'Gallagher',
@@ -344,7 +344,7 @@ class TeamsRepository {
             }],
             ['Ice', {
                 name: 'Ice',
-                iconUrl: 'assets/hsr/icons/HSR_Ice.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Ice.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -374,7 +374,7 @@ class TeamsRepository {
             }],
             ['Lightning', {
                 name: 'Lightning',
-                iconUrl: 'assets/hsr/icons/HSR_Lightning.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Lightning.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -404,7 +404,7 @@ class TeamsRepository {
             }],
             ['Wind', {
                 name: 'Wind',
-                iconUrl: 'assets/hsr/icons/HSR_Wind.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Wind.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -434,7 +434,7 @@ class TeamsRepository {
             }],
             ['Quantum', {
                 name: 'Quantum',
-                iconUrl: 'assets/hsr/icons/HSR_Quantum.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Quantum.png',
                 characters: [
                     {
                         name: 'Fu Xuan',
@@ -464,7 +464,7 @@ class TeamsRepository {
             }],
             ['Imaginary', {
                 name: 'Imaginary',
-                iconUrl: 'assets/hsr/icons/HSR_Imaginary.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_Imaginary.png',
                 characters: [
                     {
                         name: 'Luocha',
@@ -498,7 +498,7 @@ class TeamsRepository {
             }],
             ['DoT', {
                 name: 'DoT',
-                iconUrl: 'assets/hsr/icons/HSR_DoT.png',
+                iconUrl: 'assets/images/hsr/icons/HSR_DoT.png',
                 characters: [
                     {
                         name: 'Huohuo',

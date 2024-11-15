@@ -25,8 +25,8 @@ class GamesRepository {
                 code: Constants.games.HSR,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 4,
-                logoUrl: 'assets/hsr/HSR_Logo.png',
-                backgroundUrl: 'assets/hsr/HSR_BG.png',
+                logoUrl: 'assets/images/hsr/HSR_Logo.png',
+                backgroundUrl: 'assets/images/hsr/HSR_BG.png',
                 guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
             }],
             [Constants.games.ZZZ, {

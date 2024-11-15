@@ -20,31 +20,31 @@ class RolesRepository {
         HSRRoles: new Map([
             ['Abundance', { 
                 name: 'Abundance', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Abundance.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Abundance.png' 
             }],
             ['Destruction',{ 
                 name: 'Destruction', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Destruction.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Destruction.png' 
             }],
             ['Erudition',{ 
                 name: 'Erudition', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Erudition.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Erudition.png' 
             }],
             ['Harmony',{ 
                 name: 'Harmony', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Harmony.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Harmony.png' 
             }],
             ['Hunt',{ 
                 name: 'Hunt', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Hunt.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Hunt.png' 
             }],
             ['Nihility',{ 
                 name: 'Nihility', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Nihility.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Nihility.png' 
             }],
             ['Preservation',{ 
                 name: 'Preservation', 
-                imageUrl: 'assets/hsr/icons/HSR_Path_Preservation.png' 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Preservation.png' 
             }],
         ]),
     

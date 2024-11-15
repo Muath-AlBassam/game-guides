@@ -119,127 +119,127 @@ class SetsRepository {
         HSRSets: new Map([
             ['Champion of Streetwise Boxing', {
                 name: 'Champion of Streetwise Boxing',
-                imageUrl: 'assets/hsr/set/HSR_Set_ChampionOfStreetwiseBoxing.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_ChampionOfStreetwiseBoxing.jpg'
             }],
             ['Genius of Brilliant Stars', {
                 name: 'Genius of Brilliant Stars',
-                imageUrl: 'assets/hsr/set/HSR_Set_GeniusOfBrilliantStars.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_GeniusOfBrilliantStars.jpg'
             }],
             ['Guard of Wuthering Snow', {
                 name: 'Guard of Wuthering Snow',
-                imageUrl: 'assets/hsr/set/HSR_Set_GuardOfWutheringSnow.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_GuardOfWutheringSnow.jpg'
             }],
             ['Hunter of Glacial Forest', {
                 name: 'Hunter of Glacial Forest',
-                imageUrl: 'assets/hsr/set/HSR_Set_HunterOfGlacialForest.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_HunterOfGlacialForest.jpg'
             }],
             ['Iron Cavalry Against the Scourge', {
                 name: 'Iron Cavalry Against the Scourge',
-                imageUrl: 'assets/hsr/set/HSR_Set_IronCavalryAgainstTheScourge.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_IronCavalryAgainstTheScourge.jpg'
             }],
             ['Knight of Purity Palace', {
                 name: 'Knight of Purity Palace',
-                imageUrl: 'assets/hsr/set/HSR_Set_KnightOfPurityPalace.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_KnightOfPurityPalace.jpg'
             }],
             ['Longevous Disciple', {
                 name: 'Longevous Disciple',
-                imageUrl: 'assets/hsr/set/HSR_Set_LongevousDisciple.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_LongevousDisciple.jpg'
             }],
             ['Messenger Traversing Hackerspace', {
                 name: 'Messenger Traversing Hackerspace',
-                imageUrl: 'assets/hsr/set/HSR_Set_MessengerTraversingHackerspace.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_MessengerTraversingHackerspace.jpg'
             }],
             ['Musketeer of Wild Wheat', {
                 name: 'Musketeer of Wild Wheat',
-                imageUrl: 'assets/hsr/set/HSR_Set_MusketeerOfWildWheat.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_MusketeerOfWildWheat.jpg'
             }],
             ['Passerby of Wandering Cloud', {
                 name: 'Passerby of Wandering Cloud',
-                imageUrl: 'assets/hsr/set/HSR_Set_PasserbyOfWanderingCloud.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PasserbyOfWanderingCloud.jpg'
             }],
             ['Pioneer Diver of Dead Waters', {
                 name: 'Pioneer Diver of Dead Waters',
-                imageUrl: 'assets/hsr/set/HSR_Set_PioneerDiverOfDeadWaters.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PioneerDiverOfDeadWaters.jpg'
             }],
             ['Prisoner in Deep Confinement', {
                 name: 'Prisoner in Deep Confinement',
-                imageUrl: 'assets/hsr/set/HSR_Set_PrisonerInDeepConfinement.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PrisonerInDeepConfinement.jpg'
             }],
             ['The Ashblazing Grand Duke', {
                 name: 'The Ashblazing Grand Duke',
-                imageUrl: 'assets/hsr/set/HSR_Set_TheAshblazingGrandDuke.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_TheAshblazingGrandDuke.jpg'
             }],
             ['The Wind-Soaring Valorous', {
                 name: 'The Wind-Soaring Valorous',
-                imageUrl: 'assets/hsr/set/HSR_Set_TheWindSoaringValorous.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_TheWindSoaringValorous.jpg'
             }],
             ['Thief of Shooting Meteor', {
                 name: 'Thief of Shooting Meteor',
-                imageUrl: 'assets/hsr/set/HSR_Set_ThiefOfShootingMeteor.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_ThiefOfShootingMeteor.jpg'
             }],
             ['Wastelander of Banditry Desert', {
                 name: 'Wastelander of Banditry Desert',
-                imageUrl: 'assets/hsr/set/HSR_Set_WastelanderOfBanditryDesert.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_WastelanderOfBanditryDesert.jpg'
             }],
             ['Watchmaker, Master of Dream Machinations', {
                 name: 'Watchmaker, Master of Dream Machinations',
-                imageUrl: 'assets/hsr/set/HSR_Set_WatchmakerMasterOfDreamMachinations.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_WatchmakerMasterOfDreamMachinations.jpg'
             }],
             ['Belobog of the Architects', {
                 name: 'Belobog of the Architects',
-                imageUrl: 'assets/hsr/set/HSR_Set_BelobogOfTheArchitects.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_BelobogOfTheArchitects.jpg'
             }],
             ['Broken Keel', {
                 name: 'Broken Keel',
-                imageUrl: 'assets/hsr/set/HSR_Set_BrokenKeel.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_BrokenKeel.jpg'
             }],
             ['Celestial Differentiator', {
                 name: 'Celestial Differentiator',
-                imageUrl: 'assets/hsr/set/HSR_Set_CelestialDifferentiator.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_CelestialDifferentiator.jpg'
             }],
             ['Duran, Dynasty of Running Wolves', {
                 name: 'Duran, Dynasty of Running Wolves',
-                imageUrl: 'assets/hsr/set/HSR_Set_DuranDynastyOfRunningWolves.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_DuranDynastyOfRunningWolves.jpg'
             }],
             ['Firmament Frontline: Glamoth', {
                 name: 'Firmament Frontline: Glamoth',
-                imageUrl: 'assets/hsr/set/HSR_Set_FirmamentFrontlineGlamoth.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_FirmamentFrontlineGlamoth.jpg'
             }],
             ['Fleet of the Ageless', {
                 name: 'Fleet of the Ageless',
-                imageUrl: 'assets/hsr/set/HSR_Set_FleetOfTheAgeless.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_FleetOfTheAgeless.jpg'
             }],
             ['Forge of the Kalpagni Lantern', {
                 name: 'Forge of the Kalpagni Lantern',
-                imageUrl: 'assets/hsr/set/HSR_Set_ForgeOfTheKalpagniLantern.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_ForgeOfTheKalpagniLantern.jpg'
             }],
             ['Inert Salsotto', {
                 name: 'Inert Salsotto',
-                imageUrl: 'assets/hsr/set/HSR_Set_InertSalsotto.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_InertSalsotto.jpg'
             }],
             ['Izumo Gensei and Takama Divine Realm', {
                 name: 'Izumo Gensei and Takama Divine Realm',
-                imageUrl: 'assets/hsr/set/HSR_Set_IzumoGenseiAndTakamaDivineRealm.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_IzumoGenseiAndTakamaDivineRealm.jpg'
             }],
             ['Pan-Cosmic Commercial Enterprise', {
                 name: 'Pan-Cosmic Commercial Enterprise',
-                imageUrl: 'assets/hsr/set/HSR_Set_PanCosmicCommercialEnterprise.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PanCosmicCommercialEnterprise.jpg'
             }],
             ['Penacony, Land of the Dreams', {
                 name: 'Penacony, Land of the Dreams',
-                imageUrl: 'assets/hsr/set/HSR_Set_PenaconyLandOfTheDreams.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PenaconyLandOfTheDreams.jpg'
             }],
             ['Rutilant Arena', {
                 name: 'Rutilant Arena',
-                imageUrl: 'assets/hsr/set/HSR_Set_RutilantArena.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_RutilantArena.jpg'
             }],
             ['Space Sealing Station', {
                 name: 'Space Sealing Station',
-                imageUrl: 'assets/hsr/set/HSR_Set_SpaceSealingStation.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_SpaceSealingStation.jpg'
             }],
             ['Talia: Kingdom of Banditry', {
                 name: 'Talia: Kingdom of Banditry',
-                imageUrl: 'assets/hsr/set/HSR_Set_TaliaKingdomOfBanditry.jpg'
+                imageUrl: 'assets/images/hsr/set/HSR_Set_TaliaKingdomOfBanditry.jpg'
             }],
         ]),
     
