@@ -25,7 +25,7 @@ class TeamsRepository {
         GITeams: new Map([
             ['Pyro', {
                 name: 'Pyro',
-                iconUrl: 'assets/gi/icons/GI_Pyro.png',
+                iconUrl: 'assets/images/gi/icons/GI_Pyro.png',
                 characters: [
                     {
                         name: 'Arlecchino',
@@ -55,7 +55,7 @@ class TeamsRepository {
             }],
             ['Hydro', {
                 name: 'Hydro',
-                iconUrl: 'assets/gi/icons/GI_Hydro.png',
+                iconUrl: 'assets/images/gi/icons/GI_Hydro.png',
                 characters: [
                     {
                         name: 'Neuvillette',
@@ -88,7 +88,7 @@ class TeamsRepository {
             }],
             ['Dendro', {
                 name: 'Dendro',
-                iconUrl: 'assets/gi/icons/GI_Dendro.png',
+                iconUrl: 'assets/images/gi/icons/GI_Dendro.png',
                 characters: [
                     {
                         name: 'Nahida',
@@ -122,7 +122,7 @@ class TeamsRepository {
             }],
             ['Electro', {
                 name: 'Electro',
-                iconUrl: 'assets/gi/icons/GI_Electro.png',
+                iconUrl: 'assets/images/gi/icons/GI_Electro.png',
                 characters: [
                     {
                         name: 'Clorinde',
@@ -155,7 +155,7 @@ class TeamsRepository {
             }],
             ['Anemo', {
                 name: 'Anemo',
-                iconUrl: 'assets/gi/icons/GI_Anemo.png',
+                iconUrl: 'assets/images/gi/icons/GI_Anemo.png',
                 characters: [
                     {
                         name: 'Lynette',
@@ -185,7 +185,7 @@ class TeamsRepository {
             }],
             ['Cryo', {
                 name: 'Cryo',
-                iconUrl: 'assets/gi/icons/GI_Cryo.png',
+                iconUrl: 'assets/images/gi/icons/GI_Cryo.png',
                 characters: [
                     {
                         name: 'Wriothesley',
@@ -215,7 +215,7 @@ class TeamsRepository {
             }],
             ['Geo', {
                 name: 'Geo',
-                iconUrl: 'assets/gi/icons/GI_Geo.png',
+                iconUrl: 'assets/images/gi/icons/GI_Geo.png',
                 characters: [
                     {
                         name: 'Navia',
@@ -248,7 +248,7 @@ class TeamsRepository {
             }],
             ['Physical', {
                 name: 'Physical',
-                iconUrl: 'assets/gi/icons/GI_Physical.png',
+                iconUrl: 'assets/images/gi/icons/GI_Physical.png',
                 characters: [
                     {
                         name: 'Eula',

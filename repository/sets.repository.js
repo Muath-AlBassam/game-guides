@@ -20,99 +20,99 @@ class SetsRepository {
         GISets: new Map([
             ['Blizzard Strayer', {
                 name: 'Blizzard Strayer',
-                imageUrl: 'assets/gi/set/GI_Set_BlizzardStrayer.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_BlizzardStrayer.png'
             }],
             ['Bloodstained Chivalry', {
                 name: 'Bloodstained Chivalry',
-                imageUrl: 'assets/gi/set/GI_Set_BloodstainedChivalry.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_BloodstainedChivalry.png'
             }],
             ['Crimson Witch of Flames', {
                 name: 'Crimson Witch of Flames',
-                imageUrl: 'assets/gi/set/GI_Set_CrimsonWitchOfFlames.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_CrimsonWitchOfFlames.png'
             }],
             ['Deepwood Memories', {
                 name: 'Deepwood Memories',
-                imageUrl: 'assets/gi/set/GI_Set_DeepwoodMemories.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_DeepwoodMemories.png'
             }],
             ['Emblem of Severed Fate', {
                 name: 'Emblem of Severed Fate',
-                imageUrl: 'assets/gi/set/GI_Set_EmblemOfSeveredFate.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_EmblemOfSeveredFate.png'
             }],
             ['Flower of Paradise Lost', {
                 name: 'Flower of Paradise Lost',
-                imageUrl: 'assets/gi/set/GI_Set_FlowerOfParadiseLost.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_FlowerOfParadiseLost.png'
             }],
             ['Fragment of Harmonic Whimsy', {
                 name: 'Fragment of Harmonic Whimsy',
-                imageUrl: 'assets/gi/set/GI_Set_FragmentOfHarmonicWhimsy.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_FragmentOfHarmonicWhimsy.png'
             }],
             ['Gladiator\'s Finale', {
                 name: 'Gladiator\'s Finale',
-                imageUrl: 'assets/gi/set/GI_Set_GladiatorsFinale.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_GladiatorsFinale.png'
             }],
             ['Golden Troupe', {
                 name: 'Golden Troupe',
-                imageUrl: 'assets/gi/set/GI_Set_GoldenTroupe.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_GoldenTroupe.png'
             }],
             ['Heart of Depth', {
                 name: 'Heart of Depth',
-                imageUrl: 'assets/gi/set/GI_Set_HeartOfDepth.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_HeartOfDepth.png'
             }],
             ['Husk of Opulent Dreams', {
                 name: 'Husk of Opulent Dreams',
-                imageUrl: 'assets/gi/set/GI_Set_HuskOfOpulentDreams.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_HuskOfOpulentDreams.png'
             }],
             ['Marechaussee Hunter', {
                 name: 'Marechaussee Hunter',
-                imageUrl: 'assets/gi/set/GI_Set_MarechausseeHunter.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_MarechausseeHunter.png'
             }],
             ['Nighttime Whispers in the Echoing Woods', {
                 name: 'Nighttime Whispers in the Echoing Woods',
-                imageUrl: 'assets/gi/set/GI_Set_NighttimeWhispersInTheEchoingWoods.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_NighttimeWhispersInTheEchoingWoods.png'
             }],
             ['Noblesse Oblige', {
                 name: 'Noblesse Oblige',
-                imageUrl: 'assets/gi/set/GI_Set_NoblesseOblige.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_NoblesseOblige.png'
             }],
             ['Ocean-Hued Clam', {
                 name: 'Ocean-Hued Clam',
-                imageUrl: 'assets/gi/set/GI_Set_OceanHuedClam.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_OceanHuedClam.png'
             }],
             ['Pale Flame', {
                 name: 'Pale Flame',
-                imageUrl: 'assets/gi/set/GI_Set_PaleFlame.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_PaleFlame.png'
             }],
             ['Shimenawa\'s Reminiscence', {
                 name: 'Shimenawa\'s Reminiscence',
-                imageUrl: 'assets/gi/set/GI_Set_ShimenawasReminiscence.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_ShimenawasReminiscence.png'
             }],
             ['Tenacity of the Millelith', {
                 name: 'Tenacity of the Millelith',
-                imageUrl: 'assets/gi/set/GI_Set_TenacityOfTheMillelith.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_TenacityOfTheMillelith.png'
             }],
             ['Viridescent Venerer', {
                 name: 'Viridescent Venerer',
-                imageUrl: 'assets/gi/set/GI_Set_ViridescentVenerer.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_ViridescentVenerer.png'
             }],
             ['Vourukasha\'s Glow', {
                 name: 'Vourukasha\'s Glow',
-                imageUrl: 'assets/gi/set/GI_Set_VourukashasGlow.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_VourukashasGlow.png'
             }],
             ['Echoes of an Offering', {
                 name: 'Echoes of an Offering',
-                imageUrl: 'assets/gi/set/GI_Set_EchoesOfAnOffering.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_EchoesOfAnOffering.png'
             }],
             ['Unfinished Reverie', {
                 name: 'Unfinished Reverie',
-                imageUrl: 'assets/gi/set/GI_Set_UnfinishedReverie.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_UnfinishedReverie.png'
             }],
             ['Obsidian Codex', {
                 name: 'Obsidian Codex',
-                imageUrl: 'assets/gi/set/GI_Set_ObsidianCodex.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_ObsidianCodex.png'
             }],
             ['Scroll of the Hero of Cinder City', {
                 name: 'Scroll of the Hero of Cinder City',
-                imageUrl: 'assets/gi/set/GI_Set_ScrollOfTheHeroOfCinderCity.png'
+                imageUrl: 'assets/images/gi/set/GI_Set_ScrollOfTheHeroOfCinderCity.png'
             }],
         ]),
     

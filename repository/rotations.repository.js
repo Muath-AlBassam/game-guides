@@ -10,11 +10,11 @@ class RotationsRepository {
     static imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
 
     // GI moves shortcuts
-    // static giNormal = this.imageOf('assets/gi/icons/GI_NormalAttack.png', 'Normal Attack');
+    // static giNormal = this.imageOf('assets/images/gi/icons/GI_NormalAttack.png', 'Normal Attack');
     // static giCharged = this.tooltip('CA', 'Charged Attack');
-    // static giSkill = this.imageOf('assets/gi/icons/GI_Skill.png', 'Skill');
-    // static giUltimate = this.imageOf('assets/gi/icons/GI_Ultimate.png', 'Ultimate');
-    // static giPlunge = this.imageOf('assets/gi/icons/GI_Plunge.png', 'Plunge');
+    // static giSkill = this.imageOf('assets/images/gi/icons/GI_Skill.png', 'Skill');
+    // static giUltimate = this.imageOf('assets/images/gi/icons/GI_Ultimate.png', 'Ultimate');
+    // static giPlunge = this.imageOf('assets/images/gi/icons/GI_Plunge.png', 'Plunge');
     static giNormal = this.tooltip('N', 'Normal Attack');
     static giCharged = this.tooltip('CA', 'Charged Attack');
     static giSkill = this.tooltip('E', 'Skill');

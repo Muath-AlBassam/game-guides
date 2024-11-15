@@ -20,182 +20,182 @@ class WeaponsRepository {
         GIWeapons: new Map([
             ['Absolution', {
                 name: 'Absolution',
-                imageUrl: 'assets/gi/weapon/GI_W_Absolution.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_Absolution.png',
                 rarity: '5'
             }],
             ['A Thousand Floating Dreams', {
                 name: 'A Thousand Floating Dreams',
-                imageUrl: 'assets/gi/weapon/GI_W_AThousandFloatingDreams.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_AThousandFloatingDreams.png',
                 rarity: '5'
             }],
             ['Amos\' Bow', {
                 name: 'Amos\' Bow',
-                imageUrl: 'assets/gi/weapon/GI_W_AmosBow.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_AmosBow.png',
                 rarity: '5'
             }],
             ['Cashflow Supervision', {
                 name: 'Cashflow Supervision',
-                imageUrl: 'assets/gi/weapon/GI_W_CashflowSupervision.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_CashflowSupervision.png',
                 rarity: '5'
             }],
             ['Crimson Moon\'s Semblance', {
                 name: 'Crimson Moon\'s Semblance',
-                imageUrl: 'assets/gi/weapon/GI_W_CrimsonMoonsSemblance.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_CrimsonMoonsSemblance.png',
                 rarity: '5'
             }],
             ['Engulfing Lightning', {
                 name: 'Engulfing Lightning',
-                imageUrl: 'assets/gi/weapon/GI_W_EngulfingLightning.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_EngulfingLightning.png',
                 rarity: '5'
             }],
             ['Jadefall\'s Splendor', {
                 name: 'Jadefall\'s Splendor',
-                imageUrl: 'assets/gi/weapon/GI_W_JadefallsSplendor.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_JadefallsSplendor.png',
                 rarity: '5'
             }],
             ['Kagura\'s Verity', {
                 name: 'Kagura\'s Verity',
-                imageUrl: 'assets/gi/weapon/GI_W_KagurasVerity.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_KagurasVerity.png',
                 rarity: '5'
             }],
             ['Key of Khaj-Nisut', {
                 name: 'Key of Khaj-Nisut',
-                imageUrl: 'assets/gi/weapon/GI_W_KeyOfKhajNisut.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_KeyOfKhajNisut.png',
                 rarity: '5'
             }],
             ['Mistsplitter Reforged', {
                 name: 'Mistsplitter Reforged',
-                imageUrl: 'assets/gi/weapon/GI_W_MistsplitterReforged.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_MistsplitterReforged.png',
                 rarity: '5'
             }],
             ['Primordial Jade Winged-Spear', {
                 name: 'Primordial Jade Winged-Spear',
-                imageUrl: 'assets/gi/weapon/GI_W_PrimordialJadeWingedSpear.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_PrimordialJadeWingedSpear.png',
                 rarity: '5'
             }],
             ['Skyward Blade', {
                 name: 'Skyward Blade',
-                imageUrl: 'assets/gi/weapon/GI_W_SkywardBlade.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SkywardBlade.png',
                 rarity: '5'
             }],
             ['Song of Broken Pines', {
                 name: 'Song of Broken Pines',
-                imageUrl: 'assets/gi/weapon/GI_W_SongOfBrokenPines.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SongOfBrokenPines.png',
                 rarity: '5'
             }],
             ['Splendor of Tranquil Waters', {
                 name: 'Splendor of Tranquil Waters',
-                imageUrl: 'assets/gi/weapon/GI_W_SplendorOfTranquilWaters.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SplendorOfTranquilWaters.png',
                 rarity: '5'
             }],
             ['Staff of Homa', {
                 name: 'Staff of Homa',
-                imageUrl: 'assets/gi/weapon/GI_W_StaffOfHoma.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_StaffOfHoma.png',
                 rarity: '5'
             }],
             ['Tome of the Eternal Flow', {
                 name: 'Tome of the Eternal Flow',
-                imageUrl: 'assets/gi/weapon/GI_W_TomeOfTheEternalFlow.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_TomeOfTheEternalFlow.png',
                 rarity: '5'
             }],
             ['Uraku Misugiri', {
                 name: 'Uraku Misugiri',
-                imageUrl: 'assets/gi/weapon/GI_W_UrakuMisugiri.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_UrakuMisugiri.png',
                 rarity: '5'
             }],
             ['Verdict', {
                 name: 'Verdict',
-                imageUrl: 'assets/gi/weapon/GI_W_Verdict.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_Verdict.png',
                 rarity: '5'
             }],
             ['Wolf\'s Gravestone', {
                 name: 'Wolf\'s Gravestone',
-                imageUrl: 'assets/gi/weapon/GI_W_WolfsGravestone.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_WolfsGravestone.png',
                 rarity: '5'
             }],
             ['Favonius Lance', {
                 name: 'Favonius Lance',
-                imageUrl: 'assets/gi/weapon/GI_W_FavoniusLance.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_FavoniusLance.png',
                 rarity: '4'
             }],
             ['Favonius Warbow', {
                 name: 'Favonius Warbow',
-                imageUrl: 'assets/gi/weapon/GI_W_FavoniusWarbow.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_FavoniusWarbow.png',
                 rarity: '4'
             }],
             ['Iron Sting', {
                 name: 'Iron Sting',
-                imageUrl: 'assets/gi/weapon/GI_W_IronSting.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_IronSting.png',
                 rarity: '4'
             }],
             ['Mitternachts Waltz', {
                 name: 'Mitternachts Waltz',
-                imageUrl: 'assets/gi/weapon/GI_W_MitternachtsWaltz.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_MitternachtsWaltz.png',
                 rarity: '4'
             }],
             ['Oathsworn Eye', {
                 name: 'Oathsworn Eye',
-                imageUrl: 'assets/gi/weapon/GI_W_OathswornEye.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_OathswornEye.png',
                 rarity: '4'
             }],
             ['Sacrificial Sword', {
                 name: 'Sacrificial Sword',
-                imageUrl: 'assets/gi/weapon/GI_W_SacrificialSword.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SacrificialSword.png',
                 rarity: '4'
             }],
             ['The Black Sword', {
                 name: 'The Black Sword',
-                imageUrl: 'assets/gi/weapon/GI_W_TheBlackSword.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_TheBlackSword.png',
                 rarity: '4'
             }],
             ['The Catch', {
                 name: 'The Catch',
-                imageUrl: 'assets/gi/weapon/GI_W_TheCatch.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_TheCatch.png',
                 rarity: '4'
             }],
             ['Xiphos\' Moonlight', {
                 name: 'Xiphos\' Moonlight',
-                imageUrl: 'assets/gi/weapon/GI_W_XiphosMoonlight.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_XiphosMoonlight.png',
                 rarity: '4'
             }],
             ['Dialogues of the Desert Sages', {
                 name: 'Dialogues of the Desert Sages',
-                imageUrl: 'assets/gi/weapon/GI_W_DialoguesOfTheDesertSages.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_DialoguesOfTheDesertSages.png',
                 rarity: '4'
             }],
             ['Black Tassel', {
                 name: 'Black Tassel',
-                imageUrl: 'assets/gi/weapon/GI_W_BlackTassel.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_BlackTassel.png',
                 rarity: '3'
             }],
             ['Deathmatch', {
                 name: 'Deathmatch',
-                imageUrl: 'assets/gi/weapon/GI_W_Deathmatch.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_Deathmatch.png',
                 rarity: '4'
             }],
             ['Lumidouce Elegy', {
                 name: 'Lumidouce Elegy',
-                imageUrl: 'assets/gi/weapon/GI_W_LumidouceElegy.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_LumidouceElegy.png',
                 rarity: '5'
             }],
             ['Beacon of the Reed Sea', {
                 name: 'Beacon of the Reed Sea',
-                imageUrl: 'assets/gi/weapon/GI_W_BeaconOfTheReedSea.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_BeaconOfTheReedSea.png',
                 rarity: '5'
             }],
             ['Surf\'s Up', {
                 name: 'Surf\'s Up',
-                imageUrl: 'assets/gi/weapon/GI_W_SurfsUp.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SurfsUp.png',
                 rarity: '5'
             }],
             ['Fang of the Mountain King', {
                 name: 'Fang of the Mountain King',
-                imageUrl: 'assets/gi/weapon/GI_W_FangOfTheMountainKing.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_FangOfTheMountainKing.png',
                 rarity: '5'
             }],
             ['Flute of Ezpitzal', {
                 name: 'Flute of Ezpitzal',
-                imageUrl: 'assets/gi/weapon/GI_W_FluteOfEzpitzal.png',
+                imageUrl: 'assets/images/gi/weapon/GI_W_FluteOfEzpitzal.png',
                 rarity: '4'
             }],
         ]),

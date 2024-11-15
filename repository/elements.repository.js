@@ -24,31 +24,31 @@ class ElementsRepository {
         GIElements: new Map([
             ['Pyro', {
                 name: 'Pyro',
-                imageUrl: 'assets/gi/icons/GI_Pyro.png'
+                imageUrl: 'assets/images/gi/icons/GI_Pyro.png'
             }],
             ['Hydro', {
                 name: 'Hydro',
-                imageUrl: 'assets/gi/icons/GI_Hydro.png'
+                imageUrl: 'assets/images/gi/icons/GI_Hydro.png'
             }],
             ['Dendro', {
                 name: 'Dendro',
-                imageUrl: 'assets/gi/icons/GI_Dendro.png'
+                imageUrl: 'assets/images/gi/icons/GI_Dendro.png'
             }],
             ['Electro', {
                 name: 'Electro',
-                imageUrl: 'assets/gi/icons/GI_Electro.png'
+                imageUrl: 'assets/images/gi/icons/GI_Electro.png'
             }],
             ['Anemo', {
                 name: 'Anemo',
-                imageUrl: 'assets/gi/icons/GI_Anemo.png'
+                imageUrl: 'assets/images/gi/icons/GI_Anemo.png'
             }],
             ['Cryo', {
                 name: 'Cryo',
-                imageUrl: 'assets/gi/icons/GI_Cryo.png'
+                imageUrl: 'assets/images/gi/icons/GI_Cryo.png'
             }],
             ['Geo', {
                 name: 'Geo',
-                imageUrl: 'assets/gi/icons/GI_Geo.png'
+                imageUrl: 'assets/images/gi/icons/GI_Geo.png'
             }]
         ]),
     

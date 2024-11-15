@@ -16,8 +16,8 @@ class GamesRepository {
                 code: Constants.games.GI,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 4,
-                logoUrl: 'assets/gi/GI_Logo.png',
-                backgroundUrl: 'assets/gi/GI_BG.png',
+                logoUrl: 'assets/images/gi/GI_Logo.png',
+                backgroundUrl: 'assets/images/gi/GI_BG.png',
                 guideUrl: 'https://genshin-impact.fandom.com/wiki/Character/List'
             }],
             [Constants.games.HSR, {
