@@ -1,23 +1,23 @@
 ## Helper Links
 
 > Genshin Impact
-- Characters : https://genshin-impact.fandom.com/wiki/Character/List
-- Weapons : https://genshin-impact.fandom.com/wiki/Weapon/List
-- Sets : https://genshin-impact.fandom.com/wiki/Artifact/Sets
+- Characters : [Wiki Fandom](https://genshin-impact.fandom.com/wiki/Character/List)
+- Weapons : [Wiki Fandom](https://genshin-impact.fandom.com/wiki/Weapon/List)
+- Sets : [Wiki Fandom](https://genshin-impact.fandom.com/wiki/Artifact/Sets)
   - Open image & change url path variable (50) to 256 then download
 
 > Honkai Star Rail
-- Characters : https://www.prydwen.gg/star-rail/tier-list
-- Weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
-- Sets : https://www.hoyolab.com/accountCenter/postList?id=17195645
+- Characters : [Prydwen](https://www.prydwen.gg/star-rail/tier-list)
+- Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+- Sets : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
 
 > Zenless Zone Zero
-- Characters : https://www.prydwen.gg/zenless/tier-list
+- Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Select character and open wiki, then download image
   - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
   - Sizes around 256px~330px
-- Weapons : https://www.hoyolab.com/accountCenter/postList?id=17195645
-- Sets : https://www.prydwen.gg/zenless/disk-drives
+- Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+- Sets : [Prydwen](https://www.prydwen.gg/zenless/disk-drives)
 
 <br>
 <br>
