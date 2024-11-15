@@ -10,15 +10,20 @@ class RotationsRepository {
     static imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
 
     // GI moves shortcuts
-    static giNormal = this.imageOf('assets/gi/icons/GI_NormalAttack.png', 'Normal Attack');
-    static giCharged = `${this.tooltip('CA', 'Charged Attack')}`;
-    static giSkill = this.imageOf('assets/gi/icons/GI_Skill.png', 'Skill');
-    static giUltimate = this.imageOf('assets/gi/icons/GI_Ultimate.png', 'Ultimate');
-    static giPlunge = this.imageOf('assets/gi/icons/GI_Plunge.png', 'Plunge');
+    // static giNormal = this.imageOf('assets/gi/icons/GI_NormalAttack.png', 'Normal Attack');
+    // static giCharged = this.tooltip('CA', 'Charged Attack');
+    // static giSkill = this.imageOf('assets/gi/icons/GI_Skill.png', 'Skill');
+    // static giUltimate = this.imageOf('assets/gi/icons/GI_Ultimate.png', 'Ultimate');
+    // static giPlunge = this.imageOf('assets/gi/icons/GI_Plunge.png', 'Plunge');
+    static giNormal = this.tooltip('N', 'Normal Attack');
+    static giCharged = this.tooltip('CA', 'Charged Attack');
+    static giSkill = this.tooltip('E', 'Skill');
+    static giUltimate = this.tooltip('Q', 'Ultimate');
+    static giPlunge = this.tooltip('Plunge', 'Plunge');
 
     // ZZZ moves shortcuts
     static zzzBasic = this.imageOf('assets/zzz/icons/ZZZ_Basic.png', 'Basic');
-    static zzzCharged = `${this.tooltip('CA', 'Charged Attack')}`;
+    static zzzCharged = this.tooltip('CA', 'Charged Attack');
     static zzzExSpecial = this.imageOf('assets/zzz/icons/ZZZ_ExSpecial.png', 'EX Special');
     static zzzSpecial = this.imageOf('assets/zzz/icons/ZZZ_Special.png', 'Special');
     static zzzQTE = this.imageOf('assets/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)');
