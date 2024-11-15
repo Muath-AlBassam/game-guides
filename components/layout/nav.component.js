@@ -43,8 +43,8 @@ class NavComponent extends HTMLElement {
             align-items: center;
             pointer-events: none;
             opacity: 0;
-            font-weight: bold;
             font-size: 1.3em;
+            font-family: 'BabyPlums';
         }
 
         .sidebar.active .top .logo {
@@ -135,7 +135,7 @@ class NavComponent extends HTMLElement {
             navContent += `
             <li>
                 <a class="sidebar-item" href="#${g.code}">
-                    <i class="text-shadow">${g.code}</i>
+                    <i>${g.code}</i>
                     <span class="nav-item">${g.label}</span>
                 </a>
             </li>`;
