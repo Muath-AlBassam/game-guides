@@ -20,35 +20,35 @@ class ButtonsRepository {
         TK8Buttons: new Map([
             ['A', {
                 name: 'A',
-                imageUrl: 'assets/xbox/XBX_A.png'
+                imageUrl: 'assets/images/xbox/XBX_A.png'
             }],
             ['B', {
                 name: 'B',
-                imageUrl: 'assets/xbox/XBX_B.png'
+                imageUrl: 'assets/images/xbox/XBX_B.png'
             }],
             ['X', {
                 name: 'X',
-                imageUrl: 'assets/xbox/XBX_X.png'
+                imageUrl: 'assets/images/xbox/XBX_X.png'
             }],
             ['Y', {
                 name: 'Y',
-                imageUrl: 'assets/xbox/XBX_Y.png'
+                imageUrl: 'assets/images/xbox/XBX_Y.png'
             }],
             ['AB', {
                 name: 'AB',
-                imageUrl: 'assets/xbox/XBX_AB.png'
+                imageUrl: 'assets/images/xbox/XBX_AB.png'
             }],
             ['AX', {
                 name: 'AX',
-                imageUrl: 'assets/xbox/XBX_AX.png'
+                imageUrl: 'assets/images/xbox/XBX_AX.png'
             }],
             ['YB', {
                 name: 'YB',
-                imageUrl: 'assets/xbox/XBX_YB.png'
+                imageUrl: 'assets/images/xbox/XBX_YB.png'
             }],
             ['YX', {
                 name: 'YX',
-                imageUrl: 'assets/xbox/XBX_YX.png'
+                imageUrl: 'assets/images/xbox/XBX_YX.png'
             }],
             ['U', {
                 name: 'Up',
