@@ -5,7 +5,7 @@ class HeaderComponent extends HTMLElement {
         .header .title {
             display: flex;
             align-items: center;
-            font-family: 'BabyPlums';
+            font-family: 'Death Star';
         }
 
         .header .game-background {

@@ -1,30 +1,20 @@
 @font-face {
     font-family: 'BabyPlums';
-    src: url('assets/fonts/BabyPlums-rv2gL.woff2') format('woff2');
+    src: url('assets/fonts/BabyPlums.woff2') format('woff2');
 }
 @font-face {
-    /* Issue with numbers*/
-    font-family: 'RubicaPersonalUseOnly';
-    src: url('assets/fonts/RubicaPersonalUseOnly-0vaqo.woff2') format('woff2');
+    /* Free version */
+    font-family: 'QuesatDemo';
+    src: url('assets/fonts/QuesatDemo.woff2') format('woff2');
 }
 @font-face {
-    /* Skinny */
-    font-family: 'ThisAppealFreeDemo';
-    src: url('assets/fonts/ThisAppealFreeDemo-4n38W.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'RodfatTwoDemo';
-    src: url('assets/fonts/RodfatTwoDemo-rgvV8.woff2') format('woff2');
+    /* Free version */
+    font-family: 'Rukinax';
+    src: url('assets/fonts/Rukinax.woff2') format('woff2');
 }
 @font-face {
-    /* Skinny */
-    font-family: 'TheFountainOfWishesRegular';
-    src: url('assets/fonts/TheFountainOfWishesRegular-OVxw4.woff2') format('woff2');
-}
-@font-face {
-    font-family: 'Afterclap';
-    src: url('assets/fonts/Afterclap-PK7ng.woff2') format('woff2');
+    font-family: 'Death Star';
+    src: url('assets/fonts/Death Star.woff2') format('woff2');
 }
 
 :root {
@@ -42,7 +32,7 @@
 body {
     background-color: var(--background-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* font-family: 'RodfatTwoDemo'; */
+    /* font-family: 'QuesatDemo'; */
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -185,20 +175,18 @@ body:has(div.dialog-shown) {
     border: 1px solid var(--text-color);
     border-radius: 10px;
     padding: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
-  
-.arrow-border::after {
+.arrow-border::before {/* Top arrow */
+    position: absolute;
+    content: "<";
+    top: -0.9em;
+}
+.arrow-border::after {/* Bottom arrow */
     position: absolute;
     margin-left: -15px;
     content: ">";
     bottom: -0.75em;
-}
-
-.arrow-border::before {
-    position: absolute;
-    content: "<";
-    top: -0.85em;
 }
 
 /* Character rarity background --------------------------------------------- */

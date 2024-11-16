@@ -44,7 +44,7 @@ class NavComponent extends HTMLElement {
             pointer-events: none;
             opacity: 0;
             font-size: 1.3em;
-            font-family: 'BabyPlums';
+            font-family: 'Death Star';
         }
 
         .sidebar.active .top .logo {
@@ -94,6 +94,7 @@ class NavComponent extends HTMLElement {
         .sidebar .nav-item {
             cursor: pointer;
             display: none;
+            font-family: 'Death Star'
         }
         .sidebar.active .nav-item {
             display: block;
