@@ -28,7 +28,16 @@ class RarityRepository {
             }]
         ]),
 
-        HSRRarity: new Map(),
+        HSRRarity: new Map([
+            ['5', {
+                code: '5',
+                imageUrl: 'assets/images/hsr/HSR_Rarity5.png'
+            }],
+            ['4', {
+                code: '4',
+                imageUrl: 'assets/images/hsr/HSR_Rarity4.png'
+            }]
+        ]),
 
         ZZZRarity: new Map([
             ['S', {

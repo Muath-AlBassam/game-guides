@@ -222,10 +222,10 @@ body:has(div.dialog-shown) {
 }
 
 .HSR-rarity-5 {
-    background: linear-gradient(180deg, #885550, #c9a36a 53%);
+    background: linear-gradient(180deg, #ac6d5c, #c48c64 53%);
 }
 .HSR-rarity-4 {
-    background: linear-gradient(180deg, #343659, #8a5fcc 53%);
+    background: linear-gradient(180deg, #404165, #8f5fc6 53%);
 }
 
 .ZZZ-rarity-S {
