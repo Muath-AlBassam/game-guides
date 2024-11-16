@@ -121,7 +121,12 @@ class BuildDialog extends HTMLElement {
         let roleImage = '';
         if (charmd.role) {
             const rolemd = RolesRepository.getRole(gameCode, charmd.role);
-            roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 5px;">`;
+            roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin-right: 5px;">`;
+        }
+        let rarity = RarityRepository.getRarity(gameCode, charmd.rarity);
+        let rarityImage = '';
+        if (rarity) {
+            rarityImage = `<img src="${rarity.imageUrl}" height="30" title="${rarity.code}" style="margin: 0 5px;">`;
         }
         return `
         <div>
@@ -131,6 +136,9 @@ class BuildDialog extends HTMLElement {
             </div>
             <div class="center-content">
                 ${roleImage} <h5>${charmd.name}</h5>
+            </div>
+            <div class="center-content">
+                ${rarityImage}
             </div>
         </div>
         `;

@@ -23,6 +23,7 @@ function loadAllScripts() {
     loadScript("repository/roles.repository.js");
     loadScript("repository/elements.repository.js");
     loadScript("repository/buttons.repository.js");
+    loadScript("repository/rarity.repository.js");
 
     // Components
     loadScript("components/searh.component.js", true); 

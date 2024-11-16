@@ -203,42 +203,36 @@ body:has(div.dialog-shown) {
 
 /* Character rarity background --------------------------------------------- */
 .GI-rarity-5 {
-    background-image: url(assets/images/gi/GI_Rarity5.jpg);
+    background-image: url(assets/images/gi/GI_Rarity5_BG.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
 }
 .GI-rarity-4 {
-    background-image: url(assets/images/gi/GI_Rarity4.jpg);
+    background-image: url(assets/images/gi/GI_Rarity4_BG.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
 }
 .GI-rarity-3 {
-    background-image: url(assets/images/gi/GI_Rarity3.jpg);
+    background-image: url(assets/images/gi/GI_Rarity3_BG.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
 }
 
 .HSR-rarity-5 {
-    background: #885550;
     background: linear-gradient(180deg, #885550, #c9a36a 53%);
-    border-bottom-color: #c9a36a;
 }
 .HSR-rarity-4 {
-    background: #343659;
     background: linear-gradient(180deg, #343659, #8a5fcc 53%);
-    border-bottom-color: #8a5fcc;
 }
 
 .ZZZ-rarity-S {
-    background: #d7bc57;
-    background: linear-gradient(0deg, #d7bc57, #d19910);
-    border-bottom-color: #d7bc57;
+    /* background: linear-gradient(0deg, #d7bc57, #d19910); */
+    background: linear-gradient(180deg, #f99807, #fb7704);
 }
 .ZZZ-rarity-A {
-    background: #be6fed;
-    background: linear-gradient(0deg, #be6fed, #8c37bd);
-    border-bottom-color: #952fd2;
+    /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
+    background: linear-gradient(180deg, #c925f8, #9328e9);
 }
