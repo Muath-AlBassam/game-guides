@@ -7,7 +7,9 @@
   - Open image & change url path variable (50) to 256 then download
 
 > Honkai Star Rail
-- Characters : [Prydwen](https://www.prydwen.gg/star-rail/tier-list)
+- Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+  - Open & download character icon image (Simplified or Stats view)
+  - Crop using Windows Paint to be 160x160
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
 - Sets : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
 
@@ -33,5 +35,3 @@
 - Character weapon in a team
 - Simple rotation notes
 - etc.
-
-> Find better quality images for HSR
