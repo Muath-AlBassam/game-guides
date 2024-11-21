@@ -27,9 +27,9 @@ class Utils {
         let styleVal = 'border-radius: 5px;';
         styleVal += ` ${showBuild ? 'display: block; height: auto;' : ''} ${styles}`;
         let classVal = `pfp ${addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''} ${classes}`;
-        let imgSrc = `${charmd.imageUrl ?? 'assets/Unknown.png'}`;
+        let imgSrc = `${charmd.imageUrl ?? 'assets/images/Unknown.png'}`;
         let imgTag = `<img    
-                    src="${imgSrc}" alt="${charmd.name}" title="${charmd.name ?? '?'}"
+                    src="${imgSrc}" alt="${charmd.name ?? '?'}" title="${charmd.name ?? '?'}"
                     class="${classVal}" style="${styleVal}" width="${dimensions}" 
                 />`;
         

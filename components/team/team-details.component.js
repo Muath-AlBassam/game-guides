@@ -185,7 +185,7 @@ class TeamDetailsComponent extends HTMLElement {
             ${teamIndex > 0 ? `<div class="number">${teamIndex}</div>` : ''}
             <div class="item">
                 <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                    <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
+                    <img src="${team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
                     <span>${team.name}</span>
                 </div>
                 <div class="members">
