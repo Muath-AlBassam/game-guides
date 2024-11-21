@@ -181,7 +181,9 @@ class TeamDetailsComponent extends HTMLElement {
                     <img src="${team.iconUrl ?? 'assets/Placeholder_Logo.png'}" height="40">
                     <span>${team.name}</span>
                 </div>
-                <div class="members">${this.buildMemebersImages(activeGame, team)}</div>
+                <div class="members">
+                    ${this.buildMemebersImages(activeGame, team)}
+                </div>
                 <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
                 </div>
