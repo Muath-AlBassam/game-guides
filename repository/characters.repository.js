@@ -264,6 +264,12 @@ class CharactersRepository {
                 element: 'Geo',
                 rarity: '5',
             }],
+            ['Chasca', {
+                name: 'Chasca',
+                imageUrl: 'assets/images/gi/character/GI_Chasca.png',
+                element: 'Anemo',
+                rarity: '5',
+            }],
         ]),
     
         HSRCharacters: new Map([

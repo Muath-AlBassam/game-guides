@@ -270,6 +270,12 @@ class BuildsRepository {
                     { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
                 ]
             }],
+            ['Chasca', {
+                weapon: { name: 'Astral Vulture\'s Crimson Plumage' },
+                sets: [
+                    { name: 'Obsidian Codex', pieceCount: '4' }
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

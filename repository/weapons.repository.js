@@ -198,6 +198,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/gi/weapon/GI_W_FluteOfEzpitzal.png',
                 rarity: '4'
             }],
+            ['Astral Vulture\'s Crimson Plumage', {
+                name: 'Astral Vulture\'s Crimson Plumage',
+                imageUrl: 'assets/images/gi/weapon/GI_W_AstralVulturesCrimsonPlumage.png',
+                rarity: '5'
+            }],
         ]),
     
         HSRLightCones: new Map([

@@ -158,30 +158,15 @@ class TeamsRepository {
                 iconUrl: 'assets/images/gi/icons/GI_Anemo.png',
                 characters: [
                     {
-                        name: 'Lynette',
-                        role: 'DPS',
+                        name: 'Chasca',
+                        role: 'DPS + Swirl',
                         isMain: true,
-                        replacements: ['Xiao'],
-                    },
-                    {
-                        name: 'Faruzan',
-                        role: 'Anemo DMG Buff + RES Shred',
-                        isMain: false,
                         replacements: [],
                     },
-                    {
-                        name: 'Xianyun',
-                        role: 'Buff',
-                        isMain: false,
-                        replacements: [],
-                    },
-                    {
-                        name: 'Zhongli',
-                        role: 'Shield',
-                        isMain: false,
-                        replacements: [],
-                    }
                 ],
+                variations: [
+                    { name: '', characters: ['Lynette', 'Faruzan', 'Xianyun', 'Zhongli'] }
+                ]
             }],
             ['Cryo', {
                 name: 'Cryo',
