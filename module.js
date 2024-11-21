@@ -24,6 +24,7 @@ function loadAllScripts() {
     loadScript("repository/elements.repository.js");
     loadScript("repository/buttons.repository.js");
     loadScript("repository/rarity.repository.js");
+    loadScript("repository/pets.repository.js");
 
     // Components
     loadScript("components/searh.component.js", true); 

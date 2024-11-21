@@ -1,6 +1,7 @@
 class TeamDetailsComponent extends HTMLElement {
 
     characterPFPSize = 160;
+    petPFPSize = 80;
 
     componentStyle = `
     <style>
@@ -52,6 +53,12 @@ class TeamDetailsComponent extends HTMLElement {
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .teams__container .item .pet {
+            border-radius: 50%;
+            margin-left: 20px;
+            border: 5px solid black;
         }
 
         .teams__container .item .actions {
@@ -183,6 +190,7 @@ class TeamDetailsComponent extends HTMLElement {
                 </div>
                 <div class="members">
                     ${this.buildMemebersImages(activeGame, team)}
+                    ${this.buildPetImage(activeGame, team)}
                 </div>
                 <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
                     <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
@@ -200,6 +208,21 @@ class TeamDetailsComponent extends HTMLElement {
                 {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
         }
         return membersImages;
+    }
+
+    buildPetImage(activeGame, team) {
+        let petImage = ``;
+        if (team.pet) {
+            const pet = PetsRepository.getPet(activeGame.code, team.pet);
+            petImage = `
+            <img 
+                src="${pet.imageUrl}" 
+                height="${this.petPFPSize}" 
+                class="pet ${activeGame.code+'-rarity-'+pet.rarity}"
+                title="${pet.name}"
+            >`;
+        }
+        return petImage;
     }
 
     // team details (collapsable/accordion content)

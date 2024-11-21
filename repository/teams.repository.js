@@ -584,7 +584,8 @@ class TeamsRepository {
                         isMain: false,
                         replacements: ['Lucy'],
                     }
-                ]
+                ],
+                pet: 'Officer Cui'
             }],
             ['Fire', {
                 name: 'Fire',
@@ -608,7 +609,8 @@ class TeamsRepository {
                         isMain: false,
                         replacements: ['Koleda'],
                     },
-                ]
+                ],
+                pet: 'Rocketboo'
             }],
             ['Ice', {
                 name: 'Ice',
@@ -632,7 +634,8 @@ class TeamsRepository {
                         isMain: false,
                         replacements: [],
                     }
-                ]
+                ],
+                pet: 'Sharkboo'
             }],
             ['Electric', {
                 name: 'Electric',
@@ -661,7 +664,8 @@ class TeamsRepository {
                         isMain: false,
                         replacements: [],
                     }
-                ]
+                ],
+                pet: 'Resonaboo'
             }],
             ['Disorder', {
                 name: 'Disorder',
@@ -685,7 +689,8 @@ class TeamsRepository {
                         isMain: false,
                         replacements: [],
                     }
-                ]
+                ],
+                pet: 'Red Moccus'
             }]
         ]),
     
