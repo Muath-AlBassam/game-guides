@@ -212,11 +212,11 @@ class TeamDetailsComponent extends HTMLElement {
 
     buildPetImage(activeGame, team) {
         let petImage = ``;
-        if (team.pet) {
+        if (activeGame.hasPet) {
             const pet = PetsRepository.getPet(activeGame.code, team.pet);
             petImage = `
             <img 
-                src="${pet.imageUrl}" 
+                src="${pet.imageUrl ?? 'assets/images/Unknown.png'}" 
                 height="${this.petPFPSize}" 
                 class="pet ${activeGame.code+'-rarity-'+pet.rarity}"
                 title="${pet.name}"

@@ -16,6 +16,7 @@ class GamesRepository {
                 code: Constants.games.GI,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 4,
+                hasPet: false,
                 logoUrl: 'assets/images/gi/GI_Logo.png',
                 backgroundUrl: 'assets/images/gi/GI_BG.png',
                 guideUrl: 'https://genshin-impact.fandom.com/wiki/Character/List'
@@ -25,6 +26,7 @@ class GamesRepository {
                 code: Constants.games.HSR,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 4,
+                hasPet: false,
                 logoUrl: 'assets/images/hsr/HSR_Logo.png',
                 backgroundUrl: 'assets/images/hsr/HSR_BG.png',
                 guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
@@ -34,6 +36,7 @@ class GamesRepository {
                 code: Constants.games.ZZZ,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 3,
+                hasPet: true,
                 logoUrl: 'assets/images/zzz/ZZZ_Logo.png',
                 backgroundUrl: 'assets/images/zzz/ZZZ_BG.png',
                 guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
@@ -43,6 +46,7 @@ class GamesRepository {
                 code: Constants.games.HI3,
                 style: Constants.gameStyles.TEAMS,
                 teamSize: 3,
+                hasPet: true,
                 logoUrl: 'assets/images/hi3/HI3_Logo.png',
                 backgroundUrl: 'assets/images/hi3/HI3_BG.jpg',
                 guideUrl: 'https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries'
