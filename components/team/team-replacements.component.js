@@ -31,7 +31,7 @@ class ReplacementsComponent extends HTMLElement {
             </h5>
             <table class="table table-striped table-bordered">
                 <tbody>
-                ${this.buildReplacements(activeGame, currentTeam)}
+                    ${this.buildReplacements(activeGame, currentTeam)}
                 </tbody>
             </table>
         </div>`;
@@ -43,22 +43,7 @@ class ReplacementsComponent extends HTMLElement {
 
         currentTeam.characters.forEach(character => {
             const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
-
-            let charReplacements = '';
-            if (character.replacements && character.replacements.length > 0) {
-                character.replacements.forEach(rep => {
-                    const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
-                    charReplacements += Utils.createCharacterImage(activeGame.code, repmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
-                })
-            } else {
-                charReplacements = `
-                    <div style="margin: 5px 10px; width: ${this.characterPFPSize}px; display: flex; justify-content: center;">
-                        <img src="assets/svg/cross-circle.svg" width="${this.characterPFPSize/2}" title="No Replacements.">
-                    </div>
-                `;
-            }
-
+            let charReplacements = this.buildCharacterReplacements(activeGame, character);
             replacementsContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
@@ -72,6 +57,24 @@ class ReplacementsComponent extends HTMLElement {
         });
 
         return replacementsContent;
+    }
+
+    buildCharacterReplacements(activeGame, character) {
+        let charReplacements = '';
+        if (character.replacements && character.replacements.length > 0) {
+            character.replacements.forEach(rep => {
+                const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
+                charReplacements += Utils.createCharacterImage(activeGame.code, repmd, 
+                    {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+            })
+        } else {
+            charReplacements = `
+                <div style="margin: 5px 10px; width: ${this.characterPFPSize}px; display: flex; justify-content: center;">
+                    <h1 class="empty-details" style="color: #000">${Constants.unicode.times}</h1>
+                </div>
+            `;
+        }
+        return charReplacements;
     }
 }
 
