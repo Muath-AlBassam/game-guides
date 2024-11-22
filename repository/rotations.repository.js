@@ -79,7 +79,11 @@ class RotationsRepository {
                 ['Thoma', `${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
                 ['Clorinde', `${this.repeat(`${this.giSkill} + ${this.giNormal}`)} ${this.arrow} ${this.giUltimate}`]
             ]],
-            ['Anemo', []],
+            ['Anemo', [
+                ['Furina', `${this.giSkill} ${this.smallText('(optional)')} ${this.arrow} ${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
+                ['Bennett', `${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
+                ['Chasca', `${this.giSkill} ${this.arrow} ${this.giCharged}`]
+            ]],
             ['Cryo', [
                 ['Wriothesley', `${this.giNormal}${this.times}1 ${this.arrow}`],
                 ['Kazuha', `${this.giSkill} ${this.arrow}`],

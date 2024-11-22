@@ -163,6 +163,24 @@ class TeamsRepository {
                         isMain: true,
                         replacements: [],
                     },
+                    {
+                        name: 'Bennett',
+                        role: '...',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Fischl',
+                        role: '...',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Furina',
+                        role: 'Sub DPS + DMG Buff',
+                        isMain: false,
+                        replacements: [],
+                    },
                 ],
                 variations: [
                     { name: '', characters: ['Lynette', 'Faruzan', 'Xianyun', 'Zhongli'] }
