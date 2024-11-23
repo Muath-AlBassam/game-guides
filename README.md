@@ -1,6 +1,7 @@
 ## Helper Links
 
-> Genshin Impact
+<img src="assets/images/gi/GI_Logo.png" alt="Step 1" width="200"/>
+
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from "All characters" page
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
@@ -10,7 +11,10 @@
 
 <img src="assets/readme/gi-image-loc-1.png" alt="Step 1" width="500"/>
 
-> Honkai Star Rail
+---
+
+<img src="assets/images/hsr/HSR_Logo.png" alt="Step 1" width="200"/>
+
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from "Simplified" view
   - Crop using Windows Paint to be 160x160
@@ -21,11 +25,14 @@
 
 <img src="assets/readme/hsr-image-loc-1.png" alt="Step 1" width="500"/>
 
-> Zenless Zone Zero
+---
+
+<img src="assets/images/zzz/ZZZ_Logo.png" alt="Step 1" width="200"/>
+
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
-  - Open & download image from character's "Wiki" page
+  - Open & download image from a character's "Wiki" page
   - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
-  - Sizes around 256px~330px
+    - Sizes around 256px~330px
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
 - Sets : [Wiki Fandom](https://zenless-zone-zero.fandom.com/wiki/Drive_Disc)
@@ -38,6 +45,10 @@
 <br>
 
 ## TODO
+
+> Better images
+- ZZZ Drive Disks
+- HSR Sets
 
 > Add game notes ?
 - Meaning of rotations shortcut (B: Basic)
