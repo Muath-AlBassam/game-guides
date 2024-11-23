@@ -2,6 +2,8 @@
 class RolesRepository {
     static getAllRoles(gameCode) {
         switch (gameCode) {
+            case Constants.games.GI:
+                return this.data.GIRoles;
             case Constants.games.HSR:
                 return this.data.HSRRoles;
             case Constants.games.ZZZ:
@@ -17,6 +19,25 @@ class RolesRepository {
     }
 
     static data = {
+        GIRoles: new Map([
+            ['DPS', { 
+                name: 'DPS', 
+                imageUrl: 'assets/images/gi/icons/GI_Role_DPS.png' 
+            }],
+            ['Sub DPS', { 
+                name: 'Sub DPS', 
+                imageUrl: 'assets/images/gi/icons/GI_Role_SubDPS.png' 
+            }],
+            ['Support', { 
+                name: 'Support', 
+                imageUrl: 'assets/images/gi/icons/GI_Role_Support.png' 
+            }],
+            ['Healer', { 
+                name: 'Healer', 
+                imageUrl: 'assets/images/gi/icons/GI_Role_Healer.png' 
+            }],
+        ]),
+
         HSRRoles: new Map([
             ['Abundance', { 
                 name: 'Abundance', 
