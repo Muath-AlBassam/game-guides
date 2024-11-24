@@ -36,6 +36,7 @@
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
 - Sets : [Wiki Fandom](https://zenless-zone-zero.fandom.com/wiki/Drive_Disc)
+  - Open image & change parameter in url (50) to 256, then download
 
 <img src="assets/readme/zzz-image-loc-1.png" alt="Step 1" width="500"/>
 <img src="assets/readme/zzz-image-loc-2.png" alt="Step 2" width="500"/>
@@ -45,9 +46,6 @@
 <br>
 
 ## TODO
-
-> Better images
-- HSR Sets
 
 > Add game notes ?
 - Meaning of rotations shortcut (B: Basic)
