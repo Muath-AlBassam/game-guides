@@ -276,6 +276,12 @@ class BuildsRepository {
                     { name: 'Obsidian Codex', pieceCount: '4' }
                 ]
             }],
+            ['Ororon', {
+                weapon: { name: 'Favonius Warbow' },
+                sets: [
+                    { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

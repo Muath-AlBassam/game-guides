@@ -80,6 +80,7 @@ class RotationsRepository {
                 ['Clorinde', `${this.repeat(`${this.giSkill} + ${this.giNormal}`)} ${this.arrow} ${this.giUltimate}`]
             ]],
             ['Anemo', [
+                ['Ororon', ` ${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
                 ['Furina', `${this.giSkill} ${this.smallText('(optional)')} ${this.arrow} ${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
                 ['Bennett', `${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
                 ['Chasca', `${this.giSkill} ${this.arrow} ${this.giCharged}`]

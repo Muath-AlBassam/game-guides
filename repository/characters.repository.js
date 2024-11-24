@@ -311,6 +311,13 @@ class CharactersRepository {
                 role: 'DPS',
                 rarity: '5',
             }],
+            ['Ororon', {
+                name: 'Ororon',
+                imageUrl: 'assets/images/gi/character/GI_Ororon.png',
+                element: 'Electro',
+                role: 'Support',
+                rarity: '4',
+            }],
         ]),
     
         HSRCharacters: new Map([
