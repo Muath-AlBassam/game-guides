@@ -47,7 +47,6 @@
 ## TODO
 
 > Better images
-- ZZZ Drive Disks
 - HSR Sets
 
 > Add game notes ?

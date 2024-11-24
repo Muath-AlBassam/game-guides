@@ -246,51 +246,51 @@ class SetsRepository {
         ZZZSets: new Map([
             ['Chaotic Metal', {
                 name: 'Chaotic Metal',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ChaoticMetal.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ChaoticMetal.png'
             }],
             ['Hormone Punk', {
                 name: 'Hormone Punk',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_HormonePunk.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_HormonePunk.png'
             }],
             ['Polar Metal', {
                 name: 'Polar Metal',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_PolarMetal.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_PolarMetal.png'
             }],
             ['Shockstar Disco', {
                 name: 'Shockstar Disco',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ShockstarDisco.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ShockstarDisco.png'
             }],
             ['Swing Jazz', {
                 name: 'Swing Jazz',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_SwingJazz.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_SwingJazz.png'
             }],
             ['Woodpecker Electro', {
                 name: 'Woodpecker Electro',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_WoodpeckerElectro.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_WoodpeckerElectro.png'
             }],
             ['Freedom Blues', {
                 name: 'Freedom Blues',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_FreedomBlues.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_FreedomBlues.png'
             }],
             ['Thunder Metal', {
                 name: 'Thunder Metal',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ThunderMetal.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ThunderMetal.png'
             }],
             ['Fanged Metal', {
                 name: 'Fanged Metal',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_FangedMetal.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_FangedMetal.png'
             }],
             ['Proto Punk', {
                 name: 'Proto Punk',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ProtoPunk.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ProtoPunk.png'
             }],
             ['Inferno Metal', {
                 name: 'Inferno Metal',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_InfernoMetal.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_InfernoMetal.png'
             }],
             ['Chaos Jazz', {
                 name: 'Chaos Jazz',
-                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ChaosJazz.jpg'
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ChaosJazz.png'
             }],
         ])
     }
