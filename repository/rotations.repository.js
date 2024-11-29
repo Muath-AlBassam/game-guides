@@ -4,7 +4,7 @@ class RotationsRepository {
     static arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
     static times = Constants.unicode.times;
 
-    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 5px;">${text}</span>`;
+    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 2px;">${text}</span>`;
     static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
     static repeat = (text) => `<span class="arrow-border">${text}</span>`;
     static imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
@@ -81,9 +81,9 @@ class RotationsRepository {
             ]],
             ['Anemo', [
                 ['Ororon', ` ${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
-                ['Furina', `${this.giSkill} ${this.smallText('(optional)')} ${this.arrow} ${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
-                ['Bennett', `${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
-                ['Chasca', `${this.giSkill} ${this.arrow} ${this.giCharged}`]
+                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.arrow}`],
+                ['Bennett', `${this.giUltimate} ${this.arrow}`],
+                ['Chasca', `${this.giSkill} ${this.arrow} ${this.giCharged} ${this.smallText('(Hold)')}`]
             ]],
             ['Cryo', [
                 ['Wriothesley', `${this.giNormal}${this.times}1 ${this.arrow}`],
