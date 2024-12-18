@@ -290,7 +290,7 @@ class SetsRepository {
             }],
             ['Branch & Blade Song', {
                 name: 'Branch & Blade Song',
-                imageUrl: null
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_Branch&BladeSong.png'
             }],
         ])
     }
