@@ -155,7 +155,7 @@ class BuildDialog extends HTMLElement {
             <div class="build-container">
                 <div class="build-item">
                     <div class="build-image">
-                        <img src="${weaponmd.imageUrl}" class="${gameCode}-rarity-${weaponmd.rarity}" height="80" />
+                        <img src="${weaponmd.imageUrl ?? 'assets/svg/unknown.svg'}" class="${gameCode}-rarity-${weaponmd.rarity}" height="80" />
                     </div>
                     <div class="build-name">
                         <h5 style="margin-bottom: 0;">${weaponmd.name}</h5>
@@ -180,7 +180,7 @@ class BuildDialog extends HTMLElement {
                 content += `
                 <div class="build-item">
                     <div class="build-image">
-                        <img src="${setmd.imageUrl}" height="70" style="margin: 5px;" />
+                        <img src="${setmd.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
                     </div>
                     <div class="build-name">
                         <span class="piece-count">(${set.pieceCount})</span>
