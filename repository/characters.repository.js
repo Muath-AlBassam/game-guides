@@ -681,6 +681,13 @@ class CharactersRepository {
                 role: 'Anomaly',
                 rarity: 'S',
             }],
+            ['Miyabi', {
+                name: 'Miyabi',
+                imageUrl: 'assets/images/zzz/character/ZZZ_Miyabi.png',
+                element: 'Frost',
+                role: 'Anomaly',
+                rarity: 'S',
+            }],
         ]),
     
         HI3Characters: new Map([

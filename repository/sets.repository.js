@@ -288,6 +288,10 @@ class SetsRepository {
                 name: 'Chaos Jazz',
                 imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_ChaosJazz.png'
             }],
+            ['Branch & Blade Song', {
+                name: 'Branch & Blade Song',
+                imageUrl: null
+            }],
         ])
     }
 }

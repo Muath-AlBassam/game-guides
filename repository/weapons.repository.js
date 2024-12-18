@@ -449,6 +449,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/zzz/w-engine/ZZZ_WE_Timeweaver.png',
                 rarity: 'S'
             }],
+            ['Hailstorm Shrine', {
+                name: 'Hailstorm Shrine',
+                imageUrl: 'assets/images/zzz/w-engine/ZZZ_WE_HailstormShrine.png',
+                rarity: 'S'
+            }],
         ]),
     }
 }

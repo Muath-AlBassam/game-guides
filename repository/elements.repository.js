@@ -96,6 +96,10 @@ class ElementsRepository {
                 name: 'Ice',
                 imageUrl: 'assets/images/zzz/icons/ZZZ_Ice.png'
             }],
+            ['Frost', {
+                name: 'Frost',
+                imageUrl: 'assets/images/zzz/icons/ZZZ_Frost.png'
+            }],
             ['Electric', {
                 name: 'Electric',
                 imageUrl: 'assets/images/zzz/icons/ZZZ_Electric.png'

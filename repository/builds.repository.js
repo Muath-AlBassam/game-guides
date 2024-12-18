@@ -659,6 +659,13 @@ class BuildsRepository {
                     { name: 'Freedom Blues', pieceCount: '2' }
                 ]
             }],
+            ['Miyabi', {
+                weapon: { name: 'Hailstorm Shrine' },
+                sets: [
+                    { name: 'Branch & Blade Song', pieceCount: '4' },
+                    { name: 'Woodpecker Electro', pieceCount: '2' }
+                ]
+            }],
         ]),
     }
 }

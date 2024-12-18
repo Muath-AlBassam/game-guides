@@ -41,6 +41,11 @@ class PetsRepository {
                 imageUrl: 'assets/images/zzz/bangboo/ZZZ_B_Sharkboo.png',
                 rarity: 'S',
             }],
+            ['Agent Gulliver', {
+                name: 'Agent Gulliver',
+                imageUrl: 'assets/images/zzz/bangboo/ZZZ_B_AgentGulliver.png',
+                rarity: 'S',
+            }],
         ]),
     }
 }
