@@ -1,5 +1,5 @@
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
-class BuildDialog extends HTMLElement {
+class TeamCharacterDetailsComponent extends HTMLElement {
 
     static observedAttributes = ["character"];
 
@@ -131,8 +131,10 @@ class BuildDialog extends HTMLElement {
         return `
         <div>
             <div class="center-content" style="margin-top: 20px;">
-                ${Utils.createCharacterImage(gameCode, charmd, 
-                    {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false})}
+                <div class="character-container">
+                    ${Utils.createCharacterImage(gameCode, charmd, 
+                        {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false, withAltElement: true})}
+                </div>
             </div>
             <div class="center-content">
                 ${roleImage} <h5>${charmd.name}</h5>
@@ -179,7 +181,7 @@ class BuildDialog extends HTMLElement {
                 const setmd = SetsRepository.getSetMetadata(gameCode, set.name);
                 content += `
                 <div class="build-item">
-                    <div class="build-image">
+                    <div class="build-image" style="background-color: #2c2d33;">
                         <img src="${setmd.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
                     </div>
                     <div class="build-name">
@@ -224,7 +226,7 @@ class BuildDialog extends HTMLElement {
     }
 }
 
-customElements.define('app-build', BuildDialog);
+customElements.define('app-team-character-details', TeamCharacterDetailsComponent);
 
 //------------------------------------------------------------------------------------
 

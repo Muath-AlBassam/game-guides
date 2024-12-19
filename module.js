@@ -34,13 +34,14 @@ function loadAllScripts() {
     loadScript("components/layout/header.component.js", true);
     loadScript("components/layout/loader.component.js", true);
     // Team
+    loadScript("components/team/team-container.component.js", true);
     loadScript("components/team/team-list.component.js", true);
     loadScript("components/team/team-details.component.js", true);
     loadScript("components/team/team-roles.component.js", true);
     loadScript("components/team/team-variations.component.js", true);
     loadScript("components/team/team-replacements.component.js", true);
     loadScript("components/team/team-rotations.component.js", true);
-    loadScript("components/team/build.dialog.js", true);
+    loadScript("components/team/team-character-details.component.js", true);
     loadScript("components/team/team-characters.component.js", true);
     // Fight
     loadScript("components/fight/fight-list.component.js", true);

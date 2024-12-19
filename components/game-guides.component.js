@@ -35,7 +35,7 @@ class GameGuidesComponent extends HTMLElement {
     getGameComponent(activeGame) {
         switch (activeGame.style) {
             case Constants.gameStyles.TEAMS:
-                return `<app-team-list name="${activeGame.code}"></app-team-list>`;
+                return `<app-team-container name="${activeGame.code}"></app-team-container>`;
             case Constants.gameStyles.FIGHT:
                 return `<app-fight-list name="${activeGame.code}"></app-fight-list>`;
             default:

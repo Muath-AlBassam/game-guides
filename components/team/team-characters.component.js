@@ -59,4 +59,4 @@ class TeamCharactersComponent extends HTMLElement {
     }
 }
 
-customElements.define('team-characters', TeamCharactersComponent);
+customElements.define('app-team-characters', TeamCharactersComponent);

@@ -24,8 +24,6 @@ class TeamListComponent extends HTMLElement {
 
     buildHTML(teams) {
         return this.componentStyle + `
-        <app-build id="build-dialog"></app-build>
-        <team-characters></team-characters>
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Teams</div>

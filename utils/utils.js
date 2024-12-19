@@ -14,6 +14,7 @@ class Utils {
             withBuildDialog = false, 
             withBackgroundClass = true,
             withElement = false,
+            withAltElement = false,
             withContainer = true
         } = {}
     ) {
@@ -21,7 +22,7 @@ class Utils {
         if (withBuildDialog) {
             showBuild = null != BuildsRepository.getCharacterBuild(gameCode, charmd.name);
         }
-        const showElement = withElement && charmd.element;
+        const showElement = (withElement || withAltElement) && charmd.element;
         const addRarityClass = withBackgroundClass && charmd.rarity;
     
         let styleVal = 'border-radius: 5px;';
@@ -44,7 +45,7 @@ class Utils {
     
         let elementImgUrl = ElementsRepository.getElement(gameCode, charmd.element).imageUrl;
         let elementIcon = showElement ? `
-            <img src="${elementImgUrl}" width="26" height="26" class="element-icon" title="${charmd.element}"/>`
+            <img src="${elementImgUrl}" width="26" height="26" class="element-icon${withAltElement ? '-alt' : ''}" title="${charmd.element}"/>`
             : '';
     
         return `
