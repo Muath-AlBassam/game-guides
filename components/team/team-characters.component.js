@@ -46,10 +46,11 @@ class TeamCharactersComponent extends HTMLElement {
 
     buildOwlCarouselItems(gameCode) {
         let content = '';
-        let charactrsList = CharactersRepository.getAllCharacters(gameCode);
+        const charactrsMap = CharactersRepository.getAllCharacters(gameCode);
 
-        if (charactrsList != null) {
-            charactrsList.forEach(charmd => {
+        if (charactrsMap != null) {
+            const sortedMap = new Map([...charactrsMap.entries()].sort());
+            sortedMap.forEach(charmd => {
                 content += Utils.createCharacterImage(gameCode, charmd, 
                     {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
             })
