@@ -41,6 +41,7 @@ function loadAllScripts() {
     loadScript("components/team/team-replacements.component.js", true);
     loadScript("components/team/team-rotations.component.js", true);
     loadScript("components/team/build.dialog.js", true);
+    loadScript("components/team/team-characters.component.js", true);
     // Fight
     loadScript("components/fight/fight-list.component.js", true);
 }
