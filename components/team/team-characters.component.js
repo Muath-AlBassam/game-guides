@@ -2,10 +2,15 @@ class TeamCharactersComponent extends HTMLElement {
 
     characterPFPSize = 80;
 
-    componentStyle = `<style>
-        .owl-carousel {
+    componentStyle = `
+    <style>
+        .characters__container {
             background-color: #2c2d33;
             padding: 0.5em;
+            user-select: none;
+        }
+
+        .characters__slider {
         }
     </style>`;
 
@@ -16,35 +21,37 @@ class TeamCharactersComponent extends HTMLElement {
     connectedCallback() {
         const gameCode = Utils.getGameFromUrl();
         this.innerHTML = this.buildHTML(gameCode);
-
-        $(document).ready(function() {
-            $(".owl-carousel").owlCarousel({
-                items : 20,
-                // navigation: true,
-                // pagination: false,
-                paginationNumbers: true
-            });
+        
+        tns({
+            container: '.characters__slider',
+            fixedWidth: this.characterPFPSize + 20,
+            controls: false,
+            navPosition: 'bottom',
+            mouseDrag: true,
+            loop: false,
         });
     }
 
     buildHTML(gameCode) {
-        return this.componentStyle + this.buildOwlCarousel(gameCode);
+        return this.componentStyle + this.buildSlider(gameCode);
     }
 
-    buildOwlCarousel(gameCode) {
+    buildSlider(gameCode) {
         return `
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Characters</div>
             </div>
         </div>
-        <div class="owl-carousel owl-theme">
-            ${this.buildOwlCarouselItems(gameCode)}
+        <div class="characters__container">
+            <div class="characters__slider draggable">
+                ${this.buildSliderItems(gameCode)}
+            </div>
         </div>
         `;
     }
 
-    buildOwlCarouselItems(gameCode) {
+    buildSliderItems(gameCode) {
         let content = '';
         const charactrsMap = CharactersRepository.getAllCharacters(gameCode);
 

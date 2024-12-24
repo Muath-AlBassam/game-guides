@@ -88,6 +88,13 @@ app-nav.active ~ .main-content {
     justify-content: center;
 }
 
+.draggable {
+    cursor: grab;
+}
+.draggable:active {
+    cursor: grabbing;
+}
+
 /* Dialog styles ----------------------------------------------------------- */
 @keyframes fade-in {
     from {
@@ -232,4 +239,22 @@ body:has(div.dialog-shown) {
 .ZZZ-rarity-A {
     /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
     background: linear-gradient(180deg, #c925f8, #9328e9);
+}
+
+/* tiny-slider missing classes --------------------------------------------- */
+.tns-nav {
+    text-align: center;
+    margin: 10px 0;
+}
+.tns-nav > [aria-controls] {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #666;
+    border: 0;
+}
+.tns-nav > .tns-nav-active {
+    background: #ddd;
 }
