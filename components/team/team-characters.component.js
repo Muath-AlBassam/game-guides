@@ -58,8 +58,16 @@ class TeamCharactersComponent extends HTMLElement {
         if (charactrsMap != null) {
             const sortedMap = new Map([...charactrsMap.entries()].sort());
             sortedMap.forEach(charmd => {
-                content += Utils.createCharacterImage(gameCode, charmd, 
-                    {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+                content += `
+                <character-image 
+                    gamecode="${gameCode}"
+                    charactername="${charmd.name}"
+                    dimensions="${this.characterPFPSize}"
+                    styles="margin: 5px 10px;"
+                    withbuilddialog="true"
+                    withelement="true">
+                </character-image>
+                `
             })
         }
         return content;

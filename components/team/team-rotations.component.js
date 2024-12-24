@@ -39,12 +39,16 @@ class RotationsComponent extends HTMLElement {
 
         if (teamRotations && teamRotations.length > 0) {
             teamRotations.forEach(step => {
-                const charmd = CharactersRepository.getCharacterMetadata(gameCode, step[0]);
                 rotationsContent += `
                 <div>
                     <span>
-                        ${Utils.createCharacterImage(gameCode, charmd, 
-                            {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px; border-radius: 100%;', withContainer: false})}
+                        <character-image 
+                            gamecode="${gameCode}"
+                            charactername="${step[0]}"
+                            dimensions="${this.characterPFPSize}"
+                            styles="margin: 5px 10px; border-radius: 100%;"
+                            withcontainer="false">
+                        </character-image>
                     </span>
                     <b style="margin-right: 8px;">
                         ${step[1]}

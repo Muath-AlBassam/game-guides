@@ -42,13 +42,16 @@ class ReplacementsComponent extends HTMLElement {
         let replacementsContent = '';
 
         currentTeam.characters.forEach(character => {
-            const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
             let charReplacements = this.buildCharacterReplacements(activeGame, character);
             replacementsContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
-                    ${Utils.createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;'})}
+                    <character-image 
+                        gamecode="${activeGame.code}"
+                        charactername="${character?.name}"
+                        dimensions="${this.characterPFPSize}"
+                        styles="margin: 5px 10px;">
+                    </character-image>
                 </td>
                 <td>
                     ${charReplacements}
@@ -63,9 +66,16 @@ class ReplacementsComponent extends HTMLElement {
         let charReplacements = '';
         if (character.replacements && character.replacements.length > 0) {
             character.replacements.forEach(rep => {
-                const repmd = CharactersRepository.getCharacterMetadata(activeGame.code, rep);
-                charReplacements += Utils.createCharacterImage(activeGame.code, repmd, 
-                    {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+                charReplacements += `
+                <character-image 
+                    gamecode="${activeGame.code}"
+                    charactername="${rep}"
+                    dimensions="${this.characterPFPSize}"
+                    styles="margin: 5px 10px;"
+                    withbuilddialog="true"
+                    withelement="true">
+                </character-image>
+                `
             })
         } else {
             charReplacements = `

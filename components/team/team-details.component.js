@@ -203,9 +203,16 @@ class TeamDetailsComponent extends HTMLElement {
         let membersImages = ``;
         for (let i = 0; i < activeGame.teamSize; i++) {
             const character = team.characters[i]
-            const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
-            membersImages += Utils.createCharacterImage(activeGame.code, charmd, 
-                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+            membersImages += `
+            <character-image 
+                gamecode="${activeGame.code}"
+                charactername="${character?.name}"
+                dimensions="${this.characterPFPSize}"
+                styles="margin: 5px 10px;"
+                withbuilddialog="true"
+                withelement="true">
+            </character-image>
+            ` 
         }
         return membersImages;
     }

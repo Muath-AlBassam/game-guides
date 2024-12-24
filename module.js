@@ -27,8 +27,9 @@ function loadAllScripts() {
     loadScript("repository/pets.repository.js");
 
     // Components
-    loadScript("components/searh.component.js", true); 
-    loadScript("components/game-guides.component.js", true); 
+    loadScript("components/searh.component.js", true);
+    loadScript("components/character-image.component.js", true);
+    loadScript("components/game-guides.component.js", true);
     // Layout
     loadScript("components/layout/nav.component.js", true);
     loadScript("components/layout/header.component.js", true);

@@ -67,9 +67,16 @@ class VariationsComponent extends HTMLElement {
     buildCharactersImages(variationCharacters, gameCode) {
         let content = '';
         variationCharacters.forEach(character => {
-            const charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
-            content += Utils.createCharacterImage(gameCode, charmd, 
-                {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;', withBuildDialog: true, withElement: true});
+            content += `
+            <character-image 
+                gamecode="${gameCode}"
+                charactername="${character}"
+                dimensions="${this.characterPFPSize}"
+                styles="margin: 5px 10px;"
+                withbuilddialog="true"
+                withelement="true">
+            </character-image>
+            `
         });
         return content;
     }

@@ -53,8 +53,12 @@ class RolesComponent extends HTMLElement {
             rolesContent += `
             <tr>
                 <td style="width: 50px; text-align: center">
-                    ${Utils.createCharacterImage(activeGame.code, charmd, 
-                        {dimensions: this.characterPFPSize, styles: 'margin: 5px 10px;'})}
+                    <character-image 
+                        gamecode="${activeGame.code}"
+                        charactername="${charmd.name}"
+                        dimensions="${this.characterPFPSize}"
+                        styles="margin: 5px 10px;">
+                    </character-image>
                 </td>
                 <td style="font-size: 1.2em; font-weight: bold;">
                     ${roleImage}

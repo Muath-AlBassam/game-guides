@@ -105,13 +105,15 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
     buildDialogContent(gameCode, character) {
         let buildContent = '';
-        buildContent += this.buildDialogHeader(gameCode, character);
-        let buildmd = BuildsRepository.getCharacterBuild(gameCode, character);
-        if (buildmd) {
-            buildContent += this.buildWeaponTable(gameCode, buildmd);
-            buildContent += this.buildSetsTable(gameCode, buildmd);
-        } else {
-            buildContent += `<h1 class="empty-dialog">...</h1>`
+        if (character) {
+            buildContent += this.buildDialogHeader(gameCode, character);
+            let buildmd = BuildsRepository.getCharacterBuild(gameCode, character);
+            if (buildmd) {
+                buildContent += this.buildWeaponTable(gameCode, buildmd);
+                buildContent += this.buildSetsTable(gameCode, buildmd);
+            } else {
+                buildContent += `<h1 class="empty-dialog">...</h1>`
+            }
         }
         return buildContent;
     }
@@ -132,8 +134,15 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         <div>
             <div class="center-content" style="margin-top: 20px;">
                 <div class="character-container">
-                    ${Utils.createCharacterImage(gameCode, charmd, 
-                        {dimensions: this.characterPFPSize, classes: 'character-image', styles: 'border-radius: 100%;', withBackgroundClass: false, withAltElement: true})}
+                    <character-image 
+                        gamecode="${gameCode}" 
+                        charactername="${character}"
+                        dimensions="${this.characterPFPSize}"
+                        classes="character-image" 
+                        styles="border-radius: 100%;" 
+                        withbackgroundclass="false" 
+                        withaltelement="true">
+                    </character-image>
                 </div>
             </div>
             <div class="center-content">
