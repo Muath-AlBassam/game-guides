@@ -21,6 +21,7 @@
     --background-color: #23242a;
     --text-color: #fff;
     --sidebar-color: #1c1d21;
+    --sidebar-active-width: 280px;
 }
 
 * {
@@ -59,8 +60,8 @@ app-nav ~ .main-content {
     width: calc(100% - 80px);
 }
 app-nav.active ~ .main-content {
-    margin-left: 260px;
-    width: calc(100% - 260px);
+    margin-left: var(--sidebar-active-width);
+    width: calc(100% - var(--sidebar-active-width));
 }
 
 .main-content {

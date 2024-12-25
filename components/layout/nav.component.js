@@ -19,7 +19,7 @@ class NavComponent extends HTMLElement {
         }
 
         .sidebar.active {
-            width: 260px;
+            width: var(--sidebar-active-width);
         }
 
         .sidebar #sidebarToggle {
@@ -62,7 +62,7 @@ class NavComponent extends HTMLElement {
             line-height: 50px;
         }
 
-        .sidebar ul li a {
+        .sidebar .sidebar-item {
             color: #fff;
             display: flex;
             align-items: center;
@@ -70,35 +70,39 @@ class NavComponent extends HTMLElement {
             border-radius: 0.8em;
         }
 
-        .sidebar ul li i {
+        .sidebar .sidebar-item i {
             text-shadow: 2px 2px grey;
         }
 
-        .sidebar ul li a:hover {
-            background-color: #fff;
-            color: var(--sidebar-color);
+        .sidebar .sidebar-item:hover {
+            background-color: #36373f;
         }
 
         .sidebar .sidebar-item.active {
-            background-color: #fff;
-            color: var(--sidebar-color);
+            background-color: #36373f;
         }
 
-        .sidebar ul li a i {
+        .sidebar .sidebar-item i {
             min-width: 50px;
             text-align: center;
             height: 50px;
             border-radius: 12px;
             line-height: 50px;
             font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .sidebar .nav-item {
-            cursor: pointer;
-            display: none;
-            font-family: 'Death Star'
+        .sidebar .sidebar-item i img {
+            border-radius: 12px;
         }
-        .sidebar.active .nav-item {
+
+        .sidebar .nav-text {
+            display: none;
+            font-family: 'Death Star';
+        }
+        .sidebar.active .nav-text {
             display: block;
         }
     </style>`;
@@ -131,9 +135,13 @@ class NavComponent extends HTMLElement {
             <ul style="padding-left: 0">
                 ${Utils.ngForMap(this.games, g => `
                 <li>
-                    <a class="sidebar-item" href="#${g.code}">
-                        <i>${g.code}</i>
-                        <span class="nav-item">${g.label}</span>
+                    <a class="sidebar-item" href="#${g.code}" title="${g.label}">
+                        <i>
+                            ${Utils.ngIf(g.iconUrl, 
+                            `<img src="${g.iconUrl}" alt="${g.code}" width="30" height="30"/>`, 
+                            `${g.code}`)}
+                        </i>
+                        <span class="nav-text">${g.label}</span>
                     </a>
                 </li> 
                 `)}
