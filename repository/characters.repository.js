@@ -570,6 +570,13 @@ class CharactersRepository {
                 role: 'Preservation',
                 rarity: '5',
             }],
+            ['Fugue', {
+                name: 'Fugue',
+                imageUrl: 'assets/images/hsr/character/HSR_Fugue.png',
+                element: 'Fire',
+                role: 'Nihility',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([

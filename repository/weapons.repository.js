@@ -371,6 +371,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/hsr/light-cone/HSR_LC_NinjutsuInscriptionDazzlingEvilbreaker.png',
                 rarity: '5'
             }],
+            ['Long Road Leads Home', {
+                name: 'Long Road Leads Home',
+                imageUrl: 'assets/images/hsr/light-cone/HSR_LC_LongRoadLeadsHome.png',
+                rarity: '5'
+            }],
         ]),
     
         ZZZWEngines: new Map([

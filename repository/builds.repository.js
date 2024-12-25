@@ -544,6 +544,13 @@ class BuildsRepository {
                     { name: 'Belobog of the Architects', pieceCount: '2' }
                 ]
             }],
+            ['Fugue', {
+                weapon: { name: 'Long Road Leads Home' },
+                sets: [
+                    { name: 'Iron Cavalry Against the Scourge', pieceCount: '4' },
+                    { name: 'Talia: Kingdom of Banditry', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         ZZZBuilds: new Map([
