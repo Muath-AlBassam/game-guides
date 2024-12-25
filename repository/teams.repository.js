@@ -20,7 +20,6 @@ class TeamsRepository {
         return team ?? { name: teamName }
     }
 
-    // TODO : add team variation name
     static data = {
         GITeams: new Map([
             ['Pyro', {
@@ -565,6 +564,31 @@ class TeamsRepository {
         ]),
     
         ZZZTeams: new Map([
+            ['Miyabi',  {
+                name: 'Miyabi',
+                iconUrl: 'assets/images/zzz/icons/ZZZ_Frost.png',
+                characters: [
+                    {
+                        name: 'Miyabi',
+                        role: 'DPS',
+                        isMain: true,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Lycaon',
+                        role: 'Stun + Ice RES Shred',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Lucy',
+                        role: 'Atk Buff',
+                        isMain: false,
+                        replacements: ['Soukaku'],
+                    }
+                ],
+                pet: 'Agent Gulliver'
+            }],
             ['Physical',  {
                 name: 'Physical',
                 iconUrl: 'assets/images/zzz/icons/ZZZ_Physical.png',
@@ -678,19 +702,19 @@ class TeamsRepository {
                         name: 'Yanagi',
                         role: 'Shock + Disorder',
                         isMain: false,
-                        replacements: ['Grace'],
+                        replacements: ['Grace', 'Jane'],
                     },
                     {
                         name: 'Burnice',
                         role: 'Burn + Sub DPS',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Jane'],
                     },
                     {
                         name: 'Caesar',
                         role: 'Stun + Atk Buff + Shield',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Seth'],
                     }
                 ],
                 pet: 'Red Moccus'

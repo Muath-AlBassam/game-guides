@@ -68,7 +68,7 @@ class RotationsRepository {
             ]],
             ['Dendro', [
                 ['Nahida', `${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
-                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.smallText('(optional)')} ${this.arrow}`],
+                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.smallText('(Optional)')} ${this.arrow}`],
                 ['Yae Miko', `${this.giSkill}${this.times}3 ${this.arrow}`],
                 ['Kuki Shinobu', `${this.giSkill} ${this.arrow}`],
                 ['Nahida', `${this.repeat(`${this.giNormal} + ${this.giCharged}`)}`],
@@ -106,6 +106,11 @@ class RotationsRepository {
         ]),
     
         ZZZRotations: new Map([
+            ['Miyabi', [
+                ['Lucy', `${this.zzzExSpecial} ${this.zzzQTE} ${this.arrow}`],
+                ['Miyabi', `${this.repeat(`${this.zzzExSpecial} + ${this.zzzBasic} ${this.smallText('(Until 6 charges)')} ${this.arrow} ${this.zzzCharged}`)}`],
+                ['Lycaon', `${this.zzzQTE} ${this.smallText('(Optional)')}`],
+            ]],
             ['Physical',  [
                 ['Caesar', `${this.zzzExSpecial} ${this.arrow}`],
                 ['Seth', `${this.zzzExSpecial} ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} ${this.zzzCharged} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
