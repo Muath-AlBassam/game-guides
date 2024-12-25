@@ -10,10 +10,24 @@ class Utils {
         return '';
     }
 
-    static ngIf(flag, content) {
+    static ngForMap(map, logicWithHtml) {
+        if (map) {
+            return this.ngFor([...map.values()], logicWithHtml);
+        }
+        return '';
+    }
+
+    static ngIf(flag, content, elseContent = '') {
         if (flag) {
             return content;
         }
-        return '';
+        return elseContent;
+    }
+
+    static ngForIf(flag, list, logicWithHtml, elseContent = '') {
+        if (flag && list) {
+            return list.map(logicWithHtml).join('');
+        }
+        return elseContent;
     }
 }

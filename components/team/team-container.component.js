@@ -1,10 +1,5 @@
 class TeamContainerComponent extends HTMLElement {
 
-    componentStyle = `
-    <style>
-        
-    </style>`;
-
     constructor() {
       super();
     }

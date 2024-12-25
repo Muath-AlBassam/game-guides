@@ -1,10 +1,22 @@
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
 class TeamCharacterDetailsComponent extends HTMLElement {
 
+    // attribute that on change will trigger "attributeChangedCallback"
+    // https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes
     static observedAttributes = ["character"];
 
+    // inputs
+    gameCode = null;
+    character = null;
+
     characterPFPSize = 125;
-    
+    charmd = null;
+    rolemd = null;
+    raritymd = null;
+    buildmd = null;
+    weaponmd = null;
+    setsmd = [];
+
     componentStyle = `
     <style>
         .build-dialog-content {
@@ -80,128 +92,96 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = Utils.getGameFromUrl();
-        const character = this.getAttribute('character');
-
-        this.innerHTML = this.buildHTML(gameCode, character);
+        this.loadData()
+        if (this.character) {
+            this.innerHTML = this.componentStyle + this.buildHTML();
+        }
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        const gameCode = Utils.getGameFromUrl();
-        const character = this.getAttribute('character');
-
-        this.innerHTML = this.buildHTML(gameCode, character);
+        this.loadData()
+        if (this.character) {
+            this.innerHTML = this.componentStyle + this.buildHTML();
+        }
     }
 
-    buildHTML(gameCode, character) {
-        return this.componentStyle + `
+    loadData() {
+        this.gameCode = Utils.getGameFromUrl();
+        this.character = this.getAttribute('character');
+        if (this.character) {
+            this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.character);
+            this.rolemd = RolesRepository.getRole(this.gameCode, this.charmd.role);
+            this.raritymd = RarityRepository.getRarity(this.gameCode, this.charmd.rarity);
+            this.buildmd = BuildsRepository.getCharacterBuild(this.gameCode, this.character);
+            this.weaponmd = WeaponsRepository.getWeaponMetadata(this.gameCode, this.buildmd.weapon.name);
+            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: SetsRepository.getSetMetadata(this.gameCode, set.name) } })
+        }
+    }
+
+    buildHTML() {
+        return `
         <div class="gagu-dialog" style="padding-top: 15vh;" id="build-dialog-body">
             <div class="gagu-dialog-content build-dialog-content">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
-                ${this.buildDialogContent(gameCode, character)}
+                <div>
+                    <div class="center-content" style="margin-top: 20px;">
+                        <div class="character-container">
+                            <character-image 
+                                gamecode="${this.gameCode}" 
+                                charactername="${this.character}"
+                                dimensions="${this.characterPFPSize}"
+                                classes="character-image" 
+                                styles="border-radius: 100%;" 
+                                withbackgroundclass="false" 
+                                withaltelement="true">
+                            </character-image>
+                        </div>
+                    </div>
+                    <div class="center-content">
+                        ${Utils.ngIf(this.charmd.role, `<img src="${this.rolemd.imageUrl}" height="30" title="${this.rolemd.name}" style="margin-right: 5px;">`)}
+                        <h5>${this.character}</h5>
+                    </div>
+                    <div class="center-content">
+                        ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.code}" style="margin: 0 5px;">`)}
+                    </div>
+                </div>
+
+                ${Utils.ngIf(this.buildmd, `
+                <h5 class="content-header">
+                    ${this.getWeaponsLabel(this.gameCode)}
+                </h5>
+                <div class="build-container">
+                    <div class="build-item">
+                        <div class="build-image">
+                            <img src="${this.weaponmd.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${this.weaponmd.rarity}" height="80" />
+                        </div>
+                        <div class="build-name">
+                            <h5 style="margin-bottom: 0;">${this.weaponmd.name}</h5>
+                        </div>
+                    </div>
+                </div>
+                `,
+                `<h1 class="empty-dialog">...</h1>`
+                )}
+
+                <h5 class="content-header">
+                    ${this.getSetsLabel(this.gameCode)}
+                </h5>
+                <div class="build-container">
+                    ${Utils.ngFor(this.setsmd, set => `
+                    <div class="build-item">
+                        <div class="build-image" style="background-color: #2c2d33;">
+                            <img src="${set.md.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
+                        </div>
+                        <div class="build-name">
+                            <span class="piece-count">(${set.pieceCount})</span>
+                            <h5 style="margin-bottom: 0;">${set.md.name}</h5>
+                        </div>
+                    </div>    
+                    `)}
+                </div>
             </div>
         </div>`;
-    }
-
-    buildDialogContent(gameCode, character) {
-        let buildContent = '';
-        if (character) {
-            buildContent += this.buildDialogHeader(gameCode, character);
-            let buildmd = BuildsRepository.getCharacterBuild(gameCode, character);
-            if (buildmd) {
-                buildContent += this.buildWeaponTable(gameCode, buildmd);
-                buildContent += this.buildSetsTable(gameCode, buildmd);
-            } else {
-                buildContent += `<h1 class="empty-dialog">...</h1>`
-            }
-        }
-        return buildContent;
-    }
-
-    buildDialogHeader(gameCode, character) {
-        let charmd = CharactersRepository.getCharacterMetadata(gameCode, character);
-        let roleImage = '';
-        if (charmd.role) {
-            const rolemd = RolesRepository.getRole(gameCode, charmd.role);
-            roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin-right: 5px;">`;
-        }
-        let rarity = RarityRepository.getRarity(gameCode, charmd.rarity);
-        let rarityImage = '';
-        if (rarity) {
-            rarityImage = `<img src="${rarity.imageUrl}" height="30" title="${rarity.code}" style="margin: 0 5px;">`;
-        }
-        return `
-        <div>
-            <div class="center-content" style="margin-top: 20px;">
-                <div class="character-container">
-                    <character-image 
-                        gamecode="${gameCode}" 
-                        charactername="${character}"
-                        dimensions="${this.characterPFPSize}"
-                        classes="character-image" 
-                        styles="border-radius: 100%;" 
-                        withbackgroundclass="false" 
-                        withaltelement="true">
-                    </character-image>
-                </div>
-            </div>
-            <div class="center-content">
-                ${roleImage} <h5>${charmd.name}</h5>
-            </div>
-            <div class="center-content">
-                ${rarityImage}
-            </div>
-        </div>
-        `;
-    }
-
-    buildWeaponTable(gameCode, buildmd) {
-        let content = '';
-        if (buildmd.weapon) {
-            const weaponmd = WeaponsRepository.getWeaponMetadata(gameCode, buildmd.weapon.name);
-            content = `
-            <h5 class="content-header">
-                ${this.getWeaponsLabel(gameCode)}
-            </h5>
-            <div class="build-container">
-                <div class="build-item">
-                    <div class="build-image">
-                        <img src="${weaponmd.imageUrl ?? 'assets/svg/unknown.svg'}" class="${gameCode}-rarity-${weaponmd.rarity}" height="80" />
-                    </div>
-                    <div class="build-name">
-                        <h5 style="margin-bottom: 0;">${weaponmd.name}</h5>
-                    </div>
-                </div>
-            </div>`;
-        }
-        return content;
-    }
-
-    buildSetsTable(gameCode, buildmd) {
-        let content = '';
-        if (buildmd.sets) {
-            content += `
-            <h5 class="content-header">
-                ${this.getSetsLabel(gameCode)}
-            </h5>
-            <div class="build-container">`;
-            
-            buildmd.sets.forEach(set => {
-                const setmd = SetsRepository.getSetMetadata(gameCode, set.name);
-                content += `
-                <div class="build-item">
-                    <div class="build-image" style="background-color: #2c2d33;">
-                        <img src="${setmd.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
-                    </div>
-                    <div class="build-name">
-                        <span class="piece-count">(${set.pieceCount})</span>
-                        <h5 style="margin-bottom: 0;">${setmd.name}</h5>
-                    </div>
-                </div>`;
-            });
-            content += `</div>`
-        }
-        return content;
     }
 
     getWeaponsLabel(gameCode) {

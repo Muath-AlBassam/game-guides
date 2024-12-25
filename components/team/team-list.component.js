@@ -1,54 +1,47 @@
 class TeamListComponent extends HTMLElement {
 
     characterPFPSize = 160;
-
-    componentStyle = `
-    <style>
-        /**/
-    </style>`;
+    activeGame = null;
+    searchTerm = '';
+    allTeams = null;
+    teams = null;
     
     constructor() {
       super();
     }
 
     connectedCallback() {
-        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-        const teams = TeamsRepository.getAllTeams(activeGame.code);
-
-        this.innerHTML = this.buildHTML(teams);
-
+        this.loadData();
+        this.innerHTML = this.buildHTML();
         window.addEventListener('search', (event) => {
-            this.filterTeams(event.detail, teams);
+            this.searchTerm = event.detail;
+            this.teams = this.filterTeams();
+            this.innerHTML = this.buildHTML();
         })
     }
 
-    buildHTML(teams) {
-        return this.componentStyle + `
+    loadData() {
+        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        this.allTeams = TeamsRepository.getAllTeams(this.activeGame.code);
+        this.teams = this.allTeams;
+    }
+
+    buildHTML() {
+        return `
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Teams</div>
             </div>
         </div>
-        <app-search></app-search>
+        <app-search q="${this.searchTerm}"></app-search>
         <div id="teams">
-            ${this.buildTeams(teams)}
+            ${Utils.ngForMap(this.teams, (team, index) => `<app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>`)}
         </div>`;
     }
 
-    buildTeams(teams) {
-        let teamsListHTML = '';
-        let index = 1;
-        teams.forEach((team, key) => {
-            teamsListHTML += `
-                <app-team-details teamName="${team.name}" teamIndex="${index}"></app-team-details>`;
-            index++;
-        });
-        return teamsListHTML;
-    }
-
-    filterTeams(searchTerm, allTeams) {
+    filterTeams() {
         // map all characters' names into a list
-        const filtered = new Map([...allTeams].filter((teamMapKeyValue) => {
+        const filteredList = [...this.allTeams].filter((teamMapKeyValue) => {
             // 0: key, 1: value
             let team = teamMapKeyValue[1]
             let charactersNames = [];
@@ -68,10 +61,12 @@ class TeamListComponent extends HTMLElement {
                 })
             }
             // true if one item from the list contains the searchTerm
-            return charactersNames.some(name => name.toLowerCase().includes(searchTerm.toLowerCase()))
-        }))
+            let characterFound = charactersNames.some(name => name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+            let teamNameFound = team.name.toLowerCase().includes(this.searchTerm.toLowerCase());
 
-        document.getElementById('teams').innerHTML = this.buildTeams(filtered);
+            return characterFound || teamNameFound;
+        })
+        return new Map(filteredList);
     }
 }
 

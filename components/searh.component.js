@@ -1,5 +1,7 @@
 class SearchComponent extends HTMLElement {
 
+    query = '';
+
     componentStyle = `
     <style>
         .search-clear {
@@ -46,13 +48,18 @@ class SearchComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.innerHTML = this.buildHTML();
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
+    }
+
+    loadData() {
+        if (this.hasAttribute('q')) this.query = this.getAttribute('q');
     }
 
     buildHTML() {
-        return this.componentStyle + `
+        return `
         <span class="search-clear">
-            <input type="text" class="gagu-form-control" placeholder="Search" onchange="emitSearchEvent(this.value)">
+            <input type="text" value="${this.query}" class="gagu-form-control" placeholder="Search" onchange="emitSearchEvent(this.value)">
             <span class="clear-icon" onclick="this.previousElementSibling.value = ''; emitSearchEvent('')">
                 ${Constants.unicode.times}
             </span>

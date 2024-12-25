@@ -1,10 +1,10 @@
-// Unicode
-// https://www.compart.com/en/unicode/html
-
-// SVG
-// https://www.svgrepo.com/
-
 class Constants {
+    // Unicode
+    // https://www.compart.com/en/unicode/html
+
+    // SVG
+    // https://www.svgrepo.com/
+
     static games = {
         GI: 'GI',
         HSR: 'HSR',

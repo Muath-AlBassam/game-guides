@@ -1,6 +1,11 @@
 class RolesComponent extends HTMLElement {
 
+    // inputs
+    gameCode = null;
+    teamName = null;
+
     characterPFPSize = 80;
+    currentTeam = null;
     
     componentStyle = `
     <style>
@@ -14,16 +19,19 @@ class RolesComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = this.getAttribute('game');
-        const teamName = this.getAttribute('team');
-        const activeGame = GamesRepository.getGame(gameCode);
-        const currentTeam = TeamsRepository.getTeam(gameCode, teamName);
-
-        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
-    buildHTML(activeGame, currentTeam) {
-        return this.componentStyle + `
+    loadData() {
+        this.gameCode = this.getAttribute('game');
+        this.teamName = this.getAttribute('team');
+
+        this.currentTeam = TeamsRepository.getTeam(this.gameCode, this.teamName);
+    }
+
+    buildHTML() {
+        return `
         <div class="container roles-container">
             <div>
                 <h5 class="content-header">
@@ -33,41 +41,42 @@ class RolesComponent extends HTMLElement {
             </div>
             <table class="table table-striped table-bordered">
                 <tbody>
-                ${this.buildRolesContent(activeGame, currentTeam)}
+                    ${Utils.ngFor(this.currentTeam.characters, character => `
+                    <tr>
+                        <td style="width: 50px; text-align: center">
+                            <character-image 
+                                gamecode="${this.gameCode}"
+                                charactername="${character?.name}"
+                                dimensions="${this.characterPFPSize}"
+                                styles="margin: 5px 10px;">
+                            </character-image>
+                        </td>
+                        <td style="font-size: 1.2em; font-weight: bold;">
+                            ${Utils.ngIf(this.getCharacter(this.gameCode, character.name).role, 
+                            `<img 
+                                src="${this.getRole(this.gameCode, character.name).imageUrl}" 
+                                height="30" 
+                                title="${this.getRole(this.gameCode, character.name).name}" 
+                                style="margin: 0 5px;">`
+                            )}
+                            <span style="margin-left: 5px;">${character.role ?? ''}</span>
+                        </td>
+                    </tr>  
+                    `)}
                 </tbody>
             </table>
         </div>`;
     }
 
-    // build <tr> for each team member role
-    buildRolesContent(activeGame, currentTeam) {
-        let rolesContent = '';
+    // TODO
+    getRole(gameCode, characterName) {
+        let charmd = CharactersRepository.getCharacterMetadata(gameCode, characterName);
+        return RolesRepository.getRole(gameCode, charmd.role);
+    }
 
-        currentTeam.characters.forEach(character => {
-            const charmd = CharactersRepository.getCharacterMetadata(activeGame.code, character?.name);
-            let roleImage = '';
-            if (charmd.role) {
-                const rolemd = RolesRepository.getRole(activeGame.code, charmd.role);
-                roleImage = `<img src="${rolemd.imageUrl}" height="30" title="${rolemd.name}" style="margin: 0 5px;">`;
-            }
-            rolesContent += `
-            <tr>
-                <td style="width: 50px; text-align: center">
-                    <character-image 
-                        gamecode="${activeGame.code}"
-                        charactername="${charmd.name}"
-                        dimensions="${this.characterPFPSize}"
-                        styles="margin: 5px 10px;">
-                    </character-image>
-                </td>
-                <td style="font-size: 1.2em; font-weight: bold;">
-                    ${roleImage}
-                    <span style="margin-left: 5px;">${character.role ?? ''}</span>
-                </td>
-            </tr>`;
-        });
-
-        return rolesContent;
+    // TODO
+    getCharacter(gameCode, characterName) {
+        return CharactersRepository.getCharacterMetadata(gameCode, characterName);;
     }
 }
 

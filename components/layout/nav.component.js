@@ -3,6 +3,8 @@
 
 class NavComponent extends HTMLElement {
 
+    games = null;
+
     componentStyle = `
     <style>
         .sidebar {
@@ -17,7 +19,7 @@ class NavComponent extends HTMLElement {
         }
 
         .sidebar.active {
-            width: 250px;
+            width: 260px;
         }
 
         .sidebar #sidebarToggle {
@@ -106,15 +108,19 @@ class NavComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.innerHTML = this.buildHTML();
-
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
         window.addEventListener('hashchange', () => {
             this.setActiveNav();
         });
     }
 
+    loadData() {
+        this.games = GamesRepository.getAllGames();
+    }
+
     buildHTML() {
-        return this.componentStyle + `
+        return `
         <div class="sidebar">
             <div class="top">
                 <div class="logo">
@@ -123,25 +129,16 @@ class NavComponent extends HTMLElement {
                 <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
             </div>
             <ul style="padding-left: 0">
-                ${this.createGamesNav()}
+                ${Utils.ngForMap(this.games, g => `
+                <li>
+                    <a class="sidebar-item" href="#${g.code}">
+                        <i>${g.code}</i>
+                        <span class="nav-item">${g.label}</span>
+                    </a>
+                </li> 
+                `)}
             </ul>
         </div>`;
-        // <ul> style to disable bootstrap effect
-    }
-
-    createGamesNav() {
-        const games = GamesRepository.getAllGames();
-        let navContent = '';
-        games.forEach(g => {
-            navContent += `
-            <li>
-                <a class="sidebar-item" href="#${g.code}">
-                    <i>${g.code}</i>
-                    <span class="nav-item">${g.label}</span>
-                </a>
-            </li>`;
-        });
-        return navContent;
     }
 
     setActiveNav() {
