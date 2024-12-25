@@ -340,7 +340,7 @@ class TeamsRepository {
                         name: 'MC (Harmony)',
                         role: 'Break Effect Buff + Super Break',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Fugue'],
                     }
                 ]
             }],
@@ -382,7 +382,7 @@ class TeamsRepository {
                         name: 'Fu Xuan',
                         role: 'Tank + Crit Buff + Debuff',
                         isMain: false,
-                        replacements: ['Gepard'],
+                        replacements: ['Aventurine', 'Gepard'],
                     },
                     {
                         name: 'Acheron',
@@ -495,7 +495,6 @@ class TeamsRepository {
                 ],
                 variations: [
                     { name: 'L-Ratio', characters: ['Luocha', 'Dr. Ratio', 'Silver Wolf', 'Ruan Mei'] },
-                    { name: 'AoE Break', characters: ['Gallagher', 'Rappa', 'Ruan Mei', 'MC (Harmony)'] }
                 ]
             }],
             ['DoT', {
@@ -530,7 +529,7 @@ class TeamsRepository {
             }],
             ['FUA', {
                 name: 'FUA',
-                iconUrl: null,
+                iconUrl: 'assets/images/hsr/icons/HSR_FUA.png',
                 characters: [
                     {
                         name: 'Aventurine',
@@ -560,7 +559,40 @@ class TeamsRepository {
                 variations: [
                     { name: 'AoE FUA', characters: ['Fu Xuan', 'Jade', 'Herta', 'Robin'] }
                 ]
-            }]
+            }],
+            ['Break', {
+                name: 'Break',
+                iconUrl: 'assets/images/hsr/icons/HSR_Break.png',
+                characters: [
+                    {
+                        name: 'Gallagher',
+                        role: 'Heal + Debuff',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Firefly',
+                        role: 'DPS',
+                        isMain: true,
+                        replacements: [],
+                    },
+                    {
+                        name: 'Ruan Mei',
+                        role: 'DMG, RES PEN & Break Efficiency Buff',
+                        isMain: false,
+                        replacements: [],
+                    },
+                    {
+                        name: 'MC (Harmony)',
+                        role: 'Break Effect Buff + Super Break',
+                        isMain: false,
+                        replacements: ['Fugue'],
+                    }
+                ],
+                variations: [
+                    { name: 'AoE Break', characters: ['Gallagher', 'Rappa', 'Ruan Mei', 'Fugue'] }
+                ]
+            }],
         ]),
     
         ZZZTeams: new Map([

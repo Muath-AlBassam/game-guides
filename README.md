@@ -17,7 +17,8 @@
 
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from "Simplified" view
-  - Crop using Windows Paint to be 160x160
+  - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
+    - Size 160px
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
 - Sets : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
