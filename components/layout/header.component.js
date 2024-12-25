@@ -1,5 +1,7 @@
 class HeaderComponent extends HTMLElement {
 
+    activeGame = null;
+
     componentStyle = `
     <style>
         .header .title {
@@ -29,31 +31,36 @@ class HeaderComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.innerHTML = this.buildHTML();
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
 
         window.addEventListener('hashchange', () => {
-            this.innerHTML = this.buildHTML();
+            this.loadData();
+            this.innerHTML = this.componentStyle + this.buildHTML();
         });
     }
 
+    loadData() {
+        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+    }
+
     buildHTML() {
-        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-        return this.componentStyle + `
+        return `
         <div class="header">
             <div class="row">
                 <div class="col-md-6 title">
                     <h1 id="header-title">
-                        ${activeGame.label}
+                        ${this.activeGame.label}
                     </h1>
-                    <a href="${activeGame.guideUrl}" style="display: ${activeGame.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
+                    <a href="${this.activeGame.guideUrl}" style="display: ${this.activeGame.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
                         <i class="fa fa-external-link"></i>
                     </a>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <img height="100" src="${activeGame.logoUrl}" id="header-logo">
+                    <img height="100" src="${this.activeGame.logoUrl}" id="header-logo">
                 </div>
                 <div class="col-md-12 game-background" id="header-background" 
-                    style="background-image: url(${activeGame.backgroundUrl});">
+                    style="background-image: url(${this.activeGame.backgroundUrl});">
                 </div>
             </div>
         </div>`;

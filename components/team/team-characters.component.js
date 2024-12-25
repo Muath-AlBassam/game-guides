@@ -1,6 +1,8 @@
 class TeamCharactersComponent extends HTMLElement {
 
     characterPFPSize = 80;
+    gameCode = null;
+    characters = null;
 
     componentStyle = `
     <style>
@@ -19,8 +21,8 @@ class TeamCharactersComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = Utils.getGameFromUrl();
-        this.innerHTML = this.buildHTML(gameCode);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
         
         tns({
             container: '.characters__slider',
@@ -32,11 +34,12 @@ class TeamCharactersComponent extends HTMLElement {
         });
     }
 
-    buildHTML(gameCode) {
-        return this.componentStyle + this.buildSlider(gameCode);
+    loadData() {
+        this.gameCode = Utils.getGameFromUrl();
+        this.characters = CharactersRepository.getSortedCharactersList(this.gameCode);
     }
 
-    buildSlider(gameCode) {
+    buildHTML() {
         return `
         <div class="row">
             <div class="col-md-12">
@@ -45,32 +48,19 @@ class TeamCharactersComponent extends HTMLElement {
         </div>
         <div class="characters__container">
             <div class="characters__slider draggable">
-                ${this.buildSliderItems(gameCode)}
+                ${Utils.ngForMap(this.characters, charmd => `
+                    <character-image 
+                        gamecode="${this.gameCode}"
+                        charactername="${charmd.name}"
+                        dimensions="${this.characterPFPSize}"
+                        styles="margin: 5px 10px;"
+                        withbuilddialog="true"
+                        withelement="true">
+                    </character-image>
+                `)}
             </div>
         </div>
         `;
-    }
-
-    buildSliderItems(gameCode) {
-        let content = '';
-        const charactrsMap = CharactersRepository.getAllCharacters(gameCode);
-
-        if (charactrsMap != null) {
-            const sortedMap = new Map([...charactrsMap.entries()].sort());
-            sortedMap.forEach(charmd => {
-                content += `
-                <character-image 
-                    gamecode="${gameCode}"
-                    charactername="${charmd.name}"
-                    dimensions="${this.characterPFPSize}"
-                    styles="margin: 5px 10px;"
-                    withbuilddialog="true"
-                    withelement="true">
-                </character-image>
-                `
-            })
-        }
-        return content;
     }
 }
 

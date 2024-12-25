@@ -1,6 +1,12 @@
 class VariationsComponent extends HTMLElement {
 
+    // inputs
+    gameCode = null;
+    teamName = null;
+
     characterPFPSize = 80;
+    activeGame = null;
+    currentTeam = null;
 
     componentStyle = `
     <style>
@@ -14,16 +20,20 @@ class VariationsComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = this.getAttribute('game');
-        const teamName = this.getAttribute('team');
-        const activeGame = GamesRepository.getGame(gameCode);
-        const currentTeam = TeamsRepository.getTeam(gameCode, teamName);
-
-        this.innerHTML = this.buildHTML(activeGame, currentTeam);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
-    buildHTML(activeGame, currentTeam) {
-        return this.componentStyle + `
+    loadData() {
+        this.gameCode = this.getAttribute('game');
+        this.teamName = this.getAttribute('team');
+
+        this.activeGame = GamesRepository.getGame(this.gameCode);
+        this.currentTeam = TeamsRepository.getTeam(this.gameCode, this.teamName);
+    }
+
+    buildHTML() {
+        return `
         <div class="container variations-container">
             <div>
                 <h5 class="content-header">
@@ -31,54 +41,32 @@ class VariationsComponent extends HTMLElement {
                     Variations
                 </h5>
             </div>
-            <div style="height: ${107 * activeGame.teamSize}px; overflow: auto;">
+            <div style="height: ${107 * this.activeGame.teamSize}px; overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>
-                    ${this.buildVariationsContent(activeGame, currentTeam)}
+                        ${Utils.ngForIf(this.currentTeam.variations, this.currentTeam.variations, vari => `
+                        <tr>
+                            <td style="display: flex; text-align: center">
+                                ${Utils.ngIf(vari.name, `<h6 style="width: 75px">${vari.name}</h6>`)}
+                                ${Utils.ngFor(vari.characters, character => `
+                                <character-image 
+                                    gamecode="${this.gameCode}"
+                                    charactername="${character}"
+                                    dimensions="${this.characterPFPSize}"
+                                    styles="margin: 5px 10px;"
+                                    withbuilddialog="true"
+                                    withelement="true">
+                                </character-image>
+                                `)}
+                            </td>
+                        </tr>
+                        `,
+                        `<h1 class="empty-details">...</h1>`
+                        )}
                     </tbody>
                 </table>
             </div>
         </div>`;
-    }
-
-    buildVariationsContent(activeGame, team) {
-        let variationsContent = '';
-
-        if (team.variations) {
-            team.variations.forEach(vari => {
-                variationsContent += `<tr><td style="display: flex; text-align: center">`;
-                // add name
-                if (vari.name) {
-                    variationsContent += `<h6 style="width: 75px">${vari.name}</h6>`;
-                }
-                // add characters
-                variationsContent += this.buildCharactersImages(vari.characters, activeGame.code);
-                variationsContent += `</td></tr>`;
-            })
-        } else {
-            variationsContent += `
-                <h1 class="empty-details">...</h1>
-            `;
-        }
-
-        return variationsContent;
-    }
-
-    buildCharactersImages(variationCharacters, gameCode) {
-        let content = '';
-        variationCharacters.forEach(character => {
-            content += `
-            <character-image 
-                gamecode="${gameCode}"
-                charactername="${character}"
-                dimensions="${this.characterPFPSize}"
-                styles="margin: 5px 10px;"
-                withbuilddialog="true"
-                withelement="true">
-            </character-image>
-            `
-        });
-        return content;
     }
 }
 

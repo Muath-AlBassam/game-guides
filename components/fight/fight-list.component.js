@@ -1,6 +1,8 @@
 class FightComponent extends HTMLElement {
 
     characterPFPSize = 250;
+    gameCode = null;
+    characters = null;
     
     componentStyle = `
     <style>
@@ -68,79 +70,60 @@ class FightComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const activeGame = GamesRepository.getGame(this.getAttribute("name"));
-        const characters = CharactersRepository.getAllCharacters(activeGame.code);
-        this.innerHTML = this.buildHTML(activeGame, characters);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
-    buildHTML(activeGame, characters) {
-        return this.componentStyle + `
+    loadData() {
+        this.gameCode = Utils.getGameFromUrl();
+        this.characters = CharactersRepository.getAllCharacters(this.gameCode);
+    }
+
+    buildHTML() {
+        return `
         <div class="row">
             <div class="col-md-12">
                 <div class="content-header">Characters</div>
             </div>
         </div>
         <div id="fights">
-            ${this.buildContainer(activeGame, characters)}
-        </div>`;
-    }
-
-    buildContainer(activeGame, characters) {
-        let html = '';
-        let index = 0;
-        characters.forEach((char, key) => {
-            html += this.buildCharacter(activeGame, char, index);
-            index++;
-        });
-
-        return html;
-    }
-
-    buildCharacter(activeGame, character, index) {
-        return `
-        <div class="fight__container">
-            <div class="number">${index + 1}</div>
-            <div class="item">
-                <div class="character">
-                    <character-image 
-                        gamecode="${activeGame.code}"
-                        charactername="${character?.name}"
-                        dimensions="${this.characterPFPSize}">
-                    </character-image>
-                    <div class="name">
-                        ${character.name}
+            ${Utils.ngForMap(this.characters, (character, index) => `
+            <div class="fight__container">
+                <div class="number">${index + 1}</div>
+                <div class="item">
+                    <div class="character">
+                        <character-image 
+                            gamecode="${this.gameCode}"
+                            charactername="${character?.name}"
+                            dimensions="${this.characterPFPSize}">
+                        </character-image>
+                        <div class="name">
+                            ${character.name}
+                        </div>
+                    </div>
+                    <div class="combos">
+                        <div class="content-header">Combos</div>
+                        <ul>
+                            ${Utils.ngFor(character.combos, combo => `
+                            <li>
+                                ${Utils.ngFor(combo, buttonCode => 
+                                    `${Utils.ngIf(this.getButtonImage(buttonCode), 
+                                        `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
+                                    buttonCode)}`
+                                )}
+                            </li>
+                            `)}
+                        </ul>
                     </div>
                 </div>
-                <div class="combos">
-                    <div class="content-header">Combos</div>
-                    ${this.buildCombos(activeGame.code, character)}
-                </div>
-            </div>
+            </div>   
+            `)}
         </div>`;
     }
 
-    buildCombos(gameCode, character) {
-        let combosList = '';
-        character.combos.forEach(combo => {
-            let comboButtons = '';
-            combo.forEach(b => {
-                comboButtons += this.generateButtonImage(gameCode, b);
-            })
-            combosList += `<li> ${comboButtons} </li>`;
-        });
-        return `
-        <ul>
-            ${combosList}
-        </ul>
-        `;
-    }
-
-    generateButtonImage(gameCode, buttonCode) {
-        const button = ButtonsRepository.getButton(gameCode, buttonCode);
-        if (button.imageUrl) {
-            buttonCode = `<img src="${button.imageUrl}" width="40" title="${buttonCode}" />`;
-        }
-        return buttonCode;
+    // TODO
+    getButtonImage(buttonCode) {
+        return ButtonsRepository.getButton(this.gameCode, buttonCode).imageUrl
     }
 }
 

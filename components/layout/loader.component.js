@@ -36,11 +36,11 @@ class LoaderComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.innerHTML = this.buildHTML();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
     buildHTML() {
-        return this.componentStyle + `
+        return `
         <div class="loader-container center-content">
             <div class="loader"></div>
         </div>

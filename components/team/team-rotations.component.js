@@ -1,6 +1,11 @@
 class RotationsComponent extends HTMLElement {
 
+    // inputs
+    gameCode = null;
+    teamName = null;
+
     characterPFPSize = 40;
+    teamRotations = null;
 
     componentStyle = `
     <style>
@@ -14,36 +19,30 @@ class RotationsComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        const gameCode = this.getAttribute('game');
-        const teamName = this.getAttribute('team');
-        const teamRotations = RotationsRepository.getRotations(gameCode, teamName);
-
-        this.innerHTML = this.buildHTML(gameCode, teamRotations);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
-    buildHTML(gameCode, teamRotations) {
-        return this.componentStyle + `
+    loadData() {
+        this.gameCode = this.getAttribute('game');
+        this.teamName = this.getAttribute('team');
+
+        this.teamRotations = RotationsRepository.getRotations(this.gameCode, this.teamName);
+    }
+
+    buildHTML() {
+        return `
         <div class="container rotations-container">
             <h5 class="content-header">
                 <img src="assets/svg/rotations.svg" height="20" class="action">
                 Rotations
             </h5>
             <div style="font-size: 1.2em;">
-                ${this.buildRotationsContent(gameCode, teamRotations)}
-            </div>
-        </div>`;
-    }
-
-    buildRotationsContent(gameCode, teamRotations) {
-        let rotationsContent = '';
-
-        if (teamRotations && teamRotations.length > 0) {
-            teamRotations.forEach(step => {
-                rotationsContent += `
+                ${Utils.ngForIf(this.teamRotations && this.teamRotations.length > 0, this.teamRotations, step => `
                 <div>
                     <span>
                         <character-image 
-                            gamecode="${gameCode}"
+                            gamecode="${this.gameCode}"
                             charactername="${step[0]}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px; border-radius: 100%;"
@@ -53,15 +52,12 @@ class RotationsComponent extends HTMLElement {
                     <b style="margin-right: 8px;">
                         ${step[1]}
                     </b>
-                </div>`;
-            })
-        } else {
-            rotationsContent += `
-                <h1 class="empty-details">...</h1>
-            `;
-        }
-
-        return rotationsContent;
+                </div> 
+                `,
+                `<h1 class="empty-details">...</h1>`
+                )}  
+            </div>
+        </div>`;
     }
 }
 

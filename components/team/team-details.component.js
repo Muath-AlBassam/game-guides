@@ -1,7 +1,15 @@
 class TeamDetailsComponent extends HTMLElement {
 
+    // inputs
+    teamName = null;
+    teamIndex = null;
+
     characterPFPSize = 160;
     petPFPSize = 80;
+    activeGame = null;
+    team = null;
+    teamId = null;
+    petmd = null;
 
     componentStyle = `
     <style>
@@ -159,87 +167,62 @@ class TeamDetailsComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const teamName = this.getAttribute('teamName');
-        const teamIndex = this.getAttribute('teamIndex');
-
-        const activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-        const team = TeamsRepository.getTeam(activeGame.code, teamName);
-
-        this.innerHTML = this.buildHTML(activeGame, team, teamIndex);
+        this.loadData();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
-    buildHTML(activeGame, team, teamIndex) {
-        const teamId = `${activeGame.code}-${team.name.replaceAll(' ', '-')}`;
-
-        return this.componentStyle + `
-        <div>
-            ${this.buildTeamContainer(activeGame, team, teamId, teamIndex)}
-            ${this.buildTeamDetails(activeGame, team, teamId)}
-        </div>`;
+    loadData() {
+        this.teamName = this.getAttribute('teamname');
+        this.teamIndex = this.getAttribute('teamindex');
+        
+        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        this.team = TeamsRepository.getTeam(this.activeGame.code, this.teamName);
+        this.petmd = PetsRepository.getPet(this.activeGame.code, this.team.pet);
+        this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
     }
 
-    // team index + name + members
-    buildTeamContainer(activeGame, team, teamId, teamIndex) {
+    buildHTML() {
         return `
-        <div class="teams__container">
-            ${teamIndex > 0 ? `<div class="number">${teamIndex}</div>` : ''}
-            <div class="item">
-                <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                    <img src="${team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
-                    <span>${team.name}</span>
-                </div>
-                <div class="members">
-                    ${this.buildMemebersImages(activeGame, team)}
-                    ${this.buildPetImage(activeGame, team)}
-                </div>
-                <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${teamId}">
-                    <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
+        <div>
+            <div class="teams__container">
+                <div class="number">${this.teamIndex}</div>
+                <div class="item">
+                    <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
+                        <img src="${this.team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
+                        <span>${this.team.name}</span>
+                    </div>
+                    <div class="members">
+                        ${Utils.ngFor(Array.from({length: this.activeGame.teamSize}), (char, index) => `
+                        <character-image 
+                            gamecode="${this.activeGame.code}"
+                            charactername="${this.team.characters[index]?.name}"
+                            dimensions="${this.characterPFPSize}"
+                            styles="margin: 5px 10px;"
+                            withbuilddialog="true"
+                            withelement="true">
+                        </character-image>
+                        `)}
+
+                        ${Utils.ngIf(this.activeGame.hasPet, `
+                        <img 
+                            src="${this.petmd.imageUrl ?? 'assets/images/Unknown.png'}" 
+                            height="${this.petPFPSize}" 
+                            class="pet ${this.activeGame.code+'-rarity-'+this.petmd.rarity}"
+                            title="${this.petmd.name}"
+                        >
+                        `)}
+                    </div>
+                    <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
+                        <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
+                    </div>
                 </div>
             </div>
-        </div>`;
-    }
-
-    buildMemebersImages(activeGame, team) {
-        let membersImages = ``;
-        for (let i = 0; i < activeGame.teamSize; i++) {
-            const character = team.characters[i]
-            membersImages += `
-            <character-image 
-                gamecode="${activeGame.code}"
-                charactername="${character?.name}"
-                dimensions="${this.characterPFPSize}"
-                styles="margin: 5px 10px;"
-                withbuilddialog="true"
-                withelement="true">
-            </character-image>
-            ` 
-        }
-        return membersImages;
-    }
-
-    buildPetImage(activeGame, team) {
-        let petImage = ``;
-        if (activeGame.hasPet) {
-            const pet = PetsRepository.getPet(activeGame.code, team.pet);
-            petImage = `
-            <img 
-                src="${pet.imageUrl ?? 'assets/images/Unknown.png'}" 
-                height="${this.petPFPSize}" 
-                class="pet ${activeGame.code+'-rarity-'+pet.rarity}"
-                title="${pet.name}"
-            >`;
-        }
-        return petImage;
-    }
-
-    // team details (collapsable/accordion content)
-    buildTeamDetails(activeGame, team, teamId) {
-        return `
-        <div class="teams__details collapse" data-bs-parent="#teams" id="${teamId}">
-            <app-team-roles game="${activeGame.code}" team="${team.name}"></app-team-roles>
-            <app-team-variations game="${activeGame.code}" team="${team.name}"></app-team-variations>
-            <app-team-replacements game="${activeGame.code}" team="${team.name}"></app-team-replacements>
-            <app-team-rotations game="${activeGame.code}" team="${team.name}"></app-team-rotations>
+            <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
+                <app-team-roles game="${this.activeGame.code}" team="${this.team.name}"></app-team-roles>
+                <app-team-variations game="${this.activeGame.code}" team="${this.team.name}"></app-team-variations>
+                <app-team-replacements game="${this.activeGame.code}" team="${this.team.name}"></app-team-replacements>
+                <app-team-rotations game="${this.activeGame.code}" team="${this.team.name}"></app-team-rotations>
+            </div>
         </div>`;
     }
 }

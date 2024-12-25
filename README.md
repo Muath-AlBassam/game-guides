@@ -47,11 +47,7 @@
 
 ## TODO
 
-> Add game notes ?
-- Meaning of rotations shortcut (B: Basic)
-- etc.
-
-> Add team notes ?
-- Character weapon in a team
-- Simple rotation notes
+> Add character notes ?
+- use when...
+- equip weapon/set when...
 - etc.

@@ -16,6 +16,10 @@ class CharactersRepository {
                 return new Map([]);
         }
     }
+
+    static getSortedCharactersList(gameCode) {
+        return new Map([...this.getAllCharacters(gameCode).entries()].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)));
+    }
     
     static getCharacterMetadata(gameCode, characterName) {
         let data = this.getAllCharacters(gameCode).get(characterName)
