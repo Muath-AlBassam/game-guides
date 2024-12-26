@@ -107,7 +107,7 @@ class RotationsRepository {
     
         ZZZRotations: new Map([
             ['Miyabi', [
-                ['Lucy', `${this.zzzExSpecial} ${this.zzzQTE} ${this.arrow}`],
+                ['Lucy', `${this.zzzExSpecial} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
                 ['Miyabi', `${this.repeat(`${this.zzzExSpecial} + ${this.zzzBasic} ${this.smallText('(Until 6 charges)')} ${this.arrow} ${this.zzzCharged}`)}`],
                 ['Lycaon', `${this.zzzQTE} ${this.smallText('(Optional)')}`],
             ]],

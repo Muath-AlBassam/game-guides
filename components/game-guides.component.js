@@ -11,6 +11,7 @@ class GameGuidesComponent extends HTMLElement {
         this.render();
 
         window.addEventListener('hashchange', () => {
+            this.loadData();
             this.render();
         });
     }
