@@ -11,8 +11,9 @@ window.addEventListener('load', () => {
     window.dispatchEvent(new Event("hashchange"));
 });
 
-// close dialog on clicking outside
+// listen to window clicks
 window.onclick = function(event) {
+    // close dialog on clicking outside
     if (Array.from(document.getElementsByClassName('gagu-dialog')).includes(event.target)) {
         closeDialog();
     }

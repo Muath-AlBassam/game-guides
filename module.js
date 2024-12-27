@@ -9,41 +9,42 @@ function loadScript(url, isDefer = false) {
 
 function loadAllScripts() {
     // Utilities
-    loadScript("utils/constants.js");
-    loadScript("utils/utils.js");
+    loadScript("src/utils/constants.js");
+    loadScript("src/utils/utils.js");
 
     // Repositories
-    loadScript("repository/games.repository.js");
-    loadScript("repository/characters.repository.js");
-    loadScript("repository/builds.repository.js");
-    loadScript("repository/teams.repository.js");
-    loadScript("repository/rotations.repository.js");
-    loadScript("repository/weapons.repository.js");
-    loadScript("repository/sets.repository.js");
-    loadScript("repository/roles.repository.js");
-    loadScript("repository/elements.repository.js");
-    loadScript("repository/buttons.repository.js");
-    loadScript("repository/rarity.repository.js");
-    loadScript("repository/pets.repository.js");
+    loadScript("src/repository/games.repository.js");
+    loadScript("src/repository/characters.repository.js");
+    loadScript("src/repository/builds.repository.js");
+    loadScript("src/repository/teams.repository.js");
+    loadScript("src/repository/rotations.repository.js");
+    loadScript("src/repository/weapons.repository.js");
+    loadScript("src/repository/sets.repository.js");
+    loadScript("src/repository/roles.repository.js");
+    loadScript("src/repository/elements.repository.js");
+    loadScript("src/repository/buttons.repository.js");
+    loadScript("src/repository/rarity.repository.js");
+    loadScript("src/repository/pets.repository.js");
 
-    // Components
-    loadScript("components/searh.component.js", true);
-    loadScript("components/character-image.component.js", true);
-    loadScript("components/game-guides.component.js", true);
+    // Core
+    loadScript("src/components/core/game-guides.component.js", true);
+    // Shared
+    loadScript("src/components/shared/searh.component.js", true);
+    loadScript("src/components/shared/loader.component.js", true);
+    loadScript("src/components/shared/character-image.component.js", true);
     // Layout
-    loadScript("components/layout/nav.component.js", true);
-    loadScript("components/layout/header.component.js", true);
-    loadScript("components/layout/loader.component.js", true);
+    loadScript("src/components/layout/nav.component.js", true);
+    loadScript("src/components/layout/header.component.js", true);
     // Team
-    loadScript("components/team/team-container.component.js", true);
-    loadScript("components/team/team-list.component.js", true);
-    loadScript("components/team/team-details.component.js", true);
-    loadScript("components/team/team-roles.component.js", true);
-    loadScript("components/team/team-variations.component.js", true);
-    loadScript("components/team/team-replacements.component.js", true);
-    loadScript("components/team/team-rotations.component.js", true);
-    loadScript("components/team/team-character-details.component.js", true);
-    loadScript("components/team/team-characters.component.js", true);
+    loadScript("src/components/team/team-container.component.js", true);
+    loadScript("src/components/team/team-list.component.js", true);
+    loadScript("src/components/team/team-details.component.js", true);
+    loadScript("src/components/team/team-roles.component.js", true);
+    loadScript("src/components/team/team-variations.component.js", true);
+    loadScript("src/components/team/team-replacements.component.js", true);
+    loadScript("src/components/team/team-rotations.component.js", true);
+    loadScript("src/components/team/team-character-details.component.js", true);
+    loadScript("src/components/team/team-characters.component.js", true);
     // Fight
-    loadScript("components/fight/fight-list.component.js", true);
+    loadScript("src/components/fight/fight-list.component.js", true);
 }
