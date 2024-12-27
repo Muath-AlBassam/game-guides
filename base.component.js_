@@ -1,8 +1,10 @@
 class BaseComponent extends HTMLElement {
 
+    gameCode = null;
+
     componentStyle = `
     <style>
-        
+        /* */
     </style>`;
 
     constructor() {
@@ -10,7 +12,12 @@ class BaseComponent extends HTMLElement {
     }
   
     connectedCallback() {
+        this.loadData();
         this.innerHTML = this.buildHTML();
+    }
+
+    loadData() {
+        this.gameCode = Utils.getGameFromUrl();
     }
 
     buildHTML() {
