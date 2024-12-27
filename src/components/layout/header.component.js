@@ -52,9 +52,11 @@ class HeaderComponent extends HTMLElement {
                     <h1 id="header-title">
                         ${this.activeGame.label}
                     </h1>
-                    <a href="${this.activeGame.guideUrl}" style="display: ${this.activeGame.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
-                        <i class="fa fa-external-link"></i>
-                    </a>
+                    <sup>
+                        <a href="${this.activeGame.guideUrl}" style="display: ${this.activeGame.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </sup>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <img height="100" src="${this.activeGame.logoUrl}" id="header-logo">

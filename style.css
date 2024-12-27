@@ -96,6 +96,15 @@ app-nav.active ~ .main-content {
     cursor: grabbing;
 }
 
+.notes-popover {
+    --bs-popover-header-color: var(--text-color);
+    --bs-popover-header-bg: #1c1d21;
+    --bs-popover-body-color: var(--text-color);
+    --bs-popover-border-color: transparent;
+    --bs-popover-bg: var(--background-color);
+    --bs-popover-max-width: 400px;
+}
+
 /* Dialog styles ----------------------------------------------------------- */
 @keyframes fade-in {
     from {

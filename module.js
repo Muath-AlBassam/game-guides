@@ -25,6 +25,7 @@ function loadAllScripts() {
     loadScript("src/repository/buttons.repository.js");
     loadScript("src/repository/rarity.repository.js");
     loadScript("src/repository/pets.repository.js");
+    loadScript("src/repository/notes.repository.js");
 
     // Core
     loadScript("src/components/core/game-guides.component.js", true);
