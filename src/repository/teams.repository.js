@@ -309,9 +309,6 @@ class TeamsRepository {
                         isMain: false,
                         replacements: [],
                     }
-                ],
-                variations: [
-                    { name: 'Gunslinger', characters: ['Gallagher', 'Boothill', 'Ruan Mei', 'Bronya'] },
                 ]
             }],
             ['Fire', {
@@ -590,7 +587,8 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: 'AoE Break', characters: ['Gallagher', 'Rappa', 'Ruan Mei', 'Fugue'] }
+                    { name: 'AoE Break', characters: ['Gallagher', 'Rappa', 'Ruan Mei', 'Fugue'] },
+                    { name: 'Gunslinger', characters: ['Gallagher', 'Boothill', 'Fugue', 'Bronya'] },
                 ]
             }],
         ]),
