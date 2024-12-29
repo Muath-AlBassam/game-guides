@@ -13,6 +13,12 @@ class VariationsComponent extends HTMLElement {
         .variations-container {
             /**/
         }
+
+        .variation-name {
+            width: 80px;
+            display: grid;
+            grid-template-columns: 80% 20%;
+        }
     </style>`;
 
     constructor() {
@@ -47,7 +53,11 @@ class VariationsComponent extends HTMLElement {
                         ${Utils.ngForIf(this.currentTeam.variations, this.currentTeam.variations, vari => `
                         <tr>
                             <td style="display: flex; text-align: center">
-                                ${Utils.ngIf(vari.name, `<h6 style="width: 75px">${vari.name}</h6>`)}
+                                <span class="variation-name">
+                                    ${Utils.ngIf(vari.name, `<h6>${vari.name}</h6>`)}
+                                    <notes-popover teamname="${vari.name}" position="inline"></notes-popover>
+                                </span>
+                                
                                 ${Utils.ngFor(vari.characters, character => `
                                 <character-image 
                                     gamecode="${this.gameCode}"

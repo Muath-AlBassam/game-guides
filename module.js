@@ -33,6 +33,7 @@ function loadAllScripts() {
     loadScript("src/components/shared/searh.component.js", true);
     loadScript("src/components/shared/loader.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);
+    loadScript("src/components/shared/notes-popover.component.js", true);
     // Layout
     loadScript("src/components/layout/nav.component.js", true);
     loadScript("src/components/layout/header.component.js", true);

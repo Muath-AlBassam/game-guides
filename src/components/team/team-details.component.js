@@ -8,7 +8,6 @@ class TeamDetailsComponent extends HTMLElement {
     petPFPSize = 80;
     activeGame = null;
     team = null;
-    teamNotes = [];
     teamId = null;
     petmd = null;
 
@@ -56,14 +55,6 @@ class TeamDetailsComponent extends HTMLElement {
             grid-template-columns: 20% 80%;
             align-items: center;
             justify-items: center;
-        }
-
-        .teams__container .item .notes {
-            padding: 5px;
-            border-radius: 50%;
-        }
-        .teams__container .item .notes:hover {
-            background-color: #36373f;
         }
 
         .teams__container .item .members {
@@ -187,7 +178,6 @@ class TeamDetailsComponent extends HTMLElement {
         
         this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         this.team = TeamsRepository.getTeam(this.activeGame.code, this.teamName);
-        this.teamNotes = NotesRepository.getTeamNotes(this.activeGame.code, this.team.name);
         this.petmd = PetsRepository.getPet(this.activeGame.code, this.team.pet);
         this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
     }
@@ -202,13 +192,7 @@ class TeamDetailsComponent extends HTMLElement {
                         <img src="${this.team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
                         <span>
                             ${this.team.name}
-                            ${Utils.ngIf(this.teamNotes?.length > 0, `
-                            <sup>
-                                <img src="assets/svg/info.svg" height="25" class="notes" data-bs-trigger="hover"
-                                    data-bs-toggle="popover" data-bs-custom-class="notes-popover" data-bs-html="true"
-                                    data-bs-title="Team Notes" data-bs-content="${this.getFormattedNotes()}">
-                            </sup>    
-                            `)}
+                            <notes-popover teamname="${this.teamName}"></notes-popover>
                         </span>
                     </div>
                     <div class="members">
@@ -244,15 +228,6 @@ class TeamDetailsComponent extends HTMLElement {
                 <app-team-rotations game="${this.activeGame.code}" team="${this.team.name}"></app-team-rotations>
             </div>
         </div>`;
-    }
-
-    getFormattedNotes() {
-        let formatted = '';
-        if (this.teamNotes) {
-            let fromattedList = this.teamNotes.map(n => `<li>${n.text}</li>`);
-            formatted = `<ul>${fromattedList.join('')}</ul>`
-        }
-        return formatted;
     }
 }
 
