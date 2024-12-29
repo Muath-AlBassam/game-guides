@@ -40,6 +40,10 @@ body {
     margin-bottom: 0;
 }
 
+img {
+    user-select: none;
+}
+
 /* Scrollbar --------------------------------------------------------------- */
 ::-webkit-scrollbar {
     width: 5px;
@@ -97,6 +101,8 @@ app-nav.active ~ .main-content {
 }
 
 .notes-popover {
+    box-shadow: 0 0 20px #000;
+    /* colors */
     --bs-popover-header-color: var(--text-color);
     --bs-popover-header-bg: #1c1d21;
     --bs-popover-body-color: var(--text-color);

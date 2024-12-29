@@ -168,6 +168,7 @@ class TeamDetailsComponent extends HTMLElement {
             align-items: center;
             justify-content: center;
             height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
+            user-select: none;
         }
     </style>`;
     
