@@ -10,28 +10,31 @@ class RotationsRepository {
     static imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
 
     // GI moves shortcuts
-    // static giNormal = this.imageOf('assets/images/gi/icons/GI_NormalAttack.png', 'Normal Attack');
-    // static giCharged = this.tooltip('CA', 'Charged Attack');
-    // static giSkill = this.imageOf('assets/images/gi/icons/GI_Skill.png', 'Skill');
-    // static giUltimate = this.imageOf('assets/images/gi/icons/GI_Ultimate.png', 'Ultimate');
-    // static giPlunge = this.imageOf('assets/images/gi/icons/GI_Plunge.png', 'Plunge');
-    static giNormal = this.tooltip('N', 'Normal Attack');
-    static giCharged = this.tooltip('CA', 'Charged Attack');
-    static giSkill = this.tooltip('E', 'Skill');
-    static giUltimate = this.tooltip('Q', 'Ultimate');
-    static giPlunge = this.tooltip('Plunge', 'Plunge');
+    static gi = {
+        // normal: this.imageOf('assets/images/gi/icons/GI_NormalAttack.png', 'Normal Attack'),
+        // charged: this.tooltip('CA', 'Charged Attack'),
+        // skill: this.imageOf('assets/images/gi/icons/GI_Skill.png', 'Skill'),
+        // ultimate: this.imageOf('assets/images/gi/icons/GI_Ultimate.png', 'Ultimate'),
+        // plunge: this.imageOf('assets/images/gi/icons/GI_Plunge.png', 'Plunge'),
+        normal: this.tooltip('N', 'Normal Attack'),
+        charged: this.tooltip('CA', 'Charged Attack'),
+        skill: this.tooltip('E', 'Skill'),
+        ultimate: this.tooltip('Q', 'Ultimate'),
+        plunge: this.tooltip('Plunge', 'Plunge'),
+    }
 
     // ZZZ moves shortcuts
-    static zzzBasic = this.imageOf('assets/images/zzz/icons/ZZZ_Basic.png', 'Basic');
-    static zzzCharged = this.tooltip('CA', 'Charged Attack');
-    static zzzExSpecial = this.imageOf('assets/images/zzz/icons/ZZZ_ExSpecial.png', 'EX Special');
-    static zzzSpecial = this.imageOf('assets/images/zzz/icons/ZZZ_Special.png', 'Special');
-    static zzzQTE = this.imageOf('assets/images/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)');
-    static zzzDash = this.imageOf('assets/images/zzz/icons/ZZZ_Dash.png', 'Dash');
-    static zzzAssault = this.imageOf('assets/images/zzz/icons/ZZZ_Physical.png', 'Assault');
-    static zzzBurn = this.imageOf('assets/images/zzz/icons/ZZZ_Fire.png', 'Burn');
-    static zzzShock = this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock');
-
+    static zzz = {
+        basic: this.imageOf('assets/images/zzz/icons/ZZZ_Basic.png', 'Basic'),
+        charged: this.tooltip('CA', 'Charged Attack'),
+        exSpecial: this.imageOf('assets/images/zzz/icons/ZZZ_ExSpecial.png', 'EX Special'),
+        special: this.imageOf('assets/images/zzz/icons/ZZZ_Special.png', 'Special'),
+        QTE: this.imageOf('assets/images/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)'),
+        dash: this.imageOf('assets/images/zzz/icons/ZZZ_Dash.png', 'Dash'),
+        assault: this.imageOf('assets/images/zzz/icons/ZZZ_Physical.png', 'Assault'),
+        burn: this.imageOf('assets/images/zzz/icons/ZZZ_Fire.png', 'Burn'),
+        sock: this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock'),
+    }
 
     static getAllRotations(gameCode) {
         switch (gameCode) {
@@ -54,88 +57,88 @@ class RotationsRepository {
     static data = {
         GIRotations: new Map([
             ['Pyro', [
-                ['Zhongli', `${this.giSkill} ${this.smallText('(Hold)')} ${this.arrow}`],
-                ['Bennett', `${this.giUltimate} ${this.arrow}`],
-                ['Yelan', `${this.giUltimate} ${this.arrow} ${this.giSkill}${this.times}2 ${this.arrow} `],
-                ['Arlecchino', `${this.giSkill} ${this.arrow} ${this.giCharged} ${this.arrow} ${this.repeat(`${this.giNormal} ${this.smallText('(Until BoL is 0)')}`)}`],
+                ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
+                ['Bennett', `${this.gi.ultimate} ${this.arrow}`],
+                ['Yelan', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill}${this.times}2 ${this.arrow} `],
+                ['Arlecchino', `${this.gi.skill} ${this.arrow} ${this.gi.charged} ${this.arrow} ${this.repeat(`${this.gi.normal} ${this.smallText('(Until BoL is 0)')}`)}`],
             ]],
             ['Hydro', [
-                ['Neuvillette', `${this.giNormal}${this.times}1 ${this.arrow}`],
-                ['Kazuha', `${this.giSkill} ${this.arrow}`],
-                ['Raiden Shogun', `${this.giSkill} ${this.arrow}`],
-                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.arrow}`],
-                ['Neuvillette', `${this.giSkill}/${this.giUltimate} ${this.arrow} ${this.giCharged}`],
+                ['Neuvillette', `${this.gi.normal}${this.times}1 ${this.arrow}`],
+                ['Kazuha', `${this.gi.skill} ${this.arrow}`],
+                ['Raiden Shogun', `${this.gi.skill} ${this.arrow}`],
+                ['Furina', `${this.gi.skill} ${this.arrow} ${this.gi.ultimate} ${this.arrow}`],
+                ['Neuvillette', `${this.gi.skill}/${this.gi.ultimate} ${this.arrow} ${this.gi.charged}`],
             ]],
             ['Dendro', [
-                ['Nahida', `${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
-                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.smallText('(Optional)')} ${this.arrow}`],
-                ['Yae Miko', `${this.giSkill}${this.times}3 ${this.arrow}`],
-                ['Kuki Shinobu', `${this.giSkill} ${this.arrow}`],
-                ['Nahida', `${this.repeat(`${this.giNormal} + ${this.giCharged}`)}`],
+                ['Nahida', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill} ${this.arrow}`],
+                ['Furina', `${this.gi.skill} ${this.arrow} ${this.gi.ultimate} ${this.smallText('(Optional)')} ${this.arrow}`],
+                ['Yae Miko', `${this.gi.skill}${this.times}3 ${this.arrow}`],
+                ['Kuki Shinobu', `${this.gi.skill} ${this.arrow}`],
+                ['Nahida', `${this.repeat(`${this.gi.normal} + ${this.gi.charged}`)}`],
             ]],
             ['Electro', [
-                ['Raiden Shogun', `${this.giSkill} ${this.arrow}`],
-                ['Chevreuse', `${this.giSkill} ${this.smallText('(Hold)')} ${this.arrow} ${this.giUltimate} ${this.arrow}`],
-                ['Thoma', `${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
-                ['Clorinde', `${this.repeat(`${this.giSkill} + ${this.giNormal}`)} ${this.arrow} ${this.giUltimate}`]
+                ['Raiden Shogun', `${this.gi.skill} ${this.arrow}`],
+                ['Chevreuse', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow} ${this.gi.ultimate} ${this.arrow}`],
+                ['Thoma', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill} ${this.arrow}`],
+                ['Clorinde', `${this.repeat(`${this.gi.skill} + ${this.gi.normal}`)} ${this.arrow} ${this.gi.ultimate}`]
             ]],
             ['Anemo', [
-                ['Ororon', ` ${this.giUltimate} ${this.arrow} ${this.giSkill} ${this.arrow}`],
-                ['Furina', `${this.giSkill} ${this.arrow} ${this.giUltimate} ${this.arrow}`],
-                ['Bennett', `${this.giUltimate} ${this.arrow}`],
-                ['Chasca', `${this.giSkill} ${this.arrow} ${this.giCharged} ${this.smallText('(Hold)')}`]
+                ['Ororon', ` ${this.gi.ultimate} ${this.arrow} ${this.gi.skill} ${this.arrow}`],
+                ['Furina', `${this.gi.skill} ${this.arrow} ${this.gi.ultimate} ${this.arrow}`],
+                ['Bennett', `${this.gi.ultimate} ${this.arrow}`],
+                ['Chasca', `${this.gi.skill} ${this.arrow} ${this.gi.charged} ${this.smallText('(Hold)')}`]
             ]],
             ['Cryo', [
-                ['Wriothesley', `${this.giNormal}${this.times}1 ${this.arrow}`],
-                ['Kazuha', `${this.giSkill} ${this.arrow}`],
-                ['Kokomi', `${this.giSkill} ${this.arrow}`],
-                ['Wriothesley', `${this.giSkill} ${this.arrow} ${this.repeat(`${this.giNormal} + ${this.giCharged}`)}`],
+                ['Wriothesley', `${this.gi.normal}${this.times}1 ${this.arrow}`],
+                ['Kazuha', `${this.gi.skill} ${this.arrow}`],
+                ['Kokomi', `${this.gi.skill} ${this.arrow}`],
+                ['Wriothesley', `${this.gi.skill} ${this.arrow} ${this.repeat(`${this.gi.normal} + ${this.gi.charged}`)}`],
             ]],
             ['Geo', [
-                ['Zhongli', `${this.giSkill} ${this.smallText('(Hold)')} ${this.arrow}`],
-                ['Fischl', `${this.giSkill} ${this.arrow}`],
-                ['Xingqiu', `${this.giUltimate} ${this.arrow}`],
-                ['Navia', `${this.giUltimate} ${this.arrow} ${this.giSkill} + ${this.giNormal}`],
+                ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
+                ['Fischl', `${this.gi.skill} ${this.arrow}`],
+                ['Xingqiu', `${this.gi.ultimate} ${this.arrow}`],
+                ['Navia', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill} + ${this.gi.normal}`],
             ]],
             ['Physical', [
-                ['Zhongli', `${this.giSkill} ${this.smallText('(Hold)')} ${this.arrow}`],
-                ['Raiden Shogun', `${this.giSkill} ${this.arrow}`],
-                ['Mika', `${this.giSkill} ${this.arrow}`],
-                ['Eula', `${this.giNormal} + ${this.giSkill} + ${this.giUltimate}`],
+                ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
+                ['Raiden Shogun', `${this.gi.skill} ${this.arrow}`],
+                ['Mika', `${this.gi.skill} ${this.arrow}`],
+                ['Eula', `${this.gi.normal} + ${this.gi.skill} + ${this.gi.ultimate}`],
             ]]
         ]),
     
         ZZZRotations: new Map([
             ['Miyabi', [
-                ['Lucy', `${this.zzzExSpecial} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Miyabi', `${this.repeat(`${this.zzzExSpecial} + ${this.zzzBasic} ${this.smallText('(Until 6 charges)')} ${this.arrow} ${this.zzzCharged}`)}`],
-                ['Lycaon', `${this.zzzQTE} ${this.smallText('(Optional)')}`],
+                ['Lucy', `${this.zzz.exSpecial} ${this.arrow} ${this.zzz.QTE} ${this.arrow}`],
+                ['Miyabi', `${this.repeat(`${this.zzz.exSpecial} + ${this.zzz.basic} ${this.smallText('(Until 6 charges)')} ${this.arrow} ${this.zzz.charged}`)}`],
+                ['Lycaon', `${this.zzz.QTE} ${this.smallText('(Optional)')}`],
             ]],
             ['Physical',  [
-                ['Caesar', `${this.zzzExSpecial} ${this.arrow}`],
-                ['Seth', `${this.zzzExSpecial} ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} ${this.zzzCharged} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Jane', `${this.zzzBasic} ${this.smallText('(Until Passion State)')} ${this.arrow} ${this.zzzBasic} + ${this.zzzCharged} + ${this.zzzExSpecial}`]
+                ['Caesar', `${this.zzz.exSpecial} ${this.arrow}`],
+                ['Seth', `${this.zzz.exSpecial} ${this.smallText('(Until 75%+ Resolve)')} ${this.arrow} ${this.zzz.charged} ${this.arrow} ${this.zzz.QTE} ${this.arrow}`],
+                ['Jane', `${this.zzz.basic} ${this.smallText('(Until Passion State)')} ${this.arrow} ${this.zzz.basic} + ${this.zzz.charged} + ${this.zzz.exSpecial}`]
             ]],
             ['Fire', [
-                ['Caesar', `${this.repeat(`${this.zzzExSpecial} ${this.smallText('(Parry)')} + ${this.zzzBasic} + ${this.zzzCharged}`)} ${this.arrow} Stun ${this.arrow}`],
-                ['Burnice', `${this.repeat(`${this.zzzCharged} / ${this.zzzExSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzzBurn}`],
-                ['Soldier 11', `(${this.zzzExSpecial} ${this.arrow} ${this.zzzBasic}) / Timed ${this.zzzBasic}`],
+                ['Caesar', `${this.repeat(`${this.zzz.exSpecial} ${this.smallText('(Parry)')} + ${this.zzz.basic} + ${this.zzz.charged}`)} ${this.arrow} Stun ${this.arrow}`],
+                ['Burnice', `${this.repeat(`${this.zzz.charged} / ${this.zzz.exSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzz.burn}`],
+                ['Soldier 11', `(${this.zzz.exSpecial} ${this.arrow} ${this.zzz.basic}) / Timed ${this.zzz.basic}`],
             ]],
             ['Ice', [
-                ['Ellen', `${this.zzzDash} + ${this.zzzCharged} ${this.arrow}`],
-                ['Lycaon', `${this.repeat(`${this.zzzCharged} + ${this.zzzExSpecial}`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Soukaku', `${this.zzzSpecial} ${this.smallText('(Hold)')} ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Ellen', `${this.zzzBasic} + ${this.zzzExSpecial}`],
+                ['Ellen', `${this.zzz.dash} + ${this.zzz.charged} ${this.arrow}`],
+                ['Lycaon', `${this.repeat(`${this.zzz.charged} + ${this.zzz.exSpecial}`)} ${this.arrow} Stun ${this.arrow} ${this.zzz.QTE} ${this.arrow}`],
+                ['Soukaku', `${this.zzz.special} ${this.smallText('(Hold)')} ${this.arrow} ${this.zzz.QTE} ${this.arrow}`],
+                ['Ellen', `${this.zzz.basic} + ${this.zzz.exSpecial}`],
             ]],
             ['Ether', [
-                ['Qingyi', `${this.repeat(`${this.zzzBasic} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} ${this.zzzCharged}`)} ${this.arrow} Stun ${this.arrow} ${this.zzzQTE} ${this.arrow}`],
-                ['Nicole', `${this.zzzExSpecial} ${this.smallText('(Hold)')} ${this.arrow} ${this.zzzBasic}${this.times}1 ${this.arrow}`],
-                ['Zhu Yuan', `${this.zzzCharged} + ${this.zzzExSpecial}`],
+                ['Qingyi', `${this.repeat(`${this.zzz.basic} ${this.smallText('(Until 75%+ Voltage)')} ${this.arrow} ${this.zzz.charged}`)} ${this.arrow} Stun ${this.arrow} ${this.zzz.QTE} ${this.arrow}`],
+                ['Nicole', `${this.zzz.exSpecial} ${this.smallText('(Hold)')} ${this.arrow} ${this.zzz.basic}${this.times}1 ${this.arrow}`],
+                ['Zhu Yuan', `${this.zzz.charged} + ${this.zzz.exSpecial}`],
             ]],
             ['Disorder', [
-                ['Caesar', `${this.zzzExSpecial} ${this.arrow}`],
-                ['Burnice', `${this.repeat(`${this.zzzCharged} / ${this.zzzExSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzzBurn}`],
-                ['Yanagi', `${this.repeat(`(${this.zzzBasic} + ${this.zzzSpecial}) / ${this.zzzExSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzzShock}`],
+                ['Caesar', `${this.zzz.exSpecial} ${this.arrow}`],
+                ['Burnice', `${this.repeat(`${this.zzz.charged} / ${this.zzz.exSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzz.burn}`],
+                ['Yanagi', `${this.repeat(`(${this.zzz.basic} + ${this.zzz.special}) / ${this.zzz.exSpecial} ${this.smallText('(Hold)')}`)} ${this.arrow} ${this.zzz.shock}`],
             ]],
         ]),
     
