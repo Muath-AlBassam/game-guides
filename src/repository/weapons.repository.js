@@ -203,6 +203,16 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/gi/weapon/GI_W_AstralVulturesCrimsonPlumage.png',
                 rarity: '5'
             }],
+            ['A Thousand Blazing Suns', {
+                name: 'A Thousand Blazing Suns',
+                imageUrl: 'assets/images/gi/weapon/GI_W_AThousandBlazingSuns.png',
+                rarity: '5'
+            }],
+            ['Sacrificial Fragments', {
+                name: 'Sacrificial Fragments',
+                imageUrl: 'assets/images/gi/weapon/GI_W_SacrificialFragments.png',
+                rarity: '4'
+            }],
         ]),
     
         HSRLightCones: new Map([

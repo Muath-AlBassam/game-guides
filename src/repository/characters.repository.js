@@ -322,6 +322,20 @@ class CharactersRepository {
                 role: 'Support',
                 rarity: '4',
             }],
+            ['Mavuika', {
+                name: 'Mavuika',
+                imageUrl: 'assets/images/gi/character/GI_Mavuika.png',
+                element: 'Pyro',
+                role: 'DPS',
+                rarity: '5',
+            }],
+            ['Citlali', {
+                name: 'Citlali',
+                imageUrl: 'assets/images/gi/character/GI_Citlali.png',
+                element: 'Cryo',
+                role: 'Support',
+                rarity: '5',
+            }],
         ]),
     
         HSRCharacters: new Map([

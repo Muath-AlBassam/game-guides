@@ -282,6 +282,18 @@ class BuildsRepository {
                     { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
                 ]
             }],
+            ['Mavuika', {
+                weapon: { name: 'A Thousand Blazing Suns' },
+                sets: [
+                    { name: 'Obsidian Codex', pieceCount: '4' }
+                ]
+            }],
+            ['Citlali', {
+                weapon: { name: 'Sacrificial Fragments' },
+                sets: [
+                    { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

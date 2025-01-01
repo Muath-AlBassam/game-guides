@@ -51,6 +51,9 @@ class TeamsRepository {
                         replacements: ['Kazuha'],
                     }
                 ],
+                variations: [
+                    { name: '', characters: ['Mavuika', 'Citlali', 'Bennett', 'Xilonen'] }
+                ]
             }],
             ['Hydro', {
                 name: 'Hydro',
