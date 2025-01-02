@@ -27,16 +27,16 @@ class TeamsRepository {
                 iconUrl: 'assets/images/gi/icons/GI_Pyro.png',
                 characters: [
                     {
-                        name: 'Arlecchino',
+                        name: 'Mavuika',
                         role: 'DPS',
                         isMain: true,
-                        replacements: ['Diluc', 'Hu Tao'],
+                        replacements: [],
                     },
                     {
-                        name: 'Yelan',
-                        role: 'Vaporize',
+                        name: 'Citlali',
+                        role: 'Pyro RES Shred + DMG Buff + Melt',
                         isMain: false,
-                        replacements: ['Xingqiu'],
+                        replacements: [],
                     },
                     {
                         name: 'Bennett',
@@ -45,14 +45,14 @@ class TeamsRepository {
                         replacements: [],
                     },
                     {
-                        name: 'Zhongli',
-                        role: 'Shield',
+                        name: 'Xilonen',
+                        role: 'RES Shred + DMG Buff + Heal',
                         isMain: false,
-                        replacements: ['Kazuha'],
+                        replacements: ['Zhongli'],
                     }
                 ],
                 variations: [
-                    { name: '', characters: ['Mavuika', 'Citlali', 'Bennett', 'Xilonen'] }
+                    { name: '', characters: [['Arlecchino', 'Diluc', 'Hu Tao'], ['Yelan', 'Xingqiu'], 'Bennett', 'Zhongli'] }
                 ]
             }],
             ['Hydro', {

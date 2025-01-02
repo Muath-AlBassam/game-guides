@@ -57,10 +57,10 @@ class RotationsRepository {
     static data = {
         GIRotations: new Map([
             ['Pyro', [
-                ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
+                ['Xilonen', `${this.gi.skill} ${this.arrow} ${this.gi.normal}${this.times}2 ${this.arrow}`],
+                ['Citlali', `${this.gi.skill} ${this.arrow} ${this.gi.ultimate} ${this.arrow}`],
                 ['Bennett', `${this.gi.ultimate} ${this.arrow}`],
-                ['Yelan', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill}${this.times}2 ${this.arrow} `],
-                ['Arlecchino', `${this.gi.skill} ${this.arrow} ${this.gi.charged} ${this.arrow} ${this.repeat(`${this.gi.normal} ${this.smallText('(Until BoL is 0)')}`)}`],
+                ['Mavuika', `${this.gi.ultimate} ${this.arrow} ${this.gi.normal} + ${this.gi.charged}`],
             ]],
             ['Hydro', [
                 ['Neuvillette', `${this.gi.normal}${this.times}1 ${this.arrow}`],
