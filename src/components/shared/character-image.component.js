@@ -18,6 +18,9 @@ class CharacterImageComponent extends HTMLElement {
     elementImageUrl = '';
     addRarityClass = false;
 
+    charCount = 0;
+    charmdList = [];
+
     componentStyle = `
     <style>
         .character-container {
@@ -62,6 +65,41 @@ class CharacterImageComponent extends HTMLElement {
             border: 1px solid #1c1d21;
             border-radius: 50%;
         }
+
+        .split-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .split-box .child {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .split-box-2 .child:nth-child(1) {
+            /* top-left | bottom-left | top-right */
+            clip-path: polygon(0% 0%, 0% 97%, 97% 0%);
+        }
+        .split-box-2 .child:nth-child(2) {
+            /* bottom-right | top-right | bottom-left */
+            clip-path: polygon(100% 100%, 100% 3%, 3% 100%);
+        }
+
+        .split-box-3 .child:nth-child(1) {
+            /* center | bottom-right | bottom-left */
+            clip-path: polygon(50% 33%, 97% 100%, 3% 100%);
+        }
+        .split-box-3 .child:nth-child(2) {
+            /* top-left | top-center | center | bottom-left */
+            clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);
+        }
+        .split-box-3 .child:nth-child(3) {
+            /* top-right | top-center | center | bottom-right */
+            clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);
+        }
     </style>
     `;
 
@@ -88,15 +126,36 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
         if (this.hasAttribute('withcontainer')) this.withContainer = this.getAttribute('withcontainer') == 'true';
 
-        this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.characterName);
-        this.showBuild = this.withBuildDialog && null != BuildsRepository.getCharacterBuild(this.gameCode, this.charmd.name);
-        this.showElement = (this.withElement || this.withAltElement) && this.charmd.element;
-        this.elementImageUrl = ElementsRepository.getElement(this.gameCode, this.charmd.element).imageUrl;
-        this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
+        let charNameList = this.characterName.split(',');
+        this.charCount = charNameList.length;
+        if (this.charCount == 1) {
+            this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.characterName);
+            this.showBuild = this.withBuildDialog && null != BuildsRepository.getCharacterBuild(this.gameCode, this.charmd.name);
+            this.showElement = (this.withElement || this.withAltElement) && this.charmd.element;
+            this.elementImageUrl = ElementsRepository.getElement(this.gameCode, this.charmd.element).imageUrl;
+            this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
+        } else {
+            this.charmdList = charNameList.map(c => CharactersRepository.getCharacterMetadata(this.gameCode, c));
+            this.addRarityClass = this.withBackgroundClass;
+        }
     }
 
     buildHTML() {
-        if (!this.withContainer) {
+        if (this.charCount > 1) {
+            return `
+            <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
+                ${Utils.ngFor(this.charmdList, char => `
+                <img    
+                    src="${char.imageUrl ?? 'assets/images/Unknown.png'}" 
+                    alt="${char.name ?? '?'}" 
+                    title="${char.name ?? '?'}"
+                    class="child pfp ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}" 
+                    width="${this.dimensions}" 
+                />
+                `)}
+            </div>
+            `;
+        } else if (!this.withContainer) {
             return `
             <img    
                 src="${this.charmd.imageUrl ?? 'assets/images/Unknown.png'}" 
