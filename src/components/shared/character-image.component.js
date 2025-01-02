@@ -18,13 +18,60 @@ class CharacterImageComponent extends HTMLElement {
     elementImageUrl = '';
     addRarityClass = false;
 
+    componentStyle = `
+    <style>
+        .character-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .character-container .pfp {
+            display: block;
+        }
+
+        .character-container .build-icon {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            padding: 0 0 3px 3px;
+            background-color: #ccc;
+            border: 1px solid #1c1d21;
+            border-radius: 0 0 0 100%;
+            cursor: pointer;
+        }
+
+        .character-container .build-icon:hover {
+            background-color: #999;
+        }
+
+        .character-container .element-icon {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            padding: 3px 3px 0 0;
+            background-color: #36373f;
+            border: 1px solid #1c1d21;
+            border-radius: 0 100% 0 0;
+        }
+        .character-container .element-icon-alt {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            padding: 3px;
+            background-color: #36373f;
+            border: 1px solid #1c1d21;
+            border-radius: 50%;
+        }
+    </style>
+    `;
+
     constructor() {
       super();
     }
   
     connectedCallback() {
         this.loadData();
-        this.innerHTML = this.buildHTML();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
     loadData() {
