@@ -1,3 +1,4 @@
+// used to help with clip-path : https://bennettfeely.com/clippy/
 class CharacterImageComponent extends HTMLElement {
 
     // inputs
