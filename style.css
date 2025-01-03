@@ -100,7 +100,7 @@ app-nav.active ~ .main-content {
     cursor: grabbing;
 }
 
-.notes-popover {
+.gagu-popover {
     box-shadow: 0 0 20px #000;
     /* colors */
     --bs-popover-header-color: var(--text-color);
