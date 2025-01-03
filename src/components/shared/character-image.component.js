@@ -88,6 +88,12 @@ class CharacterImageComponent extends HTMLElement {
             /* bottom-right | top-right | bottom-left */
             clip-path: polygon(100% 100%, 100% 3%, 3% 100%);
         }
+        .split-box-2 .child:nth-child(1) img {
+            transform: translateX(-25%);
+        }
+        .split-box-2 .child:nth-child(2) img {
+            transform: translateX(25%);
+        }
 
         .split-box-3 .child:nth-child(1) {
             /* center | bottom-right | bottom-left */
@@ -100,6 +106,15 @@ class CharacterImageComponent extends HTMLElement {
         .split-box-3 .child:nth-child(3) {
             /* top-right | top-center | center | bottom-right */
             clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);
+        }
+        .split-box-3 .child:nth-child(1) img {
+            transform: translateY(25%);
+        }
+        .split-box-3 .child:nth-child(2) img {
+            transform: translate(-25%);
+        }
+        .split-box-3 .child:nth-child(3) img {
+            transform: translate(25%);
         }
     </style>
     `;
@@ -146,13 +161,15 @@ class CharacterImageComponent extends HTMLElement {
             return `
             <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
                 ${Utils.ngFor(this.charmdList, char => `
-                <img    
-                    src="${char.imageUrl ?? 'assets/images/Unknown.png'}" 
-                    alt="${char.name ?? '?'}" 
-                    title="${char.name ?? '?'}"
-                    class="child pfp ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}" 
-                    width="${this.dimensions}" 
-                />
+                <div class="child ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}">
+                    <img    
+                        src="${char.imageUrl ?? 'assets/images/Unknown.png'}" 
+                        alt="${char.name ?? '?'}" 
+                        title="${char.name ?? '?'}"
+                        class="pfp" 
+                        width="${this.dimensions}" 
+                    />
+                </div>
                 `)}
             </div>
             `;
