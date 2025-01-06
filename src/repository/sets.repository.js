@@ -114,6 +114,10 @@ class SetsRepository {
                 name: 'Scroll of the Hero of Cinder City',
                 imageUrl: 'assets/images/gi/set/GI_Set_ScrollOfTheHeroOfCinderCity.png'
             }],
+            ['Wanderer\'s Troupe', {
+                name: 'Wanderer\'s Troupe',
+                imageUrl: 'assets/images/gi/set/GI_Set_WanderersTroupe.png'
+            }],
         ]),
     
         HSRSets: new Map([

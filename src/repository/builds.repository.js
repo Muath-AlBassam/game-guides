@@ -294,6 +294,12 @@ class BuildsRepository {
                     { name: 'Scroll of the Hero of Cinder City', pieceCount: '4' },
                 ]
             }],
+            ['Tighnari', {
+                weapon: { name: 'The First Great Magic' },
+                sets: [
+                    { name: 'Wanderer\'s Troupe', pieceCount: '4' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

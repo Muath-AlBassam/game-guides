@@ -123,7 +123,7 @@ class CharactersRepository {
                 name: 'Kirara',
                 imageUrl: 'assets/images/gi/character/GI_Kirara.png',
                 element: 'Dendro',
-                // role: 'Support',
+                // role: 'Support', // TODO
                 rarity: '4',
             }],
             ['Kuki Shinobu', {
@@ -137,7 +137,7 @@ class CharactersRepository {
                 name: 'Lynette',
                 imageUrl: 'assets/images/gi/character/GI_Lynette.png',
                 element: 'Anemo',
-                // role: 'Support',
+                // role: 'Support', // TODO
                 rarity: '4',
             }],
             ['Nilou', {
@@ -165,7 +165,7 @@ class CharactersRepository {
                 name: 'Nahida',
                 imageUrl: 'assets/images/gi/character/GI_Nahida.png',
                 element: 'Dendro',
-                role: 'DPS',
+                role: 'Sub DPS',
                 rarity: '5',
             }],
             ['Mika', {
@@ -334,6 +334,13 @@ class CharactersRepository {
                 imageUrl: 'assets/images/gi/character/GI_Citlali.png',
                 element: 'Cryo',
                 role: 'Support',
+                rarity: '5',
+            }],
+            ['Tighnari', {
+                name: 'Tighnari',
+                imageUrl: 'assets/images/gi/character/GI_Tighnari.png',
+                element: 'Dendro',
+                role: 'DPS',
                 rarity: '5',
             }],
         ]),

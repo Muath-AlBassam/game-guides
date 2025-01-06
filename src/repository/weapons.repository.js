@@ -213,6 +213,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/gi/weapon/GI_W_SacrificialFragments.png',
                 rarity: '4'
             }],
+            ['The First Great Magic', {
+                name: 'The First Great Magic',
+                imageUrl: 'assets/images/gi/weapon/GI_W_TheFirstGreatMagic.png',
+                rarity: '5'
+            }],
         ]),
     
         HSRLightCones: new Map([
