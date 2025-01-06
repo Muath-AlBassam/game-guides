@@ -84,10 +84,6 @@ class TeamDetailsComponent extends HTMLElement {
         .actions.collapsed img {
             transform: rotate(0deg);
         }
-        
-        .pointer {
-            cursor: pointer;
-        }
 
         .teams__details {
             display: grid;

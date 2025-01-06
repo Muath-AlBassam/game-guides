@@ -93,6 +93,10 @@ app-nav.active ~ .main-content {
     justify-content: center;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .draggable {
     cursor: grab;
 }
@@ -174,7 +178,7 @@ body:has(div.dialog-shown) {
     position: absolute;
     margin-left: -15px;
     content: ">";
-    bottom: -0.75em;
+    bottom: -0.70em;
 }
 
 /* Character rarity background --------------------------------------------- */
