@@ -85,7 +85,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: 'Vaporize', characters: ['Mualani', 'Dehya', 'Xilonen', 'Zhongli'] }
+                    { name: 'Vaporize', characters: ['Mualani', ['Dehya', 'Mavuika'], 'Xilonen', 'Zhongli'] }
                 ]
             }],
             ['Dendro', {
