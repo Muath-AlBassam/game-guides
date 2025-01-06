@@ -93,33 +93,34 @@ class TeamsRepository {
                 iconUrl: 'assets/images/gi/icons/GI_Dendro.png',
                 characters: [
                     {
-                        name: 'Nahida',
-                        role: 'Dendro Applicator',
+                        name: 'Tighnari',
+                        role: 'DPS',
                         isMain: true,
                         replacements: [],
                     },
                     {
-                        name: 'Yae Miko',
-                        role: 'Sub DPS + Dendro reaction',
-                        isMain: false,
-                        replacements: ['Raiden Shogun'],
-                    },
-                    {
-                        name: 'Kuki Shinobu',
-                        role: 'Dendro reaction + Heal',
+                        name: 'Nahida',
+                        role: 'Sub DPS + Dendro RES Shred',
                         isMain: false,
                         replacements: [],
                     },
                     {
-                        name: 'Furina',
-                        role: 'Sub DPS + Dendro reaction + DMG Buff',
+                        name: 'Fischl',
+                        role: 'Dendro reaction',
                         isMain: false,
-                        replacements: ['Xingqiu'],
+                        replacements: [],
+                    },
+                    {
+                        name: 'Zhongli',
+                        role: 'Shield',
+                        isMain: false,
+                        replacements: [],
                     }
                 ],
                 variations: [
+                    { name: null, characters: ['Nahida', 'Yae Miko', 'Kuki Shinobu', 'Furina'] },
                     { name: 'Nilou Bloom', characters: ['Nahida', 'Nilou', 'Kirara', 'Kokomi'] },
-                    { name: 'Burning', characters: ['Kinich', 'Emilie',  'Thoma', 'Bennett'] },
+                    { name: 'Burning', characters: ['Kinich', 'Emilie',  ['Mavuika', 'Dehya', 'Thoma'], 'Bennett'] },
                 ],
             }],
             ['Electro', {

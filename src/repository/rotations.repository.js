@@ -70,11 +70,10 @@ class RotationsRepository {
                 ['Neuvillette', `${this.gi.skill}/${this.gi.ultimate} ${this.arrow} ${this.gi.charged}`],
             ]],
             ['Dendro', [
+                ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
                 ['Nahida', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill} ${this.arrow}`],
-                ['Furina', `${this.gi.skill} ${this.arrow} ${this.gi.ultimate} ${this.smallText('(Optional)')} ${this.arrow}`],
-                ['Yae Miko', `${this.gi.skill}${this.times}3 ${this.arrow}`],
-                ['Kuki Shinobu', `${this.gi.skill} ${this.arrow}`],
-                ['Nahida', `${this.repeat(`${this.gi.normal} + ${this.gi.charged}`)}`],
+                ['Fischl', `${this.gi.skill} ${this.arrow}`],
+                ['Tighnari', `${this.gi.ultimate} ${this.arrow} ${this.repeat(this.gi.charged)}`],
             ]],
             ['Electro', [
                 ['Raiden Shogun', `${this.gi.skill} ${this.arrow}`],
