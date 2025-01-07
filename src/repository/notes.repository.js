@@ -15,10 +15,10 @@ class NotesRepository {
     static data = {
         GITeamNotes: new Map([
             ['Electro', [
-                { text: 'Pyro & Electro teammates only, to benefit from Chevreuse\'s buff.' }
+                { text: 'Pyro & Electro teammates only, to benefit from Chevreuse\'s A1\'s RES Shred.' }
             ]],
             ['Nilou Bloom', [
-                { text: 'Dendro & Hydro teammates only, to activate Nilou\'s A1: Bountiful Bloom.' }
+                { text: 'Dendro & Hydro teammates only, to activate Nilou\'s A1\'s Bountiful Bloom.' }
             ]],
         ]),
 

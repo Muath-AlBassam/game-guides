@@ -152,9 +152,6 @@ class TeamsRepository {
                         replacements: [],
                     }
                 ],
-                variations: [
-                    { name: 'Hyper Bloom', characters: ['Clorinde', 'Xingqiu', 'Nahida', 'Zhongli'] }
-                ],
             }],
             ['Anemo', {
                 name: 'Anemo',
@@ -186,7 +183,7 @@ class TeamsRepository {
                     },
                 ],
                 variations: [
-                    { name: '', characters: ['Lynette', 'Faruzan', 'Xianyun', 'Zhongli'] }
+                    { name: '', characters: [['Xiao', 'Lynette'], 'Faruzan', 'Xianyun', 'Zhongli'] }
                 ]
             }],
             ['Cryo', {
