@@ -161,62 +161,6 @@ body:has(div.dialog-shown) {
     animation: fade-in .2s;
 }
 
-/* Team rotations ---------------------------------------------------------- */
-.arrow-border {
-    position: relative;
-    border: 1px solid var(--text-color);
-    border-radius: 10px;
-    padding: 8px;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-}
-.arrow-border::before {/* Top arrow */
-    position: absolute;
-    content: "<";
-    top: -0.9em;
-}
-.arrow-border::after {/* Bottom arrow */
-    position: absolute;
-    margin-left: -15px;
-    content: ">";
-    bottom: -0.70em;
-}
-
-/* Character rarity background --------------------------------------------- */
-.GI-rarity-5 {
-    background-image: url(assets/images/gi/GI_Rarity5_BG.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
-.GI-rarity-4 {
-    background-image: url(assets/images/gi/GI_Rarity4_BG.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
-.GI-rarity-3 {
-    background-image: url(assets/images/gi/GI_Rarity3_BG.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-}
-
-.HSR-rarity-5 {
-    background: linear-gradient(180deg, #ac6d5c, #c48c64 53%);
-}
-.HSR-rarity-4 {
-    background: linear-gradient(180deg, #404165, #8f5fc6 53%);
-}
-
-.ZZZ-rarity-S {
-    /* background: linear-gradient(0deg, #d7bc57, #d19910); */
-    background: linear-gradient(180deg, #f99807, #fb7704);
-}
-.ZZZ-rarity-A {
-    /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
-    background: linear-gradient(180deg, #c925f8, #9328e9);
-}
-
 /* tiny-slider missing classes --------------------------------------------- */
 .tns-nav {
     text-align: center;

@@ -11,7 +11,6 @@ class CharacterImageComponent extends HTMLElement {
     withBackgroundClass = true;
     withElement = false;
     withAltElement = false;
-    withContainer = true;
 
     charmd = null;
     showBuild = false;
@@ -65,6 +64,41 @@ class CharacterImageComponent extends HTMLElement {
             background-color: #36373f;
             border: 1px solid #1c1d21;
             border-radius: 50%;
+        }
+
+        .GI-rarity-5 {
+            background-image: url(assets/images/gi/GI_Rarity5_BG.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+        .GI-rarity-4 {
+            background-image: url(assets/images/gi/GI_Rarity4_BG.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+        .GI-rarity-3 {
+            background-image: url(assets/images/gi/GI_Rarity3_BG.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+        }
+
+        .HSR-rarity-5 {
+            background: linear-gradient(180deg, #ac6d5c, #c48c64 53%);
+        }
+        .HSR-rarity-4 {
+            background: linear-gradient(180deg, #404165, #8f5fc6 53%);
+        }
+
+        .ZZZ-rarity-S {
+            /* background: linear-gradient(0deg, #d7bc57, #d19910); */
+            background: linear-gradient(180deg, #f99807, #fb7704);
+        }
+        .ZZZ-rarity-A {
+            /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
+            background: linear-gradient(180deg, #c925f8, #9328e9);
         }
 
         .split-box {
@@ -140,7 +174,6 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
-        if (this.hasAttribute('withcontainer')) this.withContainer = this.getAttribute('withcontainer') == 'true';
 
         let charNameList = this.characterName.split(',');
         this.charCount = charNameList.length;
@@ -161,8 +194,8 @@ class CharacterImageComponent extends HTMLElement {
             return `
             <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
                 ${Utils.ngFor(this.charmdList, char => `
-                <div class="child pointer ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
-                    onclick="openBuildDialog('${char.name}')">
+                <div class="child ${this.withBuildDialog ? 'pointer' : ''} ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
+                    ${this.withBuildDialog ? `onclick="openBuildDialog('${char.name}')"` : ``}>
                     <img    
                         src="${char.imageUrl ?? 'assets/images/Unknown.png'}" 
                         alt="${char.name ?? '?'}" 
@@ -174,17 +207,6 @@ class CharacterImageComponent extends HTMLElement {
                 `)}
             </div>
             `;
-        } else if (!this.withContainer) {
-            return `
-            <img    
-                src="${this.charmd.imageUrl ?? 'assets/images/Unknown.png'}" 
-                alt="${this.charmd.name ?? '?'}" 
-                title="${this.charmd.name ?? '?'}"
-                class="pfp ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''} ${this.classes}" 
-                style="border-radius: 5px; ${this.showBuild ? 'display: block; height: auto;' : ''} ${this.styles}" 
-                width="${this.dimensions}" 
-            />
-            `
         } else {  
             return `
             <div class="character-container">

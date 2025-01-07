@@ -12,6 +12,33 @@ class RotationsComponent extends HTMLElement {
         .rotations-container {
             /**/
         }
+
+        .rotation-step__character {
+            vertical-align: middle;
+        }
+
+        .rotation-step__actions {
+            /**/
+        }
+
+        .arrow-border {
+            position: relative;
+            border: 1px solid var(--text-color);
+            border-radius: 10px;
+            padding: 8px;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+        }
+        .arrow-border::before {/* Top arrow */
+            position: absolute;
+            content: "<";
+            top: -0.9em;
+        }
+        .arrow-border::after {/* Bottom arrow */
+            position: absolute;
+            margin-left: -15px;
+            content: ">";
+            bottom: -0.70em;
+        }
     </style>`;
 
     constructor() {
@@ -40,16 +67,16 @@ class RotationsComponent extends HTMLElement {
             <div style="font-size: 1.2em;">
                 ${Utils.ngForIf(this.teamRotations && this.teamRotations.length > 0, this.teamRotations, step => `
                 <div>
-                    <span>
+                    <span class="rotation-step__character">
                         <character-image 
                             gamecode="${this.gameCode}"
                             charactername="${step[0]}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px; border-radius: 100%;"
-                            withcontainer="false">
+                        >
                         </character-image>
                     </span>
-                    <b style="margin-right: 8px;">
+                    <b class="rotation-step__actions">
                         ${step[1]}
                     </b>
                 </div> 
