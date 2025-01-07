@@ -15,7 +15,8 @@ class Constants {
 
     static gameStyles = {
         TEAMS: 'TEAMS',
-        FIGHT: 'FIGHT'
+        FIGHT: 'FIGHT',
+        NONE: 'NONE'
     }
 
     static images = {

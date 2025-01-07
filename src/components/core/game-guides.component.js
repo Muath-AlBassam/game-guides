@@ -1,6 +1,6 @@
 class GameGuidesComponent extends HTMLElement {
 
-    activeGame = null;
+    gameStyle = null;
 
     constructor() {
       super();
@@ -17,7 +17,8 @@ class GameGuidesComponent extends HTMLElement {
     }
 
     loadData() {
-        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        let activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+        this.gameStyle = activeGame ? activeGame.style : Constants.gameStyles.NONE;
     }
 
     render() {
@@ -28,13 +29,13 @@ class GameGuidesComponent extends HTMLElement {
     }
 
     buildHTML() {
-        switch (this.activeGame.style) {
+        switch (this.gameStyle) {
             case Constants.gameStyles.TEAMS:
-                return `<app-team-container></app-team-container>`;
+                return `<app-header></app-header><app-team-container></app-team-container>`;
             case Constants.gameStyles.FIGHT:
-                return `<app-fight-list></app-fight-list>`;
+                return `<app-header></app-header><app-fight-list></app-fight-list>`;
             default:
-                return `<div class="center-content"><h1>...</h1></div>`;
+                return `<app-home></app-home>`;
         }
     }
 }

@@ -5,7 +5,9 @@ class GamesRepository {
     }
     
     static getGame(gameCode) {
-        gameCode = gameCode == '' || gameCode == null ? Constants.games.GI : gameCode; 
+        if (gameCode == '' || gameCode == null) {
+            return null;
+        }
         return this.getAllGames().get(gameCode);
     }
 

@@ -45,27 +45,25 @@ class HeaderComponent extends HTMLElement {
     }
 
     buildHTML() {
-        return `
+        return Utils.ngIf(this.activeGame,`
         <div class="header">
             <div class="row">
                 <div class="col-md-6 title">
-                    <h1 id="header-title">
-                        ${this.activeGame.label}
+                    <h1>
+                        ${this.activeGame?.label}
                     </h1>
                     <sup>
-                        <a href="${this.activeGame.guideUrl}" style="display: ${this.activeGame.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
+                        <a href="${this.activeGame?.guideUrl}" style="display: ${this.activeGame?.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
                             <i class="fa fa-external-link"></i>
                         </a>
                     </sup>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <img height="100" src="${this.activeGame.logoUrl}" id="header-logo">
+                    <img height="100" src="${this.activeGame?.logoUrl}">
                 </div>
-                <div class="col-md-12 game-background" id="header-background" 
-                    style="background-image: url(${this.activeGame.backgroundUrl});">
-                </div>
+                <div class="col-md-12 game-background" style="background-image: url(${this.activeGame?.backgroundUrl});"></div>
             </div>
-        </div>`;
+        </div>`);
     }
 }
 

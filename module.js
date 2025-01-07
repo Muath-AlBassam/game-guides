@@ -29,6 +29,7 @@ function loadAllScripts() {
 
     // Core
     loadScript("src/components/core/game-guides.component.js", true);
+    loadScript("src/components/core/home.component.js", true);
     // Shared
     loadScript("src/components/shared/searh.component.js", true);
     loadScript("src/components/shared/loader.component.js", true);

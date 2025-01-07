@@ -86,7 +86,6 @@ class NavComponent extends HTMLElement {
             min-width: 50px;
             text-align: center;
             height: 50px;
-            border-radius: 12px;
             line-height: 50px;
             font-weight: bold;
             display: flex;
@@ -133,6 +132,14 @@ class NavComponent extends HTMLElement {
                 <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
             </div>
             <ul style="padding-left: 0">
+                <li>
+                    <a class="sidebar-item" href="#home" title="Home">
+                        <i>
+                            <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
+                        </i>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li> 
                 ${Utils.ngForMap(this.games, g => `
                 <li>
                     <a class="sidebar-item" href="#${g.code}" title="${g.label}">

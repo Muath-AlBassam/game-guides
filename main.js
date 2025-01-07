@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-    addDefaultHash();
+    initializePopovers();
 });
 
 window.addEventListener('hashchange', () => {
@@ -15,13 +15,6 @@ window.onclick = function(event) {
 }
 
 //-----------------------------------------------------------------------------
-
-function addDefaultHash() {
-    if(!window.location.hash) {
-        location.hash = '#' + Constants.games.GI;
-    }
-    window.dispatchEvent(new Event("hashchange"));
-}
 
 function initializePopovers() {
     // clear current popovers

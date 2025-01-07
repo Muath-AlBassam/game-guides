@@ -13,7 +13,7 @@ class BaseComponent extends HTMLElement {
   
     connectedCallback() {
         this.loadData();
-        this.innerHTML = this.buildHTML();
+        this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
     loadData() {

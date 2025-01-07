@@ -1,6 +1,10 @@
 class Utils {
     static getGameFromUrl() {
-        return window.location.hash.replace('#', '');
+        if (window.location.hash) {
+            return window.location.hash.replace('#', '');
+        } else {
+            return null;
+        }
     }
 
     static ngFor(list, logicWithHtml) {
