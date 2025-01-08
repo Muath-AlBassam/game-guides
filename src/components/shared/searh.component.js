@@ -67,9 +67,9 @@ class SearchComponent extends HTMLElement {
                 value="${this.query}"
                 class="gagu-form-control"
                 placeholder="Search"
-                onchange="emitSearchEvent('${this.eventName}', this.value)">
+                onchange="emitEvent('${this.eventName}', this.value)">
 
-            <span class="clear-icon" onclick="this.previousElementSibling.value = ''; emitSearchEvent('${this.eventName}', '')">
+            <span class="clear-icon" onclick="this.previousElementSibling.value = ''; emitEvent('${this.eventName}', '')">
                 ${Constants.unicode.times}
             </span>
         </span>
@@ -78,9 +78,3 @@ class SearchComponent extends HTMLElement {
 }
 
 customElements.define('app-search', SearchComponent);
-
-//------------------------------------------------------------------------------------
-
-function emitSearchEvent(eventName, value) {
-    window.dispatchEvent(new CustomEvent(eventName, { detail: value }));
-}
