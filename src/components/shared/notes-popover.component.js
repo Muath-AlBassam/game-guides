@@ -70,4 +70,4 @@ class NotesPopoverComponent extends HTMLElement {
     }
 }
 
-customElements.define('notes-popover', NotesPopoverComponent);
+customElements.define('app-notes-popover', NotesPopoverComponent);

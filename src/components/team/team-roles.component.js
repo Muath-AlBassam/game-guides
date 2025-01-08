@@ -44,12 +44,12 @@ class RolesComponent extends HTMLElement {
                     ${Utils.ngFor(this.currentTeam.characters, character => `
                     <tr>
                         <td style="width: 50px; text-align: center">
-                            <character-image 
+                            <app-character-image 
                                 gamecode="${this.gameCode}"
                                 charactername="${character?.name}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;">
-                            </character-image>
+                            </app-character-image>
                         </td>
                         <td style="font-size: 1.2em; font-weight: bold;">
                             ${Utils.ngIf(this.getCharacter(this.gameCode, character.name).role, 

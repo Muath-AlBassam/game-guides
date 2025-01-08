@@ -126,7 +126,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 <div>
                     <div class="center-content" style="margin-top: 20px;">
                         <div class="character-container">
-                            <character-image 
+                            <app-character-image 
                                 gamecode="${this.gameCode}" 
                                 charactername="${this.character}"
                                 dimensions="${this.characterPFPSize}"
@@ -134,7 +134,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                                 styles="border-radius: 100%;" 
                                 withbackgroundclass="false" 
                                 withaltelement="true">
-                            </character-image>
+                            </app-character-image>
                         </div>
                     </div>
                     <div class="center-content">

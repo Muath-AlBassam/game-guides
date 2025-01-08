@@ -55,18 +55,18 @@ class VariationsComponent extends HTMLElement {
                             <td style="display: flex; text-align: center">
                                 <span class="variation-name">
                                     ${Utils.ngIf(vari.name, `<h6>${vari.name}</h6>`)}
-                                    <notes-popover teamname="${vari.name}" position="inline"></notes-popover>
+                                    <app-notes-popover teamname="${vari.name}" position="inline"></app-notes-popover>
                                 </span>
                                 
                                 ${Utils.ngFor(vari.characters, character => `
-                                <character-image 
+                                <app-character-image 
                                     gamecode="${this.gameCode}"
                                     charactername="${character}"
                                     dimensions="${this.characterPFPSize}"
                                     styles="margin: 5px 10px;"
                                     withbuilddialog="true"
                                     withelement="true">
-                                </character-image>
+                                </app-character-image>
                                 `)}
                             </td>
                         </tr>

@@ -188,19 +188,19 @@ class TeamDetailsComponent extends HTMLElement {
                         <img src="${this.team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
                         <span>
                             ${this.team.name}
-                            <notes-popover teamname="${this.teamName}"></notes-popover>
+                            <app-notes-popover teamname="${this.teamName}"></app-notes-popover>
                         </span>
                     </div>
                     <div class="members">
                         ${Utils.ngFor(Array.from({length: this.activeGame.teamSize}), (char, index) => `
-                        <character-image 
+                        <app-character-image 
                             gamecode="${this.activeGame.code}"
                             charactername="${this.team.characters[index]?.name}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
                             withelement="true">
-                        </character-image>
+                        </app-character-image>
                         `)}
 
                         ${Utils.ngIf(this.activeGame.hasPet, `

@@ -68,13 +68,13 @@ class RotationsComponent extends HTMLElement {
                 ${Utils.ngForIf(this.teamRotations && this.teamRotations.length > 0, this.teamRotations, step => `
                 <div>
                     <span class="rotation-step__character">
-                        <character-image 
+                        <app-character-image 
                             gamecode="${this.gameCode}"
                             charactername="${step[0]}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px; border-radius: 100%;"
                         >
-                        </character-image>
+                        </app-character-image>
                     </span>
                     <b class="rotation-step__actions">
                         ${step[1]}

@@ -42,23 +42,23 @@ class ReplacementsComponent extends HTMLElement {
                     ${Utils.ngFor(this.currentTeam.characters, character => `
                     <tr>
                         <td style="width: 50px; text-align: center">
-                            <character-image 
+                            <app-character-image 
                                 gamecode="${this.gameCode}"
                                 charactername="${character?.name}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;">
-                            </character-image>
+                            </app-character-image>
                         </td>
                         <td>
                             ${Utils.ngForIf(character.replacements && character.replacements.length > 0, character.replacements, rep => `
-                            <character-image 
+                            <app-character-image 
                                 gamecode="${this.gameCode}"
                                 charactername="${rep}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;"
                                 withbuilddialog="true"
                                 withelement="true">
-                            </character-image>
+                            </app-character-image>
                             `,
                             `<div style="margin: 5px 10px; width: ${this.characterPFPSize}px; display: flex; justify-content: center;">
                                 <h1 class="empty-details" style="color: #000">${Constants.unicode.times}</h1>

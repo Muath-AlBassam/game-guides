@@ -32,7 +32,9 @@ class TeamListComponent extends HTMLElement {
             </div>
         </div>
         <div id="teams">
-            ${Utils.ngForMap(this.teams, (team, index) => `<app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>`)}
+            ${Utils.ngForMap(this.teams, (team, index) => `
+            <app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>
+            `)}
         </div>`;
     }
 

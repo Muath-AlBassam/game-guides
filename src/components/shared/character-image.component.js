@@ -241,4 +241,4 @@ class CharacterImageComponent extends HTMLElement {
     }
 }
 
-customElements.define('character-image', CharacterImageComponent);
+customElements.define('app-character-image', CharacterImageComponent);
