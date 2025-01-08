@@ -61,6 +61,7 @@ class GamesRepository {
                 label: 'Tekken 8',
                 code: Constants.games.TK8,
                 style: Constants.gameStyles.FIGHT,
+                iconUrl: 'assets/images/tk8/TK8_Icon.jpg',
                 logoUrl: 'assets/images/tk8/TK8_Logo.png',
                 backgroundUrl: 'assets/images/tk8/TK8_BG.jpg',
                 guideUrl: 'https://en.bandainamcoent.eu/tekken/tekken-8/characters'
