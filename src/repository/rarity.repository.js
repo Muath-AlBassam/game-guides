@@ -1,29 +1,33 @@
 
 class RarityRepository {
-    static getRarity(gameCode, rarity) {
-        let data;
+    static getAllRarities(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
-                data = this.data.GIRarity.get(rarity);
-                break;
+                return this.data.GIRarity;
             case Constants.games.HSR:
-                data = this.data.HSRRarity.get(rarity);
-                break;
+                return this.data.HSRRarity;
             case Constants.games.ZZZ:
-                data = this.data.ZZZRarity.get(rarity);
-                break;
+                return this.data.ZZZRarity;
+            default:
+                return new Map([]);
         }
-        return data;
+    }
+
+    static getRarity(gameCode, rarityName) {
+        let rarity = this.getAllRarities(gameCode).get(rarityName);
+        return rarity ?? { name: rarityName }
     }
 
     static data = {
         GIRarity: new Map([
             ['5', {
                 code: '5',
+                label: '5 Star',
                 imageUrl: 'assets/images/gi/GI_Rarity5.png'
             }],
             ['4', {
                 code: '4',
+                label: '4 Star',
                 imageUrl: 'assets/images/gi/GI_Rarity4.png'
             }]
         ]),
@@ -31,10 +35,12 @@ class RarityRepository {
         HSRRarity: new Map([
             ['5', {
                 code: '5',
+                label: '5 Star',
                 imageUrl: 'assets/images/hsr/HSR_Rarity5.png'
             }],
             ['4', {
                 code: '4',
+                label: '4 Star',
                 imageUrl: 'assets/images/hsr/HSR_Rarity4.png'
             }]
         ]),
@@ -42,10 +48,12 @@ class RarityRepository {
         ZZZRarity: new Map([
             ['S', {
                 code: 'S',
+                label: 'S Rank',
                 imageUrl: 'assets/images/zzz/ZZZ_RarityS.png'
             }],
             ['A', {
                 code: 'A',
+                label: 'A Rank',
                 imageUrl: 'assets/images/zzz/ZZZ_RarityA.png'
             }]
         ]),

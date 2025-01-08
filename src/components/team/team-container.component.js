@@ -16,7 +16,7 @@ class TeamContainerComponent extends HTMLElement {
                     <div class="content-header">Search</div>
                 </div>
             </div>
-            <app-search eventname="search-team"></app-search>
+            <app-team-search></app-team-search>
             <app-team-characters></app-team-characters>
             <app-team-list></app-team-list>
         `;

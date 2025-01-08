@@ -28,7 +28,8 @@ class Constants {
         twoWayArrow: '&leftrightarrow;',
         times: '&times;',
         space: '&#10240;',
-        infinity: '&infin;'
+        infinity: '&infin;',
+        star: '&#10059;'
     }
 
     static icons = {

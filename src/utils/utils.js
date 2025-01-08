@@ -35,3 +35,14 @@ class Utils {
         return elseContent;
     }
 }
+
+// general function to close any dialog
+function closeDialog() {
+    Array.from(document.getElementsByClassName('dialog-shown')).forEach(elemnt => {
+        elemnt.classList.remove('dialog-shown');
+    })
+}
+
+function emitEvent(eventName, value) {
+    window.dispatchEvent(new CustomEvent(eventName, { detail: value }));
+}
