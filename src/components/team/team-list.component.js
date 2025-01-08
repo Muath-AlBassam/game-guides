@@ -12,16 +12,20 @@ class TeamListComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.buildHTML();
-        window.addEventListener('search-team', (event) => {
-            this.teams = this.filterTeams(event.detail);
-            this.innerHTML = this.buildHTML();
-        });
+        this.listenToEvents();
     }
 
     loadData() {
         this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         this.allTeams = TeamsRepository.getAllTeams(this.activeGame.code);
         this.teams = this.allTeams;
+    }
+
+    listenToEvents() {
+        window.addEventListener('search-team', (event) => {
+            this.teams = this.filterTeams(event.detail);
+            this.innerHTML = this.buildHTML();
+        });
     }
 
     buildHTML() {

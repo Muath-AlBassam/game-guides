@@ -33,15 +33,18 @@ class HeaderComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
-
-        window.addEventListener('hashchange', () => {
-            this.loadData();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-        });
+        this.listenToEvents();
     }
 
     loadData() {
         this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
+    }
+
+    listenToEvents() {
+        window.addEventListener('hashchange', () => {
+            this.loadData();
+            this.innerHTML = this.componentStyle + this.buildHTML();
+        });
     }
 
     buildHTML() {

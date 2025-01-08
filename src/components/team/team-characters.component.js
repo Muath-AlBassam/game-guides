@@ -28,19 +28,7 @@ class TeamCharactersComponent extends HTMLElement {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
         this.createSlider();
-
-        window.addEventListener('search-team', (event) => {
-            this.searchTerm = event.detail;
-            this.characters = this.filterCharacters();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-            this.createSlider();
-        });
-        window.addEventListener('search-rarity', (event) => {
-            this.searchRarity = event.detail;
-            this.characters = this.filterCharacters();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-            this.createSlider();
-        });
+        this.listenToEvents();
     }
 
     loadData() {
@@ -58,6 +46,21 @@ class TeamCharactersComponent extends HTMLElement {
             navPosition: 'bottom',
             mouseDrag: true,
             loop: false,
+        });
+    }
+
+    listenToEvents() {
+        window.addEventListener('search-team', (event) => {
+            this.searchTerm = event.detail;
+            this.characters = this.filterCharacters();
+            this.innerHTML = this.componentStyle + this.buildHTML();
+            this.createSlider();
+        });
+        window.addEventListener('search-rarity', (event) => {
+            this.searchRarity = event.detail;
+            this.characters = this.filterCharacters();
+            this.innerHTML = this.componentStyle + this.buildHTML();
+            this.createSlider();
         });
     }
 

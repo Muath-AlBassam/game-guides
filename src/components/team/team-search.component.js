@@ -27,7 +27,15 @@ class TeamSearchComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
+        this.listenToEvents();
+    }
 
+    loadData() {
+        this.gameCode = Utils.getGameFromUrl();
+        this.rarities = RarityRepository.getAllRarities(this.gameCode);
+    }
+
+    listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.searchTerm = event.detail;
         });
@@ -35,11 +43,6 @@ class TeamSearchComponent extends HTMLElement {
             this.searchRarity = event.detail;
             this.setActiveRarity(event.detail);
         });
-    }
-
-    loadData() {
-        this.gameCode = Utils.getGameFromUrl();
-        this.rarities = RarityRepository.getAllRarities(this.gameCode);
     }
 
     buildHTML() {

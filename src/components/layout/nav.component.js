@@ -113,13 +113,18 @@ class NavComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
-        window.addEventListener('hashchange', () => {
-            this.setActiveNav();
-        });
+        this.setActiveNav();
+        this.listenToEvents();
     }
 
     loadData() {
         this.games = GamesRepository.getAllGames();
+    }
+
+    listenToEvents() {
+        window.addEventListener('hashchange', () => {
+            this.setActiveNav();
+        });
     }
 
     buildHTML() {
@@ -133,7 +138,7 @@ class NavComponent extends HTMLElement {
             </div>
             <ul style="padding-left: 0">
                 <li>
-                    <a class="sidebar-item" href="#home" title="Home">
+                    <a class="sidebar-item" href="#Home" title="Home">
                         <i>
                             <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
                         </i>

@@ -9,16 +9,19 @@ class GameGuidesComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.render();
-
-        window.addEventListener('hashchange', () => {
-            this.loadData();
-            this.render();
-        });
+        this.listenToEvents();
     }
 
     loadData() {
         let activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
         this.gameStyle = activeGame ? activeGame.style : Constants.gameStyles.NONE;
+    }
+
+    listenToEvents() {
+        window.addEventListener('hashchange', () => {
+            this.loadData();
+            this.render();
+        });
     }
 
     render() {
