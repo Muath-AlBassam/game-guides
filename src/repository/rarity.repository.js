@@ -8,6 +8,8 @@ class RarityRepository {
                 return this.data.HSRRarity;
             case Constants.games.ZZZ:
                 return this.data.ZZZRarity;
+            case Constants.games.HI3:
+                return this.data.HI3Rarity;
             default:
                 return new Map([]);
         }
@@ -55,6 +57,19 @@ class RarityRepository {
                 code: 'A',
                 label: 'A Rank',
                 imageUrl: 'assets/images/zzz/ZZZ_RarityA.png'
+            }]
+        ]),
+
+        HI3Rarity: new Map([
+            ['S', {
+                code: 'S',
+                label: 'S Rank',
+                imageUrl: 'assets/images/hi3/HI3_RarityS.png'
+            }],
+            ['A', {
+                code: 'A',
+                label: 'A Rank',
+                imageUrl: 'assets/images/hi3/HI3_RarityA.png'
             }]
         ]),
     }
