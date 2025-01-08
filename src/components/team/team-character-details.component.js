@@ -142,7 +142,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                         <h5>${this.character}</h5>
                     </div>
                     <div class="center-content">
-                        ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.code}" style="margin: 0 5px;">`)}
+                        ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.label}" style="margin: 0 5px;">`)}
                     </div>
                 </div>
 
@@ -216,12 +216,3 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 }
 
 customElements.define('app-team-character-details', TeamCharacterDetailsComponent);
-
-//------------------------------------------------------------------------------------
-
-function openBuildDialog(character) {
-    // trigger attributeChangedCallback & set data
-    document.getElementById('build-dialog').setAttribute('character', character);
-    // add show class to dialog
-    document.getElementById('build-dialog-body').classList.add('dialog-shown');
-}

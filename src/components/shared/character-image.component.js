@@ -242,3 +242,12 @@ class CharacterImageComponent extends HTMLElement {
 }
 
 customElements.define('app-character-image', CharacterImageComponent);
+
+//------------------------------------------------------------------------------------
+
+function openBuildDialog(character) {
+    // trigger attributeChangedCallback & set data
+    document.getElementById('build-dialog').setAttribute('character', character);
+    // add show class to dialog
+    document.getElementById('build-dialog-body').classList.add('dialog-shown');
+}

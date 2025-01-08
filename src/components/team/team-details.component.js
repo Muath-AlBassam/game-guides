@@ -166,6 +166,7 @@ class TeamDetailsComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
+        this.listenToEvents();
     }
 
     loadData() {
@@ -176,6 +177,12 @@ class TeamDetailsComponent extends HTMLElement {
         this.team = TeamsRepository.getTeam(this.activeGame.code, this.teamName);
         this.petmd = PetsRepository.getPet(this.activeGame.code, this.team.pet);
         this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
+    }
+
+    listenToEvents() {
+        document.addEventListener('shown.bs.collapse', function (event) {
+            event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
     }
 
     buildHTML() {
@@ -229,8 +236,3 @@ class TeamDetailsComponent extends HTMLElement {
 
 customElements.define('app-team-details', TeamDetailsComponent);
 
-//------------------------------------------------------------------------------------
-
-document.addEventListener('shown.bs.collapse', function (event) {
-    event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
