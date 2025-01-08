@@ -28,6 +28,7 @@ function loadAllScripts() {
     loadScript("src/repository/notes.repository.js");
 
     // Core
+    loadScript("src/components/core/core.component.js", true);
     loadScript("src/components/core/game-guides.component.js", true);
     loadScript("src/components/core/home.component.js", true);
     // Shared
