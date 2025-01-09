@@ -80,15 +80,26 @@ class TeamCharactersComponent extends HTMLElement {
         </div>
         <div class="characters-container">
             <div class="characters-slider draggable">
-                ${Utils.ngForMap(this.characters, charmd => `
-                    <app-character-image 
-                        gamecode="${this.gameCode}"
-                        charactername="${charmd.name}"
-                        dimensions="${this.characterPFPSize}"
-                        styles="margin: 5px 10px;"
-                        withbuilddialog="true"
-                        withelement="true">
-                    </app-character-image>
+                ${Utils.ngIf(this.characters.size > 0, `
+                    ${Utils.ngForMap(this.characters, charmd => `
+                        <app-character-image 
+                            gamecode="${this.gameCode}"
+                            charactername="${charmd.name}"
+                            dimensions="${this.characterPFPSize}"
+                            styles="margin: 5px 10px;"
+                            withbuilddialog="true"
+                            withelement="true">
+                        </app-character-image>
+                    `)}
+                `, `
+                <app-character-image 
+                    gamecode="${this.gameCode}"
+                    charactername="..."
+                    dimensions="${this.characterPFPSize}"
+                    styles="margin: 5px 10px;"
+                    withbuilddialog="true"
+                    withelement="true">
+                </app-character-image>
                 `)}
             </div>
         </div>
