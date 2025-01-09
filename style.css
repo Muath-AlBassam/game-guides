@@ -136,7 +136,7 @@ app-nav.active ~ .main-content {
     display: none;
     opacity: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;

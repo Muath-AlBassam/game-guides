@@ -813,6 +813,12 @@ class CharactersRepository {
                 element: 'Physical',
                 rarity: 'A'
             }],
+            ['Sparkle', {
+                name: 'Sparkle',
+                imageUrl: 'assets/images/hi3/character/HI3_Sparkle.png',
+                element: 'Fire',
+                rarity: 'S'
+            }],
         ]),
     
         TK8Characters: new Map([
