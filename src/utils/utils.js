@@ -7,6 +7,14 @@ class Utils {
         }
     }
 
+    static generateUUID() {
+        return 'xxxxxxxx'.replace(/[x]/g, function() {
+            const r = Math.random() * 16 | 0;
+            return r.toString(16);
+        });
+    }
+
+    // HTML Utils
     static ngFor(list, logicWithHtml) {
         if (list) {
             return list.map(logicWithHtml).join('');
@@ -33,6 +41,22 @@ class Utils {
             return list.map(logicWithHtml).join('');
         }
         return elseContent;
+    }
+
+    // JSON Utils
+    static toJSONString(object) {
+        try {
+            return JSON.stringify(object).replace(/"/g, '&quot;');
+        } catch (e) {
+            return null;
+        }
+    }
+    static fromJSONString(str) {
+        try {
+            return JSON.parse(str);
+        } catch (e) {
+            return null;
+        }
     }
 }
 

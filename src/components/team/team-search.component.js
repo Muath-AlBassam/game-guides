@@ -9,15 +9,6 @@ class TeamSearchComponent extends HTMLElement {
     componentStyle = `
     <style>
         /* */
-        .btn-group {
-            border-radius: 0;
-        }
-
-        .btn-secondary {
-            border-radius: 0;
-            border: 1px solid #484950;
-            background-color: #36373d;
-        }
     </style>`;
 
     constructor() {
@@ -32,7 +23,7 @@ class TeamSearchComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
-        this.rarities = RarityRepository.getAllRarities(this.gameCode);
+        this.rarities = [...RarityRepository.getAllRarities(this.gameCode).values()];
     }
 
     listenToEvents() {
@@ -41,7 +32,6 @@ class TeamSearchComponent extends HTMLElement {
         });
         window.addEventListener('search-rarity', (event) => {
             this.searchRarity = event.detail;
-            this.setActiveRarity(event.detail);
         });
     }
 
@@ -50,41 +40,17 @@ class TeamSearchComponent extends HTMLElement {
         <div>
             <app-search eventname="search-team"></app-search>
 
-            ${Utils.ngIf(this.rarities?.size > 0, `                
-            <span class="btn-group" style="margin: 0.5em">
-                <button 
-                    class="btn btn-secondary rarity-btn active" 
-                    value=""
-                    title="All" 
-                    onclick="emitEvent('search-rarity','');"
-                >
-                    <span style="color: #fff;">${Constants.unicode.star}</span>
-                </button>
-                ${Utils.ngForMap(this.rarities, rarity => `
-                <button 
-                    class="btn btn-secondary rarity-btn"
-                    value="${rarity.code}"
-                    title="${rarity.label}"
-                    onclick="emitEvent('search-rarity','${rarity.code}')"
-                >
-                    <img src="${rarity.imageUrl}" alt="${rarity.code}" height="20"/>
-                </button>
-                `)}
-            </span>    
+            ${Utils.ngIf(this.rarities?.length > 0, `
+            <app-button-group
+                style="margin: 0 1em"
+                buttonlist="${Utils.toJSONString(this.rarities)}"
+                titlelabel="label"
+                changeeventname="search-rarity"
+            >
+            </app-button-group>
             `)}
         </div>
         `;
-    }
-
-    setActiveRarity(rarity) {
-        const btns = document.querySelectorAll('.rarity-btn');
-        btns.forEach(btn => {
-            if (btn.value == rarity) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        })
     }
 }
 
