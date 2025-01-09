@@ -7,6 +7,7 @@ class TeamCharactersComponent extends HTMLElement {
 
     searchTerm = '';
     searchRarity = '';
+    searchElement = '';
 
     componentStyle = `
     <style>
@@ -52,16 +53,22 @@ class TeamCharactersComponent extends HTMLElement {
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.searchTerm = event.detail;
-            this.characters = this.filterCharacters();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-            this.createSlider();
+            this.filterAndReload();
         });
         window.addEventListener('search-rarity', (event) => {
             this.searchRarity = event.detail;
-            this.characters = this.filterCharacters();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-            this.createSlider();
+            this.filterAndReload();
         });
+        window.addEventListener('search-element', (event) => {
+            this.searchElement = event.detail;
+            this.filterAndReload();
+        });
+    }
+
+    filterAndReload() {
+        this.characters = this.filterCharacters();
+        this.innerHTML = this.componentStyle + this.buildHTML();
+        this.createSlider();
     }
 
     buildHTML() {
@@ -94,9 +101,10 @@ class TeamCharactersComponent extends HTMLElement {
             let charKey = charMapKeyValue[0];
             let charVal = charMapKeyValue[1];
             let filterByName = charKey.toLowerCase().includes(this.searchTerm.toLowerCase());
-            let filterByRarity = charVal.rarity.includes(this.searchRarity);
+            let filterByRarity = charVal.rarity?.includes(this.searchRarity);
+            let filterByElement = charVal.element?.includes(this.searchElement);
 
-            return filterByName && filterByRarity;
+            return filterByName && filterByRarity && filterByElement;
         })
         return new Map(filteredList);
     }

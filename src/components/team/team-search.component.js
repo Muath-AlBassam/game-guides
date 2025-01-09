@@ -1,10 +1,12 @@
 class TeamSearchComponent extends HTMLElement {
 
     gameCode = null;
-    rarities = null;
+    rarities = [];
+    elements = [];
 
     searchTerm = '';
     searchRarity = '';
+    searchElement = '';
 
     componentStyle = `
     <style>
@@ -24,6 +26,7 @@ class TeamSearchComponent extends HTMLElement {
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
         this.rarities = [...RarityRepository.getAllRarities(this.gameCode).values()];
+        this.elements = [...ElementsRepository.getAllElements(this.gameCode).values()];
     }
 
     listenToEvents() {
@@ -32,6 +35,9 @@ class TeamSearchComponent extends HTMLElement {
         });
         window.addEventListener('search-rarity', (event) => {
             this.searchRarity = event.detail;
+        });
+        window.addEventListener('search-element', (event) => {
+            this.searchElement = event.detail;
         });
     }
 
@@ -46,6 +52,16 @@ class TeamSearchComponent extends HTMLElement {
                 buttonlist="${Utils.toJSONString(this.rarities)}"
                 titlelabel="label"
                 changeeventname="search-rarity"
+            >
+            </app-button-group>
+            `)}
+
+            ${Utils.ngIf(this.elements?.length > 0, `
+            <app-button-group
+                style="margin: 0 1em"
+                buttonlist="${Utils.toJSONString(this.elements)}"
+                valuelabel="name"
+                changeeventname="search-element"
             >
             </app-button-group>
             `)}
