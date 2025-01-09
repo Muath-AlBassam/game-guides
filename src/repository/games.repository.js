@@ -22,7 +22,7 @@ class GamesRepository {
                 iconUrl: 'assets/images/gi/GI_Icon.png',
                 logoUrl: 'assets/images/gi/GI_Logo.png',
                 backgroundUrl: 'assets/images/gi/GI_BG.png',
-                guideUrl: 'https://genshin-impact.fandom.com/wiki/Character/List'
+                guideUrl: 'https://keqingmains.com/#search'
             }],
             [Constants.games.HSR, {
                 label: 'Honkai Star Rail',
@@ -33,7 +33,7 @@ class GamesRepository {
                 iconUrl: 'assets/images/hsr/HSR_Icon.png',
                 logoUrl: 'assets/images/hsr/HSR_Logo.png',
                 backgroundUrl: 'assets/images/hsr/HSR_BG.png',
-                guideUrl: 'https://www.prydwen.gg/star-rail/tier-list'
+                guideUrl: 'https://www.prydwen.gg/star-rail/characters'
             }],
             [Constants.games.ZZZ, {
                 label: 'Zenless Zone Zero',
@@ -44,7 +44,7 @@ class GamesRepository {
                 iconUrl: 'assets/images/zzz/ZZZ_Icon.png',
                 logoUrl: 'assets/images/zzz/ZZZ_Logo.png',
                 backgroundUrl: 'assets/images/zzz/ZZZ_BG.png',
-                guideUrl: 'https://www.prydwen.gg/zenless/tier-list'
+                guideUrl: 'https://www.prydwen.gg/zenless/characters'
             }],
             [Constants.games.HI3, {
                 label: 'Honkai Impact 3rd',
