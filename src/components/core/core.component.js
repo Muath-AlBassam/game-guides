@@ -15,6 +15,7 @@ class CoreComponent extends HTMLElement {
 
     buildHTML() {
         return `
+        <app-header></app-header>
         <app-nav></app-nav>
 
         <div class="main-content">

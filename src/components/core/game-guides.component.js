@@ -34,9 +34,9 @@ class GameGuidesComponent extends HTMLElement {
     buildHTML() {
         switch (this.gameStyle) {
             case Constants.gameStyles.TEAMS:
-                return `<app-header></app-header><app-team-container></app-team-container>`;
+                return `<app-game-header></app-game-header><app-team-container></app-team-container>`;
             case Constants.gameStyles.FIGHT:
-                return `<app-header></app-header><app-fight-list></app-fight-list>`;
+                return `<app-game-header></app-game-header><app-fight-list></app-fight-list>`;
             default:
                 return `<app-home></app-home>`;
         }

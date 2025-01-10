@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
 
 window.addEventListener('hashchange', () => {
     initializePopovers();
+    closeSidebar();
 });
 
 window.onclick = function(event) {

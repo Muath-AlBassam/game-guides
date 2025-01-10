@@ -21,6 +21,8 @@
     --background-color: #23242a;
     --text-color: #fff;
     --sidebar-color: #1c1d21;
+    --sidebar-width: 60px;
+    --sidebar-m-width: 0; /* width in mobile view */
     --sidebar-active-width: 280px;
 }
 
@@ -60,12 +62,23 @@ img {
 
 /* Main content placement after Sidenav ------------------------------------ */
 app-nav ~ .main-content {
-    margin-left: 80px;
-    width: calc(100% - 80px);
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
 }
 app-nav.active ~ .main-content {
     margin-left: var(--sidebar-active-width);
     width: calc(100% - var(--sidebar-active-width));
+}
+
+@media (max-width: 1000px) {
+    app-nav ~ .main-content {
+        margin-left: var(--sidebar-m-width);
+        width: calc(100% - var(--sidebar-m-width));
+    }
+    app-nav.active ~ .main-content {
+        margin-left: var(--sidebar-m-width);
+        width: calc(100% - var(--sidebar-m-width));
+    }
 }
 
 .main-content {
@@ -136,7 +149,7 @@ app-nav.active ~ .main-content {
     display: none;
     opacity: 0;
     position: fixed;
-    z-index: 3;
+    z-index: 50;
     left: 0;
     top: 0;
     width: 100%;

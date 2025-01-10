@@ -1,28 +1,32 @@
 class HeaderComponent extends HTMLElement {
 
-    activeGame = null;
-
     componentStyle = `
     <style>
-        .header .title {
-            display: flex;
+        .header {
+            background-color: var(--sidebar-color);
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            z-index: 15;
+        }
+
+        .header .logo {
+            color: #fff;
+            height: 50px;
+            width: 100%;
             align-items: center;
+            pointer-events: none;
+            font-size: 1.3em;
             font-family: 'Death Star';
         }
 
-        .header .game-background {
-            height: 200px;
-            border: 2px solid #33343a;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-            margin-top: 1em;
-        }
-
-        #guide-url {
-            text-decoration: none;
-            color: var(--text-color);
-            margin-left: 15px;
+        .header #sidebarToggle {
+            color: #fff;
+            top: 0.4em;
+            font-size: 1.2em;
+            line-height: 50px;
+            cursor: pointer;
+            padding: 0 1em;
         }
     </style>`;
 
@@ -31,42 +35,15 @@ class HeaderComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
-        this.listenToEvents();
-    }
-
-    loadData() {
-        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-    }
-
-    listenToEvents() {
-        window.addEventListener('hashchange', () => {
-            this.loadData();
-            this.innerHTML = this.componentStyle + this.buildHTML();
-        });
     }
 
     buildHTML() {
-        return Utils.ngIf(this.activeGame,`
+        return `
         <div class="header">
-            <div class="row">
-                <div class="col-md-6 title">
-                    <h1>
-                        ${this.activeGame?.label}
-                    </h1>
-                    <sup>
-                        <a href="${this.activeGame?.guideUrl}" style="display: ${this.activeGame?.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
-                            <i class="fa fa-external-link"></i>
-                        </a>
-                    </sup>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <img height="${Utils.isMobile() ? '50' : '100'}" src="${this.activeGame?.logoUrl}">
-                </div>
-                <div class="col-md-12 game-background" style="background-image: url(${this.activeGame?.backgroundUrl});"></div>
-            </div>
-        </div>`);
+            <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
+            <span class="logo">Game Guides</span>
+        </div>`;
     }
 }
 

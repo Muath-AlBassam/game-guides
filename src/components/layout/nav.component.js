@@ -12,45 +12,15 @@ class NavComponent extends HTMLElement {
             top: 0;
             left: 0;
             height: 100vh;
-            width: 80px;
+            width: var(--sidebar-width);
             background-color: var(--sidebar-color);
-            padding: 0.4em 0.8em;
+            padding: 0.4em 0.4em;
             transition: all 0.5s ease;
+            z-index: 10;
         }
 
         .sidebar.active {
             width: var(--sidebar-active-width);
-        }
-
-        .sidebar #sidebarToggle {
-            position: absolute;
-            color: #fff;
-            top: 0.4em;
-            left: 50%;
-            font-size: 1.2em;
-            line-height: 50px;
-            transform: translateX(-50%);
-            cursor: pointer;
-        }
-
-        .sidebar.active #sidebarToggle {
-            left: 90%;
-        }
-
-        .sidebar .top .logo {
-            color: #fff;
-            display: flex;
-            height: 50px;
-            width: 100%;
-            align-items: center;
-            pointer-events: none;
-            opacity: 0;
-            font-size: 1.3em;
-            font-family: 'Death Star';
-        }
-
-        .sidebar.active .top .logo {
-            opacity: 1;
         }
 
         .sidebar ul li {
@@ -60,6 +30,17 @@ class NavComponent extends HTMLElement {
             width: 90%;
             margin: 0.8em auto;
             line-height: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .sidebar.active ul li {
+            position: relative;
+            list-style-type: none;
+            height: 50px;
+            width: 90%;
+            margin: 0.8em auto;
+            line-height: 50px;
+            display: list-item;
         }
 
         .sidebar .sidebar-item {
@@ -104,6 +85,19 @@ class NavComponent extends HTMLElement {
         .sidebar.active .nav-text {
             display: block;
         }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .sidebar {
+                width: 0;
+                display: none;
+            }
+            .sidebar.active {
+                display: block;
+            }
+            .sidebar-container {
+                position: absolute;
+            }
+        }
     </style>`;
 
     constructor() {
@@ -129,36 +123,33 @@ class NavComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div class="sidebar">
-            <div class="top">
-                <div class="logo">
-                    <span>Game Guides</span>
-                </div>
-                <i class="fa fa-bars" style="display: ${Utils.isMobile() ? 'none' : 'block'};" id="sidebarToggle" onclick="toggleSidebar()"></i>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <ul style="padding-left: 0; margin-top: 50px;">
+                    <li>
+                        <a class="sidebar-item" href="#Home" title="Home">
+                            <i>
+                                <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
+                            </i>
+                            <span class="nav-text">Home</span>
+                        </a>
+                    </li> 
+                    ${Utils.ngForMap(this.games, g => `
+                    <li>
+                        <a class="sidebar-item" href="#${g.code}" title="${g.label}">
+                            <i>
+                                ${Utils.ngIf(g.iconUrl, 
+                                `<img src="${g.iconUrl}" alt="${g.code}" width="30" height="30"/>`, 
+                                `${g.code}`)}
+                            </i>
+                            <span class="nav-text">${g.label}</span>
+                        </a>
+                    </li> 
+                    `)}
+                </ul>
             </div>
-            <ul style="padding-left: 0">
-                <li>
-                    <a class="sidebar-item" href="#Home" title="Home">
-                        <i>
-                            <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
-                        </i>
-                        <span class="nav-text">Home</span>
-                    </a>
-                </li> 
-                ${Utils.ngForMap(this.games, g => `
-                <li>
-                    <a class="sidebar-item" href="#${g.code}" title="${g.label}">
-                        <i>
-                            ${Utils.ngIf(g.iconUrl, 
-                            `<img src="${g.iconUrl}" alt="${g.code}" width="30" height="30"/>`, 
-                            `${g.code}`)}
-                        </i>
-                        <span class="nav-text">${g.label}</span>
-                    </a>
-                </li> 
-                `)}
-            </ul>
-        </div>`;
+        </div>
+        `;
     }
 
     setActiveNav() {
@@ -180,4 +171,9 @@ customElements.define('app-nav', NavComponent);
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');
     document.getElementsByTagName('app-nav')[0].classList.toggle('active');
+}
+
+function closeSidebar() {
+    document.querySelector('.sidebar').classList.remove('active');
+    document.getElementsByTagName('app-nav')[0].classList.remove('active');
 }

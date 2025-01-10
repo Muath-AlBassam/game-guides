@@ -40,6 +40,7 @@ function loadAllScripts() {
     // Layout
     loadScript("src/components/layout/nav.component.js", true);
     loadScript("src/components/layout/header.component.js", true);
+    loadScript("src/components/layout/game-header.component.js", true);
     // Team
     loadScript("src/components/team/team-container.component.js", true);
     loadScript("src/components/team/team-list.component.js", true);
