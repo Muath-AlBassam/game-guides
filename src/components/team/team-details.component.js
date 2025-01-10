@@ -134,6 +134,10 @@ class TeamDetailsComponent extends HTMLElement {
                 padding: 10px 0;
             }
 
+            .teams__container .item .pet {
+                margin-left: 0;
+            }
+
             .teams__details {
                 grid-template-columns: 1fr;
             }
