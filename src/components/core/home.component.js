@@ -14,6 +14,7 @@ class HomeComponent extends HTMLElement {
             border: 2px solid #33343a;
             background-size: 100%;
             background-position: center;
+            background-repeat: no-repeat;
             opacity: 0.8;
             margin-top: 1em;
             display: table;
@@ -33,6 +34,11 @@ class HomeComponent extends HTMLElement {
             text-shadow: 0 0 10px #000, 0 0 10px #000;
         }
 
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .home .game-box {
+                height: 80px;
+            }
+        }
     </style>`;
 
     constructor() {

@@ -111,7 +111,7 @@ class TeamDetailsComponent extends HTMLElement {
             .teams__container {
                 display: grid;
                 grid-template-columns: 1fr;
-                height: ${this.characterPFPSize * 2 + 20}px;
+                height: ${this.characterPFPSize * 2 + 70}px;
             }
 
             .teams__container .item {
@@ -203,7 +203,7 @@ class TeamDetailsComponent extends HTMLElement {
 
     modifyDataBasedOnMediaSize() {
         if (Utils.isMobile()) {
-            this.petPFPSize = this.petPFPSize / 2;
+            this.petPFPSize = this.petPFPSize / 1.5;
         }
     }
 
@@ -235,7 +235,7 @@ class TeamDetailsComponent extends HTMLElement {
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
                             withelement="true"
-                            resizingvalue="3"
+                            resizingvalue="2"
                         >
                         </app-character-image>
                         `)}
