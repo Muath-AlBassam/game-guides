@@ -85,6 +85,12 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             justify-content: center;
             height: 100px;
         }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .build-dialog-content {
+                width: 100%;
+            }
+        }
     </style>`;
 
     constructor() {
@@ -133,7 +139,8 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                                 classes="character-image" 
                                 styles="border-radius: 100%;" 
                                 withbackgroundclass="false" 
-                                withaltelement="true">
+                                withaltelement="true"
+                            >
                             </app-character-image>
                         </div>
                     </div>

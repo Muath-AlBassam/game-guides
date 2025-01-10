@@ -62,7 +62,7 @@ class HeaderComponent extends HTMLElement {
                     </sup>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <img height="100" src="${this.activeGame?.logoUrl}">
+                    <img height="${Utils.isMobile() ? '50' : '100'}" src="${this.activeGame?.logoUrl}">
                 </div>
                 <div class="col-md-12 game-background" style="background-image: url(${this.activeGame?.backgroundUrl});"></div>
             </div>

@@ -36,6 +36,9 @@ class FightComponent extends HTMLElement {
             position: relative;
             width: 100%;
         }
+        .fight__container .item ::-webkit-scrollbar {
+            display: none;
+        }
 
         .fight__container .item>div:nth-child(odd) {
             background-color: #36373f;
@@ -62,6 +65,26 @@ class FightComponent extends HTMLElement {
 
         .fight__container .item .combos {
             margin: 0 2em;
+        }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .fight__container {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .fight__container .number {
+                width: 100%;
+            }
+
+            .fight__container .item {
+                overflow: hidden;
+                grid-template-columns: 1fr;
+            }
+
+            .fight__container .item .combos {
+                margin: 0 0.5em;
+            }
         }
     </style>`;
 
@@ -95,13 +118,15 @@ class FightComponent extends HTMLElement {
                         <app-character-image 
                             gamecode="${this.gameCode}"
                             charactername="${character?.name}"
-                            dimensions="${this.characterPFPSize}">
+                            dimensions="${this.characterPFPSize}"
+                            resizingvalue="2"
+                        >
                         </app-character-image>
                         <div class="name">
                             ${character.name}
                         </div>
                     </div>
-                    <div class="combos">
+                    <div class="combos" style="overflow: scroll;">
                         <div class="content-header">Combos</div>
                         <ul>
                             ${Utils.ngFor(character.combos, combo => `

@@ -48,7 +48,6 @@ class TeamSearchComponent extends HTMLElement {
 
             ${Utils.ngIf(this.rarities?.length > 0, `
             <app-button-group
-                style="margin: 0 1em"
                 buttonlist="${Utils.toJSONString(this.rarities)}"
                 titlelabel="label"
                 changeeventname="search-rarity"
@@ -58,7 +57,6 @@ class TeamSearchComponent extends HTMLElement {
 
             ${Utils.ngIf(this.elements?.length > 0, `
             <app-button-group
-                style="margin: 0 1em"
                 buttonlist="${Utils.toJSONString(this.elements)}"
                 valuelabel="name"
                 changeeventname="search-element"

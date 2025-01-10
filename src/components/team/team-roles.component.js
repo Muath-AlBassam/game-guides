@@ -48,7 +48,9 @@ class RolesComponent extends HTMLElement {
                                 gamecode="${this.gameCode}"
                                 charactername="${character?.name}"
                                 dimensions="${this.characterPFPSize}"
-                                styles="margin: 5px 10px;">
+                                styles="margin: 5px 10px;"
+                                resizingvalue="2"
+                            >
                             </app-character-image>
                         </td>
                         <td style="font-size: 1.2em; font-weight: bold;">

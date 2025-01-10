@@ -13,12 +13,26 @@ class ButtonGroupComponent extends HTMLElement {
     <style>
         .btn-group {
             border-radius: 0;
+            margin: 0 1em;
         }
 
         .btn-secondary {
             border-radius: 0;
             border: 1px solid #484950;
             background-color: #36373d;
+        }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .btn-group {
+                display: block;
+                margin: 1em 0;
+            }
+            
+            .btn-group .btn {
+                display: block;
+                float: none;
+                width: 100%;
+            }
         }
     </style>`;
 

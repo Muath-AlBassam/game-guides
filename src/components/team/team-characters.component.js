@@ -88,7 +88,8 @@ class TeamCharactersComponent extends HTMLElement {
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
-                            withelement="true">
+                            withelement="true"
+                        >
                         </app-character-image>
                     `)}
                 `, `
@@ -98,7 +99,8 @@ class TeamCharactersComponent extends HTMLElement {
                     dimensions="${this.characterPFPSize}"
                     styles="margin: 5px 10px;"
                     withbuilddialog="true"
-                    withelement="true">
+                    withelement="true"
+                >
                 </app-character-image>
                 `)}
             </div>

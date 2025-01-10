@@ -46,7 +46,9 @@ class ReplacementsComponent extends HTMLElement {
                                 gamecode="${this.gameCode}"
                                 charactername="${character?.name}"
                                 dimensions="${this.characterPFPSize}"
-                                styles="margin: 5px 10px;">
+                                styles="margin: 5px 10px;"
+                                resizingvalue="2"
+                            >
                             </app-character-image>
                         </td>
                         <td>
@@ -57,7 +59,9 @@ class ReplacementsComponent extends HTMLElement {
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;"
                                 withbuilddialog="true"
-                                withelement="true">
+                                withelement="true"
+                                resizingvalue="2"
+                            >
                             </app-character-image>
                             `,
                             `<div style="margin: 5px 10px; width: ${this.characterPFPSize}px; display: flex; justify-content: center;">

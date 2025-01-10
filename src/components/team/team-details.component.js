@@ -91,12 +91,7 @@ class TeamDetailsComponent extends HTMLElement {
             border: 2px solid #33343a;
         }
 
-        .accordion-content {
-            display: none;
-            transition: all 0.5s ease;
-        }
-
-        @media (min-width: 769px) {
+        @media (min-width: ${Constants.code.mobileMaxWidth}) {
             /* none mobile view only */
             .teams__details {
                 /* 
@@ -112,10 +107,31 @@ class TeamDetailsComponent extends HTMLElement {
             }
         }
 
-        @media (max-width: 768px) {
-            /* not complete */
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .teams__container {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: ${this.characterPFPSize * 2 + 20}px;
+            }
+
             .teams__container .item {
                 grid-template-columns: 1fr;
+            }
+
+            .teams__container .number {
+                width: 100%;
+            }
+
+            .teams__container .item .name {
+                grid-template-columns: 1fr;
+                padding: 10px 0;
+            }
+
+            .teams__container .item .members {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+                padding: 10px 0;
             }
 
             .teams__details {
@@ -157,6 +173,11 @@ class TeamDetailsComponent extends HTMLElement {
             height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
             user-select: none;
         }
+
+        .collapsing .table-responsive {
+            /* remove table-responsive style that's affecting bootstrap accordion, but only during open/close animation */
+            overflow: visible !important;
+        }
     </style>`;
     
     constructor() {
@@ -165,6 +186,7 @@ class TeamDetailsComponent extends HTMLElement {
 
     connectedCallback() {
         this.loadData();
+        this.modifyDataBasedOnMediaSize();
         this.innerHTML = this.componentStyle + this.buildHTML();
         this.listenToEvents();
     }
@@ -177,6 +199,12 @@ class TeamDetailsComponent extends HTMLElement {
         this.team = TeamsRepository.getTeam(this.activeGame.code, this.teamName);
         this.petmd = PetsRepository.getPet(this.activeGame.code, this.team.pet);
         this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
+    }
+
+    modifyDataBasedOnMediaSize() {
+        if (Utils.isMobile()) {
+            this.petPFPSize = this.petPFPSize / 2;
+        }
     }
 
     listenToEvents() {
@@ -192,7 +220,7 @@ class TeamDetailsComponent extends HTMLElement {
                 <div class="number">${this.teamIndex}</div>
                 <div class="item">
                     <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
-                        <img src="${this.team.iconUrl ?? 'assets/images/Placeholder_Logo.png'}" height="40">
+                        <img src="${this.team.iconUrl ?? Constants.images.transparent}" height="${Utils.isMobile() ? '30' : '40'}">
                         <span>
                             ${this.team.name}
                             <app-notes-popover teamname="${this.teamName}"></app-notes-popover>
@@ -206,13 +234,15 @@ class TeamDetailsComponent extends HTMLElement {
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
-                            withelement="true">
+                            withelement="true"
+                            resizingvalue="3"
+                        >
                         </app-character-image>
                         `)}
 
                         ${Utils.ngIf(this.activeGame.hasPet, `
                         <img 
-                            src="${this.petmd.imageUrl ?? 'assets/images/Unknown.png'}" 
+                            src="${this.petmd.imageUrl ?? Constants.images.unknown}" 
                             height="${this.petPFPSize}" 
                             class="pet ${this.activeGame.code+'-rarity-'+this.petmd.rarity}"
                             title="${this.petmd.name}"
@@ -225,10 +255,10 @@ class TeamDetailsComponent extends HTMLElement {
                 </div>
             </div>
             <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
-                <app-team-roles game="${this.activeGame.code}" team="${this.team.name}"></app-team-roles>
-                <app-team-variations game="${this.activeGame.code}" team="${this.team.name}"></app-team-variations>
-                <app-team-replacements game="${this.activeGame.code}" team="${this.team.name}"></app-team-replacements>
-                <app-team-rotations game="${this.activeGame.code}" team="${this.team.name}"></app-team-rotations>
+                <app-team-roles game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-roles>
+                <app-team-variations game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-variations>
+                <app-team-replacements game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-replacements>
+                <app-team-rotations game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-rotations>
             </div>
         </div>`;
     }

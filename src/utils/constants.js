@@ -5,6 +5,10 @@ class Constants {
     // SVG
     // https://www.svgrepo.com/
 
+    static code = {
+        mobileMaxWidth: '1000px'
+    }
+
     static games = {
         GI: 'GI',
         HSR: 'HSR',
@@ -20,7 +24,8 @@ class Constants {
     }
 
     static images = {
-        transparent: 'assets/Placeholder_Logo.png'
+        transparent: 'assets/images/Placeholder_Logo.png',
+        unknown: 'assets/images/Unknown.png'
     }
 
     static unicode = {

@@ -73,6 +73,7 @@ class RotationsComponent extends HTMLElement {
                             charactername="${step[0]}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px; border-radius: 100%;"
+                            resizingvalue="2"
                         >
                         </app-character-image>
                     </span>

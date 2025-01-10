@@ -42,7 +42,7 @@ class TeamListComponent extends HTMLElement {
                 `)}    
             `, `
             <div>
-                <img src="assets/svg/shrug.svg" height="300" />
+                <img src="assets/svg/shrug.svg" height="${Utils.isMobile() ? '150' : '300'}" />
             </div>
             `)}
         </div>`;

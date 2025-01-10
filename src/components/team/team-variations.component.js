@@ -47,7 +47,7 @@ class VariationsComponent extends HTMLElement {
                     Variations
                 </h5>
             </div>
-            <div style="height: ${107 * this.activeGame.teamSize}px; overflow: auto;">
+            <div style="overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>
                         ${Utils.ngForIf(this.currentTeam.variations, this.currentTeam.variations, vari => `
@@ -65,7 +65,9 @@ class VariationsComponent extends HTMLElement {
                                     dimensions="${this.characterPFPSize}"
                                     styles="margin: 5px 10px;"
                                     withbuilddialog="true"
-                                    withelement="true">
+                                    withelement="true"
+                                    resizingvalue="2"
+                                >
                                 </app-character-image>
                                 `)}
                             </td>

@@ -14,6 +14,12 @@ class Utils {
         });
     }
 
+    // Media Utils
+    static isMobile() {
+        const mq = window.matchMedia(`(max-width: ${Constants.code.mobileMaxWidth})`);
+        return mq.matches;
+    }
+
     // HTML Utils
     static ngFor(list, logicWithHtml) {
         if (list) {

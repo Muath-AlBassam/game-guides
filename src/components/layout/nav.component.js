@@ -134,7 +134,7 @@ class NavComponent extends HTMLElement {
                 <div class="logo">
                     <span>Game Guides</span>
                 </div>
-                <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
+                <i class="fa fa-bars" style="display: ${Utils.isMobile() ? 'none' : 'block'};" id="sidebarToggle" onclick="toggleSidebar()"></i>
             </div>
             <ul style="padding-left: 0">
                 <li>

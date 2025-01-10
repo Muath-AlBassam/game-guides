@@ -43,6 +43,12 @@ class SearchComponent extends HTMLElement {
             outline: none;
             border-bottom: 2px solid #fff;
         }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .search {
+                width: 100%;
+            }
+        }
     </style>`;
 
     constructor() {

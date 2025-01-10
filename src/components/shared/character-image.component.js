@@ -11,6 +11,7 @@ class CharacterImageComponent extends HTMLElement {
     withBackgroundClass = true;
     withElement = false;
     withAltElement = false;
+    resizingValue = 1; // default: 1 == no resize
 
     charmd = null;
     showBuild = false;
@@ -159,6 +160,7 @@ class CharacterImageComponent extends HTMLElement {
   
     connectedCallback() {
         this.loadData();
+        this.modifyDataBasedOnMediaSize();
         this.innerHTML = this.componentStyle + this.buildHTML();
     }
 
@@ -174,6 +176,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
+        if (this.hasAttribute('resizingvalue')) this.resizingValue = Number(this.getAttribute('resizingvalue'));
 
         let charNameList = this.characterName.split(',');
         this.charCount = charNameList.length;
@@ -189,6 +192,12 @@ class CharacterImageComponent extends HTMLElement {
         }
     }
 
+    modifyDataBasedOnMediaSize() {
+        if (Utils.isMobile()) {
+            this.dimensions = this.dimensions / this.resizingValue;
+        }
+    }
+
     buildHTML() {
         if (this.charCount > 1) {
             return `
@@ -197,7 +206,7 @@ class CharacterImageComponent extends HTMLElement {
                 <div class="child ${this.withBuildDialog ? 'pointer' : ''} ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
                     ${this.withBuildDialog ? `onclick="openBuildDialog('${char.name}')"` : ``}>
                     <img    
-                        src="${char.imageUrl ?? 'assets/images/Unknown.png'}" 
+                        src="${char.imageUrl ?? Constants.images.unknown}" 
                         alt="${char.name ?? '?'}" 
                         title="${char.name ?? '?'}"
                         class="pfp" 
@@ -211,15 +220,15 @@ class CharacterImageComponent extends HTMLElement {
             return `
             <div class="character-container">
                 <img    
-                    src="${this.charmd.imageUrl ?? 'assets/images/Unknown.png'}" 
+                    src="${this.charmd.imageUrl ?? Constants.images.unknown}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
                     class="pfp ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''} ${this.classes}" 
-                    style="border-radius: 5px; ${this.showBuild ? 'display: block; height: auto;' : ''} ${this.styles}" 
-                    width="${this.dimensions}" 
+                    style="border-radius: 5px; display: block; height: auto; ${this.styles}" 
+                    width="${this.dimensions}"
                 />
                 ${Utils.ngIf(this.showBuild, `
-                <img 
+                <img
                     src="assets/svg/armor.svg" 
                     width="26" 
                     height="26" 
@@ -228,8 +237,8 @@ class CharacterImageComponent extends HTMLElement {
                     onclick="openBuildDialog('${this.charmd.name}')"/>    
                 `)}
                 ${Utils.ngIf(this.showElement, `
-                <img 
-                    src="${this.elementImageUrl}" 
+                <img
+                    src="${this.elementImageUrl ?? Constants.images.transparent}" 
                     width="26" 
                     height="26" 
                     class="element-icon${this.withAltElement ? '-alt' : ''}" 
