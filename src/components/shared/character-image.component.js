@@ -11,7 +11,7 @@ class CharacterImageComponent extends HTMLElement {
     withBackgroundClass = true;
     withElement = false;
     withAltElement = false;
-    resizingValue = 1; // default: 1 == no resize
+    mobileSizeRatio = 1; // default: 1 == no resize
     resizeIcon = true;
 
     charmd = null;
@@ -178,7 +178,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
-        if (this.hasAttribute('resizingvalue')) this.resizingValue = Number(this.getAttribute('resizingvalue'));
+        if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('resizeicon')) this.resizeIcon = this.getAttribute('resizeicon') == 'true';
 
         let charNameList = this.characterName.split(',');
@@ -197,7 +197,7 @@ class CharacterImageComponent extends HTMLElement {
 
     modifyDataBasedOnMediaSize() {
         if (Utils.isMobile()) {
-            this.dimensions = this.dimensions / this.resizingValue;
+            this.dimensions = this.dimensions * this.mobileSizeRatio;
             this.iconSize = this.resizeIcon ? 15 : this.iconSize;
         }
     }

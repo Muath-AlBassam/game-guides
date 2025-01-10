@@ -49,7 +49,7 @@ class RolesComponent extends HTMLElement {
                                 charactername="${character?.name}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;"
-                                resizingvalue="2"
+                                mobilesizeratio="0.5"
                             >
                             </app-character-image>
                         </td>

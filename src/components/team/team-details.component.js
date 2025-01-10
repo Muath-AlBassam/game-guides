@@ -107,42 +107,6 @@ class TeamDetailsComponent extends HTMLElement {
             }
         }
 
-        @media (max-width: ${Constants.code.mobileMaxWidth}) {
-            .teams__container {
-                display: grid;
-                grid-template-columns: 1fr;
-                height: ${this.characterPFPSize * 2 + 70}px;
-            }
-
-            .teams__container .item {
-                grid-template-columns: 1fr;
-            }
-
-            .teams__container .number {
-                width: 100%;
-            }
-
-            .teams__container .item .name {
-                grid-template-columns: 1fr;
-                padding: 10px 0;
-            }
-
-            .teams__container .item .members {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                justify-items: center;
-                padding: 10px 0;
-            }
-
-            .teams__container .item .pet {
-                margin-left: 0;
-            }
-
-            .teams__details {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Style for accoridon content ----------------------------------------------- */
         .teams__details .container {
             padding: 0 15px;
@@ -181,6 +145,47 @@ class TeamDetailsComponent extends HTMLElement {
         .collapsing .table-responsive {
             /* remove table-responsive style that's affecting bootstrap accordion, but only during open/close animation */
             overflow: visible !important;
+        }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .teams__container {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: ${this.characterPFPSize * 2 + 70}px;
+            }
+
+            .teams__container .item {
+                grid-template-columns: 1fr;
+            }
+
+            .teams__container .number {
+                width: 100%;
+            }
+
+            .teams__container .item .name {
+                grid-template-columns: 1fr;
+                padding: 10px 0;
+            }
+
+            .teams__container .item .members {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+                padding: 10px 0;
+            }
+
+            .teams__container .item .pet {
+                margin-left: 0;
+            }
+
+            .teams__details {
+                grid-template-columns: 1fr;
+            }
+
+            /* Style for accoridon content ----------------------------------------------- */
+            .teams__details .container {
+                border-top: 2px solid #33343a;
+            }
         }
     </style>`;
     
@@ -239,7 +244,7 @@ class TeamDetailsComponent extends HTMLElement {
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
                             withelement="true"
-                            resizingvalue="2"
+                            mobilesizeratio="0.5"
                         >
                         </app-character-image>
                         `)}

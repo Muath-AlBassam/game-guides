@@ -66,7 +66,7 @@ class VariationsComponent extends HTMLElement {
                                     styles="margin: 5px 10px;"
                                     withbuilddialog="true"
                                     withelement="true"
-                                    resizingvalue="2"
+                                    mobilesizeratio="0.5"
                                 >
                                 </app-character-image>
                                 `)}

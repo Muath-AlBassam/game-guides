@@ -108,7 +108,7 @@ class TeamsRepository {
                         name: 'Fischl',
                         role: 'Dendro reaction',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Yae Miko'],
                     },
                     {
                         name: 'Zhongli',

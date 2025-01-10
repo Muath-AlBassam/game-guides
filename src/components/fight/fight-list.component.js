@@ -119,7 +119,7 @@ class FightComponent extends HTMLElement {
                             gamecode="${this.gameCode}"
                             charactername="${character?.name}"
                             dimensions="${this.characterPFPSize}"
-                            resizingvalue="2"
+                            mobilesizeratio="0.5"
                         >
                         </app-character-image>
                         <div class="name">
