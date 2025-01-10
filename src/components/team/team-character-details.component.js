@@ -138,8 +138,9 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                                 dimensions="${this.characterPFPSize}"
                                 classes="character-image" 
                                 styles="border-radius: 100%;" 
-                                withbackgroundclass="false" 
+                                withbackgroundclass="true" 
                                 withaltelement="true"
+                                resizeicon="false"
                             >
                             </app-character-image>
                         </div>

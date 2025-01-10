@@ -12,12 +12,14 @@ class CharacterImageComponent extends HTMLElement {
     withElement = false;
     withAltElement = false;
     resizingValue = 1; // default: 1 == no resize
+    resizeIcon = true;
 
     charmd = null;
     showBuild = false;
     showElement = false;
     elementImageUrl = '';
     addRarityClass = false;
+    iconSize = 26;
 
     charCount = 0;
     charmdList = [];
@@ -177,6 +179,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
         if (this.hasAttribute('resizingvalue')) this.resizingValue = Number(this.getAttribute('resizingvalue'));
+        if (this.hasAttribute('resizeicon')) this.resizeIcon = this.getAttribute('resizeicon') == 'true';
 
         let charNameList = this.characterName.split(',');
         this.charCount = charNameList.length;
@@ -195,6 +198,7 @@ class CharacterImageComponent extends HTMLElement {
     modifyDataBasedOnMediaSize() {
         if (Utils.isMobile()) {
             this.dimensions = this.dimensions / this.resizingValue;
+            this.iconSize = this.resizeIcon ? 15 : this.iconSize;
         }
     }
 
@@ -230,8 +234,8 @@ class CharacterImageComponent extends HTMLElement {
                 ${Utils.ngIf(this.showBuild, `
                 <img
                     src="assets/svg/armor.svg" 
-                    width="26" 
-                    height="26" 
+                    width="${this.iconSize}" 
+                    height="${this.iconSize}" 
                     class="build-icon" 
                     title="View build" 
                     onclick="openBuildDialog('${this.charmd.name}')"/>    
@@ -239,8 +243,8 @@ class CharacterImageComponent extends HTMLElement {
                 ${Utils.ngIf(this.showElement, `
                 <img
                     src="${this.elementImageUrl ?? Constants.images.transparent}" 
-                    width="26" 
-                    height="26" 
+                    width="${this.iconSize}" 
+                    height="${this.iconSize}" 
                     class="element-icon${this.withAltElement ? '-alt' : ''}" 
                     title="${this.charmd.element}"/>
                 `)}
