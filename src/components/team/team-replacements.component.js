@@ -5,12 +5,27 @@ class ReplacementsComponent extends HTMLElement {
     teamName = null;
 
     characterPFPSize = 80;
+    mobileSizeRatio = 0.5;
     currentTeam = null;
 
     componentStyle = `
     <style>
         .replacements-container {
             /**/
+        }
+
+        .replacements-container .none {
+            margin: 5px 10px;
+            display: flex;
+            justify-content: center;
+            width: ${this.characterPFPSize}px;
+        }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .replacements-container .none {
+                width: ${this.characterPFPSize * this.mobileSizeRatio}px;
+            }
+            .none {}
         }
     </style>`;
 
@@ -60,11 +75,12 @@ class ReplacementsComponent extends HTMLElement {
                                 styles="margin: 5px 10px;"
                                 withbuilddialog="true"
                                 withelement="true"
-                                mobilesizeratio="0.5"
+                                mobilesizeratio="${this.mobileSizeRatio}"
+                                mobileiconsizeratio="${this.mobileSizeRatio}"
                             >
                             </app-character-image>
                             `,
-                            `<div style="margin: 5px 10px; width: ${this.characterPFPSize}px; display: flex; justify-content: center;">
+                            `<div class="none">
                                 <h1 class="empty-details" style="color: #000">${Constants.unicode.times}</h1>
                             </div>`
                             )}

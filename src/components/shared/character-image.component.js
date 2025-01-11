@@ -12,7 +12,7 @@ class CharacterImageComponent extends HTMLElement {
     withElement = false;
     withAltElement = false;
     mobileSizeRatio = 1; // default: 1 == no resize
-    resizeIcon = true;
+    mobileIconSizeRatio = 1;
 
     charmd = null;
     showBuild = false;
@@ -179,7 +179,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
-        if (this.hasAttribute('resizeicon')) this.resizeIcon = this.getAttribute('resizeicon') == 'true';
+        if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
 
         let charNameList = this.characterName.split(',');
         this.charCount = charNameList.length;
@@ -198,7 +198,7 @@ class CharacterImageComponent extends HTMLElement {
     modifyDataBasedOnMediaSize() {
         if (Utils.isMobile()) {
             this.dimensions = this.dimensions * this.mobileSizeRatio;
-            this.iconSize = this.resizeIcon ? 15 : this.iconSize;
+            this.iconSize = this.iconSize * this.mobileIconSizeRatio;
         }
     }
 

@@ -140,7 +140,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                                 styles="border-radius: 100%;" 
                                 withbackgroundclass="true" 
                                 withaltelement="true"
-                                resizeicon="false"
                             >
                             </app-character-image>
                         </div>
