@@ -19,6 +19,10 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
     componentStyle = `
     <style>
+        .build-dialog {
+            padding-top: 15vh;
+        }
+
         .build-dialog-content {
             width: 20%;
         }
@@ -87,6 +91,10 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .build-dialog {
+                padding-top: 2vh;
+            }
+
             .build-dialog-content {
                 width: 100%;
             }
@@ -126,7 +134,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div class="gagu-dialog" style="padding-top: 15vh;" id="build-dialog-body">
+        <div class="gagu-dialog build-dialog" id="build-dialog-body">
             <div class="gagu-dialog-content build-dialog-content">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 <div>
