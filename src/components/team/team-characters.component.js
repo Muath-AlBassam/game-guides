@@ -75,7 +75,10 @@ class TeamCharactersComponent extends HTMLElement {
         return `
         <div class="row">
             <div class="col-md-12">
-                <div class="content-header">Characters</div>
+                <div class="content-header">
+                    Characters
+                    <span class="additional-text">Showing (${this.characters?.size}) Characters</span>
+                </div>
             </div>
         </div>
         <div class="characters-container">

@@ -104,6 +104,14 @@ app-nav.active ~ .main-content {
     padding-bottom: 8px;
     text-transform: uppercase;
 }
+.content-header .additional-text {
+    color: hsla(0, 0%, 100%, .55);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    padding-left: 8px;
+    text-transform: none;
+}
 
 .center-content {
     display: flex;

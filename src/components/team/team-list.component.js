@@ -32,7 +32,10 @@ class TeamListComponent extends HTMLElement {
         return `
         <div class="row">
             <div class="col-md-12">
-                <div class="content-header">Teams</div>
+                <div class="content-header">
+                    Teams
+                    <span class="additional-text">Showing (${this.teams?.size}) Teams</span>
+                </div>
             </div>
         </div>
         <div id="teams">
