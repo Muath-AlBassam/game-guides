@@ -24,14 +24,15 @@ class ButtonGroupComponent extends HTMLElement {
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .btn-group {
-                display: block;
-                margin: 1em 0;
+                margin: 1em 0 0 0;
+                width: 100%;
             }
             
             .btn-group .btn {
-                display: block;
-                float: none;
-                width: 100%;
+                flex: 1;
+                text-align: center;
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     </style>`;

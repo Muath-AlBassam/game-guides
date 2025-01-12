@@ -65,6 +65,7 @@ class FightComponent extends HTMLElement {
 
         .fight__container .item .combos {
             margin: 0 2em;
+            overflow: scroll;
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
@@ -126,7 +127,7 @@ class FightComponent extends HTMLElement {
                             ${character.name}
                         </div>
                     </div>
-                    <div class="combos" style="overflow: scroll;">
+                    <div class="combos">
                         <div class="content-header">Combos</div>
                         <ul>
                             ${Utils.ngFor(character.combos, combo => `

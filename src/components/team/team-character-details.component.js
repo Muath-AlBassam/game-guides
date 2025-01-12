@@ -38,6 +38,11 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             display: flex;
             flex-direction: column;
             padding: 0;
+            max-height: 250px; /* 3 items (243) + extra */
+            overflow-y: scroll;
+        }
+        .build-container::-webkit-scrollbar {
+            width: 1px;
         }
 
         .build-container .build-item {
@@ -92,7 +97,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .build-dialog {
-                padding-top: 2vh;
+                padding-top: 0;
             }
 
             .build-dialog-content {

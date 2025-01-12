@@ -70,6 +70,14 @@ app-nav.active ~ .main-content {
     width: calc(100% - var(--sidebar-active-width));
 }
 
+.main-content {
+    padding: 75px;
+    /* height: 300vh; */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.5s ease;
+}
+
 @media (max-width: 1000px) {
     app-nav ~ .main-content {
         margin-left: var(--sidebar-m-width);
@@ -79,14 +87,11 @@ app-nav.active ~ .main-content {
         margin-left: var(--sidebar-m-width);
         width: calc(100% - var(--sidebar-m-width));
     }
-}
 
-.main-content {
-    padding: 75px;
-    /* height: 300vh; */
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: all 0.5s ease;
+    .main-content {
+        padding: 20px;
+    }
+    
 }
 
 /* Common styles ----------------------------------------------------------- */

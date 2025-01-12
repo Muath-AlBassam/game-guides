@@ -53,8 +53,9 @@ class NotesPopoverComponent extends HTMLElement {
     buildHTML() {
         return Utils.ngIf(this.notes && this.notes.length > 0, `
         <span class="notes-${this.position}">
-            <img class="notes-icon" src="assets/svg/info.svg" height="${this.iconSize}" class="notes" data-bs-trigger="hover"
-                data-bs-toggle="popover" data-bs-custom-class="gagu-popover" data-bs-html="true"
+            <img class="notes-icon" src="assets/svg/info.svg" height="${this.iconSize}"
+                data-bs-trigger="hover" data-bs-toggle="popover" data-bs-custom-class="gagu-popover"
+                data-bs-html="true" data-bs-container="body" data-bs-placement="${Utils.isMobile() ? 'bottom' : 'right'}"
                 data-bs-title="Team Notes" data-bs-content="${this.getFormattedNotes()}">
         </span>
         `);

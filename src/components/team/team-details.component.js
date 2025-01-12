@@ -151,7 +151,7 @@ class TeamDetailsComponent extends HTMLElement {
             .teams__container {
                 display: grid;
                 grid-template-columns: 1fr;
-                height: ${this.characterPFPSize * 2 + 70}px;
+                height: ${this.characterPFPSize * 2 + 100}px;
             }
 
             .teams__container .item {
@@ -212,13 +212,15 @@ class TeamDetailsComponent extends HTMLElement {
 
     modifyDataBasedOnMediaSize() {
         if (Utils.isMobile()) {
-            this.petPFPSize = this.petPFPSize / 1.5;
+            this.petPFPSize = this.petPFPSize * 0.7;
         }
     }
 
     listenToEvents() {
         document.addEventListener('shown.bs.collapse', function (event) {
-            event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (!Utils.isMobile()) {
+                event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         });
     }
 
@@ -244,7 +246,7 @@ class TeamDetailsComponent extends HTMLElement {
                             styles="margin: 5px 10px;"
                             withbuilddialog="true"
                             withelement="true"
-                            mobilesizeratio="0.5"
+                            mobilesizeratio="0.6"
                         >
                         </app-character-image>
                         `)}

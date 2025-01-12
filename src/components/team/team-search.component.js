@@ -10,7 +10,9 @@ class TeamSearchComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        /* */
+        .team-search-container {
+            /* */
+        }
     </style>`;
 
     constructor() {
@@ -43,25 +45,31 @@ class TeamSearchComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div>
-            <app-search eventname="search-team"></app-search>
+        <div class="team-search-container">
+            <span>
+                <app-search eventname="search-team"></app-search>
+            </span>
 
             ${Utils.ngIf(this.rarities?.length > 0, `
-            <app-button-group
-                buttonlist="${Utils.toJSONString(this.rarities)}"
-                titlelabel="label"
-                changeeventname="search-rarity"
-            >
-            </app-button-group>
+            <span>
+                <app-button-group
+                    buttonlist="${Utils.toJSONString(this.rarities)}"
+                    titlelabel="label"
+                    changeeventname="search-rarity"
+                >
+                </app-button-group>
+            </span>
             `)}
 
             ${Utils.ngIf(this.elements?.length > 0, `
-            <app-button-group
-                buttonlist="${Utils.toJSONString(this.elements)}"
-                valuelabel="name"
-                changeeventname="search-element"
-            >
-            </app-button-group>
+            <span>
+                <app-button-group
+                    buttonlist="${Utils.toJSONString(this.elements)}"
+                    valuelabel="name"
+                    changeeventname="search-element"
+                >
+                </app-button-group>
+            </span>
             `)}
         </div>
         `;
