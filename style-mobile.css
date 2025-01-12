@@ -1,0 +1,30 @@
+@media (max-width: 1000px) {
+/* Main content placement after Sidenav ------------------------------------ */
+    app-nav ~ .main-content {
+        margin-left: var(--sidebar-m-width);
+        width: calc(100% - var(--sidebar-m-width));
+    }
+    app-nav.active ~ .main-content {
+        margin-left: var(--sidebar-m-width);
+        width: calc(100% - var(--sidebar-m-width));
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    [title]:hover::after,
+    [title]:focus::after {
+        content: attr(title);
+        position: absolute;
+        background: #222;
+        font-size: 12px;
+        color: white;
+        padding: 5px;
+        border: 1px solid #fff;
+        bottom: 100%; /* or adjust as needed */
+        left: 0;
+        white-space: nowrap;
+        z-index: 2;
+    }
+}

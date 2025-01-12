@@ -12,42 +12,24 @@ class SearchComponent extends HTMLElement {
             display: inline-flex;
             align-items: center;
             width: 30%;
+            margin: 0 1em 0 0;
         }
         .search .clear-icon {
-            position: absolute;
-            display: block;
-            right: 10px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            color: #fff;
-            text-align: center;
-            line-height: 1em;
+            color: #1c1d21;
             cursor: pointer;
-        }
-        .search .gagu-form-control {
-            padding-right: 18px;
-            box-sizing: border-box;
-        }
-
-        .gagu-form-control {
-            width: 100%;
-            padding: 0.375em 0.75em;
-            line-height: 2;
-            border: 0 solid #000;
-            border-bottom: 2px solid #000;
-            background-color: transparent;
-            color: var(--text-color);
-        }
-
-        .gagu-form-control:focus {
-            outline: none;
-            border-bottom: 2px solid #fff;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1em;
+            padding: 0 .2em;
+            position: absolute;
+            right: 9px;
+            top: 6px;
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .search {
                 width: 100%;
+                margin: 0.5em 0;
             }
         }
     </style>`;
@@ -77,7 +59,7 @@ class SearchComponent extends HTMLElement {
                 placeholder="${this.placeholder}"
                 onchange="emitEvent('${this.eventName}', this.value)">
 
-            <span class="clear-icon" onclick="this.previousElementSibling.value = ''; emitEvent('${this.eventName}', '')">
+            <span class="clear-icon" role="button" onclick="this.previousElementSibling.value = ''; emitEvent('${this.eventName}', '')">
                 ${Constants.unicode.times}
             </span>
         </span>

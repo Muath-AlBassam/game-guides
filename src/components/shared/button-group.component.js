@@ -14,7 +14,7 @@ class ButtonGroupComponent extends HTMLElement {
     <style>
         .btn-group {
             border-radius: 0;
-            margin: 0 1em;
+            margin: 0 1em 0 0;
         }
 
         .btn-secondary {
@@ -25,7 +25,7 @@ class ButtonGroupComponent extends HTMLElement {
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .btn-group {
-                margin: 1em 0 0 0;
+                margin: 0.5em 0;
                 width: 100%;
             }
             
