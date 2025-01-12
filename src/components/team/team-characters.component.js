@@ -8,6 +8,7 @@ class TeamCharactersComponent extends HTMLElement {
     searchTerm = '';
     searchRarity = '';
     searchElement = '';
+    searchRole = '';
 
     componentStyle = `
     <style>
@@ -53,19 +54,23 @@ class TeamCharactersComponent extends HTMLElement {
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.searchTerm = event.detail;
-            this.filterAndReload();
+            this.filterListAndReloadHTML();
         });
         window.addEventListener('search-rarity', (event) => {
             this.searchRarity = event.detail;
-            this.filterAndReload();
+            this.filterListAndReloadHTML();
         });
         window.addEventListener('search-element', (event) => {
             this.searchElement = event.detail;
-            this.filterAndReload();
+            this.filterListAndReloadHTML();
+        });
+        window.addEventListener('search-role', (event) => {
+            this.searchRole = event.detail;
+            this.filterListAndReloadHTML();
         });
     }
 
-    filterAndReload() {
+    filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
         this.innerHTML = this.componentStyle + this.buildHTML();
         this.createSlider();
@@ -116,11 +121,13 @@ class TeamCharactersComponent extends HTMLElement {
             // 0: key, 1: value
             let charKey = charMapKeyValue[0];
             let charVal = charMapKeyValue[1];
-            let filterByName = charKey.toLowerCase().includes(this.searchTerm.toLowerCase());
-            let filterByRarity = charVal.rarity?.includes(this.searchRarity);
-            let filterByElement = charVal.element?.includes(this.searchElement);
 
-            return filterByName && filterByRarity && filterByElement;
+            let filterByName = charKey.toLowerCase().includes(this.searchTerm.toLowerCase());
+            let filterByRarity = this.searchRarity ? charVal.rarity == this.searchRarity : true;
+            let filterByElement = this.searchElement ? charVal.element == this.searchElement : true;
+            let filterByRole = this.searchRole ? charVal.role == this.searchRole : true;
+
+            return filterByName && filterByRarity && filterByElement && filterByRole;
         })
         return new Map(filteredList);
     }

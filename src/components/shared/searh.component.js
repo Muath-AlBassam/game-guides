@@ -3,6 +3,7 @@ class SearchComponent extends HTMLElement {
     // inputs
     query = '';
     eventName = 'search';
+    placeholder = 'Search';
 
     componentStyle = `
     <style>
@@ -63,6 +64,7 @@ class SearchComponent extends HTMLElement {
     loadData() {
         if (this.hasAttribute('q')) this.query = this.getAttribute('q');
         if (this.hasAttribute('eventname')) this.eventName = this.getAttribute('eventname');
+        if (this.hasAttribute('placeholder')) this.placeholder = this.getAttribute('placeholder');
     }
 
     buildHTML() {
@@ -72,7 +74,7 @@ class SearchComponent extends HTMLElement {
                 type="text"
                 value="${this.query}"
                 class="gagu-form-control"
-                placeholder="Search"
+                placeholder="${this.placeholder}"
                 onchange="emitEvent('${this.eventName}', this.value)">
 
             <span class="clear-icon" onclick="this.previousElementSibling.value = ''; emitEvent('${this.eventName}', '')">

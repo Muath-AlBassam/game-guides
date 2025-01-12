@@ -5,9 +5,10 @@ class ButtonGroupComponent extends HTMLElement {
     valueLabel = 'code';
     titleLabel = 'name';
     changeEventName = '';
-    uuid = '';
+    showAllButton = true;
 
     activeValue = '';
+    uuid = '';
 
     componentStyle = `
     <style>
@@ -47,11 +48,12 @@ class ButtonGroupComponent extends HTMLElement {
     }
 
     loadData() {
+        if (this.hasAttribute('buttonlist')) this.buttonList =  Utils.fromJSONString(this.getAttribute('buttonlist'));
         if (this.hasAttribute('imagelabel')) this.imageLabel = this.getAttribute('imagelabel');
         if (this.hasAttribute('valuelabel')) this.valueLabel = this.getAttribute('valuelabel');
         if (this.hasAttribute('titlelabel')) this.titleLabel = this.getAttribute('titlelabel');
         if (this.hasAttribute('changeeventname')) this.changeEventName = this.getAttribute('changeeventname');
-        this.buttonList =  Utils.fromJSONString(this.getAttribute('buttonlist'));
+        if (this.hasAttribute('showallbutton')) this.showAllButton = this.getAttribute('showallbutton') == 'true';
 
         this.uuid = Utils.generateUUID();
     }
@@ -59,6 +61,7 @@ class ButtonGroupComponent extends HTMLElement {
     buildHTML() {
         return `
         <span class="btn-group" id="${this.uuid}">
+            ${Utils.ngIf(this.showAllButton, `
             <button 
                 class="btn btn-secondary active" 
                 value=""
@@ -66,7 +69,9 @@ class ButtonGroupComponent extends HTMLElement {
                 onclick="emitEvent('${this.changeEventName}',''); onBtnGroupChange('${this.uuid}', '')"
             >
                 <span style="color: #fff;">${Constants.unicode.star}</span>
-            </button>
+            </button>    
+            `)}
+
             ${Utils.ngFor(this.buttonList, btn => `
             <button 
                 class="btn btn-secondary"
@@ -75,7 +80,7 @@ class ButtonGroupComponent extends HTMLElement {
                 onclick="emitEvent('${this.changeEventName}', '${btn[this.valueLabel]}'); 
                         onBtnGroupChange('${this.uuid}', '${btn[this.valueLabel]}')"
             >
-                <img src="${btn[this.imageLabel]}" alt="${btn[this.titleLabel]}" height="20"/>
+                <img src="${btn[this.imageLabel]}" alt="${btn[this.titleLabel]}" height="24"/>
             </button>
             `)}
         </span>
