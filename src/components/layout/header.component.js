@@ -8,16 +8,17 @@ class HeaderComponent extends HTMLElement {
             height: 50px;
             position: fixed;
             z-index: 15;
+            user-select: none;
         }
 
-        .header .logo {
+        .header .header-text {
             color: #fff;
             height: 50px;
             width: 100%;
             align-items: center;
-            pointer-events: none;
             font-size: 1.3em;
             font-family: 'Death Star';
+            text-decoration: none;
         }
 
         .header #sidebarToggle {
@@ -42,7 +43,7 @@ class HeaderComponent extends HTMLElement {
         return `
         <div class="header">
             <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
-            <span class="logo">Game Guides</span>
+            <a class="header-text" href="#Home">Game Guides</span>
         </div>`;
     }
 }
