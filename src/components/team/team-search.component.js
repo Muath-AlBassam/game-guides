@@ -50,6 +50,11 @@ class TeamSearchComponent extends HTMLElement {
 
     buildHTML() {
         return `
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-header">Search</div>
+            </div>
+        </div>
         <div class="team-search-container">
             <span>
                 <app-search eventname="search-team" placeholder="Search characters..."></app-search>
