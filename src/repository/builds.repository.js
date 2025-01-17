@@ -569,6 +569,20 @@ class BuildsRepository {
                     { name: 'Talia: Kingdom of Banditry', pieceCount: '2' }
                 ]
             }],
+            ['The Herta', {
+                weapon: { name: 'Into the Unreachable Veil' },
+                sets: [
+                    { name: 'Scholar\'s Silver-Rimmed Monocle', pieceCount: '4' },
+                    { name: 'Izumo Gensei and Takama Divine Realm', pieceCount: '2' }
+                ]
+            }],
+            ['MC (Remembrance)', {
+                weapon: { name: 'Victory In a Blink' },
+                sets: [
+                    { name: 'Sacerdos\' Relived Ordeal', pieceCount: '4' },
+                    { name: 'Sprightly Vonwacq', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         ZZZBuilds: new Map([

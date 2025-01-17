@@ -241,6 +241,18 @@ class SetsRepository {
                 name: 'Talia: Kingdom of Banditry',
                 imageUrl: 'assets/images/hsr/set/HSR_Set_TaliaKingdomOfBanditry.png'
             }],
+            ['Scholar\'s Silver-Rimmed Monocle', {
+                name: 'Scholar\'s Silver-Rimmed Monocle',
+                imageUrl: 'assets/images/hsr/set/HSR_Set_ScholarsSilverRimmedMonocle.png'
+            }],
+            ['Sacerdos\' Relived Ordeal', {
+                name: 'Sacerdos\' Relived Ordeal',
+                imageUrl: 'assets/images/hsr/set/HSR_Set_SacerdosRelivedOrdeal.png'
+            }],
+            ['Sprightly Vonwacq', {
+                name: 'Sprightly Vonwacq',
+                imageUrl: 'assets/images/hsr/set/HSR_Set_SprightlyVonwacq.png'
+            }],
         ]),
     
         ZZZSets: new Map([

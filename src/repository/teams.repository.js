@@ -347,29 +347,32 @@ class TeamsRepository {
                 iconUrl: 'assets/images/hsr/icons/HSR_Ice.png',
                 characters: [
                     {
-                        name: 'Luocha',
-                        role: 'Heal',
+                        name: 'Fu Xuan',
+                        role: 'Tank + Crit Buff',
                         isMain: false,
-                        replacements: ['Fu Xuan', 'Huohuo'],
+                        replacements: ['Aventurine'],
                     },
                     {
-                        name: 'Jingliu',
+                        name: 'The Herta',
                         role: 'DPS',
                         isMain: true,
                         replacements: [],
                     },
                     {
-                        name: 'Bronya',
-                        role: 'DMG & Crit Buff',
+                        name: 'Jade',
+                        role: 'Sub DPS',
                         isMain: false,
-                        replacements: ['Sparkle'],
+                        replacements: ['Herta'],
                     },
                     {
-                        name: 'Pela',
-                        role: 'Ice RES Shred + DEF Reduction',
+                        name: 'MC (Remembrance)',
+                        role: 'Crit Buff + True DMG',
                         isMain: false,
-                        replacements: ['Tingyun', 'Ruan Mei'],
+                        replacements: [],
                     }
+                ],
+                variations: [
+                    { name: null, characters: ['Luocha', 'Jingliu', ['Bronya', 'Sparkle'], 'Pela'] }
                 ]
             }],
             ['Lightning', {

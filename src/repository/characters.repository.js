@@ -598,6 +598,20 @@ class CharactersRepository {
                 role: 'Nihility',
                 rarity: '5',
             }],
+            ['The Herta', {
+                name: 'The Herta',
+                imageUrl: 'assets/images/hsr/character/HSR_TheHerta.png',
+                element: 'Ice',
+                role: 'Erudition',
+                rarity: '5',
+            }],
+            ['MC (Remembrance)', {
+                name: 'MC (Remembrance)',
+                imageUrl: 'assets/images/hsr/character/HSR_MCRemembrance.png',
+                element: 'Ice',
+                role: 'Remembrance',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([

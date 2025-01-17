@@ -391,6 +391,16 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/hsr/light-cone/HSR_LC_LongRoadLeadsHome.png',
                 rarity: '5'
             }],
+            ['Into the Unreachable Veil', {
+                name: 'Into the Unreachable Veil',
+                imageUrl: 'assets/images/hsr/light-cone/HSR_LC_IntoTheUnreachableVeil.png',
+                rarity: '5'
+            }],
+            ['Victory In a Blink', {
+                name: 'Victory In a Blink',
+                imageUrl: 'assets/images/hsr/light-cone/HSR_LC_VictoryInABlink.png',
+                rarity: '4'
+            }],
         ]),
     
         ZZZWEngines: new Map([
