@@ -39,13 +39,13 @@ class RolesRepository {
         ]),
 
         HSRRoles: new Map([
-            ['Abundance', { 
-                name: 'Abundance', 
-                imageUrl: 'assets/images/hsr/icons/HSR_Path_Abundance.png' 
-            }],
             ['Destruction',{ 
                 name: 'Destruction', 
                 imageUrl: 'assets/images/hsr/icons/HSR_Path_Destruction.png' 
+            }],
+            ['Hunt',{ 
+                name: 'Hunt', 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Hunt.png' 
             }],
             ['Erudition',{ 
                 name: 'Erudition', 
@@ -55,10 +55,7 @@ class RolesRepository {
                 name: 'Harmony', 
                 imageUrl: 'assets/images/hsr/icons/HSR_Path_Harmony.png' 
             }],
-            ['Hunt',{ 
-                name: 'Hunt', 
-                imageUrl: 'assets/images/hsr/icons/HSR_Path_Hunt.png' 
-            }],
+            
             ['Nihility',{ 
                 name: 'Nihility', 
                 imageUrl: 'assets/images/hsr/icons/HSR_Path_Nihility.png' 
@@ -66,6 +63,14 @@ class RolesRepository {
             ['Preservation',{ 
                 name: 'Preservation', 
                 imageUrl: 'assets/images/hsr/icons/HSR_Path_Preservation.png' 
+            }],
+            ['Abundance', { 
+                name: 'Abundance', 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Abundance.png' 
+            }],
+            ['Remembrance', { 
+                name: 'Remembrance', 
+                imageUrl: 'assets/images/hsr/icons/HSR_Path_Remembrance.png' 
             }],
         ]),
     
