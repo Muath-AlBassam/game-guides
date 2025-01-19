@@ -41,16 +41,15 @@ class VariationsComponent extends HTMLElement {
     buildHTML() {
         return `
         <div class="container variations-container">
-            <div>
-                <h5 class="content-header">
-                    <img src="assets/svg/variations.svg" height="20" class="action">
-                    Variations
-                </h5>
-            </div>
+            <h5 class="content-header">
+                <img src="assets/svg/variations.svg" height="20" class="action">
+                Variations
+            </h5>
+            ${Utils.ngIf(this.currentTeam.variations, `
             <div style="overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>
-                        ${Utils.ngForIf(this.currentTeam.variations, this.currentTeam.variations, vari => `
+                        ${Utils.ngFor(this.currentTeam.variations, vari => `
                         <tr>
                             <td style="display: flex; text-align: center">
                                 <span class="variation-name">
@@ -73,12 +72,12 @@ class VariationsComponent extends HTMLElement {
                                 `)}
                             </td>
                         </tr>
-                        `,
-                        `<h1 class="empty-details">...</h1>`
-                        )}
+                        `)}
                     </tbody>
                 </table>
-            </div>
+            </div>    
+            `,
+            `<h1 class="empty-details">...</h1>`)}
         </div>`;
     }
 }

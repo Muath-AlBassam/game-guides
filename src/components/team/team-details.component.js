@@ -138,7 +138,7 @@ class TeamDetailsComponent extends HTMLElement {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: calc(100% - 63px); /* 63px is total height of details title (height + border + padding + margin) */
+            height: calc(100% - 70px); /* 70px is total height of details title (height + border + padding + margin) (63px) + extra */
             user-select: none;
         }
 

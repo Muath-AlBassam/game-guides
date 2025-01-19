@@ -294,7 +294,7 @@ class TeamsRepository {
                     },
                     {
                         name: 'Yunli',
-                        role: 'DPS [Ult + FUA]',
+                        role: 'DPS + Counter (FUA)',
                         isMain: true,
                         replacements: ['Clara'],
                     },
@@ -347,10 +347,10 @@ class TeamsRepository {
                 iconUrl: 'assets/images/hsr/icons/HSR_Ice.png',
                 characters: [
                     {
-                        name: 'Fu Xuan',
-                        role: 'Tank + Crit Buff',
+                        name: 'Aventurine',
+                        role: 'Tank',
                         isMain: false,
-                        replacements: ['Aventurine'],
+                        replacements: ['Fu Xuan'],
                     },
                     {
                         name: 'The Herta',
@@ -558,7 +558,7 @@ class TeamsRepository {
                     }
                 ],
                 variations: [
-                    { name: 'AoE FUA', characters: ['Fu Xuan', 'Jade', 'Herta', 'Robin'] }
+                    { name: 'AoE FUA', characters: ['Aventurine', 'Jade', 'Herta', 'Robin'] }
                 ]
             }],
             ['Break', {
