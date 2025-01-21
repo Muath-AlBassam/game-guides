@@ -300,6 +300,13 @@ class BuildsRepository {
                     { name: 'Wanderer\'s Troupe', pieceCount: '4' },
                 ]
             }],
+            ['Shenhe', {
+                weapon: { name: 'Wavebreaker\'s Fin' },
+                sets: [
+                    { name: 'Gladiator\'s Finale', pieceCount: '2' },
+                    { name: 'Shimenawa\'s Reminiscence', pieceCount: '2' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

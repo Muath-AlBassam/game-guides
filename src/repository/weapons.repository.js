@@ -218,6 +218,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/gi/weapon/GI_W_TheFirstGreatMagic.png',
                 rarity: '5'
             }],
+            ['Wavebreaker\'s Fin', {
+                name: 'Wavebreaker\'s Fin',
+                imageUrl: 'assets/images/gi/weapon/GI_W_WavebreakersFin.png',
+                rarity: '4'
+            }],
         ]),
     
         HSRLightCones: new Map([

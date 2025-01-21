@@ -198,7 +198,7 @@ class TeamsRepository {
                     },
                     {
                         name: 'Shenhe',
-                        role: null,
+                        role: 'Atk Buff + RES Shred',
                         isMain: false,
                         replacements: [],
                     },

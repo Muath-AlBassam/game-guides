@@ -343,6 +343,13 @@ class CharactersRepository {
                 role: 'DPS',
                 rarity: '5',
             }],
+            ['Shenhe', {
+                name: 'Shenhe',
+                imageUrl: 'assets/images/gi/character/GI_Shenhe.png',
+                element: 'Cryo',
+                role: 'Support',
+                rarity: '5',
+            }],
         ]),
     
         HSRCharacters: new Map([

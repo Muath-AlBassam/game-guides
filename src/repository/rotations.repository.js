@@ -92,6 +92,7 @@ class RotationsRepository {
                 ['Wriothesley', `${this.gi.normal}${this.times}1 ${this.arrow}`],
                 ['Kazuha', `${this.gi.skill} ${this.arrow}`],
                 ['Kokomi', `${this.gi.skill} ${this.arrow}`],
+                ['Shenhe', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow} ${this.gi.ultimate} ${this.arrow}`],
                 ['Wriothesley', `${this.gi.skill} ${this.arrow} ${this.repeat(`${this.gi.normal} + ${this.gi.charged}`)}`],
             ]],
             ['Geo', [
