@@ -4,6 +4,9 @@ class TeamSearchComponent extends HTMLElement {
     rarities = [];
     elements = [];
     roles = [];
+    showRarities = true;
+    showElements = true;
+    showRoles = true;
 
     searchTerm = '';
     searchRarity = '';
@@ -12,7 +15,8 @@ class TeamSearchComponent extends HTMLElement {
     componentStyle = `
     <style>
         .team-search-container {
-            /* */
+            margin-top: 12px;
+            margin-bottom: 12px;
         }
     </style>`;
 
@@ -27,6 +31,10 @@ class TeamSearchComponent extends HTMLElement {
     }
 
     loadData() {
+        if (this.hasAttribute('showrarities')) this.showRarities = this.getAttribute('showrarities') == 'true';
+        if (this.hasAttribute('showelements')) this.showElements = this.getAttribute('showelements') == 'true';
+        if (this.hasAttribute('showroles')) this.showRoles = this.getAttribute('showroles') == 'true';
+
         this.gameCode = Utils.getGameFromUrl();
         this.rarities = [...RarityRepository.getAllRarities(this.gameCode).values()];
         this.elements = [...ElementsRepository.getAllElements(this.gameCode).values()];
@@ -50,17 +58,17 @@ class TeamSearchComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div class="row">
+        <!--<div class="row">
             <div class="col-md-12">
                 <div class="content-header">Search</div>
             </div>
-        </div>
+        </div>-->
         <div class="team-search-container">
             <span>
                 <app-search eventname="search-team" placeholder="Search characters..."></app-search>
             </span>
 
-            ${Utils.ngIf(this.rarities?.length > 0, `
+            ${Utils.ngIf(this.showRarities && this.rarities?.length > 0, `
             <span>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.rarities)}"
@@ -71,7 +79,7 @@ class TeamSearchComponent extends HTMLElement {
             </span>
             `)}
 
-            ${Utils.ngIf(this.elements?.length > 0, `
+            ${Utils.ngIf(this.showElements && this.elements?.length > 0, `
             <span>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.elements)}"
@@ -82,7 +90,7 @@ class TeamSearchComponent extends HTMLElement {
             </span>
             `)}
 
-            ${Utils.ngIf(this.roles?.length > 0, `
+            ${Utils.ngIf(this.showRoles && this.roles?.length > 0, `
             <span>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.roles)}"

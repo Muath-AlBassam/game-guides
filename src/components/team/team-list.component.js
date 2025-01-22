@@ -24,7 +24,7 @@ class TeamListComponent extends HTMLElement {
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.teams = this.filterTeams(event.detail);
-            this.innerHTML = this.buildHTML();
+            document.getElementById('teams').innerHTML = this.buildListHTML();
         });
     }
 
@@ -38,17 +38,26 @@ class TeamListComponent extends HTMLElement {
                 </div>
             </div>
         </div>
+
+        <app-team-search showrarities="false" showelements="false" showroles="false"></app-team-search>
+
         <div id="teams">
-            ${Utils.ngIf(this.teams.size > 0, `
-                ${Utils.ngForMap(this.teams, (team, index) => `
-                <app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>
-                `)}    
-            `, `
-            <div>
-                <img src="assets/svg/shrug.svg" height="${Utils.isMobile() ? '150' : '300'}" />
-            </div>
-            `)}
+            ${this.buildListHTML()}
         </div>`;
+    }
+
+    buildListHTML() {
+        return `
+        ${Utils.ngIf(this.teams.size > 0, `
+            ${Utils.ngForMap(this.teams, (team, index) => `
+            <app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>
+            `)}    
+        `, `
+        <div>
+            <img src="assets/svg/shrug.svg" height="${Utils.isMobile() ? '150' : '300'}" />
+        </div>
+        `)}
+        `;
     }
 
     filterTeams(searchTerm) {

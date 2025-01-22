@@ -72,7 +72,7 @@ class TeamCharactersComponent extends HTMLElement {
 
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
-        this.innerHTML = this.componentStyle + this.buildHTML();
+        document.getElementById('characters-container').innerHTML = this.buildListHTML();
         this.createSlider();
     }
 
@@ -86,32 +86,39 @@ class TeamCharactersComponent extends HTMLElement {
                 </div>
             </div>
         </div>
-        <div class="characters-container">
-            <div class="characters-slider draggable">
-                ${Utils.ngIf(this.characters.size > 0, `
-                    ${Utils.ngForMap(this.characters, charmd => `
-                        <app-character-image 
-                            gamecode="${this.gameCode}"
-                            charactername="${charmd.name}"
-                            dimensions="${this.characterPFPSize}"
-                            styles="margin: 5px 10px;"
-                            withbuilddialog="true"
-                            withelement="true"
-                        >
-                        </app-character-image>
-                    `)}
-                `, `
+        <app-team-search></app-team-search>
+        <div class="characters-container" id="characters-container">
+           ${this.buildListHTML()}
+        </div>
+        `;
+    }
+
+    buildListHTML() {
+        return `
+        <div class="characters-slider draggable">
+        ${Utils.ngIf(this.characters.size > 0, `
+            ${Utils.ngForMap(this.characters, charmd => `
                 <app-character-image 
                     gamecode="${this.gameCode}"
-                    charactername="..."
+                    charactername="${charmd.name}"
                     dimensions="${this.characterPFPSize}"
                     styles="margin: 5px 10px;"
                     withbuilddialog="true"
                     withelement="true"
                 >
                 </app-character-image>
-                `)}
-            </div>
+            `)}
+            `, `
+            <app-character-image 
+                gamecode="${this.gameCode}"
+                charactername="..."
+                dimensions="${this.characterPFPSize}"
+                styles="margin: 5px 10px;"
+                withbuilddialog="true"
+                withelement="true"
+            >
+            </app-character-image>
+            `)}
         </div>
         `;
     }

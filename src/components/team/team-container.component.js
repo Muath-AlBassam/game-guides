@@ -11,9 +11,7 @@ class TeamContainerComponent extends HTMLElement {
     buildHTML() {
         return `
             <app-team-character-details id="build-dialog"></app-team-character-details>
-            <app-team-search></app-team-search>
-            <app-team-characters></app-team-characters>
-            <app-team-list></app-team-list>
+            <app-team-tabs></app-team-tabs>
         `;
     }
 }

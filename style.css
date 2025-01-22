@@ -20,6 +20,7 @@
 :root {
     --background-color: #23242a;
     --text-color: #fff;
+    --border-color: #2692d3;
     --sidebar-color: #1c1d21;
     --sidebar-width: 60px;
     --sidebar-m-width: 0; /* width in mobile view */
@@ -82,7 +83,7 @@ app-nav.active ~ .main-content {
 
 /* Common styles ----------------------------------------------------------- */
 .content-header {
-    border-bottom: 2px solid #6b6b6b;
+    border-bottom: 2px solid var(--border-color);
     font-size: 20px;
     font-weight: bold;
     line-height: 20px;
@@ -98,7 +99,7 @@ app-nav.active ~ .main-content {
     display: inline-block;
     width: 12px;
     height: 12px;
-    background-color: #6b6b6b;
+    background-color: var(--border-color);
     margin-right: 6px;
     position: relative;
     top: 3px;
