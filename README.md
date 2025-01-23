@@ -2,12 +2,22 @@
 
 <img src="assets/images/gi/GI_Logo.png" alt="Step 1" width="200"/>
 
-- Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
-  - Open & download image from "All characters" page
-- Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+- Characters :
+  - <u>PROFILE:</u>
+    - Open Genshin Impact page from [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+    - Open & download profile image from "All characters" page
+  - <u>CARD:</u>
+    - Open [Genshin Impact Official Page](https://genshin.hoyoverse.com/en/character/mondstadt)
+    - Open & download character image
+    - Use [ILoveImg](https://www.iloveimg.com/crop-image) to crop images
+      - Size: 964px x 1320px
+- Weapons : 
+  - Open Genshin Impact page from [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
-- Sets : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
-  - Open & download image from a character's details
+- Sets : 
+  - Open Genshin Impact page from [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+  - Open set wiki from a character's details
+  - Open & download image of Flower piece
 
 <img src="assets/readme/gi-image-loc-1.png" alt="Step 1" width="500"/>
 
@@ -31,10 +41,16 @@
 <img src="assets/images/zzz/ZZZ_Logo.png" alt="Step 1" width="200"/>
 
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
-  - Open & download image from a character's "Wiki" page
-  - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
-    - <u>PROFILE:</u> Size around 256px~330px
-    - <u>CARD:</u> Size 500px x 684px
+  - <u>PROFILE:</u>
+    - Open ZZZ page from [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+    - Open & download image from a character's "Wiki" page
+    - Use [ILoveImg](https://www.iloveimg.com/crop-image) to crop images
+      - Size: Around 256px~330px
+  - <u>CARD:</u>
+    - Open ZZZ page from [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
+    - Open & download image from a character's "Wiki" page
+    - Use [ILoveImg](https://www.iloveimg.com/crop-image) to crop images
+      - Size: 500px x 684px
       - Use [this](https://andrew.hedges.name/experiments/aspect_ratio/) to help with the ratio (Base ratio: 374x512)
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
@@ -47,10 +63,3 @@
 <br>
 <br>
 <br>
-
-## TODO
-
-> Add character notes ?
-- use when...
-- equip weapon/set when...
-- etc.
