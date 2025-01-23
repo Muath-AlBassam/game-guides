@@ -30,50 +30,6 @@ class TeamCharactersComponent extends HTMLElement {
             justify-content: space-between;
             margin-top: 24px;
         }
-
-        .characters-container .char-card {
-            width: 160px;
-            height: 219px;
-            transform: scale(1);
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .characters-container .char-card .char-img {
-            display: block;
-            margin: auto;
-            transition: all 0.3s ease-out;
-        }
-        .characters-container .char-card:hover .char-img {
-            transform: scale(1.1);
-        }
-
-        .characters-container .char-card .ele-img {
-            position: absolute;
-            background-color: #23242a;
-            padding: 2px;
-            width: 29px;
-            height: 29px;
-        }
-
-        .characters-container .char-card .role-img {
-            position: absolute;
-            background-color: #23242a;
-            padding: 2px;
-            width: 29px;
-            height: 29px;
-            top: 29px;
-        }
-
-        .characters-container .char-card .smoky-overlay {
-            position: absolute;
-            bottom: 0; /* Position the overlay at the bottom */
-            left: 0;
-            width: 100%;
-            height: 30%; /* Adjust this to control how far up the gradient goes */
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-            /*mix-blend-mode: lighten;*/
-            pointer-events: none;
-        }
     </style>`;
 
     constructor() {
@@ -186,27 +142,15 @@ class TeamCharactersComponent extends HTMLElement {
         return `
             ${Utils.ngIf(this.characters.size > 0, `
             ${Utils.ngForMap(this.characters, charmd => `
-            <div class="char-card ${this.gameCode+'-rarity-'+charmd.rarity}">
-                <img
-                    class="ele-img"
-                    src="${ElementsRepository.getElement(this.gameCode, charmd.element).imageUrl ?? Constants.images.transparent}"
-                    width="25"
-                    height="25"/>
-                <img
-                    class="role-img"
-                    src="${RolesRepository.getRole(this.gameCode, charmd.role).imageUrl ?? Constants.images.transparent}"
-                    width="25"
-                    height="25"/>
-                <img
-                    class="char-img"
-                    src="${charmd.cardImageUrl}" 
-                    alt="${charmd.name ?? '?'}" 
-                    title="${charmd.name ?? '?'}"
-                    width="160"
-                    onclick="openBuildDialog('${charmd.name}')"
-                />
-                <div class="smoky-overlay"></div>
-            </div>
+            <app-character-image 
+                gamecode="${this.gameCode}"
+                charactername="${charmd.name}"
+                dimensions="160"
+                withbuilddialog="true"
+                withelement="true"
+                imagestyle="card"
+            >
+            </app-character-image>
             `)}
             `, `
             <div class="char-card">

@@ -31,6 +31,7 @@ class CharactersRepository {
             ['Arlecchino', {
                 name: 'Arlecchino',
                 imageUrl: 'assets/images/gi/character/GI_Arlecchino.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Arlecchino_B.png',
                 element: 'Pyro',
                 role: 'DPS',
                 rarity: '5',
@@ -38,6 +39,7 @@ class CharactersRepository {
             ['Chiori', {
                 name: 'Chiori',
                 imageUrl: 'assets/images/gi/character/GI_Chiori.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Chiori_B.png',
                 element: 'Geo',
                 role: 'DPS',
                 rarity: '5',
@@ -45,6 +47,7 @@ class CharactersRepository {
             ['Bennett', {
                 name: 'Bennett',
                 imageUrl: 'assets/images/gi/character/GI_Bennett.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Bennett_B.png',
                 element: 'Pyro',
                 role: 'Support',
                 rarity: '4',
@@ -52,6 +55,7 @@ class CharactersRepository {
             ['Diluc', {
                 name: 'Diluc',
                 imageUrl: 'assets/images/gi/character/GI_Diluc.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Diluc_B.png',
                 element: 'Pyro',
                 role: 'DPS',
                 rarity: '5',
@@ -59,6 +63,7 @@ class CharactersRepository {
             ['Eula', {
                 name: 'Eula',
                 imageUrl: 'assets/images/gi/character/GI_Eula.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Eula_B.png',
                 element: 'Cryo',
                 role: 'DPS',
                 rarity: '5',
@@ -66,6 +71,7 @@ class CharactersRepository {
             ['Faruzan', {
                 name: 'Faruzan',
                 imageUrl: 'assets/images/gi/character/GI_Faruzan.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Faruzan_B.png',
                 element: 'Anemo',
                 role: 'Support',
                 rarity: '4',
@@ -73,6 +79,7 @@ class CharactersRepository {
             ['Fischl', {
                 name: 'Fischl',
                 imageUrl: 'assets/images/gi/character/GI_Fischl.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Fischl_B.png',
                 element: 'Electro',
                 role: 'Sub DPS',
                 rarity: '4',
@@ -80,6 +87,7 @@ class CharactersRepository {
             ['Furina', {
                 name: 'Furina',
                 imageUrl: 'assets/images/gi/character/GI_Furina.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Furina_B.png',
                 element: 'Hydro',
                 role: 'Support',
                 rarity: '5',
@@ -87,6 +95,7 @@ class CharactersRepository {
             ['Ayaka', {
                 name: 'Ayaka',
                 imageUrl: 'assets/images/gi/character/GI_Ayaka.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Ayaka_B.png',
                 element: 'Cryo',
                 role: 'DPS',
                 rarity: '5',
@@ -94,6 +103,7 @@ class CharactersRepository {
             ['Kazuha', {
                 name: 'Kazuha',
                 imageUrl: 'assets/images/gi/character/GI_Kazuha.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Kazuha_B.png',
                 element: 'Anemo',
                 role: 'Support',
                 rarity: '5',
@@ -101,6 +111,7 @@ class CharactersRepository {
             ['Hu Tao', {
                 name: 'Hu Tao',
                 imageUrl: 'assets/images/gi/character/GI_HuTao.png',
+                cardImageUrl: 'assets/images/gi/character/GI_HuTao_B.png',
                 element: 'Pyro',
                 role: 'DPS',
                 rarity: '5',
@@ -108,6 +119,7 @@ class CharactersRepository {
             ['Gorou', {
                 name: 'Gorou',
                 imageUrl: 'assets/images/gi/character/GI_Gorou.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Gorou_B.png',
                 element: 'Geo',
                 role: 'Support',
                 rarity: '4',
@@ -115,6 +127,7 @@ class CharactersRepository {
             ['Ganyu', {
                 name: 'Ganyu',
                 imageUrl: 'assets/images/gi/character/GI_Ganyu.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Ganyu_B.png',
                 element: 'Cryo',
                 role: 'DPS',
                 rarity: '5',
@@ -122,6 +135,7 @@ class CharactersRepository {
             ['Kirara', {
                 name: 'Kirara',
                 imageUrl: 'assets/images/gi/character/GI_Kirara.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Kirara_B.png',
                 element: 'Dendro',
                 // role: 'Support', // TODO
                 rarity: '4',
@@ -129,6 +143,7 @@ class CharactersRepository {
             ['Kuki Shinobu', {
                 name: 'Kuki Shinobu',
                 imageUrl: 'assets/images/gi/character/GI_KukiShinobu.png',
+                cardImageUrl: 'assets/images/gi/character/GI_KukiShinobu_B.png',
                 element: 'Electro',
                 role: 'Sub DPS',
                 rarity: '4',
@@ -136,6 +151,7 @@ class CharactersRepository {
             ['Lynette', {
                 name: 'Lynette',
                 imageUrl: 'assets/images/gi/character/GI_Lynette.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Lynette_B.png',
                 element: 'Anemo',
                 // role: 'Support', // TODO
                 rarity: '4',
@@ -143,13 +159,15 @@ class CharactersRepository {
             ['Nilou', {
                 name: 'Nilou',
                 imageUrl: 'assets/images/gi/character/GI_Nilou.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Nilou_B.png',
                 element: 'Hydro',
                 role: 'Support',
                 rarity:  '5',
             }],
             ['Neuvillette', {
                 name: 'Neuvillette',
-                imageUrl: 'assets/images/gi/character/GI_Neuvillette.png.png',
+                imageUrl: 'assets/images/gi/character/GI_Neuvillette.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Neuvillette_B.png',
                 element: 'Hydro',
                 role: 'DPS',
                 rarity: '5',
@@ -157,6 +175,7 @@ class CharactersRepository {
             ['Navia', {
                 name: 'Navia',
                 imageUrl: 'assets/images/gi/character/GI_Navia.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Navia_B.png',
                 element: 'Geo',
                 role: 'DPS',
                 rarity: '5',
@@ -164,6 +183,7 @@ class CharactersRepository {
             ['Nahida', {
                 name: 'Nahida',
                 imageUrl: 'assets/images/gi/character/GI_Nahida.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Nahida_B.png',
                 element: 'Dendro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -171,6 +191,7 @@ class CharactersRepository {
             ['Mika', {
                 name: 'Mika',
                 imageUrl: 'assets/images/gi/character/GI_Mika.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Mika_B.png',
                 element: 'Cryo',
                 role: 'Support',
                 rarity: '4',
@@ -178,6 +199,7 @@ class CharactersRepository {
             ['Raiden Shogun', {
                 name: 'Raiden Shogun',
                 imageUrl: 'assets/images/gi/character/GI_RaidenShogun.png',
+                cardImageUrl: 'assets/images/gi/character/GI_RaidenShogun_B.png',
                 element: 'Electro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -185,13 +207,15 @@ class CharactersRepository {
             ['Kokomi', {
                 name: 'Kokomi',
                 imageUrl: 'assets/images/gi/character/GI_Kokomi.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Kokomi_B.png',
                 element: 'Hydro',
                 role: 'Healer',
                 rarity: '5',
             }],
             ['Wriothesley', {
                 name: 'Wriothesley',
-                imageUrl: 'assets/images/gi/character/GI_Wriothesley.png.png',
+                imageUrl: 'assets/images/gi/character/GI_Wriothesley.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Wriothesley_B.png',
                 element: 'Cryo',
                 role: 'DPS',
                 rarity: '5',
@@ -199,6 +223,7 @@ class CharactersRepository {
             ['Xianyun', {
                 name: 'Xianyun',
                 imageUrl: 'assets/images/gi/character/GI_Xianyun.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Xianyun_B.png',
                 element: 'Anemo',
                 role: 'Support',
                 rarity: '5',
@@ -206,6 +231,7 @@ class CharactersRepository {
             ['Xiao', {
                 name: 'Xiao',
                 imageUrl: 'assets/images/gi/character/GI_Xiao.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Xiao_B.png',
                 element: 'Anemo',
                 role: 'DPS',
                 rarity: '5',
@@ -213,6 +239,7 @@ class CharactersRepository {
             ['Xingqiu', {
                 name: 'Xingqiu',
                 imageUrl: 'assets/images/gi/character/GI_Xingqiu.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Xingqiu_B.png',
                 element: 'Hydro',
                 role: 'Sub DPS',
                 rarity: '4',
@@ -220,6 +247,7 @@ class CharactersRepository {
             ['Yae Miko', {
                 name: 'Yae Miko',
                 imageUrl: 'assets/images/gi/character/GI_YaeMiko.png',
+                cardImageUrl: 'assets/images/gi/character/GI_YaeMiko_B.png',
                 element: 'Electro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -227,6 +255,7 @@ class CharactersRepository {
             ['Zhongli', {
                 name: 'Zhongli',
                 imageUrl: 'assets/images/gi/character/GI_Zhongli.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Zhongli_B.png',
                 element: 'Geo',
                 role: 'Support',
                 rarity: '5',
@@ -234,6 +263,7 @@ class CharactersRepository {
             ['Yun Jin', {
                 name: 'Yun Jin',
                 imageUrl: 'assets/images/gi/character/GI_YunJin.png',
+                cardImageUrl: 'assets/images/gi/character/GI_YunJin_B.png',
                 element: 'Geo',
                 role: 'Support',
                 rarity: '4',
@@ -241,6 +271,7 @@ class CharactersRepository {
             ['Yelan', {
                 name: 'Yelan',
                 imageUrl: 'assets/images/gi/character/GI_Yelan.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Yelan_B.png',
                 element: 'Hydro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -248,6 +279,7 @@ class CharactersRepository {
             ['Clorinde', {
                 name: 'Clorinde',
                 imageUrl: 'assets/images/gi/character/GI_Clorinde.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Clorinde_B.png',
                 element: 'Electro',
                 role: 'DPS',
                 rarity: '5',
@@ -255,6 +287,7 @@ class CharactersRepository {
             ['Chevreuse', {
                 name: 'Chevreuse',
                 imageUrl: 'assets/images/gi/character/GI_Chevreuse.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Chevreuse_B.png',
                 element: 'Pyro',
                 role: 'Support',
                 rarity: '4',
@@ -262,6 +295,7 @@ class CharactersRepository {
             ['Xianling', {
                 name: 'Xianling',
                 imageUrl: 'assets/images/gi/character/GI_Xianling.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Xianling_B.png',
                 element: 'Pyro',
                 role: 'Sub DPS',
                 rarity: '4',
@@ -269,6 +303,7 @@ class CharactersRepository {
             ['Emilie', {
                 name: 'Emilie',
                 imageUrl: 'assets/images/gi/character/GI_Emilie.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Emilie_B.png',
                 element: 'Dendro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -276,6 +311,7 @@ class CharactersRepository {
             ['Dehya', {
                 name: 'Dehya',
                 imageUrl: 'assets/images/gi/character/GI_Dehya.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Dehya_B.png',
                 element: 'Pyro',
                 role: 'Sub DPS',
                 rarity: '5',
@@ -283,6 +319,7 @@ class CharactersRepository {
             ['Mualani', {
                 name: 'Mualani',
                 imageUrl: 'assets/images/gi/character/GI_Mualani.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Mualani_B.png',
                 element: 'Hydro',
                 role: 'DPS',
                 rarity: '5',
@@ -290,6 +327,7 @@ class CharactersRepository {
             ['Kinich', {
                 name: 'Kinich',
                 imageUrl: 'assets/images/gi/character/GI_Kinich.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Kinich_B.png',
                 element: 'Dendro',
                 role: 'DPS',
                 rarity: '5',
@@ -297,6 +335,7 @@ class CharactersRepository {
             ['Thoma', {
                 name: 'Thoma',
                 imageUrl: 'assets/images/gi/character/GI_Thoma.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Thoma_B.png',
                 element: 'Pyro',
                 role: 'Support',
                 rarity: '4',
@@ -304,6 +343,7 @@ class CharactersRepository {
             ['Xilonen', {
                 name: 'Xilonen',
                 imageUrl: 'assets/images/gi/character/GI_Xilonen.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Xilonen_B.png',
                 element: 'Geo',
                 role: 'Support',
                 rarity: '5',
@@ -311,6 +351,7 @@ class CharactersRepository {
             ['Chasca', {
                 name: 'Chasca',
                 imageUrl: 'assets/images/gi/character/GI_Chasca.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Chasca_B.png',
                 element: 'Anemo',
                 role: 'DPS',
                 rarity: '5',
@@ -318,6 +359,7 @@ class CharactersRepository {
             ['Ororon', {
                 name: 'Ororon',
                 imageUrl: 'assets/images/gi/character/GI_Ororon.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Ororon_B.png',
                 element: 'Electro',
                 role: 'Support',
                 rarity: '4',
@@ -325,6 +367,7 @@ class CharactersRepository {
             ['Mavuika', {
                 name: 'Mavuika',
                 imageUrl: 'assets/images/gi/character/GI_Mavuika.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Mavuika_B.png',
                 element: 'Pyro',
                 role: 'DPS',
                 rarity: '5',
@@ -332,6 +375,7 @@ class CharactersRepository {
             ['Citlali', {
                 name: 'Citlali',
                 imageUrl: 'assets/images/gi/character/GI_Citlali.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Citlali_B.png',
                 element: 'Cryo',
                 role: 'Support',
                 rarity: '5',
@@ -339,6 +383,7 @@ class CharactersRepository {
             ['Tighnari', {
                 name: 'Tighnari',
                 imageUrl: 'assets/images/gi/character/GI_Tighnari.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Tighnari_B.png',
                 element: 'Dendro',
                 role: 'DPS',
                 rarity: '5',
@@ -346,6 +391,7 @@ class CharactersRepository {
             ['Shenhe', {
                 name: 'Shenhe',
                 imageUrl: 'assets/images/gi/character/GI_Shenhe.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Shenhe_B.png',
                 element: 'Cryo',
                 role: 'Support',
                 rarity: '5',
