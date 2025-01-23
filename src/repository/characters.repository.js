@@ -625,6 +625,7 @@ class CharactersRepository {
             ['Ellen', {
                 name: 'Ellen',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Ellen.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Ellen_B.png',
                 element: 'Ice',
                 role: 'Attack',
                 rarity: 'S',
@@ -632,6 +633,7 @@ class CharactersRepository {
             ['Soukaku', {
                 name: 'Soukaku',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Soukaku.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Soukaku_B.png',
                 element: 'Ice',
                 role: 'Support',
                 rarity: 'A',
@@ -639,6 +641,7 @@ class CharactersRepository {
             ['Anby', {
                 name: 'Anby',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Anby.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Anby_B.png',
                 element: 'Electric',
                 role: 'Stun',
                 rarity: 'A',
@@ -646,6 +649,7 @@ class CharactersRepository {
             ['Lycaon', {
                 name: 'Lycaon',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Lycaon.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Lycaon_B.png',
                 element: 'Ice',
                 role: 'Stun',
                 rarity: 'S',
@@ -653,6 +657,7 @@ class CharactersRepository {
             ['Grace', {
                 name: 'Grace',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Grace.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Grace_B.png',
                 element: 'Electric',
                 role: 'Anomaly',
                 rarity: 'S',
@@ -660,6 +665,7 @@ class CharactersRepository {
             ['Koleda', {
                 name: 'Koleda',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Koleda.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Koleda_B.png',
                 element: 'Fire',
                 role: 'Stun',
                 rarity: 'S',
@@ -667,6 +673,7 @@ class CharactersRepository {
             ['Soldier 11', {
                 name: 'Soldier 11',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Soldier11.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Soldier11_B.png',
                 element: 'Fire',
                 role: 'Attack',
                 rarity: 'S',
@@ -674,6 +681,7 @@ class CharactersRepository {
             ['Lucy', {
                 name: 'Lucy',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Lucy.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Lucy_B.png',
                 element: 'Fire',
                 role: 'Support',
                 rarity: 'A',
@@ -681,6 +689,7 @@ class CharactersRepository {
             ['Zhu Yuan', {
                 name: 'Zhu Yuan',
                 imageUrl: 'assets/images/zzz/character/ZZZ_ZhuYuan.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_ZhuYuan_B.png',
                 element: 'Ether',
                 role: 'Attack',
                 rarity: 'S',
@@ -688,6 +697,7 @@ class CharactersRepository {
             ['Nicole', {
                 name: 'Nicole',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Nicole.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Nicole_B.png',
                 element: 'Ether',
                 role: 'Support',
                 rarity: 'A',
@@ -695,6 +705,7 @@ class CharactersRepository {
             ['Qingyi', {
                 name: 'Qingyi',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Qingyi.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Qingyi_B.png',
                 element: 'Electric',
                 role: 'Stun',
                 rarity: 'S',
@@ -702,6 +713,7 @@ class CharactersRepository {
             ['Jane', {
                 name: 'Jane',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Jane.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Jane_B.png',
                 element: 'Physical',
                 role: 'Anomaly',
                 rarity: 'S',
@@ -709,6 +721,7 @@ class CharactersRepository {
             ['Seth', {
                 name: 'Seth',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Seth.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Seth_B.png',
                 element: 'Electric',
                 role: 'Defence',
                 rarity: 'A',
@@ -716,6 +729,7 @@ class CharactersRepository {
             ['Caesar', {
                 name: 'Caesar',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Caesar.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Caesar_B.png',
                 element: 'Physical',
                 role: 'Defence',
                 rarity: 'S',
@@ -723,6 +737,7 @@ class CharactersRepository {
             ['Burnice', {
                 name: 'Burnice',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Burnice.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Burnice_B.png',
                 element: 'Fire',
                 role: 'Anomaly',
                 rarity: 'S',
@@ -730,6 +745,7 @@ class CharactersRepository {
             ['Yanagi', {
                 name: 'Yanagi',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Yanagi.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Yanagi_B.png',
                 element: 'Electric',
                 role: 'Anomaly',
                 rarity: 'S',
@@ -737,6 +753,7 @@ class CharactersRepository {
             ['Miyabi', {
                 name: 'Miyabi',
                 imageUrl: 'assets/images/zzz/character/ZZZ_Miyabi.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Miyabi_B.png',
                 element: 'Frost',
                 role: 'Anomaly',
                 rarity: 'S',
