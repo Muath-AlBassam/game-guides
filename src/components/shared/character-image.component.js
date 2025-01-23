@@ -106,13 +106,25 @@ class CharacterImageComponent extends HTMLElement {
             z-index: 5;
         }
 
+        .char-card .char-name {
+            position: absolute;
+            bottom: 30px;
+            z-index: 5;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1em;
+            width: 100%;
+            text-align: center;
+            filter: drop-shadow(0 3px 2px #000);
+        }
+
         .char-card .smoky-overlay {
             position: absolute;
             bottom: 0; /* Position the overlay at the bottom */
             left: 0;
             width: 100%;
             height: 30%; /* Adjust this to control how far up the gradient goes */
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
             /*mix-blend-mode: lighten;*/
             pointer-events: none;
         }
@@ -281,6 +293,7 @@ class CharacterImageComponent extends HTMLElement {
                     ${this.withBuildDialog ? `onclick="openBuildDialog('${this.charmd.name}')"` : ``}
                     loading="lazy"
                 />
+                <span class="char-name">${this.charmd.name}</span>
                 <div class="smoky-overlay"></div>
             </div>
             `;
