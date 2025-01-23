@@ -12,13 +12,67 @@ class TeamCharactersComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        .characters-container {
+        .characters-slider-container {
             background-color: #2c2d33;
             padding: 0.5em;
         }
 
-        .characters-container .characters-slider {
+        .characters-slider-container .characters-slider {
             user-select: none;
+        }
+
+        .characters-container {
+            background-color: #2c2d33;
+            padding: 15px;
+            grid-gap: 15px 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 160px);
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+
+        .characters-container .char-card {
+            width: 160px;
+            height: 219px;
+            transform: scale(1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .characters-container .char-card .char-img {
+            display: block;
+            margin: auto;
+            transition: all 0.3s ease-out;
+        }
+        .characters-container .char-card:hover .char-img {
+            transform: scale(1.1);
+        }
+
+        .characters-container .char-card .ele-img {
+            position: absolute;
+            background-color: #23242a;
+            padding: 2px;
+            width: 29px;
+            height: 29px;
+        }
+
+        .characters-container .char-card .role-img {
+            position: absolute;
+            background-color: #23242a;
+            padding: 2px;
+            width: 29px;
+            height: 29px;
+            top: 29px;
+        }
+
+        .characters-container .char-card .smoky-overlay {
+            position: absolute;
+            bottom: 0; /* Position the overlay at the bottom */
+            left: 0;
+            width: 100%;
+            height: 30%; /* Adjust this to control how far up the gradient goes */
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            /*mix-blend-mode: lighten;*/
+            pointer-events: none;
         }
     </style>`;
 
@@ -72,6 +126,7 @@ class TeamCharactersComponent extends HTMLElement {
 
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
+        document.getElementById('characters-slider-container').innerHTML = this.buildSliderListHTML();
         document.getElementById('characters-container').innerHTML = this.buildListHTML();
         this.createSlider();
     }
@@ -87,26 +142,30 @@ class TeamCharactersComponent extends HTMLElement {
             </div>
         </div>
         <app-team-search></app-team-search>
+        <div class="characters-slider-container" id="characters-slider-container">
+           ${this.buildSliderListHTML()}
+        </div>
+
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}
         </div>
         `;
     }
 
-    buildListHTML() {
+    buildSliderListHTML() {
         return `
         <div class="characters-slider draggable">
-        ${Utils.ngIf(this.characters.size > 0, `
+            ${Utils.ngIf(this.characters.size > 0, `
             ${Utils.ngForMap(this.characters, charmd => `
-                <app-character-image 
-                    gamecode="${this.gameCode}"
-                    charactername="${charmd.name}"
-                    dimensions="${this.characterPFPSize}"
-                    styles="margin: 5px 10px;"
-                    withbuilddialog="true"
-                    withelement="true"
-                >
-                </app-character-image>
+            <app-character-image 
+                gamecode="${this.gameCode}"
+                charactername="${charmd.name}"
+                dimensions="${this.characterPFPSize}"
+                styles="margin: 5px 10px;"
+                withbuilddialog="true"
+                withelement="true"
+            >
+            </app-character-image>
             `)}
             `, `
             <app-character-image 
@@ -120,6 +179,40 @@ class TeamCharactersComponent extends HTMLElement {
             </app-character-image>
             `)}
         </div>
+        `;
+    }
+
+    buildListHTML() {
+        return `
+            ${Utils.ngIf(this.characters.size > 0, `
+            ${Utils.ngForMap(this.characters, charmd => `
+            <div class="char-card ${this.gameCode+'-rarity-'+charmd.rarity}">
+                <img
+                    class="ele-img"
+                    src="${ElementsRepository.getElement(this.gameCode, charmd.element).imageUrl ?? Constants.images.transparent}"
+                    width="25"
+                    height="25"/>
+                <img
+                    class="role-img"
+                    src="${RolesRepository.getRole(this.gameCode, charmd.role).imageUrl ?? Constants.images.transparent}"
+                    width="25"
+                    height="25"/>
+                <img
+                    class="char-img"
+                    src="${charmd.cardImageUrl}" 
+                    alt="${charmd.name ?? '?'}" 
+                    title="${charmd.name ?? '?'}"
+                    width="160"
+                    onclick="openBuildDialog('${charmd.name}')"
+                />
+                <div class="smoky-overlay"></div>
+            </div>
+            `)}
+            `, `
+            <div class="char-card">
+                <img src="assets/svg/shrug.svg" width="160" />
+            </div>
+            `)}
         `;
     }
 
