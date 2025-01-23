@@ -33,7 +33,9 @@
 - Characters : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's "Wiki" page
   - Crop using [ILoveImg](https://www.iloveimg.com/crop-image)
-    - Sizes around 256px~330px
+    - <u>PROFILE:</u> Size around 256px~330px
+    - <u>CARD:</u> Size 500px x 684px
+      - Use [this](https://andrew.hedges.name/experiments/aspect_ratio/) to help with the ratio (Base ratio: 374x512)
 - Weapons : [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645)
   - Open & download image from a character's details
 - Sets : [Wiki Fandom](https://zenless-zone-zero.fandom.com/wiki/Drive_Disc)
