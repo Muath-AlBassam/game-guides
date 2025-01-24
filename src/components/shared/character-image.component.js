@@ -17,6 +17,7 @@ class CharacterImageComponent extends HTMLElement {
     charmd = null;
     showBuild = false;
     showElement = false;
+    showRole = false;
     elementImageUrl = '';
     roleImageUrl = '';
     addRarityClass = false;
@@ -144,6 +145,13 @@ class CharacterImageComponent extends HTMLElement {
             /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
             background: linear-gradient(180deg, #c925f8, #9328e9);
         }
+
+        .HI3-rarity-S {
+            background-image: linear-gradient(black, rgb(250 188 36 / 90%));
+        }
+        .HI3-rarity-A {
+            background-image: linear-gradient(black, rgb(240 126 225 / 90%));
+        }
         
         /* Split image */
         .split-box {
@@ -228,6 +236,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.charCount == 1) {
             this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.characterName);
             this.showElement = this.withElement && this.charmd.element;
+            this.showRole = true && this.charmd.role;
             this.elementImageUrl = ElementsRepository.getElement(this.gameCode, this.charmd.element).imageUrl;
             this.roleImageUrl = RolesRepository.getRole(this.gameCode, this.charmd.role)?.imageUrl;
             this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
@@ -248,7 +257,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.imageStyle == 'card') {
             return `
             <div class="char-card ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''}">
-
+                ${Utils.ngIf(this.showElement, `
                 <img
                     class="ele-img"
                     src="${this.elementImageUrl ?? Constants.images.transparent}"
@@ -257,6 +266,8 @@ class CharacterImageComponent extends HTMLElement {
                     title="${this.charmd.element}"
                     loading="lazy"
                 />
+                `)}
+                ${Utils.ngIf(this.showRole, `
                 <img
                     class="role-img"
                     src="${this.roleImageUrl ?? Constants.images.transparent}"
@@ -265,6 +276,7 @@ class CharacterImageComponent extends HTMLElement {
                     title="${this.charmd.role}"
                     loading="lazy"
                 />
+                `)}
                 <img
                     class="char-img char-img-resize"
                     src="${this.charmd.cardImageUrl}" 

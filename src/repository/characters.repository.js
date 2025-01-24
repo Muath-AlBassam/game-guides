@@ -848,96 +848,112 @@ class CharactersRepository {
             ['Kiana (HoFi)', {
                 name: 'Kiana (HoFi)',
                 imageUrl: 'assets/images/hi3/character/HI3_Kiana_HoFi.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Kiana_HoFi_B.png',
                 element: 'Fire',
                 rarity: 'S'
             }],
             ['Kiana (HoF)', {
                 name: 'Kiana (HoF)',
                 imageUrl: 'assets/images/hi3/character/HI3_Kiana_HoF.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Kiana_HoF_B.png',
                 element: 'Fire',
                 rarity: 'S'
             }],
             ['Mei (HoO)', {
                 name: 'Mei (HoO)',
                 imageUrl: 'assets/images/hi3/character/HI3_Mei_HoO.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Mei_HoO_B.png',
                 element: 'Lightning',
                 rarity: 'S'
             }],
             ['Mei (HoT)', {
                 name: 'Mei (HoT)',
                 imageUrl: 'assets/images/hi3/character/HI3_Mei_HoT.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Mei_HoT_B.png',
                 element: 'Lightning',
                 rarity: 'S'
             }],
             ['Bronya (HoT)', {
                 name: 'Bronya (HoT)',
                 imageUrl: 'assets/images/hi3/character/HI3_Bronya_HoT.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Bronya_HoT_B.png',
                 element: 'Ice',
                 rarity: 'S'
             }],
             ['Bronya (HoR)', {
                 name: 'Bronya (HoR)',
                 imageUrl: 'assets/images/hi3/character/HI3_Bronya_HoR.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Bronya_HoR_B.png',
                 element: 'Ice',
                 rarity: 'S'
             }],
             ['Elysia', {
                 name: 'Elysia',
                 imageUrl: 'assets/images/hi3/character/HI3_Elysia.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Elysia_B.png',
                 element: 'Ice',
                 rarity: 'S'
             }],
             ['Aponia', {
                 name: 'Aponia',
                 imageUrl: 'assets/images/hi3/character/HI3_Aponia.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Aponia_B.png',
                 element: 'Lightning',
                 rarity: 'S'
             }],
             ['Eden', {
                 name: 'Eden',
                 imageUrl: 'assets/images/hi3/character/HI3_Eden.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Eden_B.png',
                 element: 'Lightning',
                 rarity: 'A'
             }],
             ['Lunar Vow', {
                 name: 'Lunar Vow',
                 imageUrl: 'assets/images/hi3/character/HI3_LunarVow.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_LunarVow_B.png',
                 element: 'Lightning',
                 rarity: 'S'
             }],
             ['Durandal', {
                 name: 'Durandal',
                 imageUrl: 'assets/images/hi3/character/HI3_Durandal.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Durandal_B.png',
                 element: 'Physical',
                 rarity: 'S'
             }],
             ['Lantern', {
                 name: 'Lantern',
                 imageUrl: 'assets/images/hi3/character/HI3_Lantern.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Lantern_B.png',
                 element: 'Fire',
                 rarity: 'S'
             }],
             ['Ai', {
                 name: 'Ai',
                 imageUrl: 'assets/images/hi3/character/HI3_Ai.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Ai_B.png',
                 element: 'Fire',
                 rarity: 'A'
             }],
             ['Fu Hua (HoS)', {
                 name: 'Fu Hua (HoS)',
                 imageUrl: 'assets/images/hi3/character/HI3_FuHua_HoS.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_FuHua_HoS_B.png',
                 element: 'Physical',
                 rarity: 'S'
             }],
             ['Carole', {
                 name: 'Carole',
                 imageUrl: 'assets/images/hi3/character/HI3_Carole.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Carole_B.png',
                 element: 'Physical',
                 rarity: 'A'
             }],
             ['Sparkle', {
                 name: 'Sparkle',
                 imageUrl: 'assets/images/hi3/character/HI3_Sparkle.png',
+                cardImageUrl: 'assets/images/hi3/character/HI3_Sparkle_B.png',
                 element: 'Fire',
                 rarity: 'S'
             }],
