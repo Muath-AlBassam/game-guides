@@ -402,6 +402,7 @@ class CharactersRepository {
             ['MC (Harmony)', {
                 name: 'MC (Harmony)',
                 imageUrl: 'assets/images/hsr/character/HSR_MCHarmony.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_MCHarmony_B.png',
                 element: 'Imaginary',
                 role: 'Harmony',
                 rarity: '5',
@@ -409,6 +410,7 @@ class CharactersRepository {
             ['Lynx', {
                 name: 'Lynx',
                 imageUrl: 'assets/images/hsr/character/HSR_Lynx.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Lynx_B.png',
                 element: 'Quantum',
                 role: 'Abundance',
                 rarity: '4',
@@ -416,6 +418,7 @@ class CharactersRepository {
             ['Clara', {
                 name: 'Clara',
                 imageUrl: 'assets/images/hsr/character/HSR_Clara.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Clara_B.png',
                 element: 'Physical',
                 role: 'Destruction',
                 rarity: '5',
@@ -423,6 +426,7 @@ class CharactersRepository {
             ['Tingyun', {
                 name: 'Tingyun',
                 imageUrl: 'assets/images/hsr/character/HSR_Tingyun.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Tingyun_B.png',
                 element: 'Lightning',
                 role: 'Harmony',
                 rarity: '4',
@@ -430,6 +434,7 @@ class CharactersRepository {
             ['Ruan Mei', {
                 name: 'Ruan Mei',
                 imageUrl: 'assets/images/hsr/character/HSR_RuanMei.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_RuanMei_B.png',
                 element: 'Ice',
                 role: 'Harmony',
                 rarity: '5',
@@ -437,6 +442,7 @@ class CharactersRepository {
             ['Acheron', {
                 name: 'Acheron',
                 imageUrl: 'assets/images/hsr/character/HSR_Acheron.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Acheron_B.png',
                 element: 'Lightning',
                 role: 'Nihility',
                 rarity: '5',
@@ -444,6 +450,7 @@ class CharactersRepository {
             ['Dang Heng · IL', {
                 name: 'Dang Heng · IL',
                 imageUrl: 'assets/images/hsr/character/HSR_DanHengIL.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_DanHengIL_B.png',
                 element: 'Imaginary',
                 role: 'Destruction',
                 rarity: '5',
@@ -451,6 +458,7 @@ class CharactersRepository {
             ['Jingliu', {
                 name: 'Jingliu',
                 imageUrl: 'assets/images/hsr/character/HSR_Jingliu.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Jingliu_B.png',
                 element: 'Ice',
                 role: 'Destruction',
                 rarity: '5',
@@ -458,6 +466,7 @@ class CharactersRepository {
             ['Kafka', {
                 name: 'Kafka',
                 imageUrl: 'assets/images/hsr/character/HSR_Kafka.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Kafka_B.png',
                 element: 'Lightning',
                 role: 'Nihility',
                 rarity: '5',
@@ -465,6 +474,7 @@ class CharactersRepository {
             ['Sparkle', {
                 name: 'Sparkle',
                 imageUrl: 'assets/images/hsr/character/HSR_Sparkle.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Sparkle_B.png',
                 element: 'Quantum',
                 role: 'Harmony',
                 rarity: '5',
@@ -472,6 +482,7 @@ class CharactersRepository {
             ['Fu Xuan', {
                 name: 'Fu Xuan',
                 imageUrl: 'assets/images/hsr/character/HSR_FuXuan.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_FuXuan_B.png',
                 element: 'Quantum',
                 role: 'Preservation',
                 rarity: '5',
@@ -479,6 +490,7 @@ class CharactersRepository {
             ['Dr. Ratio', {
                 name: 'Dr. Ratio',
                 imageUrl: 'assets/images/hsr/character/HSR_DrRatio.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_DrRatio_B.png',
                 element: 'Imaginary',
                 role: 'Hunt',
                 rarity: '5',
@@ -486,6 +498,7 @@ class CharactersRepository {
             ['Seele', {
                 name: 'Seele',
                 imageUrl: 'assets/images/hsr/character/HSR_Seele.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Seele_B.png',
                 element: 'Quantum',
                 role: 'Hunt',
                 rarity: '5',
@@ -493,6 +506,7 @@ class CharactersRepository {
             ['Black Swan', {
                 name: 'Black Swan',
                 imageUrl: 'assets/images/hsr/character/HSR_BlackSwan.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_BlackSwan_B.png',
                 element: 'Wind',
                 role: 'Nihility',
                 rarity: '5',
@@ -500,6 +514,7 @@ class CharactersRepository {
             ['Bronya', {
                 name: 'Bronya',
                 imageUrl: 'assets/images/hsr/character/HSR_Bronya.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Bronya_B.png',
                 element: 'Wind',
                 role: 'Harmony',
                 rarity: '5',
@@ -507,6 +522,7 @@ class CharactersRepository {
             ['Silver Wolf', {
                 name: 'Silver Wolf',
                 imageUrl: 'assets/images/hsr/character/HSR_SilverWolf.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_SilverWolf_B.png',
                 element: 'Quantum',
                 role: 'Nihility',
                 rarity: '5',
@@ -514,6 +530,7 @@ class CharactersRepository {
             ['Huohuo', {
                 name: 'Huohuo',
                 imageUrl: 'assets/images/hsr/character/HSR_Huohuo.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Huohuo_B.png',
                 element: 'Wind',
                 role: 'Abundance',
                 rarity: '5',
@@ -521,6 +538,7 @@ class CharactersRepository {
             ['Luocha', {
                 name: 'Luocha',
                 imageUrl: 'assets/images/hsr/character/HSR_Luocha.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Luocha_B.png',
                 element: 'Imaginary',
                 role: 'Abundance',
                 rarity: '5',
@@ -528,6 +546,7 @@ class CharactersRepository {
             ['Blade', {
                 name: 'Blade',
                 imageUrl: 'assets/images/hsr/character/HSR_Blade.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Blade_B.png',
                 element: 'Wind',
                 role: 'Destruction',
                 rarity: '5',
@@ -535,6 +554,7 @@ class CharactersRepository {
             ['Xueyi', {
                 name: 'Xueyi',
                 imageUrl: 'assets/images/hsr/character/HSR_Xueyi.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Xueyi_B.png',
                 element: 'Quantum',
                 role: 'Destruction',
                 rarity: '4',
@@ -542,6 +562,7 @@ class CharactersRepository {
             ['Pela', {
                 name: 'Pela',
                 imageUrl: 'assets/images/hsr/character/HSR_Pela.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Pela_B.png',
                 element: 'Ice',
                 role: 'Nihility',
                 rarity: '4',
@@ -549,6 +570,7 @@ class CharactersRepository {
             ['Welt', {
                 name: 'Welt',
                 imageUrl: 'assets/images/hsr/character/HSR_Welt.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Welt_B.png',
                 element: 'Imaginary',
                 role: 'Nihility',
                 rarity: '5',
@@ -556,6 +578,7 @@ class CharactersRepository {
             ['Topaz', {
                 name: 'Topaz',
                 imageUrl: 'assets/images/hsr/character/HSR_Topaz.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Topaz_B.png',
                 element: 'Fire',
                 role: 'Hunt',
                 rarity: '5',
@@ -563,6 +586,7 @@ class CharactersRepository {
             ['Gepard', {
                 name: 'Gepard',
                 imageUrl: 'assets/images/hsr/character/HSR_Gepard.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Gepard_B.png',
                 element: 'Ice',
                 role: 'Preservation',
                 rarity: '5',
@@ -570,6 +594,7 @@ class CharactersRepository {
             ['Robin', {
                 name: 'Robin',
                 imageUrl: 'assets/images/hsr/character/HSR_Robin.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Robin_B.png',
                 element: 'Physical',
                 role: 'Harmony',
                 rarity: '5',
@@ -577,6 +602,7 @@ class CharactersRepository {
             ['Hanya', {
                 name: 'Hanya',
                 imageUrl: 'assets/images/hsr/character/HSR_Hanya.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Hanya_B.png',
                 element: 'Physical',
                 role: 'Harmony',
                 rarity: '4',
@@ -584,6 +610,7 @@ class CharactersRepository {
             ['Boothill', {
                 name: 'Boothill',
                 imageUrl: 'assets/images/hsr/character/HSR_Boothill.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Boothill_B.png',
                 element: 'Physical',
                 role: 'Hunt',
                 rarity: '5',
@@ -591,6 +618,7 @@ class CharactersRepository {
             ['Gallagher', {
                 name: 'Gallagher',
                 imageUrl: 'assets/images/hsr/character/HSR_Gallagher.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Gallagher_B.png',
                 element: 'Fire',
                 role: 'Abundance',
                 rarity: '4',
@@ -598,6 +626,7 @@ class CharactersRepository {
             ['Firefly', {
                 name: 'Firefly',
                 imageUrl: 'assets/images/hsr/character/HSR_Firefly.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Firefly_B.png',
                 element: 'Fire',
                 role: 'Destruction',
                 rarity: '5',
@@ -605,6 +634,7 @@ class CharactersRepository {
             ['Jade', {
                 name: 'Jade',
                 imageUrl: 'assets/images/hsr/character/HSR_Jade.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Jade_B.png',
                 element: 'Quantum',
                 role: 'Erudition',
                 rarity: '5',
@@ -612,6 +642,7 @@ class CharactersRepository {
             ['Herta', {
                 name: 'Herta',
                 imageUrl: 'assets/images/hsr/character/HSR_Herta.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Herta_B.png',
                 element: 'Ice',
                 role: 'Erudition',
                 rarity: '4',
@@ -619,6 +650,7 @@ class CharactersRepository {
             ['Yunli', {
                 name: 'Yunli',
                 imageUrl: 'assets/images/hsr/character/HSR_Yunli.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Yunli_B.png',
                 element: 'Physical',
                 role: 'Destruction',
                 rarity: '5',
@@ -626,6 +658,7 @@ class CharactersRepository {
             ['Feixiao', {
                 name: 'Feixiao',
                 imageUrl: 'assets/images/hsr/character/HSR_Feixiao.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Feixiao_B.png',
                 element: 'Wind',
                 role: 'Hunt',
                 rarity: '5',
@@ -633,6 +666,7 @@ class CharactersRepository {
             ['Rappa', {
                 name: 'Rappa',
                 imageUrl: 'assets/images/hsr/character/HSR_Rappa.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Rappa_B.png',
                 element: 'Imaginary',
                 role: 'Erudition',
                 rarity: '5',
@@ -640,6 +674,7 @@ class CharactersRepository {
             ['Aventurine', {
                 name: 'Aventurine',
                 imageUrl: 'assets/images/hsr/character/HSR_Aventurine.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Aventurine_B.png',
                 element: 'Imaginary',
                 role: 'Preservation',
                 rarity: '5',
@@ -647,6 +682,7 @@ class CharactersRepository {
             ['Fugue', {
                 name: 'Fugue',
                 imageUrl: 'assets/images/hsr/character/HSR_Fugue.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Fugue_B.png',
                 element: 'Fire',
                 role: 'Nihility',
                 rarity: '5',
@@ -654,6 +690,7 @@ class CharactersRepository {
             ['The Herta', {
                 name: 'The Herta',
                 imageUrl: 'assets/images/hsr/character/HSR_TheHerta.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_TheHerta_B.png',
                 element: 'Ice',
                 role: 'Erudition',
                 rarity: '5',
@@ -661,6 +698,7 @@ class CharactersRepository {
             ['MC (Remembrance)', {
                 name: 'MC (Remembrance)',
                 imageUrl: 'assets/images/hsr/character/HSR_MCRemembrance.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_MCRemembrance_B.png',
                 element: 'Ice',
                 role: 'Remembrance',
                 rarity: '5',
