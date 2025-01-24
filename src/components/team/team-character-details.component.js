@@ -12,6 +12,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     characterPFPSize = 125;
     charmd = null;
     rolemd = null;
+    elementmd = null;
     raritymd = null;
     buildmd = null;
     weaponmd = null;
@@ -130,6 +131,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         if (this.character) {
             this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.character);
             this.rolemd = RolesRepository.getRole(this.gameCode, this.charmd.role);
+            this.elementmd = ElementsRepository.getElement(this.gameCode, this.charmd.element);
             this.raritymd = RarityRepository.getRarity(this.gameCode, this.charmd.rarity);
             this.buildmd = BuildsRepository.getCharacterBuild(this.gameCode, this.character);
             this.weaponmd = WeaponsRepository.getWeaponMetadata(this.gameCode, this.buildmd.weapon.name);
@@ -152,7 +154,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                                 classes="character-image" 
                                 styles="border-radius: 100%;" 
                                 withbackgroundclass="true" 
-                                withaltelement="true"
                             >
                             </app-character-image>
                         </div>
@@ -160,6 +161,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                     <div class="center-content">
                         ${Utils.ngIf(this.charmd.role, `<img src="${this.rolemd.imageUrl}" height="30" title="${this.rolemd.name}" style="margin-right: 5px;">`)}
                         <h5>${this.character}</h5>
+                        ${Utils.ngIf(this.charmd.element, `<img src="${this.elementmd.imageUrl}" height="30" title="${this.elementmd.name}" style="margin-left: 5px;">`)}
                     </div>
                     <div class="center-content">
                         ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.label}" style="margin: 0 5px;">`)}

@@ -10,7 +10,6 @@ class CharacterImageComponent extends HTMLElement {
     withBuildDialog = false;
     withBackgroundClass = true;
     withElement = false;
-    withAltElement = false;
     mobileSizeRatio = 1; // default: 1 == no resize
     mobileIconSizeRatio = 1;
     imageStyle = 'pfp'; // pfp, card
@@ -28,49 +27,25 @@ class CharacterImageComponent extends HTMLElement {
 
     componentStyle = `
     <style>
+        /* PFP */
         .character-container {
             position: relative;
             display: inline-block;
+            overflow: hidden;
         }
 
         .character-container .pfp {
             display: block;
         }
 
-        .character-container .build-icon {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            padding: 0 0 3px 3px;
-            background-color: #ccc;
-            border: 1px solid #1c1d21;
-            border-radius: 0 0 0 100%;
-            cursor: pointer;
-        }
-
-        .character-container .build-icon:hover {
-            background-color: #999;
-        }
-
         .character-container .element-icon {
             position: absolute;
-            bottom: 5px;
-            left: 10px;
-            padding: 3px 3px 0 0;
-            background-color: #36373f;
-            border: 1px solid #1c1d21;
-            border-radius: 0 100% 0 0;
-        }
-        .character-container .element-icon-alt {
-            position: absolute;
-            bottom: 5px;
-            left: 10px;
-            padding: 3px;
-            background-color: #36373f;
-            border: 1px solid #1c1d21;
-            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            filter: drop-shadow(0 2px 2px #000);
         }
 
+        /* CARD */
         .char-card {
             width: 160px;
             height: 219px;
@@ -78,32 +53,29 @@ class CharacterImageComponent extends HTMLElement {
             overflow: hidden;
             cursor: pointer;
         }
+
         .char-card .char-img {
             display: block;
             margin: auto;
-            transition: all 0.3s ease-out;
-        }
-        .char-card .char-img:hover {
-            transform: scale(1.1);
         }
 
         .char-card .ele-img {
             position: absolute;
-            background-color: #23242a;
             padding: 2px;
             width: 29px;
             height: 29px;
             z-index: 5;
+            filter: drop-shadow(0 2px 2px #000);
         }
 
         .char-card .role-img {
             position: absolute;
-            background-color: #23242a;
             padding: 2px;
             width: 29px;
             height: 29px;
-            top: 29px;
+            right: 0;
             z-index: 5;
+            filter: drop-shadow(0 2px 2px #000);
         }
 
         .char-card .char-name {
@@ -127,6 +99,15 @@ class CharacterImageComponent extends HTMLElement {
             background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
             /*mix-blend-mode: lighten;*/
             pointer-events: none;
+        }
+
+        /* Shared */
+        .char-img-resize {
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+        .char-img-resize:hover {
+            transform: scale(1.1);
         }
 
         .GI-rarity-5 {
@@ -163,7 +144,8 @@ class CharacterImageComponent extends HTMLElement {
             /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
             background: linear-gradient(180deg, #c925f8, #9328e9);
         }
-
+        
+        /* Split image */
         .split-box {
             position: relative;
             overflow: hidden;
@@ -237,7 +219,6 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
-        if (this.hasAttribute('withaltelement')) this.withAltElement = this.getAttribute('withaltelement') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
         if (this.hasAttribute('imagestyle')) this.imageStyle = this.getAttribute('imagestyle');
@@ -246,8 +227,7 @@ class CharacterImageComponent extends HTMLElement {
         this.charCount = charNameList.length;
         if (this.charCount == 1) {
             this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.characterName);
-            this.showBuild = this.withBuildDialog && null != BuildsRepository.getCharacterBuild(this.gameCode, this.charmd.name);
-            this.showElement = (this.withElement || this.withAltElement) && this.charmd.element;
+            this.showElement = this.withElement && this.charmd.element;
             this.elementImageUrl = ElementsRepository.getElement(this.gameCode, this.charmd.element).imageUrl;
             this.roleImageUrl = RolesRepository.getRole(this.gameCode, this.charmd.role)?.imageUrl;
             this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
@@ -268,6 +248,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.imageStyle == 'card') {
             return `
             <div class="char-card ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''}">
+
                 <img
                     class="ele-img"
                     src="${this.elementImageUrl ?? Constants.images.transparent}"
@@ -285,7 +266,7 @@ class CharacterImageComponent extends HTMLElement {
                     loading="lazy"
                 />
                 <img
-                    class="char-img"
+                    class="char-img char-img-resize"
                     src="${this.charmd.cardImageUrl}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
@@ -317,33 +298,24 @@ class CharacterImageComponent extends HTMLElement {
             `;
         } else {  
             return `
-            <div class="character-container">
+            <div class="character-container ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''}" 
+                style="border-radius: 5px; ${this.styles}">
                 <img    
                     src="${this.charmd.imageUrl ?? Constants.images.unknown}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
-                    class="pfp ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''} ${this.classes}" 
-                    style="border-radius: 5px; display: block; height: auto; ${this.styles}" 
+                    class="pfp ${this.withBuildDialog ? 'char-img-resize' : ''} ${this.classes}" 
+                    style="display: block; height: auto;" 
                     width="${this.dimensions}"
+                    ${this.withBuildDialog ? `onclick="openBuildDialog('${this.charmd.name}')"` : ``}
                     loading="lazy"
                 />
-                ${Utils.ngIf(this.showBuild, `
-                <img
-                    src="assets/svg/armor.svg" 
-                    width="${this.iconSize}" 
-                    height="${this.iconSize}" 
-                    class="build-icon" 
-                    title="View build" 
-                    onclick="openBuildDialog('${this.charmd.name}')"
-                    loading="lazy"
-                />    
-                `)}
                 ${Utils.ngIf(this.showElement, `
                 <img
                     src="${this.elementImageUrl ?? Constants.images.transparent}" 
                     width="${this.iconSize}" 
                     height="${this.iconSize}" 
-                    class="element-icon${this.withAltElement ? '-alt' : ''}" 
+                    class="element-icon" 
                     title="${this.charmd.element}"
                     loading="lazy"
                 />
@@ -359,8 +331,10 @@ customElements.define('app-character-image', CharacterImageComponent);
 //------------------------------------------------------------------------------------
 
 function openBuildDialog(character) {
-    // trigger attributeChangedCallback & set data
-    document.getElementById('build-dialog').setAttribute('character', character);
-    // add show class to dialog
-    document.getElementById('build-dialog-body').classList.add('dialog-shown');
+    if (null != BuildsRepository.getCharacterBuild(Utils.getGameFromUrl(), character)) {
+        // trigger attributeChangedCallback & set data
+        document.getElementById('build-dialog').setAttribute('character', character);
+        // add show class to dialog
+        document.getElementById('build-dialog-body').classList.add('dialog-shown');
+    }
 }
