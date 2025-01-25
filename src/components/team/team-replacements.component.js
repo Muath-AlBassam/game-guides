@@ -49,7 +49,7 @@ class ReplacementsComponent extends HTMLElement {
         return `
         <div class="container replacements-container">
             <h5 class="content-header">
-                <img src="assets/svg/replacements.svg" height="20" class="action">
+                <img src="assets/svg/replacements.svg" height="20" style="margin-right: 5px;">
                 Replacements
             </h5>
             <table class="table table-striped table-bordered">

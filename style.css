@@ -97,8 +97,9 @@ app-nav.active ~ .main-content {
 .content-header::before {
     content: '';
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
     background-color: var(--border-color);
     margin-right: 6px;
     position: relative;

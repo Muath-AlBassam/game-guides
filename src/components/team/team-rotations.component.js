@@ -61,7 +61,7 @@ class RotationsComponent extends HTMLElement {
         return `
         <div class="container rotations-container">
             <h5 class="content-header">
-                <img src="assets/svg/rotations.svg" height="20" class="action">
+                <img src="assets/svg/rotations.svg" height="20" style="margin-right: 5px;">
                 Rotations
             </h5>
             <div style="font-size: 1.2em;">

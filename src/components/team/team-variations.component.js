@@ -42,7 +42,7 @@ class VariationsComponent extends HTMLElement {
         return `
         <div class="container variations-container">
             <h5 class="content-header">
-                <img src="assets/svg/variations.svg" height="20" class="action">
+                <img src="assets/svg/variations.svg" height="20" style="margin-right: 5px;">
                 Variations
             </h5>
             ${Utils.ngIf(this.currentTeam.variations, `

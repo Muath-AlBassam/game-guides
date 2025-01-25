@@ -35,7 +35,7 @@ class RolesComponent extends HTMLElement {
         <div class="container roles-container">
             <div>
                 <h5 class="content-header">
-                    <img src="assets/svg/roles.svg" height="20" class="action">
+                    <img src="assets/svg/roles.svg" height="20" style="margin-right: 5px;">
                     Roles
                 </h5>
             </div>
