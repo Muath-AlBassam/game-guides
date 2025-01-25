@@ -33,6 +33,7 @@ class CharacterImageComponent extends HTMLElement {
             position: relative;
             display: inline-block;
             overflow: hidden;
+            user-select: none;
         }
 
         .character-container .pfp {
@@ -53,6 +54,7 @@ class CharacterImageComponent extends HTMLElement {
             transform: scale(1);
             overflow: hidden;
             cursor: pointer;
+            user-select: none;
         }
 
         .char-card .char-img {

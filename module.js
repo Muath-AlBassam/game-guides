@@ -31,6 +31,7 @@ function loadAllScripts() {
     loadScript("src/components/core/core.component.js", true);
     loadScript("src/components/core/game-guides.component.js", true);
     loadScript("src/components/core/home.component.js", true);
+    loadScript("src/components/core/game-header.component.js", true);
     // Shared
     loadScript("src/components/shared/searh.component.js", true);
     loadScript("src/components/shared/loader.component.js", true);
@@ -40,7 +41,6 @@ function loadAllScripts() {
     // Layout
     loadScript("src/components/layout/nav.component.js", true);
     loadScript("src/components/layout/header.component.js", true);
-    loadScript("src/components/layout/game-header.component.js", true);
     // Team
     loadScript("src/components/team/team-container.component.js", true);
     loadScript("src/components/team/team-tabs.component.js", true);

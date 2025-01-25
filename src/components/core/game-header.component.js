@@ -4,6 +4,11 @@ class GameHeaderComponent extends HTMLElement {
 
     componentStyle = `
     <style>
+        .game-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
         .game-header .title {
             display: flex;
             align-items: center;
@@ -17,12 +22,27 @@ class GameHeaderComponent extends HTMLElement {
             background-position: center;
             opacity: 0.5;
             margin-top: 1em;
+            grid-column: 1 / span 2
         }
 
-        #guide-url {
+        .game-header .guide-url {
             text-decoration: none;
             color: var(--text-color);
             margin-left: 15px;
+        }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .game-header {
+                margin-top: 3em;
+            }
+
+            .game-header .title {
+                grid-column: 1 / span 2
+            }
+
+            .game-header .logo {
+                grid-column: 1 / span 2
+            }
         }
     </style>`;
 
@@ -50,22 +70,20 @@ class GameHeaderComponent extends HTMLElement {
     buildHTML() {
         return Utils.ngIf(this.activeGame,`
         <div class="game-header">
-            <div class="row">
-                <div class="col-md-6 title">
-                    <h1>
-                        ${this.activeGame?.label}
-                    </h1>
-                    <sup>
-                        <a href="${this.activeGame?.guideUrl}" style="display: ${this.activeGame?.guideUrl ? 'block' : 'none'}" id="guide-url" target="_blank">
-                            <i class="fa fa-external-link"></i>
-                        </a>
-                    </sup>
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <img height="${Utils.isMobile() ? '50' : '100'}" src="${this.activeGame?.logoUrl}">
-                </div>
-                <div class="col-md-12 game-background" style="background-image: url(${this.activeGame?.backgroundUrl});"></div>
+            <div class="title">
+                <h1>
+                    ${this.activeGame?.label}
+                </h1>
+                <sup>
+                    <a href="${this.activeGame?.guideUrl}" target="_blank" class="guide-url" style="display: ${this.activeGame?.guideUrl ? 'block' : 'none'}">
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                </sup>
             </div>
+            <div class="logo d-flex justify-content-end">
+                <img height="${Utils.isMobile() ? '50' : '100'}" src="${this.activeGame?.logoUrl}">
+            </div>
+            <div class="game-background" style="background-image: url(${this.activeGame?.backgroundUrl});"></div>
         </div>`);
     }
 }
