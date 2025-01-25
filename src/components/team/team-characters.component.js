@@ -82,6 +82,7 @@ class TeamCharactersComponent extends HTMLElement {
 
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
+        document.getElementById('team-characters-header').innerHTML = this.buildHeader();
         document.getElementById('characters-slider-container').innerHTML = this.buildSliderListHTML();
         document.getElementById('characters-container').innerHTML = this.buildListHTML();
         this.createSlider();
@@ -89,13 +90,8 @@ class TeamCharactersComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content-header">
-                    Characters
-                    <span class="additional-text">Showing (${this.characters?.size}) Characters</span>
-                </div>
-            </div>
+        <div class="row" id="team-characters-header">
+            ${this.buildHeader()}
         </div>
         <app-team-search></app-team-search>
         <div class="characters-slider-container" id="characters-slider-container">
@@ -104,6 +100,17 @@ class TeamCharactersComponent extends HTMLElement {
 
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}
+        </div>
+        `;
+    }
+
+    buildHeader() {
+        return `
+        <div class="col-md-12">
+            <div class="content-header">
+                Characters
+                <span class="additional-text">Showing (${this.characters?.size}) Characters</span>
+            </div>
         </div>
         `;
     }

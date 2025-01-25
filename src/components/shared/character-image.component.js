@@ -165,6 +165,7 @@ class CharacterImageComponent extends HTMLElement {
             position: absolute;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         .split-box-2 > .child:nth-child(1) {
