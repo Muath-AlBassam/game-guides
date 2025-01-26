@@ -118,6 +118,10 @@ class SetsRepository {
                 name: 'Wanderer\'s Troupe',
                 imageUrl: 'assets/images/gi/set/GI_Set_WanderersTroupe.png'
             }],
+            ['Maiden Beloved', {
+                name: 'Maiden Beloved',
+                imageUrl: 'assets/images/gi/set/GI_Set_MaidenBeloved.png'
+            }],
         ]),
     
         HSRSets: new Map([

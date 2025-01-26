@@ -396,6 +396,14 @@ class CharactersRepository {
                 role: 'Support',
                 rarity: '5',
             }],
+            ['Qiqi', {
+                name: 'Qiqi',
+                imageUrl: 'assets/images/gi/character/GI_Qiqi.png',
+                cardImageUrl: 'assets/images/gi/character/GI_Qiqi_B.png',
+                element: 'Cryo',
+                role: 'Healer',
+                rarity: '5',
+            }],
         ]),
     
         HSRCharacters: new Map([

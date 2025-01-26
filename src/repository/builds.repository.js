@@ -307,6 +307,12 @@ class BuildsRepository {
                     { name: 'Shimenawa\'s Reminiscence', pieceCount: '2' },
                 ]
             }],
+            ['Qiqi', {
+                weapon: { name: 'The Flute' },
+                sets: [
+                    { name: 'Maiden Beloved', pieceCount: '4' },
+                ]
+            }],
         ]),
 
         HSRBuilds: new Map([

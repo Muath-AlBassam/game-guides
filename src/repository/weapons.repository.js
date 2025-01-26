@@ -223,6 +223,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/gi/weapon/GI_W_WavebreakersFin.png',
                 rarity: '4'
             }],
+            ['The Flute', {
+                name: 'The Flute',
+                imageUrl: 'assets/images/gi/weapon/GI_W_TheFlute.png',
+                rarity: '4'
+            }],
         ]),
     
         HSRLightCones: new Map([
