@@ -24,19 +24,15 @@ class TeamListComponent extends HTMLElement {
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.teams = this.filterTeams(event.detail);
+            document.getElementById('team-list-header').innerHTML = this.buildHeader();
             document.getElementById('teams').innerHTML = this.buildListHTML();
         });
     }
 
     buildHTML() {
         return `
-        <div class="row">
-            <div class="col-md-12">
-                <div class="content-header">
-                    Teams
-                    <span class="additional-text">Showing (${this.teams?.size}) Teams</span>
-                </div>
-            </div>
+        <div class="row" id="team-list-header">
+            ${this.buildHeader()}
         </div>
 
         <app-team-search showrarities="false" showelements="false" showroles="false"></app-team-search>
@@ -44,6 +40,17 @@ class TeamListComponent extends HTMLElement {
         <div id="teams">
             ${this.buildListHTML()}
         </div>`;
+    }
+
+    buildHeader() {
+        return `
+        <div class="col-md-12">
+            <div class="content-header">
+                Teams
+                <span class="additional-text">Showing (${this.teams?.size}) Teams</span>
+            </div>
+        </div>
+        `;
     }
 
     buildListHTML() {
