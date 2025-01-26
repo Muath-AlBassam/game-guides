@@ -26,6 +26,9 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
         .build-dialog-content {
             width: 20%;
+            background-size: 100% auto;
+            background-position: top center;
+            background-repeat: no-repeat;
         }
         
         .build-dialog-content .character-image {
@@ -142,7 +145,8 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     buildHTML() {
         return `
         <div class="gagu-dialog build-dialog" id="build-dialog-body">
-            <div class="gagu-dialog-content build-dialog-content">
+            <div class="gagu-dialog-content build-dialog-content" 
+                style="background-image: linear-gradient(rgba(35, 36, 42, 0.9), rgba(35, 36, 42, 0.9)), url('${this.charmd.cardImageUrl}')">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 <div>
                     <div class="center-content" style="margin-top: 20px;">
