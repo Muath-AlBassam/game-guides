@@ -449,20 +449,23 @@ class TeamsRepository {
                         name: 'Seele',
                         role: 'DPS',
                         isMain: true,
-                        replacements: ['Xueyi'],
+                        replacements: [],
                     },
                     {
-                        name: 'Bronya',
+                        name: 'Sparkle',
                         role: 'DMG & Crit Buff',
                         isMain: false,
-                        replacements: ['Sparkle'],
+                        replacements: ['Bronya'],
                     },
                     {
                         name: 'Silver Wolf',
                         role: 'Debuff',
                         isMain: false,
-                        replacements: ['Ruan Mei'],
+                        replacements: [],
                     }
+                ],
+                variations: [
+                    { name: null, characters: ['Fu Xuan', 'Xueyi', 'Fugue', 'Ruan Mei'] }
                 ]
             }],
             ['Imaginary', {
