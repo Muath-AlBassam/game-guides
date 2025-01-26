@@ -170,6 +170,10 @@ class CharacterImageComponent extends HTMLElement {
             overflow: hidden;
         }
 
+        .split-box .child img {
+            transition: all 0.3s ease-out;
+        }
+
         .split-box-2 > .child:nth-child(1) {
             /* top-left | bottom-left | top-right */
             clip-path: polygon(0% 0%, 0% 97%, 97% 0%);
@@ -180,9 +184,11 @@ class CharacterImageComponent extends HTMLElement {
         }
         .split-box-2 > .child:nth-child(1) img {
             transform: translateX(-25%);
+            &:hover { transform: translateX(-25%) scale(1.1); }
         }
         .split-box-2 > .child:nth-child(2) img {
             transform: translateX(25%);
+            &:hover { transform: translateX(25%) scale(1.1); }
         }
 
         .split-box-3 > .child:nth-child(1) {
@@ -199,12 +205,15 @@ class CharacterImageComponent extends HTMLElement {
         }
         .split-box-3 > .child:nth-child(1) img {
             transform: translateY(25%);
+            &:hover { transform: translateY(25%) scale(1.1); }
         }
         .split-box-3 > .child:nth-child(2) img {
             transform: translate(-25%);
+            &:hover { transform: translate(-25%) scale(1.1); }
         }
         .split-box-3 > .child:nth-child(3) img {
             transform: translate(25%);
+            &:hover { transform: translate(25%) scale(1.1); }
         }
     </style>
     `;
