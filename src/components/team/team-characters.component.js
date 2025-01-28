@@ -76,6 +76,14 @@ class TeamCharactersComponent extends HTMLElement {
             this.searchRole = event.detail;
             this.filterListAndReloadHTML();
         });
+        window.addEventListener('search-reset', (event) => {
+            this.searchTerm = '';
+            this.searchRarity = '';
+            this.searchElement = '';
+            this.searchRole = '';
+            this.characters = this.filterCharacters();
+            this.innerHTML = this.componentStyle + this.buildHTML();
+        });
     }
 
     filterListAndReloadHTML() {
@@ -91,7 +99,7 @@ class TeamCharactersComponent extends HTMLElement {
         <div class="row" id="team-characters-header">
             ${this.buildHeader()}
         </div>
-        <app-team-search></app-team-search>
+        <app-team-search showresetbutton="true"></app-team-search>
         <!--<div class="characters-slider-container" id="characters-slider-container">
            ${this.buildSliderListHTML()}
         </div>-->

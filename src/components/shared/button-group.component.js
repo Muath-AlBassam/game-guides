@@ -17,10 +17,11 @@ class ButtonGroupComponent extends HTMLElement {
             margin: 0 1em 0 0;
         }
 
-        .btn-secondary {
-            border-radius: 0;
-            border: 1px solid #484950;
-            background-color: #36373d;
+        .btn.active {
+            background-color: var(--border-color);
+        }
+        .btn.active img {
+            filter: brightness(0) invert(1);
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {

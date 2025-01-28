@@ -48,6 +48,12 @@ img {
     user-select: none;
 }
 
+.btn-secondary {
+    border-radius: 0;
+    border: 1px solid #484950;
+    background-color: #36373d;
+}
+
 /* Scrollbar --------------------------------------------------------------- */
 ::-webkit-scrollbar {
     width: 5px;
