@@ -22,9 +22,7 @@ class TeamCharactersComponent extends HTMLElement {
         }
 
         .characters-container {
-            background-color: #2c2d33;
-            padding: 15px;
-            grid-gap: 15px 15px;
+            grid-gap: 8px 8px;
             display: grid;
             grid-template-columns: repeat(auto-fill, 160px);
             justify-content: space-between;
@@ -39,7 +37,7 @@ class TeamCharactersComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
-        this.createSlider();
+        // this.createSlider();
         this.listenToEvents();
     }
 
@@ -50,16 +48,16 @@ class TeamCharactersComponent extends HTMLElement {
         this.rarities = RarityRepository.getAllRarities(this.gameCode);
     }
 
-    createSlider() {
-        tns({
-            container: '.characters-slider',
-            fixedWidth: this.characterPFPSize + 20,
-            controls: false,
-            navPosition: 'bottom',
-            mouseDrag: true,
-            loop: false,
-        });
-    }
+    // createSlider() {
+    //     tns({
+    //         container: '.characters-slider',
+    //         fixedWidth: this.characterPFPSize + 20,
+    //         controls: false,
+    //         navPosition: 'bottom',
+    //         mouseDrag: true,
+    //         loop: false,
+    //     });
+    // }
 
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
@@ -83,9 +81,9 @@ class TeamCharactersComponent extends HTMLElement {
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
         document.getElementById('team-characters-header').innerHTML = this.buildHeader();
-        document.getElementById('characters-slider-container').innerHTML = this.buildSliderListHTML();
+        // document.getElementById('characters-slider-container').innerHTML = this.buildSliderListHTML();
         document.getElementById('characters-container').innerHTML = this.buildListHTML();
-        this.createSlider();
+        // this.createSlider();
     }
 
     buildHTML() {
@@ -94,9 +92,9 @@ class TeamCharactersComponent extends HTMLElement {
             ${this.buildHeader()}
         </div>
         <app-team-search></app-team-search>
-        <div class="characters-slider-container" id="characters-slider-container">
+        <!--<div class="characters-slider-container" id="characters-slider-container">
            ${this.buildSliderListHTML()}
-        </div>
+        </div>-->
 
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}
@@ -116,33 +114,34 @@ class TeamCharactersComponent extends HTMLElement {
     }
 
     buildSliderListHTML() {
-        return `
-        <div class="characters-slider draggable">
-            ${Utils.ngIf(this.characters.size > 0, `
-            ${Utils.ngForMap(this.characters, charmd => `
-            <app-character-image 
-                gamecode="${this.gameCode}"
-                charactername="${charmd.name}"
-                dimensions="${this.characterPFPSize}"
-                styles="margin: 5px 10px;"
-                withbuilddialog="true"
-                withelement="true"
-            >
-            </app-character-image>
-            `)}
-            `, `
-            <app-character-image 
-                gamecode="${this.gameCode}"
-                charactername="..."
-                dimensions="${this.characterPFPSize}"
-                styles="margin: 5px 10px;"
-                withbuilddialog="true"
-                withelement="true"
-            >
-            </app-character-image>
-            `)}
-        </div>
-        `;
+        return '';
+        // return `
+        // <div class="characters-slider draggable">
+        //     ${Utils.ngIf(this.characters.size > 0, `
+        //     ${Utils.ngForMap(this.characters, charmd => `
+        //     <app-character-image 
+        //         gamecode="${this.gameCode}"
+        //         charactername="${charmd.name}"
+        //         dimensions="${this.characterPFPSize}"
+        //         styles="margin: 5px 10px;"
+        //         withbuilddialog="true"
+        //         withelement="true"
+        //     >
+        //     </app-character-image>
+        //     `)}
+        //     `, `
+        //     <app-character-image 
+        //         gamecode="${this.gameCode}"
+        //         charactername="..."
+        //         dimensions="${this.characterPFPSize}"
+        //         styles="margin: 5px 10px;"
+        //         withbuilddialog="true"
+        //         withelement="true"
+        //     >
+        //     </app-character-image>
+        //     `)}
+        // </div>
+        // `;
     }
 
     buildListHTML() {
