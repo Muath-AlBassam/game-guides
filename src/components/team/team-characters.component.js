@@ -28,6 +28,12 @@ class TeamCharactersComponent extends HTMLElement {
             justify-content: space-between;
             margin-top: 24px;
         }
+
+        @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .characters-container {
+                padding: 0 1em;
+            }
+        }
     </style>`;
 
     constructor() {
