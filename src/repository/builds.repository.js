@@ -651,7 +651,7 @@ class BuildsRepository {
             ['Lucy', {
                 weapon: { name: 'Kaboom the Cannon' },
                 sets: [
-                    { name: 'Swing Jazz', pieceCount: '2' },
+                    { name: 'Swing Jazz', pieceCount: '4' },
                     { name: 'Hormone Punk', pieceCount: '2' }
                 ]
             }],

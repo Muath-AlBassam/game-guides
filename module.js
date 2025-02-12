@@ -33,7 +33,7 @@ function loadAllScripts() {
     loadScript("src/components/core/home.component.js", true);
     loadScript("src/components/core/game-header.component.js", true);
     // Shared
-    loadScript("src/components/shared/searh.component.js", true);
+    loadScript("src/components/shared/search.component.js", true);
     loadScript("src/components/shared/loader.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);
     loadScript("src/components/shared/notes-popover.component.js", true);

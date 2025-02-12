@@ -55,7 +55,7 @@ class NotesPopoverComponent extends HTMLElement {
         <span class="notes-${this.position}">
             <img class="notes-icon" src="assets/svg/info.svg" height="${this.iconSize}"
                 data-bs-trigger="hover" data-bs-toggle="popover" data-bs-custom-class="gagu-popover"
-                data-bs-html="true" data-bs-container="body" data-bs-placement="${Utils.isMobile() ? 'bottom' : 'right'}"
+                data-bs-html="true" data-bs-container="body" data-bs-placement="bottom"
                 data-bs-title="Team Notes" data-bs-content="${this.getFormattedNotes()}">
         </span>
         `);
