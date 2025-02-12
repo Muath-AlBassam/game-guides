@@ -312,6 +312,10 @@ class SetsRepository {
                 name: 'Branch & Blade Song',
                 imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_Branch&BladeSong.png'
             }],
+            ['Astral Voice', {
+                name: 'Astral Voice',
+                imageUrl: 'assets/images/zzz/drive-disk/ZZZ_DD_AstralVoice.png'
+            }],
         ])
     }
 }

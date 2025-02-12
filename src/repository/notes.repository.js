@@ -8,6 +8,9 @@ class NotesRepository {
             case Constants.games.HSR:
                 data = this.data.HSRTeamNotes.get(teamName);
                 break;
+            case Constants.games.ZZZ:
+                data = this.data.ZZZTeamNotes.get(teamName);
+                break;
         }
         return data;
     }
@@ -27,5 +30,16 @@ class NotesRepository {
                 { text: 'Recommended for the sustainer (Preservation) to equip the Light Cone: <b>Trend of the Universal Market</b>' }
             ]],
         ]),
+
+        ZZZTeamNotes: new Map([
+            ['Chain', [
+                { 
+                    text: 'After treiggering chain attack, do one with <b>Evelyn</b>, then cancel. Then trigger it again and do one with <b>Evelyn</b>. Then consume <b>Evelyn</b>\'s charges to do a manual chain attack' 
+                },
+                {
+                    text: 'Trigger the chain attack with <u>anyone</u> other than <b>Evelyn</b>'
+                }
+            ]]
+        ])
     }
 }

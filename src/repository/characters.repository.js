@@ -850,6 +850,14 @@ class CharactersRepository {
                 role: 'Anomaly',
                 rarity: 'S',
             }],
+            ['Evelyn', {
+                name: 'Evelyn',
+                imageUrl: 'assets/images/zzz/character/ZZZ_Evelyn.png',
+                cardImageUrl: 'assets/images/zzz/character/ZZZ_Evelyn_B.png',
+                element: 'Fire',
+                role: 'Attack',
+                rarity: 'S',
+            }],
         ]),
     
         HI3Characters: new Map([

@@ -674,6 +674,9 @@ class TeamsRepository {
                         replacements: ['Koleda'],
                     },
                 ],
+                variations: [
+                    { name: 'Chain', characters: ['Evelyn', 'Koleda', 'Caesar'] }
+                ],
                 pet: 'Rocketboo'
             }],
             ['Ice', {

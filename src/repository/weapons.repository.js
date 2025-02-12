@@ -494,6 +494,11 @@ class WeaponsRepository {
                 imageUrl: 'assets/images/zzz/w-engine/ZZZ_WE_HailstormShrine.png',
                 rarity: 'S'
             }],
+            ['Heartstring Nocturne', {
+                name: 'Heartstring Nocturne',
+                imageUrl: 'assets/images/zzz/w-engine/ZZZ_WE_HeartstringNocturne.png',
+                rarity: 'S'
+            }],
         ]),
     }
 }

@@ -718,6 +718,14 @@ class BuildsRepository {
                     { name: 'Woodpecker Electro', pieceCount: '2' }
                 ]
             }],
+            ['Evelyn', {
+                weapon: { name: 'Heartstring Nocturne' },
+                sets: [
+                    { name: 'Branch & Blade Song', pieceCount: '2' },
+                    { name: 'Astral Voice', pieceCount: '2' },
+                    { name: 'Inferno Metal', pieceCount: '2' },
+                ]
+            }],
         ]),
     }
 }
