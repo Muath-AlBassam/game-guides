@@ -71,6 +71,7 @@ class HomeComponent extends HTMLElement {
                     </h4>
                 </a>
                 `)}
+                <!-- dummy column, otherwise the last item will be in the middle (if items count is odd) -->
                 ${Utils.ngIf(this.games?.length % 2 != 0, `<div class="col-md-5"></div>`)}
             </div>
         </div>
