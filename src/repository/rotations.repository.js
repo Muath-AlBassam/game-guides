@@ -73,7 +73,7 @@ class RotationsRepository {
             ['Dendro', [
                 ['Zhongli', `${this.gi.skill} ${this.smallText('(Hold)')} ${this.arrow}`],
                 ['Nahida', `${this.gi.ultimate} ${this.arrow} ${this.gi.skill} ${this.arrow}`],
-                ['Fischl', `${this.gi.skill} ${this.arrow}`],
+                ['Yae Miko', `${this.gi.skill}${this.times}3 ${this.arrow}`],
                 ['Tighnari', `${this.gi.ultimate} ${this.arrow} ${this.repeat(this.gi.charged)}`],
             ]],
             ['Electro', [
