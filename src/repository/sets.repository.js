@@ -257,6 +257,10 @@ class SetsRepository {
                 name: 'Sprightly Vonwacq',
                 imageUrl: 'assets/images/hsr/set/HSR_Set_SprightlyVonwacq.png'
             }],
+            ['Poet of Mourning Collapse', {
+                name: 'Poet of Mourning Collapse',
+                imageUrl: 'assets/images/hsr/set/HSR_Set_PoetOfMourningCollapse.png'
+            }],
         ]),
     
         ZZZSets: new Map([

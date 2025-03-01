@@ -711,6 +711,14 @@ class CharactersRepository {
                 role: 'Remembrance',
                 rarity: '5',
             }],
+            ['Tribbie', {
+                name: 'Tribbie',
+                imageUrl: 'assets/images/hsr/character/HSR_Tribbie.png',
+                cardImageUrl: 'assets/images/hsr/character/HSR_Tribbie_B.png',
+                element: 'Quantum',
+                role: 'Harmony',
+                rarity: '5',
+            }],
         ]),
     
         ZZZCharacters: new Map([

@@ -359,16 +359,16 @@ class TeamsRepository {
                         replacements: [],
                     },
                     {
-                        name: 'Jade',
+                        name: 'Herta',
                         role: 'Sub DPS',
                         isMain: false,
-                        replacements: ['Herta'],
+                        replacements: ['Jade'],
                     },
                     {
                         name: 'MC (Remembrance)',
                         role: 'Crit Buff + True DMG',
                         isMain: false,
-                        replacements: [],
+                        replacements: ['Tribbie'],
                     }
                 ],
                 variations: [
@@ -675,7 +675,7 @@ class TeamsRepository {
                     },
                 ],
                 variations: [
-                    { name: 'Chain', characters: ['Evelyn', 'Koleda', 'Caesar'] }
+                    { name: 'Chain', characters: ['Evelyn', 'Koleda', ['Caesar', 'Lucy']] }
                 ],
                 pet: 'Rocketboo'
             }],

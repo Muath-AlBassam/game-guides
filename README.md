@@ -30,7 +30,7 @@
   - <u>CARD:</u> From [fandom wiki](https://honkai-star-rail.fandom.com/wiki/Character/List), download "Portrait" image from character's page
     - Crop images to 250px $\times$ 342px ~ 600px $\times$ 821px
 - <u>Weapons:</u> From [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645), open HSR page & download image from a character's details
-- <u>Sets:</u> From [Hoyolab](https://www.hoyolab.com/accountCenter/postList?id=17195645), open HSR page then open set wiki from a character's details & dowmload Head piece image
+- <u>Sets:</u> From [HoYowiki](https://wiki.hoyolab.com/pc/hsr/aggregate/108), open a set page & dowmload Head piece image
 
 <img src="assets/readme/hsr-image-loc-1.png" alt="Step 1" width="500"/>
 

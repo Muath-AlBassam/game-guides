@@ -596,6 +596,13 @@ class BuildsRepository {
                     { name: 'Sprightly Vonwacq', pieceCount: '2' }
                 ]
             }],
+            ['Tribbie', {
+                weapon: { name: 'Dance! Dance! Dance!' },
+                sets: [
+                    { name: 'Poet of Mourning Collapse', pieceCount: '4' },
+                    { name: 'Penacony, Land of the Dreams', pieceCount: '2' }
+                ]
+            }],
         ]),
 
         ZZZBuilds: new Map([
