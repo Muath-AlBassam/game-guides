@@ -3,6 +3,7 @@
 - Aspect Ratio Calculator: [Here](https://andrew.hedges.name/experiments/aspect_ratio/)
   - Card image base Ratio: 160px $\times$ 219px
 - ILoveImage image cropper: [Here](https://www.iloveimg.com/crop-image)
+- Remove background: [Here](https://www.remove.bg/)
 
 <br>
 
