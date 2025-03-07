@@ -11,7 +11,7 @@ class SearchComponent extends HTMLElement {
             position: relative;
             display: inline-flex;
             align-items: center;
-            width: 30%;
+            width: 100%;
             margin: 0 1em 0 0;
         }
         .search .clear-icon {
@@ -28,7 +28,6 @@ class SearchComponent extends HTMLElement {
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .search {
-                width: 100%;
                 margin: 0.5em 0;
             }
         }
@@ -51,7 +50,7 @@ class SearchComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <span class="search">
+        <div class="search">
             <input
                 type="text"
                 value="${this.query}"
@@ -62,7 +61,7 @@ class SearchComponent extends HTMLElement {
             <span class="clear-icon" role="button" onclick="this.previousElementSibling.value = ''; emitEvent('${this.eventName}', '')">
                 ${Constants.unicode.times}
             </span>
-        </span>
+        </div>
         `;
     }
 }

@@ -15,6 +15,7 @@ class ButtonGroupComponent extends HTMLElement {
         .btn-group {
             border-radius: 0;
             margin: 0 1em 0 0;
+            width: 100%;
         }
 
         .btn.active {
@@ -27,11 +28,9 @@ class ButtonGroupComponent extends HTMLElement {
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .btn-group {
                 margin: 0.5em 0;
-                width: 100%;
             }
             
             .btn-group .btn {
-                flex: 1;
                 text-align: center;
                 padding-left: 0;
                 padding-right: 0;
@@ -61,7 +60,7 @@ class ButtonGroupComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <span class="btn-group" id="${this.uuid}">
+        <div class="btn-group" id="${this.uuid}">
             ${Utils.ngIf(this.showAllButton, `
             <button 
                 class="btn btn-secondary active" 
@@ -84,7 +83,7 @@ class ButtonGroupComponent extends HTMLElement {
                 <img src="${btn[this.imageLabel]}" alt="${btn[this.titleLabel]}" height="24"/>
             </button>
             `)}
-        </span>
+        </div>
         `;
     }
 }

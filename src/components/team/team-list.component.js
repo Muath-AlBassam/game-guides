@@ -58,8 +58,9 @@ class TeamListComponent extends HTMLElement {
         ${Utils.ngIf(this.teams.size > 0, `
             ${Utils.ngForMap(this.teams, (team, index) => `
             <app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>
-            `)}    
-        `, `
+            `)}
+        `,
+        `
         <div>
             <img src="assets/svg/shrug.svg" height="${Utils.isMobile() ? '150' : '300'}" />
         </div>

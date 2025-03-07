@@ -17,6 +17,9 @@ class TeamSearchComponent extends HTMLElement {
     componentStyle = `
     <style>
         .team-search-container {
+            display: grid;
+            column-gap: 1em;
+            grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
             margin-top: 12px;
             margin-bottom: 12px;
         }
@@ -33,6 +36,10 @@ class TeamSearchComponent extends HTMLElement {
         }
         
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
+            .team-search-container {
+                grid-template-columns: 1fr;
+            }
+
             .btn-reset {
                 margin: 0.5em 0;
                 width: 100%;
@@ -95,45 +102,45 @@ class TeamSearchComponent extends HTMLElement {
             </div>
         </div>-->
         <div class="team-search-container">
-            <span>
+            <div>
                 <app-search eventname="search-team" placeholder="Search characters..."></app-search>
-            </span>
+            </div>
 
             ${Utils.ngIf(this.showRarities && this.rarities?.length > 0, `
-            <span>
+            <div>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.rarities)}"
                     titlelabel="label"
                     changeeventname="search-rarity"
                 >
                 </app-button-group>
-            </span>
+            </div>
             `)}
 
             ${Utils.ngIf(this.showElements && this.elements?.length > 0, `
-            <span>
+            <div>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.elements)}"
                     valuelabel="name"
                     changeeventname="search-element"
                 >
                 </app-button-group>
-            </span>
+            </div>
             `)}
 
             ${Utils.ngIf(this.showRoles && this.roles?.length > 0, `
-            <span>
+            <div>
                 <app-button-group
                     buttonlist="${Utils.toJSONString(this.roles)}"
                     valuelabel="name"
                     changeeventname="search-role"
                 >
                 </app-button-group>
-            </span>
+            </div>
             `)}
 
             ${Utils.ngIf(this.showResetButton, `
-            <span>
+            <div>
                 <button 
                     class="btn btn-secondary btn-reset" 
                     title="Reset" 
@@ -144,7 +151,7 @@ class TeamSearchComponent extends HTMLElement {
                     </span>
                     <span style="margin-left: 25px;">Reset</span>
                 </button>
-            </span>
+            </div>
             `)}
         </div>
         `;
