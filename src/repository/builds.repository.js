@@ -423,8 +423,7 @@ class BuildsRepository {
             ['Bronya', {
                 weapon: { name: 'But the Battle Isn\'t Over' },
                 sets: [
-                    { name: 'Musketeer of Wild Wheat', pieceCount: '2' },
-                    { name: 'Thief of Shooting Meteor', pieceCount: '2' },
+                    { name: 'Sacerdos\' Relived Ordeal', pieceCount: '4' },
                     { name: 'Fleet of the Ageless', pieceCount: '2' }
                 ]
             }],

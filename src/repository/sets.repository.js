@@ -261,6 +261,10 @@ class SetsRepository {
                 name: 'Poet of Mourning Collapse',
                 imageUrl: 'assets/images/hsr/set/HSR_Set_PoetOfMourningCollapse.png'
             }],
+            ['Bone Collection\'s Serene Demesne', {
+                name: 'Bone Collection\'s Serene Demesne',
+                imageUrl: 'assets/images/hsr/set/HSR_Set_BoneCollectionsSereneDemesne.png'
+            }],
         ]),
     
         ZZZSets: new Map([
