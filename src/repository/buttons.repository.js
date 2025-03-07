@@ -1,6 +1,6 @@
 
 class ButtonsRepository {
-    static getAllButtons(gameCode) {
+    getAllButtons(gameCode) {
         switch (gameCode) {
             case Constants.games.TK8:
                 return this.data.TK8Buttons;
@@ -9,12 +9,12 @@ class ButtonsRepository {
         }
     }
     
-    static getButton(gameCode, buttonName) {
+    getButton(gameCode, buttonName) {
         const button = this.getAllButtons(gameCode).get(buttonName);
         return button ?? { name: buttonName };
     }
 
-    static data = {
+    data = {
         // https://opengameart.org/content/free-keyboard-and-controllers-prompts-pack
         // https://github.com/spironan/TekinputGenerator/tree/master/Images/Inputs
         TK8Buttons: new Map([
@@ -86,4 +86,5 @@ class ButtonsRepository {
     }
 }
 
+const buttonsRepository = new ButtonsRepository();
 // ----------------------------------------------------------------------------

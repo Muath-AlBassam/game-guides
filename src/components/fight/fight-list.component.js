@@ -100,7 +100,7 @@ class FightComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
-        this.characters = CharactersRepository.getAllCharacters(this.gameCode);
+        this.characters = charactersRepository.getAllCharacters(this.gameCode);
     }
 
     buildHTML() {
@@ -149,7 +149,7 @@ class FightComponent extends HTMLElement {
 
     // TODO
     getButtonImage(buttonCode) {
-        return ButtonsRepository.getButton(this.gameCode, buttonCode).imageUrl
+        return buttonsRepository.getButton(this.gameCode, buttonCode).imageUrl
     }
 }
 

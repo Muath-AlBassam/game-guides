@@ -132,13 +132,13 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         this.gameCode = Utils.getGameFromUrl();
         this.character = this.getAttribute('character');
         if (this.character) {
-            this.charmd = CharactersRepository.getCharacterMetadata(this.gameCode, this.character);
-            this.rolemd = RolesRepository.getRole(this.gameCode, this.charmd.role);
-            this.elementmd = ElementsRepository.getElement(this.gameCode, this.charmd.element);
-            this.raritymd = RarityRepository.getRarity(this.gameCode, this.charmd.rarity);
-            this.buildmd = BuildsRepository.getCharacterBuild(this.gameCode, this.character);
-            this.weaponmd = WeaponsRepository.getWeaponMetadata(this.gameCode, this.buildmd.weapon.name);
-            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: SetsRepository.getSetMetadata(this.gameCode, set.name) } })
+            this.charmd = charactersRepository.getCharacterMetadata(this.gameCode, this.character);
+            this.rolemd = rolesRepository.getRole(this.gameCode, this.charmd.role);
+            this.elementmd = elementsRepository.getElement(this.gameCode, this.charmd.element);
+            this.raritymd = rarityRepository.getRarity(this.gameCode, this.charmd.rarity);
+            this.buildmd = buildsRepository.getCharacterBuild(this.gameCode, this.character);
+            this.weaponmd = weaponsRepository.getWeaponMetadata(this.gameCode, this.buildmd.weapon.name);
+            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getSetMetadata(this.gameCode, set.name) } })
         }
     }
 

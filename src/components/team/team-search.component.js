@@ -68,9 +68,9 @@ class TeamSearchComponent extends HTMLElement {
         if (this.hasAttribute('showresetbutton')) this.showResetButton = this.getAttribute('showresetbutton') == 'true';
 
         this.gameCode = Utils.getGameFromUrl();
-        this.rarities = [...RarityRepository.getAllRarities(this.gameCode).values()];
-        this.elements = [...ElementsRepository.getAllElements(this.gameCode).values()];
-        this.roles = [...RolesRepository.getAllRoles(this.gameCode).values()];
+        this.rarities = [...rarityRepository.getAllRarities(this.gameCode).values()];
+        this.elements = [...elementsRepository.getAllElements(this.gameCode).values()];
+        this.roles = [...rolesRepository.getAllRoles(this.gameCode).values()];
     }
 
     listenToEvents() {

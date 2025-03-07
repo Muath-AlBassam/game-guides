@@ -1,16 +1,16 @@
 
 class RotationsRepository {
 
-    static arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
-    static times = Constants.unicode.times;
+    arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
+    times = Constants.unicode.times;
 
-    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 2px; vertical-align: 2px;">${text}</span>`;
-    static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
-    static repeat = (text) => `<span class="arrow-border">${text}</span>`;
-    static imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
+    smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 2px; vertical-align: 2px;">${text}</span>`;
+    tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
+    repeat = (text) => `<span class="arrow-border">${text}</span>`;
+    imageOf = (path, tooltip) => `<img src="${path}" width="30" title="${tooltip}" />`;
 
     // GI moves shortcuts
-    static gi = {
+    gi = {
         // normal: this.imageOf('assets/images/gi/icons/GI_NormalAttack.png', 'Normal Attack'),
         // charged: this.tooltip('CA', 'Charged Attack'),
         // skill: this.imageOf('assets/images/gi/icons/GI_Skill.png', 'Skill'),
@@ -24,7 +24,7 @@ class RotationsRepository {
     }
 
     // ZZZ moves shortcuts
-    static zzz = {
+    zzz = {
         basic: this.imageOf('assets/images/zzz/icons/ZZZ_Basic.png', 'Basic'),
         charged: this.tooltip('CA', 'Charged Attack'),
         exSpecial: this.imageOf('assets/images/zzz/icons/ZZZ_ExSpecial.png', 'EX Special'),
@@ -36,7 +36,7 @@ class RotationsRepository {
         sock: this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock'),
     }
 
-    static getAllRotations(gameCode) {
+    getAllRotations(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GIRotations;
@@ -49,12 +49,12 @@ class RotationsRepository {
         }
     }
     
-    static getRotations(gameCode, teamName) {
+    getRotations(gameCode, teamName) {
         let rotations = this.getAllRotations(gameCode).get(teamName);
         return rotations ?? []
     }
 
-    static data = {
+    data = {
         GIRotations: new Map([
             ['Pyro', [
                 ['Mavuika', `${this.gi.skill} ${this.smallText('(Tap)')}`],
@@ -170,3 +170,5 @@ class RotationsRepository {
         ])
     }
 }
+
+const rotationsRepository = new RotationsRepository();

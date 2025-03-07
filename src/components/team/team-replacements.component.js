@@ -42,7 +42,7 @@ class ReplacementsComponent extends HTMLElement {
         this.gameCode = this.getAttribute('game');
         this.teamName = this.getAttribute('team');
 
-        this.currentTeam = TeamsRepository.getTeam(this.gameCode, this.teamName);
+        this.currentTeam = teamsRepository.getTeam(this.gameCode, this.teamName);
     }
 
     buildHTML() {

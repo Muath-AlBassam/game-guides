@@ -1,6 +1,6 @@
 
 class SetsRepository {
-    static getSetMetadata(gameCode, setName) {
+    getSetMetadata(gameCode, setName) {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
@@ -16,7 +16,7 @@ class SetsRepository {
         return data ?? { name: setName }
     }
 
-    static data = {
+    data = {
         GISets: new Map([
             ['Blizzard Strayer', {
                 name: 'Blizzard Strayer',
@@ -327,3 +327,5 @@ class SetsRepository {
         ])
     }
 }
+
+const setsRepository = new SetsRepository();

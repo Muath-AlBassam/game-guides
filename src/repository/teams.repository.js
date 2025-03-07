@@ -1,6 +1,6 @@
 
 class TeamsRepository {
-    static getAllTeams(gameCode) {
+    getAllTeams(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GITeams;
@@ -15,12 +15,12 @@ class TeamsRepository {
         }
     }
     
-    static getTeam(gameCode, teamName) {
+    getTeam(gameCode, teamName) {
         let team = this.getAllTeams(gameCode).get(teamName);
         return team ?? { name: teamName }
     }
 
-    static data = {
+    data = {
         GITeams: new Map([
             ['Pyro', {
                 name: 'Pyro',
@@ -873,3 +873,5 @@ class TeamsRepository {
         ]),
     }
 }
+
+const teamsRepository = new TeamsRepository();

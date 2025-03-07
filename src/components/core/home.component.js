@@ -51,7 +51,7 @@ class HomeComponent extends HTMLElement {
     }
 
     loadData() {
-        this.games = GamesRepository.getAllGames();
+        this.games = gamesRepository.getAllGames();
     }
 
     buildHTML() {

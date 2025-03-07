@@ -1,6 +1,6 @@
 
 class BuildsRepository {
-    static getCharacterBuild(gameCode, characterName) {
+    getCharacterBuild(gameCode, characterName) {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
@@ -16,7 +16,7 @@ class BuildsRepository {
         return data;
     }
 
-    static data = {
+    data = {
         GIBuilds: new Map([
             ['Arlecchino', {
                 weapon: { name: 'Crimson Moon\'s Semblance' },
@@ -735,3 +735,5 @@ class BuildsRepository {
         ]),
     }
 }
+
+const buildsRepository = new BuildsRepository();

@@ -47,7 +47,7 @@ class NotesPopoverComponent extends HTMLElement {
         if (this.hasAttribute('position')) this.position = this.getAttribute('position');
         if (this.hasAttribute('iconsize')) this.iconSize = this.getAttribute('iconsize');
 
-        this.notes = NotesRepository.getTeamNotes(this.gameCode, this.teamName);
+        this.notes = notesRepository.getTeamNotes(this.gameCode, this.teamName);
     }
 
     buildHTML() {

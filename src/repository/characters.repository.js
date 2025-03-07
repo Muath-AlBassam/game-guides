@@ -1,6 +1,6 @@
 
 class CharactersRepository {
-    static getAllCharacters(gameCode) {
+    getAllCharacters(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GICharacters;
@@ -17,16 +17,16 @@ class CharactersRepository {
         }
     }
 
-    static getSortedCharactersList(gameCode) {
+    getSortedCharactersList(gameCode) {
         return new Map([...this.getAllCharacters(gameCode).entries()].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)));
     }
     
-    static getCharacterMetadata(gameCode, characterName) {
+    getCharacterMetadata(gameCode, characterName) {
         let data = this.getAllCharacters(gameCode).get(characterName)
         return data ?? { name: characterName }
     }
     
-    static data = {
+    data = {
         GICharacters: new Map([
             ['Arlecchino', {
                 name: 'Arlecchino',
@@ -998,3 +998,5 @@ class CharactersRepository {
         ])
     }
 }
+
+const charactersRepository = new CharactersRepository();

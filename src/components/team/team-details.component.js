@@ -204,9 +204,9 @@ class TeamDetailsComponent extends HTMLElement {
         this.teamName = this.getAttribute('teamname');
         this.teamIndex = this.getAttribute('teamindex');
         
-        this.activeGame = GamesRepository.getGame(Utils.getGameFromUrl());
-        this.team = TeamsRepository.getTeam(this.activeGame.code, this.teamName);
-        this.petmd = PetsRepository.getPet(this.activeGame.code, this.team.pet);
+        this.activeGame = gamesRepository.getGame(Utils.getGameFromUrl());
+        this.team = teamsRepository.getTeam(this.activeGame.code, this.teamName);
+        this.petmd = petsRepository.getPet(this.activeGame.code, this.team.pet);
         this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
     }
 

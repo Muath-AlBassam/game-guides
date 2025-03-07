@@ -1,17 +1,17 @@
 
 class GamesRepository {
-    static getAllGames() {
+    getAllGames() {
         return this.data.games;
     }
     
-    static getGame(gameCode) {
+    getGame(gameCode) {
         if (gameCode == '' || gameCode == null) {
             return null;
         }
         return this.getAllGames().get(gameCode);
     }
 
-    static data = {
+    data = {
         games: new Map ([
             [Constants.games.GI, {
                 label: 'Genshin Impact',
@@ -69,3 +69,5 @@ class GamesRepository {
         ]),
     }
 }
+
+const gamesRepository = new GamesRepository();

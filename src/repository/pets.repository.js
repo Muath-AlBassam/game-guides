@@ -1,6 +1,6 @@
 
 class PetsRepository {
-    static getAllPets(gameCode) {
+    getAllPets(gameCode) {
         switch (gameCode) {
             case Constants.games.ZZZ:
                 return this.data.ZZZPets;
@@ -9,12 +9,12 @@ class PetsRepository {
         }
     }
     
-    static getPet(gameCode, petName) {
+    getPet(gameCode, petName) {
         let data = this.getAllPets(gameCode).get(petName)
         return data ?? { name: petName }
     }
     
-    static data = {
+    data = {
         ZZZPets: new Map([
             ['Officer Cui', {
                 name: 'Officer Cui',
@@ -49,3 +49,5 @@ class PetsRepository {
         ]),
     }
 }
+
+const petsRepository = new PetsRepository();

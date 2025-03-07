@@ -1,5 +1,5 @@
 class NotesRepository {
-    static getTeamNotes(gameCode, teamName) {
+    getTeamNotes(gameCode, teamName) {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
@@ -15,7 +15,7 @@ class NotesRepository {
         return data;
     }
 
-    static data = {
+    data = {
         GITeamNotes: new Map([
             ['Electro', [
                 { text: 'Pyro & Electro teammates only, to benefit from Chevreuse\'s A1\'s RES Shred.' }
@@ -43,3 +43,5 @@ class NotesRepository {
         ])
     }
 }
+
+const notesRepository = new NotesRepository();

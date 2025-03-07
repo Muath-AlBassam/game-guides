@@ -1,6 +1,6 @@
 
 class ElementsRepository {
-    static getAllElements(gameCode) {
+    getAllElements(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GIElements;
@@ -15,12 +15,12 @@ class ElementsRepository {
         }
     }
     
-    static getElement(gameCode, elementName) {
+    getElement(gameCode, elementName) {
         let element = this.getAllElements(gameCode).get(elementName);
         return element ?? { name: elementName }
     }
 
-    static data = {
+    data = {
         GIElements: new Map([
             ['Pyro', {
                 name: 'Pyro',
@@ -130,3 +130,5 @@ class ElementsRepository {
         ]),
     }
 }
+
+const elementsRepository = new ElementsRepository();

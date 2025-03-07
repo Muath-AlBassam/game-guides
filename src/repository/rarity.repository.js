@@ -1,6 +1,6 @@
 
 class RarityRepository {
-    static getAllRarities(gameCode) {
+    getAllRarities(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GIRarity;
@@ -15,12 +15,12 @@ class RarityRepository {
         }
     }
 
-    static getRarity(gameCode, rarityName) {
+    getRarity(gameCode, rarityName) {
         let rarity = this.getAllRarities(gameCode).get(rarityName);
         return rarity ?? { name: rarityName }
     }
 
-    static data = {
+    data = {
         GIRarity: new Map([
             ['5', {
                 code: '5',
@@ -74,3 +74,5 @@ class RarityRepository {
         ]),
     }
 }
+
+const rarityRepository = new RarityRepository();

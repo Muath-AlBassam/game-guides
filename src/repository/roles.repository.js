@@ -1,6 +1,6 @@
 
 class RolesRepository {
-    static getAllRoles(gameCode) {
+    getAllRoles(gameCode) {
         switch (gameCode) {
             case Constants.games.GI:
                 return this.data.GIRoles;
@@ -13,12 +13,12 @@ class RolesRepository {
         }
     }
     
-    static getRole(gameCode, roleName) {
+    getRole(gameCode, roleName) {
         let role = this.getAllRoles(gameCode).get(roleName);
         return role ?? { name: roleName }
     }
 
-    static data = {
+    data = {
         GIRoles: new Map([
             ['DPS', { 
                 name: 'DPS', 
@@ -98,3 +98,5 @@ class RolesRepository {
         ]),
     }
 }
+
+const rolesRepository = new RolesRepository();

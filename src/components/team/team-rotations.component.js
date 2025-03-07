@@ -54,7 +54,7 @@ class RotationsComponent extends HTMLElement {
         this.gameCode = this.getAttribute('game');
         this.teamName = this.getAttribute('team');
 
-        this.teamRotations = RotationsRepository.getRotations(this.gameCode, this.teamName);
+        this.teamRotations = rotationsRepository.getRotations(this.gameCode, this.teamName);
     }
 
     buildHTML() {

@@ -1,6 +1,6 @@
 
 class WeaponsRepository {
-    static getWeaponMetadata(gameCode, weaponName) {
+    getWeaponMetadata(gameCode, weaponName) {
         let data;
         switch (gameCode) {
             case Constants.games.GI:
@@ -16,7 +16,7 @@ class WeaponsRepository {
         return data ?? { name: weaponName }
     }
 
-    static data = {
+    data = {
         GIWeapons: new Map([
             ['Absolution', {
                 name: 'Absolution',
@@ -502,3 +502,5 @@ class WeaponsRepository {
         ]),
     }
 }
+
+const weaponsRepository = new WeaponsRepository();
