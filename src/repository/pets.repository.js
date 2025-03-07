@@ -2,11 +2,11 @@
 class PetsRepository {
 
     constructor() {
-        loadSheetData('PETS').then(roles => {
-            this.data = Utils.arrayToMapOfMaps(
-                roles, 
-                v => { return { name: v.NAME, imageUrl: v.IMAGE_URL, rarity: v.RARITY } }
-            );
+        loadFormattedData(
+            'PETS',
+            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL, rarity: v[0].RARITY } }
+        ).then(pets => {
+            this.data = pets;
         });
     }
 

@@ -2,11 +2,11 @@
 class ElementsRepository {
 
     constructor() {
-        loadSheetData('ELEMENTS').then(roles => {
-            this.data = Utils.arrayToMapOfMaps(
-                roles, 
-                v => { return { name: v.NAME, imageUrl: v.IMAGE_URL } }
-            );
+        loadFormattedData(
+            'ELEMENTS',
+            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL } }
+        ).then(elements => {
+            this.data = elements;
         });
     }
 

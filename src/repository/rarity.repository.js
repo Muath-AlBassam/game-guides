@@ -2,11 +2,11 @@
 class RarityRepository {
 
     constructor() {
-        loadSheetData('RARITY').then(roles => {
-            this.data = Utils.arrayToMapOfMaps(
-                roles, 
-                v => { return { code: v.CODE, label: v.LABEL, imageUrl: v.IMAGE_URL } }
-            );
+        loadFormattedData(
+            'RARITY',
+            v => { return { code: v[0].CODE, label: v[0].LABEL, imageUrl: v[0].IMAGE_URL } }
+        ).then(rarities => {
+            this.data = rarities;
         });
     }
 

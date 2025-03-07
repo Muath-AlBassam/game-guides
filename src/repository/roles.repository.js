@@ -2,11 +2,11 @@
 class RolesRepository {
 
     constructor() {
-        loadSheetData('ROLES').then(roles => {
-            this.data = Utils.arrayToMapOfMaps(
-                roles, 
-                v => { return { name: v.NAME, imageUrl: v.IMAGE_URL } }
-            );
+        loadFormattedData(
+            'ROLES',
+            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL } }
+        ).then(roles => {
+            this.data = roles;
         });
     }
 
