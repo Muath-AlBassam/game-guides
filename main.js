@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
     initializePopovers();
-    loadExcel();
 });
 
 window.addEventListener('hashchange', () => {

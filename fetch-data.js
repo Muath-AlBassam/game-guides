@@ -1,20 +1,10 @@
-async function loadExcel() {
-    const response = await fetch('GameGuidesDB.xlsx');
-    const arrayBuffer = await response.arrayBuffer();
 
+sheet = null;
+async function loadSheetData(sheetName) {
+    const sheet = await fetch('Game Guides DB.xlsx');
+    const arrayBuffer = await sheet.arrayBuffer();
     const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-    const worksheet = workbook.Sheets['ROLES'];
-
+    const worksheet = workbook.Sheets[sheetName];
     // Convert to array of objects
-    const data = XLSX.utils.sheet_to_json(worksheet);
-
-    console.log('Excel data:', data);
-
-    // Optional: Convert to Map if needed
-    const dataMap = new Map();
-    data.forEach((row, index) => {
-      dataMap.set(index, row);
-    });
-
-    console.log('Data Map:', dataMap);
+    return XLSX.utils.sheet_to_json(worksheet);
 }

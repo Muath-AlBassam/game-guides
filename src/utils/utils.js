@@ -14,6 +14,31 @@ class Utils {
         });
     }
 
+    // Excel data mapping
+    static arrayToMapOfMaps(array, mapObjectCallback, uniqueKey = 'CODE') {
+        let groupedByGame = this.arrayToGroupedMap(array, 'GAME_CODE');
+        groupedByGame.forEach((gv, gk) => {
+            let groupedByCode = this.arrayToGroupedMap(gv, uniqueKey)
+            groupedByCode.forEach((cv, ck) => {
+                groupedByCode.set(ck, mapObjectCallback(cv[0]))
+            })
+            groupedByGame.set(gk, groupedByCode);
+        });
+        return groupedByGame;
+    }
+
+    static arrayToGroupedMap(array, keyAttr) {
+        const map = new Map();
+        array.forEach(item => {
+          const key = item[keyAttr];
+          if (!map.has(key)) {
+            map.set(key, []);
+          }
+          map.get(key).push(item);
+        });
+        return map;
+    }
+
     // Media Utils
     static isMobile() {
         const mq = window.matchMedia(`(max-width: ${Constants.code.mobileMaxWidth})`);
