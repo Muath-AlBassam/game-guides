@@ -7,34 +7,31 @@ class TeamsRepository {
 
     fetchData() {
         dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS', 'TEAMS_VARIATIONS']).then(resMap => {
-            let characters = this.fetchMappedTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
-            let variations = this.fetchMappedTeamsVariations(resMap.get('TEAMS_VARIATIONS'));
-            this.data = this.fetchMappedTeams(resMap.get('TEAMS'), characters, variations);
+            let allCharacters = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
+            let allVariations = this.mapTeamsVariations(resMap.get('TEAMS_VARIATIONS'));
+            this.data = this.mapTeams(resMap.get('TEAMS'), allCharacters, allVariations);
         });
     }
 
-    fetchMappedTeams(teamsData, characters, variations) {
-        let teamsMap = dataClient.arrayTo2LevelMap(
+    mapTeams(teamsData, allCharacters, allVariations) {
+        let teamsByGame = dataClient.arrayTo2LevelMap(
             teamsData,
             v => { return { name: v[0].NAME, iconUrl: v[0].ICON_URL, pet: v[0].PET, order: v[0].ORDER } }
         );
-        teamsMap.forEach((gameTeams, gameCode) => {
+        teamsByGame.forEach((gameTeams, gameCode) => {
             gameTeams.forEach((team, teamCode) => {
-                team.characters = characters.get(gameCode)?.get(teamCode);
-                if (team.characters == null) {
-                    team.characters = [];
-                }
-                team.variations = variations.get(gameCode)?.get(teamCode);
+                team.characters = allCharacters.get(gameCode)?.get(teamCode) ?? [];
+                team.variations = allVariations.get(gameCode)?.get(teamCode);
                 gameTeams.set(teamCode, team);
             });
             // custom order (default: alphabetical)
             const sortedTeams = new Map([...gameTeams.entries()].sort((a, b) => a[1].order - b[1].order));
-            teamsMap.set(gameCode, sortedTeams);
+            teamsByGame.set(gameCode, sortedTeams);
         });
-        return teamsMap;
+        return teamsByGame;
     }
 
-    fetchMappedTeamsCharacters(charactersData) {
+    mapTeamsCharacters(charactersData) {
         return dataClient.arrayTo2LevelMap(
             charactersData,
             vArr => { 
@@ -46,7 +43,7 @@ class TeamsRepository {
         );
     }
 
-    fetchMappedTeamsVariations(variationsData) {
+    mapTeamsVariations(variationsData) {
         return dataClient.arrayTo2LevelMap(
             variationsData,
             vArr => { 

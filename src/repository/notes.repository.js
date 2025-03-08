@@ -10,11 +10,9 @@ class NotesRepository {
             this.data = dataClient.arrayTo2LevelMap(
                 notes,
                 vArr => {
-                    let mappedArr = [];
-                    vArr.forEach(v => {
-                        mappedArr.push({ text: v.TEXT });
+                    return vArr.map(v => {
+                       return { text: v.TEXT };
                     });
-                    return mappedArr;
                 },
                 'OWNER_CODE'
             );

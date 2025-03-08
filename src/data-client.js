@@ -43,11 +43,11 @@ class DataClient {
     groupBy(array, keyAttr) {
         const map = new Map();
         array.forEach(item => {
-        const key = item[keyAttr];
-        if (!map.has(key)) {
-            map.set(key, []);
-        }
-        map.get(key).push(item);
+            const key = item[keyAttr];
+            if (!map.has(key)) {
+                map.set(key, []);
+            }
+            map.get(key).push(item);
         });
         return map;
     }
