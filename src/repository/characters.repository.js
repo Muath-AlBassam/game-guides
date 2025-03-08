@@ -15,12 +15,7 @@ class CharactersRepository {
     }
 
     getAllCharacters(gameCode) {
-        switch (gameCode) {
-            case Constants.games.TK8:
-                return this.TK8Characters;
-            default:
-                return this.data.get(gameCode) ?? new Map([]);
-        }
+        return this.data.get(gameCode) ?? new Map([]);
     }
 
     getSortedCharactersList(gameCode) {
@@ -32,21 +27,7 @@ class CharactersRepository {
         return data ?? { name: characterName }
     }
     
-    data = new Map([])
-
-    TK8Characters = new Map([
-        ['Reina', {
-            name: 'Reina',
-            imageUrl: 'assets/images/tk8/character/TK8_Reina.png',
-            combos: [
-                ['X', Constants.unicode.space, 'X', Constants.unicode.space, 'Y'],
-                ['X', Constants.unicode.space, 'Y', Constants.unicode.space, 'Y'],
-                ['Y', Constants.unicode.space, 'Y', Constants.unicode.space, 'X'],
-                ['YX'],
-                ['DR', Constants.unicode.space, 'X', Constants.unicode.space, 'Y'],
-            ]
-        }]
-    ])
+    data = new Map([]);
 }
 
 const charactersRepository = new CharactersRepository();
