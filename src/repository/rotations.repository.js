@@ -33,7 +33,7 @@ class RotationsRepository {
         dash: this.imageOf('assets/images/zzz/icons/ZZZ_Dash.png', 'Dash'),
         assault: this.imageOf('assets/images/zzz/icons/ZZZ_Physical.png', 'Assault'),
         burn: this.imageOf('assets/images/zzz/icons/ZZZ_Fire.png', 'Burn'),
-        sock: this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock'),
+        shock: this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock'),
     }
 
     getAllRotations(gameCode) {
