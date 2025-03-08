@@ -35,7 +35,7 @@ class FightComponent extends HTMLElement {
             justify-content: space-between;
             position: relative;
             width: 100%;
-            overflow: scroll;
+            overflow: hidden;
         }
         .fight__container .item::-webkit-scrollbar {
             display: none;
@@ -51,6 +51,7 @@ class FightComponent extends HTMLElement {
             display: grid;
             align-items: center;
             justify-items: center;
+            height: ${this.characterPFPSize + 100}px;
         }
 
         .fight__container .item .character .name {
@@ -68,7 +69,7 @@ class FightComponent extends HTMLElement {
             .fight__container {
                 display: grid;
                 grid-template-columns: 1fr;
-                height: ${this.characterPFPSize + 150}px;
+                height: ${this.characterPFPSize + 175}px;
             }
 
             .fight__container .number {
@@ -77,6 +78,10 @@ class FightComponent extends HTMLElement {
 
             .fight__container .item {
                 grid-template-columns: 1fr;
+            }
+
+            .fight__container .item .character {
+                height: ${this.characterPFPSize - 50}px;
             }
         }
     </style>`;
@@ -119,7 +124,7 @@ class FightComponent extends HTMLElement {
                             ${character.name}
                         </div>
                     </div>
-                    <app-fight-combos character="${character?.name}"></app-fight-combos>
+                    <app-fight-combos class="combos-section" character="${character?.name}"></app-fight-combos>
                 </div>
             </div>   
             `)}

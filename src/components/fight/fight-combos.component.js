@@ -10,9 +10,22 @@ class FightCombosComponent extends HTMLElement {
             margin: 0 2em;
         }
 
+        .combos .combos-list {
+            height: 55%;
+            overflow: scroll;
+        }
+        .combos .combos-list::-webkit-scrollbar {
+            display: none;
+        }
+
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .combos {
                 margin: 0 0.5em;
+            }
+
+            .combos .combos-list {
+                height: 35%;
+                overflow: scroll;
             }
         }
     </style>`;
@@ -36,17 +49,19 @@ class FightCombosComponent extends HTMLElement {
         return `
         <div class="combos">
             <div class="content-header">Combos</div>
-            <ul>
-                ${Utils.ngFor(this.combos, combo => `
-                <li>
-                    ${Utils.ngFor(combo, buttonCode => 
-                        `${Utils.ngIf(this.getButtonImage(buttonCode), 
-                        `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
-                        buttonCode)}`
-                    )}
-                </li>
-                `)}
-            </ul>
+            <div class="combos-list">
+                <ul>
+                    ${Utils.ngFor(this.combos, combo => `
+                    <li>
+                        ${Utils.ngFor(combo, buttonCode => 
+                            `${Utils.ngIf(this.getButtonImage(buttonCode), 
+                            `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
+                            buttonCode)}`
+                        )}
+                    </li>
+                    `)}
+                </ul>
+            </div>
         </div>
         `;
     }
