@@ -5,9 +5,17 @@ class DataClient {
         const sheet = await fetch('Game Guides DB.xlsx');
         const arrayBuffer = await sheet.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-        const worksheet = workbook.Sheets[sheetName];
-        // Convert to array of objects
-        return XLSX.utils.sheet_to_json(worksheet);
+        if (sheetName instanceof Array) {
+            let resMap = new Map([]);
+            sheetName.forEach(name => {
+                const worksheet = workbook.Sheets[name];
+                resMap.set(name, XLSX.utils.sheet_to_json(worksheet));
+            });
+            return resMap;
+        } else {
+            const worksheet = workbook.Sheets[sheetName];
+            return XLSX.utils.sheet_to_json(worksheet);
+        }
     }
 
     // groups array to map by 2 levels: GAME_CODE then @uniqueKey
