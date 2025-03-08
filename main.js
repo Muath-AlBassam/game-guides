@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadWorkbook();
     loadAllScripts();
 });
 
@@ -12,7 +13,7 @@ window.addEventListener('hashchange', () => {
 });
 
 window.onclick = function(event) {
-    closeDialogOnOutsideClick();
+    closeDialogOnOutsideClick(event);
 }
 
 //-----------------------------------------------------------------------------
@@ -28,8 +29,17 @@ function initializePopovers() {
     }, 1000)
 }
 
-function closeDialogOnOutsideClick() {
+function closeDialogOnOutsideClick(event) {
+    // gagu-dialog is the container (it covers the whole page)
     if (Array.from(document.getElementsByClassName('gagu-dialog')).includes(event.target)) {
         closeDialog();
     }
+}
+
+workbook = null;
+async function loadWorkbook() {
+    console.log('fetching workbook');
+    const sheet = await fetch('Game Guides DB.xlsx');
+    const arrayBuffer = await sheet.arrayBuffer();
+    workbook = XLSX.read(arrayBuffer, { type: 'array' });
 }

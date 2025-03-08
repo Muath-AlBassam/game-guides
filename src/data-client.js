@@ -1,10 +1,9 @@
+
 class DataClient {
     
+    // workbook is loaded in mainjs
     async loadData(sheetName) {
         console.log('fetching data for', sheetName);
-        const sheet = await fetch('Game Guides DB.xlsx');
-        const arrayBuffer = await sheet.arrayBuffer();
-        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         if (sheetName instanceof Array) {
             let resMap = new Map([]);
             sheetName.forEach(name => {
