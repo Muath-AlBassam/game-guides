@@ -63,11 +63,6 @@ class FightComponent extends HTMLElement {
             justify-items: center;
         }
 
-        .fight__container .item .combos {
-            margin: 0 2em;
-            overflow: scroll;
-        }
-
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .fight__container {
                 display: grid;
@@ -81,10 +76,6 @@ class FightComponent extends HTMLElement {
             .fight__container .item {
                 overflow: hidden;
                 grid-template-columns: 1fr;
-            }
-
-            .fight__container .item .combos {
-                margin: 0 0.5em;
             }
         }
     </style>`;
@@ -127,20 +118,7 @@ class FightComponent extends HTMLElement {
                             ${character.name}
                         </div>
                     </div>
-                    <div class="combos">
-                        <div class="content-header">Combos</div>
-                        <ul>
-                            ${Utils.ngFor(character.combos, combo => `
-                            <li>
-                                ${Utils.ngFor(combo, buttonCode => 
-                                    `${Utils.ngIf(this.getButtonImage(buttonCode), 
-                                        `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
-                                    buttonCode)}`
-                                )}
-                            </li>
-                            `)}
-                        </ul>
-                    </div>
+                    <app-fight-combos character="${character?.name}"></app-fight-combos>
                 </div>
             </div>   
             `)}

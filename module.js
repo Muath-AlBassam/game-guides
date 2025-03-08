@@ -29,6 +29,7 @@ function loadAllScripts() {
     loadScript("src/repository/rarity.repository.js");
     loadScript("src/repository/pets.repository.js");
     loadScript("src/repository/notes.repository.js");
+    loadScript("src/repository/combos.repository.js");
 
     // Core
     loadScript("src/components/core/core.component.js", true);
@@ -58,4 +59,5 @@ function loadAllScripts() {
     loadScript("src/components/team/team-search.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);
+    loadScript("src/components/fight/fight-combos.component.js", true);
 }
