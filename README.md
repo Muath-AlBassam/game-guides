@@ -7,6 +7,10 @@
 
 <br>
 
+## Database
+- Excel file in Google Drive
+
+<br>
 
 ## Games' Images Source
 
@@ -49,6 +53,7 @@
   - Change parameter in url (50) to (256)
 
 <img src="assets/readme/zzz-image-loc-1.png" alt="Step 1" width="500"/>
+<br/>
 <img src="assets/readme/zzz-image-loc-2.png" alt="Step 2" width="500"/>
 
 <br>
