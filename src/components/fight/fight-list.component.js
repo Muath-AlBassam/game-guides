@@ -35,12 +35,13 @@ class FightComponent extends HTMLElement {
             justify-content: space-between;
             position: relative;
             width: 100%;
+            overflow: scroll;
         }
-        .fight__container .item ::-webkit-scrollbar {
+        .fight__container .item::-webkit-scrollbar {
             display: none;
         }
 
-        .fight__container .item>div:nth-child(odd) {
+        .fight__container .item > div:nth-child(odd) {
             background-color: #36373f;
         }
 
@@ -67,6 +68,7 @@ class FightComponent extends HTMLElement {
             .fight__container {
                 display: grid;
                 grid-template-columns: 1fr;
+                height: ${this.characterPFPSize + 150}px;
             }
 
             .fight__container .number {
@@ -74,7 +76,6 @@ class FightComponent extends HTMLElement {
             }
 
             .fight__container .item {
-                overflow: hidden;
                 grid-template-columns: 1fr;
             }
         }
@@ -123,11 +124,6 @@ class FightComponent extends HTMLElement {
             </div>   
             `)}
         </div>`;
-    }
-
-    // TODO
-    getButtonImage(buttonCode) {
-        return buttonsRepository.getButton(this.gameCode, buttonCode).imageUrl
     }
 }
 

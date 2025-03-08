@@ -8,7 +8,6 @@ class FightCombosComponent extends HTMLElement {
     <style>
         .combos {
             margin: 0 2em;
-            overflow: scroll;
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
@@ -42,7 +41,7 @@ class FightCombosComponent extends HTMLElement {
                 <li>
                     ${Utils.ngFor(combo, buttonCode => 
                         `${Utils.ngIf(this.getButtonImage(buttonCode), 
-                            `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
+                        `<img src="${this.getButtonImage(buttonCode)}" width="40" title="${buttonCode}" />`,
                         buttonCode)}`
                     )}
                 </li>

@@ -44,7 +44,7 @@ class TeamDetailsComponent extends HTMLElement {
             width: 100%;
         }
 
-        .teams__container .item div:nth-child(even) {
+        .teams__container .item > div:nth-child(even) {
             background-color: #36373f;
         }
 
