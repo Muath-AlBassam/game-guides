@@ -2,21 +2,25 @@
 class BuildsRepository {
     
     constructor() {
-        loadFormattedData(
-            'BUILDS',
-            vArr => {
-                let weapon = vArr.find(item => item.TYPE == 'WEAPON');
-                let sets = vArr.filter(item => item.TYPE == 'SET');
-                return {
-                    weapon: { name: weapon.NAME },
-                    sets: sets.map(set => {
-                        return { name: set.NAME, pieceCount: set.COUNT }
-                    })
-                };
-            },
-            'CHARACTER_CODE'
-        ).then(builds => {
-            this.data = builds;
+        this.fetchData();
+    }
+
+    fetchData() {
+        dataClient.loadData('BUILDS').then(builds => {
+            this.data = dataClient.arrayTo2LevelMap(
+                builds,
+                vArr => {
+                    let weapon = vArr.find(item => item.TYPE == 'WEAPON');
+                    let sets = vArr.filter(item => item.TYPE == 'SET');
+                    return {
+                        weapon: { name: weapon.NAME },
+                        sets: sets.map(set => {
+                            return { name: set.NAME, pieceCount: set.COUNT };
+                        })
+                    };
+                },
+                'CHARACTER_CODE'
+            );
         });
     }
 
@@ -25,7 +29,6 @@ class BuildsRepository {
     }
 
     data = new Map([]);
-;
 }
 
 const buildsRepository = new BuildsRepository();

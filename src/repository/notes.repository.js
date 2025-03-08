@@ -2,18 +2,22 @@
 class NotesRepository {
 
     constructor() {
-        loadFormattedData(
-            'NOTES',
-            vArr => {
-                let mappedArr = [];
-                vArr.forEach(v => {
-                    mappedArr.push({ text: v.TEXT })
-                });
-                return mappedArr;
-            },
-            'OWNER_CODE'
-        ).then(notes => {
-            this.data = notes;
+        this.fetchData();
+    }
+
+    fetchData() {
+        dataClient.loadData('NOTES').then(notes => {
+            this.data = dataClient.arrayTo2LevelMap(
+                notes,
+                vArr => {
+                    let mappedArr = [];
+                    vArr.forEach(v => {
+                        mappedArr.push({ text: v.TEXT });
+                    });
+                    return mappedArr;
+                },
+                'OWNER_CODE'
+            );
         });
     }
 

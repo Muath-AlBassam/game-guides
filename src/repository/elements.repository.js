@@ -2,11 +2,15 @@
 class ElementsRepository {
 
     constructor() {
-        loadFormattedData(
-            'ELEMENTS',
-            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL } }
-        ).then(elements => {
-            this.data = elements;
+        this.fetchData();
+    }
+
+    fetchData() {
+        dataClient.loadData('ELEMENTS').then(elements => {
+            this.data = dataClient.arrayTo2LevelMap(
+                elements,
+                v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL }; }
+            );
         });
     }
 

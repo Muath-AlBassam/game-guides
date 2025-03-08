@@ -2,11 +2,15 @@
 class PetsRepository {
 
     constructor() {
-        loadFormattedData(
-            'PETS',
-            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL, rarity: v[0].RARITY } }
-        ).then(pets => {
-            this.data = pets;
+        this.fetchData();
+    }
+
+    fetchData() {
+        dataClient.loadData('PETS').then(pets => {
+            this.data = dataClient.arrayTo2LevelMap(
+                pets,
+                v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL, rarity: v[0].RARITY }; }
+            );
         });
     }
 

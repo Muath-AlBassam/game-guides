@@ -2,11 +2,15 @@
 class RolesRepository {
 
     constructor() {
-        loadFormattedData(
-            'ROLES',
-            v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL } }
-        ).then(roles => {
-            this.data = roles;
+        this.fetchData();
+    }
+
+    fetchData() {
+        dataClient.loadData('ROLES').then(roles => {
+            this.data = dataClient.arrayTo2LevelMap(
+                roles,
+                v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL }; }
+            );
         });
     }
 

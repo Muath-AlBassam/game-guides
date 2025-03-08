@@ -8,6 +8,9 @@ function loadScript(url, isDefer = false) {
 }
 
 function loadAllScripts() {
+    //
+    loadScript("src/data-client.js");
+
     // Utilities
     loadScript("src/utils/constants.js");
     loadScript("src/utils/utils.js");
