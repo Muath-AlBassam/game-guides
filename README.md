@@ -9,6 +9,12 @@
 
 ## Database
 - Excel file in Google Drive
+- Use [Google Cloud](https://console.cloud.google.com/) to manage API key & services
+
+<br>
+
+## Run Service
+- Run [start-server.bat](./start-server.bat) file to start the project locally
 
 <br>
 
@@ -26,6 +32,7 @@
 <img src="assets/readme/gi-image-loc-1.png" alt="Step 1" width="500"/>
 
 ---
+<br>
 
 <img src="assets/images/hsr/HSR_Logo.png" alt="Step 1" width="200"/>
 
@@ -40,6 +47,7 @@
 <img src="assets/readme/hsr-image-loc-1.png" alt="Step 1" width="500"/>
 
 ---
+<br>
 
 <img src="assets/images/zzz/ZZZ_Logo.png" alt="Step 1" width="200"/>
 
@@ -55,7 +63,3 @@
 <img src="assets/readme/zzz-image-loc-1.png" alt="Step 1" width="500"/>
 <br/>
 <img src="assets/readme/zzz-image-loc-2.png" alt="Step 2" width="500"/>
-
-<br>
-<br>
-<br>
