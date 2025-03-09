@@ -7,7 +7,7 @@ class GamesRepository {
 
     fetchData() {
         dataClient.loadData('GAMES').then(games => {
-            this.data = dataClient.arrayTo1LevelMap(
+            this.data = Utils.arrayTo1LevelMap(
                 games,
                 v => {
                     return {

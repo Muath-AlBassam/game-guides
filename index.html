@@ -18,18 +18,30 @@
 
         <!-- tiny-slider : https://ganlanyuan.github.io/tiny-slider/ -->
         <!-- some missing classes added to style.css -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script> -->
 
         <!-- General style -->
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="style-mobile.css">
+
+
+        <script type="text/javascript" src="environment.js"></script>
+
+        <!-- Components -->
+        <script type="text/javascript" src="src/components/shared/loader.component.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="src/services/store.js"></script>
+        <script type="text/javascript" src="src/services/data-client.js"></script>
 
         <!-- Main -->
         <script type="text/javascript" src="module.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
-        <app-core></app-core>
+        <div style="margin-top: 8em;">
+            <app-loader></app-loader>
+        </div>
     </body>
 </html>

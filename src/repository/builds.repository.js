@@ -7,7 +7,7 @@ class BuildsRepository {
 
     fetchData() {
         dataClient.loadData('BUILDS').then(builds => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 builds,
                 vArr => {
                     let weapon = vArr.find(item => item.TYPE == 'WEAPON');

@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // load sheet (Excel file as Database)
     await loadWorkbook();
+    // load components
     loadAllScripts();
+    // show page content & remove loader
+    loadPageContent();
 });
 
 window.addEventListener('load', () => {
@@ -18,6 +22,10 @@ window.onclick = function(event) {
 
 //-----------------------------------------------------------------------------
 
+function loadPageContent() {
+    document.body.innerHTML = `<app-core></app-core>`;
+}
+
 function initializePopovers() {
     // clear current popovers
     const popovers = document.querySelectorAll('[data-bs-toggle="popover"]');
@@ -34,12 +42,4 @@ function closeDialogOnOutsideClick(event) {
     if (Array.from(document.getElementsByClassName('gagu-dialog')).includes(event.target)) {
         closeDialog();
     }
-}
-
-workbook = null;
-async function loadWorkbook() {
-    console.log('fetching workbook');
-    const sheet = await fetch('Game Guides DB.xlsx');
-    const arrayBuffer = await sheet.arrayBuffer();
-    workbook = XLSX.read(arrayBuffer, { type: 'array' });
 }

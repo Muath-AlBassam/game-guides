@@ -7,7 +7,7 @@ class ButtonsRepository {
 
     fetchData() {
         dataClient.loadData('BUTTONS').then(buttons => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 buttons,
                 v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL } },
             );

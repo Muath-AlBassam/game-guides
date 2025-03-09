@@ -7,7 +7,7 @@ class NotesRepository {
 
     fetchData() {
         dataClient.loadData('NOTES').then(notes => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 notes,
                 vArr => {
                     return vArr.map(v => {

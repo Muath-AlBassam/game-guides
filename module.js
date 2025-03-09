@@ -8,9 +8,6 @@ function loadScript(url, isDefer = false) {
 }
 
 function loadAllScripts() {
-    //
-    loadScript("src/data-client.js");
-
     // Utilities
     loadScript("src/utils/constants.js");
     loadScript("src/utils/utils.js");
@@ -38,7 +35,6 @@ function loadAllScripts() {
     loadScript("src/components/core/game-header.component.js", true);
     // Shared
     loadScript("src/components/shared/search.component.js", true);
-    loadScript("src/components/shared/loader.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);
     loadScript("src/components/shared/notes-popover.component.js", true);
     loadScript("src/components/shared/button-group.component.js", true);

@@ -7,7 +7,7 @@ class RolesRepository {
 
     fetchData() {
         dataClient.loadData('ROLES').then(roles => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 roles,
                 v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL }; }
             );

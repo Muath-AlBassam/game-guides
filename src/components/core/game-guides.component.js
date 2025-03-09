@@ -8,7 +8,7 @@ class GameGuidesComponent extends HTMLElement {
   
     connectedCallback() {
         this.loadData();
-        this.render();
+        this.innerHTML = this.buildHTML();
         this.listenToEvents();
     }
 

@@ -7,7 +7,7 @@ class WeaponsRepository {
 
     fetchData() {
         dataClient.loadData('WEAPONS').then(weapons => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 weapons,
                 v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL, rarity: v[0].RARITY }; }
             );

@@ -14,7 +14,7 @@ class TeamsRepository {
     }
 
     mapTeams(teamsData, allCharacters, allVariations) {
-        let teamsByGame = dataClient.arrayTo2LevelMap(
+        let teamsByGame = Utils.arrayTo2LevelMap(
             teamsData,
             v => { return { name: v[0].NAME, iconUrl: v[0].ICON_URL, pet: v[0].PET, order: v[0].ORDER } }
         );
@@ -32,7 +32,7 @@ class TeamsRepository {
     }
 
     mapTeamsCharacters(charactersData) {
-        return dataClient.arrayTo2LevelMap(
+        return Utils.arrayTo2LevelMap(
             charactersData,
             vArr => { 
                 return vArr.map(v => {
@@ -44,7 +44,7 @@ class TeamsRepository {
     }
 
     mapTeamsVariations(variationsData) {
-        return dataClient.arrayTo2LevelMap(
+        return Utils.arrayTo2LevelMap(
             variationsData,
             vArr => { 
                 return vArr.map(v => {

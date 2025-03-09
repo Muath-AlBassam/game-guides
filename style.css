@@ -207,7 +207,7 @@ body:has(div.dialog-shown) {
 }
 
 /* tiny-slider missing classes --------------------------------------------- */
-.tns-nav {
+/* .tns-nav {
     text-align: center;
     margin: 10px 0;
 }
@@ -222,4 +222,4 @@ body:has(div.dialog-shown) {
 }
 .tns-nav > .tns-nav-active {
     background: #ddd;
-}
+} */

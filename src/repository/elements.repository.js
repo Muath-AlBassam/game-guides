@@ -7,7 +7,7 @@ class ElementsRepository {
 
     fetchData() {
         dataClient.loadData('ELEMENTS').then(elements => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 elements,
                 v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL }; }
             );

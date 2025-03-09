@@ -7,7 +7,7 @@ class CombosRepository {
 
     fetchData() {
         dataClient.loadData('COMBOS').then(combos => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 combos,
                 vArr => {
                     return vArr.map(v => {

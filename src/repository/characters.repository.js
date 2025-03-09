@@ -7,7 +7,7 @@ class CharactersRepository {
 
     fetchData() {
         dataClient.loadData('CHARACTERS').then(characters => {
-            this.data = dataClient.arrayTo2LevelMap(
+            this.data = Utils.arrayTo2LevelMap(
                 characters,
                 v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL, cardImageUrl: v[0].CARD_IMAGE_URL, element: v[0].ELEMENT, role: v[0].ROLE, rarity: v[0].RARITY }; }
             );
