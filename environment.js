@@ -1,4 +1,5 @@
 const environment = {
+    NAME: "Game Guides",
     GOOGLE_API_KEY: "AIzaSyCvDWfzC-bF_qJqV0H_bxKYvkX2CMANVSU",
     GAGU_SPREADSHEET_ID: "1UD57k1cChp-3MnpTUWLz2RHCZc5LkyPvhEj7C6G_MWU",
 
