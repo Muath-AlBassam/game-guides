@@ -16,7 +16,7 @@ class TeamsRepository {
     mapTeams(teamsData, allCharacters, allVariations) {
         let teamsByGame = Utils.arrayTo2LevelMap(
             teamsData,
-            v => { return { name: v[0].NAME, iconUrl: v[0].ICON_URL, pet: v[0].PET, order: v[0].ORDER } }
+            v => { return { name: v[0].NAME, iconUrl: Utils.getImageUrl(v[0].ICON_URL), pet: v[0].PET, order: v[0].ORDER } }
         );
         teamsByGame.forEach((gameTeams, gameCode) => {
             gameTeams.forEach((team, teamCode) => {

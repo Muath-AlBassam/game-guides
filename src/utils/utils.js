@@ -100,6 +100,13 @@ class Utils {
         });
         return map;
     }
+
+    static getImageUrl(imageUrl) {
+        if (imageUrl) {
+            return "https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/" + imageUrl;
+        }
+        return null;
+    }
 }
 
 // general function to close any dialog

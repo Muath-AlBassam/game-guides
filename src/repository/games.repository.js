@@ -16,9 +16,9 @@ class GamesRepository {
                         style: v[0].STYLE,
                         teamSize: v[0].TEAM_SIZE,
                         hasPet: v[0].HAS_PET,
-                        iconUrl: v[0].ICON_URL,
-                        logoUrl: v[0].LOGO_URL,
-                        backgroundUrl: v[0].BACKGROUND_URL,
+                        iconUrl: Utils.getImageUrl(v[0].ICON_URL),
+                        logoUrl: Utils.getImageUrl(v[0].LOGO_URL),
+                        backgroundUrl: Utils.getImageUrl(v[0].BACKGROUND_URL),
                         guideUrl: v[0].GUIDE_URL
                     };
                 }

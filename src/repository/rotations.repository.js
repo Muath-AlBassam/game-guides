@@ -25,15 +25,15 @@ class RotationsRepository {
 
     // ZZZ moves shortcuts
     zzz = {
-        basic: this.imageOf('assets/images/zzz/icons/ZZZ_Basic.png', 'Basic'),
+        basic: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic'),
         charged: this.tooltip('CA', 'Charged Attack'),
-        exSpecial: this.imageOf('assets/images/zzz/icons/ZZZ_ExSpecial.png', 'EX Special'),
-        special: this.imageOf('assets/images/zzz/icons/ZZZ_Special.png', 'Special'),
-        QTE: this.imageOf('assets/images/zzz/icons/ZZZ_QTE.png', 'Switch (Chain / Quick-Assist)'),
-        dash: this.imageOf('assets/images/zzz/icons/ZZZ_Dash.png', 'Dash'),
-        assault: this.imageOf('assets/images/zzz/icons/ZZZ_Physical.png', 'Assault'),
-        burn: this.imageOf('assets/images/zzz/icons/ZZZ_Fire.png', 'Burn'),
-        shock: this.imageOf('assets/images/zzz/icons/ZZZ_Electric.png', 'Shock'),
+        exSpecial: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special'),
+        special: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
+        QTE: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_QTE.png'), 'Switch (Chain / Quick-Assist)'),
+        dash: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
+        assault: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
+        burn: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
+        shock: this.imageOf(Utils.getImageUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock'),
     }
 
     getAllRotations(gameCode) {

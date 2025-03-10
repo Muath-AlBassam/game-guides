@@ -9,7 +9,7 @@ class ElementsRepository {
         dataClient.loadData('ELEMENTS').then(elements => {
             this.data = Utils.arrayTo2LevelMap(
                 elements,
-                v => { return { name: v[0].NAME, imageUrl: v[0].IMAGE_URL }; }
+                v => { return { name: v[0].NAME, imageUrl: Utils.getImageUrl(v[0].IMAGE_URL) }; }
             );
         });
     }
