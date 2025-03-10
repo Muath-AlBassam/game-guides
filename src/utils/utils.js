@@ -7,6 +7,13 @@ class Utils {
         }
     }
 
+    static getImageUrl(imageUrl) {
+        if (imageUrl) {
+            return environment.IMAGES_REPOSITORY_URL + imageUrl;
+        }
+        return null;
+    }
+
     static generateUUID() {
         return 'xxxxxxxx'.replace(/[x]/g, function() {
             const r = Math.random() * 16 | 0;
@@ -99,13 +106,6 @@ class Utils {
             map.get(key).push(item);
         });
         return map;
-    }
-
-    static getImageUrl(imageUrl) {
-        if (imageUrl) {
-            return "https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/" + imageUrl;
-        }
-        return null;
     }
 }
 
