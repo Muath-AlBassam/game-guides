@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadAllScripts();
     // show page content & remove loader
     loadPageContent();
+    initializePopovers();
 });
 
 window.addEventListener('load', () => {

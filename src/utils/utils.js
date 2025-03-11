@@ -77,10 +77,7 @@ class Utils {
     static arrayTo2LevelMap(array, objectMappingCallback, uniqueKey = 'CODE') {
         let groupedByGame = this.groupBy(array, 'GAME_CODE');
         groupedByGame.forEach((gv, gk) => {
-            let groupedByCode = this.groupBy(gv, uniqueKey)
-            groupedByCode.forEach((cv, ck) => {
-                groupedByCode.set(ck, objectMappingCallback(cv))
-            });
+            let groupedByCode = this.arrayTo1LevelMap(gv, objectMappingCallback, uniqueKey)
             groupedByGame.set(gk, groupedByCode);
         });
         return groupedByGame;

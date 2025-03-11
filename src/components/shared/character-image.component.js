@@ -114,19 +114,19 @@ class CharacterImageComponent extends HTMLElement {
         }
 
         .GI-rarity-5 {
-            background-image: url(assets/images/gi/GI_Rarity5_BG.png);
+            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity5_BG.png);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50%;
         }
         .GI-rarity-4 {
-            background-image: url(assets/images/gi/GI_Rarity4_BG.png);
+            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity4_BG.png);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50%;
         }
         .GI-rarity-3 {
-            background-image: url(assets/images/gi/GI_Rarity3_BG.jpg);
+            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity3_BG.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50%;
