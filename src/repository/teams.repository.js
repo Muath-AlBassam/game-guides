@@ -34,7 +34,7 @@ class TeamsRepository {
     mapTeamsCharacters(charactersData) {
         return Utils.arrayTo2LevelMap(
             charactersData,
-            vArr => { 
+            vArr => {
                 return vArr.map(v => {
                     return { name: v.NAME, role: v.ROLE, isMain: v.IS_MAIN, replacements: v.REPLACEMENTS?.split(',') };
                 }) 
@@ -46,10 +46,16 @@ class TeamsRepository {
     mapTeamsVariations(variationsData) {
         return Utils.arrayTo2LevelMap(
             variationsData,
-            vArr => { 
-                return vArr.map(v => {
-                    return { name: v.NAME, characters: Utils.fromJSONString(v.MEMBERS) };
-                }) 
+            vArr => {
+                const uniqueIds = [...new Set(vArr.map(item => item.ID))];
+                let mappedList = [];
+                uniqueIds.forEach(id => {
+                    let variIdMembers = vArr.filter(vari => vari.ID == id);
+                    let chars = [];
+                    variIdMembers.forEach(vari => chars.push(vari.MEMBER.includes(',') ? vari.MEMBER.split(',') : vari.MEMBER))
+                    mappedList.push({ name: variIdMembers[0].NAME, characters: chars });
+                })
+                return mappedList;
             },
             'TEAM_CODE'
         );
