@@ -1,19 +1,21 @@
 
 class CharactersRepository {
 
+    charactersMap = new Map([]);
+
     constructor() {
         this.fetchData();
     }
 
     fetchData() {
         dataClient.loadData('CHARACTERS').then(characters => {
-            this.data = Utils.arrayTo2LevelMap(
+            this.charactersMap = DataUtils.arrayTo2LevelMap(
                 characters,
                 v => { 
                     return { 
                         name: v[0].NAME,
-                        imageUrl: Utils.getImageUrl(v[0].IMAGE_URL),
-                        cardImageUrl: Utils.getImageUrl(v[0].CARD_IMAGE_URL),
+                        imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL),
+                        cardImageUrl: DataUtils.getImageUrl(v[0].CARD_IMAGE_URL),
                         element: v[0].ELEMENT,
                         role: v[0].ROLE,
                         rarity: v[0].RARITY
@@ -24,7 +26,7 @@ class CharactersRepository {
     }
 
     getAllCharacters(gameCode) {
-        return this.data.get(gameCode) ?? new Map([]);
+        return this.charactersMap.get(gameCode) ?? new Map([]);
     }
 
     getSortedCharactersList(gameCode) {
@@ -35,8 +37,6 @@ class CharactersRepository {
         let data = this.getAllCharacters(gameCode).get(characterName)
         return data ?? { name: characterName }
     }
-    
-    data = new Map([]);
 }
 
 const charactersRepository = new CharactersRepository();

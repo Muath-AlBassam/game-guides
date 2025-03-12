@@ -1,13 +1,15 @@
 
 class CombosRepository {
 
+    combosMap = new Map([]);
+
     constructor() {
         this.fetchData();
     }
 
     fetchData() {
         dataClient.loadData('COMBOS').then(combos => {
-            this.data = Utils.arrayTo2LevelMap(
+            this.combosMap = DataUtils.arrayTo2LevelMap(
                 combos,
                 vArr => {
                     return vArr.map(v => {
@@ -20,10 +22,8 @@ class CombosRepository {
     }
     
     getCombos(gameCode, characterName) {
-        return this.data.get(gameCode)?.get(characterName);
+        return this.combosMap.get(gameCode)?.get(characterName);
     }
-
-    data = new Map([]);
 }
 
 const combosRepository = new CombosRepository();

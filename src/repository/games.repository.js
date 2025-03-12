@@ -1,5 +1,7 @@
 
 class GamesRepository {
+
+    gamesMap = new Map([]);
     
     constructor() {
         this.fetchData();
@@ -7,7 +9,7 @@ class GamesRepository {
 
     fetchData() {
         dataClient.loadData('GAMES').then(games => {
-            this.data = Utils.arrayTo1LevelMap(
+            this.gamesMap = DataUtils.arrayTo1LevelMap(
                 games,
                 v => {
                     return {
@@ -16,9 +18,9 @@ class GamesRepository {
                         style: v[0].STYLE,
                         teamSize: v[0].TEAM_SIZE,
                         hasPet: v[0].HAS_PET,
-                        iconUrl: Utils.getImageUrl(v[0].ICON_URL),
-                        logoUrl: Utils.getImageUrl(v[0].LOGO_URL),
-                        backgroundUrl: Utils.getImageUrl(v[0].BACKGROUND_URL),
+                        iconUrl: DataUtils.getImageUrl(v[0].ICON_URL),
+                        logoUrl: DataUtils.getImageUrl(v[0].LOGO_URL),
+                        backgroundUrl: DataUtils.getImageUrl(v[0].BACKGROUND_URL),
                         guideUrl: v[0].GUIDE_URL
                     };
                 }
@@ -27,14 +29,12 @@ class GamesRepository {
     }
 
     getAllGames() {
-        return this.data;
+        return this.gamesMap;
     }
     
     getGame(gameCode) {
         return this.getAllGames().get(gameCode);
     }
-
-    data = new Map([]);
 }
 
 const gamesRepository = new GamesRepository();

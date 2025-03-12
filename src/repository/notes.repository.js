@@ -1,13 +1,15 @@
 
 class NotesRepository {
 
+    notesMap = new Map([]);
+
     constructor() {
         this.fetchData();
     }
 
     fetchData() {
         dataClient.loadData('NOTES').then(notes => {
-            this.data = Utils.arrayTo2LevelMap(
+            this.notesMap = DataUtils.arrayTo2LevelMap(
                 notes,
                 vArr => {
                     return vArr.map(v => {
@@ -20,11 +22,9 @@ class NotesRepository {
     }
 
     getTeamNotes(gameCode, teamName) {
-        let notes = this.data.get(gameCode);
+        let notes = this.notesMap.get(gameCode);
         return notes ? notes.get(teamName) : null;
     }
-
-    data = new Map([]);
 }
 
 const notesRepository = new NotesRepository();

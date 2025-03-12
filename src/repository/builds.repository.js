@@ -1,13 +1,15 @@
 
 class BuildsRepository {
     
+    buildsMap = new Map([]);
+
     constructor() {
         this.fetchData();
     }
 
     fetchData() {
         dataClient.loadData('BUILDS').then(builds => {
-            this.data = Utils.arrayTo2LevelMap(
+            this.buildsMap = DataUtils.arrayTo2LevelMap(
                 builds,
                 vArr => {
                     let weapon = vArr.find(item => item.TYPE == 'WEAPON');
@@ -25,10 +27,8 @@ class BuildsRepository {
     }
 
     getCharacterBuild(gameCode, characterName) {
-        return this.data.get(gameCode)?.get(characterName);
+        return this.buildsMap.get(gameCode)?.get(characterName);
     }
-
-    data = new Map([]);
 }
 
 const buildsRepository = new BuildsRepository();

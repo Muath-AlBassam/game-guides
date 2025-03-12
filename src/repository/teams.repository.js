@@ -1,6 +1,8 @@
 
 class TeamsRepository {
 
+    teamsMap = new Map([]);
+
     constructor() {
         this.fetchData();
     }
@@ -9,14 +11,14 @@ class TeamsRepository {
         dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS', 'TEAMS_VARIATIONS']).then(resMap => {
             let allCharacters = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
             let allVariations = this.mapTeamsVariations(resMap.get('TEAMS_VARIATIONS'));
-            this.data = this.mapTeams(resMap.get('TEAMS'), allCharacters, allVariations);
+            this.teamsMap = this.mapTeams(resMap.get('TEAMS'), allCharacters, allVariations);
         });
     }
 
     mapTeams(teamsData, allCharacters, allVariations) {
-        let teamsByGame = Utils.arrayTo2LevelMap(
+        let teamsByGame = DataUtils.arrayTo2LevelMap(
             teamsData,
-            v => { return { name: v[0].NAME, iconUrl: Utils.getImageUrl(v[0].ICON_URL), pet: v[0].PET, order: v[0].ORDER } }
+            v => { return { name: v[0].NAME, iconUrl: DataUtils.getImageUrl(v[0].ICON_URL), pet: v[0].PET, order: v[0].ORDER } }
         );
         teamsByGame.forEach((gameTeams, gameCode) => {
             gameTeams.forEach((team, teamCode) => {
@@ -32,7 +34,7 @@ class TeamsRepository {
     }
 
     mapTeamsCharacters(charactersData) {
-        return Utils.arrayTo2LevelMap(
+        return DataUtils.arrayTo2LevelMap(
             charactersData,
             vArr => {
                 return vArr.map(v => {
@@ -44,7 +46,7 @@ class TeamsRepository {
     }
 
     mapTeamsVariations(variationsData) {
-        return Utils.arrayTo2LevelMap(
+        return DataUtils.arrayTo2LevelMap(
             variationsData,
             vArr => {
                 const uniqueIds = [...new Set(vArr.map(item => item.ID))];
@@ -62,15 +64,13 @@ class TeamsRepository {
     }
 
     getAllTeams(gameCode) {
-        return this.data.get(gameCode) ?? new Map([]);
+        return this.teamsMap.get(gameCode) ?? new Map([]);
     }
     
     getTeam(gameCode, teamName) {
         let team = this.getAllTeams(gameCode).get(teamName);
         return team ?? { name: teamName };
     }
-
-    data = new Map([]);
 }
 
 const teamsRepository = new TeamsRepository();
