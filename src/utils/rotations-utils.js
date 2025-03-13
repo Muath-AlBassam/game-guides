@@ -29,12 +29,13 @@ class RotationsUtils {
             .replace(/normal/g, (match) => gameCode == Constants.games.GI ? this.gi.normal : match)
             .replace(/charged/g, (match) => gameCode == Constants.games.GI ? this.gi.charged : gameCode == Constants.games.ZZZ ? this.zzz.charged : match)
             .replace(/skill/g, (match) => gameCode == Constants.games.GI ? this.gi.skill : match)
-            .replace(/ultimate/g, (match) => gameCode == Constants.games.GI ? this.gi.ultimate : match)
+            .replace(/ultimate/g, (match) => gameCode == Constants.games.GI ? this.gi.ultimate : gameCode == Constants.games.ZZZ ? this.zzz.ultimate : match)
             .replace(/plunge/g, (match) => gameCode == Constants.games.GI ? this.gi.plunge : match)
             .replace(/basic/g, this.zzz.basic)
             .replace(/exspecial/g, this.zzz.exSpecial)
             .replace(/special/g, this.zzz.special)
-            .replace(/qte/g, this.zzz.QTE)
+            .replace(/switch/g, this.zzz.switch)
+            .replace(/chain/g, this.zzz.chain)
             .replace(/dash/g, this.zzz.dash)
             .replace(/assault/g, this.zzz.assault)
             .replace(/burn/g, this.zzz.burn)
@@ -63,7 +64,9 @@ class RotationsUtils {
         charged: this.tooltip('CA', 'Charged Attack'),
         exSpecial: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special'),
         special: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
-        QTE: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_QTE.png'), 'Switch (Chain / Quick-Assist)'),
+        ultimate: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate'),
+        switch: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Switch.png'), 'Switch (Chain / Quick-Assist)'),
+        chain: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain'),
         dash: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
         assault: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
         burn: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
