@@ -70,7 +70,7 @@ class RotationsComponent extends HTMLElement {
                     <span class="rotation-step__character">
                         <app-character-image 
                             gamecode="${this.gameCode}"
-                            charactername="${step[0]}"
+                            charactername="${step.character}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px; border-radius: 100%;"
                             mobilesizeratio="1"
@@ -78,7 +78,7 @@ class RotationsComponent extends HTMLElement {
                         </app-character-image>
                     </span>
                     <b class="rotation-step__actions">
-                        ${step[1]}
+                        ${step.action}
                     </b>
                 </div> 
                 `,

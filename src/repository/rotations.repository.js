@@ -13,10 +13,10 @@ class RotationsRepository {
                 rotations,
                 vArr => {
                     return vArr.map(step => {
-                        let mappedStep = [];
-                        mappedStep.push(step.MEMBER);
-                        mappedStep.push(this.formatStepAction(step.ACTION, step.GAME_CODE));
-                        return mappedStep;
+                        return {
+                            character: step.MEMBER,
+                            action: this.formatStepAction(step.ACTION, step.GAME_CODE)
+                        };
                     })
                 },
                 'TEAM_CODE'
@@ -32,11 +32,11 @@ class RotationsRepository {
     formatStepAction(action, gameCode) {
         return action
             .replace(/arrow/g, this.arrow)
-            .replace(/normal/g, gameCode == 'GI' ? this.gi.normal : 'TBD')
-            .replace(/charged/g, gameCode == 'GI' ? this.gi.charged : gameCode == 'ZZZ' ? this.zzz.charged : 'TBD')
-            .replace(/skill/g, gameCode == 'GI' ? this.gi.skill : 'TBD')
-            .replace(/ultimate/g, gameCode == 'GI' ? this.gi.ultimate : 'TBD')
-            .replace(/plunge/g, gameCode == 'GI' ? this.gi.plunge : 'TBD')
+            .replace(/normal/g, (match) => gameCode == 'GI' ? this.gi.normal : match)
+            .replace(/charged/g, (match) => gameCode == 'GI' ? this.gi.charged : gameCode == 'ZZZ' ? this.zzz.charged : match)
+            .replace(/skill/g, (match) => gameCode == 'GI' ? this.gi.skill : match)
+            .replace(/ultimate/g, (match) => gameCode == 'GI' ? this.gi.ultimate : match)
+            .replace(/plunge/g, (match) => gameCode == 'GI' ? this.gi.plunge : match)
             .replace(/basic/g, this.zzz.basic)
             .replace(/exspecial/g, this.zzz.exSpecial)
             .replace(/special/g, this.zzz.special)
@@ -46,8 +46,8 @@ class RotationsRepository {
             .replace(/burn/g, this.zzz.burn)
             .replace(/shock/g, this.zzz.shock)
             .replace(/ times /g, this.times)
-            .replace(/st_(.*?)_st/g, this.smallText("$1"))
-            .replace(/rp_(.*?)_rp/g, this.repeat("$1"));
+            .replace(/st_(.*?)_st/g, (match, capture) => this.smallText(capture))
+            .replace(/rp_(.*?)_rp/g, (match, capture) => this.repeat(capture));
     }
 
     arrow = `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`;
