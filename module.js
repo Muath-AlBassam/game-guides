@@ -12,6 +12,7 @@ function loadAllScripts() {
     loadScript("src/utils/constants.js");
     loadScript("src/utils/utils.js");
     loadScript("src/utils/data-utils.js");
+    loadScript("src/utils/rotations-utils.js");
 
     // Repositories
     loadScript("src/repository/games.repository.js");

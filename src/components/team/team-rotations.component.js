@@ -4,7 +4,6 @@ class RotationsComponent extends HTMLElement {
     gameCode = null;
     teamName = null;
 
-    characterPFPSize = 40;
     teamRotations = null;
 
     componentStyle = `
@@ -67,16 +66,6 @@ class RotationsComponent extends HTMLElement {
             <div style="font-size: 1.2em;">
                 ${Utils.ngForIf(this.teamRotations && this.teamRotations.length > 0, this.teamRotations, step => `
                 <div>
-                    <span class="rotation-step__character">
-                        <app-character-image 
-                            gamecode="${this.gameCode}"
-                            charactername="${step.character}"
-                            dimensions="${this.characterPFPSize}"
-                            styles="margin: 5px 10px; border-radius: 100%;"
-                            mobilesizeratio="1"
-                        >
-                        </app-character-image>
-                    </span>
                     <b class="rotation-step__actions">
                         ${step.action}
                     </b>
