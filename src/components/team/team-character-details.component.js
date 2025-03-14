@@ -111,7 +111,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     </style>`;
 
     constructor() {
-      super();
+        super();
     }
   
     connectedCallback() {
@@ -146,7 +146,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         return `
         <div class="gagu-dialog build-dialog" id="build-dialog-body">
             <div class="gagu-dialog-content build-dialog-content" 
-                style="background-image: linear-gradient(rgba(35, 36, 42, 0.9), rgba(35, 36, 42, 0.9)), url('${this.charmd.cardImageUrl}')">
+                style="background-image: linear-gradient(rgba(35, 36, 42, 0.95), rgba(35, 36, 42, 0.95)), url('${this.charmd.cardImageUrl}')">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 <div>
                     <div class="center-content" style="margin-top: 20px;">

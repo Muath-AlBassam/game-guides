@@ -76,9 +76,9 @@ class CharacterImageComponent extends HTMLElement {
             padding: 2px;
             width: 29px;
             height: 29px;
-            right: 0;
             z-index: 5;
             filter: drop-shadow(0 2px 2px #000);
+            top: ${this.iconSize}px;
         }
 
         .char-card .char-name {
@@ -219,7 +219,7 @@ class CharacterImageComponent extends HTMLElement {
     `;
 
     constructor() {
-      super();
+        super();
     }
   
     connectedCallback() {
@@ -302,7 +302,7 @@ class CharacterImageComponent extends HTMLElement {
                 <div class="smoky-overlay"></div>
             </div>
             `;
-        } if (this.charCount > 1) {
+        } else if (this.charCount > 1) {
             return `
             <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
                 ${Utils.ngFor(this.charmdList, char => `
