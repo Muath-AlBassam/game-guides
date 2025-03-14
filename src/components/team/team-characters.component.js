@@ -169,6 +169,7 @@ class TeamCharactersComponent extends HTMLElement {
                 withbuilddialog="true"
                 withelement="true"
                 imagestyle="card"
+                showteamicon="true"
             >
             </app-character-image>
             `)}

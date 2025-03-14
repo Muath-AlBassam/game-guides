@@ -112,28 +112,6 @@ class TeamDetailsComponent extends HTMLElement {
             padding: 0 15px;
         }
 
-        .teams__details .container td {
-            color: var(--text-color);
-        }
-        .teams__details .container .table {
-            border: 1px solid #33343a;
-            vertical-align: middle;
-        }
-        .teams__details .container .table.table-striped>tbody>tr:nth-of-type(odd)>* {
-            background-color: #2c2d33;
-            box-shadow: none;
-            color: #fff;
-        }
-        .teams__details .container .table.table-striped>tbody>tr:nth-of-type(even)>* {
-            background-color: transparent;
-            box-shadow: none;
-            color: #fff;
-        }
-        .teams__details .container .table.table-striped td {
-            align-items: center;
-            justify-content: center;
-        }
-
         .empty-details {
             display: flex;
             align-items: center;

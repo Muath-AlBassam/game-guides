@@ -18,6 +18,7 @@ class CharacterImageComponent extends HTMLElement {
     showBuild = false;
     showElement = false;
     showRole = false;
+    showTeamIcon = false;
     elementImageUrl = '';
     roleImageUrl = '';
     addRarityClass = false;
@@ -79,6 +80,20 @@ class CharacterImageComponent extends HTMLElement {
             z-index: 5;
             filter: drop-shadow(0 2px 2px #000);
             top: ${this.iconSize}px;
+        }
+
+        .char-card .team-img {
+            position: absolute;
+            padding: 2px;
+            width: 29px;
+            height: 29px;
+            right: 0;
+            z-index: 5;
+            filter: drop-shadow(0 2px 2px #000);
+            border-radius: 50%;
+        }
+        .char-card .team-img:hover {
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         .char-card .char-name {
@@ -239,6 +254,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
+        if (this.hasAttribute('showteamicon')) this.showTeamIcon = this.getAttribute('showteamicon') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
         if (this.hasAttribute('imagestyle')) this.imageStyle = this.getAttribute('imagestyle');
@@ -287,6 +303,17 @@ class CharacterImageComponent extends HTMLElement {
                     height="${this.iconSize}"
                     title="${this.charmd.role}"
                     loading="lazy"
+                />
+                `)}
+                ${Utils.ngIf(this.showTeamIcon, `
+                <img
+                    class="team-img"
+                    src="assets/svg/variations.svg"
+                    width="${this.iconSize}"
+                    height="${this.iconSize}"
+                    title="Teams"
+                    loading="lazy"
+                    onclick="openTeamsDialog('${this.charmd.name}')"
                 />
                 `)}
                 <img
@@ -360,5 +387,14 @@ function openBuildDialog(character) {
         document.getElementById('build-dialog').setAttribute('character', character);
         // add show class to dialog
         document.getElementById('build-dialog-body').classList.add('dialog-shown');
+    }
+}
+
+function openTeamsDialog(character) {
+    if (character) {
+        // trigger attributeChangedCallback & set data
+        document.getElementById('teams-dialog').setAttribute('character', character);
+        // add show class to dialog
+        document.getElementById('teams-dialog-body').classList.add('dialog-shown');
     }
 }

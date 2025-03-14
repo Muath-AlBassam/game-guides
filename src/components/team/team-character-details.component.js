@@ -80,18 +80,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             padding-right: 5px;
         }
 
-        .close-dialog {
-            color: #aaaaaa;
-            font-size: 28px;
-            height: 28px;
-            font-weight: bold;
-        }
-        .close-dialog:hover, .close-dialog:focus {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
         .empty-dialog {
             display: flex;
             align-items: center;
