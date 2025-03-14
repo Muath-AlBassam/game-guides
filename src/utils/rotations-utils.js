@@ -21,10 +21,13 @@ class RotationsUtils {
     }
 
     static formatStepAction(action, gameCode) {
+        if (action == null) {
+            return action;
+        }
         // st_***_st => smallText
         // rp_***_rp => repeat
         // c_***_c => character avatar
-        return action
+        return String(action)
             .replace(/arrow/g, this.arrow)
             .replace(/normal/g, (match) => gameCode == Constants.games.GI ? this.gi.normal : match)
             .replace(/charged/g, (match) => gameCode == Constants.games.GI ? this.gi.charged : gameCode == Constants.games.ZZZ ? this.zzz.charged : match)
@@ -66,7 +69,7 @@ class RotationsUtils {
         special: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
         ultimate: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate'),
         switch: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Switch.png'), 'Switch (Chain / Quick-Assist)'),
-        chain: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain'),
+        chain: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_QTE.png'), 'QTE / Chain'),
         dash: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
         assault: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
         burn: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
