@@ -46,7 +46,7 @@ async function loadLocalWorkbook() {
 
 async function loadRemoteWorkbook() {
     try {
-        const url = environment.GOOGLE_SHEET_API_URL;
+        const url = environment.googleSheetApiURL;
         const response = await fetch(url);
         const data = await response.json();
         

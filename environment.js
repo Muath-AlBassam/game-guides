@@ -1,10 +1,7 @@
-const environment = {
-    NAME: "Game Guides",
-    GOOGLE_API_KEY: "AIzaSyCvDWfzC-bF_qJqV0H_bxKYvkX2CMANVSU",
-    GAGU_SPREADSHEET_ID: "1UD57k1cChp-3MnpTUWLz2RHCZc5LkyPvhEj7C6G_MWU",
-    IMAGES_REPOSITORY_URL: "https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/",
+const environment = {};
 
-    get GOOGLE_SHEET_API_URL() {
-        return `https://sheets.googleapis.com/v4/spreadsheets/${this.GAGU_SPREADSHEET_ID}?includeGridData=true&key=${this.GOOGLE_API_KEY}`;
-    }
-}
+environment.name = "Game Guides";
+environment.googleApiKey = "AIzaSyCvDWfzC-bF_qJqV0H_bxKYvkX2CMANVSU";
+environment.gaguSpreadsheetId = "1UD57k1cChp-3MnpTUWLz2RHCZc5LkyPvhEj7C6G_MWU";
+environment.googleSheetApiURL = `https://sheets.googleapis.com/v4/spreadsheets/${environment.gaguSpreadsheetId}?includeGridData=true&key=${environment.googleApiKey}`;
+environment.imagesRepositoryURL = "https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/";

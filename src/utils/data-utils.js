@@ -2,7 +2,7 @@ class DataUtils {
 
     static getImageUrl(imageUrl) {
         if (imageUrl) {
-            return environment.IMAGES_REPOSITORY_URL + imageUrl;
+            return environment.imagesRepositoryURL + imageUrl;
         }
         return null;
     }
