@@ -25,15 +25,13 @@ class TeamCharacterTeamsComponent extends HTMLElement {
         }
 
         .teams-table-container {
-            max-height: 400px;
+            max-height: 440px;
             overflow: auto;
             padding: 0;
             margin-top: 25px;
         }
 
-        .teams-table-container .team-name {
-            font-size: 1.2em;
-            font-weight: bold;
+        .teams-table-container .team-name-cell {
             width: 150px;
             text-align: center;
         }
@@ -117,8 +115,8 @@ class TeamCharacterTeamsComponent extends HTMLElement {
                             <tbody>
                                 ${Utils.ngForIf(this.characterTeams.length > 0, this.characterTeams, team => `
                                 <tr>
-                                    <td class="team-name">
-                                        ${team.name ?? "..."}
+                                    <td class="team-name-cell">
+                                        <h5 class="team-name">${team.name ?? "..."}</h5>
                                     </td>
                                     <td style="display: flex; text-align: center">
                                         ${Utils.ngFor(team.characters, char => `
