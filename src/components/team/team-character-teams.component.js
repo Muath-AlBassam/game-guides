@@ -146,7 +146,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     }
 
     filterTeams() {
-        let allTeams = teamsRepository.getAllMain(this.gameCode);
+        let allTeams = teamsRepository.getAll(this.gameCode);
 
         if (this.character == null) {
             return [];
@@ -169,19 +169,6 @@ class TeamCharacterTeamsComponent extends HTMLElement {
                     name: team.name,
                     characters: teamCharactersNames
                 });
-            }
-            // add names from team variations list
-            if (team.variations) {
-                team.variations.forEach(vari => {
-                    let variationsCharactersNames = [];
-                    vari.characters.forEach(vc => {
-                        variationsCharactersNames.push(vc)
-                    });
-                    mappedTeamsList.push({
-                        name: vari.name,
-                        characters: variationsCharactersNames
-                    })
-                })
             }
         })
         // filter list

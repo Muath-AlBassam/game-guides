@@ -72,7 +72,8 @@ class TeamListComponent extends HTMLElement {
         // map all characters' names into a list
         const filteredList = [...this.allTeams].filter((teamMapKeyValue) => {
             // 0: key, 1: value
-            let team = teamMapKeyValue[1]
+            let teamCode = teamMapKeyValue[0];
+            let team = teamMapKeyValue[1];
             let charactersNames = [];
             // add names from team characters list
             if (team.characters) {
@@ -84,15 +85,17 @@ class TeamListComponent extends HTMLElement {
                 });
             }
             // add names from team variations list
-            if (team.variations) {
-                team.variations.forEach(vari => {
-                    vari.characters.forEach(vc => {
-                        if (vc instanceof Array) {
-                            charactersNames.push(...vc)
-                        } else {
-                            charactersNames.push(vc)
-                        }
-                    })
+            let variations = teamsRepository.getAllByParent(this.activeGame.code, teamCode)
+            if (variations) {
+                variations.forEach(vari => {
+                    if (vari.characters) {
+                        vari.characters.forEach(ch => {
+                            charactersNames.push(ch.name);
+                            if (ch.replacements && ch.replacements.length > 0) {
+                                charactersNames.push(...ch.replacements);
+                            }
+                        });
+                    }
                 })
             }
             // true if one item from the list contains the searchTerm
