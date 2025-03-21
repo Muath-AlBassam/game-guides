@@ -23,14 +23,10 @@ class Utils {
     // HTML Utils
     static ngFor(list, logicWithHtml) {
         if (list) {
+            if (list instanceof Map) {
+                return this.ngFor([...list.values()], logicWithHtml);
+            }
             return list.map(logicWithHtml).join('');
-        }
-        return '';
-    }
-
-    static ngForMap(map, logicWithHtml) {
-        if (map) {
-            return this.ngFor([...map.values()], logicWithHtml);
         }
         return '';
     }

@@ -110,7 +110,7 @@ class FightComponent extends HTMLElement {
             </div>
         </div>
         <div id="fights">
-            ${Utils.ngForMap(this.characters, (character, index) => `
+            ${Utils.ngFor(this.characters, (character, index) => `
             <div class="fight__container">
                 <div class="number">${index + 1}</div>
                 <div class="item">

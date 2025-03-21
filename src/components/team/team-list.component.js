@@ -56,7 +56,7 @@ class TeamListComponent extends HTMLElement {
     buildListHTML() {
         return `
         ${Utils.ngIf(this.teams.size > 0, `
-            ${Utils.ngForMap(this.teams, (team, index) => `
+            ${Utils.ngFor(this.teams, (team, index) => `
             <app-team-details teamcode="${team.code}" teamindex="${index + 1}"></app-team-details>
             `)}
         `,

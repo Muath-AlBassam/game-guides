@@ -49,7 +49,7 @@ class VariationsComponent extends HTMLElement {
             <div style="overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>
-                        ${Utils.ngForMap(this.variations, vari => `
+                        ${Utils.ngFor(this.variations, vari => `
                         <tr>
                             <td style="display: flex; text-align: center">
                                 <span class="variation-name">

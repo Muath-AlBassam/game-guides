@@ -132,7 +132,7 @@ class TeamCharactersComponent extends HTMLElement {
         // return `
         // <div class="characters-slider draggable">
         //     ${Utils.ngIf(this.characters.size > 0, `
-        //     ${Utils.ngForMap(this.characters, charmd => `
+        //     ${Utils.ngFor(this.characters, charmd => `
         //     <app-character-image 
         //         gamecode="${this.gameCode}"
         //         charactername="${charmd.name}"
@@ -161,7 +161,7 @@ class TeamCharactersComponent extends HTMLElement {
     buildListHTML() {
         return `
             ${Utils.ngIf(this.characters.size > 0, `
-            ${Utils.ngForMap(this.characters, charmd => `
+            ${Utils.ngFor(this.characters, charmd => `
             <app-character-image 
                 gamecode="${this.gameCode}"
                 charactername="${charmd.name}"

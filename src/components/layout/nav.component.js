@@ -130,7 +130,7 @@ class NavComponent extends HTMLElement {
                             <span class="nav-text">Home</span>
                         </a>
                     </li> 
-                    ${Utils.ngForMap(this.games, g => `
+                    ${Utils.ngFor(this.games, g => `
                     <li>
                         <a class="sidebar-item" href="#${g.code}">
                             <i>
