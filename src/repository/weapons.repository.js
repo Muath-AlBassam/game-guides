@@ -9,10 +9,7 @@ class WeaponsRepository {
 
     fetchData() {
         dataClient.loadData('WEAPONS').then(weapons => {
-            this.weaponsMap = DataUtils.arrayTo2LevelMap(
-                weapons,
-                v => { return { name: v[0].NAME, imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL), rarity: v[0].RARITY }; }
-            );
+            this.weaponsMap = RepositoryMapper.mapWeapons(weapons);
         });
     }
 

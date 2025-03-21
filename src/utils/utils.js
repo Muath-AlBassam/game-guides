@@ -53,6 +53,14 @@ class Utils {
             return null;
         }
     }
+
+    // Data Utils
+    static appendRepoUrl(imageUrl) {
+        if (imageUrl) {
+            return environment.imagesRepositoryURL + imageUrl;
+        }
+        return null;
+    }
 }
 
 // general function to close any dialog

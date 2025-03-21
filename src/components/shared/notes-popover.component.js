@@ -78,7 +78,7 @@ class NotesPopoverComponent extends HTMLElement {
         }
         // img_***_img => image
         return String(text)
-            .replace(/img_(.*?)_img/g, (match, capture) => `<img src='${DataUtils.getImageUrl(capture)}' width='20' />`);
+            .replace(/img_(.*?)_img/g, (match, capture) => `<img src='${Utils.appendRepoUrl(capture)}' width='20' />`);
     }
 }
 

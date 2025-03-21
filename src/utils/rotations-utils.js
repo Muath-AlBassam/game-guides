@@ -63,18 +63,18 @@ class RotationsUtils {
 
     // ZZZ moves shortcuts
     static zzz = {
-        basic: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic'),
+        basic: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic'),
         charged: this.tooltip('CA', 'Charged Attack'),
-        exSpecial: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special'),
-        special: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
-        ultimate: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate'),
-        switch: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Switch.png'), 'Switch (Chain / Quick-Assist)'),
-        chain: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_QTE.png'), 'QTE / Chain'),
-        dash: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
-        assault: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
-        burn: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
-        shock: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock'),
-        freeze: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Ice.png'), 'Freeze'),
-        corrupt: this.imageOf(DataUtils.getImageUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt'),
+        exSpecial: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special'),
+        special: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
+        ultimate: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate'),
+        switch: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Switch.png'), 'Switch (Chain / Quick-Assist)'),
+        chain: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_QTE.png'), 'QTE / Chain'),
+        dash: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
+        assault: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
+        burn: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
+        shock: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock'),
+        freeze: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ice.png'), 'Freeze'),
+        corrupt: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt'),
     }
 }

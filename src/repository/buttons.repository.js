@@ -9,10 +9,7 @@ class ButtonsRepository {
 
     fetchData() {
         dataClient.loadData('BUTTONS').then(buttons => {
-            this.buttonsMap = DataUtils.arrayTo2LevelMap(
-                buttons,
-                v => { return { name: v[0].NAME, imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL) } },
-            );
+            this.buttonsMap = RepositoryMapper.mapButtons(buttons);
         });
     }
 

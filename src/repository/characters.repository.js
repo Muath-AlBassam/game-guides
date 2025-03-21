@@ -9,19 +9,7 @@ class CharactersRepository {
 
     fetchData() {
         dataClient.loadData('CHARACTERS').then(characters => {
-            this.charactersMap = DataUtils.arrayTo2LevelMap(
-                characters,
-                v => { 
-                    return { 
-                        name: v[0].NAME,
-                        imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL),
-                        cardImageUrl: DataUtils.getImageUrl(v[0].CARD_IMAGE_URL),
-                        element: v[0].ELEMENT,
-                        role: v[0].ROLE,
-                        rarity: v[0].RARITY
-                    }; 
-                }
-            );
+            this.charactersMap = RepositoryMapper.mapCharacters(characters);
         });
     }
 

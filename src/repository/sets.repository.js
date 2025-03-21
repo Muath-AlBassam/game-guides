@@ -9,10 +9,7 @@ class SetsRepository {
 
     fetchData() {
         dataClient.loadData('SETS').then(sets => {
-            this.setsMap = DataUtils.arrayTo2LevelMap(
-                sets,
-                v => { return { name: v[0].NAME, imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL) }; }
-            );
+            this.setsMap = RepositoryMapper.mapSets(sets);
         });
     }
 

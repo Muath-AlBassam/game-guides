@@ -9,10 +9,7 @@ class RolesRepository {
 
     fetchData() {
         dataClient.loadData('ROLES').then(roles => {
-            this.rolesMap = DataUtils.arrayTo2LevelMap(
-                roles,
-                v => { return { name: v[0].NAME, imageUrl: DataUtils.getImageUrl(v[0].IMAGE_URL) }; }
-            );
+            this.rolesMap = RepositoryMapper.mapRoles(roles);
         });
     }
 
