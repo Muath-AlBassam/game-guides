@@ -16,7 +16,7 @@ class SetsRepository {
         });
     }
 
-    getSetMetadata(gameCode, setName) {
+    getOne(gameCode, setName) {
         let set = this.setsMap.get(gameCode)?.get(setName);
         return set ?? { name: setName }
     }

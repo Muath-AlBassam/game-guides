@@ -25,16 +25,16 @@ class CharactersRepository {
         });
     }
 
-    getAllCharacters(gameCode) {
+    getAll(gameCode) {
         return this.charactersMap.get(gameCode) ?? new Map([]);
     }
 
-    getSortedCharactersList(gameCode) {
-        return new Map([...this.getAllCharacters(gameCode).entries()].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)));
+    getAllOrdered(gameCode) {
+        return new Map([...this.getAll(gameCode).entries()].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)));
     }
     
-    getCharacterMetadata(gameCode, characterName) {
-        let data = this.getAllCharacters(gameCode).get(characterName)
+    getOne(gameCode, characterName) {
+        let data = this.getAll(gameCode).get(characterName)
         return data ?? { name: characterName }
     }
 }

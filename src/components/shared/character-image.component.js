@@ -262,14 +262,14 @@ class CharacterImageComponent extends HTMLElement {
         let charNameList = this.characterName.split(',');
         this.charCount = charNameList.length;
         if (this.charCount == 1) {
-            this.charmd = charactersRepository.getCharacterMetadata(this.gameCode, this.characterName);
+            this.charmd = charactersRepository.getOne(this.gameCode, this.characterName);
             this.showElement = this.withElement && this.charmd.element;
             this.showRole = true && this.charmd.role;
-            this.elementImageUrl = elementsRepository.getElement(this.gameCode, this.charmd.element).imageUrl;
-            this.roleImageUrl = rolesRepository.getRole(this.gameCode, this.charmd.role)?.imageUrl;
+            this.elementImageUrl = elementsRepository.getOne(this.gameCode, this.charmd.element).imageUrl;
+            this.roleImageUrl = rolesRepository.getOne(this.gameCode, this.charmd.role)?.imageUrl;
             this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
         } else {
-            this.charmdList = charNameList.map(c => charactersRepository.getCharacterMetadata(this.gameCode, c));
+            this.charmdList = charNameList.map(c => charactersRepository.getOne(this.gameCode, c));
             this.addRarityClass = this.withBackgroundClass;
         }
     }
@@ -382,7 +382,7 @@ customElements.define('app-character-image', CharacterImageComponent);
 //------------------------------------------------------------------------------------
 
 function openBuildDialog(character) {
-    if (null != buildsRepository.getCharacterBuild(Utils.getGameFromUrl(), character)) {
+    if (null != buildsRepository.getByCharacter(Utils.getGameFromUrl(), character)) {
         // trigger attributeChangedCallback & set data
         document.getElementById('build-dialog').setAttribute('character', character);
         // add show class to dialog

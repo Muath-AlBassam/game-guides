@@ -49,9 +49,9 @@ class TeamCharactersComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
-        this.allCharacters = charactersRepository.getSortedCharactersList(this.gameCode);
+        this.allCharacters = charactersRepository.getAllOrdered(this.gameCode);
         this.characters = this.allCharacters;
-        this.rarities = rarityRepository.getAllRarities(this.gameCode);
+        this.rarities = rarityRepository.getAll(this.gameCode);
     }
 
     // createSlider() {

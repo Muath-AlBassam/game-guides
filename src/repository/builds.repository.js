@@ -26,7 +26,7 @@ class BuildsRepository {
         });
     }
 
-    getCharacterBuild(gameCode, characterName) {
+    getByCharacter(gameCode, characterName) {
         return this.buildsMap.get(gameCode)?.get(characterName);
     }
 }

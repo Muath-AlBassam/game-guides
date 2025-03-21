@@ -16,12 +16,12 @@ class RarityRepository {
         });
     }
 
-    getAllRarities(gameCode) {
+    getAll(gameCode) {
         return this.rarityMap.get(gameCode) ?? new Map([]);
     }
 
-    getRarity(gameCode, rarityName) {
-        let rarity = this.getAllRarities(gameCode).get(rarityName);
+    getOne(gameCode, rarityName) {
+        let rarity = this.getAll(gameCode).get(rarityName);
         return rarity ?? { name: rarityName };
     }
 }

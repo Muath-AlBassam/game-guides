@@ -73,10 +73,10 @@ class TeamCharacterTeamsComponent extends HTMLElement {
         this.gameCode = Utils.getGameFromUrl();
         this.character = this.getAttribute('character');
         if (this.character) {
-            this.charmd = charactersRepository.getCharacterMetadata(this.gameCode, this.character);
-            this.rolemd = rolesRepository.getRole(this.gameCode, this.charmd.role);
-            this.elementmd = elementsRepository.getElement(this.gameCode, this.charmd.element);
-            this.raritymd = rarityRepository.getRarity(this.gameCode, this.charmd.rarity);
+            this.charmd = charactersRepository.getOne(this.gameCode, this.character);
+            this.rolemd = rolesRepository.getOne(this.gameCode, this.charmd.role);
+            this.elementmd = elementsRepository.getOne(this.gameCode, this.charmd.element);
+            this.raritymd = rarityRepository.getOne(this.gameCode, this.charmd.rarity);
         }
         this.characterTeams = this.filterTeams();
     }
@@ -146,7 +146,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     }
 
     filterTeams() {
-        let allTeams = teamsRepository.getAllTeams(this.gameCode);
+        let allTeams = teamsRepository.getAll(this.gameCode);
 
         if (this.character == null) {
             return [];
@@ -160,7 +160,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
             if (team.characters) {
                 team.characters.forEach(ch => {
                     if (ch.replacements && ch.replacements.length > 0) {
-                        teamCharactersNames.push(ch.replacements.concat(ch.name));
+                        teamCharactersNames.push([ch.name, ...ch.replacements]);
                     } else {
                         teamCharactersNames.push(ch.name);
                     }

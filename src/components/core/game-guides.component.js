@@ -13,7 +13,7 @@ class GameGuidesComponent extends HTMLElement {
     }
 
     loadData() {
-        let activeGame = gamesRepository.getGame(Utils.getGameFromUrl());
+        let activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
         this.gameStyle = activeGame ? activeGame.style : Constants.gameStyles.NONE;
     }
 

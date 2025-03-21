@@ -27,7 +27,7 @@ class RolesComponent extends HTMLElement {
         this.gameCode = this.getAttribute('game');
         this.teamName = this.getAttribute('team');
 
-        this.currentTeam = teamsRepository.getTeam(this.gameCode, this.teamName);
+        this.currentTeam = teamsRepository.getOne(this.gameCode, this.teamName);
     }
 
     buildHTML() {
@@ -71,14 +71,14 @@ class RolesComponent extends HTMLElement {
     }
 
     // TODO
-    getRole(gameCode, characterName) {
-        let charmd = charactersRepository.getCharacterMetadata(gameCode, characterName);
-        return rolesRepository.getRole(gameCode, charmd.role);
+    getCharacter(gameCode, characterName) {
+        return charactersRepository.getOne(gameCode, characterName);;
     }
 
     // TODO
-    getCharacter(gameCode, characterName) {
-        return charactersRepository.getCharacterMetadata(gameCode, characterName);;
+    getRole(gameCode, characterName) {
+        let charmd = this.getCharacter(gameCode, characterName);
+        return rolesRepository.getOne(gameCode, charmd.role);
     }
 }
 

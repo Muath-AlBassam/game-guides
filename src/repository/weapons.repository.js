@@ -16,7 +16,7 @@ class WeaponsRepository {
         });
     }
 
-    getWeaponMetadata(gameCode, weaponName) {
+    getOne(gameCode, weaponName) {
         let weapon = this.weaponsMap.get(gameCode)?.get(weaponName);
         return weapon ?? { name: weaponName }
     }

@@ -42,7 +42,7 @@ class FightCombosComponent extends HTMLElement {
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
         this.character = this.getAttribute('character');
-        this.combos = combosRepository.getCombos(this.gameCode, this.character);
+        this.combos = combosRepository.getAllByCharacter(this.gameCode, this.character);
     }
 
     buildHTML() {
@@ -68,7 +68,7 @@ class FightCombosComponent extends HTMLElement {
 
     // TODO
     getButtonImage(buttonCode) {
-        return buttonsRepository.getButton(this.gameCode, buttonCode).imageUrl
+        return buttonsRepository.getOne(this.gameCode, buttonCode).imageUrl
     }
 }
 

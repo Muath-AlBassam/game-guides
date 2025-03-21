@@ -16,8 +16,8 @@ class TeamListComponent extends HTMLElement {
     }
 
     loadData() {
-        this.activeGame = gamesRepository.getGame(Utils.getGameFromUrl());
-        this.allTeams = teamsRepository.getAllTeams(this.activeGame.code);
+        this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
+        this.allTeams = teamsRepository.getAll(this.activeGame.code);
         this.teams = this.allTeams;
     }
 

@@ -28,12 +28,12 @@ class GamesRepository {
         });
     }
 
-    getAllGames() {
+    getAll() {
         return this.gamesMap;
     }
     
-    getGame(gameCode) {
-        return this.getAllGames().get(gameCode);
+    getOne(gameCode) {
+        return this.getAll().get(gameCode);
     }
 }
 

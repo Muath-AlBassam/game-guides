@@ -16,12 +16,12 @@ class PetsRepository {
         });
     }
 
-    getAllPets(gameCode) {
+    getAll(gameCode) {
         return this.petsMap.get(gameCode) ?? new Map([]);
     }
     
-    getPet(gameCode, petName) {
-        let data = this.getAllPets(gameCode).get(petName)
+    getOne(gameCode, petName) {
+        let data = this.getAll(gameCode).get(petName)
         return data ?? { name: petName };
     }
 }

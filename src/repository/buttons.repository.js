@@ -16,12 +16,12 @@ class ButtonsRepository {
         });
     }
 
-    getAllButtons(gameCode) {
+    getAll(gameCode) {
         return this.buttonsMap.get(gameCode);
     }
     
-    getButton(gameCode, buttonName) {
-        const button = this.getAllButtons(gameCode).get(buttonName);
+    getOne(gameCode, buttonName) {
+        const button = this.getAll(gameCode).get(buttonName);
         return button ?? { name: buttonName };
     }
 }

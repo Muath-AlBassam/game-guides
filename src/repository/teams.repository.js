@@ -63,12 +63,12 @@ class TeamsRepository {
         );
     }
 
-    getAllTeams(gameCode) {
+    getAll(gameCode) {
         return this.teamsMap.get(gameCode) ?? new Map([]);
     }
     
-    getTeam(gameCode, teamName) {
-        let team = this.getAllTeams(gameCode).get(teamName);
+    getOne(gameCode, teamName) {
+        let team = this.getAll(gameCode).get(teamName);
         return team ?? { name: teamName };
     }
 }

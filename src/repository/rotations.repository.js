@@ -25,7 +25,7 @@ class RotationsRepository {
         });
     }
 
-    getRotations(gameCode, teamName) {
+    getAllByTeam(gameCode, teamName) {
         let rotations = this.rotationsMap.get(gameCode)?.get(teamName);
         return rotations ?? []
     }

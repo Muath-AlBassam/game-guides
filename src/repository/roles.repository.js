@@ -16,12 +16,12 @@ class RolesRepository {
         });
     }
 
-    getAllRoles(gameCode) {
+    getAll(gameCode) {
         return this.rolesMap.get(gameCode) ?? new Map([]);
     }
     
-    getRole(gameCode, roleName) {
-        let role = this.getAllRoles(gameCode).get(roleName);
+    getOne(gameCode, roleName) {
+        let role = this.getAll(gameCode).get(roleName);
         return role ?? { name: roleName };
     }
 }

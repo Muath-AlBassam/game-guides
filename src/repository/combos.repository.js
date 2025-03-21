@@ -21,7 +21,7 @@ class CombosRepository {
         });
     }
     
-    getCombos(gameCode, characterName) {
+    getAllByCharacter(gameCode, characterName) {
         return this.combosMap.get(gameCode)?.get(characterName);
     }
 }

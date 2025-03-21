@@ -120,13 +120,13 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         this.gameCode = Utils.getGameFromUrl();
         this.character = this.getAttribute('character');
         if (this.character) {
-            this.charmd = charactersRepository.getCharacterMetadata(this.gameCode, this.character);
-            this.rolemd = rolesRepository.getRole(this.gameCode, this.charmd.role);
-            this.elementmd = elementsRepository.getElement(this.gameCode, this.charmd.element);
-            this.raritymd = rarityRepository.getRarity(this.gameCode, this.charmd.rarity);
-            this.buildmd = buildsRepository.getCharacterBuild(this.gameCode, this.character);
-            this.weaponmd = weaponsRepository.getWeaponMetadata(this.gameCode, this.buildmd.weapon.name);
-            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getSetMetadata(this.gameCode, set.name) } })
+            this.charmd = charactersRepository.getOne(this.gameCode, this.character);
+            this.rolemd = rolesRepository.getOne(this.gameCode, this.charmd.role);
+            this.elementmd = elementsRepository.getOne(this.gameCode, this.charmd.element);
+            this.raritymd = rarityRepository.getOne(this.gameCode, this.charmd.rarity);
+            this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
+            this.weaponmd = weaponsRepository.getOne(this.gameCode, this.buildmd.weapon.name);
+            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
         }
     }
 

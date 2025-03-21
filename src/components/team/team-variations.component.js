@@ -34,8 +34,8 @@ class VariationsComponent extends HTMLElement {
         this.gameCode = this.getAttribute('game');
         this.teamName = this.getAttribute('team');
 
-        this.activeGame = gamesRepository.getGame(this.gameCode);
-        this.currentTeam = teamsRepository.getTeam(this.gameCode, this.teamName);
+        this.activeGame = gamesRepository.getOne(this.gameCode);
+        this.currentTeam = teamsRepository.getOne(this.gameCode, this.teamName);
     }
 
     buildHTML() {

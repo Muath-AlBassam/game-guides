@@ -16,12 +16,12 @@ class ElementsRepository {
         });
     }
 
-    getAllElements(gameCode) {
+    getAll(gameCode) {
         return this.elementsMap.get(gameCode) ?? new Map([]);
     }
     
-    getElement(gameCode, elementName) {
-        let element = this.getAllElements(gameCode).get(elementName);
+    getOne(gameCode, elementName) {
+        let element = this.getAll(gameCode).get(elementName);
         return element ?? { name: elementName };
     }
 }

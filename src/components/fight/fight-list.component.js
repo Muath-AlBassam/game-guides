@@ -83,6 +83,8 @@ class FightComponent extends HTMLElement {
             .fight__container .item .character {
                 height: ${this.characterPFPSize - 50}px;
             }
+
+            .nothing {/**/}
         }
     </style>`;
 
@@ -97,7 +99,7 @@ class FightComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
-        this.characters = charactersRepository.getAllCharacters(this.gameCode);
+        this.characters = charactersRepository.getAll(this.gameCode);
     }
 
     buildHTML() {

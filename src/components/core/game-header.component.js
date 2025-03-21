@@ -57,7 +57,7 @@ class GameHeaderComponent extends HTMLElement {
     }
 
     loadData() {
-        this.activeGame = gamesRepository.getGame(Utils.getGameFromUrl());
+        this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
     }
 
     listenToEvents() {
