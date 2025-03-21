@@ -38,13 +38,6 @@ class Utils {
         return elseContent;
     }
 
-    static ngForIf(flag, list, logicWithHtml, elseContent = '') {
-        if (flag && list) {
-            return list.map(logicWithHtml).join('');
-        }
-        return elseContent;
-    }
-
     // JSON Utils
     static toJSONString(object) {
         try {

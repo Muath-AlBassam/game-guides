@@ -64,14 +64,16 @@ class RotationsComponent extends HTMLElement {
                 Rotations
             </h5>
             <div style="font-size: 1.2em;">
-                ${Utils.ngForIf(this.teamRotations && this.teamRotations.length > 0, this.teamRotations, step => `
+                ${Utils.ngIf(this.teamRotations && this.teamRotations.length > 0, `
+                ${Utils.ngFor(this.teamRotations, step => `
                 <div>
                     <b class="rotation-step__actions">
                         ${step.action}
                     </b>
-                </div> 
-                `,
-                `<h1 class="empty-details">...</h1>`
+                </div>
+                `)} 
+                `,`
+                <h1 class="empty-details">...</h1>`
                 )}  
             </div>
         </div>`;

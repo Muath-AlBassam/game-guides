@@ -64,7 +64,8 @@ class ReplacementsComponent extends HTMLElement {
                             </app-character-image>
                         </td>
                         <td>
-                            ${Utils.ngForIf(character.replacements && character.replacements.length > 0, character.replacements, rep => `
+                            ${Utils.ngIf(character.replacements && character.replacements.length > 0, `
+                            ${Utils.ngFor(character.replacements, rep => `
                             <app-character-image 
                                 gamecode="${this.gameCode}"
                                 charactername="${rep}"
@@ -76,8 +77,9 @@ class ReplacementsComponent extends HTMLElement {
                                 mobileiconsizeratio="${this.mobileSizeRatio}"
                             >
                             </app-character-image>
-                            `,
-                            `<div class="none">
+                            `)}
+                            `,`
+                            <div class="none">
                                 <h1 class="empty-details" style="color: #000">${Constants.unicode.times}</h1>
                             </div>`
                             )}

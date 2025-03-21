@@ -113,7 +113,8 @@ class TeamCharacterTeamsComponent extends HTMLElement {
                     <div class="teams-table-container">
                         <table class="table table-striped table-bordered" style="margin: 0;">
                             <tbody>
-                                ${Utils.ngForIf(this.characterTeams.length > 0, this.characterTeams, team => `
+                                ${Utils.ngIf(this.characterTeams.length > 0, `
+                                ${Utils.ngFor(this.characterTeams, team => `
                                 <tr>
                                     <td class="team-name-cell">
                                         <h5 class="team-name">${team.name ?? "..."}</h5>
@@ -130,7 +131,8 @@ class TeamCharacterTeamsComponent extends HTMLElement {
                                         </app-character-image>
                                         `)}
                                     </td>
-                                </tr>  
+                                </tr>
+                                `)}
                                 `, `
                                 <div style="display: flex; justify-content: center;">
                                     <img src="assets/svg/shrug.svg" height="${Utils.isMobile() ? '150' : '300'}" />
