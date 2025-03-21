@@ -2,7 +2,7 @@ class RotationsComponent extends HTMLElement {
 
     // inputs
     gameCode = null;
-    teamName = null;
+    teamCode = null;
 
     teamRotations = null;
 
@@ -50,10 +50,10 @@ class RotationsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = this.getAttribute('game');
-        this.teamName = this.getAttribute('team');
+        this.gameCode = this.getAttribute('gamecode');
+        this.teamCode = this.getAttribute('teamcode');
 
-        this.teamRotations = rotationsRepository.getAllByTeam(this.gameCode, this.teamName);
+        this.teamRotations = rotationsRepository.getAllByTeam(this.gameCode, this.teamCode);
     }
 
     buildHTML() {

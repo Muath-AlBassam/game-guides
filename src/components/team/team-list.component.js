@@ -17,7 +17,7 @@ class TeamListComponent extends HTMLElement {
 
     loadData() {
         this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
-        this.allTeams = teamsRepository.getAll(this.activeGame.code);
+        this.allTeams = teamsRepository.getAllMain(this.activeGame.code);
         this.teams = this.allTeams;
     }
 
@@ -57,7 +57,7 @@ class TeamListComponent extends HTMLElement {
         return `
         ${Utils.ngIf(this.teams.size > 0, `
             ${Utils.ngForMap(this.teams, (team, index) => `
-            <app-team-details teamName="${team.name}" teamIndex="${index + 1}"></app-team-details>
+            <app-team-details teamcode="${team.code}" teamindex="${index + 1}"></app-team-details>
             `)}
         `,
         `

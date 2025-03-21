@@ -2,10 +2,9 @@ class RolesComponent extends HTMLElement {
 
     // inputs
     gameCode = null;
-    teamName = null;
+    currentTeam = null;
 
     characterPFPSize = 80;
-    currentTeam = null;
     
     componentStyle = `
     <style>
@@ -24,10 +23,8 @@ class RolesComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = this.getAttribute('game');
-        this.teamName = this.getAttribute('team');
-
-        this.currentTeam = teamsRepository.getOne(this.gameCode, this.teamName);
+        this.gameCode = this.getAttribute('gamecode');
+        this.currentTeam = Utils.fromJSONString(this.getAttribute('team'));;
     }
 
     buildHTML() {

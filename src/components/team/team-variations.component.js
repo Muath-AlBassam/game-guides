@@ -2,11 +2,11 @@ class VariationsComponent extends HTMLElement {
 
     // inputs
     gameCode = null;
-    teamName = null;
+    teamCode = null;
 
     characterPFPSize = 80;
     activeGame = null;
-    currentTeam = null;
+    variations = [];
 
     componentStyle = `
     <style>
@@ -31,11 +31,11 @@ class VariationsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = this.getAttribute('game');
-        this.teamName = this.getAttribute('team');
+        this.gameCode = this.getAttribute('gamecode');
+        this.teamCode = this.getAttribute('teamcode');
 
         this.activeGame = gamesRepository.getOne(this.gameCode);
-        this.currentTeam = teamsRepository.getOne(this.gameCode, this.teamName);
+        this.variations = teamsRepository.getAllByParent(this.gameCode, this.teamCode);
     }
 
     buildHTML() {
@@ -45,22 +45,22 @@ class VariationsComponent extends HTMLElement {
                 <img src="assets/svg/variations.svg" height="20" style="margin-right: 5px;">
                 Variations
             </h5>
-            ${Utils.ngIf(this.currentTeam.variations, `
+            ${Utils.ngIf(this.variations && this.variations?.size > 0, `
             <div style="overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>
-                        ${Utils.ngFor(this.currentTeam.variations, vari => `
+                        ${Utils.ngForMap(this.variations, vari => `
                         <tr>
                             <td style="display: flex; text-align: center">
                                 <span class="variation-name">
                                     ${Utils.ngIf(vari.name, `<h6>${vari.name}</h6>`)}
-                                    <app-notes-popover teamname="${vari.name}" position="inline"></app-notes-popover>
+                                    <app-notes-popover teamcode="${vari.code}" position="inline"></app-notes-popover>
                                 </span>
                                 
                                 ${Utils.ngFor(vari.characters, character => `
                                 <app-character-image 
                                     gamecode="${this.gameCode}"
-                                    charactername="${character}"
+                                    charactername="${[character.name, ...(character.replacements ?? [])]}"
                                     dimensions="${this.characterPFPSize}"
                                     styles="margin: 5px 10px;"
                                     withbuilddialog="true"

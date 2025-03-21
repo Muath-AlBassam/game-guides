@@ -21,9 +21,9 @@ class NotesRepository {
         });
     }
 
-    getAllByTeam(gameCode, teamName) {
+    getAllByTeam(gameCode, teamCode) {
         let notes = this.notesMap.get(gameCode);
-        return notes ? notes.get(teamName) : null;
+        return notes ? notes.get(teamCode) : null;
     }
 }
 

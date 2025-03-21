@@ -146,7 +146,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     }
 
     filterTeams() {
-        let allTeams = teamsRepository.getAll(this.gameCode);
+        let allTeams = teamsRepository.getAllMain(this.gameCode);
 
         if (this.character == null) {
             return [];

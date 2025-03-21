@@ -2,11 +2,10 @@ class ReplacementsComponent extends HTMLElement {
 
     // inputs
     gameCode = null;
-    teamName = null;
+    currentTeam = null;
 
     characterPFPSize = 80;
     mobileSizeRatio = 0.5;
-    currentTeam = null;
 
     componentStyle = `
     <style>
@@ -39,10 +38,8 @@ class ReplacementsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = this.getAttribute('game');
-        this.teamName = this.getAttribute('team');
-
-        this.currentTeam = teamsRepository.getOne(this.gameCode, this.teamName);
+        this.gameCode = this.getAttribute('gamecode');
+        this.currentTeam = Utils.fromJSONString(this.getAttribute('team'));;
     }
 
     buildHTML() {

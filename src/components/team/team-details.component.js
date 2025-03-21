@@ -1,7 +1,7 @@
 class TeamDetailsComponent extends HTMLElement {
 
     // inputs
-    teamName = null;
+    teamCode = null;
     teamIndex = null;
 
     characterPFPSize = 160;
@@ -179,11 +179,11 @@ class TeamDetailsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.teamName = this.getAttribute('teamname');
+        this.teamCode = this.getAttribute('teamcode');
         this.teamIndex = this.getAttribute('teamindex');
         
         this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
-        this.team = teamsRepository.getOne(this.activeGame.code, this.teamName);
+        this.team = teamsRepository.getOne(this.activeGame.code, this.teamCode);
         this.petmd = petsRepository.getOne(this.activeGame.code, this.team.pet);
         this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
     }
@@ -212,7 +212,7 @@ class TeamDetailsComponent extends HTMLElement {
                         <img src="${this.team.iconUrl ?? Constants.images.transparent}" height="${Utils.isMobile() ? '30' : '40'}">
                         <span>
                             ${this.team.name}
-                            <app-notes-popover teamname="${this.teamName}"></app-notes-popover>
+                            <app-notes-popover teamcode="${this.teamCode}"></app-notes-popover>
                         </span>
                     </div>
                     <div class="members">
@@ -244,10 +244,10 @@ class TeamDetailsComponent extends HTMLElement {
                 </div>
             </div>
             <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
-                <app-team-roles game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-roles>
-                <app-team-variations game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-variations>
-                <app-team-replacements game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-replacements>
-                <app-team-rotations game="${this.activeGame.code}" team="${this.team.name}" class="table-responsive"></app-team-rotations>
+                <app-team-roles gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
+                <app-team-variations gamecode="${this.activeGame.code}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
+                <app-team-replacements gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
+                <app-team-rotations gamecode="${this.activeGame.code}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
             </div>
         </div>`;
     }

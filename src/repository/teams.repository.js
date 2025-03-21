@@ -8,22 +8,20 @@ class TeamsRepository {
     }
 
     fetchData() {
-        dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS', 'TEAMS_VARIATIONS']).then(resMap => {
+        dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS']).then(resMap => {
             let allCharacters = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
-            let allVariations = this.mapTeamsVariations(resMap.get('TEAMS_VARIATIONS'));
-            this.teamsMap = this.mapTeams(resMap.get('TEAMS'), allCharacters, allVariations);
+            this.teamsMap = this.mapTeams(resMap.get('TEAMS'), allCharacters);
         });
     }
 
-    mapTeams(teamsData, allCharacters, allVariations) {
+    mapTeams(teamsData, allCharacters) {
         let teamsByGame = DataUtils.arrayTo2LevelMap(
             teamsData,
-            v => { return { name: v[0].NAME, iconUrl: DataUtils.getImageUrl(v[0].ICON_URL), pet: v[0].PET, order: v[0].ORDER } }
+            v => { return { code: v[0].CODE, name: v[0].NAME, iconUrl: DataUtils.getImageUrl(v[0].ICON_URL), pet: v[0].PET, parentCode: v[0].PARENT_CODE, order: v[0].ORDER } }
         );
         teamsByGame.forEach((gameTeams, gameCode) => {
             gameTeams.forEach((team, teamCode) => {
                 team.characters = allCharacters.get(gameCode)?.get(teamCode) ?? [];
-                team.variations = allVariations.get(gameCode)?.get(teamCode);
                 gameTeams.set(teamCode, team);
             });
             // custom order (default: alphabetical)
@@ -45,31 +43,23 @@ class TeamsRepository {
         );
     }
 
-    mapTeamsVariations(variationsData) {
-        return DataUtils.arrayTo2LevelMap(
-            variationsData,
-            vArr => {
-                const uniqueIds = [...new Set(vArr.map(item => item.ID))];
-                let mappedList = [];
-                uniqueIds.forEach(id => {
-                    let variIdMembers = vArr.filter(vari => vari.ID == id);
-                    let chars = [];
-                    variIdMembers.forEach(vari => chars.push(vari.MEMBER.includes(',') ? vari.MEMBER.split(',') : vari.MEMBER))
-                    mappedList.push({ name: variIdMembers[0].NAME, characters: chars });
-                })
-                return mappedList;
-            },
-            'TEAM_CODE'
-        );
-    }
-
     getAll(gameCode) {
         return this.teamsMap.get(gameCode) ?? new Map([]);
     }
-    
-    getOne(gameCode, teamName) {
-        let team = this.getAll(gameCode).get(teamName);
-        return team ?? { name: teamName };
+
+    getAllMain(gameCode) {
+        return new Map([...this.getAll(gameCode).entries()]
+            .filter((keyValue) => keyValue[1].parentCode == null));
+    }
+
+    getAllByParent(gameCode, parentTeamCode) {
+        return new Map([...this.getAll(gameCode).entries()]
+            .filter((keyValue) => keyValue[1].parentCode == parentTeamCode));
+    }
+
+    getOne(gameCode, teamCode) {
+        let team = this.getAll(gameCode).get(teamCode);
+        return team ?? { name: teamCode };
     }
 }
 

@@ -2,7 +2,7 @@ class NotesPopoverComponent extends HTMLElement {
 
     // inputs
     gameCode = null;
-    teamName = null;
+    teamCode = null;
     iconSize = 25;
     position = 'superscript'; // inline, superscript
 
@@ -43,11 +43,11 @@ class NotesPopoverComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
-        this.teamName = this.getAttribute('teamname');
+        this.teamCode = this.getAttribute('teamcode');
         if (this.hasAttribute('position')) this.position = this.getAttribute('position');
         if (this.hasAttribute('iconsize')) this.iconSize = this.getAttribute('iconsize');
 
-        this.notes = this.formatNotes(notesRepository.getAllByTeam(this.gameCode, this.teamName));
+        this.notes = this.formatNotes(notesRepository.getAllByTeam(this.gameCode, this.teamCode));
     }
 
     buildHTML() {
