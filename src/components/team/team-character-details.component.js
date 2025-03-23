@@ -114,7 +114,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         if (this.character) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
             this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
-            if (this.buildmd && this.buildmd.length > 0) {
+            if (this.buildmd) {
                 this.weaponmd = weaponsRepository.getOne(this.gameCode, this.buildmd.weapon.name);
                 this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
             }
@@ -126,7 +126,11 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         <div class="gagu-dialog build-dialog" id="build-dialog-body">
             <div class="gagu-dialog-content build-dialog-content" 
                 style="background-image: linear-gradient(rgba(35, 36, 42, 0.95), rgba(35, 36, 42, 0.95)), url('${this.charmd.cardImageUrl}')">
-                <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
+
+                <div class="gagu-dialog-header">
+                    <h5>${this.character}'s Build</h5>
+                    <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
+                </div>
 
                 <app-character-profile character="${this.character}"></app-character-profile>
 

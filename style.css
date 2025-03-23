@@ -236,6 +236,25 @@ body:has(div.dialog-shown) {
     overflow: hidden;
 }
 
+.gagu-dialog-header {
+    display: flex;
+    align-items: center;
+}
+
+.gagu-dialog .close-dialog {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    float: right;
+}
+.gagu-dialog .close-dialog:hover, .close-dialog:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .gagu-dialog-content {
     background-color: var(--background-color);
     margin: auto;
@@ -243,18 +262,6 @@ body:has(div.dialog-shown) {
     border: 1px solid #888;
     border-radius: 5px;
     animation: fade-in .2s;
-}
-
-.gagu-dialog .close-dialog {
-    color: #aaaaaa;
-    font-size: 28px;
-    height: 28px;
-    font-weight: bold;
-}
-.gagu-dialog .close-dialog:hover, .close-dialog:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* tiny-slider missing classes --------------------------------------------- */

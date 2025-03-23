@@ -75,7 +75,10 @@ class TeamCharacterTeamsComponent extends HTMLElement {
         return `
         <div class="gagu-dialog teams-dialog" id="teams-dialog-body">
             <div class="gagu-dialog-content teams-dialog-content">
-                <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
+                <div class="gagu-dialog-header">
+                    <h5>${this.character}'s Teams</h5>
+                    <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
+                </div>
                 <div>
                     <app-character-profile character="${this.character}"></app-character-profile>
 
