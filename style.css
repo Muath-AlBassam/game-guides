@@ -142,6 +142,23 @@ app-nav.active ~ .main-content {
     text-transform: none;
 }
 
+.line-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+.line-text::before, .line-text::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: #fff;
+    margin: 0 10px;
+}
+
 .gagu-form-control {
     width: 100%;
     padding: 0.375em 0.75em;

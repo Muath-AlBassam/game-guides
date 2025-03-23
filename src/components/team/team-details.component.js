@@ -243,7 +243,7 @@ class TeamDetailsComponent extends HTMLElement {
                     </div>
                 </div>
             </div>
-            <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
+            <div class="teams__details collapse" data-bs-parent="#${this.team.category}" id="${this.teamId}">
                 <app-team-roles gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
                 <app-team-variations gamecode="${this.activeGame.code}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
                 <app-team-replacements gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>

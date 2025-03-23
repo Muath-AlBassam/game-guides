@@ -149,6 +149,7 @@ class RepositoryMapper {
             v => { 
                 return { 
                     code: v[0].CODE,
+                    category: v[0].CATEGORY,
                     name: v[0].NAME,
                     iconUrl: Utils.appendRepoUrl(v[0].ICON_URL),
                     pet: v[0].PET,

@@ -24,7 +24,7 @@ class Utils {
     static ngFor(list, logicWithHtml) {
         if (list) {
             if (list instanceof Map) {
-                return this.ngFor([...list.values()], logicWithHtml);
+                return [...list.values()].map(logicWithHtml).join('');
             }
             return list.map(logicWithHtml).join('');
         }
