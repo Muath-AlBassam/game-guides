@@ -383,6 +383,7 @@ customElements.define('app-character-image', CharacterImageComponent);
 
 function openBuildDialog(character) {
     if (null != buildsRepository.getByCharacter(Utils.getGameFromUrl(), character)) {
+        closeDialog();
         // trigger attributeChangedCallback & set data
         document.getElementById('build-dialog').setAttribute('character', character);
         // add show class to dialog
@@ -392,6 +393,7 @@ function openBuildDialog(character) {
 
 function openTeamsDialog(character) {
     if (character) {
+        closeDialog();
         // trigger attributeChangedCallback & set data
         document.getElementById('teams-dialog').setAttribute('character', character);
         // add show class to dialog

@@ -38,6 +38,7 @@ function loadAllScripts() {
     // Shared
     loadScript("src/components/shared/search.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);
+    loadScript("src/components/shared/character-profile.component.js", true);
     loadScript("src/components/shared/notes-popover.component.js", true);
     loadScript("src/components/shared/button-group.component.js", true);
     // Layout

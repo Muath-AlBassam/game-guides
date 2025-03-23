@@ -11,9 +11,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
     characterPFPSize = 125;
     charmd = null;
-    rolemd = null;
-    elementmd = null;
-    raritymd = null;
     buildmd = null;
     weaponmd = null;
     setsmd = [];
@@ -29,11 +26,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             background-size: 100% auto;
             background-position: top center;
             background-repeat: no-repeat;
-        }
-        
-        .build-dialog-content .character-image {
-            border: 2px solid #484950;
-            border-radius: 100%; 
         }
 
         .build-container {
@@ -121,12 +113,11 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         this.character = this.getAttribute('character');
         if (this.character) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
-            this.rolemd = rolesRepository.getOne(this.gameCode, this.charmd.role);
-            this.elementmd = elementsRepository.getOne(this.gameCode, this.charmd.element);
-            this.raritymd = rarityRepository.getOne(this.gameCode, this.charmd.rarity);
             this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
-            this.weaponmd = weaponsRepository.getOne(this.gameCode, this.buildmd.weapon.name);
-            this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
+            if (this.buildmd && this.buildmd.length > 0) {
+                this.weaponmd = weaponsRepository.getOne(this.gameCode, this.buildmd.weapon.name);
+                this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
+            }
         }
     }
 
@@ -136,29 +127,8 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             <div class="gagu-dialog-content build-dialog-content" 
                 style="background-image: linear-gradient(rgba(35, 36, 42, 0.95), rgba(35, 36, 42, 0.95)), url('${this.charmd.cardImageUrl}')">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
-                <div>
-                    <div class="center-content" style="margin-top: 20px;">
-                        <div class="character-container">
-                            <app-character-image 
-                                gamecode="${this.gameCode}" 
-                                charactername="${this.character}"
-                                dimensions="${this.characterPFPSize}"
-                                classes="character-image" 
-                                styles="border-radius: 100%;" 
-                                withbackgroundclass="true" 
-                            >
-                            </app-character-image>
-                        </div>
-                    </div>
-                    <div class="center-content">
-                        ${Utils.ngIf(this.charmd.role, `<img src="${this.rolemd.imageUrl}" height="30" title="${this.rolemd.name}" style="margin-right: 5px;">`)}
-                        <h5>${this.character}</h5>
-                        ${Utils.ngIf(this.charmd.element, `<img src="${this.elementmd.imageUrl}" height="30" title="${this.elementmd.name}" style="margin-left: 5px;">`)}
-                    </div>
-                    <div class="center-content">
-                        ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.label}" style="margin: 0 5px;">`)}
-                    </div>
-                </div>
+
+                <app-character-profile character="${this.character}"></app-character-profile>
 
                 ${Utils.ngIf(this.buildmd, `
                 <h5 class="content-header">
@@ -167,17 +137,15 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 <div class="build-container">
                     <div class="build-item">
                         <div class="build-image">
-                            <img src="${this.weaponmd.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${this.weaponmd.rarity}" height="80" />
+                            <img src="${this.weaponmd?.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${this.weaponmd?.rarity}" height="80" />
                         </div>
                         <div class="build-name">
-                            <h5 style="margin-bottom: 0;">${this.weaponmd.name}</h5>
+                            <h5 style="margin-bottom: 0;">${this.weaponmd?.name}</h5>
                         </div>
                     </div>
                 </div>
-                `,
-                `<h1 class="empty-dialog">...</h1>`
-                )}
-
+                
+                
                 <h5 class="content-header">
                     ${this.getSetsLabel(this.gameCode)}
                 </h5>
@@ -188,12 +156,15 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                             <img src="${set.md.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
                         </div>
                         <div class="build-name">
-                            <span class="piece-count">(${set.pieceCount})</span>
-                            <h5 style="margin-bottom: 0;">${set.md.name}</h5>
+                            <span class="piece-count">(${set?.pieceCount})</span>
+                            <h5 style="margin-bottom: 0;">${set?.md?.name}</h5>
                         </div>
                     </div>    
                     `)}
                 </div>
+                `,
+                `<h1 class="empty-dialog">...</h1>`
+                )}
             </div>
         </div>`;
     }

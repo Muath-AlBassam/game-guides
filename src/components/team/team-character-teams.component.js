@@ -8,10 +8,6 @@ class TeamCharacterTeamsComponent extends HTMLElement {
 
     characterPFPSize = 125;
     teamCharacterPFPSize = 80;
-    charmd = null;
-    rolemd = null;
-    elementmd = null;
-    raritymd = null;
     characterTeams = [];
 
     componentStyle = `
@@ -72,12 +68,6 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     loadData() {
         this.gameCode = Utils.getGameFromUrl();
         this.character = this.getAttribute('character');
-        if (this.character) {
-            this.charmd = charactersRepository.getOne(this.gameCode, this.character);
-            this.rolemd = rolesRepository.getOne(this.gameCode, this.charmd.role);
-            this.elementmd = elementsRepository.getOne(this.gameCode, this.charmd.element);
-            this.raritymd = rarityRepository.getOne(this.gameCode, this.charmd.rarity);
-        }
         this.characterTeams = this.filterTeams();
     }
 
@@ -87,29 +77,8 @@ class TeamCharacterTeamsComponent extends HTMLElement {
             <div class="gagu-dialog-content teams-dialog-content">
                 <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 <div>
-                    <div>
-                        <div class="center-content" style="margin-top: 20px;">
-                            <div class="character-container">
-                                <app-character-image 
-                                    gamecode="${this.gameCode}" 
-                                    charactername="${this.character}"
-                                    dimensions="${this.characterPFPSize}"
-                                    classes="character-image" 
-                                    styles="border-radius: 100%;" 
-                                    withbackgroundclass="true" 
-                                >
-                                </app-character-image>
-                            </div>
-                        </div>
-                        <div class="center-content">
-                            ${Utils.ngIf(this.charmd.role, `<img src="${this.rolemd.imageUrl}" height="30" title="${this.rolemd.name}" style="margin-right: 5px;">`)}
-                            <h5>${this.character}</h5>
-                            ${Utils.ngIf(this.charmd.element, `<img src="${this.elementmd.imageUrl}" height="30" title="${this.elementmd.name}" style="margin-left: 5px;">`)}
-                        </div>
-                        <div class="center-content">
-                            ${Utils.ngIf(this.charmd.rarity, `<img src="${this.raritymd.imageUrl}" height="30" title="${this.raritymd.label}" style="margin: 0 5px;">`)}
-                        </div>
-                    </div>
+                    <app-character-profile character="${this.character}"></app-character-profile>
+
                     <div class="teams-table-container">
                         <table class="table table-striped table-bordered" style="margin: 0;">
                             <tbody>

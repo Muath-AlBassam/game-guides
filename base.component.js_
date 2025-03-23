@@ -25,4 +25,4 @@ class BaseComponent extends HTMLElement {
     }
 }
 
-customElements.define('base-component', BaseComponent);
+customElements.define('app-base', BaseComponent);
