@@ -12,15 +12,6 @@ class TeamCharactersComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        .characters-slider-container {
-            background-color: #2c2d33;
-            padding: 0.5em;
-        }
-
-        .characters-slider-container .characters-slider {
-            user-select: none;
-        }
-
         .characters-container {
             grid-gap: 8px 8px;
             display: grid;
@@ -43,7 +34,6 @@ class TeamCharactersComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
-        // this.createSlider();
         this.listenToEvents();
     }
 
@@ -53,17 +43,6 @@ class TeamCharactersComponent extends HTMLElement {
         this.characters = this.allCharacters;
         this.rarities = rarityRepository.getAll(this.gameCode);
     }
-
-    // createSlider() {
-    //     tns({
-    //         container: '.characters-slider',
-    //         fixedWidth: this.characterPFPSize + 20,
-    //         controls: false,
-    //         navPosition: 'bottom',
-    //         mouseDrag: true,
-    //         loop: false,
-    //     });
-    // }
 
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
@@ -95,9 +74,7 @@ class TeamCharactersComponent extends HTMLElement {
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
         document.getElementById('team-characters-header').innerHTML = this.buildHeader();
-        // document.getElementById('characters-slider-container').innerHTML = this.buildSliderListHTML();
         document.getElementById('characters-container').innerHTML = this.buildListHTML();
-        // this.createSlider();
     }
 
     buildHTML() {
@@ -106,9 +83,6 @@ class TeamCharactersComponent extends HTMLElement {
             ${this.buildHeader()}
         </div>
         <app-team-search showresetbutton="true"></app-team-search>
-        <!--<div class="characters-slider-container" id="characters-slider-container">
-           ${this.buildSliderListHTML()}
-        </div>-->
 
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}
@@ -125,37 +99,6 @@ class TeamCharactersComponent extends HTMLElement {
             </div>
         </div>
         `;
-    }
-
-    buildSliderListHTML() {
-        return '';
-        // return `
-        // <div class="characters-slider draggable">
-        //     ${Utils.ngIf(this.characters.size > 0, `
-        //     ${Utils.ngFor(this.characters, charmd => `
-        //     <app-character-image 
-        //         gamecode="${this.gameCode}"
-        //         charactername="${charmd.name}"
-        //         dimensions="${this.characterPFPSize}"
-        //         styles="margin: 5px 10px;"
-        //         withbuilddialog="true"
-        //         withelement="true"
-        //     >
-        //     </app-character-image>
-        //     `)}
-        //     `, `
-        //     <app-character-image 
-        //         gamecode="${this.gameCode}"
-        //         charactername="..."
-        //         dimensions="${this.characterPFPSize}"
-        //         styles="margin: 5px 10px;"
-        //         withbuilddialog="true"
-        //         withelement="true"
-        //     >
-        //     </app-character-image>
-        //     `)}
-        // </div>
-        // `;
     }
 
     buildListHTML() {
@@ -187,7 +130,7 @@ class TeamCharactersComponent extends HTMLElement {
             let charKey = charMapKeyValue[0];
             let charVal = charMapKeyValue[1];
 
-            let filterByName = charKey.toLowerCase().includes(this.searchTerm.toLowerCase());
+            let filterByName = charVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
             let filterByRarity = this.searchRarity ? charVal.rarity == this.searchRarity : true;
             let filterByElement = this.searchElement ? charVal.element == this.searchElement : true;
             let filterByRole = this.searchRole ? charVal.role == this.searchRole : true;
