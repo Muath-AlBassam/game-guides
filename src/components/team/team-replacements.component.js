@@ -24,7 +24,8 @@ class ReplacementsComponent extends HTMLElement {
             .replacements-container .none {
                 width: ${this.characterPFPSize * this.mobileSizeRatio}px;
             }
-            .none {}
+
+            /**/
         }
     </style>`;
 

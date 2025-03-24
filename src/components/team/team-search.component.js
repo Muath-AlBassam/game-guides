@@ -8,6 +8,7 @@ class TeamSearchComponent extends HTMLElement {
     showElements = true;
     showRoles = true;
     showResetButton = false;
+    searchPlaceholder = 'Search characters...';
 
     searchTerm = '';
     searchRarity = '';
@@ -66,6 +67,7 @@ class TeamSearchComponent extends HTMLElement {
         if (this.hasAttribute('showelements')) this.showElements = this.getAttribute('showelements') == 'true';
         if (this.hasAttribute('showroles')) this.showRoles = this.getAttribute('showroles') == 'true';
         if (this.hasAttribute('showresetbutton')) this.showResetButton = this.getAttribute('showresetbutton') == 'true';
+        if (this.hasAttribute('placeholder')) this.searchPlaceholder = this.getAttribute('placeholder');
 
         this.gameCode = Utils.getGameFromUrl();
         this.rarities = [...rarityRepository.getAll(this.gameCode).values()];
@@ -96,14 +98,9 @@ class TeamSearchComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <!--<div class="row">
-            <div class="col-md-12">
-                <div class="content-header">Search</div>
-            </div>
-        </div>-->
         <div class="team-search-container">
             <div>
-                <app-search eventname="search-team" placeholder="Search characters..."></app-search>
+                <app-search eventname="search-team" placeholder="${this.searchPlaceholder}"></app-search>
             </div>
 
             ${Utils.ngIf(this.showRarities && this.rarities?.length > 0, `

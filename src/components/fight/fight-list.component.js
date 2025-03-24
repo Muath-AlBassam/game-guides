@@ -84,7 +84,7 @@ class FightComponent extends HTMLElement {
                 height: ${this.characterPFPSize - 50}px;
             }
 
-            .nothing {/**/}
+            /**/
         }
     </style>`;
 
