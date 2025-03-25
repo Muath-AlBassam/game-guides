@@ -62,8 +62,8 @@ class TeamListComponent extends HTMLElement {
             </div>
             
             <div class="collapse show" id="${category.text}">
-                ${Utils.ngFor(category.teams, (team, index) => `
-                <app-team-details teamcode="${team.code}" teamindex="${index + 1}"></app-team-details>
+                ${Utils.ngFor(category.teams, team => `
+                <app-team-details teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
                 `)}
             </div>
             `)}
