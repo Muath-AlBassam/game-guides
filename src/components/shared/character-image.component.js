@@ -119,7 +119,7 @@ class CharacterImageComponent extends HTMLElement {
             pointer-events: none;
         }
 
-        /* Shared */
+        /* PFP & CARD */
         .char-img-resize {
             cursor: pointer;
             transition: all 0.3s ease-out;
@@ -189,46 +189,71 @@ class CharacterImageComponent extends HTMLElement {
             transition: all 0.3s ease-out;
         }
 
+        /* Split image - 2 images */
         .split-box-2 > .child:nth-child(1) {
-            /* top-left | bottom-left | top-right */
             clip-path: polygon(0% 0%, 0% 97%, 97% 0%);
+            & img { transform: translateX(-25%); }
+            & img:hover { transform: translateX(-25%) scale(1.1); }
         }
         .split-box-2 > .child:nth-child(2) {
-            /* bottom-right | top-right | bottom-left */
             clip-path: polygon(100% 100%, 100% 3%, 3% 100%);
-        }
-        .split-box-2 > .child:nth-child(1) img {
-            transform: translateX(-25%);
-            &:hover { transform: translateX(-25%) scale(1.1); }
-        }
-        .split-box-2 > .child:nth-child(2) img {
-            transform: translateX(25%);
-            &:hover { transform: translateX(25%) scale(1.1); }
+            & img { transform: translateX(25%); }
+            & img:hover { transform: translateX(25%) scale(1.1); }
         }
 
+        /* Split image - 3 images */
         .split-box-3 > .child:nth-child(1) {
-            /* center | bottom-right | bottom-left */
             clip-path: polygon(50% 33%, 97% 100%, 3% 100%);
+            & img { transform: translateY(25%); }
+            & img:hover { transform: translateY(25%) scale(1.1); }
         }
         .split-box-3 > .child:nth-child(2) {
-            /* top-left | top-center | center | bottom-left */
             clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);
+            & img { transform: translate(-25%); }
+            & img:hover { transform: translate(-25%) scale(1.1); }
         }
         .split-box-3 > .child:nth-child(3) {
-            /* top-right | top-center | center | bottom-right */
             clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);
+            & img { transform: translate(25%); }
+            & img:hover { transform: translate(25%) scale(1.1); }
         }
-        .split-box-3 > .child:nth-child(1) img {
-            transform: translateY(25%);
-            &:hover { transform: translateY(25%) scale(1.1); }
+
+        /* Split image - 4 images */
+        .split-box-4 .child {
+            transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;
         }
-        .split-box-3 > .child:nth-child(2) img {
-            transform: translate(-25%);
-            &:hover { transform: translate(-25%) scale(1.1); }
+        .split-box-4 > .child:nth-child(1),
+        .split-box-4 > .child:nth-child(3) {
+            clip-path: polygon(0% 0%, 0% 97%, 97% 0%);
+            & img { transform: translateX(-25%); }
+            & img:hover { transform: translateX(-25%) scale(1.1); }
         }
-        .split-box-3 > .child:nth-child(3) img {
-            transform: translate(25%);
-            &:hover { transform: translate(25%) scale(1.1); }
+        .split-box-4 > .child:nth-child(2),
+        .split-box-4 > .child:nth-child(4) {
+            clip-path: polygon(100% 100%, 100% 3%, 3% 100%);
+            & img { transform: translateX(25%); }
+            & img:hover { transform: translateX(25%) scale(1.1); }
+        }
+        /* Split image - 4 images: Animation */
+        .split-box-4 > .child:nth-child(1),
+        .split-box-4 > .child:nth-child(2) {
+            z-index: 1;
+            visibility: visible;
+            animation: switch-pairs 3s infinite alternate;
+        }
+        .split-box-4 > .child:nth-child(3),
+        .split-box-4 > .child:nth-child(4) {
+            z-index: 0;
+            visibility: hidden;
+            animation: switch-pairs-reverse 3s infinite alternate;
+        }
+        @keyframes switch-pairs {
+            0%, 49% { z-index: 1; visibility: visible; }
+            50%, 100% { z-index: 0; visibility: hidden; }
+        }
+        @keyframes switch-pairs-reverse {
+            0%, 49% { z-index: 0; visibility: hidden; }
+            50%, 100% { z-index: 1; visibility: visible; }
         }
     </style>
     `;
