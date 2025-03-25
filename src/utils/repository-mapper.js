@@ -117,7 +117,6 @@ class RepositoryMapper {
                 return vArr.map(step => {
                     return {
                         stepNumber: step.STEP_NUMBER,
-                        character: step.MEMBER,
                         action: RotationsUtils.formatStepAction(step.ACTION, step.GAME_CODE)
                     };
                 })
