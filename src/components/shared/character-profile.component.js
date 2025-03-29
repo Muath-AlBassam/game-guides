@@ -27,7 +27,7 @@ class CharacterProfileComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.character = this.getAttribute('character');
         if (this.hasAttribute('pfpsize')) this.characterPFPSize = Number(this.getAttribute('pfpsize'));
 

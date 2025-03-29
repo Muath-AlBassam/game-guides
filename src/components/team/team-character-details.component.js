@@ -109,7 +109,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.character = this.getAttribute('character');
         if (this.character) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
@@ -132,7 +132,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                     <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 </div>
 
-                <app-character-profile character="${this.character}"></app-character-profile>
+                <app-character-profile gamecode="${this.gameCode}" character="${this.character}"></app-character-profile>
 
                 ${Utils.ngIf(this.buildmd, `
                 <h5 class="content-header">

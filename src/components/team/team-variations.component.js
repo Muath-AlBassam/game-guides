@@ -54,7 +54,7 @@ class VariationsComponent extends HTMLElement {
                             <td style="display: flex; text-align: center">
                                 <span class="variation-name">
                                     ${Utils.ngIf(vari.name, `<h6>${vari.name}</h6>`)}
-                                    <app-notes-popover teamcode="${vari.code}" position="inline"></app-notes-popover>
+                                    <app-notes-popover gamecode="${this.gameCode}" teamcode="${vari.code}" position="inline"></app-notes-popover>
                                 </span>
                                 
                                 ${Utils.ngFor(vari.characters, character => `

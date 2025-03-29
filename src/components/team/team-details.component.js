@@ -1,6 +1,7 @@
 class TeamDetailsComponent extends HTMLElement {
 
     // inputs
+    gameCode = null;
     teamCode = null;
     teamIndex = null;
 
@@ -179,13 +180,14 @@ class TeamDetailsComponent extends HTMLElement {
     }
 
     loadData() {
+        this.gameCode = this.getAttribute('gamecode');
         this.teamCode = this.getAttribute('teamcode');
         this.teamIndex = this.getAttribute('teamindex');
         
-        this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
-        this.team = teamsRepository.getOne(this.activeGame.code, this.teamCode);
-        this.petmd = petsRepository.getOne(this.activeGame.code, this.team.pet);
-        this.teamId = `${this.activeGame.code}-${this.team.name.replaceAll(' ', '-')}`;
+        this.activeGame = gamesRepository.getOne(this.gameCode);
+        this.team = teamsRepository.getOne(this.gameCode, this.teamCode);
+        this.petmd = petsRepository.getOne(this.gameCode, this.team.pet);
+        this.teamId = `${this.gameCode}-${this.team.name.replaceAll(' ', '-')}`;
     }
 
     modifyDataBasedOnMediaSize() {
@@ -212,13 +214,13 @@ class TeamDetailsComponent extends HTMLElement {
                         <img src="${this.team.iconUrl ?? Constants.images.transparent}" height="${Utils.isMobile() ? '30' : '40'}">
                         <span>
                             ${this.team.name}
-                            <app-notes-popover teamcode="${this.teamCode}"></app-notes-popover>
+                            <app-notes-popover gamecode="${this.gameCode}" teamcode="${this.teamCode}"></app-notes-popover>
                         </span>
                     </div>
                     <div class="members">
                         ${Utils.ngFor(Array.from({length: this.activeGame.teamSize}), (char, index) => `
                         <app-character-image 
-                            gamecode="${this.activeGame.code}"
+                            gamecode="${this.gameCode}"
                             charactername="${this.team.characters[index]?.name}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px;"
@@ -233,7 +235,7 @@ class TeamDetailsComponent extends HTMLElement {
                         <img 
                             src="${this.petmd.imageUrl ?? Constants.images.unknown}" 
                             height="${this.petPFPSize}" 
-                            class="pet ${this.activeGame.code+'-rarity-'+this.petmd.rarity}"
+                            class="pet ${this.gameCode+'-rarity-'+this.petmd.rarity}"
                             title="${this.petmd.name}"
                         >
                         `)}
@@ -244,10 +246,10 @@ class TeamDetailsComponent extends HTMLElement {
                 </div>
             </div>
             <div class="teams__details collapse" data-bs-parent="#${this.team.category}" id="${this.teamId}">
-                <app-team-roles gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
-                <app-team-variations gamecode="${this.activeGame.code}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
-                <app-team-replacements gamecode="${this.activeGame.code}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
-                <app-team-rotations gamecode="${this.activeGame.code}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
+                <app-team-roles gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
+                <app-team-variations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
+                <app-team-replacements gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
+                <app-team-rotations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
             </div>
         </div>`;
     }

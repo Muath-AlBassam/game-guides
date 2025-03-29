@@ -40,7 +40,7 @@ class TeamTabsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
     }
 
     buildHTML() {
@@ -57,12 +57,12 @@ class TeamTabsComponent extends HTMLElement {
         <div class="tab-content">
             <div id="TeamsTab" role="tabpanel" aria-labelledby="Teams" class="tab-pane active">
                 <div class="info">
-                    <app-team-list></app-team-list>
+                    <app-team-list gamecode="${this.gameCode}"></app-team-list>
                 </div>
             </div>
             <div id="CharactersTab" role="tabpanel" aria-labelledby="Characters" class="tab-pane">
                 <div class="info">
-                    <app-team-characters></app-team-characters>
+                    <app-team-characters gamecode="${this.gameCode}"></app-team-characters>
                 </div>
             </div>
         </div>

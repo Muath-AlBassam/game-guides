@@ -38,7 +38,7 @@ class TeamCharactersComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.allCharacters = charactersRepository.getAllOrdered(this.gameCode);
         this.characters = this.allCharacters;
         this.rarities = rarityRepository.getAll(this.gameCode);
@@ -82,7 +82,7 @@ class TeamCharactersComponent extends HTMLElement {
         <div class="row" id="team-characters-header">
             ${this.buildHeader()}
         </div>
-        <app-team-search showresetbutton="true"></app-team-search>
+        <app-team-search gamecode="${this.gameCode}" showresetbutton="true"></app-team-search>
 
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}

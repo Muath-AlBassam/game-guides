@@ -1,5 +1,6 @@
 class GameGuidesComponent extends HTMLElement {
 
+    gameCode = null;
     gameStyle = null;
 
     constructor() {
@@ -13,7 +14,8 @@ class GameGuidesComponent extends HTMLElement {
     }
 
     loadData() {
-        let activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
+        this.gameCode = Utils.getGameFromUrl();
+        let activeGame = gamesRepository.getOne(this.gameCode);
         this.gameStyle = activeGame ? activeGame.style : Constants.gameStyles.NONE;
     }
 
@@ -34,11 +36,18 @@ class GameGuidesComponent extends HTMLElement {
     buildHTML() {
         switch (this.gameStyle) {
             case Constants.gameStyles.TEAMS:
-                return `<app-game-header></app-game-header><app-team-container></app-team-container>`;
+                return `
+                <app-game-header gamecode="${this.gameCode}"></app-game-header>
+                <app-team-container gamecode="${this.gameCode}"></app-team-container>
+                `;
             case Constants.gameStyles.FIGHT:
-                return `<app-game-header></app-game-header><app-fight-list></app-fight-list>`;
+                return `
+                <app-game-header gamecode="${this.gameCode}"></app-game-header>
+                <app-fight-list gamecode="${this.gameCode}"></app-fight-list>
+                `;
             default:
-                return `<app-home></app-home>`;
+                return `
+                <app-home></app-home>`;
         }
     }
 }

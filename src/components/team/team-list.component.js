@@ -1,7 +1,9 @@
 class TeamListComponent extends HTMLElement {
 
+    // inputs
+    gameCode = null;
+
     characterPFPSize = 160;
-    activeGame = null;
     allTeams = null;
     teamsByCategory = null;
     
@@ -16,8 +18,8 @@ class TeamListComponent extends HTMLElement {
     }
 
     loadData() {
-        this.activeGame = gamesRepository.getOne(Utils.getGameFromUrl());
-        this.allTeams = teamsRepository.getAllMain(this.activeGame.code);
+        this.gameCode = this.getAttribute('gamecode');
+        this.allTeams = teamsRepository.getAllMain(this.gameCode);
         this.teamsByCategory = this.categorizeTeams(this.allTeams);
     }
 
@@ -35,7 +37,7 @@ class TeamListComponent extends HTMLElement {
             ${this.buildHeader()}
         </div>
 
-        <app-team-search showrarities="false" showelements="false" showroles="false" placeholder="Search teams, characters..."></app-team-search>
+        <app-team-search gamecode="${this.gameCode}" showrarities="false" showelements="false" showroles="false" placeholder="Search teams, characters..."></app-team-search>
 
         <div id="teams">
             ${this.buildListHTML()}
@@ -63,7 +65,7 @@ class TeamListComponent extends HTMLElement {
             
             <div class="collapse show" id="${category.text}">
                 ${Utils.ngFor(category.teams, team => `
-                <app-team-details teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
+                <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
                 `)}
             </div>
             `)}
@@ -93,7 +95,7 @@ class TeamListComponent extends HTMLElement {
                 });
             }
             // add names from team variations list
-            let variations = teamsRepository.getAllByParent(this.activeGame.code, teamCode)
+            let variations = teamsRepository.getAllByParent(this.gameCode, teamCode)
             if (variations) {
                 variations.forEach(vari => {
                     if (vari.characters) {

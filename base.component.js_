@@ -17,7 +17,7 @@ class BaseComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
     }
 
     buildHTML() {

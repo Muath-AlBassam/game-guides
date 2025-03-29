@@ -42,7 +42,7 @@ class NotesPopoverComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.teamCode = this.getAttribute('teamcode');
         if (this.hasAttribute('position')) this.position = this.getAttribute('position');
         if (this.hasAttribute('iconsize')) this.iconSize = this.getAttribute('iconsize');

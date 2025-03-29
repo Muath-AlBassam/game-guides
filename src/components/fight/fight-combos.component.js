@@ -40,7 +40,7 @@ class FightCombosComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.character = this.getAttribute('character');
         this.combos = combosRepository.getAllByCharacter(this.gameCode, this.character);
     }

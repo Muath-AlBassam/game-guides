@@ -98,7 +98,7 @@ class FightComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.characters = charactersRepository.getAll(this.gameCode);
     }
 
@@ -126,7 +126,7 @@ class FightComponent extends HTMLElement {
                             ${character.name}
                         </div>
                     </div>
-                    <app-fight-combos class="combos-section" character="${character?.name}"></app-fight-combos>
+                    <app-fight-combos class="combos-section" gamecode="${this.gameCode}" character="${character?.name}"></app-fight-combos>
                 </div>
             </div>   
             `)}

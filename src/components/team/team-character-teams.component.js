@@ -66,7 +66,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     }
 
     loadData() {
-        this.gameCode = Utils.getGameFromUrl();
+        this.gameCode = this.getAttribute('gamecode');
         this.character = this.getAttribute('character');
         this.characterTeams = this.filterTeams();
     }
@@ -80,7 +80,7 @@ class TeamCharacterTeamsComponent extends HTMLElement {
                     <div class="close-dialog" onclick="closeDialog()">${Constants.unicode.times}</div>
                 </div>
                 <div>
-                    <app-character-profile character="${this.character}"></app-character-profile>
+                    <app-character-profile gamecode="${this.gameCode}" character="${this.character}"></app-character-profile>
 
                     <div class="teams-table-container">
                         <table class="table table-striped table-bordered" style="margin: 0;">

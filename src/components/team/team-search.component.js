@@ -63,13 +63,14 @@ class TeamSearchComponent extends HTMLElement {
     }
 
     loadData() {
+        this.gameCode = this.getAttribute('gamecode');
+
         if (this.hasAttribute('showrarities')) this.showRarities = this.getAttribute('showrarities') == 'true';
         if (this.hasAttribute('showelements')) this.showElements = this.getAttribute('showelements') == 'true';
         if (this.hasAttribute('showroles')) this.showRoles = this.getAttribute('showroles') == 'true';
         if (this.hasAttribute('showresetbutton')) this.showResetButton = this.getAttribute('showresetbutton') == 'true';
         if (this.hasAttribute('placeholder')) this.searchPlaceholder = this.getAttribute('placeholder');
 
-        this.gameCode = Utils.getGameFromUrl();
         this.rarities = [...rarityRepository.getAll(this.gameCode).values()];
         this.elements = [...elementsRepository.getAll(this.gameCode).values()];
         this.roles = [...rolesRepository.getAll(this.gameCode).values()];
