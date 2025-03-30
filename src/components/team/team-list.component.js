@@ -26,8 +26,10 @@ class TeamListComponent extends HTMLElement {
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
             this.teamsByCategory = this.categorizeTeams(this.filterTeams(event.detail));
-            document.getElementById('team-list-header').innerHTML = this.buildHeader();
-            document.getElementById('teams').innerHTML = this.buildListHTML();
+            if (document.getElementById('teams') != null) {
+                document.getElementById('team-list-header').innerHTML = this.buildHeader();
+                document.getElementById('teams').innerHTML = this.buildListHTML();
+            }
         });
     }
 
@@ -45,11 +47,15 @@ class TeamListComponent extends HTMLElement {
     }
 
     buildHeader() {
+        let count = 0;
+        this.teamsByCategory.forEach((v, k) => {
+            count += this.teamsByCategory.get(k).teams.size;
+        })
         return `
         <div class="col-md-12">
             <div class="content-header">
                 Teams
-                <span class="additional-text">Showing (${this.teams?.size}) Teams</span>
+                <span class="additional-text">Showing (${count}) Teams</span>
             </div>
         </div>
         `;

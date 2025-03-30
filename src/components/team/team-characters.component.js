@@ -73,8 +73,10 @@ class TeamCharactersComponent extends HTMLElement {
 
     filterListAndReloadHTML() {
         this.characters = this.filterCharacters();
-        document.getElementById('team-characters-header').innerHTML = this.buildHeader();
-        document.getElementById('characters-container').innerHTML = this.buildListHTML();
+        if (document.getElementById('characters-container') != null) {
+            document.getElementById('team-characters-header').innerHTML = this.buildHeader();
+            document.getElementById('characters-container').innerHTML = this.buildListHTML();
+        }
     }
 
     buildHTML() {
