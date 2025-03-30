@@ -1,11 +1,4 @@
 class Utils {
-    static getGameFromUrl() {
-        if (window.location.hash) {
-            return window.location.hash.replace('#', '');
-        } else {
-            return null;
-        }
-    }
 
     static generateUUID() {
         return 'xxxxxxxx'.replace(/[x]/g, function() {
@@ -70,6 +63,7 @@ function closeDialog() {
     })
 }
 
+// event emitter
 function emitEvent(eventName, value) {
     window.dispatchEvent(new CustomEvent(eventName, { detail: value }));
 }

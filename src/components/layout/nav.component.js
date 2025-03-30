@@ -101,6 +101,8 @@ class NavComponent extends HTMLElement {
     }
   
     connectedCallback() {
+        // TODO: sub navs based on game style
+        // in header?
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
         this.setActiveNav();
@@ -123,7 +125,7 @@ class NavComponent extends HTMLElement {
             <div class="sidebar">
                 <ul style="padding-left: 0; margin-top: 45px;">
                     <li>
-                        <a class="sidebar-item" href="#Home">
+                        <a class="sidebar-item" href="#/Home">
                             <i>
                                 <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
                             </i>
@@ -132,7 +134,7 @@ class NavComponent extends HTMLElement {
                     </li> 
                     ${Utils.ngFor(this.games, g => `
                     <li>
-                        <a class="sidebar-item" href="#${g.code}">
+                        <a class="sidebar-item" href="#/${g.code}">
                             <i>
                                 ${Utils.ngIf(g.iconUrl, 
                                 `<img src="${g.iconUrl}" alt="${g.code}" width="30" height="30"/>`, 
@@ -151,7 +153,7 @@ class NavComponent extends HTMLElement {
     setActiveNav() {
         const navs = document.querySelectorAll('.sidebar-item');
         navs.forEach(tab => {
-            if (tab.href.includes(Utils.getGameFromUrl())) {
+            if (tab.href.includes(RouteUtils.getGame())) {
                 tab.classList.add('active');
             } else {
                 tab.classList.remove('active');

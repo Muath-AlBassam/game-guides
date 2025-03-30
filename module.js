@@ -11,6 +11,7 @@ function loadAllScripts() {
     // Utilities
     loadScript("src/utils/constants.js");
     loadScript("src/utils/utils.js");
+    loadScript("src/utils/route-utils.js");
     loadScript("src/utils/rotations-utils.js");
     loadScript("src/utils/repository-mapper.js")
 

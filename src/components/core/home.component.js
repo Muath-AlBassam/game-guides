@@ -65,7 +65,7 @@ class HomeComponent extends HTMLElement {
 
             <div class="row justify-content-around">
                 ${Utils.ngFor(this.games, g => `
-                <a href="#${g.code}" class="col-md-5 game-box pointer mb-4" style="background-image: url(${g.backgroundUrl});">
+                <a href="#/${g.code}" class="col-md-5 game-box pointer mb-4" style="background-image: url(${g.backgroundUrl});">
                     <h4 class="game-title">
                         ${g.label}
                     </h4>
