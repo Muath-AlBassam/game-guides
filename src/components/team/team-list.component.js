@@ -49,7 +49,7 @@ class TeamListComponent extends HTMLElement {
     buildHeader() {
         let count = 0;
         this.teamsByCategory.forEach((v, k) => {
-            count += this.teamsByCategory.get(k).teams.size;
+            count += v.teams.size;
         })
         return `
         <div class="col-md-12">
@@ -65,11 +65,11 @@ class TeamListComponent extends HTMLElement {
         return `
         ${Utils.ngIf(this.teamsByCategory.size > 0, `
             ${Utils.ngFor(this.teamsByCategory, category => `
-            <div class="line-text pointer collapsed" data-bs-toggle="collapse" data-bs-target="#${category.text}">
+            <div class="line-text">
                 ${category.text}
             </div>
             
-            <div class="collapse show" id="${category.text}">
+            <div id="${category.text}">
                 ${Utils.ngFor(category.teams, team => `
                 <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
                 `)}
