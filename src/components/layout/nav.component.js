@@ -5,6 +5,9 @@ class NavComponent extends HTMLElement {
 
     games = null;
 
+    activeGame = null;
+    gamePages = null;
+
     componentStyle = `
     <style>
         .sidebar {
@@ -81,6 +84,12 @@ class NavComponent extends HTMLElement {
             display: block;
         }
 
+        .sidebar .splitter {
+            border: 1px solid #36373f;
+            height: 1px;
+            margin: 0;
+        }
+
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .sidebar {
                 width: var(--sidebar-m-width);
@@ -101,8 +110,6 @@ class NavComponent extends HTMLElement {
     }
   
     connectedCallback() {
-        // TODO: sub navs based on game style
-        // in header?
         this.loadData();
         this.innerHTML = this.componentStyle + this.buildHTML();
         this.setActiveNav();
@@ -111,10 +118,21 @@ class NavComponent extends HTMLElement {
 
     loadData() {
         this.games = gamesRepository.getAll();
+        this.activeGame = gamesRepository.getOne(RouteUtils.getGame());
+        let gameStyle = this.activeGame?.style ?? Constants.gameStyles.NONE;
+        this.gamePages = [];
+        if (gameStyle == Constants.gameStyles.TEAMS) {
+            this.gamePages.push({ label: 'Teams', route: 'teams', icon: 'assets/svg/variations.svg' });
+        }
+        if (gameStyle != Constants.gameStyles.NONE) {
+            this.gamePages.push({ label: 'Characters', route: 'characters', icon: 'assets/svg/person.svg' });
+        }
     }
 
     listenToEvents() {
         window.addEventListener('hashchange', () => {
+            this.loadData();
+            this.innerHTML = this.componentStyle + this.buildHTML();
             this.setActiveNav();
         });
     }
@@ -125,22 +143,37 @@ class NavComponent extends HTMLElement {
             <div class="sidebar">
                 <ul style="padding-left: 0; margin-top: 45px;">
                     <li>
-                        <a class="sidebar-item" href="#/Home">
+                        <a class="sidebar-item" href="#/Home" title="Home">
                             <i>
-                                <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/> 
+                                <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/>
                             </i>
                             <span class="nav-text">Home</span>
                         </a>
                     </li> 
                     ${Utils.ngFor(this.games, g => `
                     <li>
-                        <a class="sidebar-item" href="#/${g.code}">
+                        <a class="sidebar-item" href="#/${g.code}" title="${g.label}">
                             <i>
                                 ${Utils.ngIf(g.iconUrl, 
                                 `<img src="${g.iconUrl}" alt="${g.code}" width="30" height="30"/>`, 
                                 `${g.code}`)}
                             </i>
                             <span class="nav-text">${g.label}</span>
+                        </a>
+                    </li> 
+                    `)}
+
+                    ${Utils.ngIf(this.gamePages?.length > 0, 
+                    `<li class="splitter"></li>`
+                    )}
+
+                    ${Utils.ngFor(this.gamePages, page => `
+                    <li>
+                        <a class="sidebar-item page-item" href="#/${this.activeGame.code}/${page.route}" title="${page.label}">
+                            <i>
+                                <img style="border-radius: 0;" src="${page.icon}" alt="${page.label}" width="20" height="20"/>
+                            </i>
+                            <span class="nav-text">${page.label}</span>
                         </a>
                     </li> 
                     `)}
@@ -151,7 +184,7 @@ class NavComponent extends HTMLElement {
     }
 
     setActiveNav() {
-        const navs = document.querySelectorAll('.sidebar-item');
+        const navs = document.querySelectorAll('.sidebar-item:not(.page-item)');
         navs.forEach(tab => {
             if (tab.href.includes(RouteUtils.getGame())) {
                 tab.classList.add('active');

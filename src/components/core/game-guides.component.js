@@ -21,8 +21,11 @@ class GameGuidesComponent extends HTMLElement {
 
     listenToEvents() {
         window.addEventListener('hashchange', () => {
-            this.loadData();
-            this.render();
+            let updatedGameCode = RouteUtils.getGame();
+            if (updatedGameCode != this.gameCode) {
+                this.loadData();
+                this.render();
+            }
         });
     }
 
