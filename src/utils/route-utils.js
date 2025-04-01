@@ -11,12 +11,21 @@ class RouteUtils {
         }
     }
 
-    static getPage() {
+    static getCurrentPage() {
         if (window.location.hash) {
             let hash = window.location.hash;
             return hash.split('/')[2];
         } else {
             return null;
         }
+    }
+
+    static getDefaultPage(gameStyle = Constants.gameStyles.NONE) {
+        if (Constants.gameStyles.TEAMS == gameStyle) {
+            return 'teams';
+        } else if (Constants.gameStyles.FIGHT == gameStyle) {
+            return 'characters';
+        }
+        return '';
     }
 }

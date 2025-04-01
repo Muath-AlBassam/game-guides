@@ -39,7 +39,7 @@ async function loadWorkbook() {
 }
 
 async function loadLocalWorkbook() {
-    const sheet = await fetch('Game Guides DB.xlsx');
+    const sheet = await fetch('assets/Game Guides DB.xlsx');
     const arrayBuffer = await sheet.arrayBuffer();
     storeService.set("localWorkbook", XLSX.read(arrayBuffer, { type: 'array' }));
 }

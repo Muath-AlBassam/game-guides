@@ -43,7 +43,7 @@ class HeaderComponent extends HTMLElement {
         return `
         <div class="header">
             <i class="fa fa-bars" id="sidebarToggle" onclick="toggleSidebar()"></i>
-            <a class="header-text" href="#Home">Game Guides</span>
+            <a class="header-text" href="#/Home">Game Guides</span>
         </div>`;
     }
 }

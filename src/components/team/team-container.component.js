@@ -17,7 +17,7 @@ class TeamContainerComponent extends HTMLElement {
     loadData() {
         this.gameCode = this.getAttribute('gamecode');
         this.activeGame = gamesRepository.getOne(this.gameCode);
-        this.activePage = RouteUtils.getPage() ?? 'teams';
+        this.activePage = RouteUtils.getCurrentPage() ?? RouteUtils.getDefaultPage(this.activeGame.style);
     }
 
     listenToEvents() {
