@@ -13,6 +13,7 @@ class RotationsComponent extends HTMLElement {
         }
 
         .rotation-step__character {
+            /* !! class is used in RotationsUtils !! */
             vertical-align: middle;
         }
 

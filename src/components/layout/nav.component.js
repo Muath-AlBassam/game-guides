@@ -83,12 +83,6 @@ class NavComponent extends HTMLElement {
             display: block;
         }
 
-        .sidebar .nav-splitter {
-            border: 1px solid #121212;
-            height: 1px;
-            margin: 0;
-        }
-
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .sidebar {
                 width: var(--sidebar-m-width);
@@ -143,7 +137,6 @@ class NavComponent extends HTMLElement {
                             <span class="nav-text">Home</span>
                         </a>
                     </li>
-                    <li class="nav-splitter"></li>
                     ${Utils.ngFor(this.routesList, route => `
                     <li>
                         <a class="sidebar-item ${route.isActive ? 'active' : ''}" href="${route.path}" title="${route.label}">
@@ -153,19 +146,6 @@ class NavComponent extends HTMLElement {
                             <span class="nav-text">${route.label}</span>
                         </a>
                     </li>
-                    ${Utils.ngIf(this.activeGame?.code == route.code, `
-                        ${Utils.ngFor(route.sub, subRoute => `
-                        <li>
-                            <a class="sidebar-item page-item" href="${subRoute.path}" title="${subRoute.label}">
-                                <i>
-                                    <img style="border-radius: 0;" src="${subRoute.icon}" alt="${subRoute.label}" width="20" height="20"/>
-                                </i>
-                                <span class="nav-text">${subRoute.label}</span>
-                            </a>
-                        </li> 
-                        `)}
-                    `)}
-                    <li class="nav-splitter"></li>
                     `)}
                 </ul>
             </div>
@@ -176,26 +156,13 @@ class NavComponent extends HTMLElement {
     generateRoutesList() {
         this.routesList = [];
         this.games.forEach((g, code) => {
-            // add main route (game)
-            let gameRoute = {
+            this.routesList.push({
                 code: code,
                 label: g.label,
                 path: `#/${code}/${RouteUtils.getDefaultPage(g.style)}`,
                 icon: g.iconUrl,
-                isActive: this.activeGame?.code == code,
-                sub: []
-            };
-            if (gameRoute.isActive) {
-                // add sub routes based on game style
-                let gameStyle = this.activeGame?.style ?? Constants.gameStyles.NONE;
-                if (gameStyle == Constants.gameStyles.TEAMS) {
-                    gameRoute.sub.push({ label: 'Teams', path: `#/${code}/teams`, icon: 'assets/svg/variations.svg' });
-                    gameRoute.sub.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/svg/person.svg' });
-                } else if (gameStyle == Constants.gameStyles.FIGHT) {
-                    gameRoute.sub.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/svg/person.svg' });
-                }
-            }
-            this.routesList.push(gameRoute);
+                isActive: this.activeGame?.code == code
+            });
         })
     }
 }

@@ -36,6 +36,7 @@ function loadAllScripts() {
     loadScript("src/components/core/game-guides.component.js", true);
     loadScript("src/components/core/home.component.js", true);
     loadScript("src/components/core/game-header.component.js", true);
+    loadScript("src/components/core/game-nav.component.js", true);
     // Shared
     loadScript("src/components/shared/search.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);

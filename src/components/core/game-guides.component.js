@@ -41,11 +41,13 @@ class GameGuidesComponent extends HTMLElement {
             case Constants.gameStyles.TEAMS:
                 return `
                 <app-game-header gamecode="${this.gameCode}"></app-game-header>
+                <app-game-nav gamecode="${this.gameCode}"></app-game-nav>
                 <app-team-container gamecode="${this.gameCode}"></app-team-container>
                 `;
             case Constants.gameStyles.FIGHT:
                 return `
                 <app-game-header gamecode="${this.gameCode}"></app-game-header>
+                <app-game-nav gamecode="${this.gameCode}"></app-game-nav>
                 <app-fight-list gamecode="${this.gameCode}"></app-fight-list>
                 `;
             default:
