@@ -60,7 +60,7 @@ class TeamWeaponsComponent extends HTMLElement {
 
     loadData() {
         this.gameCode = this.getAttribute('gamecode');
-        this.weaponsLabel = GameUtils.getWeaponsLabel(this.gameCode);
+        this.weaponsLabel = GameUtils.getWeaponsLabel(this.gameCode) + 's'; // 's' for plural
         this.allWeapons = weaponsRepository.getAll(this.gameCode);
         this.weapons = this.allWeapons;
         this.rarities = rarityRepository.getAll(this.gameCode);
@@ -157,7 +157,6 @@ class TeamWeaponsComponent extends HTMLElement {
     filterWeapons() {
         const filteredList = [...this.allWeapons].filter((weaponMapKeyValue) => {
             // 0: key, 1: value
-            let weaponKey = weaponMapKeyValue[0];
             let weaponVal = weaponMapKeyValue[1];
 
             let filterByName = weaponVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -169,10 +168,12 @@ class TeamWeaponsComponent extends HTMLElement {
         return new Map(filteredList);
     }
 
+    // TODO
     getRarityImage(rarity) {
         return rarityRepository.getOne(this.gameCode, rarity)?.imageUrl;
     }
 
+    // TODO
     getTypeImage(type) {
         return weaponsTypesRepository.getOne(this.gameCode, type)?.imageUrl;
     }
