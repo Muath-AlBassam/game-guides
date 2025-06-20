@@ -4,9 +4,11 @@ class TeamSearchComponent extends HTMLElement {
     rarities = [];
     elements = [];
     roles = [];
-    showRarities = true;
-    showElements = true;
-    showRoles = true;
+    weaponTypes = [];
+    showRarities = false;
+    showElements = false;
+    showRoles = false;
+    showWeaponTypes = false;
     showResetButton = false;
     searchPlaceholder = 'Search characters...';
 
@@ -14,6 +16,7 @@ class TeamSearchComponent extends HTMLElement {
     searchRarity = '';
     searchElement = '';
     searchRole = '';
+    searchWeaponType = '';
 
     componentStyle = `
     <style>
@@ -68,12 +71,14 @@ class TeamSearchComponent extends HTMLElement {
         if (this.hasAttribute('showrarities')) this.showRarities = this.getAttribute('showrarities') == 'true';
         if (this.hasAttribute('showelements')) this.showElements = this.getAttribute('showelements') == 'true';
         if (this.hasAttribute('showroles')) this.showRoles = this.getAttribute('showroles') == 'true';
+        if (this.hasAttribute('showeapontypes')) this.showWeaponTypes = this.getAttribute('showeapontypes') == 'true';
         if (this.hasAttribute('showresetbutton')) this.showResetButton = this.getAttribute('showresetbutton') == 'true';
         if (this.hasAttribute('placeholder')) this.searchPlaceholder = this.getAttribute('placeholder');
 
-        this.rarities = [...rarityRepository.getAll(this.gameCode).values()];
-        this.elements = [...elementsRepository.getAll(this.gameCode).values()];
-        this.roles = [...rolesRepository.getAll(this.gameCode).values()];
+        if (this.showRarities) { this.rarities = [...rarityRepository.getAll(this.gameCode).values()]; }
+        if (this.showElements) { this.elements = [...elementsRepository.getAll(this.gameCode).values()]; }
+        if (this.showRoles) { this.roles = [...rolesRepository.getAll(this.gameCode).values()]; }
+        if (this.showWeaponTypes) { this.weaponTypes = [...weaponsTypesRepository.getAll(this.gameCode).values()]; }
     }
 
     listenToEvents() {
@@ -89,11 +94,15 @@ class TeamSearchComponent extends HTMLElement {
         window.addEventListener('search-role', (event) => {
             this.searchRole = event.detail;
         });
+        window.addEventListener('search-weapon-type', (event) => {
+            this.searchWeaponType = event.detail;
+        });
         window.addEventListener('search-reset', (event) => {
             this.searchTerm = '';
             this.searchRarity = '';
             this.searchElement = '';
             this.searchRole = '';
+            this.searchWeaponType = '';
         });
     }
 
@@ -132,6 +141,17 @@ class TeamSearchComponent extends HTMLElement {
                     buttonlist="${Utils.toJSONString(this.roles)}"
                     valuelabel="name"
                     changeeventname="search-role"
+                >
+                </app-button-group>
+            </div>
+            `)}
+
+            ${Utils.ngIf(this.showWeaponTypes && this.weaponTypes?.length > 0, `
+            <div>
+                <app-button-group
+                    buttonlist="${Utils.toJSONString(this.weaponTypes)}"
+                    valuelabel="name"
+                    changeeventname="search-weapon-type"
                 >
                 </app-button-group>
             </div>

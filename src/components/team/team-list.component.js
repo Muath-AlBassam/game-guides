@@ -39,7 +39,7 @@ class TeamListComponent extends HTMLElement {
             ${this.buildHeader()}
         </div>
 
-        <app-team-search gamecode="${this.gameCode}" showrarities="false" showelements="false" showroles="false" placeholder="Search teams, characters..."></app-team-search>
+        <app-team-search gamecode="${this.gameCode}" placeholder="Search teams, characters..."></app-team-search>
 
         <div id="teams">
             ${this.buildListHTML()}

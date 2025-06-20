@@ -39,6 +39,10 @@ class TeamContainerComponent extends HTMLElement {
             ${Utils.ngIf(this.activePage == 'characters',
             `<app-team-characters gamecode="${this.gameCode}"></app-team-characters>`
             )}
+
+            ${Utils.ngIf(this.activePage == 'weapons',
+            `<app-team-weapons gamecode="${this.gameCode}"></app-team-weapons>`
+            )}
         `;
     }
 }

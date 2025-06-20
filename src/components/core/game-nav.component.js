@@ -66,10 +66,10 @@ class GameNavComponent extends HTMLElement {
         if (gameStyle == Constants.gameStyles.TEAMS) {
             this.navButtons.push({ label: 'Teams', path: `#/${code}/teams`, icon: 'assets/svg/team.svg' });
             this.navButtons.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/svg/character-side.svg' });
-            this.navButtons.push({ label: 'Weapons', path: `#/${code}/weapons`, icon: 'assets/svg/sword.svg' });
-            this.navButtons.push({ label: 'Sets', path: `#/${code}/sets`, icon: 'assets/svg/artifact-set.svg' });
+            this.navButtons.push({ label: GameUtils.getWeaponsLabel(code), path: `#/${code}/weapons`, icon: 'assets/svg/sword.svg' });
+            this.navButtons.push({ label: GameUtils.getSetsLabel(code), path: `#/${code}/sets`, icon: 'assets/svg/artifact-set.svg' });
         } else if (gameStyle == Constants.gameStyles.FIGHT) {
-            this.navButtons.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/svg/person.svg' });
+            this.navButtons.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/svg/character-side.svg' });
         }
     }
 }

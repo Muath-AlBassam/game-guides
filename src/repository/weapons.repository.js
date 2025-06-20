@@ -13,8 +13,12 @@ class WeaponsRepository {
         });
     }
 
+    getAll(gameCode) {
+        return this.weaponsMap.get(gameCode) ?? new Map([]);
+    }
+
     getOne(gameCode, weaponName) {
-        let weapon = this.weaponsMap.get(gameCode)?.get(weaponName);
+        let weapon = this.getAll(gameCode).get(weaponName);
         return weapon ?? { name: weaponName }
     }
 }

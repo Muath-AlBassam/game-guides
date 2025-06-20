@@ -11,6 +11,7 @@ function loadAllScripts() {
     // Utilities
     loadScript("src/utils/constants.js");
     loadScript("src/utils/utils.js");
+    loadScript("src/utils/game-utils.js")
     loadScript("src/utils/route-utils.js");
     loadScript("src/utils/rotations-utils.js");
     loadScript("src/utils/repository-mapper.js")
@@ -22,6 +23,7 @@ function loadAllScripts() {
     loadScript("src/repository/teams.repository.js");
     loadScript("src/repository/rotations.repository.js");
     loadScript("src/repository/weapons.repository.js");
+    loadScript("src/repository/weapon-types.repository.js");
     loadScript("src/repository/sets.repository.js");
     loadScript("src/repository/roles.repository.js");
     loadScript("src/repository/elements.repository.js");
@@ -57,6 +59,7 @@ function loadAllScripts() {
     loadScript("src/components/team/team-character-details.component.js", true);
     loadScript("src/components/team/team-character-teams.component.js", true);
     loadScript("src/components/team/team-characters.component.js", true);
+    loadScript("src/components/team/team-weapons.component.js", true);
     loadScript("src/components/team/team-search.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);

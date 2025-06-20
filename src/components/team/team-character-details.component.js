@@ -136,7 +136,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
 
                 ${Utils.ngIf(this.buildmd, `
                 <h5 class="content-header">
-                    ${this.getWeaponsLabel(this.gameCode)}
+                    ${GameUtils.getWeaponsLabel(this.gameCode)}
                 </h5>
                 <div class="build-container">
                     <div class="build-item">
@@ -151,7 +151,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 
                 
                 <h5 class="content-header">
-                    ${this.getSetsLabel(this.gameCode)}
+                    ${GameUtils.getSetsLabel(this.gameCode)}
                 </h5>
                 <div class="build-container">
                     ${Utils.ngFor(this.setsmd, set => `
@@ -171,36 +171,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 )}
             </div>
         </div>`;
-    }
-
-    getWeaponsLabel(gameCode) {
-        switch (gameCode) {
-            case Constants.games.GI:
-                return 'Weapon';
-            case Constants.games.HSR:
-                return 'Light Cone';
-            case Constants.games.ZZZ:
-                return 'W-Engine';
-            case Constants.games.HI3:
-                return 'Weapon';
-            default:
-                return '';
-        }
-    }
-    
-    getSetsLabel(gameCode) {
-        switch (gameCode) {
-            case Constants.games.GI:
-                return 'Artifacts';
-            case Constants.games.HSR:
-                return 'Relics & Planar';
-            case Constants.games.ZZZ:
-                return 'Drive Discs';
-            case Constants.games.HI3:
-                return 'Stigmata';
-            default:
-                return '';
-        }
     }
 }
 

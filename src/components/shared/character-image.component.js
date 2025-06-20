@@ -127,48 +127,6 @@ class CharacterImageComponent extends HTMLElement {
         .char-img-resize:hover {
             transform: scale(1.1);
         }
-
-        .GI-rarity-5 {
-            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity5_BG.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-        .GI-rarity-4 {
-            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity4_BG.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-        .GI-rarity-3 {
-            background-image: url(https://raw.githubusercontent.com/Muath-AlBassam/game-guides-assets/main/assets/images/gi/GI_Rarity3_BG.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 50%;
-        }
-
-        .HSR-rarity-5 {
-            background: linear-gradient(180deg, #ac6d5c, #c48c64 53%);
-        }
-        .HSR-rarity-4 {
-            background: linear-gradient(180deg, #404165, #8f5fc6 53%);
-        }
-
-        .ZZZ-rarity-S {
-            /* background: linear-gradient(0deg, #d7bc57, #d19910); */
-            background: linear-gradient(180deg, #f99807, #fb7704);
-        }
-        .ZZZ-rarity-A {
-            /* background: linear-gradient(0deg, #be6fed, #8c37bd); */
-            background: linear-gradient(180deg, #c925f8, #9328e9);
-        }
-
-        .HI3-rarity-S {
-            background-image: linear-gradient(black, rgb(250 188 36 / 90%));
-        }
-        .HI3-rarity-A {
-            background-image: linear-gradient(black, rgb(240 126 225 / 90%));
-        }
         
         /* Split image */
         .split-box {
