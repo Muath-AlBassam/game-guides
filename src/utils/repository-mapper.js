@@ -135,7 +135,15 @@ class RepositoryMapper {
     static mapWeapons(weapons) {
         return this.arrayTo2LevelMap(
             weapons,
-            v => { return { name: v[0].NAME, type: v[0].TYPE, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL), rarity: v[0].RARITY }; }
+            v => { 
+                return { 
+                    name: v[0].NAME,
+                    type: v[0].TYPE,
+                    secondaryStat: v[0].SECONDARY_STAT,
+                    imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL),
+                    rarity: v[0].RARITY
+                };
+            }
         );
     }
 

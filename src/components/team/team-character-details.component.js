@@ -12,7 +12,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     characterPFPSize = 125;
     charmd = null;
     buildmd = null;
-    weaponmd = null;
     setsmd = [];
 
     componentStyle = `
@@ -115,7 +114,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
             this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
             if (this.buildmd) {
-                this.weaponmd = weaponsRepository.getOne(this.gameCode, this.buildmd.weapon.name);
                 this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
             }
         }
@@ -138,17 +136,7 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 <h5 class="content-header">
                     ${GameUtils.getWeaponsLabel(this.gameCode)}
                 </h5>
-                <div class="build-container">
-                    <div class="build-item">
-                        <div class="build-image">
-                            <img src="${this.weaponmd?.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${this.weaponmd?.rarity}" height="80" />
-                        </div>
-                        <div class="build-name">
-                            <h5 style="margin-bottom: 0;">${this.weaponmd?.name}</h5>
-                        </div>
-                    </div>
-                </div>
-                
+                <app-team-weapon-details gamecode="${this.gameCode}" weaponname="${this.buildmd.weapon.name}" showadditionalinfo="false"></app-team-weapon-details>
                 
                 <h5 class="content-header">
                     ${GameUtils.getSetsLabel(this.gameCode)}

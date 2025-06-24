@@ -18,7 +18,7 @@ class CharactersRepository {
     }
 
     getAllOrdered(gameCode) {
-        return new Map([...this.getAll(gameCode).entries()].sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)));
+        return new Map([...this.getAll(gameCode).entries()].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
     }
     
     getOne(gameCode, characterName) {

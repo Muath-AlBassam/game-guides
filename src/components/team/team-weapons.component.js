@@ -12,40 +12,7 @@ class TeamWeaponsComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        .weapon-container {
-            background-color: #36373d;
-            border: 2px solid #484950;
-            grid-gap: 0;
-            align-items: center;
-            display: grid;
-            grid-template-columns: 90px calc(100% - 80px);
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .weapon-container .weapon-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            width: 80px;
-        }
-
-        .weapon-container .weapon-info {
-            align-items: center;
-            display: flex;
-        }
-
-        .weapon-container .weapon-info .weapon-name {
-            margin-bottom: 5px;
-        }
-
-        .weapon-container .weapon-info .weapon-metadata {
-            font-size: 15px;
-            line-height: 25px;
-            margin-top: 5px;
-            margin-bottom: 0;
-        }
+        /* */
     </style>`;
 
     constructor() {
@@ -61,7 +28,7 @@ class TeamWeaponsComponent extends HTMLElement {
     loadData() {
         this.gameCode = this.getAttribute('gamecode');
         this.weaponsLabel = GameUtils.getWeaponsLabel(this.gameCode) + 's'; // 's' for plural
-        this.allWeapons = weaponsRepository.getAll(this.gameCode);
+        this.allWeapons = weaponsRepository.getAllOrdered(this.gameCode);
         this.weapons = this.allWeapons;
         this.rarities = rarityRepository.getAll(this.gameCode);
     }
@@ -126,23 +93,7 @@ class TeamWeaponsComponent extends HTMLElement {
             <div class="row">
             ${Utils.ngFor(this.weapons, weapon => `
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
-                <div class="weapon-container">
-                    <div class="weapon-image">
-                        <img src="${weapon.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${weapon.rarity}" height="80" />
-                    </div>
-                    <div class="weapon-info">
-                        <div>
-                            <h5 class="weapon-name">
-                                ${weapon.name}
-                            </h5>
-                            <p class="weapon-metadata">
-                                <img src="${this.getRarityImage(weapon.rarity)}" alt="${weapon.rarity}" title="${weapon.rarity}" height="24"/>
-                                |
-                                <img src="${this.getTypeImage(weapon.type)}" alt="${weapon.type}" title="${weapon.type}" height="24"/>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <app-team-weapon-details gamecode="${this.gameCode}" weaponname="${weapon.name}"></app-team-weapon-details>
             </div>
             `)}
             </div>
@@ -166,16 +117,6 @@ class TeamWeaponsComponent extends HTMLElement {
             return filterByName && filterByRarity && filterByType;
         })
         return new Map(filteredList);
-    }
-
-    // TODO
-    getRarityImage(rarity) {
-        return rarityRepository.getOne(this.gameCode, rarity)?.imageUrl;
-    }
-
-    // TODO
-    getTypeImage(type) {
-        return weaponsTypesRepository.getOne(this.gameCode, type)?.imageUrl;
     }
 }
 
