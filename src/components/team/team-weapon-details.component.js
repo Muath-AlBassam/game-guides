@@ -8,7 +8,6 @@ class TeamWeaponDetailsComponent extends HTMLElement {
     rarity = null;
     type = null;
 
-
     componentStyle = `
     <style>
         .weapon-container {

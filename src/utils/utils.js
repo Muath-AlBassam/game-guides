@@ -54,6 +54,18 @@ class Utils {
         }
         return null;
     }
+
+    // Other Utils
+    static categorizeMap(map, categoryFieldName) {
+        const groupedMap = new Map([]);
+        for (const [key, obj] of map) {
+          if (!groupedMap.has(obj[categoryFieldName])) {
+            groupedMap.set(obj[categoryFieldName], { text: obj[categoryFieldName], items: new Map([]) });
+          }
+          groupedMap.get(obj[categoryFieldName]).items.set(key, obj);
+        }
+        return groupedMap;
+    }
 }
 
 // general function to close any dialog

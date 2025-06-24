@@ -20,12 +20,12 @@ class TeamListComponent extends HTMLElement {
     loadData() {
         this.gameCode = this.getAttribute('gamecode');
         this.allTeams = teamsRepository.getAllMain(this.gameCode);
-        this.teamsByCategory = this.categorizeTeams(this.allTeams);
+        this.teamsByCategory = Utils.categorizeMap(this.allTeams, 'category');
     }
 
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
-            this.teamsByCategory = this.categorizeTeams(this.filterTeams(event.detail));
+            this.teamsByCategory = Utils.categorizeMap(this.filterTeams(event.detail), 'category');
             if (document.getElementById('teams') != null) {
                 document.getElementById('team-list-header').innerHTML = this.buildHeader();
                 document.getElementById('teams').innerHTML = this.buildListHTML();
@@ -49,7 +49,7 @@ class TeamListComponent extends HTMLElement {
     buildHeader() {
         let count = 0;
         this.teamsByCategory.forEach((v, k) => {
-            count += v.teams.size;
+            count += v.items.size;
         })
         return `
         <div class="col-md-12">
@@ -70,7 +70,7 @@ class TeamListComponent extends HTMLElement {
             </div>
             
             <div id="${category.text}">
-                ${Utils.ngFor(category.teams, team => `
+                ${Utils.ngFor(category.items, team => `
                 <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
                 `)}
             </div>
@@ -121,17 +121,6 @@ class TeamListComponent extends HTMLElement {
             return characterFound || teamNameFound;
         })
         return new Map(filteredList);
-    }
-
-    categorizeTeams(map) {
-        const groupedMap = new Map([]);
-        for (const [key, obj] of map) {
-          if (!groupedMap.has(obj.category)) {
-            groupedMap.set(obj.category, { text: obj.category, teams: new Map([]) });
-          }
-          groupedMap.get(obj.category).teams.set(key, obj);
-        }
-        return groupedMap;
     }
 }
 

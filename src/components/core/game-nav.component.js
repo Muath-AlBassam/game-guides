@@ -10,6 +10,9 @@ class GameNavComponent extends HTMLElement {
         .game-nav .nav-button {
             border-radius: 30px;
             width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .game-nav .nav-button.active {
@@ -45,7 +48,7 @@ class GameNavComponent extends HTMLElement {
         <div class="game-nav row justify-content-center mt-4">
             ${Utils.ngFor(this.navButtons, btn => `
             <div class="col-auto">
-                <a class="btn nav-button btn-secondary btn-outline ${this.isPathActive(btn.path) ? 'active' : ''}" href="${btn.path}" role="button">
+                <a class="btn nav-button btn-secondary btn-outline ${this.isPathActive(btn.path) ? 'active' : ''}" href="${btn.path}" role="button" title="${btn.label}">
                     <img style="border-radius: 0;" src="${btn.icon}" alt="${btn.label}" width="20" height="20"/>
                     ${btn.label}
                 </a>

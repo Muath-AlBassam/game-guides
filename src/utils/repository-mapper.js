@@ -128,7 +128,7 @@ class RepositoryMapper {
     static mapSets(sets) {
         return this.arrayTo2LevelMap(
             sets,
-            v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
+            v => { return { name: v[0].NAME, type: v[0].TYPE, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
         );
     }
 

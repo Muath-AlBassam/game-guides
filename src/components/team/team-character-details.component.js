@@ -12,7 +12,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     characterPFPSize = 125;
     charmd = null;
     buildmd = null;
-    setsmd = [];
 
     componentStyle = `
     <style>
@@ -27,48 +26,12 @@ class TeamCharacterDetailsComponent extends HTMLElement {
             background-repeat: no-repeat;
         }
 
-        .build-container {
-            background-color: #2c2d33;
-            border: 2px solid #484950;
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-            max-height: 250px; /* 3 items (243) + extra */
+        .sets-list {
+            max-height: 260px; /* 3 items (256) + extra */
             overflow-y: scroll;
         }
-        .build-container::-webkit-scrollbar {
+        .sets-list::-webkit-scrollbar {
             width: 1px;
-        }
-
-        .build-container .build-item {
-            grid-gap: 0;
-            align-items: center;
-            background-color: #36373d;
-            border-bottom: 1px solid #484950;
-            display: grid;
-            grid-template-columns: 80px calc(100% - 80px);
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .build-container .build-item .build-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            width: 80px;
-        }
-
-        .build-container .build-item .build-name {
-            display: flex;
-            align-items: center;
-            padding-left: 15px;
-        }
-
-        .build-container .build-item .build-name .piece-count {
-            color: hsla(0, 0%, 100%, .75);
-            display: inline;
-            padding-right: 5px;
         }
 
         .empty-dialog {
@@ -113,9 +76,6 @@ class TeamCharacterDetailsComponent extends HTMLElement {
         if (this.character) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
             this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
-            if (this.buildmd) {
-                this.setsmd = this.buildmd.sets.map(set => { return { pieceCount: set.pieceCount, md: setsRepository.getOne(this.gameCode, set.name) } })
-            }
         }
     }
 
@@ -141,17 +101,9 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 <h5 class="content-header">
                     ${GameUtils.getSetsLabel(this.gameCode)}
                 </h5>
-                <div class="build-container">
-                    ${Utils.ngFor(this.setsmd, set => `
-                    <div class="build-item">
-                        <div class="build-image" style="background-color: #2c2d33;">
-                            <img src="${set.md.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" style="margin: 5px;" />
-                        </div>
-                        <div class="build-name">
-                            <span class="piece-count">(${set?.pieceCount})</span>
-                            <h5 style="margin-bottom: 0;">${set?.md?.name}</h5>
-                        </div>
-                    </div>    
+                <div class="sets-list">
+                    ${Utils.ngFor(this.buildmd?.sets, set => `
+                    <app-team-set-details gamecode="${this.gameCode}" setname="${set.name}" piececount="${set.pieceCount}"></app-team-set-details>
                     `)}
                 </div>
                 `,

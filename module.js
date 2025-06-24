@@ -61,6 +61,8 @@ function loadAllScripts() {
     loadScript("src/components/team/team-characters.component.js", true);
     loadScript("src/components/team/team-weapon-details.component.js", true);
     loadScript("src/components/team/team-weapons.component.js", true);
+    loadScript("src/components/team/team-set-details.component.js", true);
+    loadScript("src/components/team/team-sets.component.js", true);
     loadScript("src/components/team/team-search.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);

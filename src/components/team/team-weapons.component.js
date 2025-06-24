@@ -50,8 +50,7 @@ class TeamWeaponsComponent extends HTMLElement {
             this.searchTerm = '';
             this.searchRarity = '';
             this.searchType = '';
-            this.weapons = this.filterWeapons();
-            this.innerHTML = this.componentStyle + this.buildHTML();
+            this.filterListAndReloadHTML();
         });
     }
 

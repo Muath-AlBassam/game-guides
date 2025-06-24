@@ -65,8 +65,7 @@ class TeamCharactersComponent extends HTMLElement {
             this.searchRarity = '';
             this.searchElement = '';
             this.searchRole = '';
-            this.characters = this.filterCharacters();
-            this.innerHTML = this.componentStyle + this.buildHTML();
+            this.filterListAndReloadHTML();
         });
     }
 
