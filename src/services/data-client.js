@@ -32,7 +32,10 @@ const dataClient = new DataClient();
 
 async function loadWorkbook() {
     console.log('fetching workbook');
-    await loadRemoteWorkbook();
+    if (environment.production) {
+        await loadRemoteWorkbook();
+    }
+    // fetch local workbook if failed to fetch remote workbook or in case local env
     if (storeService.get("remoteWorkbookMap") == null) {
         await loadLocalWorkbook();
     }

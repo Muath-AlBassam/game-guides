@@ -1,5 +1,6 @@
 const environment = {};
 
+environment.production = true;
 environment.name = "Game Guides";
 environment.googleApiKey = "AIzaSyCvDWfzC-bF_qJqV0H_bxKYvkX2CMANVSU";
 environment.gaguSpreadsheetId = "1UD57k1cChp-3MnpTUWLz2RHCZc5LkyPvhEj7C6G_MWU";
