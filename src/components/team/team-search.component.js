@@ -23,7 +23,7 @@ class TeamSearchComponent extends HTMLElement {
         .team-search-container {
             display: grid;
             column-gap: 1em;
-            grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
+            grid-template-columns: 2fr 1fr 2fr 2fr 1fr 1fr;
             margin-top: 12px;
             margin-bottom: 12px;
         }

@@ -32,6 +32,7 @@ class RepositoryMapper {
                     imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL),
                     cardImageUrl: Utils.appendRepoUrl(v[0].CARD_IMAGE_URL),
                     element: v[0].ELEMENT,
+                    weaponType: v[0].WEAPON_TYPE,
                     role: v[0].ROLE,
                     rarity: v[0].RARITY
                 }; 

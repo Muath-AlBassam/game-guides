@@ -9,6 +9,7 @@ class TeamCharactersComponent extends HTMLElement {
     searchRarity = '';
     searchElement = '';
     searchRole = '';
+    searchWeaponType = '';
 
     componentStyle = `
     <style>
@@ -60,11 +61,16 @@ class TeamCharactersComponent extends HTMLElement {
             this.searchRole = event.detail;
             this.filterListAndReloadHTML();
         });
+        window.addEventListener('search-weapon-type', (event) => {
+            this.searchWeaponType = event.detail;
+            this.filterListAndReloadHTML();
+        });
         window.addEventListener('search-reset', (event) => {
             this.searchTerm = '';
             this.searchRarity = '';
             this.searchElement = '';
             this.searchRole = '';
+            this.searchWeaponType = '';
             this.filterListAndReloadHTML();
         });
     }
@@ -82,7 +88,14 @@ class TeamCharactersComponent extends HTMLElement {
         <div class="row" id="team-characters-header">
             ${this.buildHeader()}
         </div>
-        <app-team-search gamecode="${this.gameCode}" showrarities="true" showelements="true" showroles="true" showresetbutton="true"></app-team-search>
+        <app-team-search
+            gamecode="${this.gameCode}" 
+            showrarities="true"
+            showelements="true"
+            showroles="true"
+            showeapontypes="${this.gameCode == Constants.games.GI}"
+            showresetbutton="true">
+        </app-team-search>
 
         <div class="characters-container" id="characters-container">
            ${this.buildListHTML()}
@@ -134,8 +147,9 @@ class TeamCharactersComponent extends HTMLElement {
             let filterByRarity = this.searchRarity ? charVal.rarity == this.searchRarity : true;
             let filterByElement = this.searchElement ? charVal.element == this.searchElement : true;
             let filterByRole = this.searchRole ? charVal.role == this.searchRole : true;
+            let filterByWeaponType = this.searchWeaponType ? charVal.weaponType == this.searchWeaponType : true;
 
-            return filterByName && filterByRarity && filterByElement && filterByRole;
+            return filterByName && filterByRarity && filterByElement && filterByRole && filterByWeaponType;
         })
         return new Map(filteredList);
     }
