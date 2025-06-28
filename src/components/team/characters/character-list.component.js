@@ -124,6 +124,7 @@ class CharacterListComponent extends HTMLElement {
                 dimensions="160"
                 withbuilddialog="true"
                 withelement="true"
+                withrole="true"
                 imagestyle="card"
                 showteamicon="true"
             >

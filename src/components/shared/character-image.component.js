@@ -10,6 +10,7 @@ class CharacterImageComponent extends HTMLElement {
     withBuildDialog = false;
     withBackgroundClass = true;
     withElement = false;
+    withRole = false;
     mobileSizeRatio = 1; // default: 1 == no resize
     mobileIconSizeRatio = 1;
     imageStyle = 'pfp'; // pfp, card
@@ -45,6 +46,13 @@ class CharacterImageComponent extends HTMLElement {
             position: absolute;
             top: 3px;
             left: 3px;
+            filter: drop-shadow(0 2px 2px #000);
+        }
+
+        .character-container .role-icon {
+            position: absolute;
+            top: 3px;
+            right: 3px;
             filter: drop-shadow(0 2px 2px #000);
         }
 
@@ -237,6 +245,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
+        if (this.hasAttribute('withrole')) this.withRole = this.getAttribute('withrole') == 'true';
         if (this.hasAttribute('showteamicon')) this.showTeamIcon = this.getAttribute('showteamicon') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
@@ -247,7 +256,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.charCount == 1) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.characterName);
             this.showElement = this.withElement && this.charmd.element;
-            this.showRole = true && this.charmd.role;
+            this.showRole = this.withRole && this.charmd.role;
             this.elementImageUrl = elementsRepository.getOne(this.gameCode, this.charmd.element).imageUrl;
             this.roleImageUrl = rolesRepository.getOne(this.gameCode, this.charmd.role)?.imageUrl;
             this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
@@ -351,6 +360,16 @@ class CharacterImageComponent extends HTMLElement {
                     height="${this.iconSize}" 
                     class="element-icon" 
                     title="${this.charmd.element}"
+                    loading="lazy"
+                />
+                `)}
+                ${Utils.ngIf(this.showRole, `
+                <img
+                    src="${this.roleImageUrl ?? Constants.images.transparent}" 
+                    width="${this.iconSize}" 
+                    height="${this.iconSize}" 
+                    class="role-icon" 
+                    title="${this.charmd.role}"
                     loading="lazy"
                 />
                 `)}
