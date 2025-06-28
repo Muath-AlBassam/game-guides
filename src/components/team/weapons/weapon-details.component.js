@@ -1,4 +1,4 @@
-class TeamWeaponDetailsComponent extends HTMLElement {
+class WeaponDetailsComponent extends HTMLElement {
 
     gameCode = null;
     weaponName = null;
@@ -106,4 +106,4 @@ class TeamWeaponDetailsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-weapon-details', TeamWeaponDetailsComponent);
+customElements.define('app-weapon-details', WeaponDetailsComponent);

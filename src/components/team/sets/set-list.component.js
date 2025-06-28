@@ -1,4 +1,4 @@
-class TeamSetsComponent extends HTMLElement {
+class SetListComponent extends HTMLElement {
 
     setsLabel = '';
 
@@ -90,7 +90,7 @@ class TeamSetsComponent extends HTMLElement {
                 
                 ${Utils.ngFor(category.items, set => `
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
-                    <app-team-set-details gamecode="${this.gameCode}" setname="${set.name}"></app-team-set-details>
+                    <app-set-details gamecode="${this.gameCode}" setname="${set.name}"></app-set-details>
                 </div>
                 `)}
                 `)}
@@ -114,4 +114,4 @@ class TeamSetsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-sets', TeamSetsComponent);
+customElements.define('app-set-list', SetListComponent);

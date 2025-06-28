@@ -1,4 +1,4 @@
-class TeamWeaponsComponent extends HTMLElement {
+class WeaponListComponent extends HTMLElement {
 
     weaponsLabel = '';
 
@@ -92,7 +92,7 @@ class TeamWeaponsComponent extends HTMLElement {
             <div class="row">
             ${Utils.ngFor(this.weapons, weapon => `
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
-                <app-team-weapon-details gamecode="${this.gameCode}" weaponname="${weapon.name}"></app-team-weapon-details>
+                <app-weapon-details gamecode="${this.gameCode}" weaponname="${weapon.name}"></app-weapon-details>
             </div>
             `)}
             </div>
@@ -119,4 +119,4 @@ class TeamWeaponsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-weapons', TeamWeaponsComponent);
+customElements.define('app-weapon-list', WeaponListComponent);

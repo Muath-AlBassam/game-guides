@@ -1,5 +1,5 @@
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
-class TeamCharacterDetailsComponent extends HTMLElement {
+class CharacterBuildComponent extends HTMLElement {
 
     // attribute that on change will trigger "attributeChangedCallback"
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes
@@ -96,14 +96,14 @@ class TeamCharacterDetailsComponent extends HTMLElement {
                 <h5 class="content-header">
                     ${GameUtils.getWeaponsLabel(this.gameCode)}
                 </h5>
-                <app-team-weapon-details gamecode="${this.gameCode}" weaponname="${this.buildmd.weapon.name}" showadditionalinfo="false"></app-team-weapon-details>
+                <app-weapon-details gamecode="${this.gameCode}" weaponname="${this.buildmd.weapon.name}" showadditionalinfo="false"></app-weapon-details>
                 
                 <h5 class="content-header">
                     ${GameUtils.getSetsLabel(this.gameCode)}
                 </h5>
                 <div class="sets-list">
                     ${Utils.ngFor(this.buildmd?.sets, set => `
-                    <app-team-set-details gamecode="${this.gameCode}" setname="${set.name}" piececount="${set.pieceCount}"></app-team-set-details>
+                    <app-set-details gamecode="${this.gameCode}" setname="${set.name}" piececount="${set.pieceCount}"></app-set-details>
                     `)}
                 </div>
                 `,
@@ -114,4 +114,4 @@ class TeamCharacterDetailsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-character-details', TeamCharacterDetailsComponent);
+customElements.define('app-character-build', CharacterBuildComponent);

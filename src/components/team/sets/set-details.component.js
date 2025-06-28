@@ -1,4 +1,4 @@
-class TeamSetDetailsComponent extends HTMLElement {
+class SetDetailsComponent extends HTMLElement {
 
     gameCode = null;
     setName = null;
@@ -83,4 +83,4 @@ class TeamSetDetailsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-set-details', TeamSetDetailsComponent);
+customElements.define('app-set-details', SetDetailsComponent);

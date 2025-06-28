@@ -50,20 +50,20 @@ function loadAllScripts() {
     loadScript("src/components/layout/header.component.js", true);
     // Team
     loadScript("src/components/team/team-container.component.js", true);
-    loadScript("src/components/team/team-list.component.js", true);
-    loadScript("src/components/team/team-details.component.js", true);
-    loadScript("src/components/team/team-roles.component.js", true);
-    loadScript("src/components/team/team-variations.component.js", true);
-    loadScript("src/components/team/team-replacements.component.js", true);
-    loadScript("src/components/team/team-rotations.component.js", true);
-    loadScript("src/components/team/team-character-details.component.js", true);
-    loadScript("src/components/team/team-character-teams.component.js", true);
-    loadScript("src/components/team/team-characters.component.js", true);
-    loadScript("src/components/team/team-weapon-details.component.js", true);
-    loadScript("src/components/team/team-weapons.component.js", true);
-    loadScript("src/components/team/team-set-details.component.js", true);
-    loadScript("src/components/team/team-sets.component.js", true);
+    loadScript("src/components/team/teams/team-list.component.js", true);
+    loadScript("src/components/team/teams/team-details.component.js", true);
+    loadScript("src/components/team/teams/team-roles.component.js", true);
+    loadScript("src/components/team/teams/team-variations.component.js", true);
+    loadScript("src/components/team/teams/team-replacements.component.js", true);
+    loadScript("src/components/team/teams/team-rotations.component.js", true);
+    loadScript("src/components/team/characters/character-list.component.js", true);
+    loadScript("src/components/team/weapons/weapon-details.component.js", true);
+    loadScript("src/components/team/weapons/weapon-list.component.js", true);
+    loadScript("src/components/team/sets/set-details.component.js", true);
+    loadScript("src/components/team/sets/set-list.component.js", true);
     loadScript("src/components/team/team-search.component.js", true);
+    loadScript("src/components/team/character-build.component.js", true);
+    loadScript("src/components/team/character-teams.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);
     loadScript("src/components/fight/fight-combos.component.js", true);

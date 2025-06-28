@@ -1,4 +1,4 @@
-class TeamCharactersComponent extends HTMLElement {
+class CharacterListComponent extends HTMLElement {
 
     characterPFPSize = 80;
     gameCode = null;
@@ -155,4 +155,4 @@ class TeamCharactersComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-characters', TeamCharactersComponent);
+customElements.define('app-character-list', CharacterListComponent);

@@ -29,23 +29,23 @@ class TeamContainerComponent extends HTMLElement {
 
     buildHTML() {
         return `
-            <app-team-character-details id="build-dialog" gamecode="${this.gameCode}"></app-team-character-details>
-            <app-team-character-teams id="teams-dialog" gamecode="${this.gameCode}"></app-team-character-teams>
+            <app-character-build id="build-dialog" gamecode="${this.gameCode}"></app-character-build>
+            <app-character-teams id="teams-dialog" gamecode="${this.gameCode}"></app-character-teams>
 
             ${Utils.ngIf(this.activePage == 'teams',
             `<app-team-list gamecode="${this.gameCode}"></app-team-list>`
             )}
 
             ${Utils.ngIf(this.activePage == 'characters',
-            `<app-team-characters gamecode="${this.gameCode}"></app-team-characters>`
+            `<app-character-list gamecode="${this.gameCode}"></app-character-list>`
             )}
 
             ${Utils.ngIf(this.activePage == 'weapons',
-            `<app-team-weapons gamecode="${this.gameCode}"></app-team-weapons>`
+            `<app-weapon-list gamecode="${this.gameCode}"></app-weapon-list>`
             )}
 
             ${Utils.ngIf(this.activePage == 'sets',
-            `<app-team-sets gamecode="${this.gameCode}"></app-team-sets>`
+            `<app-set-list gamecode="${this.gameCode}"></app-set-list>`
             )}
         `;
     }

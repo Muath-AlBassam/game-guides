@@ -1,4 +1,4 @@
-class TeamCharacterTeamsComponent extends HTMLElement {
+class CharacterTeamsComponent extends HTMLElement {
 
     static observedAttributes = ["character"];
 
@@ -154,4 +154,4 @@ class TeamCharacterTeamsComponent extends HTMLElement {
     }
 }
 
-customElements.define('app-team-character-teams', TeamCharacterTeamsComponent);
+customElements.define('app-character-teams', CharacterTeamsComponent);
