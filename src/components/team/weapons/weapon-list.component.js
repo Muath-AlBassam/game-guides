@@ -42,7 +42,7 @@ class WeaponListComponent extends HTMLElement {
             this.searchRarity = event.detail;
             this.filterListAndReloadHTML();
         });
-        window.addEventListener('search-weapon-type', (event) => {
+        window.addEventListener('search-type', (event) => {
             this.searchType = event.detail;
             this.filterListAndReloadHTML();
         });
@@ -68,7 +68,7 @@ class WeaponListComponent extends HTMLElement {
             ${this.buildHeader()}
         </div>
 
-        <app-team-search gamecode="${this.gameCode}" showeapontypes="true" showrarities="true" showresetbutton="true" placeholder="Search ${this.weaponsLabel}..."></app-team-search>
+        <app-team-search gamecode="${this.gameCode}" showtypes="true" showrarities="true" showresetbutton="true" placeholder="Search ${this.weaponsLabel}..."></app-team-search>
 
         <div id="weapons-container">
             ${this.buildListHTML()}

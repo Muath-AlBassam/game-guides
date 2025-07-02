@@ -73,7 +73,7 @@ class WeaponDetailsComponent extends HTMLElement {
 
         this.weapon = weaponsRepository.getOne(this.gameCode, this.weaponName);
         this.rarity = rarityRepository.getOne(this.gameCode, this.weapon.rarity);
-        this.type = weaponsTypesRepository.getOne(this.gameCode, this.weapon.type);
+        this.type = typesRepository.getOne(this.gameCode, this.weapon.type);
     }
 
     buildHTML() {

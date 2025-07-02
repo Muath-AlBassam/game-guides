@@ -23,9 +23,8 @@ function loadAllScripts() {
     loadScript("src/repository/teams.repository.js");
     loadScript("src/repository/rotations.repository.js");
     loadScript("src/repository/weapons.repository.js");
-    loadScript("src/repository/weapon-types.repository.js");
     loadScript("src/repository/sets.repository.js");
-    loadScript("src/repository/roles.repository.js");
+    loadScript("src/repository/types.repository.js");
     loadScript("src/repository/elements.repository.js");
     loadScript("src/repository/buttons.repository.js");
     loadScript("src/repository/rarity.repository.js");

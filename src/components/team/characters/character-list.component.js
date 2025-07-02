@@ -8,8 +8,7 @@ class CharacterListComponent extends HTMLElement {
     searchTerm = '';
     searchRarity = '';
     searchElement = '';
-    searchRole = '';
-    searchWeaponType = '';
+    searchType = '';
 
     componentStyle = `
     <style>
@@ -57,20 +56,15 @@ class CharacterListComponent extends HTMLElement {
             this.searchElement = event.detail;
             this.filterListAndReloadHTML();
         });
-        window.addEventListener('search-role', (event) => {
-            this.searchRole = event.detail;
-            this.filterListAndReloadHTML();
-        });
-        window.addEventListener('search-weapon-type', (event) => {
-            this.searchWeaponType = event.detail;
+        window.addEventListener('search-type', (event) => {
+            this.searchType = event.detail;
             this.filterListAndReloadHTML();
         });
         window.addEventListener('search-reset', (event) => {
             this.searchTerm = '';
             this.searchRarity = '';
             this.searchElement = '';
-            this.searchRole = '';
-            this.searchWeaponType = '';
+            this.searchType = '';
             this.filterListAndReloadHTML();
         });
     }
@@ -92,8 +86,7 @@ class CharacterListComponent extends HTMLElement {
             gamecode="${this.gameCode}" 
             showrarities="true"
             showelements="true"
-            showroles="true"
-            showeapontypes="${this.gameCode == Constants.games.GI}"
+            showtypes="true"
             showresetbutton="true">
         </app-team-search>
 
@@ -124,7 +117,7 @@ class CharacterListComponent extends HTMLElement {
                 dimensions="160"
                 withbuilddialog="true"
                 withelement="true"
-                withrole="true"
+                withtype="true"
                 imagestyle="card"
                 showteamicon="true"
             >
@@ -147,10 +140,9 @@ class CharacterListComponent extends HTMLElement {
             let filterByName = charVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
             let filterByRarity = this.searchRarity ? charVal.rarity == this.searchRarity : true;
             let filterByElement = this.searchElement ? charVal.element == this.searchElement : true;
-            let filterByRole = this.searchRole ? charVal.role == this.searchRole : true;
-            let filterByWeaponType = this.searchWeaponType ? charVal.weaponType == this.searchWeaponType : true;
+            let filterByType = this.searchType ? charVal.type == this.searchType : true;
 
-            return filterByName && filterByRarity && filterByElement && filterByRole && filterByWeaponType;
+            return filterByName && filterByRarity && filterByElement && filterByType;
         })
         return new Map(filteredList);
     }

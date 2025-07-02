@@ -1,5 +1,5 @@
 
-class WeaponTypesRepository {
+class TypesRepository {
 
     typesMap = new Map([]);
 
@@ -8,8 +8,8 @@ class WeaponTypesRepository {
     }
 
     fetchData() {
-        dataClient.loadData('WEAPON_TYPE').then(roles => {
-            this.typesMap = RepositoryMapper.mapWeaponTypes(roles);
+        dataClient.loadData('TYPES').then(types => {
+            this.typesMap = RepositoryMapper.mapTypes(types);
         });
     }
 
@@ -23,4 +23,4 @@ class WeaponTypesRepository {
     }
 }
 
-const weaponsTypesRepository = new WeaponTypesRepository();
+const typesRepository = new TypesRepository();

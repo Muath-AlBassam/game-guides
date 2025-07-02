@@ -32,8 +32,7 @@ class RepositoryMapper {
                     imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL),
                     cardImageUrl: Utils.appendRepoUrl(v[0].CARD_IMAGE_URL),
                     element: v[0].ELEMENT,
-                    weaponType: v[0].WEAPON_TYPE,
-                    role: v[0].ROLE,
+                    type: v[0].TYPE,
                     rarity: v[0].RARITY
                 }; 
             }
@@ -104,9 +103,9 @@ class RepositoryMapper {
         );
     }
 
-    static mapRoles(roles) {
+    static mapTypes(types) {
         return this.arrayTo2LevelMap(
-            roles,
+            types,
             v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
         );
     }
@@ -145,13 +144,6 @@ class RepositoryMapper {
                     rarity: v[0].RARITY
                 };
             }
-        );
-    }
-
-    static mapWeaponTypes(types) {
-        return this.arrayTo2LevelMap(
-            types,
-            v => { return { name: v[0].NAME, code: v[0].CODE, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
         );
     }
 

@@ -10,7 +10,7 @@ class CharacterImageComponent extends HTMLElement {
     withBuildDialog = false;
     withBackgroundClass = true;
     withElement = false;
-    withRole = false;
+    withType = false;
     mobileSizeRatio = 1; // default: 1 == no resize
     mobileIconSizeRatio = 1;
     imageStyle = 'pfp'; // pfp, card
@@ -18,10 +18,10 @@ class CharacterImageComponent extends HTMLElement {
     charmd = null;
     showBuild = false;
     showElement = false;
-    showRole = false;
+    showType = false;
     showTeamIcon = false;
     elementImageUrl = '';
-    roleImageUrl = '';
+    typeImageUrl = '';
     addRarityClass = false;
     iconSize = 26;
 
@@ -49,7 +49,7 @@ class CharacterImageComponent extends HTMLElement {
             filter: drop-shadow(0 2px 2px #000);
         }
 
-        .character-container .role-icon {
+        .character-container .type-icon {
             position: absolute;
             top: 3px;
             right: 3px;
@@ -80,7 +80,7 @@ class CharacterImageComponent extends HTMLElement {
             filter: drop-shadow(0 2px 2px #000);
         }
 
-        .char-card .role-img {
+        .char-card .type-img {
             position: absolute;
             padding: 2px;
             width: 29px;
@@ -245,7 +245,7 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
-        if (this.hasAttribute('withrole')) this.withRole = this.getAttribute('withrole') == 'true';
+        if (this.hasAttribute('withtype')) this.withType = this.getAttribute('withtype') == 'true';
         if (this.hasAttribute('showteamicon')) this.showTeamIcon = this.getAttribute('showteamicon') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
@@ -256,9 +256,9 @@ class CharacterImageComponent extends HTMLElement {
         if (this.charCount == 1) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.characterName);
             this.showElement = this.withElement && this.charmd.element;
-            this.showRole = this.withRole && this.charmd.role;
+            this.showType = this.withType && this.charmd.type;
             this.elementImageUrl = elementsRepository.getOne(this.gameCode, this.charmd.element).imageUrl;
-            this.roleImageUrl = rolesRepository.getOne(this.gameCode, this.charmd.role)?.imageUrl;
+            this.typeImageUrl = typesRepository.getOne(this.gameCode, this.charmd.type)?.imageUrl;
             this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
         } else {
             this.charmdList = charNameList.map(c => charactersRepository.getOne(this.gameCode, c));
@@ -287,13 +287,13 @@ class CharacterImageComponent extends HTMLElement {
                     loading="lazy"
                 />
                 `)}
-                ${Utils.ngIf(this.showRole, `
+                ${Utils.ngIf(this.showType, `
                 <img
-                    class="role-img"
-                    src="${this.roleImageUrl ?? Constants.images.transparent}"
+                    class="type-img"
+                    src="${this.typeImageUrl ?? Constants.images.transparent}"
                     width="${this.iconSize}"
                     height="${this.iconSize}"
-                    title="${this.charmd.role}"
+                    title="${this.charmd.type}"
                     loading="lazy"
                 />
                 `)}
@@ -363,13 +363,13 @@ class CharacterImageComponent extends HTMLElement {
                     loading="lazy"
                 />
                 `)}
-                ${Utils.ngIf(this.showRole, `
+                ${Utils.ngIf(this.showType, `
                 <img
-                    src="${this.roleImageUrl ?? Constants.images.transparent}" 
+                    src="${this.typeImageUrl ?? Constants.images.transparent}" 
                     width="${this.iconSize}" 
                     height="${this.iconSize}" 
-                    class="role-icon" 
-                    title="${this.charmd.role}"
+                    class="type-icon" 
+                    title="${this.charmd.type}"
                     loading="lazy"
                 />
                 `)}

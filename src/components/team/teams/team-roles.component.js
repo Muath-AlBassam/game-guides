@@ -51,14 +51,14 @@ class RolesComponent extends HTMLElement {
                             </app-character-image>
                         </td>
                         <td style="font-size: 1.2em; font-weight: bold;">
-                            ${Utils.ngIf(this.getCharacter(this.gameCode, character.name).role, 
+                            ${Utils.ngIf(this.getCharacter(this.gameCode, character.name).type, 
                             `<img 
                                 src="${this.getRole(this.gameCode, character.name).imageUrl}" 
                                 height="30" 
                                 title="${this.getRole(this.gameCode, character.name).name}" 
                                 style="margin: 0 5px;">`
                             )}
-                            <span style="margin-left: 5px;">${character.role ?? ''}</span>
+                            <span style="margin-left: 5px;">${character.type ?? ''}</span>
                         </td>
                     </tr>  
                     `)}
@@ -75,7 +75,7 @@ class RolesComponent extends HTMLElement {
     // TODO
     getRole(gameCode, characterName) {
         let charmd = this.getCharacter(gameCode, characterName);
-        return rolesRepository.getOne(gameCode, charmd.role);
+        return typesRepository.getOne(gameCode, charmd.type);
     }
 }
 

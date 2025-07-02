@@ -48,7 +48,7 @@ class CharacterProfileComponent extends HTMLElement {
                         styles="border-radius: 100%; overflow: visible;" 
                         withbackgroundclass="true"
                         withelement="true"
-                        withrole="true"
+                        withtype="true"
                     >
                     </app-character-image>
                 </div>
