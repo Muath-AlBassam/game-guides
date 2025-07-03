@@ -38,12 +38,12 @@ class RolesComponent extends HTMLElement {
             </div>
             <table class="table table-striped table-bordered">
                 <tbody>
-                    ${Utils.ngFor(this.currentTeam.characters, character => `
+                    ${Utils.ngFor(this.currentTeam.characters, teamCharacter => `
                     <tr>
                         <td style="width: 50px; text-align: center">
                             <app-character-image 
                                 gamecode="${this.gameCode}"
-                                charactername="${character?.name}"
+                                charactername="${teamCharacter?.name}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;"
                                 mobilesizeratio="0.5"
@@ -51,14 +51,14 @@ class RolesComponent extends HTMLElement {
                             </app-character-image>
                         </td>
                         <td style="font-size: 1.2em; font-weight: bold;">
-                            ${Utils.ngIf(this.getCharacter(this.gameCode, character.name).type, 
+                            ${Utils.ngIf(this.getCharacter(this.gameCode, teamCharacter.name).type, 
                             `<img 
-                                src="${this.getRole(this.gameCode, character.name).imageUrl}" 
+                                src="${this.getRole(this.gameCode, teamCharacter.name).imageUrl}" 
                                 height="30" 
-                                title="${this.getRole(this.gameCode, character.name).name}" 
+                                title="${this.getRole(this.gameCode, teamCharacter.name).name}" 
                                 style="margin: 0 5px;">`
                             )}
-                            <span style="margin-left: 5px;">${character.type ?? ''}</span>
+                            <span style="margin-left: 5px;">${teamCharacter.role ?? ''}</span>
                         </td>
                     </tr>  
                     `)}
