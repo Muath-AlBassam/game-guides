@@ -31,6 +31,7 @@ function loadAllScripts() {
     loadScript("src/repository/pets.repository.js");
     loadScript("src/repository/notes.repository.js");
     loadScript("src/repository/combos.repository.js");
+    loadScript("src/repository/roles.repository.js");
 
     // Core
     loadScript("src/components/core/core.component.js", true);

@@ -110,6 +110,13 @@ class RepositoryMapper {
         );
     }
 
+    static mapRoles(roles) {
+        return this.arrayTo1LevelMap(
+            roles,
+            v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
+        );
+    }
+
     static mapRotations(rotations) {
         return this.arrayTo2LevelMap(
             rotations,
@@ -184,7 +191,13 @@ class RepositoryMapper {
             charactersData,
             vArr => {
                 return vArr.map(v => {
-                    return { name: v.NAME, role: v.ROLE, isMain: v.IS_MAIN, replacements: v.REPLACEMENTS?.split(',') };
+                    return {
+                        name: v.NAME,
+                        roleCode: v.ROLE_CODE,
+                        roleDescription: v.ROLE_DESCRIPTION,
+                        isMain: v.IS_MAIN,
+                        replacements: v.REPLACEMENTS?.split(',')
+                    };
                 }) 
             },
             'TEAM_CODE'
