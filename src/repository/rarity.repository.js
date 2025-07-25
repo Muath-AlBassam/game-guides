@@ -9,7 +9,10 @@ class RarityRepository {
 
     fetchData() {
         dataClient.loadData('RARITY').then(rarities => {
-            this.rarityMap = RepositoryMapper.mapRarities(rarities);
+            this.rarityMap = Utils.arrayTo2LevelMap(
+                rarities,
+                v => { return { code: v[0].CODE, label: v[0].LABEL, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
+            );
         });
     }
 

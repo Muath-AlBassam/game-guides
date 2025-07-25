@@ -9,7 +9,10 @@ class TypesRepository {
 
     fetchData() {
         dataClient.loadData('TYPES').then(types => {
-            this.typesMap = RepositoryMapper.mapTypes(types);
+            this.typesMap = Utils.arrayTo2LevelMap(
+                types,
+                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
+            );
         });
     }
 

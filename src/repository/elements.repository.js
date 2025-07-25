@@ -9,7 +9,10 @@ class ElementsRepository {
 
     fetchData() {
         dataClient.loadData('ELEMENTS').then(elements => {
-            this.elementsMap = RepositoryMapper.mapElements(elements);
+            this.elementsMap = Utils.arrayTo2LevelMap(
+                elements,
+                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
+            );
         });
     }
 

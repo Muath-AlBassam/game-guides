@@ -9,7 +9,18 @@ class RotationsRepository {
 
     fetchData() {
         dataClient.loadData('ROTATIONS').then(rotations => {
-            this.rotationsMap = RepositoryMapper.mapRotations(rotations);
+            this.rotationsMap = Utils.arrayTo2LevelMap(
+                rotations,
+                vArr => {
+                    return vArr.map(step => {
+                        return {
+                            stepNumber: step.STEP_NUMBER,
+                            action: RotationsUtils.formatStepAction(step.ACTION, step.GAME_CODE)
+                        };
+                    })
+                },
+                'TEAM_CODE'
+            );
         });
     }
 

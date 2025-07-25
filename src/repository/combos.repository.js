@@ -9,7 +9,15 @@ class CombosRepository {
 
     fetchData() {
         dataClient.loadData('COMBOS').then(combos => {
-            this.combosMap = RepositoryMapper.mapCombos(combos);
+            this.combosMap = Utils.arrayTo2LevelMap(
+                combos,
+                vArr => {
+                    return vArr.map(v => {
+                        return v.COMBO.split(',')
+                    });
+                },
+                'CHARACTER_CODE'
+            );
         });
     }
     

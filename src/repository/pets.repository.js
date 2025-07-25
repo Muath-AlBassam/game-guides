@@ -9,7 +9,10 @@ class PetsRepository {
 
     fetchData() {
         dataClient.loadData('PETS').then(pets => {
-            this.petsMap = RepositoryMapper.mapPets(pets);
+            this.petsMap = Utils.arrayTo2LevelMap(
+                pets,
+                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL), rarity: v[0].RARITY }; }
+            );
         });
     }
 

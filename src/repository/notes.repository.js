@@ -9,7 +9,15 @@ class NotesRepository {
 
     fetchData() {
         dataClient.loadData('NOTES').then(notes => {
-            this.notesMap = RepositoryMapper.mapNotes(notes);
+            this.notesMap = Utils.arrayTo2LevelMap(
+                notes,
+                vArr => {
+                    return vArr.map(v => {
+                    return { text: v.TEXT };
+                    });
+                },
+                'OWNER_CODE'
+            );
         });
     }
 

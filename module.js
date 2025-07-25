@@ -14,7 +14,6 @@ function loadAllScripts() {
     loadScript("src/utils/game-utils.js")
     loadScript("src/utils/route-utils.js");
     loadScript("src/utils/rotations-utils.js");
-    loadScript("src/utils/repository-mapper.js")
 
     // Repositories
     loadScript("src/repository/games.repository.js");
