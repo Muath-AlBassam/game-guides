@@ -88,7 +88,7 @@ class TeamDetailsComponent extends HTMLElement {
 
         .teams__details {
             display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-columns: 33% 34% 33%;
             border: 2px solid #33343a;
         }
 
@@ -96,14 +96,13 @@ class TeamDetailsComponent extends HTMLElement {
             /* none mobile view only */
             .teams__details {
                 /* 
-                    split container into 4 vertical sections separated by lines (3 lines) 
+                    split container into 3 vertical sections separated by 2 lines
                     https://stackoverflow.com/questions/43628280/create-a-div-with-7-dividing-vertical-lines
                 */
                 background:linear-gradient(
                     to right, 
-                    transparent, transparent calc(100% / 4 * 1 - 3px), #33343a, transparent calc(100% / 4 * 1), 
-                    transparent, transparent calc(100% / 4 * 2 - 3px), #33343a, transparent calc(100% / 4 * 2), 
-                    transparent, transparent calc(100% / 4 * 3 - 3px), #33343a, transparent calc(100% / 4 * 3)
+                    transparent, transparent calc(100% / 3 * 1 - 3px), #33343a, transparent calc(100% / 3 * 1), 
+                    transparent, transparent calc(100% / 3 * 2 - 3px), #33343a, transparent calc(100% / 3 * 2)
                 );
             }
         }
@@ -187,7 +186,7 @@ class TeamDetailsComponent extends HTMLElement {
         this.activeGame = gamesRepository.getOne(this.gameCode);
         this.team = teamsRepository.getOne(this.gameCode, this.teamCode);
         this.petmd = petsRepository.getOne(this.gameCode, this.team.pet);
-        this.teamId = `${this.gameCode}-${this.team.name.replaceAll(' ', '-')}`;
+        this.teamId = `${this.gameCode}-${this.team.code.replaceAll(' ', '-')}`;
     }
 
     modifyDataBasedOnMediaSize() {
@@ -213,7 +212,7 @@ class TeamDetailsComponent extends HTMLElement {
                     <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
                         <img src="${this.team.iconUrl ?? Constants.images.transparent}" height="${Utils.isMobile() ? '30' : '40'}">
                         <span>
-                            ${this.team.name}
+                            ${this.team.name ?? '...'}
                             <app-notes-popover gamecode="${this.gameCode}" teamcode="${this.teamCode}"></app-notes-popover>
                         </span>
                     </div>
@@ -247,7 +246,7 @@ class TeamDetailsComponent extends HTMLElement {
             </div>
             <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
                 <app-team-roles gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
-                <app-team-variations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
+                <!--<app-team-variations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>-->
                 <app-team-replacements gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
                 <app-team-rotations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
             </div>

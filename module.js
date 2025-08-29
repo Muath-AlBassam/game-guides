@@ -31,6 +31,7 @@ function loadAllScripts() {
     loadScript("src/repository/notes.repository.js");
     loadScript("src/repository/combos.repository.js");
     loadScript("src/repository/roles.repository.js");
+    loadScript("src/repository/category.repository.js");
 
     // Core
     loadScript("src/components/core/core.component.js", true);
@@ -50,6 +51,8 @@ function loadAllScripts() {
     // Team
     loadScript("src/components/team/team-container.component.js", true);
     loadScript("src/components/team/teams/team-list.component.js", true);
+    loadScript("src/components/team/teams/team-category-list.component.js", true);
+    loadScript("src/components/team/teams/category-teams.component.js", true);
     loadScript("src/components/team/teams/team-details.component.js", true);
     loadScript("src/components/team/teams/team-roles.component.js", true);
     loadScript("src/components/team/teams/team-variations.component.js", true);
@@ -63,6 +66,7 @@ function loadAllScripts() {
     loadScript("src/components/team/team-search.component.js", true);
     loadScript("src/components/team/character-build.component.js", true);
     loadScript("src/components/team/character-teams.component.js", true);
+    loadScript("src/components/team/teams/team-details-dialog.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);
     loadScript("src/components/fight/fight-combos.component.js", true);

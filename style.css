@@ -190,6 +190,7 @@ app-nav.active ~ .main-content {
 
 .gagu-popover {
     box-shadow: 0 0 20px #000;
+    z-index: 1500;
     /* colors */
     --bs-popover-header-color: var(--text-color);
     --bs-popover-header-bg: #1c1d21;
