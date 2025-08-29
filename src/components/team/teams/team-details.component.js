@@ -4,6 +4,7 @@ class TeamDetailsComponent extends HTMLElement {
     gameCode = null;
     teamCode = null;
     teamIndex = null;
+    showVariations = false;
 
     characterPFPSize = 160;
     petPFPSize = 80;
@@ -88,21 +89,38 @@ class TeamDetailsComponent extends HTMLElement {
 
         .teams__details {
             display: grid;
-            grid-template-columns: 33% 34% 33%;
             border: 2px solid #33343a;
+        }
+        .teams__details-3 {
+            grid-template-columns: 33% 34% 33%;
+        }
+        .teams__details-4 {
+            grid-template-columns: 25% 25% 25% 25%;
         }
 
         @media (min-width: ${Constants.code.mobileMaxWidth}) {
             /* none mobile view only */
-            .teams__details {
+            .teams__details-4 {
+                /* 
+                    split container into 4 vertical sections separated by 3 lines
+                    https://stackoverflow.com/questions/43628280/create-a-div-with-7-dividing-vertical-lines
+                */
+                background: linear-gradient(
+                    to right, 
+                    transparent, transparent calc(25% - 3px), #33343a, transparent calc(25%), 
+                    transparent, transparent calc(50% - 3px), #33343a, transparent calc(50%),
+                    transparent, transparent calc(75% - 3px), #33343a, transparent calc(75%)
+                );
+            }
+            .teams__details-3 {
                 /* 
                     split container into 3 vertical sections separated by 2 lines
                     https://stackoverflow.com/questions/43628280/create-a-div-with-7-dividing-vertical-lines
                 */
-                background:linear-gradient(
+                background: linear-gradient(
                     to right, 
-                    transparent, transparent calc(100% / 3 * 1 - 3px), #33343a, transparent calc(100% / 3 * 1), 
-                    transparent, transparent calc(100% / 3 * 2 - 3px), #33343a, transparent calc(100% / 3 * 2)
+                    transparent, transparent calc(33% - 3px), #33343a, transparent calc(33%), 
+                    transparent, transparent calc(67% - 3px), #33343a, transparent calc(67%)
                 );
             }
         }
@@ -182,6 +200,7 @@ class TeamDetailsComponent extends HTMLElement {
         this.gameCode = this.getAttribute('gamecode');
         this.teamCode = this.getAttribute('teamcode');
         this.teamIndex = this.getAttribute('teamindex');
+        if (this.hasAttribute('showvariations')) this.showVariations = this.getAttribute('showvariations') == 'true';
         
         this.activeGame = gamesRepository.getOne(this.gameCode);
         this.team = teamsRepository.getOne(this.gameCode, this.teamCode);
@@ -244,9 +263,11 @@ class TeamDetailsComponent extends HTMLElement {
                     </div>
                 </div>
             </div>
-            <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
+            <div class="teams__details ${this.showVariations ? 'teams__details-4' : 'teams__details-3'} collapse" data-bs-parent="#teams" id="${this.teamId}">
                 <app-team-roles gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
-                <!--<app-team-variations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>-->
+                ${Utils.ngIf(this.showVariations, `
+                <app-team-variations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-variations>
+                `)}
                 <app-team-replacements gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
                 <app-team-rotations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
             </div>

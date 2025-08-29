@@ -21,7 +21,6 @@ class TeamsRepository {
                 return { 
                     code: v[0].CODE,
                     category: v[0].CATEGORY,
-                    categoryV2: v[0].CATEGORY_V2,
                     name: v[0].NAME,
                     iconUrl: Utils.appendRepoUrl(v[0].ICON_URL),
                     pet: v[0].PET,
@@ -80,7 +79,7 @@ class TeamsRepository {
 
     getAllByCategory(gameCode, categoryCode) {
         return new Map([...this.getAll(gameCode).entries()]
-            .filter((keyValue) => keyValue[1].categoryV2 == categoryCode));
+            .filter((keyValue) => keyValue[1].category == categoryCode));
     }
 
     getOne(gameCode, teamCode) {

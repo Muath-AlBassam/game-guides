@@ -5,7 +5,7 @@ class TeamListComponent extends HTMLElement {
 
     characterPFPSize = 160;
     allTeams = null;
-    teamsByCategory = null;
+    teams = null;
     
     constructor() {
       super();
@@ -20,12 +20,12 @@ class TeamListComponent extends HTMLElement {
     loadData() {
         this.gameCode = this.getAttribute('gamecode');
         this.allTeams = teamsRepository.getAllMain(this.gameCode);
-        this.teamsByCategory = Utils.categorizeMap(this.allTeams, 'category');
+        this.teams = this.allTeams;
     }
 
     listenToEvents() {
         window.addEventListener('search-team', (event) => {
-            this.teamsByCategory = Utils.categorizeMap(this.filterTeams(event.detail), 'category');
+            this.teams = this.filterTeams(event.detail);
             if (document.getElementById('teams') != null) {
                 document.getElementById('team-list-header').innerHTML = this.buildHeader();
                 document.getElementById('teams').innerHTML = this.buildListHTML();
@@ -47,15 +47,11 @@ class TeamListComponent extends HTMLElement {
     }
 
     buildHeader() {
-        let count = 0;
-        this.teamsByCategory.forEach((v, k) => {
-            count += v.items.size;
-        })
         return `
         <div class="col-md-12">
             <div class="content-header">
                 Teams
-                <span class="additional-text">Showing (${count}) Teams</span>
+                <span class="additional-text">Showing (${this.teams.size}) Teams</span>
             </div>
         </div>
         `;
@@ -63,17 +59,9 @@ class TeamListComponent extends HTMLElement {
 
     buildListHTML() {
         return `
-        ${Utils.ngIf(this.teamsByCategory.size > 0, `
-            ${Utils.ngFor(this.teamsByCategory, category => `
-            <div class="line-text">
-                ${category.text}
-            </div>
-            
-            <div id="${category.text}">
-                ${Utils.ngFor(category.items, team => `
-                <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}"></app-team-details>
-                `)}
-            </div>
+        ${Utils.ngIf(this.teams.size > 0, `
+            ${Utils.ngFor(this.teams, team => `
+            <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}" showvariations="true"></app-team-details>
             `)}
         `,
         `

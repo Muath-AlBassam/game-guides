@@ -12,7 +12,6 @@ class CategoryRepository {
             this.categories = cat.map(c => {
                 return { gameCode: c.GAME_CODE, code: c.CODE, label: c.LABEL, order: c.ORDER };
             });
-            console.log('categories', this.categories);
         });
     }
 
