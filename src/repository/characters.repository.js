@@ -1,7 +1,7 @@
 
 class CharactersRepository {
 
-    charactersMap = new Map([]);
+    charactersList = [];
 
     constructor() {
         this.fetchData();
@@ -9,33 +9,30 @@ class CharactersRepository {
 
     fetchData() {
         dataClient.loadData('CHARACTERS').then(characters => {
-            this.charactersMap = Utils.arrayTo2LevelMap(
-                characters,
-                v => { 
-                    return { 
-                        name: v[0].NAME,
-                        imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL),
-                        cardImageUrl: Utils.appendRepoUrl(v[0].CARD_IMAGE_URL),
-                        element: v[0].ELEMENT,
-                        type: v[0].TYPE,
-                        rarity: v[0].RARITY
-                    }; 
-                }
-            );
+            this.charactersList = characters.map(c => ({
+                gameCode: c.GAME_CODE,
+                code: c.CODE,
+                name: c.NAME,
+                imageUrl: Utils.appendRepoUrl(c.IMAGE_URL),
+                cardImageUrl: Utils.appendRepoUrl(c.CARD_IMAGE_URL),
+                element: c.ELEMENT,
+                type: c.TYPE,
+                rarity: c.RARITY
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.charactersMap.get(gameCode) ?? new Map([]);
+        return this.charactersList.filter(c => c.gameCode == gameCode);
     }
 
     getAllOrdered(gameCode) {
-        return new Map([...this.getAll(gameCode).entries()].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+        return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     }
     
-    getOne(gameCode, characterName) {
-        let data = this.getAll(gameCode).get(characterName)
-        return data ?? { name: characterName }
+    getOne(gameCode, code) {
+        const data = this.charactersList.find(c => c.gameCode == gameCode && c.code == code);
+        return data ?? { code: code, name: code }
     }
 }
 

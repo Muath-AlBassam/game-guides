@@ -1,7 +1,7 @@
 
 class RotationsRepository {
 
-    rotationsMap = new Map([]);
+    rotationsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,24 +9,26 @@ class RotationsRepository {
 
     fetchData() {
         dataClient.loadData('ROTATIONS').then(rotations => {
-            this.rotationsMap = Utils.arrayTo2LevelMap(
-                rotations,
-                vArr => {
-                    return vArr.map(step => {
-                        return {
-                            stepNumber: step.STEP_NUMBER,
-                            action: RotationsUtils.formatStepAction(step.ACTION, step.GAME_CODE)
-                        };
-                    })
-                },
-                'TEAM_CODE'
-            );
+            const flatList = rotations.map(r => ({
+                gameCode: r.GAME_CODE, teamCode: r.TEAM_CODE, stepNumber: r.STEP_NUMBER, action: r.ACTION
+            }));
+            
+            const grouped = Utils.groupList(flatList, 'gameCode', 'teamCode');
+            // loop through object variables and read list items
+            this.rotationsList = Object.values(grouped).map(teamRotationList => {
+                return {
+                    gameCode: teamRotationList[0].gameCode,
+                    teamCode: teamRotationList[0].teamCode,
+                    rotations: teamRotationList
+                        .map(r => ({ stepNumber: r.stepNumber, action: RotationsUtils.formatStepAction(r.action, r.gameCode) }))
+                };
+            });
         });
     }
 
     getAllByTeam(gameCode, teamCode) {
-        let rotations = this.rotationsMap.get(gameCode)?.get(teamCode);
-        return rotations ?? []
+        const data = this.rotationsList.find(r => r.gameCode == gameCode && r.teamCode == teamCode);
+        return data ? data.rotations : [];
     }
 }
 

@@ -80,7 +80,7 @@ class WeaponListComponent extends HTMLElement {
         <div class="col-md-12">
             <div class="content-header">
                 ${this.weaponsLabel}
-                <span class="additional-text">Showing (${this.weapons?.size}) ${this.weaponsLabel}</span>
+                <span class="additional-text">Showing (${this.weapons?.length}) ${this.weaponsLabel}</span>
             </div>
         </div>
         `;
@@ -88,7 +88,7 @@ class WeaponListComponent extends HTMLElement {
 
     buildListHTML() {
         return `
-            ${Utils.ngIf(this.weapons.size > 0, `
+            ${Utils.ngIf(this.weapons.length > 0, `
             <div class="row">
             ${Utils.ngFor(this.weapons, weapon => `
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
@@ -105,17 +105,13 @@ class WeaponListComponent extends HTMLElement {
     }
 
     filterWeapons() {
-        const filteredList = [...this.allWeapons].filter((weaponMapKeyValue) => {
-            // 0: key, 1: value
-            let weaponVal = weaponMapKeyValue[1];
-
-            let filterByName = weaponVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
-            let filterByRarity = this.searchRarity ? weaponVal.rarity == this.searchRarity : true;
-            let filterByType = this.searchType ? weaponVal.type == this.searchType : true;
+        return this.allWeapons.filter(weapon => {
+            let filterByName = weapon.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+            let filterByRarity = this.searchRarity ? weapon.rarity == this.searchRarity : true;
+            let filterByType = this.searchType ? weapon.type == this.searchType : true;
 
             return filterByName && filterByRarity && filterByType;
         })
-        return new Map(filteredList);
     }
 }
 

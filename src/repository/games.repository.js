@@ -1,7 +1,7 @@
 
 class GamesRepository {
 
-    gamesMap = new Map([]);
+    gamesList = [];
     
     constructor() {
         this.fetchData();
@@ -9,31 +9,26 @@ class GamesRepository {
 
     fetchData() {
         dataClient.loadData('GAMES').then(games => {
-            this.gamesMap = Utils.arrayTo1LevelMap(
-                games,
-                v => {
-                    return {
-                        label: v[0].LABEL,
-                        code: v[0].CODE,
-                        style: v[0].STYLE,
-                        teamSize: v[0].TEAM_SIZE,
-                        hasPet: v[0].HAS_PET,
-                        iconUrl: Utils.appendRepoUrl(v[0].ICON_URL),
-                        logoUrl: Utils.appendRepoUrl(v[0].LOGO_URL),
-                        backgroundUrl: Utils.appendRepoUrl(v[0].BACKGROUND_URL),
-                        guideUrl: v[0].GUIDE_URL
-                    };
-                }
-            );
+            this.gamesList = games.map(g => ({
+                code: g.CODE,
+                label: g.LABEL,
+                style: g.STYLE,
+                teamSize: g.TEAM_SIZE,
+                hasPet: g.HAS_PET,
+                iconUrl: Utils.appendRepoUrl(g.ICON_URL),
+                logoUrl: Utils.appendRepoUrl(g.LOGO_URL),
+                backgroundUrl: Utils.appendRepoUrl(g.BACKGROUND_URL),
+                guideUrl: g.GUIDE_URL
+            }));
         });
     }
 
     getAll() {
-        return this.gamesMap;
+        return this.gamesList;
     }
     
     getOne(gameCode) {
-        return this.getAll().get(gameCode);
+        return this.gamesList.find(g => g.code == gameCode);
     }
 }
 

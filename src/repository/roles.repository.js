@@ -1,7 +1,7 @@
 
 class RolesRepository {
 
-    rolesMap = new Map([]);
+    rolesList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,19 @@ class RolesRepository {
 
     fetchData() {
         dataClient.loadData('ROLES').then(roles => {
-            this.rolesMap = Utils.arrayTo1LevelMap(
-                roles,
-                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
-            );
+            this.rolesList = roles.map(r => ({
+                code: r.CODE, name: r.NAME, imageUrl: Utils.appendRepoUrl(r.IMAGE_URL)
+            }));
         });
     }
 
     getAll() {
-        return this.rolesMap ?? new Map([]);
+        return this.rolesList;
     }
     
-    getOne(roleName) {
-        let role = this.getAll().get(roleName);
-        return role ?? { name: roleName };
+    getOne(code) {
+        const data = this.rolesList.find(r => r.code == code);
+        return data ?? { code: code, name: code };
     }
 }
 

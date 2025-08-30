@@ -155,13 +155,13 @@ class NavComponent extends HTMLElement {
 
     generateRoutesList() {
         this.routesList = [];
-        this.games.forEach((g, code) => {
+        this.games.forEach(g => {
             this.routesList.push({
-                code: code,
+                code: g.code,
                 label: g.label,
-                path: `#/${code}/${RouteUtils.getDefaultPage(g.style)}`,
+                path: `#/${g.code}/${RouteUtils.getDefaultPage(g.style)}`,
                 icon: g.iconUrl,
-                isActive: this.activeGame?.code == code
+                isActive: this.activeGame?.code == g.code
             });
         })
     }

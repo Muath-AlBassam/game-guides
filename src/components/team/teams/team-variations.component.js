@@ -45,7 +45,7 @@ class VariationsComponent extends HTMLElement {
                 <img src="assets/svg/variations.svg" height="20" style="margin-right: 5px;">
                 Variations
             </h5>
-            ${Utils.ngIf(this.variations && this.variations?.size > 0, `
+            ${Utils.ngIf(this.variations && this.variations?.length > 0, `
             <div style="overflow: auto;">
                 <table class="table table-striped table-bordered">
                     <tbody>

@@ -1,7 +1,7 @@
 
 class PetsRepository {
 
-    petsMap = new Map([]);
+    petsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,19 @@ class PetsRepository {
 
     fetchData() {
         dataClient.loadData('PETS').then(pets => {
-            this.petsMap = Utils.arrayTo2LevelMap(
-                pets,
-                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL), rarity: v[0].RARITY }; }
-            );
+            this.petsList = pets.map(p => ({
+                gameCode: p.GAME_CODE, code: p.CODE, name: p.NAME, imageUrl: Utils.appendRepoUrl(p.IMAGE_URL), rarity: p.RARITY
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.petsMap.get(gameCode) ?? new Map([]);
+        return this.petsList.filter(p => p.gameCode == gameCode);
     }
     
-    getOne(gameCode, petName) {
-        let data = this.getAll(gameCode).get(petName)
-        return data ?? { name: petName };
+    getOne(gameCode, code) {
+        const data = this.petsList.find(p => p.gameCode == gameCode && p.code == code);
+        return data ?? { code: code, name: code };
     }
 }
 

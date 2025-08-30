@@ -1,7 +1,7 @@
 
 class TypesRepository {
 
-    typesMap = new Map([]);
+    typesList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,19 @@ class TypesRepository {
 
     fetchData() {
         dataClient.loadData('TYPES').then(types => {
-            this.typesMap = Utils.arrayTo2LevelMap(
-                types,
-                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
-            );
+            this.typesList = types.map(t => ({
+                gameCode: t.GAME_CODE, code: t.CODE, name: t.NAME, imageUrl: Utils.appendRepoUrl(t.IMAGE_URL)
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.typesMap.get(gameCode) ?? new Map([]);
+        return this.typesList.filter(t => t.gameCode == gameCode);
     }
-    
-    getOne(gameCode, typeName) {
-        let type = this.getAll(gameCode).get(typeName);
-        return type ?? { name: typeName };
+
+    getOne(gameCode, code) {
+        const data = this.typesList.find(t => t.gameCode == gameCode && t.code == code);
+        return data ?? { code: code, name: code }
     }
 }
 

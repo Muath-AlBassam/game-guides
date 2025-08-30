@@ -27,7 +27,7 @@ class SetListComponent extends HTMLElement {
         this.gameCode = this.getAttribute('gamecode');
         this.setsLabel = GameUtils.getSetsLabel(this.gameCode);
         this.allSets = setsRepository.getAllOrdered(this.gameCode);
-        this.setByType = Utils.categorizeMap(this.allSets, 'type');
+        this.setByType = Utils.groupBy(this.allSets, 'type');
     }
 
     listenToEvents() {
@@ -42,7 +42,7 @@ class SetListComponent extends HTMLElement {
     }
 
     filterListAndReloadHTML() {
-        this.setByType = Utils.categorizeMap(this.filterSets(), 'type');
+        this.setByType = Utils.groupBy(this.filterSets(), 'type');
         if (document.getElementById('sets-container') != null) {
             document.getElementById('set-list-header').innerHTML = this.buildHeader();
             document.getElementById('sets-container').innerHTML = this.buildListHTML();
@@ -65,7 +65,7 @@ class SetListComponent extends HTMLElement {
     buildHeader() {
         let count = 0;
         this.setByType.forEach((v, k) => {
-            count += v.items.size;
+            count += v.length;
         })
         return `
         <div class="col-md-12">
@@ -84,11 +84,11 @@ class SetListComponent extends HTMLElement {
                 ${Utils.ngFor(this.setByType, category => `
                 ${Utils.ngIf(this.setByType.size > 1, `
                 <div class="line-text">
-                    ${category.text}
+                    ${category[0]}
                 </div>
                 `)}
                 
-                ${Utils.ngFor(category.items, set => `
+                ${Utils.ngFor(category[1], set => `
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
                     <app-set-details gamecode="${this.gameCode}" setname="${set.name}"></app-set-details>
                 </div>
@@ -104,13 +104,9 @@ class SetListComponent extends HTMLElement {
     }
 
     filterSets() {
-        const filteredList = [...this.allSets].filter((setMapKeyValue) => {
-            // 0: key, 1: value
-            let setVal = setMapKeyValue[1];
-
-            return setVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+        return this.allSets.filter(set => {
+            return set.name.toLowerCase().includes(this.searchTerm.toLowerCase());
         })
-        return new Map(filteredList);
     }
 }
 

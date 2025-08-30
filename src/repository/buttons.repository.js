@@ -1,7 +1,7 @@
 
 class ButtonsRepository {
 
-    buttonsMap = new Map([]);
+    buttonsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,19 @@ class ButtonsRepository {
 
     fetchData() {
         dataClient.loadData('BUTTONS').then(buttons => {
-            this.buttonsMap = Utils.arrayTo2LevelMap(
-                buttons,
-                v => { return { name: v[0].NAME, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) } },
-            );
+            this.buttonsList = buttons.map(b => ({
+                gameCode: b.GAME_CODE, code: b.CODE, name: b.NAME, imageUrl: Utils.appendRepoUrl(b.IMAGE_URL)
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.buttonsMap.get(gameCode);
+        return this.buttonsList.filter(b => b.gameCode == gameCode);
     }
     
-    getOne(gameCode, buttonName) {
-        const button = this.getAll(gameCode).get(buttonName);
-        return button ?? { name: buttonName };
+    getOne(gameCode, code) {
+        const data = this.buttonsList.find(b => b.gameCode == gameCode && b.code == code);
+        return data ?? { code: code, name: code };
     }
 }
 

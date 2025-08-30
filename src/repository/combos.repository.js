@@ -1,7 +1,7 @@
 
 class CombosRepository {
 
-    combosMap = new Map([]);
+    combosList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,23 @@ class CombosRepository {
 
     fetchData() {
         dataClient.loadData('COMBOS').then(combos => {
-            this.combosMap = Utils.arrayTo2LevelMap(
-                combos,
-                vArr => {
-                    return vArr.map(v => {
-                        return v.COMBO.split(',')
-                    });
-                },
-                'CHARACTER_CODE'
-            );
+            const flatList = combos.map(c => ({
+                gameCode: c.GAME_CODE, character: c.CHARACTER_CODE, combo: c.COMBO
+            }));
+            
+            const grouped = Utils.groupList(flatList, 'gameCode', 'character');
+            this.combosList =  Object.values(grouped).map(characterComboList => {
+                return {
+                    gameCode: characterComboList[0].gameCode,
+                    character: characterComboList[0].character,
+                    combos: characterComboList.map(v => v.combo.split(',')),
+                };
+            });
         });
     }
     
     getAllByCharacter(gameCode, characterName) {
-        return this.combosMap.get(gameCode)?.get(characterName);
+        return this.combosList.find(c => c.gameCode == gameCode && c.character == characterName)?.combos;
     }
 }
 

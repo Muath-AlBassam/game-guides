@@ -1,7 +1,7 @@
 
 class SetsRepository {
 
-    setsMap = new Map([]);
+    setsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,24 +9,23 @@ class SetsRepository {
 
     fetchData() {
         dataClient.loadData('SETS').then(sets => {
-            this.setsMap = Utils.arrayTo2LevelMap(
-                sets,
-                v => { return { name: v[0].NAME, type: v[0].TYPE, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
-            );
+            this.setsList = sets.map(s => ({
+                gameCode: s.GAME_CODE, code: s.CODE, name: s.NAME, type: s.TYPE, imageUrl: Utils.appendRepoUrl(s.IMAGE_URL)
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.setsMap.get(gameCode) ?? new Map([]);
+        return this.setsList.filter(s => s.gameCode == gameCode);
     }
 
     getAllOrdered(gameCode) {
-        return new Map([...this.getAll(gameCode).entries()].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+        return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     }
 
-    getOne(gameCode, setName) {
-        let set = this.getAll(gameCode).get(setName);
-        return set ?? { name: setName }
+    getOne(gameCode, code) {
+        const data = this.setsList.find(s => s.gameCode == gameCode && s.code == code);
+        return data ?? { code: code, name: code }
     }
 
 }

@@ -51,7 +51,7 @@ class TeamListComponent extends HTMLElement {
         <div class="col-md-12">
             <div class="content-header">
                 Teams
-                <span class="additional-text">Showing (${this.teams.size}) Teams</span>
+                <span class="additional-text">Showing (${this.teams.length}) Teams</span>
             </div>
         </div>
         `;
@@ -59,7 +59,7 @@ class TeamListComponent extends HTMLElement {
 
     buildListHTML() {
         return `
-        ${Utils.ngIf(this.teams.size > 0, `
+        ${Utils.ngIf(this.teams.length > 0, `
             ${Utils.ngFor(this.teams, team => `
             <app-team-details gamecode="${this.gameCode}" teamcode="${team.code}" teamindex="${team.order}" showvariations="true"></app-team-details>
             `)}
@@ -74,10 +74,7 @@ class TeamListComponent extends HTMLElement {
 
     filterTeams(searchTerm) {
         // map all characters' names into a list
-        const filteredList = [...this.allTeams].filter((teamMapKeyValue) => {
-            // 0: key, 1: value
-            let teamCode = teamMapKeyValue[0];
-            let team = teamMapKeyValue[1];
+        return this.allTeams.filter(team => {
             let charactersNames = [];
             // add names from team characters list
             if (team.characters) {
@@ -89,7 +86,7 @@ class TeamListComponent extends HTMLElement {
                 });
             }
             // add names from team variations list
-            let variations = teamsRepository.getAllByParent(this.gameCode, teamCode)
+            let variations = teamsRepository.getAllByParent(this.gameCode, team.code)
             if (variations) {
                 variations.forEach(vari => {
                     if (vari.characters) {
@@ -108,7 +105,6 @@ class TeamListComponent extends HTMLElement {
 
             return characterFound || teamNameFound;
         })
-        return new Map(filteredList);
     }
 }
 

@@ -1,7 +1,7 @@
 
 class TeamsRepository {
 
-    teamsMap = new Map([]);
+    teamsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,82 +9,58 @@ class TeamsRepository {
 
     fetchData() {
         dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS']).then(resMap => {
-            this.teamsMap = this.mapTeams(resMap);
+            this.teamsList = this.mapTeams(resMap);
         });
     }
 
     mapTeams(resMap) {
-        let teamsData = resMap.get('TEAMS');
-        let teamsByGame = Utils.arrayTo2LevelMap(
-            teamsData,
-            v => { 
-                return { 
-                    code: v[0].CODE,
-                    category: v[0].CATEGORY,
-                    name: v[0].NAME,
-                    iconUrl: Utils.appendRepoUrl(v[0].ICON_URL),
-                    pet: v[0].PET,
-                    parentCode: v[0].PARENT_CODE,
-                    order: v[0].ORDER
-                }
-            }
-        );
-        return this.appendCharactersToTeam(teamsByGame, resMap);
+        const teamCharacterList = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
+        return resMap.get('TEAMS').map(t => ({
+            gameCode: t.GAME_CODE,
+            code: t.CODE,
+            category: t.CATEGORY,
+            name: t.NAME,
+            iconUrl: Utils.appendRepoUrl(t.ICON_URL),
+            pet: t.PET,
+            parentCode: t.PARENT_CODE,
+            order: t.ORDER,
+            characters: teamCharacterList
+                .filter(c => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
+        }))
+        .sort((a, b) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));;
     }
 
-    appendCharactersToTeam(teamsByGame, resMap) {
-        teamsByGame.forEach((gameTeams, gameCode) => {
-            gameTeams.forEach((team, teamCode) => {
-                team.characters = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS')).get(gameCode)?.get(teamCode) ?? [];
-                gameTeams.set(teamCode, team);
-            });
-            // custom order (default: alphabetical)
-            const sortedTeams = new Map([...gameTeams.entries()].sort((a, b) => a[1].order - b[1].order));
-            teamsByGame.set(gameCode, sortedTeams);
-        });
-        return teamsByGame;
-    }
-
-    mapTeamsCharacters(charactersData) {
-        return Utils.arrayTo2LevelMap(
-            charactersData,
-            vArr => {
-                return vArr.map(v => {
-                    return {
-                        name: v.NAME,
-                        roleCode: v.ROLE_CODE,
-                        roleDescription: v.ROLE_DESCRIPTION,
-                        isMain: v.IS_MAIN,
-                        replacements: v.REPLACEMENTS?.split(',')
-                    };
-                }) 
-            },
-            'TEAM_CODE'
-        );
+    mapTeamsCharacters(characters) {
+        return characters.map(c => ({
+            gameCode: c.GAME_CODE,
+            teamCode: c.TEAM_CODE,
+            name: c.NAME,
+            roleCode: c.ROLE_CODE,
+            roleDescription: c.ROLE_DESCRIPTION,
+            isMain: c.IS_MAIN,
+            replacements: c.REPLACEMENTS?.split(',')
+        }));
     }
 
     getAll(gameCode) {
-        return this.teamsMap.get(gameCode) ?? new Map([]);
+        return this.teamsList.filter(t => t.gameCode == gameCode);
     }
 
     getAllMain(gameCode) {
-        return new Map([...this.getAll(gameCode).entries()]
-            .filter((keyValue) => keyValue[1].parentCode == null));
+        return this.getAllByParent(gameCode, null);
     }
 
     getAllByParent(gameCode, parentTeamCode) {
-        return new Map([...this.getAll(gameCode).entries()]
-            .filter((keyValue) => keyValue[1].parentCode == parentTeamCode));
+        return this.teamsList.filter(t => t.gameCode == gameCode && t.parentCode == parentTeamCode);
     }
 
     getAllByCategory(gameCode, categoryCode) {
-        return new Map([...this.getAll(gameCode).entries()]
-            .filter((keyValue) => keyValue[1].category == categoryCode));
+        return this.teamsList.filter(t => t.gameCode == gameCode && t.category == categoryCode);
     }
 
-    getOne(gameCode, teamCode) {
-        let team = this.getAll(gameCode).get(teamCode);
-        return team ?? { name: teamCode };
+    getOne(gameCode, code) {
+        const data = this.teamsList.find(t => t.gameCode == gameCode && t.code == code);
+        return data ?? { code: code, name: code }
     }
 }
 

@@ -1,7 +1,7 @@
 
 class CategoryRepository {
     
-    categories = [];
+    categoriesList = [];
 
     constructor() {
         this.fetchData();
@@ -9,14 +9,14 @@ class CategoryRepository {
 
     fetchData() {
         dataClient.loadData('CATEGORY').then(cat => {
-            this.categories = cat.map(c => {
-                return { gameCode: c.GAME_CODE, code: c.CODE, label: c.LABEL, order: c.ORDER };
-            });
+            this.categoriesList = cat.map(c => ({
+                gameCode: c.GAME_CODE, code: c.CODE, label: c.LABEL, order: c.ORDER
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.categories.filter(c => c.gameCode == gameCode);
+        return this.categoriesList.filter(c => c.gameCode == gameCode);
     }
 
     getAllOrdered(gameCode) {

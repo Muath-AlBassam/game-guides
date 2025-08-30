@@ -101,7 +101,7 @@ class CharacterListComponent extends HTMLElement {
         <div class="col-md-12">
             <div class="content-header">
                 Characters
-                <span class="additional-text">Showing (${this.characters?.size}) Characters</span>
+                <span class="additional-text">Showing (${this.characters?.length}) Characters</span>
             </div>
         </div>
         `;
@@ -109,7 +109,7 @@ class CharacterListComponent extends HTMLElement {
 
     buildListHTML() {
         return `
-            ${Utils.ngIf(this.characters.size > 0, `
+            ${Utils.ngIf(this.characters.length > 0, `
             ${Utils.ngFor(this.characters, charmd => `
             <app-character-image 
                 gamecode="${this.gameCode}"
@@ -132,19 +132,14 @@ class CharacterListComponent extends HTMLElement {
     }
 
     filterCharacters() {
-        const filteredList = [...this.allCharacters].filter((charMapKeyValue) => {
-            // 0: key, 1: value
-            let charKey = charMapKeyValue[0];
-            let charVal = charMapKeyValue[1];
-
-            let filterByName = charVal.name.toLowerCase().includes(this.searchTerm.toLowerCase());
-            let filterByRarity = this.searchRarity ? charVal.rarity == this.searchRarity : true;
-            let filterByElement = this.searchElement ? charVal.element == this.searchElement : true;
-            let filterByType = this.searchType ? charVal.type == this.searchType : true;
+        return this.allCharacters.filter(character => {
+            let filterByName = character.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+            let filterByRarity = this.searchRarity ? character.rarity == this.searchRarity : true;
+            let filterByElement = this.searchElement ? character.element == this.searchElement : true;
+            let filterByType = this.searchType ? character.type == this.searchType : true;
 
             return filterByName && filterByRarity && filterByElement && filterByType;
         })
-        return new Map(filteredList);
     }
 }
 

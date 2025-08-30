@@ -1,6 +1,6 @@
 class HomeComponent extends HTMLElement {
 
-    games = new Map([]);
+    games = [];
 
     componentStyle = `
     <style>

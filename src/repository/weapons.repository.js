@@ -1,7 +1,7 @@
 
 class WeaponsRepository {
     
-    weaponsMap = new Map([]);
+    weaponsList = [];
 
     constructor() {
         this.fetchData();
@@ -9,32 +9,29 @@ class WeaponsRepository {
 
     fetchData() {
         dataClient.loadData('WEAPONS').then(weapons => {
-            this.weaponsMap = Utils.arrayTo2LevelMap(
-                weapons,
-                v => { 
-                    return { 
-                        name: v[0].NAME,
-                        type: v[0].TYPE,
-                        secondaryStat: v[0].SECONDARY_STAT,
-                        imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL),
-                        rarity: v[0].RARITY
-                    };
-                }
-            );
+            this.weaponsList = weapons.map(w => ({
+                gameCode: w.GAME_CODE,
+                code: w.CODE,
+                name: w.NAME,
+                type: w.TYPE,
+                secondaryStat: w.SECONDARY_STAT,
+                imageUrl: Utils.appendRepoUrl(w.IMAGE_URL),
+                rarity: w.RARITY
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.weaponsMap.get(gameCode) ?? new Map([]);
+        return this.weaponsList.filter(w => w.gameCode == gameCode);
     }
 
     getAllOrdered(gameCode) {
-        return new Map([...this.getAll(gameCode).entries()].sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)));
+        return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     }
 
-    getOne(gameCode, weaponName) {
-        let weapon = this.getAll(gameCode).get(weaponName);
-        return weapon ?? { name: weaponName }
+    getOne(gameCode, code) {
+        const data = this.weaponsList.find(w => w.gameCode == gameCode && w.code == code);
+        return data ?? { code: code, name: code }
     }
 }
 

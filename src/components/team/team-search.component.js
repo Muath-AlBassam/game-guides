@@ -94,6 +94,7 @@ class TeamSearchComponent extends HTMLElement {
             this.searchRarity = '';
             this.searchElement = '';
             this.searchType = '';
+            this.innerHTML = this.componentStyle + this.buildHTML();
         });
     }
 

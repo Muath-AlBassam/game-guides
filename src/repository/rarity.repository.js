@@ -1,7 +1,7 @@
 
 class RarityRepository {
 
-    rarityMap = new Map([]);
+    rarityList = [];
 
     constructor() {
         this.fetchData();
@@ -9,20 +9,19 @@ class RarityRepository {
 
     fetchData() {
         dataClient.loadData('RARITY').then(rarities => {
-            this.rarityMap = Utils.arrayTo2LevelMap(
-                rarities,
-                v => { return { code: v[0].CODE, label: v[0].LABEL, imageUrl: Utils.appendRepoUrl(v[0].IMAGE_URL) }; }
-            );
+            this.rarityList = rarities.map(r => ({
+                gameCode: r.GAME_CODE, code: r.CODE, label: r.LABEL, imageUrl: Utils.appendRepoUrl(r.IMAGE_URL)
+            }));
         });
     }
 
     getAll(gameCode) {
-        return this.rarityMap.get(gameCode) ?? new Map([]);
+        return this.rarityList.filter(r => r.gameCode == gameCode);
     }
 
-    getOne(gameCode, rarityName) {
-        let rarity = this.getAll(gameCode).get(rarityName);
-        return rarity ?? { name: rarityName };
+    getOne(gameCode, code) {
+        const data = this.rarityList.find(r => r.gameCode == gameCode && r.code == code);
+        return data ?? { code: code, label: code };
     }
 }
 

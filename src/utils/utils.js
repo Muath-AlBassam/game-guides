@@ -17,7 +17,8 @@ class Utils {
     static ngFor(list, logicWithHtml) {
         if (list) {
             if (list instanceof Map) {
-                return [...list.values()].map(logicWithHtml).join('');
+                // a list of lists, where key is index 0 & value is index 1
+                return [...list].map(logicWithHtml).join('');
             }
             return list.map(logicWithHtml).join('');
         }
@@ -56,25 +57,15 @@ class Utils {
     }
 
     // Repository Utils
-    // groups array to map by 2 levels: GAME_CODE then @uniqueKey
-    static arrayTo2LevelMap(array, objectMappingCallback, uniqueKey = 'CODE') {
-        let groupedByGame = this.groupBy(array, 'GAME_CODE');
-        groupedByGame.forEach((gv, gk) => {
-            let groupedByCode = this.arrayTo1LevelMap(gv, objectMappingCallback, uniqueKey)
-            groupedByGame.set(gk, groupedByCode);
-        });
-        return groupedByGame;
+    // creates an object that has variables (key) "groupBy1-groupBy2" & value as list of items with the same key
+    static groupList(list, groupBy1, groupBy2) {
+        return Object.groupBy(
+            list,
+            item => `${item[groupBy1]}-${item[groupBy2]}`
+        );
     }
 
-    // groups array to map by 1 level: @uniqueKey
-    static arrayTo1LevelMap(array, objectMappingCallback, uniqueKey = 'CODE') {
-        let groupedByCode = this.groupBy(array, uniqueKey);
-        groupedByCode.forEach((cv, ck) => {
-            groupedByCode.set(ck, objectMappingCallback(cv))
-        });
-        return groupedByCode;
-    }
-
+    // Other Utils
     // groups array to map using a key
     static groupBy(array, keyAttr) {
         const map = new Map();
@@ -86,18 +77,6 @@ class Utils {
             map.get(key).push(item);
         });
         return map;
-    }
-
-    // Other Utils
-    static categorizeMap(map, categoryFieldName) {
-        const groupedMap = new Map([]);
-        for (const [key, obj] of map) {
-          if (!groupedMap.has(obj[categoryFieldName])) {
-            groupedMap.set(obj[categoryFieldName], { text: obj[categoryFieldName], items: new Map([]) });
-          }
-          groupedMap.get(obj[categoryFieldName]).items.set(key, obj);
-        }
-        return groupedMap;
     }
 }
 
