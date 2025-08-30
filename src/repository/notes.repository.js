@@ -13,16 +13,15 @@ class NotesRepository {
                 gameCode: n.GAME_CODE, ownerCode: n.OWNER_CODE, ownerType: n.OWNER_TYPE, text: n.TEXT
             }));
             
-            const grouped = Utils.groupList(flatList, 'gameCode', 'ownerCode');
-
-            this.notesList =  Object.values(grouped).map(ownerNotesList => {
-                return {
-                    gameCode: ownerNotesList[0].gameCode,
-                    ownerCode: ownerNotesList[0].ownerCode,
-                    ownerType: ownerNotesList[0].ownerType,
-                    notes: ownerNotesList.map(v => ({ text: v.text })),
-                };
-            });
+            const grouped = Utils.groupBy(flatList, 'gameCode', 'ownerCode');
+            grouped.forEach((val, key) => {
+                this.notesList.push({
+                    gameCode: val[0].gameCode,
+                    ownerCode: val[0].ownerCode,
+                    ownerType: val[0].ownerType,
+                    notes: val.map(n => ({ text: n.text })),
+                });
+            })
         });
     }
 

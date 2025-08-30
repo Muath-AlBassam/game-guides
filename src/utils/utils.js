@@ -56,27 +56,19 @@ class Utils {
         return null;
     }
 
-    // Repository Utils
-    // creates an object that has variables (key) "groupBy1-groupBy2" & value as list of items with the same key
-    static groupList(list, groupBy1, groupBy2) {
-        return Object.groupBy(
-            list,
-            item => `${item[groupBy1]}-${item[groupBy2]}`
-        );
-    }
-
     // Other Utils
     // groups array to map using a key
-    static groupBy(array, keyAttr) {
+    static groupBy(array, keyAttr1, keyAttr2 = null) {
         const map = new Map();
         array.forEach(item => {
-            const key = item[keyAttr];
+            const key = keyAttr2 ? `${item[keyAttr1]}-${item[keyAttr2]}` : item[keyAttr1];
             if (!map.has(key)) {
                 map.set(key, []);
             }
             map.get(key).push(item);
         });
         return map;
+        
     }
 }
 

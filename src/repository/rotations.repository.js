@@ -13,16 +13,15 @@ class RotationsRepository {
                 gameCode: r.GAME_CODE, teamCode: r.TEAM_CODE, stepNumber: r.STEP_NUMBER, action: r.ACTION
             }));
             
-            const grouped = Utils.groupList(flatList, 'gameCode', 'teamCode');
-            // loop through object variables and read list items
-            this.rotationsList = Object.values(grouped).map(teamRotationList => {
-                return {
-                    gameCode: teamRotationList[0].gameCode,
-                    teamCode: teamRotationList[0].teamCode,
-                    rotations: teamRotationList
+            const grouped = Utils.groupBy(flatList, 'gameCode', 'teamCode');
+            grouped.forEach((val, key) => {
+                this.rotationsList.push({
+                    gameCode: val[0].gameCode,
+                    teamCode: val[0].teamCode,
+                    rotations: val
                         .map(r => ({ stepNumber: r.stepNumber, action: RotationsUtils.formatStepAction(r.action, r.gameCode) }))
-                };
-            });
+                });
+            })
         });
     }
 

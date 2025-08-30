@@ -14,15 +14,15 @@ class BuildsRepository {
                 gameCode: b.GAME_CODE, character: b.CHARACTER_CODE, type: b.TYPE, name: b.NAME, pieceCount: b.COUNT
             }));
             
-            const grouped = Utils.groupList(this.flatList, 'gameCode', 'character');
+            const grouped = Utils.groupBy(this.flatList, 'gameCode', 'character');
             // loop through object variables and read list items
-            this.buildsList = Object.values(grouped).map(characterBuildList => {
-                return {
-                    gameCode: characterBuildList[0].gameCode,
-                    character: characterBuildList[0].character,
-                    weapon: characterBuildList.filter(g => g.type === 'WEAPON')?.map(w => ({ name: w.name }))[0],
-                    sets: characterBuildList.filter(g => g.type === 'SET')?.map(s => ({ name: s.name, pieceCount: s.pieceCount }))
-                };
+            grouped.forEach((val, key) => {
+                this.buildsList.push({
+                    gameCode: val[0].gameCode,
+                    character: val[0].character,
+                    weapon: val.filter(w => w.type === 'WEAPON')?.map(w => ({ name: w.name }))[0],
+                    sets: val.filter(s => s.type === 'SET')?.map(s => ({ name: s.name, pieceCount: s.pieceCount }))
+                });
             });
         });
     }

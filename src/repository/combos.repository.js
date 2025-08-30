@@ -13,14 +13,14 @@ class CombosRepository {
                 gameCode: c.GAME_CODE, character: c.CHARACTER_CODE, combo: c.COMBO
             }));
             
-            const grouped = Utils.groupList(flatList, 'gameCode', 'character');
-            this.combosList =  Object.values(grouped).map(characterComboList => {
-                return {
-                    gameCode: characterComboList[0].gameCode,
-                    character: characterComboList[0].character,
-                    combos: characterComboList.map(v => v.combo.split(',')),
-                };
-            });
+            const grouped = Utils.groupBy(flatList, 'gameCode', 'character');
+            grouped.forEach((val, key) => {
+                this.combosList.push({
+                    gameCode: val[0].gameCode,
+                    character: val[0].character,
+                    combos: val.map(c => c.combo.split(',')),
+                });
+            })
         });
     }
     
