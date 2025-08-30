@@ -13,7 +13,7 @@ class CharacterTeamsComponent extends HTMLElement {
     componentStyle = `
     <style>
         .teams-dialog {
-            padding-top: 15vh;
+            /**/
         }
 
         .teams-dialog-content {

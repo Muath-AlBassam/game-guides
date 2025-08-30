@@ -8,10 +8,8 @@ class TeamDetailsDialogComponent extends HTMLElement {
 
     componentStyle = `
     <style>
-        .team-dialog.dialog-shown {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .team-dialog {
+            /**/
         }
 
         .team-dialog-content {

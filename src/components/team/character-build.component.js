@@ -16,7 +16,7 @@ class CharacterBuildComponent extends HTMLElement {
     componentStyle = `
     <style>
         .build-dialog {
-            padding-top: 15vh;
+            /**/
         }
 
         .build-dialog-content {

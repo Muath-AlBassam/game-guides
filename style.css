@@ -271,8 +271,10 @@ app-nav.active ~ .main-content {
 }
 
 .gagu-dialog.dialog-shown {
-    display: block;
     opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 body:has(div.dialog-shown) {
     /* disable scroll when dialog is open */
