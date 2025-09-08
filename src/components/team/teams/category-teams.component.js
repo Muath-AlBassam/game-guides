@@ -10,16 +10,14 @@ class CategoryTeamsComponent extends HTMLElement {
     componentStyle = `
     <style>
         .cat-team-container {
-            overflow: hidden;
+            /**/
         }
 
         .cat-team-container .team-column {
-            border: 1px solid #33343a;
+            border: 2px solid #33343a;
         }
 
         .cat-team-container .team-container {
-            display: grid;
-            grid-template-columns: 20% 80%;
             background-color: transparent;
         }
 
@@ -58,19 +56,20 @@ class CategoryTeamsComponent extends HTMLElement {
 
     buildHTML() {
         return `
-        <div class="cat-team-container">
-           <div class="row">
-                ${Utils.ngFor(this.teams, team => `
-                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 team-column">
-                    <div style="overflow: auto;">
-                        <div class="team-container">
+        <div class="cat-team-container row" style="margin: auto;">
+            ${Utils.ngFor(this.teams, team => `
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 team-column">
+                <div style="overflow: auto;">
+                    <div class="team-container row" style="margin: auto;">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
                             <h6 class="team-name">
                                 ${team.name ?? '...'}
                                 <span class="info-icon" onclick="openTeamDetailsDialog('${this.gameCode}', '${team.code}')">
                                     <img src="assets/svg/info.svg" height="15">
                                 </span>
                             </h6>
-                            
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center">
                             <div class="team-characters">
                                 ${Utils.ngFor(team.characters, character => `
                                 <app-character-image 
@@ -88,8 +87,8 @@ class CategoryTeamsComponent extends HTMLElement {
                         </div>
                     </div>
                 </div>
-                `)}
-           </div>
+            </div>
+            `)}
         </div>`;
     }
 }
