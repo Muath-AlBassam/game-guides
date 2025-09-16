@@ -42,7 +42,6 @@ function loadAllScripts() {
     // Shared
     loadScript("src/components/shared/search.component.js", true);
     loadScript("src/components/shared/character-image.component.js", true);
-    loadScript("src/components/shared/character-profile.component.js", true);
     loadScript("src/components/shared/notes-popover.component.js", true);
     loadScript("src/components/shared/button-group.component.js", true);
     // Layout
@@ -64,8 +63,7 @@ function loadAllScripts() {
     loadScript("src/components/team/sets/set-details.component.js", true);
     loadScript("src/components/team/sets/set-list.component.js", true);
     loadScript("src/components/team/team-search.component.js", true);
-    loadScript("src/components/team/character-build.component.js", true);
-    loadScript("src/components/team/character-teams.component.js", true);
+    loadScript("src/components/team/character-details-dialog.component.js", true);
     loadScript("src/components/team/teams/team-details-dialog.component.js", true);
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);

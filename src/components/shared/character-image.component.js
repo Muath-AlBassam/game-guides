@@ -19,11 +19,12 @@ class CharacterImageComponent extends HTMLElement {
     showBuild = false;
     showElement = false;
     showType = false;
-    showTeamIcon = false;
     elementImageUrl = '';
     typeImageUrl = '';
     addRarityClass = false;
     iconSize = 26;
+
+    defaultCardDimensions = 219 / 160;
 
     charCount = 0;
     charmdList = [];
@@ -58,13 +59,14 @@ class CharacterImageComponent extends HTMLElement {
 
         /* CARD */
         .char-card {
-            width: 160px;
-            height: 219px;
             transform: scale(1);
             overflow: hidden;
             cursor: pointer;
             user-select: none;
+            width: ${this.getDimensions()}px;
+            height: ${this.getDimensions() * this.defaultCardDimensions}px;
         }
+        /**/
 
         .char-card .char-img {
             display: block;
@@ -231,7 +233,14 @@ class CharacterImageComponent extends HTMLElement {
     connectedCallback() {
         this.loadData();
         this.modifyDataBasedOnMediaSize();
-        this.innerHTML = this.componentStyle + this.buildHTML();
+        const shadow = this.attachShadow({ mode: "open" });
+        const stylelink = document.createElement("link");
+        stylelink.rel = "stylesheet";
+        stylelink.href = "/style.css";
+        shadow.appendChild(stylelink);
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = this.componentStyle + this.buildHTML();
+        shadow.appendChild(wrapper);
     }
 
     loadData() {
@@ -246,7 +255,6 @@ class CharacterImageComponent extends HTMLElement {
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withtype')) this.withType = this.getAttribute('withtype') == 'true';
-        if (this.hasAttribute('showteamicon')) this.showTeamIcon = this.getAttribute('showteamicon') == 'true';
         if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
         if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
         if (this.hasAttribute('imagestyle')) this.imageStyle = this.getAttribute('imagestyle');
@@ -273,6 +281,16 @@ class CharacterImageComponent extends HTMLElement {
         }
     }
 
+    getDimensions() {
+        if (this.hasAttribute('dimensions')) this.dimensions = Number(this.getAttribute('dimensions'));
+        if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
+        if (Utils.isMobile()) {
+            this.dimensions = this.dimensions * this.mobileSizeRatio;
+            this.iconSize = this.iconSize * this.mobileIconSizeRatio;
+        }
+        return this.dimensions;
+    }
+
     buildHTML() {
         if (this.imageStyle == 'card') {
             return `
@@ -295,17 +313,6 @@ class CharacterImageComponent extends HTMLElement {
                     height="${this.iconSize}"
                     title="${this.charmd.type}"
                     loading="lazy"
-                />
-                `)}
-                ${Utils.ngIf(this.showTeamIcon, `
-                <img
-                    class="team-img"
-                    src="assets/svg/variations.svg"
-                    width="${this.iconSize}"
-                    height="${this.iconSize}"
-                    title="Teams"
-                    loading="lazy"
-                    onclick="openTeamsDialog('${this.charmd.name}', '${this.gameCode}')"
                 />
                 `)}
                 <img
@@ -387,20 +394,9 @@ function openBuildDialog(character, gameCode) {
     if (null != buildsRepository.getByCharacter(gameCode, character)) {
         closeDialog();
         // trigger attributeChangedCallback & set data
-        document.getElementById('build-dialog').setAttribute('character', character);
-        document.getElementById('build-dialog').setAttribute('gamecode', gameCode);
+        document.getElementById('character-details-dialog').setAttribute('character', character);
+        document.getElementById('character-details-dialog').setAttribute('gamecode', gameCode);
         // add show class to dialog
-        document.getElementById('build-dialog-body').classList.add('dialog-shown');
-    }
-}
-
-function openTeamsDialog(character, gameCode) {
-    if (character) {
-        closeDialog();
-        // trigger attributeChangedCallback & set data
-        document.getElementById('teams-dialog').setAttribute('character', character);
-        document.getElementById('teams-dialog').setAttribute('gamecode', gameCode);
-        // add show class to dialog
-        document.getElementById('teams-dialog-body').classList.add('dialog-shown');
+        document.getElementById('character-details-dialog-body').classList.add('dialog-shown');
     }
 }

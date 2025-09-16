@@ -119,7 +119,6 @@ class CharacterListComponent extends HTMLElement {
                 withelement="true"
                 withtype="true"
                 imagestyle="card"
-                showteamicon="true"
             >
             </app-character-image>
             `)}
