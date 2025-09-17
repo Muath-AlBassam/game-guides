@@ -308,3 +308,16 @@ body:has(div.dialog-shown) {
     border-radius: 5px;
     animation: fade-in .2s;
 }
+
+.color-border {
+    border: 3px solid red;
+    border-radius: 5px;
+    animation: border-color-change 3s linear infinite;
+}
+@keyframes border-color-change {
+    0%   { border-color: red; }
+    25%  { border-color: blue; }
+    50%  { border-color: green; }
+    75%  { border-color: orange; }
+    100% { border-color: red; }
+}

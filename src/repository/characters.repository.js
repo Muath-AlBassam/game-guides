@@ -17,7 +17,8 @@ class CharactersRepository {
                 cardImageUrl: Utils.appendRepoUrl(c.CARD_IMAGE_URL),
                 element: c.ELEMENT,
                 type: c.TYPE,
-                rarity: c.RARITY
+                rarity: c.RARITY,
+                enhanced: c.ENHANCED
             }));
         });
     }

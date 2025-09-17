@@ -294,7 +294,7 @@ class CharacterImageComponent extends HTMLElement {
     buildHTML() {
         if (this.imageStyle == 'card') {
             return `
-            <div class="char-card ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''}">
+            <div class="char-card ${this.addRarityClass ? this.gameCode+'-rarity-'+this.charmd.rarity : ''} ${this.charmd.enhanced ? 'color-border' : ''}">
                 ${Utils.ngIf(this.showElement, `
                 <img
                     class="ele-img"
