@@ -61,7 +61,6 @@ class CharacterImageComponent extends HTMLElement {
         .char-card {
             transform: scale(1);
             overflow: hidden;
-            cursor: pointer;
             user-select: none;
             width: ${this.getDimensions()}px;
             height: ${this.getDimensions() * this.defaultCardDimensions}px;
@@ -238,7 +237,7 @@ class CharacterImageComponent extends HTMLElement {
         stylelink.rel = "stylesheet";
         stylelink.href = "/style.css";
         shadow.appendChild(stylelink);
-        const wrapper = document.createElement("div");
+        const wrapper = document.createElement("span");
         wrapper.innerHTML = this.componentStyle + this.buildHTML();
         shadow.appendChild(wrapper);
     }
@@ -316,7 +315,7 @@ class CharacterImageComponent extends HTMLElement {
                 />
                 `)}
                 <img
-                    class="char-img char-img-resize"
+                    class="char-img ${this.withBuildDialog ? 'char-img-resize pointer' : ''}"
                     src="${this.charmd.cardImageUrl}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"

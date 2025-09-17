@@ -59,7 +59,7 @@ class CategoryTeamsComponent extends HTMLElement {
         <div class="cat-team-container row" style="margin: auto;">
             ${Utils.ngFor(this.teams, team => `
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 team-column">
-                <div style="overflow: auto;">
+                <div style="overflow: hidden;">
                     <div class="team-container row" style="margin: auto;">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
                             <h6 class="team-name">
