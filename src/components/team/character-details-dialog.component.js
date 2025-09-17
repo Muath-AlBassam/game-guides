@@ -45,6 +45,8 @@ class CharacterDetailsDialogComponent extends HTMLElement {
 
         .character-team-container .team-column {
             border: 2px solid #33343a;
+            overflow: hidden;
+            padding: 0;
         }
 
         .character-team-container .team-container {
@@ -163,27 +165,25 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             </h5>
                             <div class="character-team-container row justify-content-center">
                                 ${Utils.ngFor(this.characterTeams, team => `
-                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column">
-                                    <div style="overflow: hidden;">
-                                        <div class="team-container row" style="margin: auto;">
-                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center">
-                                                <h6 class="team-name">
-                                                    ${team.name ?? '...'}
-                                                </h6>
-                                            </div>
-                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 d-flex justify-content-center">
-                                                <div class="team-characters">
-                                                    ${Utils.ngFor(team.characters, char => `
-                                                    <app-character-image 
-                                                        gamecode="${this.gameCode}"
-                                                        charactername="${char}"
-                                                        dimensions="${this.teamCharacterPFPSize}"
-                                                        styles="margin: 5px 10px;"
-                                                        mobilesizeratio="0.7"
-                                                    >
-                                                    </app-character-image>
-                                                    `)}
-                                                </div>
+                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1">
+                                    <div class="team-container row" style="margin: auto;">
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center">
+                                            <h6 class="team-name">
+                                                ${team.name ?? '...'}
+                                            </h6>
+                                        </div>
+                                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 d-flex justify-content-center" style="background-color: #33343a;">
+                                            <div class="team-characters">
+                                                ${Utils.ngFor(team.characters, char => `
+                                                <app-character-image 
+                                                    gamecode="${this.gameCode}"
+                                                    charactername="${char}"
+                                                    dimensions="${this.teamCharacterPFPSize}"
+                                                    styles="margin: 5px 10px;"
+                                                    mobilesizeratio="0.7"
+                                                >
+                                                </app-character-image>
+                                                `)}
                                             </div>
                                         </div>
                                     </div>
