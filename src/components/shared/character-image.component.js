@@ -235,7 +235,7 @@ class CharacterImageComponent extends HTMLElement {
         const shadow = this.attachShadow({ mode: "open" });
         const stylelink = document.createElement("link");
         stylelink.rel = "stylesheet";
-        stylelink.href = "/style.css";
+        stylelink.href = new URL("../../../style.css", import.meta.url).pathname;
         shadow.appendChild(stylelink);
         const wrapper = document.createElement("span");
         wrapper.innerHTML = this.componentStyle + this.buildHTML();
