@@ -22,38 +22,23 @@ class CharacterDetailsDialogComponent extends HTMLElement {
         }
 
         .character-details-dialog-content {
-            width: 50%;
+            width: 60%;
             background-size: 100% auto;
             background-position: top center;
             background-repeat: no-repeat;
         }
 
-        .sets-list {
-            max-height: 260px; /* 3 items (256) + extra */
-            overflow-y: scroll;
-        }
-        .sets-list::-webkit-scrollbar {
-            width: 1px;
-        }
-
-        .empty-dialog {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100px;
-        }
-
-        .character-team-container .team-column {
+        .character-teams-container .team-column {
             border: 2px solid #33343a;
             overflow: hidden;
             padding: 0;
         }
 
-        .character-team-container .team-container {
+        .character-teams-container .team-container {
             background-color: transparent;
         }
 
-        .character-team-container .team-container .team-name {
+        .character-teams-container .team-container .team-name {
             height: 100%;
             display: flex;
             align-items: center;
@@ -62,13 +47,15 @@ class CharacterDetailsDialogComponent extends HTMLElement {
             text-align: center;
         }
 
-        .character-team-container .team-container .team-name .info-icon {
-            cursor: pointer;
-            padding: 0 3px;
+        .character-teams-container .team-container .team-characters {
+            display: flex;
         }
 
-        .character-team-container .team-container .team-characters {
+        .empty-dialog {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
         }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
@@ -163,7 +150,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             <h5 class="content-header" style="margin-top: 0;">
                                 Teams
                             </h5>
-                            <div class="character-team-container row justify-content-center">
+                            <div class="character-teams-container row justify-content-center">
                                 ${Utils.ngFor(this.characterTeams, team => `
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1">
                                     <div class="team-container row" style="margin: auto;">
@@ -190,7 +177,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                                 </div>
                                 `)}
                                 ${Utils.ngIf(this.characterTeams?.length > 1 && this.characterTeams?.length % 2 != 0, `
-                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10"></div>
+                                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 m-1"></div>
                                 `)}
                             </div>
                         </div>

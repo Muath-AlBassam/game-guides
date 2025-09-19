@@ -4,16 +4,21 @@ class CharacterImageComponent extends HTMLElement {
     // inputs
     gameCode = null;
     characterName = null;
-    dimensions = 100;
     styles = '';
     classes = '';
     withBuildDialog = false;
     withBackgroundClass = true;
     withElement = false;
     withType = false;
-    mobileSizeRatio = 1; // default: 1 == no resize
     mobileIconSizeRatio = 1;
     imageStyle = 'pfp'; // pfp, card
+    inputDimensions = this.hasAttribute('dimensions') ? Number(this.getAttribute('dimensions')) : 100;
+    mobileSizeRatio = this.hasAttribute('mobilesizeratio') ? Number(this.getAttribute('mobilesizeratio')) : 1; // default: 1 == no resize
+    mobileIconSizeRatio = this.hasAttribute('mobileiconsizeratio') ? Number(this.getAttribute('mobileiconsizeratio')) : 1; // default: 1 == no resize
+
+    dimensions = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
+    iconSize = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
+    defaultCardDimensions = 219 / 160;
 
     charmd = null;
     showBuild = false;
@@ -22,9 +27,6 @@ class CharacterImageComponent extends HTMLElement {
     elementImageUrl = '';
     typeImageUrl = '';
     addRarityClass = false;
-    iconSize = 26;
-
-    defaultCardDimensions = 219 / 160;
 
     charCount = 0;
     charmdList = [];
@@ -62,8 +64,8 @@ class CharacterImageComponent extends HTMLElement {
             transform: scale(1);
             overflow: hidden;
             user-select: none;
-            width: ${this.getDimensions()}px;
-            height: ${this.getDimensions() * this.defaultCardDimensions}px;
+            width: ${this.dimensions}px;
+            height: ${this.dimensions * this.defaultCardDimensions}px;
         }
         /**/
 
@@ -231,7 +233,6 @@ class CharacterImageComponent extends HTMLElement {
   
     connectedCallback() {
         this.loadData();
-        this.modifyDataBasedOnMediaSize();
         const shadow = this.attachShadow({ mode: "open" });
         const stylelink = document.createElement("link");
         stylelink.rel = "stylesheet";
@@ -249,13 +250,10 @@ class CharacterImageComponent extends HTMLElement {
         // optional
         if (this.hasAttribute('styles')) this.styles = this.getAttribute('styles');
         if (this.hasAttribute('classes')) this.classes = this.getAttribute('classes');
-        if (this.hasAttribute('dimensions')) this.dimensions = Number(this.getAttribute('dimensions'));
         if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withtype')) this.withType = this.getAttribute('withtype') == 'true';
-        if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
-        if (this.hasAttribute('mobileiconsizeratio')) this.mobileIconSizeRatio = Number(this.getAttribute('mobileiconsizeratio'));
         if (this.hasAttribute('imagestyle')) this.imageStyle = this.getAttribute('imagestyle');
 
         let charNameList = this.characterName.split(',');
@@ -271,23 +269,6 @@ class CharacterImageComponent extends HTMLElement {
             this.charmdList = charNameList.map(c => charactersRepository.getOne(this.gameCode, c));
             this.addRarityClass = this.withBackgroundClass;
         }
-    }
-
-    modifyDataBasedOnMediaSize() {
-        if (Utils.isMobile()) {
-            this.dimensions = this.dimensions * this.mobileSizeRatio;
-            this.iconSize = this.iconSize * this.mobileIconSizeRatio;
-        }
-    }
-
-    getDimensions() {
-        if (this.hasAttribute('dimensions')) this.dimensions = Number(this.getAttribute('dimensions'));
-        if (this.hasAttribute('mobilesizeratio')) this.mobileSizeRatio = Number(this.getAttribute('mobilesizeratio'));
-        if (Utils.isMobile()) {
-            this.dimensions = this.dimensions * this.mobileSizeRatio;
-            this.iconSize = this.iconSize * this.mobileIconSizeRatio;
-        }
-        return this.dimensions;
     }
 
     buildHTML() {
