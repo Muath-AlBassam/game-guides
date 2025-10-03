@@ -20,7 +20,7 @@ class BuildsRepository {
                 this.buildsList.push({
                     gameCode: val[0].gameCode,
                     character: val[0].character,
-                    weapon: val.filter(w => w.type === 'WEAPON')?.map(w => ({ name: w.name }))[0],
+                    weapons: val.filter(w => w.type === 'WEAPON')?.map(w => ({ name: w.name })),
                     sets: val.filter(s => s.type === 'SET')?.map(s => ({ name: s.name, pieceCount: s.pieceCount }))
                 });
             });

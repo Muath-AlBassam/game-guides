@@ -12,7 +12,6 @@ class CharacterDetailsDialogComponent extends HTMLElement {
     characterPFPSize = 260;
     teamCharacterPFPSize = 80;
     charmd = null;
-    buildmd = null;
     characterTeams = [];
 
     componentStyle = `
@@ -92,7 +91,6 @@ class CharacterDetailsDialogComponent extends HTMLElement {
         this.character = this.getAttribute('character');
         if (this.character) {
             this.charmd = charactersRepository.getOne(this.gameCode, this.character);
-            this.buildmd = buildsRepository.getByCharacter(this.gameCode, this.character);
             this.characterTeams = this.filterTeams();
         }
     }
@@ -123,25 +121,8 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                         </div>
                     </div>
                     <div class="col-md-9">
-                        <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-                            ${Utils.ngIf(this.buildmd, `
-                            <h5 class="content-header" style="margin-top: 0;">
-                                ${GameUtils.getWeaponsLabel(this.gameCode)}
-                            </h5>
-                            <app-weapon-details gamecode="${this.gameCode}" weaponname="${this.buildmd.weapon.name}" showadditionalinfo="false"></app-weapon-details>
-                            
-                            <h5 class="content-header">
-                                ${GameUtils.getSetsLabel(this.gameCode)}
-                            </h5>
-                            <div class="row">
-                                ${Utils.ngFor(this.buildmd?.sets, set => `
-                                <div class="${!Utils.isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}">
-                                    <app-set-details gamecode="${this.gameCode}" setname="${set.name}" piececount="${set.pieceCount}"></app-set-details>
-                                </div>
-                                `)}
-                            </div>
-                            `)}
-                        </div>
+                        <app-character-build gamecode="${this.gameCode}" character="${this.character}">
+                        </app-character-build>
                     </div>
 
                     ${Utils.ngIf(this.characterTeams?.length > 0, `
