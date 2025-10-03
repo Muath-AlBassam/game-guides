@@ -4,7 +4,7 @@ class CategoryTeamsComponent extends HTMLElement {
     gameCode = null;
     categoryCode = null;
 
-    characterPFPSize = 80;
+    characterPFPSize = 100;
     teams = [];
 
     componentStyle = `
@@ -22,11 +22,8 @@ class CategoryTeamsComponent extends HTMLElement {
         }
 
         .cat-team-container .team-container .team-name {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: #ffffff;
+            border-radius: 10px;
         }
 
         .cat-team-container .team-container .team-name .info-icon {
@@ -61,15 +58,12 @@ class CategoryTeamsComponent extends HTMLElement {
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 team-column">
                 <div style="overflow: hidden;">
                     <div class="team-container row" style="margin: auto;">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 d-flex justify-content-center">
-                            <h6 class="team-name">
-                                ${team.name ?? '...'}
-                                <span class="info-icon" onclick="openTeamDetailsDialog('${this.gameCode}', '${team.code}')">
-                                    <img src="assets/svg/info.svg" height="15">
-                                </span>
-                            </h6>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 d-flex justify-content-center align-self-center">
+                            <button class="btn btn-secondary team-name" onclick="openTeamDetailsDialog('${this.gameCode}', '${team.code}')">
+                                <h5> ${team.name ?? '...'} </h5>
+                            </button>
                         </div>
-                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center">
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 d-flex justify-content-center">
                             <div class="team-characters">
                                 ${Utils.ngFor(team.characters, character => `
                                 <app-character-image 
@@ -78,7 +72,7 @@ class CategoryTeamsComponent extends HTMLElement {
                                     dimensions="${this.characterPFPSize}"
                                     styles="margin: 5px 10px;"
                                     withelement="true"
-                                    mobilesizeratio="0.8"
+                                    mobilesizeratio="0.7"
                                     mobileiconsizeratio="0.8"
                                 >
                                 </app-character-image>

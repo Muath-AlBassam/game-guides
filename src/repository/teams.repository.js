@@ -22,7 +22,6 @@ class TeamsRepository {
             name: t.NAME,
             iconUrl: Utils.appendRepoUrl(t.ICON_URL),
             pet: t.PET,
-            parentCode: t.PARENT_CODE,
             order: t.ORDER,
             characters: teamCharacterList
                 .filter(c => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
@@ -48,10 +47,6 @@ class TeamsRepository {
 
     getAllMain(gameCode) {
         return this.getAllByParent(gameCode, null);
-    }
-
-    getAllByParent(gameCode, parentTeamCode) {
-        return this.teamsList.filter(t => t.gameCode == gameCode && t.parentCode == parentTeamCode);
     }
 
     getAllByCategory(gameCode, categoryCode) {

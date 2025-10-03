@@ -32,12 +32,8 @@ class TeamContainerComponent extends HTMLElement {
             <app-character-details-dialog id="character-details-dialog" gamecode="${this.gameCode}"></app-character-details-dialog>
             <app-team-details-dialog id="team-dialog" gamecode="${this.gameCode}"></app-team-details-dialog>
 
-            ${Utils.ngIf(this.activePage == 'categories',
-            `<app-team-category-list gamecode="${this.gameCode}"></app-team-category-list>`
-            )}
-
             ${Utils.ngIf(this.activePage == 'teams',
-            `<app-team-list gamecode="${this.gameCode}"></app-team-list>`
+            `<app-team-category-list gamecode="${this.gameCode}"></app-team-category-list>`
             )}
 
             ${Utils.ngIf(this.activePage == 'characters',

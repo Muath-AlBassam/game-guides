@@ -67,7 +67,6 @@ class GameNavComponent extends HTMLElement {
         let code = this.activeGame?.code;
         this.navButtons = [];
         if (gameStyle == Constants.gameStyles.TEAMS) {
-            this.navButtons.push({ label: 'Categories', path: `#/${code}/categories`, icon: 'assets/svg/team.svg' });
             this.navButtons.push({ label: 'Teams', path: `#/${code}/teams`, icon: 'assets/svg/team.svg' });
             this.navButtons.push({ label: 'Characters', path: `#/${code}/characters`, icon: 'assets/images/character-front.jpg' });
             this.navButtons.push({ label: GameUtils.getWeaponsLabel(code), path: `#/${code}/weapons`, icon: 'assets/images/sword-double.jpg' });

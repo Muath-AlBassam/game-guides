@@ -14,7 +14,7 @@ class TeamCategoryListComponent extends HTMLElement {
             display: flex;
             margin: 20px 0 0 0;
             width: 100%;
-            height: 100px;
+            height: 80px;
         }
 
         .category__container .number {

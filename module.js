@@ -56,12 +56,10 @@ function loadAllScripts() {
     loadScript("src/components/team/characters/character-details-dialog.component.js", true);
     loadScript("src/components/team/characters/character-build.component.js", true);
     loadScript("src/components/team/team-container.component.js", true);
-    loadScript("src/components/team/teams/team-list.component.js", true);
     loadScript("src/components/team/teams/team-category-list.component.js", true);
     loadScript("src/components/team/teams/category-teams.component.js", true);
     loadScript("src/components/team/teams/team-details.component.js", true);
     loadScript("src/components/team/teams/team-roles.component.js", true);
-    loadScript("src/components/team/teams/team-variations.component.js", true);
     loadScript("src/components/team/teams/team-replacements.component.js", true);
     loadScript("src/components/team/teams/team-rotations.component.js", true);
     loadScript("src/components/team/teams/team-details-dialog.component.js", true);
