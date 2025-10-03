@@ -10,7 +10,12 @@ class SetsRepository {
     fetchData() {
         dataClient.loadData('SETS').then(sets => {
             this.setsList = sets.map(s => ({
-                gameCode: s.GAME_CODE, code: s.CODE, name: s.NAME, type: s.TYPE, imageUrl: Utils.appendRepoUrl(s.IMAGE_URL)
+                gameCode: s.GAME_CODE,
+                code: s.CODE,
+                name: s.NAME,
+                type: s.TYPE,
+                imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
+                rarity: s.RARITY
             }));
         });
     }

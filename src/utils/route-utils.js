@@ -25,6 +25,8 @@ class RouteUtils {
             return 'teams';
         } else if (Constants.gameStyles.FIGHT == gameStyle) {
             return 'characters';
+        } else if (Constants.gameStyles.LOOTER_SHOOTER == gameStyle) {
+            return 'characters';
         }
         return '';
     }

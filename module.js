@@ -44,6 +44,7 @@ function loadAllScripts() {
     loadScript("src/components/shared/character-image.component.js", true);
     loadScript("src/components/shared/notes-popover.component.js", true);
     loadScript("src/components/shared/button-group.component.js", true);
+    loadScript("src/components/shared/character-details-dialog.component.js", true);
     // Layout
     loadScript("src/components/layout/nav.component.js", true);
     loadScript("src/components/layout/header.component.js", true);
@@ -53,8 +54,6 @@ function loadAllScripts() {
     loadScript("src/components/team/sets/set-details.component.js", true);
     loadScript("src/components/team/sets/set-list.component.js", true);
     loadScript("src/components/team/characters/character-list.component.js", true);
-    loadScript("src/components/team/characters/character-details-dialog.component.js", true);
-    loadScript("src/components/team/characters/character-build.component.js", true);
     loadScript("src/components/team/team-container.component.js", true);
     loadScript("src/components/team/teams/team-category-list.component.js", true);
     loadScript("src/components/team/teams/category-teams.component.js", true);
@@ -67,4 +66,6 @@ function loadAllScripts() {
     // Fight
     loadScript("src/components/fight/fight-list.component.js", true);
     loadScript("src/components/fight/fight-combos.component.js", true);
+    // Looter Shooter
+    loadScript("src/components/looter-shooter/looter-shooter-list.component.js", true);
 }

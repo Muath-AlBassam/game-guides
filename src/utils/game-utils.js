@@ -8,6 +8,8 @@ class GameUtils {
                 return 'Light Cone';
             case Constants.games.ZZZ:
                 return 'W-Engine';
+            case Constants.games.BL4:
+                return 'Guns';
             default:
                 return 'Weapon';
         }
@@ -23,6 +25,8 @@ class GameUtils {
                 return 'Drive Discs';
             case Constants.games.HI3:
                 return 'Stigmata';
+            case Constants.games.BL4:
+                return 'Equipment';
             default:
                 return 'Sets';
         }

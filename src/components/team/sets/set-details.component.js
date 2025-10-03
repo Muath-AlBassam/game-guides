@@ -28,6 +28,12 @@ class SetDetailsComponent extends HTMLElement {
             grid-column: 1;
         }
 
+        .set-container .set-image img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
         .set-container .set-info {
             align-items: center;
             display: flex;
@@ -67,11 +73,11 @@ class SetDetailsComponent extends HTMLElement {
     buildHTML() {
         return `
         <div class="set-container">
-            <div class="set-image">
+            <div class="set-image ${this.gameCode}-rarity-${this.set.rarity}">
                 <img src="${this.set.imageUrl ?? 'assets/svg/unknown.svg'}" height="70" />
             </div>
             <div class="set-info">
-                ${Utils.ngIf(this.pieceCount, `
+                ${Utils.ngIf(this.pieceCount && this.pieceCount != 'null', `
                 <span class="piece-count">(${this.pieceCount})</span>
                 `)}
                 <h5 class="set-name">

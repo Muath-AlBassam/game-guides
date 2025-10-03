@@ -242,6 +242,16 @@ app-nav.active ~ .main-content {
     background-image: linear-gradient(black, rgb(240 126 225 / 90%));
 }
 
+.BL4-rarity-L {
+    background: linear-gradient(180deg, #f99807, #fb7704);
+}
+.BL4-rarity-E {
+    background: linear-gradient(180deg, #c925f8, #9328e9);
+}
+.BL4-rarity-- {
+    background: linear-gradient(180deg, #000080, #000000);
+}
+
 /* Dialog styles ----------------------------------------------------------- */
 @keyframes fade-in {
     from {

@@ -29,7 +29,6 @@ class TeamContainerComponent extends HTMLElement {
 
     buildHTML() {
         return `
-            <app-character-details-dialog id="character-details-dialog" gamecode="${this.gameCode}"></app-character-details-dialog>
             <app-team-details-dialog id="team-dialog" gamecode="${this.gameCode}"></app-team-details-dialog>
 
             ${Utils.ngIf(this.activePage == 'teams',

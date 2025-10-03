@@ -40,6 +40,7 @@ class GameGuidesComponent extends HTMLElement {
         switch (this.gameStyle) {
             case Constants.gameStyles.TEAMS:
                 return `
+                <app-character-details-dialog id="character-details-dialog" gamecode="${this.gameCode}"></app-character-details-dialog>
                 <app-game-header gamecode="${this.gameCode}"></app-game-header>
                 <app-game-nav gamecode="${this.gameCode}"></app-game-nav>
                 <app-team-container gamecode="${this.gameCode}"></app-team-container>
@@ -47,8 +48,13 @@ class GameGuidesComponent extends HTMLElement {
             case Constants.gameStyles.FIGHT:
                 return `
                 <app-game-header gamecode="${this.gameCode}"></app-game-header>
-                <app-game-nav gamecode="${this.gameCode}"></app-game-nav>
                 <app-fight-list gamecode="${this.gameCode}"></app-fight-list>
+                `;
+            case Constants.gameStyles.LOOTER_SHOOTER:
+                return `
+                <app-character-details-dialog id="character-details-dialog" gamecode="${this.gameCode}"></app-character-details-dialog>
+                <app-game-header gamecode="${this.gameCode}"></app-game-header>
+                <app-ls-character-list gamecode="${this.gameCode}"></app-ls-character-list>
                 `;
             default:
                 return `

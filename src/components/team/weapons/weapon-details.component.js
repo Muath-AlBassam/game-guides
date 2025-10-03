@@ -29,6 +29,12 @@ class WeaponDetailsComponent extends HTMLElement {
             grid-column: 1;
         }
 
+        .weapon-container .weapon-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .weapon-container .weapon-info {
             align-items: center;
             display: flex;
@@ -79,8 +85,8 @@ class WeaponDetailsComponent extends HTMLElement {
     buildHTML() {
         return `
         <div class="weapon-container">
-            <div class="weapon-image">
-                <img src="${this.weapon.imageUrl ?? 'assets/svg/unknown.svg'}" class="${this.gameCode}-rarity-${this.weapon.rarity}" height="80" />
+            <div class="weapon-image ${this.gameCode}-rarity-${this.weapon.rarity}">
+                <img src="${this.weapon.imageUrl ?? 'assets/svg/unknown.svg'}" height="80" />
             </div>
             <div class="weapon-info">
                 <div>

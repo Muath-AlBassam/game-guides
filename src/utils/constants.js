@@ -14,12 +14,14 @@ class Constants {
         HSR: 'HSR',
         ZZZ: 'ZZZ',
         HI3: 'HI3',
-        TK8: 'TK8'
+        TK8: 'TK8',
+        BL4: 'BL4'
     }
 
     static gameStyles = {
         TEAMS: 'TEAMS',
         FIGHT: 'FIGHT',
+        LOOTER_SHOOTER: 'LOOTER_SHOOTER',
         NONE: 'NONE'
     }
 

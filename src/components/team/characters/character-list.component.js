@@ -1,6 +1,5 @@
 class CharacterListComponent extends HTMLElement {
 
-    characterPFPSize = 80;
     gameCode = null;
     allCharacters = null;
     characters = null;
