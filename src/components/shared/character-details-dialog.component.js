@@ -203,10 +203,9 @@ class CharacterDetailsDialogComponent extends HTMLElement {
             // add names from team characters list
             if (team.characters) {
                 team.characters.forEach(ch => {
+                    teamCharactersNames.push(ch.name);
                     if (ch.replacements && ch.replacements.length > 0) {
-                        teamCharactersNames.push([ch.name, ...ch.replacements]);
-                    } else {
-                        teamCharactersNames.push(ch.name);
+                        teamCharactersNames.push(...ch.replacements);
                     }
                 });
                 mappedTeamsList.push({
@@ -218,7 +217,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
         // filter list
         return mappedTeamsList.filter(mappedTeam => {
             return mappedTeam.characters.some(char => {
-                return char.includes(this.character);
+                return char == this.character;
             })
         });
     }
