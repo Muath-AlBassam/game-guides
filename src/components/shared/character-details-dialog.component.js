@@ -170,7 +170,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                                                 ${Utils.ngFor(team.characters, char => `
                                                 <app-character-image 
                                                     gamecode="${this.gameCode}"
-                                                    charactername="${char}"
+                                                    charactername="${char.name}"
                                                     dimensions="${this.teamCharacterPFPSize}"
                                                     styles="margin: 5px 10px;"
                                                     mobilesizeratio="0.7"
@@ -196,29 +196,15 @@ class CharacterDetailsDialogComponent extends HTMLElement {
 
     filterTeams() {
         let allTeams = teamsRepository.getAll(this.gameCode);
-        let mappedTeamsList = [];
-        // map all characters' names into a list
-        allTeams.forEach(team => {
-            let teamCharactersNames = [];
-            // add names from team characters list
-            if (team.characters) {
-                team.characters.forEach(ch => {
-                    teamCharactersNames.push(ch.name);
-                    if (ch.replacements && ch.replacements.length > 0) {
-                        teamCharactersNames.push(...ch.replacements);
-                    }
-                });
-                mappedTeamsList.push({
-                    name: team.name,
-                    characters: teamCharactersNames
-                });
-            }
-        })
-        // filter list
-        return mappedTeamsList.filter(mappedTeam => {
-            return mappedTeam.characters.some(char => {
-                return char == this.character;
-            })
+        return allTeams.filter(team => {
+            return team.characters.some(ch => {
+                let all = [];
+                all.push(ch.name);
+                if (ch.replacements && ch.replacements.length > 0) {
+                    all.push(...ch.replacements);
+                }
+                return all.includes(this.character);
+            });
         });
     }
 }
