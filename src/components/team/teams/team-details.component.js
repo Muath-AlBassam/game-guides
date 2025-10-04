@@ -231,7 +231,7 @@ class TeamDetailsComponent extends HTMLElement {
                         </app-character-image>
                         `)}
 
-                        ${Utils.ngIf(this.activeGame.hasPet, `
+                        ${Utils.ngIf(this.activeGame.hasPet && this.petmd, `
                         <img 
                             src="${this.petmd.imageUrl ?? Constants.images.unknown}" 
                             height="${this.petPFPSize}"
