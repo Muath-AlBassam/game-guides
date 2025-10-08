@@ -6,7 +6,7 @@ class CharacterImageComponent extends HTMLElement {
     characterName = null;
     styles = '';
     classes = '';
-    withBuildDialog = false;
+    withDetailsDialog = false;
     withBackgroundClass = true;
     withElement = false;
     withType = false;
@@ -250,7 +250,7 @@ class CharacterImageComponent extends HTMLElement {
         // optional
         if (this.hasAttribute('styles')) this.styles = this.getAttribute('styles');
         if (this.hasAttribute('classes')) this.classes = this.getAttribute('classes');
-        if (this.hasAttribute('withbuilddialog')) this.withBuildDialog = this.getAttribute('withbuilddialog') == 'true';
+        if (this.hasAttribute('withdetailsdialog')) this.withDetailsDialog = this.getAttribute('withdetailsdialog') == 'true';
         if (this.hasAttribute('withbackgroundclass')) this.withBackgroundClass = this.getAttribute('withbackgroundclass') == 'true';
         if (this.hasAttribute('withelement')) this.withElement = this.getAttribute('withelement') == 'true';
         if (this.hasAttribute('withtype')) this.withType = this.getAttribute('withtype') == 'true';
@@ -296,12 +296,12 @@ class CharacterImageComponent extends HTMLElement {
                 />
                 `)}
                 <img
-                    class="char-img ${this.withBuildDialog ? 'char-img-resize pointer' : ''}"
+                    class="char-img ${this.withDetailsDialog ? 'char-img-resize pointer' : ''}"
                     src="${this.charmd.cardImageUrl}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
                     width="${this.dimensions}"
-                    ${this.withBuildDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
+                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
                     loading="lazy"
                 />
                 <span class="char-name">${this.charmd.name}</span>
@@ -312,8 +312,8 @@ class CharacterImageComponent extends HTMLElement {
             return `
             <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
                 ${Utils.ngFor(this.charmdList, char => `
-                <div class="child ${this.withBuildDialog ? 'pointer' : ''} ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
-                    ${this.withBuildDialog ? `onclick="openBuildDialog('${char.name}', '${this.gameCode}')"` : ``}>
+                <div class="child ${this.withDetailsDialog ? 'pointer' : ''} ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
+                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${char.name}', '${this.gameCode}')"` : ``}>
                     <img    
                         src="${char.imageUrl ?? Constants.images.unknown}"
                         alt="${char.name ?? '?'}"
@@ -334,10 +334,10 @@ class CharacterImageComponent extends HTMLElement {
                     src="${this.charmd.imageUrl ?? Constants.images.unknown}" 
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
-                    class="pfp ${this.withBuildDialog ? 'char-img-resize' : ''} ${this.classes}" 
+                    class="pfp ${this.withDetailsDialog ? 'char-img-resize' : ''} ${this.classes}" 
                     style="display: block; height: auto;" 
                     width="${this.dimensions}"
-                    ${this.withBuildDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
+                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
                     loading="lazy"
                 />
                 ${Utils.ngIf(this.showElement, `

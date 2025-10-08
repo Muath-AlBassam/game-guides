@@ -224,7 +224,7 @@ class TeamDetailsComponent extends HTMLElement {
                             charactername="${this.team.characters[index]?.name}"
                             dimensions="${this.characterPFPSize}"
                             styles="margin: 5px 10px;"
-                            withbuilddialog="true"
+                            withdetailsdialog="true"
                             withelement="true"
                             mobilesizeratio="0.6"
                         >

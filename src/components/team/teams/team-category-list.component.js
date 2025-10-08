@@ -108,7 +108,7 @@ class TeamCategoryListComponent extends HTMLElement {
         <div class="row" id="team-category-list-header">
             <div class="col-md-12">
                 <div class="content-header">
-                    Teams Categories
+                    Teams
                 </div>
             </div>
         </div>

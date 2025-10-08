@@ -72,7 +72,7 @@ class ReplacementsComponent extends HTMLElement {
                                 charactername="${rep}"
                                 dimensions="${this.characterPFPSize}"
                                 styles="margin: 5px 10px;"
-                                withbuilddialog="true"
+                                withdetailsdialog="true"
                                 withelement="true"
                                 mobilesizeratio="${this.mobileSizeRatio}"
                                 mobileiconsizeratio="${this.mobileSizeRatio}"

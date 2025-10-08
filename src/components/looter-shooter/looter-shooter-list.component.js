@@ -51,7 +51,7 @@ class LooterShooterCharacterListComponent extends HTMLElement {
                 gamecode="${this.gameCode}"
                 charactername="${charmd.name}"
                 dimensions="160"
-                withbuilddialog="true"
+                withdetailsdialog="true"
                 withelement="true"
                 withtype="true"
                 imagestyle="card"

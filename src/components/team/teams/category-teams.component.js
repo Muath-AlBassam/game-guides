@@ -71,6 +71,7 @@ class CategoryTeamsComponent extends HTMLElement {
                                     charactername="${character.name}"
                                     dimensions="${this.characterPFPSize}"
                                     styles="margin: 5px 10px;"
+                                    withdetailsdialog="true"
                                     withelement="true"
                                     mobilesizeratio="0.7"
                                     mobileiconsizeratio="0.8"
