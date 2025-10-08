@@ -42,7 +42,6 @@ class GameGuidesComponent extends HTMLElement {
                 return `
                 <app-character-details-dialog id="character-details-dialog" gamecode="${this.gameCode}"></app-character-details-dialog>
                 <app-game-header gamecode="${this.gameCode}"></app-game-header>
-                <app-game-nav gamecode="${this.gameCode}"></app-game-nav>
                 <app-team-container gamecode="${this.gameCode}"></app-team-container>
                 `;
             case Constants.gameStyles.FIGHT:

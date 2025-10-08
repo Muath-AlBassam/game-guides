@@ -20,7 +20,7 @@ class GameUtils {
             case Constants.games.GI:
                 return 'Artifacts';
             case Constants.games.HSR:
-                return 'Relics & Planar Ornaments';
+                return 'Relics';
             case Constants.games.ZZZ:
                 return 'Drive Discs';
             case Constants.games.HI3:

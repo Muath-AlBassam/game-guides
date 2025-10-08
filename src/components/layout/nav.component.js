@@ -82,6 +82,29 @@ class NavComponent extends HTMLElement {
         .sidebar.active .nav-text {
             display: block;
         }
+        .sidebar.active .home-item .nav-text {
+            display: table-cell;
+        }
+
+        .sidebar .home-item {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            vertical-align: middle;
+            text-shadow: 0 0 10px #000, 0 0 10px #000;
+        }
+
+        .sidebar .home-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: black; /* or any color overlay */
+            opacity: 0.5;
+            z-index: 0;
+        }
 
         @media (max-width: ${Constants.code.mobileMaxWidth}) {
             .sidebar {
@@ -129,14 +152,13 @@ class NavComponent extends HTMLElement {
         <div class="sidebar-container">
             <div class="sidebar">
                 <ul style="padding-left: 0; margin-top: 45px;">
+                    ${Utils.ngIf(this.activeGame != null, `
                     <li>
-                        <a class="sidebar-item ${this.activeGame == null ? 'active' : ''}" href="#/Home" title="Home">
-                            <i>
-                                <img style="border-radius: 0;" src="assets/svg/home.svg" alt="home" width="20" height="20"/>
-                            </i>
-                            <span class="nav-text">Home</span>
+                        <a class="sidebar-item home-item" style="background-image: url(${this.activeGame?.backgroundUrl});" href="#/Home" title="Home">
+                            <span class="nav-text" style="z-index: 1;">${this.activeGame?.label}</span>
                         </a>
-                    </li>
+                    </li>    
+                    `)}
                     ${Utils.ngFor(this.routesList, route => `
                     <li>
                         <a class="sidebar-item ${route.isActive ? 'active' : ''}" href="${route.path}" title="${route.label}">
@@ -154,16 +176,54 @@ class NavComponent extends HTMLElement {
     }
 
     generateRoutesList() {
+        let gameStyle = this.activeGame?.style ?? Constants.gameStyles.NONE;
         this.routesList = [];
-        this.games.forEach(g => {
-            this.routesList.push({
-                code: g.code,
-                label: g.label,
-                path: `#/${g.code}/${RouteUtils.getDefaultPage(g.style)}`,
-                icon: g.iconUrl,
-                isActive: this.activeGame?.code == g.code
-            });
-        })
+        if (gameStyle == Constants.gameStyles.TEAMS) {
+            this.routesList.push(this.getTeamsRoute());
+            this.routesList.push(this.getCharactersRoute());
+            this.routesList.push(this.getWeaponsRoute());
+            this.routesList.push(this.getSetsRoute());
+        } else if (gameStyle == Constants.gameStyles.FIGHT) {
+            this.routesList.push(this.getCharactersRoute());
+        } else if (gameStyle == Constants.gameStyles.LOOTER_SHOOTER) {
+            this.routesList.push(this.getCharactersRoute());
+        }
+    }
+
+    getTeamsRoute() {
+        return {
+            label: 'Teams',
+            path: `#/${this.activeGame.code}/teams`,
+            icon: 'assets/svg/team.svg',
+            isActive: RouteUtils.getCurrentPage() == 'teams'
+        };
+    }
+
+    getCharactersRoute() {
+        return {
+            label: 'Characters',
+            path: `#/${this.activeGame.code}/characters`,
+            icon: 'assets/images/character-front.jpg',
+            isActive: RouteUtils.getCurrentPage() == 'characters'
+        };
+    }
+
+    getWeaponsRoute() {
+        return {
+            label: GameUtils.getWeaponsLabel(this.activeGame.code),
+            path: `#/${this.activeGame.code}/weapons`,
+            icon: 'assets/images/sword-double.jpg',
+            isActive: RouteUtils.getCurrentPage() == 'weapons'
+        };
+    }
+
+    getSetsRoute() {
+        return {
+            label: GameUtils.getSetsLabel(this.activeGame.code),
+            path: `#/${this.activeGame.code}/sets`,
+            icon: 'assets/images/artifact.jpg',
+            isActive: RouteUtils.getCurrentPage() == 'sets'
+        };
     }
 }
 
