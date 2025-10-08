@@ -110,6 +110,73 @@ app-nav.active ~ .main-content {
     transition: all 0.5s ease;
 }
 
+/* Dialog styles ----------------------------------------------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.gagu-dialog {
+    /* style of the dialog content */
+    /* style of the dialog background (shadow overlay) */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* shared */
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gagu-dialog.dialog-shown {
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body:has(div.dialog-shown) {
+    /* disable scroll when dialog is open */
+    overflow: hidden;
+}
+
+.gagu-dialog-header {
+    display: flex;
+    align-items: center;
+}
+
+.gagu-dialog .close-dialog {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    float: right;
+}
+.gagu-dialog .close-dialog:hover, .close-dialog:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gagu-dialog-content {
+    background-color: var(--background-color);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    animation: fade-in .2s;
+}
+
 /* Common styles ----------------------------------------------------------- */
 .content-header {
     border-bottom: 2px solid var(--border-color);
@@ -253,73 +320,6 @@ app-nav.active ~ .main-content {
     background: linear-gradient(180deg, #000080, #000000);
 }
 
-/* Dialog styles ----------------------------------------------------------- */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.gagu-dialog {
-    /* style of the dialog content */
-    /* style of the dialog background (shadow overlay) */
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    /* shared */
-    display: none;
-    opacity: 0;
-    position: fixed;
-    z-index: 50;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.gagu-dialog.dialog-shown {
-    opacity: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-body:has(div.dialog-shown) {
-    /* disable scroll when dialog is open */
-    overflow: hidden;
-}
-
-.gagu-dialog-header {
-    display: flex;
-    align-items: center;
-}
-
-.gagu-dialog .close-dialog {
-    color: #aaaaaa;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 1rem;
-    margin: -1rem -1rem -1rem auto;
-    float: right;
-}
-.gagu-dialog .close-dialog:hover, .close-dialog:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.gagu-dialog-content {
-    background-color: var(--background-color);
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 5px;
-    animation: fade-in .2s;
-}
-
 .gagu-box-shadow {
     box-shadow: 0 0 20px #000;
 }
@@ -335,4 +335,25 @@ body:has(div.dialog-shown) {
     50%  { border-color: green; }
     75%  { border-color: orange; }
     100% { border-color: red; }
+}
+
+.glow-border {
+    border: 2px solid gold;
+    border-radius: 5px;
+    box-shadow:
+        0 0 20px 4px rgba(255, 215, 0, 0.6),
+        0 0 40px 8px rgba(255, 215, 0, 0.3);
+    animation: glowPulse 2.5s ease-in-out infinite;
+}
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 15px 3px rgba(255, 215, 0, 0.5),
+            0 0 30px 6px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow:
+            0 0 25px 5px rgba(255, 215, 0, 0.9),
+            0 0 50px 10px rgba(255, 215, 0, 0.5);
+    }
 }
