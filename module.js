@@ -13,14 +13,13 @@ function loadAllScripts() {
     loadScript("src/utils/utils.js");
     loadScript("src/utils/game-utils.js")
     loadScript("src/utils/route-utils.js");
-    loadScript("src/utils/rotations-utils.js");
+    loadScript("src/utils/notes-utils.js");
 
     // Repositories
     loadScript("src/repository/games.repository.js");
     loadScript("src/repository/characters.repository.js");
     loadScript("src/repository/builds.repository.js");
     loadScript("src/repository/teams.repository.js");
-    loadScript("src/repository/rotations.repository.js");
     loadScript("src/repository/weapons.repository.js");
     loadScript("src/repository/sets.repository.js");
     loadScript("src/repository/types.repository.js");
@@ -59,7 +58,7 @@ function loadAllScripts() {
     loadScript("src/components/team/teams/team-details.component.js", true);
     loadScript("src/components/team/teams/team-roles.component.js", true);
     loadScript("src/components/team/teams/team-replacements.component.js", true);
-    loadScript("src/components/team/teams/team-rotations.component.js", true);
+    loadScript("src/components/team/teams/team-notes.component.js", true);
     loadScript("src/components/team/teams/team-details-dialog.component.js", true);
     loadScript("src/components/team/team-search.component.js", true);
     // Fight

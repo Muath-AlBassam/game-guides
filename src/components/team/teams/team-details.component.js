@@ -214,7 +214,6 @@ class TeamDetailsComponent extends HTMLElement {
                         <img src="${this.team.iconUrl ?? Constants.images.transparent}" height="${Utils.isMobile() ? '30' : '40'}">
                         <span>
                             ${this.team.name ?? '...'}
-                            <app-notes-popover gamecode="${this.gameCode}" teamcode="${this.teamCode}"></app-notes-popover>
                         </span>
                     </div>
                     <div class="members">
@@ -249,7 +248,7 @@ class TeamDetailsComponent extends HTMLElement {
             <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
                 <app-team-roles gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
                 <app-team-replacements gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
-                <app-team-rotations gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-rotations>
+                <app-team-notes gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-notes>
             </div>
         </div>`;
     }
