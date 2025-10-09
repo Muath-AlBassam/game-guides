@@ -1,13 +1,13 @@
 class NotesUtils {
     
-    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 2px; vertical-align: 2px; opacity: 0.6;">${text}</span>`;
+    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${text}</span>`;
     static repeat = (text) => `<span class="arrow-border">${text}</span>`;
     static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
-    static imageOf = (path, tooltip, style = null) => `<img src="${path}" width="30" title="${tooltip}" style="${style ?? ''}" />`;
+    static imageOf = (path, tooltip = null, style = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
 
     static getCharacterAvatar(name, gameCode) {
         let charmd = charactersRepository.getOne(gameCode, name);
-        return this.imageOf(charmd.imageUrl, null, 'margin-top: -8px;');
+        return this.imageOf(charmd.imageUrl);
     }
 
     // GI moves shortcuts
@@ -16,7 +16,7 @@ class NotesUtils {
         charged: this.tooltip('CA', 'Charged Attack'),
         skill: this.tooltip('E', 'Skill'),
         ultimate: this.tooltip('Q', 'Ultimate'),
-        plunge: this.tooltip('Plunge', 'Plunge'),
+        plunge: this.tooltip('P', 'Plunge'),
     }
 
     // ZZZ moves shortcuts
@@ -52,14 +52,16 @@ class NotesUtils {
             .replace(/special/g, this.zzz.special)
             .replace(/chain/g, this.zzz.chain)
             .replace(/dash/g, this.zzz.dash)
+            .replace(/switch/g, this.zzz.switch)
             .replace(/assault/g, this.zzz.assault)
             .replace(/burn/g, this.zzz.burn)
             .replace(/shock/g, this.zzz.shock)
             .replace(/ times /g, Constants.unicode.times)
             .replace(/t_(.*?)_t/g, (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`)
-            .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture), null, 'margin-top: -8px;'))
+            .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture)))
             .replace(/st_(.*?)_st/g, (match, capture) => this.smallText(capture))
             .replace(/b_(.*?)_b/g, (match, capture) => `<b>${capture}</b>`)
-            .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterAvatar(capture, gameCode));
+            .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterAvatar(capture, gameCode))
+            .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterAvatar(capture, gameCode) + ` <b>${capture}</b>`);
     }
 }
