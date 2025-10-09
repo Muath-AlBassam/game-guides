@@ -175,7 +175,6 @@ class TeamDetailsComponent extends HTMLElement {
         this.loadData();
         this.modifyDataBasedOnMediaSize();
         this.innerHTML = this.componentStyle + this.buildHTML();
-        this.listenToEvents();
     }
 
     loadData() {
@@ -194,14 +193,6 @@ class TeamDetailsComponent extends HTMLElement {
         if (Utils.isMobile()) {
             this.petPFPSize = this.petPFPSize * 0.7;
         }
-    }
-
-    listenToEvents() {
-        document.addEventListener('shown.bs.collapse', function (event) {
-            if (!Utils.isMobile()) {
-                event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        });
     }
 
     buildHTML() {
@@ -245,7 +236,7 @@ class TeamDetailsComponent extends HTMLElement {
                     </div>
                 </div>
             </div>
-            <div class="teams__details collapse" data-bs-parent="#teams" id="${this.teamId}">
+            <div class="teams__details show" data-bs-parent="#teams" id="${this.teamId}">
                 <app-team-roles gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-roles>
                 <app-team-replacements gamecode="${this.gameCode}" team="${Utils.toJSONString(this.team)}" class="table-responsive"></app-team-replacements>
                 <app-team-notes gamecode="${this.gameCode}" teamcode="${this.team.code}" class="table-responsive"></app-team-notes>
