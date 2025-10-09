@@ -89,15 +89,3 @@ class CategoryTeamsComponent extends HTMLElement {
 }
 
 customElements.define('app-category-teams', CategoryTeamsComponent);
-
-//------------------------------------------------------------------------------------
-
-function openTeamDetailsDialog(gameCode, teamCode) {
-    closeDialog();
-    // trigger attributeChangedCallback & set data
-    document.getElementById('team-dialog').setAttribute('gamecode', gameCode);
-    document.getElementById('team-dialog').setAttribute('teamCode', teamCode);
-    // add show class to dialog
-    document.getElementById('team-dialog-body').classList.add('dialog-shown');
-    initializePopovers();
-}

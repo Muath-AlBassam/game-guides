@@ -301,7 +301,7 @@ class CharacterImageComponent extends HTMLElement {
                     alt="${this.charmd.name ?? '?'}" 
                     title="${this.charmd.name ?? '?'}"
                     width="${this.dimensions}"
-                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
+                    ${this.withDetailsDialog ? `onclick="openCharacterDetailsDialog('${this.gameCode}', '${this.charmd.name}')"` : ``}
                     loading="lazy"
                 />
                 <span class="char-name">${this.charmd.name}</span>
@@ -313,7 +313,7 @@ class CharacterImageComponent extends HTMLElement {
             <div class="split-box split-box-${this.charCount}" style="height: ${this.dimensions}px; width: ${this.dimensions}px; ${this.styles}">
                 ${Utils.ngFor(this.charmdList, char => `
                 <div class="child ${this.withDetailsDialog ? 'pointer' : ''} ${this.addRarityClass ? this.gameCode+'-rarity-'+char.rarity : ''}"
-                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${char.name}', '${this.gameCode}')"` : ``}>
+                    ${this.withDetailsDialog ? `onclick="openCharacterDetailsDialog('${this.gameCode}', '${char.name}')"` : ``}>
                     <img    
                         src="${char.imageUrl ?? Constants.images.unknown}"
                         alt="${char.name ?? '?'}"
@@ -337,7 +337,7 @@ class CharacterImageComponent extends HTMLElement {
                     class="pfp ${this.withDetailsDialog ? 'char-img-resize' : ''} ${this.classes}" 
                     style="display: block; height: auto;" 
                     width="${this.dimensions}"
-                    ${this.withDetailsDialog ? `onclick="openBuildDialog('${this.charmd.name}', '${this.gameCode}')"` : ``}
+                    ${this.withDetailsDialog ? `onclick="openCharacterDetailsDialog('${this.gameCode}', '${this.charmd.name}')"` : ``}
                     loading="lazy"
                 />
                 ${Utils.ngIf(this.showElement, `
@@ -367,16 +367,3 @@ class CharacterImageComponent extends HTMLElement {
 }
 
 customElements.define('app-character-image', CharacterImageComponent);
-
-//------------------------------------------------------------------------------------
-
-function openBuildDialog(character, gameCode) {
-    if (null != buildsRepository.getByCharacter(gameCode, character)) {
-        closeDialog();
-        // trigger attributeChangedCallback & set data
-        document.getElementById('character-details-dialog').setAttribute('character', character);
-        document.getElementById('character-details-dialog').setAttribute('gamecode', gameCode);
-        // add show class to dialog
-        document.getElementById('character-details-dialog-body').classList.add('dialog-shown');
-    }
-}

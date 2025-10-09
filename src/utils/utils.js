@@ -72,14 +72,39 @@ class Utils {
     }
 }
 
+// event emitter
+function emitEvent(eventName, value) {
+    window.dispatchEvent(new CustomEvent(eventName, { detail: value }));
+}
+
 // general function to close any dialog
 function closeDialog() {
     Array.from(document.getElementsByClassName('dialog-shown')).forEach(elemnt => {
         elemnt.classList.remove('dialog-shown');
-    })
+    });
+    removeQueryParameter(['t', 'c']);
 }
 
-// event emitter
-function emitEvent(eventName, value) {
-    window.dispatchEvent(new CustomEvent(eventName, { detail: value }));
+function openCharacterDetailsDialog(gameCode, character) {
+    if (null != buildsRepository.getByCharacter(gameCode, character)) {
+        closeDialog();
+        // trigger attributeChangedCallback & set data
+        document.getElementById('character-details-dialog').setAttribute('character', character);
+        document.getElementById('character-details-dialog').setAttribute('gamecode', gameCode);
+        // add show class to dialog
+        document.getElementById('character-details-dialog-body').classList.add('dialog-shown');
+        // add id to url
+        addQueryParameter('c', character);
+    }
+}
+
+function openTeamDetailsDialog(gameCode, teamCode) {
+    closeDialog();
+    // trigger attributeChangedCallback & set data
+    document.getElementById('team-dialog').setAttribute('gamecode', gameCode);
+    document.getElementById('team-dialog').setAttribute('teamCode', teamCode);
+    // add show class to dialog
+    document.getElementById('team-dialog-body').classList.add('dialog-shown');
+    // add id to url
+    addQueryParameter('t', teamCode);
 }

@@ -1,10 +1,13 @@
-// Example route: /#/GI/characters
-
 class RouteUtils {
 
     static getGame() {
         if (window.location.hash) {
             let hash = window.location.hash;
+            /*
+                #/{gameCode}
+                #/{gameCode}/{page}
+            */
+            console.log(hash);
             return hash.split('/')[1];
         } else {
             return null;
@@ -14,6 +17,10 @@ class RouteUtils {
     static getCurrentPage() {
         if (window.location.hash) {
             let hash = window.location.hash;
+            /*
+                #/{gameCode}/{page}
+            */
+            console.log(hash);
             return hash.split('/')[2];
         } else {
             return null;
@@ -30,4 +37,21 @@ class RouteUtils {
         }
         return '';
     }
+}
+
+function addQueryParameter(key, val) {
+    const url = new URL(window.location.href);
+    url.searchParams.set(key, val);
+    history.pushState({}, '', url.toString());
+}
+
+function removeQueryParameter(keys) {
+    const url = new URL(window.location.href);
+    keys.forEach(k => url.searchParams.delete(k));
+    history.pushState({}, '', url.toString());
+}
+
+function getQueryParameter(key) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(key);
 }
