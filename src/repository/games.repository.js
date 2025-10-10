@@ -18,8 +18,10 @@ class GamesRepository {
                 iconUrl: Utils.appendRepoUrl(g.ICON_URL),
                 logoUrl: Utils.appendRepoUrl(g.LOGO_URL),
                 backgroundUrl: Utils.appendRepoUrl(g.BACKGROUND_URL),
-                guideUrl: g.GUIDE_URL
-            }));
+                guideUrl: g.GUIDE_URL,
+                isActive: g.IS_ACTIVE
+            }))
+            .filter(g => g.isActive);
         });
     }
 
