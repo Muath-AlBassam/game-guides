@@ -5,9 +5,17 @@ class NotesUtils {
     static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
     static imageOf = (path, tooltip = null, style = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
 
-    static getCharacterAvatar(name, gameCode) {
+    static getCharacterImage(name, gameCode) {
         let charmd = charactersRepository.getOne(gameCode, name);
-        return this.imageOf(charmd.imageUrl);
+        return this.imageOf(charmd.imageUrl, name);
+    }
+
+    static getCharacterImageAsTooltip(name, gameCode) {
+        return `
+        <b class="img-tooltip">
+            ${name}
+            ${this.getCharacterImage(name, gameCode)}
+        </b>`;
     }
 
     // GI moves shortcuts
@@ -15,6 +23,8 @@ class NotesUtils {
         normal: this.tooltip('N', 'Normal Attack'),
         charged: this.tooltip('CA', 'Charged Attack'),
         skill: this.tooltip('E', 'Skill'),
+        tapSkill: this.tooltip('tE', 'Tap Skill'),
+        holdSkill: this.tooltip('hE', 'Hold Skill'),
         ultimate: this.tooltip('Q', 'Ultimate'),
         plunge: this.tooltip('P', 'Plunge'),
     }
@@ -26,8 +36,7 @@ class NotesUtils {
         exSpecial: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special'),
         special: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special'),
         ultimate: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate'),
-        switch: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Switch.png'), 'Switch (Chain / Quick-Assist)'),
-        chain: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain'),
+        chain: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain Attack'),
         dash: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash'),
         assault: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault'),
         burn: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn'),
@@ -44,6 +53,8 @@ class NotesUtils {
         return String(text)
             .replace(/normal/g, (match) => gameCode == Constants.games.GI ? this.gi.normal : match)
             .replace(/charged/g, (match) => gameCode == Constants.games.GI ? this.gi.charged : gameCode == Constants.games.ZZZ ? this.zzz.charged : match)
+            .replace(/tapskill/g, (match) => gameCode == Constants.games.GI ? this.gi.tapSkill : match)
+            .replace(/holdskill/g, (match) => gameCode == Constants.games.GI ? this.gi.holdSkill : match)
             .replace(/skill/g, (match) => gameCode == Constants.games.GI ? this.gi.skill : match)
             .replace(/ultimate/g, (match) => gameCode == Constants.games.GI ? this.gi.ultimate : gameCode == Constants.games.ZZZ ? this.zzz.ultimate : match)
             .replace(/plunge/g, (match) => gameCode == Constants.games.GI ? this.gi.plunge : match)
@@ -52,16 +63,18 @@ class NotesUtils {
             .replace(/special/g, this.zzz.special)
             .replace(/chain/g, this.zzz.chain)
             .replace(/dash/g, this.zzz.dash)
-            .replace(/switch/g, this.zzz.switch)
             .replace(/assault/g, this.zzz.assault)
             .replace(/burn/g, this.zzz.burn)
             .replace(/shock/g, this.zzz.shock)
+            .replace(/switch/g, '>')
             .replace(/ times /g, Constants.unicode.times)
             .replace(/t_(.*?)_t/g, (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`)
             .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture)))
             .replace(/st_(.*?)_st/g, (match, capture) => this.smallText(capture))
             .replace(/b_(.*?)_b/g, (match, capture) => `<b>${capture}</b>`)
-            .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterAvatar(capture, gameCode))
-            .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterAvatar(capture, gameCode) + ` <b>${capture}</b>`);
+            .replace(/nl_/g, `<br/>`)
+            .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterImage(capture, gameCode))
+            .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterImage(capture, gameCode) + ` <b>${capture}</b>`)
+            .replace(/ca_(.*?)_ca/g, (match, capture) => this.getCharacterImageAsTooltip(capture, gameCode));
     }
 }
