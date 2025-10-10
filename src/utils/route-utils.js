@@ -7,7 +7,6 @@ class RouteUtils {
                 #/{gameCode}
                 #/{gameCode}/{page}
             */
-            console.log(hash);
             return hash.split('/')[1];
         } else {
             return null;
@@ -20,7 +19,6 @@ class RouteUtils {
             /*
                 #/{gameCode}/{page}
             */
-            console.log(hash);
             return hash.split('/')[2];
         } else {
             return null;

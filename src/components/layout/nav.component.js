@@ -145,6 +145,7 @@ class NavComponent extends HTMLElement {
         this.loadData();
         this.generateRoutesList();
         this.innerHTML = this.componentStyle + this.buildHTML();
+        this.updateSidebarState();
     }
 
     buildHTML() {
@@ -173,6 +174,13 @@ class NavComponent extends HTMLElement {
             </div>
         </div>
         `;
+    }
+
+    updateSidebarState() {
+        // auto open sidebar in a game page
+        if (this.activeGame != null) {
+            openSidebar();
+        }
     }
 
     generateRoutesList() {
@@ -234,6 +242,11 @@ customElements.define('app-nav', NavComponent);
 function toggleSidebar() {
     document.querySelector('.sidebar').classList.toggle('active');
     document.getElementsByTagName('app-nav')[0].classList.toggle('active');
+}
+
+function openSidebar() {
+    document.querySelector('.sidebar').classList.add('active');
+    document.getElementsByTagName('app-nav')[0].classList.add('active');
 }
 
 function closeSidebar() {
