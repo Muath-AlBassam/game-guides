@@ -1,6 +1,5 @@
 class NotesUtils {
     
-    static smallText = (text) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${text}</span>`;
     static repeat = (text) => `<span class="arrow-border">${text}</span>`;
     static tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
     static imageOf = (path, tooltip = null, style = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
@@ -51,6 +50,13 @@ class NotesUtils {
         }
         // img_***_img => image
         return String(text)
+            .replace(/t_(.*?)_t/g, (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`) // title
+            .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture))) // image
+            .replace(/st_(.*?)_st/g, (match, capture) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${capture}</span>`) // small text
+            .replace(/b_(.*?)_b/g, (match, capture) => `<b>${capture}</b>`) // bold
+            .replace(/u_(.*?)_u/g, (match, capture) => `<u>${capture}</u>`) // underline
+            .replace(/i_(.*?)_i/g, (match, capture) => `<u>${capture}</u>`) // italic
+            .replace(/nl_/g, `<br/>`) // new line
             .replace(/normal/g, (match) => gameCode == Constants.games.GI ? this.gi.normal : match)
             .replace(/charged/g, (match) => gameCode == Constants.games.GI ? this.gi.charged : gameCode == Constants.games.ZZZ ? this.zzz.charged : match)
             .replace(/tapskill/g, (match) => gameCode == Constants.games.GI ? this.gi.tapSkill : match)
@@ -68,11 +74,6 @@ class NotesUtils {
             .replace(/shock/g, this.zzz.shock)
             .replace(/switch/g, '>')
             .replace(/ times /g, Constants.unicode.times)
-            .replace(/t_(.*?)_t/g, (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`)
-            .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture)))
-            .replace(/st_(.*?)_st/g, (match, capture) => this.smallText(capture))
-            .replace(/b_(.*?)_b/g, (match, capture) => `<b>${capture}</b>`)
-            .replace(/nl_/g, `<br/>`)
             .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterImage(capture, gameCode))
             .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterImage(capture, gameCode) + ` <b>${capture}</b>`)
             .replace(/ca_(.*?)_ca/g, (match, capture) => this.getCharacterImageAsTooltip(capture, gameCode));
