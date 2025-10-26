@@ -151,7 +151,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             <div class="row">
                                 ${Utils.ngFor(this.buildmd?.sets, set => `
                                 <div class="${!Utils.isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}">
-                                    <app-set-details gamecode="${this.gameCode}" setname="${set.name}" piececount="${set.pieceCount}"></app-set-details>
+                                    <app-set-details gamecode="${this.gameCode}" setname="${Utils.escapeHtml(set.name)}" piececount="${set.pieceCount}"></app-set-details>
                                 </div>
                                 `)}
                             </div>

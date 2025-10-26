@@ -90,7 +90,7 @@ class SetListComponent extends HTMLElement {
                 
                 ${Utils.ngFor(category[1], set => `
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
-                    <app-set-details gamecode="${this.gameCode}" setname="${set.name}"></app-set-details>
+                    <app-set-details gamecode="${this.gameCode}" setname="${Utils.escapeHtml(set.name)}"></app-set-details>
                 </div>
                 `)}
                 `)}
