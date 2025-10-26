@@ -33,31 +33,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
             overflow-y: scroll;
         }
         .character-teams-container::-webkit-scrollbar {
-            width: 2px;
-        }
-
-        .character-teams-container .team-column {
-            border: 2px solid #33343a;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .character-teams-container .team-container {
-            background-color: transparent;
-        }
-
-        .character-teams-container .team-container .team-name {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .character-teams-container .team-container .team-characters {
-            display: flex;
+            width: 4px;
         }
 
         .empty-dialog {
@@ -117,6 +93,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                 </div>
 
                 <div class="row gy-3 gx-3">
+                    <!-- AVATAR -->
                     <div class="col-md-3">
                         <div class="gagu-box-shadow d-flex justify-content-center align-items-center p-3" style="width: 100%; height: 100%;">
                             <app-character-image 
@@ -131,6 +108,8 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             </app-character-image>
                         </div>
                     </div>
+
+                    <!-- BUILD -->
                     <div class="col-md-9">
                         <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
                             ${Utils.ngIf(this.buildmd, `
@@ -158,7 +137,8 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             `)}
                         </div>
                     </div>
-
+                    
+                    <!-- TEAMS -->
                     ${Utils.ngIf(this.characterTeams?.length > 0, `
                     <div class="col-md-12">
                         <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
@@ -169,28 +149,7 @@ class CharacterDetailsDialogComponent extends HTMLElement {
                             <div class="character-teams-container row justify-content-center">
                                 ${Utils.ngFor(this.characterTeams, team => `
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1">
-                                    <div class="team-container row" style="margin: auto;">
-                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center align-self-center">
-                                            <button class="btn btn-secondary team-name" onclick="openTeamDetailsDialog('${this.gameCode}', '${team.code}')">
-                                                <h6> ${team.name ?? '...'} </h6>
-                                            </button>
-                                        </div>
-                                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 d-flex justify-content-center" style="background-color: #33343a;">
-                                            <div class="team-characters">
-                                                ${Utils.ngFor(team.characters, char => `
-                                                <app-character-image 
-                                                    gamecode="${this.gameCode}"
-                                                    charactername="${char.name}"
-                                                    dimensions="${this.teamCharacterPFPSize}"
-                                                    styles="margin: 5px 10px;"
-                                                    withdetailsdialog="true"
-                                                    mobilesizeratio="0.7"
-                                                >
-                                                </app-character-image>
-                                                `)}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <app-team-info gamecode="${this.gameCode}" teamcode="${team.code}"></app-team-info>
                                 </div>
                                 `)}
                                 ${Utils.ngIf(!Utils.isMobile() && this.characterTeams?.length > 1 && this.characterTeams?.length % 2 != 0, `

@@ -54,7 +54,7 @@ function loadAllScripts() {
     loadScript("src/components/team/characters/character-list.component.js", true);
     loadScript("src/components/team/team-container.component.js", true);
     loadScript("src/components/team/teams/team-category-list.component.js", true);
-    loadScript("src/components/team/teams/category-teams.component.js", true);
+    loadScript("src/components/team/teams/team-info.component.js", true);
     loadScript("src/components/team/teams/team-details.component.js", true);
     loadScript("src/components/team/teams/team-roles.component.js", true);
     loadScript("src/components/team/teams/team-replacements.component.js", true);
