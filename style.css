@@ -256,6 +256,10 @@ body:has(div.dialog-shown) {
     cursor: grabbing;
 }
 
+.hover:hover {
+  filter: brightness(0.9);
+}
+
 .gagu-popover {
     box-shadow: 0 0 20px #000;
     z-index: 1500;

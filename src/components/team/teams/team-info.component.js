@@ -44,7 +44,7 @@ class TeamInfoComponent extends HTMLElement {
     buildHTML() {
         return `
         <div class="team-info-container row" style="margin: auto;">
-            <div class="name-container col-12 d-flex justify-content-center align-self-center pointer"
+            <div class="name-container col-12 d-flex justify-content-center align-self-center pointer hover"
                 onclick="openTeamDetailsDialog('${this.gameCode}', '${this.teamCode}')">
                 <h5> ${this.team.name ?? '...'} </h5>
             </div>
