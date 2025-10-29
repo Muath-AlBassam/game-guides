@@ -1,0 +1,13 @@
+.notes-container {
+  /**/
+}
+
+.notes-container ul.team-notes {
+  font-size: 1.2em;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.notes-container .team-notes .note-content {
+  /**/
+}

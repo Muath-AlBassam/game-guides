@@ -1,0 +1,31 @@
+<div class="container replacements-container">
+  <h5 class="content-header">
+    <img src="assets/svg/replacements.svg" height="20" style="margin-right: 5px;">
+    Replacements
+  </h5>
+  <table class="table table-striped table-bordered">
+    <tbody *ngIf="team">
+      <tr *ngFor="let character of team.characters">
+        <td style="width: 50px; text-align: center">
+          <app-character-image [gameCode]="gameCode" [characterName]="character?.name" [dimensions]="characterPFPSize"
+            styles="margin: 5px 10px;" [mobileIconSizeRatio]="0.5">
+          </app-character-image>
+        </td>
+        <td>
+          <ng-template [ngIf]="character.replacements && character.replacements.length > 0" [ngIfElse]="noReplacement">
+            <app-character-image *ngFor="let rep of character.replacements" [gameCode]="gameCode" [characterName]="rep"
+              [dimensions]="characterPFPSize" styles="margin: 5px 10px;" [withDetailsDialog]="true" [withElement]="true"
+              [mobileSizeRatio]="mobileSizeRatio" [mobileIconSizeRatio]="mobileSizeRatio">
+            </app-character-image>
+          </ng-template>
+
+          <ng-template #noReplacement>
+            <div class="none">
+              <h1 class="empty-details" style="color: #000">&times;</h1>
+            </div>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

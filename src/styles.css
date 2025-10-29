@@ -146,80 +146,27 @@ app-nav.active~.main-content {
   }
 }
 
-.gagu-dialog {
-  /* style of the dialog content */
-  /* style of the dialog background (shadow overlay) */
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  /* shared */
-  display: none;
-  opacity: 0;
-  position: fixed;
-  z-index: 50;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.gagu-dialog.dialog-shown {
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-body:has(div.dialog-shown) {
-  /* disable scroll when dialog is open */
-  overflow: hidden;
-}
-
-.gagu-dialog-header {
-  display: flex;
-  align-items: center;
-}
-
-.gagu-dialog .close-dialog {
-  color: #aaaaaa;
-  font-size: 28px;
-  font-weight: bold;
-  padding: 1rem;
-  margin: -1rem -1rem -1rem auto;
-  float: right;
-}
-
-.gagu-dialog .close-dialog:hover,
-.close-dialog:focus {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.gagu-dialog-content {
-  background-color: var(--background-color);
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 5px;
-  animation: fade-in .2s;
-}
-
 .custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-title,
 .custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content,
 .custom-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
 }
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
-    max-height: 95vh;
+
+.custom-mat-dialog .mat-mdc-dialog-container {
+  border: 1px solid #888;
+  border-radius: 5px;
 }
+
+.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
+  max-height: 95vh;
+}
+
 .custom-mat-dialog .dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 /* Common styles ----------------------------------------------------------- */
 .content-header {
@@ -509,5 +456,3 @@ body:has(div.dialog-shown) {
 .html-tooltip:hover .tooltip-content {
   display: block;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

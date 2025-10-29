@@ -81,9 +81,8 @@ export class CharacterImageComponent implements OnInit {
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
     dialogConfig.panelClass = 'custom-mat-dialog';
-    dialogConfig.data = { gameCode: this.gameCode, character: character }
-
-    const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig)
+    dialogConfig.data = { gameCode: this.gameCode, character: character };
+    const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
   }
 
   isMobile(): boolean {
