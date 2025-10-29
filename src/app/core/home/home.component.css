@@ -1,0 +1,37 @@
+.home .title {
+  font-family: 'Death Star';
+  text-align: center;
+}
+
+.home .game-box {
+  height: 150px;
+  border: 2px solid #33343a;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  margin-top: 1em;
+  display: table;
+  transition: background-size 0.3s linear;
+  /* Animation effect */
+  color: inherit;
+  text-decoration: none;
+}
+
+.home .game-box:hover {
+  background-size: 110%;
+}
+
+.home .game-box .game-title {
+  font-family: 'Death Star';
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  text-shadow: 0 0 10px #000, 0 0 10px #000;
+}
+
+@media (max-width: 1000px) {
+  .home .game-box {
+    height: 80px;
+  }
+}

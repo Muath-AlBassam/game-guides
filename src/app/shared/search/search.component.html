@@ -1,0 +1,8 @@
+<div class="search">
+  <input id="searchinput" type="text" [value]="query" class="gagu-form-control" [placeholder]="placeholder"
+    (change)="emitChange($event)">
+
+  <span class="clear-icon" role="button" (click)="emitChange('')">
+    &times;
+  </span>
+</div>

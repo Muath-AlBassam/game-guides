@@ -1,0 +1,12 @@
+<div class="team-info-container row" style="margin: auto;">
+  <div class="name-container col-12 d-flex justify-content-center align-self-center pointer hover"
+    (click)="openTeamDetailsDialog()">
+    <h5> {{this.team.name ?? '...'}} </h5>
+  </div>
+  <div class="ti-characters-container col-12 d-flex justify-content-center">
+    <app-character-image *ngFor="let character of team.characters" [gameCode]="gameCode"
+      [characterName]="character.name" [dimensions]="characterPFPSize" [styles]="'margin: 5px 10px;'"
+      [withDetailsDialog]="true" [withElement]="true" [mobileSizeRatio]="characterMobileSizeRation" [mobileIconSizeRatio]="0.8">
+    </app-character-image>
+  </div>
+</div>

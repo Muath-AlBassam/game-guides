@@ -1,0 +1,16 @@
+<div *ngIf="activeGame" class="game-header">
+  <div class="title">
+    <h1>
+      {{ activeGame?.label }}
+    </h1>
+    <sup>
+      <a [href]="activeGame?.guideUrl" target="_blank" class="guide-url" *ngIf="this.activeGame?.guideUrl">
+        <i class="fa fa-external-link"></i>
+      </a>
+    </sup>
+  </div>
+  <div class="logo d-flex justify-content-end">
+    <img [height]="isMobile() ? '50' : '100'" [src]="activeGame?.logoUrl">
+  </div>
+  <div class="game-background" [ngStyle]="{'background-image': gameBackgroundUrl != null ? gameBackgroundUrl : ''}"></div>
+</div>

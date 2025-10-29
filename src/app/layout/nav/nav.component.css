@@ -1,0 +1,116 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-color);
+  padding: 0.4em 0;
+  transition: all 0.5s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.sidebar.active {
+  width: var(--sidebar-active-width);
+}
+
+.sidebar ul li {
+  position: relative;
+  list-style-type: none;
+  height: 45px;
+  width: 100%;
+  margin: 0.4em auto;
+  line-height: 45px;
+}
+
+.sidebar.active ul li {
+  display: list-item;
+}
+
+.sidebar .sidebar-item {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0.2em 0.4em;
+}
+
+.sidebar .sidebar-item i {
+  text-shadow: 2px 2px grey;
+}
+
+.sidebar .sidebar-item:hover {
+  background-color: #36373f;
+}
+
+.sidebar .sidebar-item.active {
+  background-color: #36373f;
+}
+
+.sidebar .sidebar-item i {
+  min-width: 45px;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .sidebar-item i img {
+  border-radius: 12px;
+}
+
+.sidebar .nav-text {
+  display: none;
+  font-family: 'Death Star';
+}
+
+.sidebar.active .nav-text {
+  display: block;
+}
+
+.sidebar.active .home-item .nav-text {
+  display: table-cell;
+}
+
+.sidebar .home-item {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  text-shadow: 0 0 10px #000, 0 0 10px #000;
+}
+
+.sidebar .home-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  /* or any color overlay */
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: var(--sidebar-m-width);
+    opacity: 0;
+  }
+
+  .sidebar.active {
+    width: var(--sidebar-m-active-width);
+    opacity: 1;
+  }
+
+  .sidebar-container {
+    position: absolute;
+  }
+}

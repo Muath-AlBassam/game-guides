@@ -1,0 +1,26 @@
+.character-teams-container {
+  max-height: 340px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.character-teams-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.empty-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+@media (max-width: 1000px) {
+  .character-details-dialog {
+    padding-top: 0;
+  }
+
+  .character-details-dialog-content {
+    width: 100%;
+  }
+}

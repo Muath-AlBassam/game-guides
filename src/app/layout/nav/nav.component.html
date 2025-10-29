@@ -1,0 +1,20 @@
+<div class="sidebar-container">
+  <div class="sidebar" [ngClass]="{'active': sidebarActive}">
+    <ul style="padding-left: 0; margin-top: 45px;">
+      <li *ngIf="activeGame != null">
+        <a routerLink="home" routerLinkActive="active" class="sidebar-item home-item" title="Home"
+          [ngStyle]="{'background-image': gameBackgroundUrl != null ? gameBackgroundUrl : ''}">
+          <span class="nav-text" style="z-index: 1;">{{ activeGame.label }}</span>
+        </a>
+      </li>
+      <li *ngFor="let route of routesList">
+        <a class="sidebar-item" [routerLink]="route.path" routerLinkActive="active" [title]="route.label">
+          <i>
+            <img [src]="route.icon" [alt]="route.label" width="30" height="30" />
+          </i>
+          <span class="nav-text">{{ route.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

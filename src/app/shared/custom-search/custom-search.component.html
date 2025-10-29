@@ -1,0 +1,32 @@
+<div class="team-search-container">
+  <div>
+    <app-search [query]="textValue" [placeholder]="placeholder" (textChange)="onTextChange($event)"></app-search>
+  </div>
+
+  <div *ngIf="rarityFilter && rarities.length > 0">
+    <app-button-group [value]="rarityValue" [buttonList]="rarities" [titleLabel]="'label'"
+      (valueChange)="onRarityChange($event)">
+    </app-button-group>
+  </div>
+
+  <div *ngIf="elementFilter && elements.length > 0">
+    <app-button-group [value]="elementValue" [buttonList]="elements" [titleLabel]="'name'"
+      (valueChange)="onElementChange($event)">
+    </app-button-group>
+  </div>
+
+  <div *ngIf="typeFilter && types.length > 0">
+    <app-button-group [value]="typeValue" [buttonList]="types" [titleLabel]="'name'"
+      (valueChange)="onTypeChange($event)">
+    </app-button-group>
+  </div>
+
+  <div *ngIf="resetButton">
+    <button class="btn btn-secondary btn-reset" title="Reset" (click)="onReset();">
+      <span class="clear-icon" role="button">
+        &times;
+      </span>
+      <span style="margin-left: 25px;">Reset</span>
+    </button>
+  </div>
+</div>

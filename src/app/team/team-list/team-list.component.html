@@ -1,0 +1,22 @@
+<div class="row" id="team-category-list-header">
+  <div class="col-md-12">
+    <div class="content-header">
+      Teams
+    </div>
+  </div>
+</div>
+
+<div class="category-container" id="category">
+  <ng-template ngFor [ngForOf]="categories" let-category>
+    <div class="category-name line-text mb-1">
+      {{category.label}}
+    </div>
+    <div class="row" style="margin: auto;">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3" *ngFor="let team of category.teams">
+        <div style="overflow: hidden;">
+          <app-team-info [gameCode]="gameCode" [teamCode]="team.code"></app-team-info>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

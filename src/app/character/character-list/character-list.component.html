@@ -1,0 +1,21 @@
+<div class="row" id="team-characters-header">
+  <div class="col-md-12">
+    <div class="content-header">
+      Characters
+      <span class="additional-text">Showing ({{characters.length}}) Characters</span>
+    </div>
+  </div>
+</div>
+
+<app-custom-search [rarityFilter]="true" [elementFilter]="true" [typeFilter]="true" [resetButton]="true"
+  [placeholder]="'Search characters...'" (textChange)="onTextChange($event)" (rarityChange)="onRarityChange($event)"
+  (elementChange)="onElementChange($event)" (typeChange)="onTypeChange($event)" (reset)="onReset()">
+</app-custom-search>
+
+<div class="characters-container" id="characters-container">
+  <ng-template [ngIf]="characters && characters.length > 0">
+    <app-character-image *ngFor="let charmd of characters" [gameCode]="gameCode" [characterName]="charmd.name"
+      [dimensions]="160" [withDetailsDialog]="true" [withElement]="true" [withType]="true" [imageStyle]="'card'">
+    </app-character-image>
+  </ng-template>
+</div>

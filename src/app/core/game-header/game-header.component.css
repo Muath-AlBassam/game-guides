@@ -1,0 +1,40 @@
+.game-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.game-header .title {
+  display: flex;
+  align-items: center;
+  font-family: 'Death Star';
+}
+
+.game-header .game-background {
+  height: 200px;
+  border: 2px solid #33343a;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  margin-top: 1em;
+  grid-column: 1 / span 2
+}
+
+.game-header .guide-url {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-left: 15px;
+}
+
+@media (max-width: 1000px) {
+  .game-header {
+    margin-top: 3em;
+  }
+
+  .game-header .title {
+    grid-column: 1 / span 2
+  }
+
+  .game-header .logo {
+    grid-column: 1 / span 2
+  }
+}
