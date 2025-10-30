@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RouteService {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router) { }
 
   getActiveGame(): Promise<any> {
     // this.route.parent?.paramMap.subscribe(params => {

@@ -5,16 +5,6 @@ export class Utils {
 
   constructor() { }
 
-  static getGame(): any {
-    if (window.location.hash) {
-      let hash = window.location.hash;
-      /* #/{gameCode} */
-      return hash.split('/')[1];
-    } else {
-      return null;
-    }
-  }
-
   static generateUUID(): any {
     return 'xxxxxxxx'.replace(/[x]/g, function () {
       const r = Math.random() * 16 | 0;

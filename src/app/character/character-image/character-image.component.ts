@@ -4,8 +4,7 @@ import { CharactersService } from '../../services/characters.service';
 import { ElementsService } from '../../services/elements.service';
 import { TypesService } from '../../services/types.service';
 import { Constants } from '../../utils/constants';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { CharacterDetailsDialogComponent } from '../character-details-dialog/character-details-dialog.component';
+import { DialogService } from '../../services/dialog.service';
 
 @Component({
   selector: 'app-character-image',
@@ -46,7 +45,7 @@ export class CharacterImageComponent implements OnInit {
   unknownImg = Constants.images.unknown;
 
   constructor(private charactersService: CharactersService, private elementsService: ElementsService, private typesService: TypesService,
-    private dialog: MatDialog) { }
+    private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -76,16 +75,6 @@ export class CharacterImageComponent implements OnInit {
   }
 
   openCharacterDetailsDialog(character: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = this.isMobile() ? '100vw' : '60%';
-    dialogConfig.maxWidth = '100vw';
-    dialogConfig.maxHeight = '100%';
-    dialogConfig.panelClass = 'custom-mat-dialog';
-    dialogConfig.data = { gameCode: this.gameCode, character: character };
-    const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
-  }
-
-  isMobile(): boolean {
-    return Utils.isMobile();
+    this.dialogService.openCharacterDetailsDialog(this.gameCode, character);
   }
 }

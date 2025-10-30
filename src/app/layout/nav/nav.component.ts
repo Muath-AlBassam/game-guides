@@ -6,6 +6,7 @@ import { Utils } from '../../utils/utils';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BusService } from '../../services/bus.service';
+import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,15 +15,17 @@ import { BusService } from '../../services/bus.service';
 })
 export class NavComponent implements OnInit {
 
+  gameCode: any = null;
   activeGame: any = null;
   gameBackgroundUrl: string | null = null;
 
   sidebarActive: boolean = false;
   routesList: any[] = [];
 
-  constructor(private router: Router, private busService: BusService, private gamesService: GamesService) { }
+  constructor(private router: Router, private busService: BusService, private gamesService: GamesService, private routeService: RouteService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.gameCode = await this.routeService.getActiveGame();
     this.loadGame();
     this.generateRoutesList();
     this.router.events
@@ -36,7 +39,7 @@ export class NavComponent implements OnInit {
   }
 
   loadGame() {
-    this.activeGame = this.gamesService.getOne(Utils.getGame()); // fetch by route
+    this.activeGame = this.gamesService.getOne(this.gameCode); // fetch by route
     if (this.activeGame) {
       this.gameBackgroundUrl = 'url(' + this.activeGame.backgroundUrl + ')';
     }
