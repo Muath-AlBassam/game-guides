@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path docs --base-href /game-guides/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "ngc": "ng g c --skip-tests --standalone false",
