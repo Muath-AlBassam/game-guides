@@ -5,6 +5,7 @@ import { TeamsService } from '../../services/teams.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GameUtils } from '../../utils/game-utils';
 import { Utils } from '../../utils/utils';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-character-details-dialog',
@@ -16,15 +17,16 @@ export class CharacterDetailsDialogComponent implements OnInit {
   gameCode: any = null;
   character: any = null;
 
-  characterPFPSize: number = 260;
-  teamCharacterPFPSize: number = 80;
+  game: any = null;
   charmd: any = null;
   buildmd: any = null;
   teams: any[] = [];
   weaponsLabel: string = '';
   setsLabel: string = '';
+  characterPFPSize: number = 260;
+  teamCharacterPFPSize: number = 80;
 
-  constructor(private buildsService: BuildsService, private charactersService: CharactersService, private teamsService: TeamsService,
+  constructor(private buildsService: BuildsService, private charactersService: CharactersService, private teamsService: TeamsService, private gamesService: GamesService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.gameCode = data.gameCode;
     this.character = data.character;
@@ -37,6 +39,7 @@ export class CharacterDetailsDialogComponent implements OnInit {
   }
 
   loadData() {
+    this.game = this.gamesService.getOne(this.gameCode);
     this.charmd = this.charactersService.getOne(this.gameCode, this.character);
     this.buildmd = this.buildsService.getByCharacter(this.gameCode, this.character);
     this.teams = this.teamsService.getAllByCharacter(this.gameCode, this.character);

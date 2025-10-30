@@ -316,6 +316,10 @@ app-nav.active~.main-content {
   background-image: linear-gradient(black, rgb(240 126 225 / 90%));
 }
 
+.TK8-rarity-- {
+  background: linear-gradient(180deg, grey, #000000);
+}
+
 .BL4-rarity-L {
   background: linear-gradient(180deg, #f99807, #fb7704);
 }

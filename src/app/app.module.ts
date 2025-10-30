@@ -25,10 +25,12 @@ import { SetDetailsComponent } from './set/set-details/set-details.component';
 import { SetListComponent } from './set/set-list/set-list.component';
 import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
 import { WeaponDetailsComponent } from './weapon/weapon-details/weapon-details.component';
+import { ComboListComponent } from './combo/combo-list/combo-list.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ButtonGroupComponent } from './shared/button-group/button-group.component';
 import { SearchComponent } from './shared/search/search.component';
 import { CustomSearchComponent } from './shared/custom-search/custom-search.component';
+import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.component';
 
 @NgModule({
   declarations: [
@@ -52,10 +54,12 @@ import { CustomSearchComponent } from './shared/custom-search/custom-search.comp
     SetListComponent,
     WeaponListComponent,
     WeaponDetailsComponent,
+    ComboListComponent,
     LoaderComponent,
     ButtonGroupComponent,
     SearchComponent,
     CustomSearchComponent,
+    NotesPopoverComponent,
   ],
   imports: [
     BrowserModule,

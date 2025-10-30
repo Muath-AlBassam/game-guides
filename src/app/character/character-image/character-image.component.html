@@ -23,7 +23,7 @@
     class="child {{withDetailsDialog ? 'pointer' : ''}} {{addRarityClass ? gameCode+'-rarity-'+char.rarity : ''}}"
     (click)="openCharacterDetailsDialog(char.name)">
     <img [src]="char.imageUrl ?? unknownImg" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
-      [width]="this.dimensions" loading="lazy" />
+      [width]="this.dimensions" [height]="this.dimensions" loading="lazy" />
   </div>
 </div>
 
@@ -33,7 +33,7 @@
   [attr.style]="'border-radius: 5px;' + styles">
   <img [src]="charmd.imageUrl ?? unknownImg" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
     [attr.class]="'pfp' + classes + withDetailsDialog ? 'char-img-resize' : ''" style="display: block; height: auto;"
-    [width]="dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
+    [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
 
   <img *ngIf="showElement" [src]="elementImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize"
     class="element-icon" [title]="charmd.element" loading="lazy" />
