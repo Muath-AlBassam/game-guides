@@ -25,21 +25,25 @@ export class NavComponent implements OnInit {
   constructor(private router: Router, private busService: BusService, private gamesService: GamesService, private routeService: RouteService) { }
 
   async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
-    this.loadGame();
+    await this.loadGame();
     this.generateRoutesList();
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.loadGame();
-        this.generateRoutesList();
-      })
+    this.listenToRouteChange();
 
     this.busService.toggleSidebar$.subscribe(res => { if (res) this.sidebarActive = !this.sidebarActive });
   }
 
-  loadGame() {
-    this.activeGame = this.gamesService.getOne(this.gameCode); // fetch by route
+  async listenToRouteChange(): Promise<void> {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(async () => {
+        await this.loadGame();
+        this.generateRoutesList();
+      })
+  }
+
+  async loadGame(): Promise<void> {
+    this.gameCode = await this.routeService.getActiveGame();
+    this.activeGame = this.gamesService.getOne(this.gameCode);
     if (this.activeGame) {
       this.gameBackgroundUrl = 'url(' + this.activeGame.backgroundUrl + ')';
     }
