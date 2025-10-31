@@ -29,7 +29,7 @@ import { ComboListComponent } from './combo/combo-list/combo-list.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ButtonGroupComponent } from './shared/button-group/button-group.component';
 import { SearchComponent } from './shared/search/search.component';
-import { CustomSearchComponent } from './shared/custom-search/custom-search.component';
+import { AdvancedFilterComponent } from './shared/advanced-filter/advanced-filter.component';
 import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.component';
 
 @NgModule({
@@ -58,7 +58,7 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     LoaderComponent,
     ButtonGroupComponent,
     SearchComponent,
-    CustomSearchComponent,
+    AdvancedFilterComponent,
     NotesPopoverComponent,
   ],
   imports: [

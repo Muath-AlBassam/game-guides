@@ -6,8 +6,8 @@
   </div>
 </div>
 
-<app-custom-search [placeholder]="'Search teams and characters...'" (textChange)="onTextChange($event)">
-</app-custom-search>
+<app-advanced-filter [placeholder]="'Search teams and characters...'" (textChange)="onTextChange($event)">
+</app-advanced-filter>
 
 <div class="category-container" id="category">
   <ng-template ngFor [ngForOf]="categories" let-category>

@@ -7,10 +7,10 @@
   </div>
 </div>
 
-<app-custom-search [rarityFilter]="true" [typeFilter]="true" [resetButton]="true"
+<app-advanced-filter [rarityFilter]="true" [typeFilter]="true" [resetButton]="true"
   [placeholder]="'Search ' + weaponsLabel + '...'" (textChange)="onTextChange($event)"
   (rarityChange)="onRarityChange($event)" (typeChange)="onTypeChange($event)" (reset)="onReset()">
-</app-custom-search>
+</app-advanced-filter>
 
 <div id="weapons-container">
   <div class="row" *ngIf="weapons.length > 0">

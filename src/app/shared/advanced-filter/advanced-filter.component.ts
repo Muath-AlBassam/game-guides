@@ -5,11 +5,11 @@ import { TypesService } from '../../services/types.service';
 import { RouteService } from '../../services/route.service';
 
 @Component({
-  selector: 'app-custom-search',
-  templateUrl: './custom-search.component.html',
-  styleUrl: './custom-search.component.css'
+  selector: 'app-advanced-filter',
+  templateUrl: './advanced-filter.component.html',
+  styleUrl: './advanced-filter.component.css'
 })
-export class CustomSearchComponent implements OnInit {
+export class AdvancedFilterComponent implements OnInit {
 
   @Input() rarityFilter: boolean = false;
   @Input() elementFilter: boolean = false;

@@ -7,10 +7,10 @@
   </div>
 </div>
 
-<app-custom-search [rarityFilter]="true" [elementFilter]="true" [typeFilter]="true" [resetButton]="true"
+<app-advanced-filter [rarityFilter]="true" [elementFilter]="true" [typeFilter]="true" [resetButton]="true"
   [placeholder]="'Search characters...'" (textChange)="onTextChange($event)" (rarityChange)="onRarityChange($event)"
   (elementChange)="onElementChange($event)" (typeChange)="onTypeChange($event)" (reset)="onReset()">
-</app-custom-search>
+</app-advanced-filter>
 
 <div class="characters-container" id="characters-container">
   <ng-template [ngIf]="characters && characters.length > 0">
