@@ -1,0 +1,14 @@
+<div class="container notes-container">
+  <h5 class="content-header">
+    <img src="assets/svg/notes.svg" height="20" style="margin-right: 5px;">
+    Notes
+  </h5>
+  <div>
+    <ul class="team-notes" *ngIf="formattedNotes.length > 0">
+      <li *ngFor="let note of formattedNotes">
+        <span class="note-content" [innerHTML]="note">
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

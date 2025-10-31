@@ -1,0 +1,16 @@
+.replacements-container {
+  /**/
+}
+
+.replacements-container .none {
+  margin: 5px 10px;
+  display: flex;
+  justify-content: center;
+  width: 80px;
+}
+
+@media (max-width: 1000px) {
+  .replacements-container .none {
+    width: 40px;
+  }
+}

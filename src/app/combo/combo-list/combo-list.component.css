@@ -1,0 +1,13 @@
+.combos-list {
+  overflow: scroll;
+}
+
+.combos-list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .combos-list {
+    overflow: scroll;
+  }
+}

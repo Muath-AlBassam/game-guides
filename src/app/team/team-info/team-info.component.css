@@ -1,0 +1,15 @@
+.team-info-container {
+  background-color: transparent;
+  border: 2px solid #33343a;
+}
+
+.team-info-container .name-container {
+  padding: 5px;
+  color: #ffffff;
+  background-color: #33343a;
+}
+
+.team-info-container .ti-characters-container {
+  display: flex;
+  color: #ffffff;
+}

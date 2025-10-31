@@ -1,8 +1,3 @@
-## Run Service
-- Run [start-server.bat](./start-server.bat) file to start the project locally
-
-<br>
-
 ## Database
 - Excel file in Google Drive
 - Use [Google Cloud](https://console.cloud.google.com/) to manage API key & services

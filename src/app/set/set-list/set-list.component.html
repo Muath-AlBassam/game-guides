@@ -1,0 +1,25 @@
+<div class="row" id="set-list-header">
+  <div class="col-md-12">
+    <div class="content-header">
+      {{this.setsLabel}}
+      <span class="additional-text">Showing ({{count}}) {{this.setsLabel}}</span>
+    </div>
+  </div>
+</div>
+
+<app-custom-search [placeholder]="'Search ' + setsLabel + '...'" (textChange)="onTextChange($event)">
+</app-custom-search>
+
+<div id="sets-container" *ngIf="setByType && setByType.size > 0">
+  <div class="row" *ngFor="let category of getMapAsList()">
+    <ng-template [ngIf]="setByType.size > 1">
+      <div class="line-text">
+        {{category[0]}} <!-- key -->
+      </div>
+    </ng-template>
+
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" *ngFor="let set of category[1]"> <!-- value -->
+      <app-set-details [gameCode]="gameCode" [setName]="set.name"></app-set-details>
+    </div>
+  </div>
+</div>

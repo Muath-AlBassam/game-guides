@@ -1,0 +1,18 @@
+<div class="home">
+  <h1 class="title mt-5 mb-5">
+    Game Guides
+  </h1>
+
+  <hr class="mt-5 mb-5" />
+
+  <div class="row justify-content-around">
+    <a *ngFor="let g of games" [routerLink]="'/' + g.code" class="col-md-5 game-box pointer mb-4"
+      style="background-image: url({{g.backgroundUrl}});">
+      <h4 class="game-title">
+        {{ g.label }}
+      </h4>
+    </a>
+    <!-- dummy column, otherwise the last item will be in the middle (if items count is odd) -->
+    <div *ngIf="(games?.length ?? 0) % 2 != 0" class="col-md-5"></div>
+  </div>
+</div>

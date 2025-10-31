@@ -1,0 +1,11 @@
+<div class="set-container">
+  <div class="set-image {{gameCode}}-rarity-{{set.rarity}}">
+    <img [src]="set.imageUrl ?? 'assets/svg/unknown.svg'" height="70" />
+  </div>
+  <div class="set-info">
+    <span *ngIf="pieceCount" class="piece-count">({{pieceCount}})</span>
+    <h5 class="set-name">
+      {{set.name}}
+    </h5>
+  </div>
+</div>

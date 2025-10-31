@@ -1,0 +1,43 @@
+<!-- CARD -->
+<div *ngIf="imageStyle == 'card'"
+  class="char-card {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}} {{charmd.enhanced ? 'glow-border' : ''}}"
+  [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
+  <img *ngIf="showElement" class="ele-img" [src]="elementImageUrl ?? transparentImg" [width]="iconSize"
+    [height]="iconSize" [title]="charmd.element" loading="lazy" />
+
+  <img *ngIf="showType" class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? transparentImg"
+    [width]="iconSize" [height]="iconSize" [title]="charmd.type" loading="lazy" />
+
+  <img class="char-img {{withDetailsDialog ? 'char-img-resize pointer' : ''}}" [src]="charmd.cardImageUrl"
+    [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'" [width]="dimensions"
+    (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
+
+  <span class="char-name">{{charmd.name}}</span>
+  <div class="smoky-overlay"></div>
+</div>
+
+<!-- MULTIPLE -->
+<div *ngIf="imageStyle == 'pfp' && charCount > 1" class="split-box split-box-{{charCount}}" [attr.style]="styles"
+  [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
+  <div *ngFor="let char of charmdList"
+    class="child {{withDetailsDialog ? 'pointer' : ''}} {{addRarityClass ? gameCode+'-rarity-'+char.rarity : ''}}"
+    (click)="openCharacterDetailsDialog(char.name)">
+    <img [src]="char.imageUrl ?? unknownImg" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
+      [width]="this.dimensions" [height]="this.dimensions" loading="lazy" />
+  </div>
+</div>
+
+<!-- SINGLE -->
+<div *ngIf="imageStyle == 'pfp' && charCount == 1"
+  class="character-container {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}}"
+  [attr.style]="'border-radius: 5px;' + styles">
+  <img [src]="charmd.imageUrl ?? unknownImg" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
+    [attr.class]="'pfp' + classes + withDetailsDialog ? 'char-img-resize' : ''" style="display: block; height: auto;"
+    [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
+
+  <img *ngIf="showElement" [src]="elementImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize"
+    class="element-icon" [title]="charmd.element" loading="lazy" />
+
+  <img *ngIf="showType" [src]="typeImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize" class="type-icon"
+    [title]="charmd.type" loading="lazy" />
+</div>

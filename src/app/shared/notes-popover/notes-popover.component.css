@@ -1,0 +1,21 @@
+.notes-icon {
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.notes-icon:hover {
+  background-color: #36373f;
+}
+
+.notes-inline {
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes-superscript {
+  height: 100%;
+  vertical-align: super;
+}

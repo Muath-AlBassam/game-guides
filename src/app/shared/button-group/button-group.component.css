@@ -1,0 +1,25 @@
+.btn-group {
+  border-radius: 0;
+  margin: 0 1em 0 0;
+  width: 100%;
+}
+
+.btn.active {
+  background-color: var(--border-color);
+}
+
+.btn.active img {
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 1000px) {
+  .btn-group {
+    margin: 0.5em 0;
+  }
+
+  .btn-group .btn {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

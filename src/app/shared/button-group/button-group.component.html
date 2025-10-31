@@ -1,0 +1,13 @@
+<div class="btn-group" [id]="uuid">
+
+  <button *ngIf="showAllButton" class="btn btn-secondary" [ngClass]="{'active': '' == value}" value="" title="All"
+    (click)="emitChange('')">
+    <span style="color: #fff;">&#10059;</span>
+  </button>
+
+  <button *ngFor="let btn of buttonList" class="btn btn-secondary" [value]="btn[this.valueLabel]"
+    [ngClass]="{'active': btn[this.valueLabel] == value}" [title]="btn[this.titleLabel]"
+    (click)="emitChange(btn[this.valueLabel])">
+    <img [src]="btn[this.imageLabel]" [alt]="btn[this.titleLabel]" height="24" />
+  </button>
+</div>

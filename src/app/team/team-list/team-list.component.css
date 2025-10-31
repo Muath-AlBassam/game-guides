@@ -1,0 +1,9 @@
+.category-container {
+  /**/
+}
+
+.category-container .category-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+}

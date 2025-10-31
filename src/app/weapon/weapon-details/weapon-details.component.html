@@ -1,0 +1,20 @@
+<div class="weapon-container" *ngIf="weapon">
+  <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
+    <img [src]="weapon.imageUrl ?? 'assets/svg/unknown.svg'" height="80" />
+  </div>
+  <div class="weapon-info">
+    <div>
+      <h5 class="weapon-name">
+        {{weapon.name}}
+      </h5>
+      <p class="weapon-metadata" *ngIf="showAdditionalInfo">
+        <img [src]="rarity.imageUrl" [alt]="rarity.label" [title]="rarity.label" height="24" />
+        |
+        <img [src]="type.imageUrl" [alt]="type.name" [title]="type.name" height="24" />
+      </p>
+    </div>
+  </div>
+  <div class="weapon-stat" *ngIf="showAdditionalInfo && weapon.secondaryStat">
+    <b>{{weapon.secondaryStat}}</b>
+  </div>
+</div>
