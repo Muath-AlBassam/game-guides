@@ -3,7 +3,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Utils } from '../utils/utils';
 import { CharacterDetailsDialogComponent } from '../character/character-details-dialog/character-details-dialog.component';
 import { TeamDetailsDialogComponent } from '../team/team-details-dialog/team-details-dialog.component';
-import { RouteService } from './route.service';
 
 @Injectable({
   providedIn: 'root'

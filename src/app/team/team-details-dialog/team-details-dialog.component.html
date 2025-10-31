@@ -11,9 +11,7 @@
       <div class="item">
         <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
           <img [src]="team.iconUrl ?? 'assets/images/Placeholder_Logo.png'" [height]="isMobile() ? '30' : '40'">
-          <span>
-            {{team.name ?? '...'}}
-          </span>
+          <span [innerHTML]="team.name ? team.name : '...'"></span>
         </div>
         <div class="members">
           <app-character-image *ngFor="let char of dummyCharactersList; index as i" [gameCode]="gameCode"

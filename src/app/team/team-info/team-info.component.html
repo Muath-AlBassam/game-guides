@@ -1,7 +1,7 @@
 <div class="team-info-container row" style="margin: auto;">
   <div class="name-container col-12 d-flex justify-content-center align-self-center pointer hover"
-    (click)="openTeamDetailsDialog()">
-    <h5> {{this.team.name ?? '...'}} </h5>
+    (click)="openTeamDetailsDialog()" [innerHTML]="">
+    <h5 [innerHTML]="team.name ?? '...'"></h5>
   </div>
   <div class="ti-characters-container col-12 d-flex justify-content-center">
     <app-character-image *ngFor="let character of team.characters" [gameCode]="gameCode"

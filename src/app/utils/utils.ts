@@ -17,8 +17,11 @@ export class Utils {
     return mq.matches;
   }
 
-  static appendRepoUrl(imageUrl: string): string {
-    return environment.imagesRepositoryURL + imageUrl;
+  static appendRepoUrl(imageUrl: any): any {
+    if (imageUrl) {
+      return environment.imagesRepositoryURL + imageUrl;
+    }
+    return imageUrl;
   }
 
   static groupBy(array: any[], keyAttr1: string, keyAttr2: string | null = null): Map<any, any> {
