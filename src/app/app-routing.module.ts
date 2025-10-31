@@ -13,13 +13,13 @@ const routes: Routes = [
     path: '',
     component: CoreComponent,
     children: [
-      { path: '', redirectTo: 'home' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       {
         path: ':gameCode',
         component: GameGuidesComponent,
         children: [
-          { path: '', redirectTo: 'characters' },
+          { path: '', redirectTo: 'characters', pathMatch: 'full' },
           { path: 'characters', component: CharacterListComponent },
           { path: 'teams', component: TeamListComponent },
           { path: 'weapons', component: WeaponListComponent },

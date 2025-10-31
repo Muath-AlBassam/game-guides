@@ -11,8 +11,13 @@ import { TeamsService } from '../../services/teams.service';
 export class TeamListComponent implements OnInit {
 
   gameCode: any = null;
+  allCategories: any[] = [];
   categories: any[] = [];
+  count: number = 0;
   characterPFPSize: number = 160;
+
+  // search
+  textValue: any = '';
 
   constructor(private routeService: RouteService, private categoryService: CategoryService, private teamsService: TeamsService) { }
 
@@ -22,8 +27,33 @@ export class TeamListComponent implements OnInit {
   }
 
   loadTeams() {
-    this.categories = this.categoryService.getAll(this.gameCode);
-    this.categories.forEach(cat => cat.teams = this.teamsService.getAllByCategory(this.gameCode, cat.code));
+    this.allCategories = this.categoryService.getAll(this.gameCode);
+    this.allCategories.forEach(cat => {
+      let catTeams = this.teamsService.getAllByCategory(this.gameCode, cat.code);
+      cat.teams = catTeams;
+      this.count += catTeams.length;
+    });
+    this.categories = this.allCategories;
   }
 
+  onTextChange(val: string) {
+    this.textValue = val;
+    this.filterList();
+  }
+
+  filterList() {
+    this.count = 0;
+    let filtered = structuredClone(this.allCategories);
+    this.categories = filtered.filter(cat => {
+      let filteredTeams = cat.teams
+        .filter((t: any) => {
+          let teamName: boolean = t.name ? t.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
+          let charaterName: boolean = t.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
+          return teamName || charaterName;
+        });
+        cat.teams = filteredTeams;
+        this.count += filteredTeams.length;
+        return filteredTeams.length > 0;
+    });
+  }
 }
