@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -12,6 +13,7 @@ import { CoreComponent } from './core/core/core.component';
 import { GameGuidesComponent } from './core/game-guides/game-guides.component';
 import { GameHeaderComponent } from './core/game-header/game-header.component';
 import { HomeComponent } from './core/home/home.component';
+import { ErrorComponent } from './core/error/error.component';
 import { CharacterImageComponent } from './character/character-image/character-image.component';
 import { CharacterListComponent } from './character/character-list/character-list.component';
 import { CharacterDetailsDialogComponent } from './character/character-details-dialog/character-details-dialog.component';
@@ -41,6 +43,7 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     GameGuidesComponent,
     GameHeaderComponent,
     HomeComponent,
+    ErrorComponent,
     CharacterImageComponent,
     CharacterListComponent,
     CharacterDetailsDialogComponent,
@@ -66,7 +69,8 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    HttpClientModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync()

@@ -7,10 +7,12 @@ import { CoreComponent } from './core/core/core.component';
 import { SetListComponent } from './set/set-list/set-list.component';
 import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
 import { TeamListComponent } from './team/team-list/team-list.component';
+import { ErrorComponent } from './core/error/error.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'web', pathMatch: 'full' },
   {
-    path: '',
+    path: 'web',
     component: CoreComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,9 +28,11 @@ const routes: Routes = [
           { path: 'sets', component: SetListComponent },
         ]
       }
-    ]
+    ],
   },
-
+  {
+    path: '**', component: ErrorComponent
+  }
 ];
 
 @NgModule({

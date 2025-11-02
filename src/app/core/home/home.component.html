@@ -6,7 +6,7 @@
   <hr class="mt-5 mb-5" />
 
   <div class="row justify-content-around">
-    <a *ngFor="let g of games" [routerLink]="'/' + g.code" class="col-md-5 game-box pointer mb-4"
+    <a *ngFor="let g of games" [routerLink]="'/web/' + g.code" class="col-md-5 game-box pointer mb-4"
       style="background-image: url({{g.backgroundUrl}});">
       <h4 class="game-title">
         {{ g.label }}

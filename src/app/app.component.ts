@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.dataClient.loadWorkbook();
     this.dataClient.sheetLoaded$.subscribe(res => {
-      if (res) this.isLoading = false;
+      if (res != '') this.isLoading = false;
     });
   }
 }

@@ -21,16 +21,12 @@ export class ComboListComponent implements OnInit {
   }
 
   loadCombos() {
-    let combosButtons = this.combosService.getAllByCharacter(this.gameCode, this.character);
-    console.log('combosButtons', combosButtons);
-    
+    let combosButtons = this.combosService.getAllByCharacter(this.gameCode, this.character);   
     this.combos = combosButtons.map((combo: any) => {
       return combo.map((btn: any) => {
         return { code: btn, imageUrl: this.getButtonImage(btn) }
       })
-    });
-    console.log('combos', this.combos);
-    
+    });    
   }
 
   getButtonImage(buttonCode: any) {
