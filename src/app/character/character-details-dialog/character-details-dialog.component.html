@@ -16,59 +16,13 @@
       </div>
     </div>
 
-    <!-- BUILD -->
-    <div class="col-md-9" *ngIf="buildmd">
-      <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-        <h5 class="content-header" style="margin-top: 0;">
-          {{weaponsLabel}}
-        </h5>
-        <div class="row">
-          <div class="{{!isMobile() && this.buildmd?.weapons?.length > 1 ? 'col-md-6' : 'col-md-12'}}"
-            *ngFor="let weapon of buildmd.weapons">
-            <app-weapon-details [gameCode]="gameCode" [weaponName]="weapon.name"
-              [showAdditionalInfo]="false"></app-weapon-details>
-          </div>
-        </div>
+    <app-character-build *ngIf="hasBuild" class="col-md-9" [gameCode]="gameCode" [character]="character" (hasBuild)="hasBuild = $event">
+    </app-character-build>
 
-        <h5 class="content-header">
-          {{setsLabel}}
-        </h5>
-        <div class="row">
-          <div class="{{!isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}}"
-            *ngFor="let set of buildmd.sets">
-            <app-set-details [gameCode]="gameCode" [setName]="set.name" [pieceCount]="set.pieceCount"></app-set-details>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-character-combos *ngIf="hasCombos" class="col-md-9" [gameCode]="gameCode" [character]="character" (hasCombos)="hasCombos = $event">
+    </app-character-combos>
 
-    <!-- COMBOS -->
-    <div class="col-md-9" *ngIf="game.style == 'FIGHT'">
-      <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-        <h5 class="content-header" style="margin-top: 0;">
-          Combos
-        </h5>
-        <app-combo-list [gameCode]="gameCode" [character]="character"></app-combo-list>
-      </div>
-    </div>
-
-    <!-- TEAMS -->
-    <div class="col-md-12" *ngIf="teams.length > 0">
-      <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-        <h5 class="content-header" style="margin-top: 0;">
-          Teams
-          <span class="additional-text">({{teams.length}})</span>
-        </h5>
-        <div class="character-teams-container row justify-content-center">
-          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1" *ngFor="let team of teams">
-            <app-team-info [gameCode]="gameCode" [teamCode]="team.code"
-              [characterMobileSizeRation]="0.5"></app-team-info>
-          </div>
-          <!-- to not make odd team in the center -->
-          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 m-1"
-            *ngIf="!isMobile() && teams.length > 1 && teams.length % 2 != 0"></div>
-        </div>
-      </div>
-    </div>
+    <app-character-teams class="col-md-12" [gameCode]="gameCode" [character]="character">
+    </app-character-teams>
   </div>
 </div>

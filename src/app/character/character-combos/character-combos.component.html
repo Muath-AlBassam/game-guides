@@ -1,0 +1,14 @@
+<div *ngIf="combos != null && combos.length > 0">
+  <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
+    <h5 class="content-header" style="margin-top: 0;">
+      Combos
+    </h5>
+    <div class="combos-list">
+      <ul>
+        <li *ngFor="let combo of combos">
+          <img *ngFor="let button of combo" [src]="button.imageUrl" width="40" [title]="button.code" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

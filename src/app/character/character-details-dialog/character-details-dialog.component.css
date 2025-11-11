@@ -1,13 +1,3 @@
-.character-teams-container {
-  max-height: 340px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.character-teams-container::-webkit-scrollbar {
-  width: 4px;
-}
-
 .empty-dialog {
   display: flex;
   align-items: center;

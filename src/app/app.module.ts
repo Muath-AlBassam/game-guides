@@ -17,6 +17,9 @@ import { ErrorComponent } from './core/error/error.component';
 import { CharacterImageComponent } from './character/character-image/character-image.component';
 import { CharacterListComponent } from './character/character-list/character-list.component';
 import { CharacterDetailsDialogComponent } from './character/character-details-dialog/character-details-dialog.component';
+import { CharacterBuildComponent } from './character/character-build/character-build.component';
+import { CharacterTeamsComponent } from './character/character-teams/character-teams.component';
+import { CharacterCombosComponent } from './character/character-combos/character-combos.component';
 import { TeamInfoComponent } from './team/team-info/team-info.component';
 import { TeamListComponent } from './team/team-list/team-list.component';
 import { TeamNotesComponent } from './team/team-notes/team-notes.component';
@@ -27,12 +30,12 @@ import { SetDetailsComponent } from './set/set-details/set-details.component';
 import { SetListComponent } from './set/set-list/set-list.component';
 import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
 import { WeaponDetailsComponent } from './weapon/weapon-details/weapon-details.component';
-import { ComboListComponent } from './combo/combo-list/combo-list.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ButtonGroupComponent } from './shared/button-group/button-group.component';
 import { SearchComponent } from './shared/search/search.component';
 import { AdvancedFilterComponent } from './shared/advanced-filter/advanced-filter.component';
 import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.component';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     CharacterImageComponent,
     CharacterListComponent,
     CharacterDetailsDialogComponent,
+    CharacterBuildComponent,
+    CharacterTeamsComponent,
+    CharacterCombosComponent,
     TeamInfoComponent,
     TeamListComponent,
     TeamNotesComponent,
@@ -57,7 +63,6 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     SetListComponent,
     WeaponListComponent,
     WeaponDetailsComponent,
-    ComboListComponent,
     LoaderComponent,
     ButtonGroupComponent,
     SearchComponent,
