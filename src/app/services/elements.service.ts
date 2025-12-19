@@ -18,13 +18,17 @@ export class ElementsService {
   fetchData() {
     this.dataClient.loadData('ELEMENTS').then(elements => {
       this.elementsList = elements.map((e: any) => ({
-        gameCode: e.GAME_CODE, code: e.CODE, name: e.NAME, imageUrl: Utils.appendRepoUrl(e.IMAGE_URL)
+        gameCode: e.GAME_CODE,
+        code: e.CODE,
+        name: e.NAME,
+        imageUrl: Utils.appendRepoUrl(e.IMAGE_URL),
+        isAlt: e.IS_ALT
       }));
     });
   }
 
   getAll(gameCode: any) {
-    return this.elementsList.filter(e => e.gameCode == gameCode);
+    return this.elementsList.filter(e => e.gameCode == gameCode && !e.isAlt);
   }
 
   getOne(gameCode: any, code: any) {

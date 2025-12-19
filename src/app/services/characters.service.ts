@@ -24,6 +24,7 @@ export class CharactersService {
         imageUrl: Utils.appendRepoUrl(c.IMAGE_URL),
         cardImageUrl: Utils.appendRepoUrl(c.CARD_IMAGE_URL),
         element: c.ELEMENT,
+        elementActual: c.ELEMENT_ACTUAL,
         type: c.TYPE,
         rarity: c.RARITY,
         enhanced: c.ENHANCED

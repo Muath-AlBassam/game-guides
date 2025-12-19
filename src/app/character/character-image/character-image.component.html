@@ -3,7 +3,7 @@
   class="char-card {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}} {{charmd.enhanced ? 'glow-border' : ''}}"
   [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
   <img *ngIf="showElement" class="ele-img" [src]="elementImageUrl ?? transparentImg" [width]="iconSize"
-    [height]="iconSize" [title]="charmd.element" loading="lazy" />
+    [height]="iconSize" [title]="elementCode" loading="lazy" />
 
   <img *ngIf="showType" class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? transparentImg"
     [width]="iconSize" [height]="iconSize" [title]="charmd.type" loading="lazy" />
@@ -36,7 +36,7 @@
     [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
 
   <img *ngIf="showElement" [src]="elementImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize"
-    class="element-icon" [title]="charmd.element" loading="lazy" />
+    class="element-icon" [title]="elementCode" loading="lazy" />
 
   <img *ngIf="showType" [src]="typeImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize" class="type-icon"
     [title]="charmd.type" loading="lazy" />

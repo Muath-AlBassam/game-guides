@@ -34,6 +34,7 @@ export class CharacterImageComponent implements OnInit {
   showBuild: boolean = false;
   showElement: boolean = false;
   showType: boolean = false;
+  elementCode: any = '';
   elementImageUrl: any = '';
   typeImageUrl: any = '';
   addRarityClass: boolean = false;
@@ -59,7 +60,8 @@ export class CharacterImageComponent implements OnInit {
       this.charmd = this.charactersService.getOne(this.gameCode, this.characterName);
       this.showElement = this.withElement && this.charmd.element;
       this.showType = this.withType && this.charmd.type;
-      this.elementImageUrl = this.elementsService.getOne(this.gameCode, this.charmd.element).imageUrl;
+      this.elementCode = this.charmd.elementActual ?? this.charmd.element;
+      this.elementImageUrl = this.elementsService.getOne(this.gameCode, this.elementCode).imageUrl;
       this.typeImageUrl = this.typesService.getOne(this.gameCode, this.charmd.type)?.imageUrl;
       this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
     } else {
