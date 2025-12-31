@@ -9,7 +9,7 @@
     <div class="teams__container">
       <div class="number">{{teamIndex}}</div>
       <div class="item">
-        <div class="name collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
+        <div class="name pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">
           <img [src]="team.iconUrl ?? 'assets/images/Placeholder_Logo.png'" [height]="isMobile() ? '30' : '40'">
           <span [innerHTML]="team.name ? team.name : '...'"></span>
         </div>
@@ -23,15 +23,17 @@
             [height]="petPFPSize" [width]="petPFPSize" class="pet {{gameCode+'-rarity-'+petmd.rarity}}"
             [title]="petmd.name">
         </div>
-        <div class="actions collapsed pointer" data-bs-toggle="collapse" data-bs-target="#${this.teamId}">
-          <img src="assets/svg/arrow-down.svg" height="60" title="Details" class="action">
+        <div class="actions pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">
+          <img src="assets/svg/arrow-down.svg" height="60">
         </div>
       </div>
     </div>
-    <div class="teams__details show" data-bs-parent="#teams" id="${this.teamId}">
-      <app-team-roles [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-roles>
-      <app-team-replacements [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-replacements>
-      <app-team-notes [gameCode]="gameCode" [teamCode]="teamCode" class="table-responsive"></app-team-notes>
+    <div class="show" id="teamDetails">
+      <div class="teams__details" >
+        <app-team-roles [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-roles>
+        <app-team-replacements [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-replacements>
+        <app-team-notes [gameCode]="gameCode" [teamCode]="teamCode" class="table-responsive"></app-team-notes>
+      </div>
     </div>
   </div>
 </div>
