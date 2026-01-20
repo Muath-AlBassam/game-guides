@@ -6,7 +6,7 @@
     </h5>
     <div class="character-teams-container row justify-content-center">
       <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1" *ngFor="let team of teams">
-        <app-team-info [gameCode]="gameCode" [teamCode]="team.code"
+        <app-team-info [gameCode]="gameCode" [teamCode]="team.code" [nameStyle]="'top'"
           [characterMobileSizeRation]="0.5"></app-team-info>
       </div>
       <!-- to not make odd team in the center -->

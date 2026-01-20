@@ -56,7 +56,7 @@ export class NotesService {
 
   getCharacterImageAsTooltip(name: string, gameCode: string) {
     return `
-        <b class="img-tooltip">
+        <b class="img-tooltip no-break">
             ${name}
             ${this.getCharacterImage(name, gameCode)}
         </b>`;
@@ -117,7 +117,7 @@ export class NotesService {
       .replace(/ times /g, Constants.unicode.times)
       .replace(/arrow/g, `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>`)
       .replace(/c_(.*?)_c/g, (match, capture) => this.getCharacterImage(capture, gameCode)) // character image
-      .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterImage(capture, gameCode) + ` <b>${capture}</b>`) // character image + name
+      .replace(/cn_(.*?)_cn/g, (match, capture) => this.getCharacterImage(capture, gameCode) + ` <b class="no-break">${capture}</b>`) // character image + name
       .replace(/ca_(.*?)_ca/g, (match, capture) => this.getCharacterImageAsTooltip(capture, gameCode)) // character name with image tooltip
       .replace(/t_(.*?)_t/g, (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`) // title
       .replace(/img_(.*?)_img/g, (match, capture) => this.imageOf(Utils.appendRepoUrl(capture))) // image
@@ -127,6 +127,6 @@ export class NotesService {
       .replace(/i_(.*?)_i/g, (match, capture) => `<u>${capture}</u>`) // italic
       .replace(/nl_/g, `<br/>`) // new line
       .replace(/tp_(.*?)_(.*?)_tp/g, (match, capture1, capture2) => this.htmlTooltip(capture1, capture2)) // tooltip
-      .replace(/cb_(.*?)_cb/g, (match, capture) => `<b>[${capture}]</b>`) // new line;
+      .replace(/cb_(.*?)_cb/g, (match, capture) => `<b>[</b>${capture}<b>]</b>`) // new line;
   }
 }
