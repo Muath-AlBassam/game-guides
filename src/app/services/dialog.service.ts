@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Utils } from '../utils/utils';
 import { CharacterDetailsDialogComponent } from '../character/character-details-dialog/character-details-dialog.component';
 import { TeamDetailsDialogComponent } from '../team/team-details-dialog/team-details-dialog.component';
+import { TextFormatterComponent } from '../settings/text-formatter/text-formatter.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,16 @@ export class DialogService {
     dialogConfig.panelClass = 'custom-mat-dialog';
     dialogConfig.data = { gameCode: gameCode, teamCode: teamCode, teamIndex: 1 };
     const dialogRef = this.dialog.open(TeamDetailsDialogComponent, dialogConfig);
+  }
+
+  // settings
+  openTextFormatterDialog() {
+    this.dialog.closeAll();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = Utils.isMobile() ? '100vw' : '40%';
+    dialogConfig.maxWidth = '100vw';
+    dialogConfig.maxHeight = '100%';
+    dialogConfig.panelClass = 'custom-mat-dialog';
+    const dialogRef = this.dialog.open(TextFormatterComponent, dialogConfig);
   }
 }

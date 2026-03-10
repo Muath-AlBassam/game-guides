@@ -9,8 +9,8 @@
     <div class="teams__container">
       <div class="number">{{teamIndex}}</div>
       <div class="item">
-        <div class="name pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">
-          <img [src]="team.iconUrl ?? 'assets/images/Placeholder_Logo.png'" [height]="isMobile() ? '30' : '40'">
+        <div class="name pointer" [ngClass]="{'name-no-icon': team.iconUrl == null}" data-bs-toggle="collapse" data-bs-target="#teamDetails">
+          <img *ngIf="team.iconUrl != null" [src]="team.iconUrl" [height]="isMobile() ? '30' : '40'">
           <span [innerHTML]="team.name ? team.name : '...'"></span>
         </div>
         <div class="members">

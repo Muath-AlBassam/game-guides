@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>
+  <span>Text Formatter</span>
+  <span mat-icon-button [mat-dialog-close]="null" title="Close" style="float: right; margin-top: 15px; font-size: 1.5em;">
+    &times;
+  </span>
+</h1>
+<div mat-dialog-content>
+  <div class="mt-4">
+    <div class="form-check form-check-inline" *ngFor="let game of games">
+      <input class="form-check-input" type="radio" name="gamecode" [id]="'gamecode' + game.code"
+            [(ngModel)]="gameCode" [value]="game.code" (ngModelChange)="formatText()">
+      <label class="form-check-label" [for]="'gamecode' + game.code">{{ game.label }}</label>
+    </div>
+
+    <hr>
+
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="showpreview" [(ngModel)]="showFormatted">
+      <label class="form-check-label" for="showpreview"> Show Preview </label>
+    </div>
+
+    <hr>
+
+    <div class="row mt-3">
+      <div class="col-md-12">
+        <textarea *ngIf="!showFormatted" class="form-control" [(ngModel)]="text" name="rawtext"
+                  style="height: 150px" (ngModelChange)="formatText()">
+        </textarea>
+
+        <div *ngIf="showFormatted" [innerHTML]="formattedText" class="formatted-text-box"></div>
+      </div>
+    </div>
+  </div>
+</div>

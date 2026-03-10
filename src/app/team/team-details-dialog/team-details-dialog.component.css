@@ -43,6 +43,10 @@
   justify-items: center;
 }
 
+.teams__container .item .name-no-icon {
+  grid-template-columns: 100%;
+}
+
 .teams__container .item .members {
   display: flex;
   align-items: center;

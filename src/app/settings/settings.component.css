@@ -1,0 +1,11 @@
+.setting .title {
+  font-family: 'Death Star';
+  text-align: center;
+}
+
+.setting .item {
+  background-color: #33343a;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2rem;
+}

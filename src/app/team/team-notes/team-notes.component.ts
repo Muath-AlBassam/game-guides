@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NoteUtils } from '../../utils/note-utils';
 
 @Component({
   selector: 'app-team-notes',
@@ -15,7 +16,7 @@ export class TeamNotesComponent implements OnInit {
   notes: any[] = [];
   formattedNotes: any[] = [];
 
-  constructor(private notesService: NotesService, private sanitizer: DomSanitizer) { }
+  constructor(private notesService: NotesService, private noteUtils: NoteUtils, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.loadNotes();
@@ -28,8 +29,7 @@ export class TeamNotesComponent implements OnInit {
 
   formatNotes() {
     if (this.notes && this.notes?.length > 0) {
-      this.formattedNotes = this.notes
-        .map(n => this.sanitizer.bypassSecurityTrustHtml(this.notesService.formatNotes(n.text, this.gameCode)));
+      this.formattedNotes = this.notes.map(n => this.noteUtils.format(n.text, this.gameCode));
     }
   }
 }

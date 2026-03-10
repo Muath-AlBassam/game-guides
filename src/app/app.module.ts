@@ -35,6 +35,9 @@ import { ButtonGroupComponent } from './shared/button-group/button-group.compone
 import { SearchComponent } from './shared/search/search.component';
 import { AdvancedFilterComponent } from './shared/advanced-filter/advanced-filter.component';
 import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.component';
+import { SettingsComponent } from './settings/settings.component';
+import { TextFormatterComponent } from './settings/text-formatter/text-formatter.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -68,10 +71,13 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
     SearchComponent,
     AdvancedFilterComponent,
     NotesPopoverComponent,
+    SettingsComponent,
+    TextFormatterComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

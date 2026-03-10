@@ -8,6 +8,7 @@ import { SetListComponent } from './set/set-list/set-list.component';
 import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
 import { TeamListComponent } from './team/team-list/team-list.component';
 import { ErrorComponent } from './core/error/error.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'web', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
+      { path: 'settings', component: SettingsComponent },
       {
         path: ':gameCode',
         component: GameGuidesComponent,
