@@ -10,12 +10,25 @@ import { Injectable } from "@angular/core";
 export class NoteUtils {
 
   constructor(private charactersService: CharactersService, private sanitizer: DomSanitizer) {}
-  
+
+  isGI(gameCode: string): boolean {
+    return gameCode == Constants.games.GI;
+  }
+
+  isHSR(gameCode: string): boolean {
+    return gameCode == Constants.games.HSR;
+  }
+
+  isZZZ(gameCode: string): boolean {
+    return gameCode == Constants.games.ZZZ;
+  }
+
   repeat = (text: string) => `<span class="arrow-border">${text}</span>`;
   tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
   htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
   imageOf = (path: string, tooltip: string | null = null, style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
-
+  color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
+  bold = (text: string) => `<b>${text}</b>`;
 
   getCharacterImage(name: string, gameCode: string) {
     let charmd = this.charactersService.getOne(gameCode, name);
@@ -66,13 +79,13 @@ export class NoteUtils {
     }
     // img_***_img => image
     let formatted = String(text)
-      .replace(/normal/g, (match) => gameCode == Constants.games.GI ? this.gi.normal : match)
-      .replace(/charged/g, (match) => gameCode == Constants.games.GI ? this.gi.charged : gameCode == Constants.games.ZZZ ? this.zzz.charged : match)
-      .replace(/tapskill/g, (match) => gameCode == Constants.games.GI ? this.gi.tapSkill : match)
-      .replace(/holdskill/g, (match) => gameCode == Constants.games.GI ? this.gi.holdSkill : match)
-      .replace(/skill/g, (match) => gameCode == Constants.games.GI ? this.gi.skill : match)
-      .replace(/ultimate/g, (match) => gameCode == Constants.games.GI ? this.gi.ultimate : gameCode == Constants.games.ZZZ ? this.zzz.ultimate : match)
-      .replace(/plunge/g, (match) => gameCode == Constants.games.GI ? this.gi.plunge : match)
+      .replace(/normal/g, (match) => this.isGI(gameCode) ? this.gi.normal : match)
+      .replace(/charged/g, (match) => this.isGI(gameCode) ? this.gi.charged : this.isZZZ(gameCode) ? this.zzz.charged : match)
+      .replace(/tapskill/g, (match) => this.isGI(gameCode) ? this.gi.tapSkill : match)
+      .replace(/holdskill/g, (match) => this.isGI(gameCode) ? this.gi.holdSkill : match)
+      .replace(/skill/g, (match) => this.isGI(gameCode) ? this.gi.skill : match)
+      .replace(/ultimate/g, (match) => this.isGI(gameCode) ? this.gi.ultimate : this.isZZZ(gameCode) ? this.zzz.ultimate : match)
+      .replace(/plunge/g, (match) => this.isGI(gameCode) ? this.gi.plunge : match)
       .replace(/basic/g, this.zzz.basic)
       .replace(/exspecial/g, this.zzz.exSpecial)
       .replace(/special/g, this.zzz.special)
@@ -98,5 +111,31 @@ export class NoteUtils {
       .replace(/cb_(.*?)_cb/g, (match, capture) => `<b>[</b>${capture}<b>]</b>`) // new line;
 
     return this.sanitizer.bypassSecurityTrustHtml(formatted);
+  }
+
+  colorize(text: string | null, gameCode: string) {
+    if (text == null) {
+      return '';
+    }
+    let colorized = String(text)
+      .replace(/fire dmg|burning/gi, (match) => this.isGI(gameCode) ? match : this.color(match, 'ff5521'))
+      .replace(/electric dmg|shocked/gi, (match) => this.color(match, '2eb6ff'))
+      .replace(/ether dmg|corruption/gi, (match) => this.color(match, 'fe437e'))
+      .replace(/ice dmg|freeze|shatter/gi, (match) => this.color(match, '98eff0'))
+      .replace(/physical dmg/gi, (match) => this.isHSR(gameCode) ? this.color(match, '979797') : this.isZZZ(gameCode) ? this.color(match, 'f0d12b') : match)
+      .replace(/lightning dmg|electro dmg/gi, (match) => this.color(match, 'c65ade'))
+      .replace(/wind dmg/gi, (match) => this.color(match, '61cf93'))
+      .replace(/quantum dmg/gi, (match) => this.color(match, '766dd6'))
+      .replace(/imaginary dmg/gi, (match) => this.color(match, 'f3e137'))
+      .replace(/pyro dmg/gi, (match) => this.color(match, 'ef7938'))
+      .replace(/cryo dmg/gi, (match) => this.color(match, '9fd6e3'))
+      .replace(/hydro dmg/gi, (match) => this.color(match, '4cc2f1'))
+      .replace(/electro dmg/gi, (match) => this.color(match, 'af8ec1'))
+      .replace(/anemo dmg/gi, (match) => this.color(match, '74c2a8'))
+      .replace(/geo dmg/gi, (match) => this.color(match, 'fab632'))
+      .replace(/dendro dmg/gi, (match) => this.color(match, 'a5c83b'))
+      .replace(/\d+(\.\d+)?%/g, (match) => this.color(match, 'f3e137')) // numbers
+
+    return this.sanitizer.bypassSecurityTrustHtml(colorized);
   }
 }

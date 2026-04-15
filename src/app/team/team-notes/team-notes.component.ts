@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
-import { DomSanitizer } from '@angular/platform-browser';
 import { NoteUtils } from '../../utils/note-utils';
 
 @Component({
@@ -16,7 +15,7 @@ export class TeamNotesComponent implements OnInit {
   notes: any[] = [];
   formattedNotes: any[] = [];
 
-  constructor(private notesService: NotesService, private noteUtils: NoteUtils, private sanitizer: DomSanitizer) { }
+  constructor(private notesService: NotesService, private noteUtils: NoteUtils) { }
 
   ngOnInit(): void {
     this.loadNotes();

@@ -38,6 +38,7 @@ import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.comp
 import { SettingsComponent } from './settings/settings.component';
 import { TextFormatterComponent } from './settings/text-formatter/text-formatter.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -82,10 +83,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     MatDialogModule,
+    NgbModule,
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

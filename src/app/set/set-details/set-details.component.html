@@ -1,4 +1,5 @@
-<div class="set-container">
+<div class="set-container" [ngbPopover]="setEffectPopover" [popoverTitle]="'Set Effect'"
+    [disablePopover]="!showEffects || setEffectsList.length == 0" container="body" popoverClass="gagu-popover">
   <div class="set-image {{gameCode}}-rarity-{{set.rarity}}">
     <img [src]="set.imageUrl ?? 'assets/svg/unknown.svg'" height="70" />
   </div>
@@ -9,3 +10,10 @@
     </h5>
   </div>
 </div>
+
+<ng-template #setEffectPopover>
+  <div *ngFor="let eff of setEffectsList">
+    <b style="text-decoration: underline; margin-inline-end: 10px;">{{ eff.label }}:</b>
+    <span [innerHTML]="eff.formattedDescription"></span>
+  </div>
+</ng-template>

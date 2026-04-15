@@ -14,6 +14,7 @@ export class SetListComponent implements OnInit {
   gameCode: any = null;
   allSets: any[] = [];
   setByType: Map<any, any> = new Map();
+  setByTypeList: any[] = [];
   count: number = 0;
 
   setsLabel = '';
@@ -32,10 +33,7 @@ export class SetListComponent implements OnInit {
     this.allSets = this.setsService.getAll(this.gameCode);
     this.setByType = Utils.groupBy(this.allSets, 'type');
     this.setByType.forEach((v, k) => this.count += v.length);
-  }
-
-  getMapAsList() {
-    return Array.from(this.setByType);
+    this.setByTypeList = Array.from(this.setByType);
   }
 
   onTextChange(val: string) {
@@ -47,8 +45,9 @@ export class SetListComponent implements OnInit {
     let filtered = this.allSets.filter(s => {
       return s.name.toLowerCase().includes(this.textValue.toLowerCase());
     });
-    this.setByType = Utils.groupBy(filtered, 'type');
     this.count = 0;
+    this.setByType = Utils.groupBy(filtered, 'type');
     this.setByType.forEach((v, k) => this.count += v.length);
+    this.setByTypeList = Array.from(this.setByType);
   }
 }

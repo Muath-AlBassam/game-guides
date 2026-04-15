@@ -23,6 +23,7 @@ export class WeaponsService {
         name: w.NAME,
         type: w.TYPE,
         secondaryStat: w.SECONDARY_STAT,
+        effect: w.EFFECT,
         imageUrl: Utils.appendRepoUrl(w.IMAGE_URL),
         rarity: w.RARITY
       }));

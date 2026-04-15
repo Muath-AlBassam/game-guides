@@ -12,6 +12,7 @@ import { PetsService } from './services/pets.service';
 import { RaritiesService } from './services/rarities.service';
 import { RolesService } from './services/roles.service';
 import { SetsService } from './services/sets.service';
+import { SetsEffectsService } from './services/sets-effects.service';
 import { TeamsService } from './services/teams.service';
 import { TypesService } from './services/types.service';
 import { WeaponsService } from './services/weapons.service';
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
     private raritiesService: RaritiesService,
     private rolesService: RolesService,
     private setsService: SetsService,
+    private setsEffectsService: SetsEffectsService,
     private teamsService: TeamsService,
     private typesService: TypesService,
     private weaponsService: WeaponsService,
