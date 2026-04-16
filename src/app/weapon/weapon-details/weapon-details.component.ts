@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { WeaponsService } from '../../services/weapons.service';
 import { RaritiesService } from '../../services/rarities.service';
 import { TypesService } from '../../services/types.service';
-import { NoteUtils } from '../../utils/note-utils';
+import { TextUtils } from '../../utils/text-utils';
 
 @Component({
   selector: 'app-weapon-details',
@@ -21,7 +21,7 @@ export class WeaponDetailsComponent implements OnInit {
   type: any = null;
 
   constructor(private weaponsService: WeaponsService, private raritiesService: RaritiesService, private typesService: TypesService,
-              private noteUtils: NoteUtils) { }
+              private textUtils: TextUtils) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -30,7 +30,7 @@ export class WeaponDetailsComponent implements OnInit {
   loadData() {
     this.weapon = this.weaponsService.getOne(this.gameCode, this.weaponName);
     if (this.showEffects) {
-      this.weapon.formattedEffect = this.noteUtils.colorize(this.weapon.effect, this.gameCode);
+      this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.gameCode);
     }
     this.rarity = this.raritiesService.getOne(this.gameCode, this.weapon.rarity);
     this.type = this.typesService.getOne(this.gameCode, this.weapon.type);

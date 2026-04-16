@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../utils/constants';
-import { NoteUtils } from '../../utils/note-utils';
+import { TextUtils } from '../../utils/text-utils';
 import { GamesService } from '../../services/games.service';
 
 @Component({
@@ -19,13 +19,13 @@ export class TextFormatterComponent implements OnInit {
 
   showFormatted: boolean = false;
 
-  constructor(private noteUtils: NoteUtils, private gamesService: GamesService, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(private textUtils: TextUtils, private gamesService: GamesService, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
     this.games = this.gamesService.getAll();
   }
 
   formatText() {
-    this.formattedText = this.noteUtils.format(this.text, this.gameCode);
+    this.formattedText = this.textUtils.format(this.text, this.gameCode);
   }
 }

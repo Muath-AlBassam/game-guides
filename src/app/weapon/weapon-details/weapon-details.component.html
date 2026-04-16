@@ -1,4 +1,4 @@
-<div class="weapon-container" *ngIf="weapon" [ngbPopover]="weaponEffectPopover" [popoverTitle]="'Effect'"
+<div class="weapon-container" *ngIf="weapon" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
     [disablePopover]="!showEffects || !weapon.effect" container="body" popoverClass="gagu-popover">
   <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
     <img [src]="weapon.imageUrl ?? 'assets/svg/unknown.svg'" height="80" />

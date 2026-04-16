@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
-import { NoteUtils } from '../../utils/note-utils';
+import { TextUtils } from '../../utils/text-utils';
 
 @Component({
   selector: 'app-team-notes',
@@ -15,7 +15,7 @@ export class TeamNotesComponent implements OnInit {
   notes: any[] = [];
   formattedNotes: any[] = [];
 
-  constructor(private notesService: NotesService, private noteUtils: NoteUtils) { }
+  constructor(private notesService: NotesService, private textUtils: TextUtils) { }
 
   ngOnInit(): void {
     this.loadNotes();
@@ -28,7 +28,7 @@ export class TeamNotesComponent implements OnInit {
 
   formatNotes() {
     if (this.notes && this.notes?.length > 0) {
-      this.formattedNotes = this.notes.map(n => this.noteUtils.format(n.text, this.gameCode));
+      this.formattedNotes = this.notes.map(n => this.textUtils.format(n.text, this.gameCode));
     }
   }
 }

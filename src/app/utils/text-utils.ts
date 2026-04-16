@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: 'root'
 })
-export class NoteUtils {
+export class TextUtils {
 
   constructor(private charactersService: CharactersService, private sanitizer: DomSanitizer) {}
 
@@ -119,7 +119,7 @@ export class NoteUtils {
     }
     let colorized = String(text)
       .replace(/fire dmg|burning/gi, (match) => this.isGI(gameCode) ? match : this.color(match, 'ff5521'))
-      .replace(/electric dmg|shocked/gi, (match) => this.color(match, '2eb6ff'))
+      .replace(/electric dmg|shocked/gi, (match) => this.isZZZ(gameCode) ? this.color(match, '2eb6ff') : match)
       .replace(/ether dmg|corruption/gi, (match) => this.color(match, 'fe437e'))
       .replace(/ice dmg|freeze|shatter/gi, (match) => this.color(match, '98eff0'))
       .replace(/physical dmg/gi, (match) => this.isHSR(gameCode) ? this.color(match, '979797') : this.isZZZ(gameCode) ? this.color(match, 'f0d12b') : match)
@@ -134,7 +134,8 @@ export class NoteUtils {
       .replace(/anemo dmg/gi, (match) => this.color(match, '74c2a8'))
       .replace(/geo dmg/gi, (match) => this.color(match, 'fab632'))
       .replace(/dendro dmg/gi, (match) => this.color(match, 'a5c83b'))
-      .replace(/\d+(\.\d+)?%/g, (match) => this.color(match, 'f3e137')) // numbers
+      .replace(/\d+(\.\d+)?%/g, (match) => this.color(match, 'f3e137')) // numbers (%)
+      .replace(/\d+(\.\d+)?s/g, (match) => this.color(match, 'f3e137')) // numbers (s)
 
     return this.sanitizer.bypassSecurityTrustHtml(colorized);
   }
