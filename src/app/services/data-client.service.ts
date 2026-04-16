@@ -25,7 +25,7 @@ export class DataClientService {
   }
 
   private loadLocalWorkbook() {
-    this.http.get('assets/Game Guides DB.xlsx', { responseType: 'arraybuffer' })
+    this.http.get('assets/GaGu DB.xlsx', { responseType: 'arraybuffer' })
       .subscribe(arrayBuffer => {
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         this.store.set('localWorkbook', workbook);
