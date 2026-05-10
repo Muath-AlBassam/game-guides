@@ -43,7 +43,7 @@ export class CharacterImageComponent implements OnInit {
   charmdList: any[] = [];
 
   transparentImg = Constants.images.transparent;
-  unknownImg = Constants.images.unknown;
+  unknownImg = Constants.images.unknownCharacter;
 
   constructor(private charactersService: CharactersService, private elementsService: ElementsService, private typesService: TypesService,
     private dialogService: DialogService) { }

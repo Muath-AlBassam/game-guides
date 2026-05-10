@@ -3,6 +3,7 @@ import { WeaponsService } from '../../services/weapons.service';
 import { RaritiesService } from '../../services/rarities.service';
 import { TypesService } from '../../services/types.service';
 import { TextUtils } from '../../utils/text-utils';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-weapon-details',
@@ -10,6 +11,8 @@ import { TextUtils } from '../../utils/text-utils';
   styleUrl: './weapon-details.component.css'
 })
 export class WeaponDetailsComponent implements OnInit {
+
+  readonly unknownImg = Constants.images.unknown;
 
   @Input() gameCode: any = null;
   @Input() weaponName: any = null;

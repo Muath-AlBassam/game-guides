@@ -31,7 +31,7 @@ export class TextUtils {
   bold = (text: string) => `<b>${text}</b>`;
 
   getCharacterImage(name: string, gameCode: string) {
-    let charmd = this.charactersService.getOne(gameCode, name);
+    let charmd = this.charactersService.getOne(gameCode, name?.trim());
     return this.imageOf(charmd.imageUrl, name);
   }
 

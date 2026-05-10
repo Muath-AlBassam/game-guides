@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SetsService } from '../../services/sets.service';
 import { SetsEffectsService } from '../../services/sets-effects.service';
 import { TextUtils } from '../../utils/text-utils';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-set-details',
@@ -9,6 +10,8 @@ import { TextUtils } from '../../utils/text-utils';
   styleUrl: './set-details.component.css'
 })
 export class SetDetailsComponent implements OnInit {
+
+  readonly unknownImg = Constants.images.unknown;
 
   @Input() gameCode: any = null;
   @Input() setName: any = null;

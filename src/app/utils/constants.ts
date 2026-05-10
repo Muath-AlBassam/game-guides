@@ -26,8 +26,9 @@ export class Constants {
     }
 
     static images = {
-        transparent: 'assets/images/Placeholder_Logo.png',
-        unknown: 'assets/images/Unknown.png'
+        transparent: 'assets/images/placeholder-logo.png',
+        unknown: 'assets/svg/unknown.svg',
+        unknownCharacter: 'assets/svg/person-question-mark.svg'
     }
 
     static unicode = {

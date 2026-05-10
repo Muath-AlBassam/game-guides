@@ -4,6 +4,7 @@ import { GamesService } from '../../services/games.service';
 import { TeamsService } from '../../services/teams.service';
 import { PetsService } from '../../services/pets.service';
 import { Utils } from '../../utils/utils';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-team-details-dialog',
@@ -11,6 +12,8 @@ import { Utils } from '../../utils/utils';
   styleUrl: './team-details-dialog.component.css'
 })
 export class TeamDetailsDialogComponent implements OnInit {
+
+  readonly unknownImg = Constants.images.unknown;
 
   gameCode: any = null;
   teamCode: any = null;

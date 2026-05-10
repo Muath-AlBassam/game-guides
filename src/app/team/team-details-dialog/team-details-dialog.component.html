@@ -19,7 +19,7 @@
             [withDetailsDialog]="true" [withElement]="true" [mobileSizeRatio]="0.6">
           </app-character-image>
 
-          <img *ngIf="activeGame.hasPet && petmd" [src]="petmd.imageUrl ?? 'assets/images/Unknown.png'"
+          <img *ngIf="activeGame.hasPet && petmd" [src]="petmd.imageUrl ?? unknownImg"
             [height]="petPFPSize" [width]="petPFPSize" class="pet {{gameCode+'-rarity-'+petmd.rarity}}"
             [title]="petmd.name">
         </div>
