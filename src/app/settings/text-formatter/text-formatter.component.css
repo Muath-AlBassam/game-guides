@@ -1,6 +1,27 @@
+
+.form-control {
+  border-radius: 0 0.375rem 0.375rem 0.375rem;
+}
+
 .formatted-text-box {
   height: 150px;
-  border: 1px solid grey;
-  border-radius: 0.375rem;
+  border: 1.5px solid white;
+  border-radius: 0 0.375rem 0.375rem 0.375rem;
   padding: 10px;
+}
+
+.btn-formatter {
+  border-color: white;
+  border-radius: 0;
+  color: white;
+  font-weight: 300;
+}
+
+.btn-formatter:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-group > .btn {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
