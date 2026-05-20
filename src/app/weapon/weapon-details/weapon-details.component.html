@@ -1,8 +1,10 @@
 <div class="weapon-container" *ngIf="weapon" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
-    popoverClass="gagu-popover" [disablePopover]="!showEffects || !weapon.effect" container="body">
+    popoverClass="gagu-popover" [disablePopover]="effectStyle != 'popover' || !weapon.effect" container="body">
+  <!-- Image -->
   <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
     <img [src]="weapon.imageUrl ?? unknownImg" height="80" />
   </div>
+  <!-- Info -->
   <div class="weapon-info">
     <div>
       <h5 class="weapon-name">
@@ -15,11 +17,23 @@
       </p>
     </div>
   </div>
+  <!-- Effect (box) - Trigger -->
+  <div *ngIf="effectStyle == 'box' && weapon.effect" class="pointer effect-arrow collapsed"
+      data-bs-toggle="collapse" [attr.data-bs-target]="'#'+weaponId+'effect'">
+    <img src="assets/svg/arrow-down.svg" height="30">
+  </div>
+  <!-- Secondary stats -->
   <div class="weapon-stat" *ngIf="showAdditionalInfo && weapon.secondaryStat">
     <b>{{weapon.secondaryStat}}</b>
   </div>
+  <!-- Effect (box) -->
+  <div *ngIf="effectStyle == 'box' && weapon.effect" class="weapon-effect collapse"
+      id="{{weaponId}}effect" data-bs-parent="#weapons-container">
+    <div [innerHTML]="weapon.formattedEffect"></div>
+  </div>
 </div>
 
+<!-- Effect (popover) -->
 <ng-template #weaponEffectPopover>
   <div [innerHTML]="weapon.formattedEffect"></div>
 </ng-template>

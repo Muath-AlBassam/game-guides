@@ -20,6 +20,7 @@ export class SetsEffectsService {
         gameCode: s.GAME_CODE,
         code: s.CODE,
         label: s.LABEL,
+        requiredCount: s.REQUIRED_COUNT,
         description: s.DESCRIPTION
       }));
     });

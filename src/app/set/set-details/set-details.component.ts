@@ -16,16 +16,18 @@ export class SetDetailsComponent implements OnInit {
   @Input() gameCode: any = null;
   @Input() setName: any = null;
   @Input() pieceCount: any = null;
-  @Input() showEffects: boolean = true;
+  @Input() effectStyle: 'popover' | 'box' = 'popover';
 
   set: any = null;
-  setEffectsList: any = null;
+  setId: string = '';
+  setEffectsList: any[] = [];
 
   constructor(private setsService: SetsService, private setsEffectsService: SetsEffectsService, private textUtils: TextUtils) { }
 
   ngOnInit(): void {
     this.loadSet();
     this.loadSetEffects();
+    this.setId = this.set.name.replace(/[^a-zA-Z0-9]/g, '');
   }
 
   loadSet() {
@@ -33,11 +35,12 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadSetEffects() {
-    if (this.showEffects) {
-      this.setEffectsList = this.setsEffectsService.getOne(this.gameCode, this.setName);
-      this.setEffectsList.forEach((eff: any) => {
-        eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
-      });
+    this.setEffectsList = this.setsEffectsService.getOne(this.gameCode, this.setName);
+    this.setEffectsList.forEach((eff: any) => {
+      eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
+    });
+    if (this.pieceCount) {
+      this.setEffectsList = this.setEffectsList.filter((eff: any) => Number(this.pieceCount) >= eff.requiredCount);
     }
   }
 }

@@ -17,9 +17,10 @@ export class WeaponDetailsComponent implements OnInit {
   @Input() gameCode: any = null;
   @Input() weaponName: any = null;
   @Input() showAdditionalInfo: boolean = true;
-  @Input() showEffects: boolean = true;
+  @Input() effectStyle: 'popover' | 'box' = 'popover';
 
   weapon: any = null;
+  weaponId: string = '';
   rarity: any = null;
   type: any = null;
 
@@ -28,13 +29,12 @@ export class WeaponDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+    this.weaponId = this.weapon.name.replace(/[^a-zA-Z0-9]/g, '');
   }
 
   loadData() {
     this.weapon = this.weaponsService.getOne(this.gameCode, this.weaponName);
-    if (this.showEffects) {
-      this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.gameCode);
-    }
+    this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.gameCode);
     this.rarity = this.raritiesService.getOne(this.gameCode, this.weapon.rarity);
     this.type = this.typesService.getOne(this.gameCode, this.weapon.type);
   }

@@ -3,7 +3,7 @@
   border: 2px solid #484950;
   align-items: center;
   display: grid;
-  grid-template-columns: 90px calc(100% - 90px);
+  grid-template-columns: 90px calc(100% - 140px) 50px;
   grid-template-rows: auto auto;
 }
 
@@ -27,8 +27,6 @@
 .set-container .set-info {
   align-items: center;
   display: flex;
-  grid-row: 1;
-  grid-column: 2;
 }
 
 .set-container .set-info .set-name {
@@ -40,4 +38,20 @@
   display: inline;
   margin-left: 5px;
   padding-right: 5px;
+}
+
+.set-container .set-effect {
+  background-color: var(--background-color);
+  border-top: 2px solid #484950;
+  padding: 2px 5px;
+  width: 100%;
+  grid-row: 3;
+  grid-column: 1 / span 3;
+}
+
+.effect-arrow:not(.collapsed) img {
+  transform: rotate(-180deg);
+}
+.effect-arrow.collapsed img {
+  transform: rotate(0deg);
 }
