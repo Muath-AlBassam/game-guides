@@ -123,24 +123,35 @@ export class TextUtils {
 
   COLOR_FORMATS_LIST(gameCode: string) {
     return [
-      { title: 'Fire', offset: 8, regex: /fire dmg|burning/g, replace: (match: any) => this.isGI(gameCode) ? match : this.color(match, 'ff5521') },
-      { title: 'Electric', offset: 12, regex: /electric dmg|shocked/g, replace: (match: any) => this.isZZZ(gameCode) ? this.color(match, '2eb6ff') : match },
-      { title: 'Ether', offset: 9, regex: /ether dmg|corruption/g, replace: (match: any) => this.color(match, 'fe437e') },
-      { title: 'Ice', offset: 7, regex: /ice dmg|freeze|shatter/g, replace: (match: any) => this.color(match, '98eff0') },
-      { title: 'Physical', offset: 12, regex: /physical dmg/g, replace: (match: any) => this.isHSR(gameCode) ? this.color(match, '979797') : this.isZZZ(gameCode) ? this.color(match, 'f0d12b') : match },
-      { title: 'Lightning', offset: 13, regex: /lightning dmg|electro dmg/g, replace: (match: any) => this.color(match, 'c65ade') },
-      { title: 'Wind', offset: 8, regex: /wind dmg/g, replace: (match: any) => this.color(match, '61cf93') },
-      { title: 'Quantum', offset: 11, regex: /quantum dmg/g, replace: (match: any) => this.color(match, '766dd6') },
-      { title: 'Imaginary', offset: 13, regex: /imaginary dmg/g, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Pyro', offset: 8, regex: /pyro dmg/g, replace: (match: any) => this.color(match, 'ef7938') },
-      { title: 'Cryo', offset: 8, regex: /cryo dmg/g, replace: (match: any) => this.color(match, '9fd6e3') },
-      { title: 'Hydro', offset: 9, regex: /hydro dmg/g, replace: (match: any) => this.color(match, '4cc2f1') },
-      { title: 'Electro', offset: 11, regex: /electro dmg/g, replace: (match: any) => this.color(match, 'af8ec1') },
-      { title: 'Anemo', offset: 9, regex: /anemo dmg/g, replace: (match: any) => this.color(match, '74c2a8') },
-      { title: 'Geo', offset: 7, regex: /geo dmg/g, replace: (match: any) => this.color(match, 'fab632') },
-      { title: 'Dendro', offset: 10, regex: /dendro dmg/g, replace: (match: any) => this.color(match, 'a5c83b') },
-      { title: 'Numbers (%)', offset: 0, regex: /\d+(\.\d+)?%/g, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (s)', offset: 0, regex: /\d+(\.\d+)?s/g, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Fire', offset: 8, regex: /fire dmg|fire|burning/gi, replace: (match: any) => this.isGI(gameCode) ? match : this.color(match, 'ff5521') },
+      { title: 'Electric', offset: 12, regex: /electric dmg|electric|shocked/gi, replace: (match: any) => this.isZZZ(gameCode) ? this.color(match, '2eb6ff') : match },
+      { title: 'Ether', offset: 9, regex: /ether dmg|ether|corruption/gi, replace: (match: any) => this.color(match, 'fe437e') },
+      { title: 'Ice', offset: 7, regex: /ice dmg|ice|freeze|shatter/gi, replace: (match: any) => this.color(match, '98eff0') },
+      { title: 'Physical', offset: 12, regex: /physical dmg|physical/gi, replace: (match: any) => this.isHSR(gameCode) ? this.color(match, '979797') : this.isZZZ(gameCode) ? this.color(match, 'f0d12b') : match },
+      { title: 'Lightning', offset: 13, regex: /lightning dmg|lightning/gi, replace: (match: any) => this.color(match, 'c65ade') },
+      { title: 'Wind', offset: 8, regex: /wind dmg|wind/gi, replace: (match: any) => this.color(match, '61cf93') },
+      { title: 'Quantum', offset: 11, regex: /quantum dmg|quantum/gi, replace: (match: any) => this.color(match, '766dd6') },
+      { title: 'Imaginary', offset: 13, regex: /imaginary dmg|imaginary/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Pyro', offset: 8, regex: /pyro dmg|pyro/gi, replace: (match: any) => this.color(match, 'ef7938') },
+      { title: 'Cryo', offset: 8, regex: /cryo dmg|cryo/gi, replace: (match: any) => this.color(match, '9fd6e3') },
+      { title: 'Hydro', offset: 9, regex: /hydro dmg|hydro/gi, replace: (match: any) => this.color(match, '4cc2f1') },
+      { title: 'Electro', offset: 11, regex: /electro dmg|electro/gi, replace: (match: any) => this.color(match, 'af8ec1') },
+      { title: 'Anemo', offset: 9, regex: /anemo dmg|anemo/gi, replace: (match: any) => this.color(match, '74c2a8') },
+      { title: 'Geo', offset: 7, regex: /geo dmg|geo/gi, replace: (match: any) => this.color(match, 'fab632') },
+      { title: 'Dendro', offset: 10, regex: /dendro dmg|dendro/gi, replace: (match: any) => this.color(match, 'a5c83b') },
+      { title: 'Numbers (%)', offset: 0, regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Numbers (s)', offset: 0, regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Numbers (n/s)', offset: 0, regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'PHEC', offset: 0, regex: /[phec]{4}/gi, replace: (match: string) => match.split('').map(letter => {
+          switch (letter) {
+            case 'P': return this.color(letter, 'ef7938'); // Pyro
+            case 'E': return this.color(letter, 'af8ec1'); // Electro
+            case 'C': return this.color(letter, '9fd6e3'); // Cryo
+            case 'H': return this.color(letter, '4cc2f1'); // Hydro
+            default: return letter;
+          }
+        }).join('')
+      },
       //{ title: 'TTT', offset: 333, regex: /REGEX/g, replace: () => {} },
     ];
   }
@@ -154,5 +165,21 @@ export class TextUtils {
       colorized = colorized.replace(rule.regex, rule.replace);
     }
     return this.sanitizer.bypassSecurityTrustHtml(colorized);
+  }
+
+  formatAndColorize(text: string | null, gameCode: string) {
+    if (text == null) {
+      return '';
+    }
+    let formatted = String(text);
+    const textFormatsList = this.TEXT_FORMATS_LIST(gameCode);
+    for (const rule of textFormatsList) {
+      formatted = formatted.replace(rule.regex, rule.replace);
+    }
+    const colorFormatsList = this.COLOR_FORMATS_LIST(gameCode);
+    for (const rule of colorFormatsList) {
+      formatted = formatted.replace(rule.regex, rule.replace);
+    }
+    return this.sanitizer.bypassSecurityTrustHtml(formatted);
   }
 }

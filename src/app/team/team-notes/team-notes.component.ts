@@ -28,7 +28,7 @@ export class TeamNotesComponent implements OnInit {
 
   formatNotes() {
     if (this.notes && this.notes?.length > 0) {
-      this.formattedNotes = this.notes.map(n => this.textUtils.format(n.text, this.gameCode));
+      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, this.gameCode));
     }
   }
 }

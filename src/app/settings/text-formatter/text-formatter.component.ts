@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../utils/constants';
 import { TextUtils } from '../../utils/text-utils';
 import { GamesService } from '../../services/games.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-text-formatter',
@@ -21,16 +22,21 @@ export class TextFormatterComponent implements OnInit {
 
   formatsList: any[] = [];
 
-  constructor(private textUtils: TextUtils, private gamesService: GamesService, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(private textUtils: TextUtils, private gamesService: GamesService, private sanitizer: DomSanitizer,
+              @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
     this.games = this.gamesService.getAll();
     this.formatsList = this.textUtils.TEXT_FORMATS_LIST('X');
+    this.modifyFormatsList();
+  }
+
+  modifyFormatsList() {
     this.formatsList = this.formatsList.map(f => {
       let rawText =  f.regex.toString().replace(' ', '').replace('(.*?)', '').replace('/', '').replace('/g', '');
       f.rawText = rawText;
       f.sample = rawText.substring(0, f.offset) + (f.offset > 0 && f.offset <= 3 ? 'Test' : '') + rawText.substring(f.offset);
-      f.sample = f.sample.replace(f.regex, f.replace);
+      f.sample = this.sanitizer.bypassSecurityTrustHtml(f.sample.replace(f.regex, f.replace));
       return f;
     });
   }

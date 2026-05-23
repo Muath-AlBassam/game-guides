@@ -27,7 +27,7 @@
       <div class="col-md-12">
 
         <div class="d-flex flex-wrap mb-3">
-          <button class="btn btn-sm btn-formatter" *ngFor="let format of formatsList"
+          <button class="btn btn-sm btn-formatter" *ngFor="let format of formatsList" [disabled]="showFormatted"
             (click)="applyFormat(format)" [innerHTML]="format.sample" [title]="format.title">
           </button>
         </div>
