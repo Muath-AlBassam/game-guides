@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SetsService } from '../../services/sets.service';
-import { SetsEffectsService } from '../../services/sets-effects.service';
 import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
 
@@ -22,7 +21,7 @@ export class SetDetailsComponent implements OnInit {
   setId: string = '';
   setEffectsList: any[] = [];
 
-  constructor(private setsService: SetsService, private setsEffectsService: SetsEffectsService, private textUtils: TextUtils) { }
+  constructor(private setsService: SetsService, private textUtils: TextUtils) { }
 
   ngOnInit(): void {
     this.loadSet();
@@ -35,7 +34,7 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadSetEffects() {
-    this.setEffectsList = this.setsEffectsService.getOne(this.gameCode, this.setName);
+    this.setEffectsList = this.setsService.getEffectList(this.gameCode, this.setName);
     this.setEffectsList.forEach((eff: any) => {
       eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
     });

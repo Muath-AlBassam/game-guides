@@ -8,6 +8,7 @@ import { Utils } from '../utils/utils';
 export class SetsService {
 
   setsList: any[] = [];
+  setsEffectsList: any[] = [];
 
   constructor(private dataClient: DataClientService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
@@ -16,14 +17,22 @@ export class SetsService {
   }
 
   fetchData() {
-    this.dataClient.loadData('SETS').then(sets => {
-      this.setsList = sets.map((s: any) => ({
+    this.dataClient.loadData(['SETS', 'SETS_EFFECTS']).then(resMap => {
+      this.setsList = resMap.get('SETS').map((s: any) => ({
         gameCode: s.GAME_CODE,
         code: s.CODE,
         name: s.NAME,
         type: s.TYPE,
         imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
         rarity: s.RARITY
+      }));
+
+      this.setsEffectsList = resMap.get('SETS_EFFECTS').map((s: any) => ({
+        gameCode: s.GAME_CODE,
+        code: s.CODE,
+        label: s.LABEL,
+        requiredCount: s.REQUIRED_COUNT,
+        description: s.DESCRIPTION
       }));
     });
   }
@@ -39,5 +48,9 @@ export class SetsService {
   getOne(gameCode: any, code: any) {
     const data = this.setsList.find(s => s.gameCode == gameCode && s.code == code);
     return data ?? { code: code, name: code }
+  }
+
+  getEffectList(gameCode: any, code: any) {
+    return this.setsEffectsList.filter(s => s.gameCode == gameCode && s.code == code);
   }
 }
