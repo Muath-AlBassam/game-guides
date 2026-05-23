@@ -21,10 +21,11 @@ export class CharacterImageComponent implements OnInit {
   @Input() withBackgroundClass: boolean = true;
   @Input() withElement: boolean = false;
   @Input() withType: boolean = false;
-  @Input() imageStyle: any = 'pfp'; // pfp, card
+  @Input() imageStyle: 'pfp' | 'card' | 'gallery' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
   @Input() mobileSizeRatio: number = 1;
   @Input() mobileIconSizeRatio: number = 1;
+  @Input() enableDetailsDialog: boolean = true;
 
   dimensions: number = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
   iconSize: number = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
@@ -38,6 +39,9 @@ export class CharacterImageComponent implements OnInit {
   elementImageUrl: any = '';
   typeImageUrl: any = '';
   addRarityClass: boolean = false;
+  // gallery
+  imageList: string[] = [];
+  currentImageIndex: number = 0;
 
   charCount: number = 0;
   charmdList: any[] = [];
@@ -64,6 +68,8 @@ export class CharacterImageComponent implements OnInit {
       this.elementImageUrl = this.elementsService.getOne(this.gameCode, this.elementCode).imageUrl;
       this.typeImageUrl = this.typesService.getOne(this.gameCode, this.charmd.type)?.imageUrl;
       this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
+      this.imageList = this.charactersService.getAllImagesByCharacter(this.gameCode, this.characterName);
+      this.imageList.unshift(this.charmd.cardImageUrl);
     } else {
       this.charmdList = charNameList.map((c: any) => this.charactersService.getOne(this.gameCode, c));
       this.addRarityClass = this.withBackgroundClass;
@@ -77,6 +83,18 @@ export class CharacterImageComponent implements OnInit {
   }
 
   openCharacterDetailsDialog(character: any) {
-    this.dialogService.openCharacterDetailsDialog(this.gameCode, character);
+    if (this.enableDetailsDialog) {
+      this.dialogService.openCharacterDetailsDialog(this.gameCode, character);
+    }
+  }
+
+  // gallery
+  nextGalleryImage(event?: Event) {
+    event?.stopPropagation();
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.imageList.length;
+  }
+  prevGalleryImage(event?: Event) {
+    event?.stopPropagation();
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.imageList.length) % this.imageList.length;
   }
 }

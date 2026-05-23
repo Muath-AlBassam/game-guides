@@ -8,6 +8,7 @@ import { Utils } from '../utils/utils';
 export class CharactersService {
 
   charactersList: any[] = [];
+  imagesList: any[] = [];
 
   constructor(private dataClient: DataClientService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
@@ -16,8 +17,8 @@ export class CharactersService {
   }
 
   fetchData() {
-    this.dataClient.loadData('CHARACTERS').then(characters => {
-      this.charactersList = characters.map((c: any) => ({
+    this.dataClient.loadData(['CHARACTERS', 'CHARACTER_IMAGES']).then(resMap => {
+      this.charactersList = resMap.get('CHARACTERS').map((c: any) => ({
         gameCode: c.GAME_CODE,
         code: c.CODE,
         name: c.NAME,
@@ -28,6 +29,12 @@ export class CharactersService {
         type: c.TYPE,
         rarity: c.RARITY,
         enhanced: c.ENHANCED
+      }));
+
+      this.imagesList = resMap.get('CHARACTER_IMAGES').map((c: any) => ({
+        gameCode: c.GAME_CODE,
+        characterCode: c.CHARACTER_CODE,
+        imageUrl: Utils.appendRepoUrl(c.IMAGE_URL)
       }));
     });
   }
@@ -43,5 +50,9 @@ export class CharactersService {
   getOne(gameCode: any, code: any) {
     const data = this.charactersList.find(c => c.gameCode == gameCode && c.code == code);
     return data ?? { code: code, name: code }
+  }
+
+  getAllImagesByCharacter(gameCode: any, characterCode: any) {
+    return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode).map(i => i.imageUrl);
   }
 }

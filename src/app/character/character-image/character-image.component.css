@@ -267,3 +267,35 @@
     visibility: visible;
   }
 }
+
+.char-gallery-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+}
+
+.char-gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.char-gallery-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.char-gallery-btn.left {
+  left: 5px;
+}
+.char-gallery-btn.right {
+  right: 5px;
+}
