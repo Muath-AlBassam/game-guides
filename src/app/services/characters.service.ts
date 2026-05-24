@@ -17,26 +17,32 @@ export class CharactersService {
   }
 
   fetchData() {
-    this.dataClient.loadData(['CHARACTERS', 'CHARACTER_IMAGES']).then(resMap => {
+    this.dataClient.loadData(['CHARACTERS', 'CHARACTERS_IMAGES']).then(resMap => {
+      this.imagesList = resMap.get('CHARACTERS_IMAGES').map((i: any) => ({
+        gameCode: i.GAME_CODE,
+        characterCode: i.CHARACTER_CODE,
+        imageUrl: Utils.appendRepoUrl(i.IMAGE_URL),
+        type: i.TYPE
+      }));
+      
+
       this.charactersList = resMap.get('CHARACTERS').map((c: any) => ({
         gameCode: c.GAME_CODE,
         code: c.CODE,
         name: c.NAME,
-        imageUrl: Utils.appendRepoUrl(c.IMAGE_URL),
-        cardImageUrl: Utils.appendRepoUrl(c.CARD_IMAGE_URL),
+        imageUrl: this.getImageByType(c.GAME_CODE, c.CODE, 'PFP'),
+        cardImageUrl: this.getImageByType(c.GAME_CODE, c.CODE, 'CARD'),
         element: c.ELEMENT,
         elementActual: c.ELEMENT_ACTUAL,
         type: c.TYPE,
         rarity: c.RARITY,
         enhanced: c.ENHANCED
       }));
-
-      this.imagesList = resMap.get('CHARACTER_IMAGES').map((c: any) => ({
-        gameCode: c.GAME_CODE,
-        characterCode: c.CHARACTER_CODE,
-        imageUrl: Utils.appendRepoUrl(c.IMAGE_URL)
-      }));
     });
+  }
+
+  private getImageByType(gameCode: any, characterCode: any, type: any) {
+    return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode && i.type == type).map(i => i.imageUrl);
   }
 
   getAll(gameCode: any) {
@@ -52,7 +58,9 @@ export class CharactersService {
     return data ?? { code: code, name: code }
   }
 
-  getAllImagesByCharacter(gameCode: any, characterCode: any) {
-    return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode).map(i => i.imageUrl);
+  getAllImagesByCharacter(gameCode: any, characterCode: any, types: any[]) {
+    return this.imagesList
+      .filter(i => i.gameCode == gameCode && i.characterCode == characterCode && types.includes(i.type))
+      .map(i => i.imageUrl);
   }
 }

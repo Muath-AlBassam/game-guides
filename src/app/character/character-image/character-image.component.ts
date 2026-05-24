@@ -68,8 +68,7 @@ export class CharacterImageComponent implements OnInit {
       this.elementImageUrl = this.elementsService.getOne(this.gameCode, this.elementCode).imageUrl;
       this.typeImageUrl = this.typesService.getOne(this.gameCode, this.charmd.type)?.imageUrl;
       this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
-      this.imageList = this.charactersService.getAllImagesByCharacter(this.gameCode, this.characterName);
-      this.imageList.unshift(this.charmd.cardImageUrl);
+      this.imageList = this.charactersService.getAllImagesByCharacter(this.gameCode, this.characterName, ['CARD', 'SKIN']);
     } else {
       this.charmdList = charNameList.map((c: any) => this.charactersService.getOne(this.gameCode, c));
       this.addRarityClass = this.withBackgroundClass;
