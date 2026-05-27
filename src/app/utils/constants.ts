@@ -45,6 +45,7 @@ export class Constants {
     }
 
     static lookupType = {
+      ROLE: 'ROLE',
       TYPE: 'TYPE',
       RARITY: 'RARITY',
       ELEMENT: 'ELEMENT',

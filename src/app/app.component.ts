@@ -7,7 +7,6 @@ import { CharactersService } from './services/characters.service';
 import { CombosService } from './services/combos.service';
 import { NotesService } from './services/notes.service';
 import { PetsService } from './services/pets.service';
-import { RolesService } from './services/roles.service';
 import { SetsService } from './services/sets.service';
 import { TeamsService } from './services/teams.service';
 import { WeaponsService } from './services/weapons.service';
@@ -32,7 +31,6 @@ export class AppComponent implements OnInit {
     private lookupsService: LookupsService,
     private notesService: NotesService,
     private petsService: PetsService,
-    private rolesService: RolesService,
     private setsService: SetsService,
     private teamsService: TeamsService,
     private weaponsService: WeaponsService,

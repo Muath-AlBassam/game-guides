@@ -14,7 +14,7 @@
           </app-character-image>
         </td>
         <td style="font-size: 1.2em; font-weight: bold;">
-          <img [src]="getRole(character.roleCode).imageUrl" height="30" [title]="getRole(character.roleCode).name"
+          <img [src]="getRole(character.roleCode).imageUrl" height="30" [title]="getRole(character.roleCode).label"
             style="margin: 0 5px;">
           <span style="margin-left: 5px;">{{character.roleDescription ?? ''}}</span>
         </td>

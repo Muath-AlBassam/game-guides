@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RolesService } from '../../services/roles.service';
+import { LookupsService } from '../../services/lookups.service';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-team-roles',
@@ -11,14 +12,18 @@ export class TeamRolesComponent implements OnInit {
   @Input() gameCode: any = null;
   @Input() team: any = null;
 
+  roles: any[] = [];
+
   characterPFPSize: number = 80;
 
-  constructor(private rolesService: RolesService) { }
+  constructor(private lookupsService: LookupsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.roles = this.lookupsService.getByType(null, Constants.lookupType.ROLE);
+  }
 
   getRole(roleCode: any) {
-    return this.rolesService.getOne(roleCode);
+    return this.roles.find(r => r.code == roleCode);
   }
 
 }
