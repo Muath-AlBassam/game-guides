@@ -11,41 +11,39 @@ export class TextUtils {
 
   constructor(private charactersService: CharactersService, private sanitizer: DomSanitizer) {}
 
-  isGI(gameCode: string): boolean {
-    return gameCode == Constants.games.GI;
+  private isGI = (gameCode: string): boolean => gameCode == Constants.games.GI;
+  private isHSR = (gameCode: string): boolean => gameCode == Constants.games.HSR;
+  private isZZZ = (gameCode: string): boolean => gameCode == Constants.games.ZZZ;
+
+  private repeat = (text: string) => `<span class="arrow-border">${text}</span>`;
+  private tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
+  private htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
+  private imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
+  private color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
+  private applyColor(gameCode: string, text: string, gi: string = '', hsr: string = '', zzz: string = '') {
+    if (this.isGI(gameCode) && gi) {
+      return this.color(text, gi);
+    } else if (this.isHSR(gameCode) && hsr) {
+      return this.color(text, hsr);
+    } else if (this.isZZZ(gameCode) && zzz) {
+      return this.color(text, zzz);
+    } else {
+      return text;
+    }
   }
 
-  isHSR(gameCode: string): boolean {
-    return gameCode == Constants.games.HSR;
-  }
-
-  isZZZ(gameCode: string): boolean {
-    return gameCode == Constants.games.ZZZ;
-  }
-
-  repeat = (text: string) => `<span class="arrow-border">${text}</span>`;
-  tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
-  htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
-  imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
-  color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
-  bold = (text: string) => `<b>${text}</b>`;
-
-  getCharacterImage(name: string, gameCode: string) {
+  private getCharacterImage(name: string, gameCode: string) {
     const charmd = this.charactersService.getOne(gameCode, name?.trim());
     const imgUrl = charmd && charmd.imageUrl ? charmd.imageUrl : Constants.images.unknownCharacter;
     return this.imageOf(imgUrl, name);
   }
 
-  getCharacterImageAsTooltip(name: string, gameCode: string) {
-    return `
-        <b class="img-tooltip no-break">
-            ${name}
-            ${this.getCharacterImage(name, gameCode)}
-        </b>`;
+  private getCharacterImageAsTooltip(name: string, gameCode: string) {
+    return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name, gameCode)}</b>`;
   }
 
   // GI moves shortcuts
-  gi = {
+  private gi = {
     normal: this.tooltip('N', 'Normal Attack'),
     charged: this.tooltip('CA', 'Charged Attack'),
     skill: this.tooltip('E', 'Skill'),
@@ -56,7 +54,7 @@ export class TextUtils {
   }
 
   // ZZZ moves shortcuts
-  zzz = {
+  private zzz = {
     basic: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic', 'margin-top: 0;'),
     charged: this.tooltip(
       this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') + 
@@ -83,14 +81,14 @@ export class TextUtils {
       { title: 'Skill', offset: 5, regex: /skill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.skill : match },
       { title: 'Ultimate', offset: 8, regex: /ultimate/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.ultimate : this.isZZZ(gameCode) ? this.zzz.ultimate : match },
       { title: 'Plunge', offset: 6, regex: /plunge/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.plunge : match },
-      { title: 'Basic Attack', offset: 5, regex: /basic/g, replace: () => this.zzz.basic },
-      { title: 'EX Special', offset: 9, regex: /exspecial/g, replace: () => this.zzz.exSpecial },
-      { title: 'Special', offset: 7, regex: /special/g, replace: () => this.zzz.special },
-      { title: 'Chain Attack', offset: 5, regex: /chain/g, replace: () => this.zzz.chain },
-      { title: 'Dash', offset: 4, regex: /dash/g, replace: () => this.zzz.dash },
-      { title: 'Assault', offset: 7, regex: /assault/g, replace: () => this.zzz.assault },
-      { title: 'Burn', offset: 4, regex: /burn/g, replace: () => this.zzz.burn },
-      { title: 'Shock', offset: 5, regex: /shock/g, replace: () => this.zzz.shock },
+      { title: 'Basic Attack', offset: 5, regex: /basic/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.basic : match },
+      { title: 'EX Special', offset: 9, regex: /exspecial/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.exSpecial : match },
+      { title: 'Special', offset: 7, regex: /special/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.special : match },
+      { title: 'Chain Attack', offset: 5, regex: /chain/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.chain : match },
+      { title: 'Dash', offset: 4, regex: /dash/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.dash : match },
+      { title: 'Assault', offset: 7, regex: /assault/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.assault : match },
+      { title: 'Burn', offset: 4, regex: /burn/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.burn : match },
+      { title: 'Shock', offset: 5, regex: /shock/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.shock : match },
       { title: 'Switch', offset: 6, regex: /switch/g, replace: () => '>' },
       { title: 'Multiply (x)', offset: 7, regex: / times /g, replace: () => Constants.unicode.times },
       { title: 'Arrow', offset: 5, regex: /arrow/g, replace: () => `<span style="margin: auto 5px;">${Constants.unicode.arrow}</span>` },
@@ -110,6 +108,41 @@ export class TextUtils {
     ];
   }
 
+  COLOR_FORMATS_LIST(gameCode: string) {
+    return [
+      { title: 'Fire', offset: 8, regex: /fire dmg|fire|burning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'ff5521', 'ff5521') },
+      { title: 'Electric', offset: 12, regex: /electric dmg|electric|shocked/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', '2eb6ff') },
+      { title: 'Ether', offset: 9, regex: /ether dmg|ether|corruption/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', 'fe437e') },
+      { title: 'Ice', offset: 7, regex: /ice dmg|ice|freeze|shatter/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '98eff0', '98eff0') },
+      { title: 'Physical', offset: 12, regex: /physical dmg|physical sheer dmg|physical/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '979797', 'f0d12b') },
+      { title: 'Lightning', offset: 13, regex: /lightning dmg|lightning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'c65ade') },
+      { title: 'Wind', offset: 8, regex: /wind dmg|wind/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '61cf93') },
+      { title: 'Quantum', offset: 11, regex: /quantum dmg|quantum/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '766dd6') },
+      { title: 'Imaginary', offset: 13, regex: /imaginary dmg|imaginary/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'f3e137') },
+      { title: 'Pyro', offset: 8, regex: /pyro dmg|pyro/gi, replace: (match: any) => this.applyColor(gameCode, match, 'ef7938') },
+      { title: 'Cryo', offset: 8, regex: /cryo dmg|cryo/gi, replace: (match: any) => this.applyColor(gameCode, match, '9fd6e3') },
+      { title: 'Hydro', offset: 9, regex: /hydro dmg|hydro/gi, replace: (match: any) => this.applyColor(gameCode, match, '4cc2f1') },
+      { title: 'Electro', offset: 11, regex: /electro dmg|electro/gi, replace: (match: any) => this.applyColor(gameCode, match, 'af8ec1') },
+      { title: 'Anemo', offset: 9, regex: /anemo dmg|anemo/gi, replace: (match: any) => this.applyColor(gameCode, match, '74c2a8') },
+      { title: 'Geo', offset: 7, regex: /geo dmg|geo/gi, replace: (match: any) => this.applyColor(gameCode, match, 'fab632') },
+      { title: 'Dendro', offset: 10, regex: /dendro dmg|dendro/gi, replace: (match: any) => this.applyColor(gameCode, match, 'a5c83b') },
+      { title: 'Numbers (%)', offset: 0, regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Numbers (s)', offset: 0, regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Numbers (n/s)', offset: 0, regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'PHEC', offset: 0, regex: /[phec]{4}/gi, replace: (match: string) => match.split('').map(letter => {
+          switch (letter) {
+            case 'P': return this.color(letter, 'ef7938');
+            case 'E': return this.color(letter, 'af8ec1');
+            case 'C': return this.color(letter, '9fd6e3');
+            case 'H': return this.color(letter, '4cc2f1');
+            default: return letter;
+          }
+        }).join('')
+      },
+      //{ title: 'TTT', offset: 333, regex: /REGEX/g, replace: () => {} },
+    ];
+  }  
+
   format(text: string | null, gameCode: string) {
     if (text == null) {
       return '';
@@ -119,41 +152,6 @@ export class TextUtils {
       formatted = formatted.replace(rule.regex, rule.replace);
     }
     return this.sanitizer.bypassSecurityTrustHtml(formatted);
-  }
-
-  COLOR_FORMATS_LIST(gameCode: string) {
-    return [
-      { title: 'Fire', offset: 8, regex: /fire dmg|fire|burning/gi, replace: (match: any) => this.isGI(gameCode) ? match : this.color(match, 'ff5521') },
-      { title: 'Electric', offset: 12, regex: /electric dmg|electric|shocked/gi, replace: (match: any) => this.isZZZ(gameCode) ? this.color(match, '2eb6ff') : match },
-      { title: 'Ether', offset: 9, regex: /ether dmg|ether|corruption/gi, replace: (match: any) => this.color(match, 'fe437e') },
-      { title: 'Ice', offset: 7, regex: /ice dmg|ice|freeze|shatter/gi, replace: (match: any) => this.color(match, '98eff0') },
-      { title: 'Physical', offset: 12, regex: /physical dmg|physical/gi, replace: (match: any) => this.isHSR(gameCode) ? this.color(match, '979797') : this.isZZZ(gameCode) ? this.color(match, 'f0d12b') : match },
-      { title: 'Lightning', offset: 13, regex: /lightning dmg|lightning/gi, replace: (match: any) => this.color(match, 'c65ade') },
-      { title: 'Wind', offset: 8, regex: /wind dmg|wind/gi, replace: (match: any) => this.color(match, '61cf93') },
-      { title: 'Quantum', offset: 11, regex: /quantum dmg|quantum/gi, replace: (match: any) => this.color(match, '766dd6') },
-      { title: 'Imaginary', offset: 13, regex: /imaginary dmg|imaginary/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Pyro', offset: 8, regex: /pyro dmg|pyro/gi, replace: (match: any) => this.color(match, 'ef7938') },
-      { title: 'Cryo', offset: 8, regex: /cryo dmg|cryo/gi, replace: (match: any) => this.color(match, '9fd6e3') },
-      { title: 'Hydro', offset: 9, regex: /hydro dmg|hydro/gi, replace: (match: any) => this.color(match, '4cc2f1') },
-      { title: 'Electro', offset: 11, regex: /electro dmg|electro/gi, replace: (match: any) => this.color(match, 'af8ec1') },
-      { title: 'Anemo', offset: 9, regex: /anemo dmg|anemo/gi, replace: (match: any) => this.color(match, '74c2a8') },
-      { title: 'Geo', offset: 7, regex: /geo dmg|geo/gi, replace: (match: any) => this.color(match, 'fab632') },
-      { title: 'Dendro', offset: 10, regex: /dendro dmg|dendro/gi, replace: (match: any) => this.color(match, 'a5c83b') },
-      { title: 'Numbers (%)', offset: 0, regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (s)', offset: 0, regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (n/s)', offset: 0, regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'PHEC', offset: 0, regex: /[phec]{4}/gi, replace: (match: string) => match.split('').map(letter => {
-          switch (letter) {
-            case 'P': return this.color(letter, 'ef7938'); // Pyro
-            case 'E': return this.color(letter, 'af8ec1'); // Electro
-            case 'C': return this.color(letter, '9fd6e3'); // Cryo
-            case 'H': return this.color(letter, '4cc2f1'); // Hydro
-            default: return letter;
-          }
-        }).join('')
-      },
-      //{ title: 'TTT', offset: 333, regex: /REGEX/g, replace: () => {} },
-    ];
   }
 
   colorize(text: string | null, gameCode: string) {
