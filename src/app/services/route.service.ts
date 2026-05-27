@@ -16,7 +16,7 @@ export class RouteService {
     return Promise.resolve(this.getGameFromUrl());
   }
 
-  getGameFromUrl() {
+  private getGameFromUrl() {
     if (window.location.hash) {
       let hash = window.location.hash;
       /* #/web/{gameCode} */

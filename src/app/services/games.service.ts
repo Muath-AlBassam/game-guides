@@ -15,7 +15,7 @@ export class GamesService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('GAMES').then(games => {
       this.gamesList = games.map((g: any) => ({
         code: g.CODE,

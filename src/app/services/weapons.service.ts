@@ -15,7 +15,7 @@ export class WeaponsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('WEAPONS').then(weapons => {
       this.weaponsList = weapons.map((w: any) => ({
         gameCode: w.GAME_CODE,

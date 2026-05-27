@@ -16,7 +16,7 @@ export class BuildsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('BUILDS').then(builds => {
       this.flatList = builds.map((b: any) => ({
         gameCode: b.GAME_CODE, character: b.CHARACTER_CODE, type: b.TYPE, name: b.NAME, pieceCount: b.COUNT

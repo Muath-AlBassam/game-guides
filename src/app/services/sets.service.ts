@@ -16,25 +16,33 @@ export class SetsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData(['SETS', 'SETS_EFFECTS']).then(resMap => {
-      this.setsList = resMap.get('SETS').map((s: any) => ({
-        gameCode: s.GAME_CODE,
-        code: s.CODE,
-        name: s.NAME,
-        type: s.TYPE,
-        imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
-        rarity: s.RARITY
-      }));
-
-      this.setsEffectsList = resMap.get('SETS_EFFECTS').map((s: any) => ({
-        gameCode: s.GAME_CODE,
-        code: s.CODE,
-        label: s.LABEL,
-        requiredCount: s.REQUIRED_COUNT,
-        description: s.DESCRIPTION
-      }));
+      this.mapEffects(resMap);
+      this.mapSets(resMap);
     });
+  }
+
+  private mapEffects(resMap: any) {
+    this.setsEffectsList = resMap.get('SETS_EFFECTS').map((s: any) => ({
+      gameCode: s.GAME_CODE,
+      code: s.CODE,
+      label: s.LABEL,
+      requiredCount: s.REQUIRED_COUNT,
+      description: s.DESCRIPTION
+    }));
+  }
+
+  private mapSets(resMap: any) {
+    this.setsList = resMap.get('SETS').map((s: any) => ({
+      gameCode: s.GAME_CODE,
+      code: s.CODE,
+      name: s.NAME,
+      type: s.TYPE,
+      imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
+      rarity: s.RARITY,
+      effects: this.setsEffectsList.filter(e => e.gameCode == s.GAME_CODE && e.code == s.CODE)
+    }));
   }
 
   getAll(gameCode: any) {
@@ -48,9 +56,5 @@ export class SetsService {
   getOne(gameCode: any, code: any) {
     const data = this.setsList.find(s => s.gameCode == gameCode && s.code == code);
     return data ?? { code: code, name: code }
-  }
-
-  getEffectList(gameCode: any, code: any) {
-    return this.setsEffectsList.filter(s => s.gameCode == gameCode && s.code == code);
   }
 }

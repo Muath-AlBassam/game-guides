@@ -15,7 +15,7 @@ export class CombosService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('COMBOS').then(combos => {
       const flatList = combos.map((c: any) => ({
         gameCode: c.GAME_CODE, character: c.CHARACTER_CODE, combo: c.COMBO

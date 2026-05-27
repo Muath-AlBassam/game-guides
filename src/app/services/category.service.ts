@@ -15,7 +15,7 @@ export class CategoryService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('CATEGORY').then(cat => {
       this.categoriesList = cat.map((c: any) => ({
         gameCode: c.GAME_CODE, code: c.CODE, label: c.LABEL, order: c.ORDER

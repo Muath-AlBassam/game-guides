@@ -15,7 +15,7 @@ export class LookupsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('LOOKUPS').then(lookups => {
       this.lookupsList = lookups.map((l: any) => ({
         gameCode: l.GAME_CODE,
@@ -25,8 +25,6 @@ export class LookupsService {
         imageUrl: Utils.appendRepoUrl(l.IMAGE_URL),
         ...(l.EXTRA_FIELDS ? JSON.parse(l.EXTRA_FIELDS) : {})
       }));
-      console.log('this.lookupsList', this.lookupsList);
-      
     });
   }
 

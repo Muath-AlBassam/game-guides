@@ -13,7 +13,9 @@ export class CoreComponent implements OnInit {
   constructor(private busService: BusService) { }
 
   ngOnInit(): void {
-    this.busService.toggleSidebar$.subscribe(res => { if(res) this.sidebarActive = !this.sidebarActive });
+    this.busService.toggleSidebar$.subscribe(res => {
+      if(res) this.sidebarActive = !this.sidebarActive
+    });
   }
 
 }

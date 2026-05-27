@@ -16,7 +16,7 @@ export class NotesService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('NOTES').then(notes => {
       const flatList = notes.map((n: any) => ({
         gameCode: n.GAME_CODE, ownerCode: n.OWNER_CODE, ownerType: n.OWNER_TYPE, text: n.TEXT

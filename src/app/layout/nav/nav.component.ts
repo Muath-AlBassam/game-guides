@@ -27,7 +27,6 @@ export class NavComponent implements OnInit {
     await this.loadGame();
     this.generateRoutesList();
     this.listenToRouteChange();
-
     this.busService.toggleSidebar$.subscribe(res => { if (res) this.sidebarActive = !this.sidebarActive });
   }
 

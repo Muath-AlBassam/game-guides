@@ -16,13 +16,13 @@ export class TeamsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS']).then(resMap => {
       this.teamsList = this.mapTeams(resMap);
     });
   }
 
-  mapTeams(resMap: any) {
+  private mapTeams(resMap: any) {
     const teamCharacterList = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
     return resMap.get('TEAMS').map((t: any) => ({
       gameCode: t.GAME_CODE,
@@ -39,7 +39,7 @@ export class TeamsService {
       .sort((a: any, b: any) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));;
   }
 
-  mapTeamsCharacters(characters: any) {
+  private mapTeamsCharacters(characters: any) {
     return characters.map((c: any) => ({
       gameCode: c.GAME_CODE,
       teamCode: c.TEAM_CODE,

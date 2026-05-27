@@ -34,7 +34,7 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadSetEffects() {
-    this.setEffectsList = this.setsService.getEffectList(this.gameCode, this.setName);
+    this.setEffectsList = JSON.parse(JSON.stringify(this.set.effects));
     this.setEffectsList.forEach((eff: any) => {
       eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
     });

@@ -15,7 +15,7 @@ export class PetsService {
     });
   }
 
-  fetchData() {
+  private fetchData() {
     this.dataClient.loadData('PETS').then(pets => {
       this.petsList = pets.map((p: any) => ({
         gameCode: p.GAME_CODE, code: p.CODE, name: p.NAME, imageUrl: Utils.appendRepoUrl(p.IMAGE_URL), rarity: p.RARITY
