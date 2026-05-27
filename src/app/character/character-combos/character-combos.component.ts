@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonsService } from '../../services/buttons.service';
 import { CombosService } from '../../services/combos.service';
+import { LookupsService } from '../../services/lookups.service';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-character-combos',
@@ -15,7 +16,7 @@ export class CharacterCombosComponent implements OnInit {
 
   combos: any[] = [];
 
-  constructor(private combosService: CombosService, private buttonsService: ButtonsService) { }
+  constructor(private combosService: CombosService, private lookupsService: LookupsService) { }
 
   ngOnInit(): void {
     this.loadCombos();
@@ -34,6 +35,6 @@ export class CharacterCombosComponent implements OnInit {
   }
 
   getButtonImage(buttonCode: any) {
-    return this.buttonsService.getOne(this.gameCode, buttonCode).imageUrl;
+    return this.lookupsService.getOne(this.gameCode, buttonCode, Constants.lookupType.BUTTON).imageUrl;
   }
 }

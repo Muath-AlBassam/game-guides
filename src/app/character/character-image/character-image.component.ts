@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Utils } from '../../utils/utils';
 import { CharactersService } from '../../services/characters.service';
-import { ElementsService } from '../../services/elements.service';
-import { TypesService } from '../../services/types.service';
 import { Constants } from '../../utils/constants';
 import { DialogService } from '../../services/dialog.service';
+import { LookupsService } from '../../services/lookups.service';
 
 @Component({
   selector: 'app-character-image',
@@ -49,8 +48,7 @@ export class CharacterImageComponent implements OnInit {
   transparentImg = Constants.images.transparent;
   unknownImg = Constants.images.unknownCharacter;
 
-  constructor(private charactersService: CharactersService, private elementsService: ElementsService, private typesService: TypesService,
-    private dialogService: DialogService) { }
+  constructor(private charactersService: CharactersService, private lookupsService: LookupsService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -65,8 +63,8 @@ export class CharacterImageComponent implements OnInit {
       this.showElement = this.withElement && this.charmd.element;
       this.showType = this.withType && this.charmd.type;
       this.elementCode = this.charmd.elementActual ?? this.charmd.element;
-      this.elementImageUrl = this.elementsService.getOne(this.gameCode, this.elementCode).imageUrl;
-      this.typeImageUrl = this.typesService.getOne(this.gameCode, this.charmd.type)?.imageUrl;
+      this.elementImageUrl = this.lookupsService.getOne(this.gameCode, this.elementCode, Constants.lookupType.ELEMENT).imageUrl;
+      this.typeImageUrl = this.lookupsService.getOne(this.gameCode, this.charmd.type, Constants.lookupType.TYPE)?.imageUrl;
       this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
       this.imageList = this.charactersService.getAllImagesByCharacter(this.gameCode, this.characterName, ['CARD', 'SKIN']);
     } else {

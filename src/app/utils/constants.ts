@@ -43,4 +43,11 @@ export class Constants {
     static icons = {
         externalLink: 'fa fa-external-link'
     }
+
+    static lookupType = {
+      TYPE: 'TYPE',
+      RARITY: 'RARITY',
+      ELEMENT: 'ELEMENT',
+      BUTTON: 'BUTTON'
+    }
 }

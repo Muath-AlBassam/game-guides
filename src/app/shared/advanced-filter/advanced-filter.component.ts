@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RaritiesService } from '../../services/rarities.service';
-import { ElementsService } from '../../services/elements.service';
-import { TypesService } from '../../services/types.service';
 import { RouteService } from '../../services/route.service';
+import { LookupsService } from '../../services/lookups.service';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-advanced-filter',
@@ -32,7 +31,7 @@ export class AdvancedFilterComponent implements OnInit {
   elements: any[] = [];
   types: any[] = [];
 
-  constructor(private routeService: RouteService, private raritiesService: RaritiesService, private elementsService: ElementsService, private typesService: TypesService) { }
+  constructor(private routeService: RouteService, private lookupsService: LookupsService) { }
 
   async ngOnInit(): Promise<void> {
     this.gameCode = await this.routeService.getActiveGame();
@@ -41,13 +40,13 @@ export class AdvancedFilterComponent implements OnInit {
 
   loadFilters() {
     if (this.rarityFilter) {
-      this.rarities = this.raritiesService.getAll(this.gameCode);
+      this.rarities = this.lookupsService.getByType(this.gameCode, Constants.lookupType.RARITY);
     }
     if (this.elementFilter) {
-      this.elements = this.elementsService.getAll(this.gameCode);
+      this.elements = this.lookupsService.getByType(this.gameCode, Constants.lookupType.ELEMENT, { isAlt: false });
     }
     if (this.typeFilter) {
-      this.types = this.typesService.getAll(this.gameCode);
+      this.types = this.lookupsService.getByType(this.gameCode, Constants.lookupType.TYPE);
     }
   }
 
