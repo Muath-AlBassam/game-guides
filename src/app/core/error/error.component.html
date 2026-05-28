@@ -1,6 +1,13 @@
 <div class="error-container">
   <div class="fof">
-    <h1>Error {{errorCode}}</h1>
-    <p class="secondary-text">{{errorMessage}}</p>
+    <h1>
+      Error {{errorCode}}
+    </h1>
+    <p class="secondary-text">
+      {{errorMessage}}
+    </p>
+    <button class="btn btn-secondary error-btn" (click)="reload()">
+      Reload page
+    </button>
   </div>
 </div>

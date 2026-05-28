@@ -24,6 +24,10 @@
   color: var(--secondary-text-color, #888);
 }
 
+.error-btn {
+  border-radius: 10px;
+}
+
 @keyframes type {
   from {
     box-shadow: inset -3px 0px 0px #888;

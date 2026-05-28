@@ -16,7 +16,6 @@ export class DataClientService {
   constructor(private http: HttpClient, private store: StoreService, private router: Router) { }
 
   loadWorkbook() {
-    console.log('fetching workbook');
     if (environment.production) {
       this.loadRemoteWorkbook();
     } else if (this.store.get("remoteWorkbookMap") == null) {
@@ -25,6 +24,7 @@ export class DataClientService {
   }
 
   private loadLocalWorkbook() {
+    console.log('loading local workbook');
     this.http.get('assets/GaGu DB.xlsx', { responseType: 'arraybuffer' })
       .subscribe(arrayBuffer => {
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
@@ -34,6 +34,7 @@ export class DataClientService {
   }
 
   private loadRemoteWorkbook() {
+    console.log('loading remote workbook');
     this.http.get<any>(environment.googleSheetApiURL).subscribe({
       next: (data) => {
         const remoteWorkbookMap = new Map<string, any[]>();
@@ -94,7 +95,7 @@ export class DataClientService {
       } else {
         return [];
       }
-    } else {
+    } else if (this.store.get("localWorkbook") != null) {
       console.log('fetching data from local sheet', sheetName);
       const storeData = this.store.get("localWorkbook");
       if (storeData) {
@@ -103,6 +104,9 @@ export class DataClientService {
       } else {
         return [];
       }
+    } else {
+      console.log('workbook not loaded');
+      return [];
     }
   }
 }

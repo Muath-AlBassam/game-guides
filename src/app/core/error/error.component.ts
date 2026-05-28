@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { StoreService } from '../../services/store.service';
 
 @Component({
@@ -27,4 +26,7 @@ export class ErrorComponent implements OnInit {
     this.storeService.delete('error');
   }
 
+  reload() {
+    window.location.href = '/';
+  }
 }
