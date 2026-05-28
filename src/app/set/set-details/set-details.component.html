@@ -1,12 +1,12 @@
-<div class="set-container" [ngbPopover]="setEffectPopover" [popoverTitle]="set.name" popoverClass="gagu-popover"
-    [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0" container="body">
+<div class="set-container">
   <!-- Image -->
   <div class="set-image {{gameCode}}-rarity-{{set.rarity}}">
     <img [src]="set.imageUrl ?? unknownImg" height="70" />
   </div>
   <!-- Info -->
-  <div class="set-info">
-    <span *ngIf="pieceCount" class="piece-count">({{pieceCount}})</span>
+  <div class="set-info" [ngbPopover]="setEffectPopover" [popoverTitle]="set.name" popoverClass="gagu-popover"
+      [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0" container="body">
+    <span *ngIf="equppiedPieces" class="equppied-pieces">({{equppiedPieces}})</span>
     <h5 class="set-name">
       {{set.name}}
     </h5>
@@ -19,8 +19,8 @@
   <!-- Effect (box) -->
   <div *ngIf="effectStyle == 'box' && setEffectsList.length > 0" class="set-effect collapse"
       id="{{setId}}effect" data-bs-parent="#sets-container">
-    <div *ngFor="let eff of setEffectsList">
-      <b style="text-decoration: underline; margin-inline-end: 10px;">{{ eff.label }}:</b>
+    <div *ngFor="let eff of setEffectsList" class="effect-item">
+      <b class="effect-label">{{ eff.label }}:</b>
       <span [innerHTML]="eff.formattedDescription"></span>
     </div>
   </div>
@@ -28,8 +28,10 @@
 
 <!-- Effect (popover) -->
 <ng-template #setEffectPopover>
-  <div *ngFor="let eff of setEffectsList">
-    <b style="text-decoration: underline; margin-inline-end: 10px;">{{ eff.label }}:</b>
-    <span [innerHTML]="eff.formattedDescription"></span>
+  <div class="set-effect">
+    <div *ngFor="let eff of setEffectsList" class="effect-item">
+      <b class="effect-label">{{ eff.label }}:</b>
+      <span [innerHTML]="eff.formattedDescription"></span>
+    </div>
   </div>
 </ng-template>

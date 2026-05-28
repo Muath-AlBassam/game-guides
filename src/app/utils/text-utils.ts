@@ -14,19 +14,22 @@ export class TextUtils {
   private isGI = (gameCode: string): boolean => gameCode == Constants.games.GI;
   private isHSR = (gameCode: string): boolean => gameCode == Constants.games.HSR;
   private isZZZ = (gameCode: string): boolean => gameCode == Constants.games.ZZZ;
+  private isHI3 = (gameCode: string): boolean => gameCode == Constants.games.HI3;
 
   private repeat = (text: string) => `<span class="arrow-border">${text}</span>`;
   private tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
   private htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
   private imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
   private color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
-  private applyColor(gameCode: string, text: string, gi: string = '', hsr: string = '', zzz: string = '') {
+  private applyColor(gameCode: string, text: string, gi: string = '', hsr: string = '', zzz: string = '', hi3 = '') {
     if (this.isGI(gameCode) && gi) {
       return this.color(text, gi);
     } else if (this.isHSR(gameCode) && hsr) {
       return this.color(text, hsr);
     } else if (this.isZZZ(gameCode) && zzz) {
       return this.color(text, zzz);
+    } else if (this.isHI3(gameCode) && hi3) {
+      return this.color(text, hi3);
     } else {
       return text;
     }
@@ -110,12 +113,12 @@ export class TextUtils {
 
   COLOR_FORMATS_LIST(gameCode: string) {
     return [
-      { title: 'Fire', offset: 8, regex: /fire dmg|fire|burning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'ff5521', 'ff5521') },
+      { title: 'Fire', offset: 8, regex: /fire dmg|fire|burning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'ff5521', 'ff5521', 'fe7b79') },
       { title: 'Electric', offset: 12, regex: /electric dmg|electric|shocked/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', '2eb6ff') },
       { title: 'Ether', offset: 9, regex: /ether dmg|ether|corruption/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', 'fe437e') },
-      { title: 'Ice', offset: 7, regex: /ice dmg|ice|freeze|shatter/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '98eff0', '98eff0') },
-      { title: 'Physical', offset: 12, regex: /physical dmg|physical sheer dmg|physical/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '979797', 'f0d12b') },
-      { title: 'Lightning', offset: 13, regex: /lightning dmg|lightning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'c65ade') },
+      { title: 'Ice', offset: 7, regex: /ice dmg|ice|freeze|shatter/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '98eff0', '98eff0', '78ffe3') },
+      { title: 'Physical', offset: 12, regex: /physical dmg|physical sheer dmg|physical/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '979797', 'f0d12b', 'f59b41') },
+      { title: 'Lightning', offset: 13, regex: /lightning dmg|lightning/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'c65ade', '', 'fbea78') },
       { title: 'Wind', offset: 8, regex: /wind dmg|wind/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '61cf93') },
       { title: 'Quantum', offset: 11, regex: /quantum dmg|quantum/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '766dd6') },
       { title: 'Imaginary', offset: 13, regex: /imaginary dmg|imaginary/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'f3e137') },

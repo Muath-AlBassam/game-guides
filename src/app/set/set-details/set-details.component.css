@@ -33,7 +33,7 @@
   /**/
 }
 
-.set-container .set-info .piece-count {
+.set-container .set-info .equppied-pieces {
   color: hsla(0, 0%, 100%, .75);
   display: inline;
   margin-left: 5px;
@@ -47,6 +47,17 @@
   width: 100%;
   grid-row: 3;
   grid-column: 1 / span 3;
+}
+
+.set-effect .effect-item:not(:first-child) {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.set-effect .effect-label {
+  text-decoration: underline;
+  margin-inline-end: 10px;
 }
 
 .effect-arrow:not(.collapsed) img {

@@ -17,7 +17,7 @@
     <div class="row">
       <div class="{{!isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}}"
         *ngFor="let set of buildmd.sets">
-        <app-set-details [gameCode]="gameCode" [setName]="set.name" [pieceCount]="set.pieceCount"></app-set-details>
+        <app-set-details [gameCode]="gameCode" [setName]="set.name" [equppiedPieces]="set.equppiedPieces"></app-set-details>
       </div>
     </div>
   </div>

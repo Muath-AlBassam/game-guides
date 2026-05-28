@@ -28,7 +28,7 @@ export class SetsService {
       gameCode: s.GAME_CODE,
       code: s.CODE,
       label: s.LABEL,
-      requiredCount: s.REQUIRED_COUNT,
+      requiredPiece: s.REQUIRED_PIECE,
       description: s.DESCRIPTION
     }));
   }

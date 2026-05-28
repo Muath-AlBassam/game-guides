@@ -14,7 +14,7 @@ export class SetDetailsComponent implements OnInit {
 
   @Input() gameCode: any = null;
   @Input() setName: any = null;
-  @Input() pieceCount: any = null;
+  @Input() equppiedPieces: any = null;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
 
   set: any = null;
@@ -38,8 +38,16 @@ export class SetDetailsComponent implements OnInit {
     this.setEffectsList.forEach((eff: any) => {
       eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
     });
-    if (this.pieceCount) {
-      this.setEffectsList = this.setEffectsList.filter((eff: any) => Number(this.pieceCount) >= eff.requiredCount);
+    if (this.equppiedPieces) {
+      const equippedPiecesArr = this.equppiedPieces.split(',');
+      this.setEffectsList = this.setEffectsList.filter((eff: any) => {
+        return equippedPiecesArr.some((pieceCode: any) => {
+          if (!isNaN(Number(pieceCode)) && !isNaN(Number(eff.requiredPiece))) {
+            return Number(eff.requiredPiece) <= Number(pieceCode);
+          }
+          return eff.requiredPiece == pieceCode;
+        });
+      });
     }
   }
 }
