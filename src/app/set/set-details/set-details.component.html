@@ -4,10 +4,10 @@
     <img [src]="set.imageUrl ?? unknownImg" height="70" />
   </div>
   <!-- Info -->
-  <div class="set-info" [ngbPopover]="setEffectPopover" [popoverTitle]="set.name" popoverClass="gagu-popover"
-      [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0" container="body">
+  <div class="set-info">
     <span *ngIf="equppiedPieces" class="equppied-pieces">({{equppiedPieces}})</span>
-    <h5 class="set-name">
+    <h5 class="set-name" [ngbPopover]="setEffectPopover" [popoverTitle]="set.name" popoverClass="gagu-popover"
+        [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0" container="body" placement="right auto">
       {{set.name}}
     </h5>
   </div>

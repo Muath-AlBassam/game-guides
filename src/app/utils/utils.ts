@@ -35,4 +35,8 @@ export class Utils {
     });
     return map;
   }
+
+  static isNumber(text: any) {
+    return !isNaN(Number(text));
+  }
 }

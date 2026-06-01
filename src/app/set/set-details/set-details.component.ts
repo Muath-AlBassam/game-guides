@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SetsService } from '../../services/sets.service';
 import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
+import { Utils } from '../../utils/utils';
 
 @Component({
   selector: 'app-set-details',
@@ -35,19 +36,30 @@ export class SetDetailsComponent implements OnInit {
 
   loadSetEffects() {
     this.setEffectsList = JSON.parse(JSON.stringify(this.set.effects));
-    this.setEffectsList.forEach((eff: any) => {
-      eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
-    });
+    this.filterSetEffects();
+    this.formatSetEffects();
+  }
+
+  filterSetEffects() {
     if (this.equppiedPieces) {
       const equippedPiecesArr = this.equppiedPieces.split(',');
       this.setEffectsList = this.setEffectsList.filter((eff: any) => {
         return equippedPiecesArr.some((pieceCode: any) => {
-          if (!isNaN(Number(pieceCode)) && !isNaN(Number(eff.requiredPiece))) {
+          if (Utils.isNumber(pieceCode) && Utils.isNumber(eff.requiredPiece)) {
             return Number(eff.requiredPiece) <= Number(pieceCode);
+          } else if (Utils.isNumber(eff.requiredPiece)) {
+            return Number(eff.requiredPiece) <= equippedPiecesArr.length
+          } else {
+            return eff.requiredPiece == pieceCode;
           }
-          return eff.requiredPiece == pieceCode;
         });
       });
     }
+  }
+
+  formatSetEffects() {
+    this.setEffectsList.forEach((eff: any) => {
+      eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
+    });
   }
 }

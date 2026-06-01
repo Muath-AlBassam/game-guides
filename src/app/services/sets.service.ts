@@ -26,7 +26,7 @@ export class SetsService {
   private mapEffects(resMap: any) {
     this.setsEffectsList = resMap.get('SETS_EFFECTS').map((s: any) => ({
       gameCode: s.GAME_CODE,
-      code: s.CODE,
+      setCode: s.SET_CODE,
       label: s.LABEL,
       requiredPiece: s.REQUIRED_PIECE,
       description: s.DESCRIPTION
@@ -41,7 +41,7 @@ export class SetsService {
       type: s.TYPE,
       imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
       rarity: s.RARITY,
-      effects: this.setsEffectsList.filter(e => e.gameCode == s.GAME_CODE && e.code == s.CODE)
+      effects: this.setsEffectsList.filter(eff => eff.gameCode == s.GAME_CODE && eff.setCode == s.CODE)
     }));
   }
 
