@@ -35,7 +35,7 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadSetEffects() {
-    this.setEffectsList = JSON.parse(JSON.stringify(this.set.effects));
+    this.setEffectsList = [...this.set.effects];
     this.filterSetEffects();
     this.formatSetEffects();
   }

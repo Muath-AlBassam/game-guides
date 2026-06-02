@@ -9,6 +9,7 @@ import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component'
 import { TeamListComponent } from './team/team-list/team-list.component';
 import { ErrorComponent } from './core/error/error.component';
 import { SettingsComponent } from './settings/settings.component';
+import { GameNotesComponent } from './game/game-notes/game-notes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'web', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
           { path: 'teams', component: TeamListComponent },
           { path: 'weapons', component: WeaponListComponent },
           { path: 'sets', component: SetListComponent },
+          { path: 'notes', component: GameNotesComponent },
         ]
       }
     ],

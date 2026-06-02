@@ -35,8 +35,12 @@ export class NotesService {
   }
 
   getAllByTeam(gameCode: any, teamCode: any) {
-    const data = this.notesList
-      .find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == 'TEAM');
+    const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == 'TEAM');
+    return data ? data.notes : null;
+  }
+
+  getAllByGame(gameCode: any) {
+    const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerType == 'GAME');
     return data ? data.notes : null;
   }
 }

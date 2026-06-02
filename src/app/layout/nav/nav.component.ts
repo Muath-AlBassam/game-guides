@@ -50,16 +50,13 @@ export class NavComponent implements OnInit {
   generateRoutesList() {
     let gameStyle = this.activeGame?.style ?? Constants.gameStyles.NONE;
     this.routesList = [];
+    this.routesList.push(this.getCharactersRoute());
     if (gameStyle == Constants.gameStyles.TEAMS) {
       this.routesList.push(this.getTeamsRoute());
-      this.routesList.push(this.getCharactersRoute());
       this.routesList.push(this.getWeaponsRoute());
       this.routesList.push(this.getSetsRoute());
-    } else if (gameStyle == Constants.gameStyles.FIGHT) {
-      this.routesList.push(this.getCharactersRoute());
-    } else if (gameStyle == Constants.gameStyles.LOOTER_SHOOTER) {
-      this.routesList.push(this.getCharactersRoute());
     }
+    this.routesList.push(this.getNotesRoute());
   }
 
   getTeamsRoute() {
@@ -91,6 +88,14 @@ export class NavComponent implements OnInit {
       label: GameUtils.getSetsLabel(this.activeGame?.code),
       path: '/web/' + this.activeGame?.code + '/sets',
       icon: 'assets/images/artifact.jpg'
+    };
+  }
+
+  getNotesRoute() {
+    return {
+      label: 'Notes',
+      path: '/web/' + this.activeGame?.code + '/notes',
+      icon: 'assets/svg/note.svg'
     };
   }
 }

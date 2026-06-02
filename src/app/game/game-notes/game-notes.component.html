@@ -1,0 +1,10 @@
+<div class="g-notes-container" *ngIf="formattedNotes.length > 0">
+  <ul class="game-notes">
+    <li *ngFor="let note of formattedNotes">
+      <span class="note-content" [innerHTML]="note">
+      </span>
+    </li>
+  </ul>
+</div>
+
+<app-no-data *ngIf="formattedNotes.length == 0"></app-no-data>

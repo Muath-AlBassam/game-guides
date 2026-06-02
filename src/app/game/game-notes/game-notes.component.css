@@ -1,0 +1,22 @@
+.g-notes-container {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid black;
+  background: #1d1d1d;
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.5),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.05);
+}
+
+.g-notes-container ul.game-notes {
+  font-size: 1.1em;
+  list-style-type: disc;
+  margin-bottom: 0;
+  padding-inline-start: 10px;
+  margin-left: 20px;
+}
+
+.g-notes-container ul.game-notes li:not(:first-child) {
+  margin-top: 10px;
+}

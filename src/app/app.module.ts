@@ -11,7 +11,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { CoreComponent } from './core/core/core.component';
 import { GameGuidesComponent } from './core/game-guides/game-guides.component';
-import { GameHeaderComponent } from './core/game-header/game-header.component';
+import { GameHeaderComponent } from './game/game-header/game-header.component';
 import { HomeComponent } from './core/home/home.component';
 import { ErrorComponent } from './core/error/error.component';
 import { CharacterImageComponent } from './character/character-image/character-image.component';
@@ -39,6 +39,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { TextFormatterComponent } from './settings/text-formatter/text-formatter.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GameNotesComponent } from './game/game-notes/game-notes.component';
+import { NoDataComponent } from './shared/no-data/no-data.component';
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotesPopoverComponent,
     SettingsComponent,
     TextFormatterComponent,
+    GameNotesComponent,
+    NoDataComponent,
   ],
   imports: [
     BrowserModule,

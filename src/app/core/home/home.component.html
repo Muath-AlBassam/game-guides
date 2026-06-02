@@ -13,6 +13,6 @@
       </h4>
     </a>
     <!-- dummy column, otherwise the last item will be in the middle (if items count is odd) -->
-    <div *ngIf="(games?.length ?? 0) % 2 != 0" class="col-md-5"></div>
+    <div *ngIf="games.length  % 2 != 0" class="col-md-5"></div>
   </div>
 </div>
