@@ -8,7 +8,7 @@
   <div class="mt-4">
     <div class="form-check form-check-inline" *ngFor="let game of games">
       <input class="form-check-input" type="radio" name="gamecode" [id]="'gamecode' + game.code"
-            [(ngModel)]="gameCode" [value]="game.code" (ngModelChange)="formatText()">
+             [(ngModel)]="gameCode" [value]="game.code" (ngModelChange)="onGameChange()">
       <label class="form-check-label" [for]="'gamecode' + game.code">
         <img height="30" [src]="game.logoUrl" [title]="game.code">
       </label>
@@ -26,13 +26,13 @@
     <div class="row mt-3">
       <div class="col-md-12">
 
-        <div class="d-flex flex-wrap mb-3">
-          <button class="btn btn-sm btn-formatter" *ngFor="let format of formatsList" [disabled]="showFormatted"
-            (click)="applyFormat(format)" [innerHTML]="format.sample" [title]="format.title">
+        <div class="mb-1 btn-group" *ngFor="let formatG of groupedFormatsList">
+          <button class="btn btn-sm btn-formatter" *ngFor="let format of formatG[1]" [disabled]="showFormatted"
+                  (click)="applyFormat(format)" [innerHTML]="format.title" [title]="format.rawText">
           </button>
         </div>
 
-        <textarea #myTextarea [ngClass]="{'d-none': showFormatted}" class="form-control" [(ngModel)]="text" name="rawtext"
+        <textarea #myTextarea [ngClass]="{'d-none': showFormatted}" class="form-control mt-3" [(ngModel)]="text" name="rawtext"
                   style="height: 150px" (ngModelChange)="formatText()">
         </textarea>
 

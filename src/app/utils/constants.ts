@@ -32,7 +32,10 @@ export class Constants {
     }
 
     static unicode = {
-        arrow: '&rightarrow;',
+        arrow_up: '&uparrow;',
+        arrow_down: '&downarrow;',
+        arrow_right: '&rightarrow;',
+        arrow_left: '&leftarrow;',
         twoWayArrow: '&leftrightarrow;',
         times: '&times;',
         space: '&#10240;',
