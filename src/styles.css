@@ -392,6 +392,8 @@ app-nav.active~.main-content {
   }
 }
 
+/* Formatter styles -------------------------------------------------------- */
+
 .arrow-border {
   position: relative;
   border: 1px solid var(--text-color);
@@ -462,4 +464,102 @@ app-nav.active~.main-content {
 
 .html-tooltip:hover .tooltip-content {
   display: block;
+}
+
+.split-image-2 {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  aspect-ratio: 1 / 1; /* final result stays square */
+  overflow: hidden;
+  background: transparent;
+  vertical-align: middle;
+  margin-top: -8px;
+}
+.split-image-2 .left-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+.split-image-2 .right-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+.split-image-2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 2px;
+  background: white;
+  transform: rotate(-45deg);
+  pointer-events: none;
+}
+
+.split-image-4 {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: transparent;
+  vertical-align: middle;
+  margin-top: -8px;
+}
+.split-image-4 .top-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+.split-image-4 .right-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+}
+.split-image-4 .bottom-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+}
+.split-image-4 .left-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, 50% 50%, 0 100%);
+}
+.split-image-4::before,
+.split-image-4::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 2px;
+  background: white;
+  pointer-events: none;
+}
+.split-image-4::before {
+  transform: rotate(45deg);
+}
+.split-image-4::after {
+  transform: rotate(-45deg);
 }

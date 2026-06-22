@@ -20,6 +20,8 @@ export class TextUtils {
   private tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
   private htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
   private imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
+  private splitImage2Of = (path1: string, path2: string) => `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
+  private splitImage4Of = (path1: string, path2: string, path3: string, path4: string) => `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
   private color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
   private applyColor(gameCode: string, text: string, gi: string = '', hsr: string = '', zzz: string = '', hi3 = '') {
     if (this.isGI(gameCode) && gi) {
@@ -106,6 +108,8 @@ export class TextUtils {
 
       { groupId: 4, title: 'Title', games: 'ALL', offset: 2, regex: /t_(.*?)_t/g, replace: (match: any, capture: any) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>` },
       { groupId: 4, title: 'Image', games: 'ALL', offset: 4, regex: /img_(.*?)_img/g, replace: (match: any, capture: any) => this.imageOf(Utils.appendRepoUrl(capture)) },
+      { groupId: 4, title: 'Double Image', games: 'ALL', offset: 5, regex: /img2_(.*?)\+(.*?)_img2/g, replace: (match: any, capture1: any, capture2: any) => this.splitImage2Of(Utils.appendRepoUrl(capture1), Utils.appendRepoUrl(capture2)) },
+      { groupId: 4, title: 'Quad Image', games: 'ALL', offset: 5, regex: /img4_(.*?)\+(.*?)\+(.*?)\+(.*?)_img4/g, replace: (match: any, cap1: any, cap2: any, cap3: any, cap4: any) => this.splitImage4Of(Utils.appendRepoUrl(cap1), Utils.appendRepoUrl(cap2), Utils.appendRepoUrl(cap3), Utils.appendRepoUrl(cap4)) },
       { groupId: 4, title: 'Small Text', games: 'ALL', offset: 3, regex: /st_(.*?)_st/g, replace: (match: any, capture: any) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${capture}</span>` },
       { groupId: 4, title: 'Bold', games: 'ALL', offset: 2, regex: /b_(.*?)_b/g, replace: (match: any, capture: any) => `<b>${capture}</b>` },
       { groupId: 4, title: 'Underline', games: 'ALL', offset: 2, regex: /u_(.*?)_u/g, replace: (match: any, capture: any) => `<u>${capture}</u>` },
