@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataClientService } from './services/data-client.service';
 import { GamesService } from './services/games.service';
 import { BuildsService } from './services/builds.service';
-import { CategoryService } from './services/category.service';
 import { CharactersService } from './services/characters.service';
 import { CombosService } from './services/combos.service';
 import { NotesService } from './services/notes.service';
@@ -23,17 +22,16 @@ export class AppComponent implements OnInit {
 
   constructor(
     private dataClient: DataClientService,
-    private buildsService: BuildsService,
-    private categoryService: CategoryService,
-    private charactersService: CharactersService,
-    private combosService: CombosService,
     private gamesService: GamesService,
     private lookupsService: LookupsService,
     private notesService: NotesService,
-    private petsService: PetsService,
-    private setsService: SetsService,
-    private teamsService: TeamsService,
+    private combosService: CombosService,
+    private charactersService: CharactersService,
     private weaponsService: WeaponsService,
+    private setsService: SetsService,
+    private buildsService: BuildsService,
+    private petsService: PetsService,
+    private teamsService: TeamsService,
   ) { }
 
   ngOnInit(): void {

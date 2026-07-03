@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteService } from '../../services/route.service';
-import { CategoryService } from '../../services/category.service';
 import { TeamsService } from '../../services/teams.service';
+import { LookupsService } from '../../services/lookups.service';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-team-list',
@@ -19,7 +20,7 @@ export class TeamListComponent implements OnInit {
   // search
   textValue: any = '';
 
-  constructor(private routeService: RouteService, private categoryService: CategoryService, private teamsService: TeamsService) { }
+  constructor(private routeService: RouteService, private lookupsService: LookupsService, private teamsService: TeamsService) { }
 
   async ngOnInit(): Promise<void> {
     this.gameCode = await this.routeService.getActiveGame();
@@ -27,7 +28,7 @@ export class TeamListComponent implements OnInit {
   }
 
   loadTeams() {
-    this.allCategories = this.categoryService.getAll(this.gameCode);
+    this.allCategories = this.lookupsService.getByType(this.gameCode, Constants.lookupType.CATEGORY);
     this.allCategories.forEach(cat => {
       let catTeams = this.teamsService.getAllByCategory(this.gameCode, cat.code);
       cat.teams = catTeams;

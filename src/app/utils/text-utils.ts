@@ -141,7 +141,7 @@ export class TextUtils {
       { title: 'Numbers (%)', offset: 0, regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, 'f3e137') },
       { title: 'Numbers (s)', offset: 0, regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, 'f3e137') },
       { title: 'Numbers (n/s)', offset: 0, regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'PHEC', offset: 0, regex: /[phec]{4}/gi, replace: (match: string) => match.split('').map(letter => {
+      { title: 'PHEC', offset: 0, regex: /\b(?=.*P)(?=.*H)(?=.*E)(?=.*C)[PHEC]{4}\b/g, replace: (match: string) => match.split('').map(letter => {
           switch (letter) {
             case 'P': return this.color(letter, 'ef7938');
             case 'E': return this.color(letter, 'af8ec1');

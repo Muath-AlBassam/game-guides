@@ -9,7 +9,6 @@ export class TeamsService {
 
   teamsList: any[] = [];
 
-
   constructor(private dataClient: DataClientService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
@@ -32,6 +31,7 @@ export class TeamsService {
       speciality: t.SPECIALITY,
       iconUrl: Utils.appendRepoUrl(t.ICON_URL),
       pet: t.PET,
+      tags: t.TAGS?.split(','),
       order: t.ORDER,
       characters: teamCharacterList
         .filter((c: any) => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)

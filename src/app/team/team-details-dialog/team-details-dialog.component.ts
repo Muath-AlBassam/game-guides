@@ -29,7 +29,7 @@ export class TeamDetailsDialogComponent implements OnInit {
   dummyCharactersList: any[] = [];
 
   constructor(private gamesService: GamesService, private teamsService: TeamsService, private petsService: PetsService,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+              @Inject(MAT_DIALOG_DATA) public data: any) {
     this.gameCode = data.gameCode;
     this.teamCode = data.teamCode;
     this.teamIndex = data.teamIndex;

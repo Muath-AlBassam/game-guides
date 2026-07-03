@@ -1,14 +1,19 @@
 <div class="team-info-container row gagu-box-shadow-10" style="margin: auto;">
   <div class="d-flex align-self-stretch" [ngClass]="{'col-md-4 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
-    <div class="name-container d-flex flex-column justify-content-center align-items-center pointer hover w-100"
-        [ngClass]="{'name-container-side': nameStyle == 'side'}" (click)="openTeamDetailsDialog()">
-      <h5 class="fw-bold text-shadow" [innerHTML]="team.name ?? '...'"></h5>
-      <span *ngIf="team.speciality && nameStyle == 'side'" class="speciality">
-        {{ team.speciality }}
-      </span>
+    <div class="name-container d-flex flex-column justify-content-center align-items-center w-100"
+        [ngClass]="{'name-container-side': nameStyle == 'side'}">
+      <h5 class="fw-bold text-shadow">
+        {{ team.name ? team.name : '...' }}
+        <img src="assets/svg/info.svg" height="15" class="hover pointer" (click)="openTeamDetailsDialog()">
+      </h5>
+      <div *ngIf="showTags" class="d-flex flex-wrap justify-content-center gap-1 mt-1">
+        <span *ngFor="let tag of teamTags" class="badge hover pointer" [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
+          {{ tag.label }}
+        </span> 
+      </div>
     </div>
   </div>
-  <div class="ti-characters-container d-flex justify-content-center"
+  <div class="ti-characters-container d-flex justify-content-center align-items-center"
       [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
     <app-character-image *ngFor="let character of team.characters" [gameCode]="gameCode"
       [characterName]="character.name" [dimensions]="characterPFPSize" [styles]="'margin: 5px 10px;'"

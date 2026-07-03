@@ -52,6 +52,8 @@ export class Constants {
       TYPE: 'TYPE',
       RARITY: 'RARITY',
       ELEMENT: 'ELEMENT',
-      BUTTON: 'BUTTON'
+      BUTTON: 'BUTTON',
+      TAG: 'TAG',
+      CATEGORY: 'CATEGORY'
     }
 }
