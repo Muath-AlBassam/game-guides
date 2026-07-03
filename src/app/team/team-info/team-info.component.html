@@ -7,7 +7,8 @@
         <img src="assets/svg/info.svg" height="15" class="hover pointer" (click)="openTeamDetailsDialog()">
       </h5>
       <div *ngIf="showTags" class="d-flex flex-wrap justify-content-center gap-1 mt-1">
-        <span *ngFor="let tag of teamTags" class="badge hover pointer" [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
+        <span *ngFor="let tag of teamTags" class="badge hover pointer team-badge"
+              [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
           {{ tag.label }}
         </span> 
       </div>

@@ -128,7 +128,7 @@ export class TextUtils {
       { title: 'Ice', offset: 7, regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '98eff0', '98eff0', '78ffe3') },
       { title: 'Physical', offset: 12, regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '979797', 'f0d12b', 'f59b41') },
       { title: 'Lightning', offset: 13, regex: /\b(?:lightning dmg|lightning)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'c65ade', '', 'fbea78') },
-      { title: 'Wind', offset: 8, regex: /\b(?:wind dmg|wind)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '61cf93') },
+      { title: 'Wind', offset: 8, regex: /\b(?:wind dmg|wind)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '61cf93', '61a6ff') },
       { title: 'Quantum', offset: 11, regex: /\b(?:quantum dmg|quantum)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '766dd6') },
       { title: 'Imaginary', offset: 13, regex: /\b(?:imaginary dmg|imaginary)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'f3e137') },
       { title: 'Pyro', offset: 8, regex: /\b(?:pyro dmg|pyro)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, 'ef7938') },
