@@ -19,6 +19,7 @@ export class TeamListComponent implements OnInit {
 
   // search
   textValue: any = '';
+  tagValue: any[] = [];
 
   constructor(private routeService: RouteService, private lookupsService: LookupsService, private teamsService: TeamsService) { }
 
@@ -42,15 +43,21 @@ export class TeamListComponent implements OnInit {
     this.filterList();
   }
 
+  onTagChange(val: any[]) {
+    this.tagValue = val;
+    this.filterList();
+  }
+
   filterList() {
     this.count = 0;
     let filtered = structuredClone(this.allCategories);
     this.categories = filtered.filter(cat => {
       let filteredTeams = cat.teams
-        .filter((t: any) => {
-          let teamName: boolean = t.name ? t.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
-          let charaterName: boolean = t.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
-          return teamName || charaterName;
+        .filter((team: any) => {
+          const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
+          const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
+          const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags.includes(t));
+          return (teamName || charaterName) && tag;
         });
         cat.teams = filteredTeams;
         this.count += filteredTeams.length;

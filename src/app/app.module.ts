@@ -41,6 +41,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameNotesComponent } from './game/game-notes/game-notes.component';
 import { NoDataComponent } from './shared/no-data/no-data.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import { NoDataComponent } from './shared/no-data/no-data.component';
     HttpClientModule,
     MatDialogModule,
     NgbModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,8 @@
   </div>
 </div>
 
-<app-advanced-filter [placeholder]="'Search teams and characters...'" (textChange)="onTextChange($event)">
+<app-advanced-filter [placeholder]="'Search teams and characters...'" [tagFilter]="true"
+                     (textChange)="onTextChange($event)" (tagChange)="onTagChange($event)">
 </app-advanced-filter>
 
 <div class="category-container" id="category">

@@ -13,6 +13,7 @@ export class AdvancedFilterComponent implements OnInit {
   @Input() rarityFilter: boolean = false;
   @Input() elementFilter: boolean = false;
   @Input() typeFilter: boolean = false;
+  @Input() tagFilter: boolean = false;
   @Input() resetButton: boolean = false;
   @Input() placeholder: string = 'Search...';
 
@@ -20,16 +21,24 @@ export class AdvancedFilterComponent implements OnInit {
   @Output() rarityChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() elementChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() typeChange: EventEmitter<any> = new EventEmitter<any>();
+  @Output() tagChange: EventEmitter<any[]> = new EventEmitter<any[]>();
   @Output() reset: EventEmitter<void> = new EventEmitter<void>();
 
   gameCode: any = null;
+
   textValue: any = '';
+
   rarityValue: any = '';
-  elementValue: any = '';
-  typeValue: any = '';
   rarities: any[] = [];
+
+  elementValue: any = '';
   elements: any[] = [];
+
+  typeValue: any = '';
   types: any[] = [];
+
+  tagValue: any[] = [];
+  tags: any[] = [];
 
   constructor(private routeService: RouteService, private lookupsService: LookupsService) { }
 
@@ -47,6 +56,9 @@ export class AdvancedFilterComponent implements OnInit {
     }
     if (this.typeFilter) {
       this.types = this.lookupsService.getByType(this.gameCode, Constants.lookupType.TYPE);
+    }
+    if (this.tagFilter) {
+      this.tags = this.lookupsService.getByType(this.gameCode, Constants.lookupType.TAG);
     }
   }
 
@@ -70,11 +82,18 @@ export class AdvancedFilterComponent implements OnInit {
     this.typeChange.emit(val);
   }
 
+  onTagChange(tags: any[]) {
+    if (tags == null) tags = [];
+    this.tagValue = tags;
+    this.tagChange.emit(tags);
+  }
+
   onReset() {
     this.textValue = '';
     this.rarityValue = '';
     this.elementValue = '';
     this.typeValue = '';
+    this.tagValue = [];
     this.reset.emit();
   }
 }
