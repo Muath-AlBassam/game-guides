@@ -22,7 +22,8 @@
   </div>
 
   <div *ngIf="tagFilter && tags.length > 0">
-    <ng-select [(ngModel)]="tagValue" (change)="onTagChange($event)" [multiple]="true" class="gagu-multi-form-control">
+    <ng-select [(ngModel)]="tagValue" (change)="onTagChange($event)" [multiple]="true" [placeholder]="'Select tags...'"
+               class="gagu-multi-form-control">
       @for (tag of tags; track tag.code) {
         <ng-option [value]="tag.code">
           <span class="badge hover pointer team-badge" [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
