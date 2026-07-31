@@ -10,19 +10,21 @@
                      (textChange)="onTextChange($event)" (tagChange)="onTagChange($event)">
 </app-advanced-filter>
 
-<div class="category-container" id="category">
-  <ng-template ngFor [ngForOf]="categories" let-category>
-    <div class="category-name line-text mb-1">
-      {{category.label}}
-    </div>
-    <div class="row" style="margin: auto;">
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3" *ngFor="let team of category.teams">
-        <div>
-          <app-team-info [gameCode]="gameCode" [teamCode]="team.code" [showTags]="true"></app-team-info>
-        </div>
+@if (categories.length > 0) {
+  <div class="category-container" id="category">
+    @for (category of categories; track $index) {
+      <div class="category-name line-text mb-1">
+        {{category.label}}
       </div>
-    </div>
-  </ng-template>
-</div>
-
-<app-no-data *ngIf="categories.length == 0"></app-no-data>
+      <div class="row" style="margin: auto;">
+        @for (team of category.teams; track $index) {
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <app-team-info [gameCode]="gameCode" [teamCode]="team.code" [showTags]="true"></app-team-info>
+          </div>
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <app-no-data></app-no-data>
+}

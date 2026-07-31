@@ -1,37 +1,58 @@
-<div class="weapon-container" *ngIf="weapon" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
-    popoverClass="gagu-popover" [disablePopover]="effectStyle != 'popover' || !weapon.effect" container="body">
-  <!-- Image -->
-  <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
-    <img [src]="weapon.imageUrl ?? unknownImg" height="80" />
-  </div>
-  <!-- Info -->
-  <div class="weapon-info">
-    <div>
-      <h5 class="weapon-name">
-        {{weapon.name}}
-      </h5>
-      <p class="weapon-metadata" *ngIf="showAdditionalInfo">
-        <img [src]="rarity.imageUrl" [alt]="rarity.label" [title]="rarity.label" height="24" />
-        |
-        <img [src]="type.imageUrl" [alt]="type.label" [title]="type.label" height="24" />
-      </p>
+@if (weapon) {
+  <div class="weapon-container" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
+      popoverClass="gagu-popover" [disablePopover]="effectStyle != 'popover' || !weapon.effect" container="body">
+    <!-- Image -->
+    <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
+      <img [src]="weapon.imageUrl ?? unknownImg" height="80" />
     </div>
+    <!-- Info -->
+    <div class="weapon-info">
+      <div>
+        <h5 class="weapon-name">
+          {{weapon.name}}
+        </h5>
+        @if (showAdditionalInfo) {
+          <p class="weapon-metadata">
+            <img [src]="rarity.imageUrl" [alt]="rarity.label" [title]="rarity.label" height="24" />
+            |
+            <img [src]="type.imageUrl" [alt]="type.label" [title]="type.label" height="24" />
+          </p>
+        }
+      </div>
+    </div>
+    <!-- Effect (box) - Trigger -->
+    @if ((effectStyle == 'box' && weapon.effect) || showEquippedBy) {
+      <div class="pointer effect-arrow collapsed" data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#'+weaponId+'effect, #'+weaponId+'equippedby'">
+        <img src="assets/svg/arrow-down.svg" height="20">
+      </div>
+    }
+    <!-- Secondary stats -->
+    @if (showAdditionalInfo && weapon.secondaryStat) {
+      <div class="weapon-stat">
+        <b>{{weapon.secondaryStat}}</b>
+      </div>
+    }
+    <!-- Effect (box) -->
+    @if (effectStyle == 'box' && weapon.effect) {
+      <div class="weapon-effect collapse" id="{{weaponId}}effect" data-bs-parent="#weapons-container">
+        <div [innerHTML]="weapon.formattedEffect"></div>
+      </div>
+    }
+    <!-- Equipped characters -->
+    @if (showEquippedBy) {
+      <div class="equipped-by collapse" id="{{weaponId}}equippedby" data-bs-parent="#weapons-container">
+        <div>
+          @for (char of equippedCharacters; track $index) {
+            <app-character-image [gameCode]="gameCode" [styles]="'margin: 0 5px; border-radius: 50%;'"
+              [characterName]="char" [dimensions]="40" [enableDetailsDialog]="false">
+            </app-character-image>
+          }
+        </div>
+      </div>
+    }
   </div>
-  <!-- Effect (box) - Trigger -->
-  <div *ngIf="effectStyle == 'box' && weapon.effect" class="pointer effect-arrow collapsed"
-      data-bs-toggle="collapse" [attr.data-bs-target]="'#'+weaponId+'effect'">
-    <img src="assets/svg/arrow-down.svg" height="20">
-  </div>
-  <!-- Secondary stats -->
-  <div class="weapon-stat" *ngIf="showAdditionalInfo && weapon.secondaryStat">
-    <b>{{weapon.secondaryStat}}</b>
-  </div>
-  <!-- Effect (box) -->
-  <div *ngIf="effectStyle == 'box' && weapon.effect" class="weapon-effect collapse"
-      id="{{weaponId}}effect" data-bs-parent="#weapons-container">
-    <div [innerHTML]="weapon.formattedEffect"></div>
-  </div>
-</div>
+}
 
 <!-- Effect (popover) -->
 <ng-template #weaponEffectPopover>

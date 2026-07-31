@@ -4,11 +4,15 @@
     Notes
   </h5>
   <div>
-    <ul class="team-notes" *ngIf="formattedNotes.length > 0">
-      <li *ngFor="let note of formattedNotes">
-        <span class="note-content" [innerHTML]="note">
-        </span>
-      </li>
-    </ul>
+    @if (formattedNotes.length > 0) {
+      <ul class="team-notes">
+        @for (note of formattedNotes; track $index) {
+          <li>
+            <span class="note-content" [innerHTML]="note">
+            </span>
+          </li>
+        }
+      </ul>
+    }
   </div>
 </div>

@@ -6,13 +6,17 @@
   <hr class="mt-5 mb-5" />
 
   <div class="row justify-content-around">
-    <a *ngFor="let g of games" [routerLink]="'/web/' + g.code" class="col-md-5 game-box pointer mb-4"
-      style="background-image: url({{g.backgroundUrl}});">
-      <h4 class="game-title">
-        {{ g.label }}
-      </h4>
-    </a>
+    @for (g of games; track $index) {
+      <a [routerLink]="'/web/' + g.code" class="col-md-5 game-box pointer mb-4"
+        style="background-image: url({{g.backgroundUrl}});">
+        <h4 class="game-title">
+          {{ g.label }}
+        </h4>
+      </a>
+    }
     <!-- dummy column, otherwise the last item will be in the middle (if items count is odd) -->
-    <div *ngIf="games.length  % 2 != 0" class="col-md-5"></div>
+    @if (games.length  % 2 != 0) {
+      <div class="col-md-5"></div>
+    }
   </div>
 </div>

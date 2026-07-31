@@ -10,18 +10,25 @@
 <app-advanced-filter [placeholder]="'Search ' + setsLabel + '...'" (textChange)="onTextChange($event)">
 </app-advanced-filter>
 
-<div id="sets-container" *ngIf="setByType && setByType.size > 0">
-  <div class="row" *ngFor="let category of setByTypeList">
-    <ng-template [ngIf]="setByType.size > 1">
-      <div class="line-text set-type-name">
-        {{category[0]}} <!-- key -->
+@if (setByType && setByType.size > 0) {
+  <div id="sets-container">
+    @for (category of setByTypeList; track $index) {
+      <div class="row">
+        @if (setByType.size > 1) {
+          <div class="line-text set-type-name">
+            {{category[0]}} <!-- key -->
+          </div>
+        }
+
+        @for (set of category[1]; track $index) { <!-- value -->
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
+            <app-set-details [gameCode]="gameCode" [setName]="set.name" [effectStyle]="'box'" [showEquippedBy]="true">
+            </app-set-details>
+          </div>
+        }
       </div>
-    </ng-template>
-
-    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3" *ngFor="let set of category[1]"> <!-- value -->
-      <app-set-details [gameCode]="gameCode" [setName]="set.name" [effectStyle]="'box'"></app-set-details>
-    </div>
+    }
   </div>
-</div>
-
-<app-no-data *ngIf="setByType.size == 0"></app-no-data>
+} @else {
+  <app-no-data></app-no-data>
+}

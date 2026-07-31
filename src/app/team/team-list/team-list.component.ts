@@ -56,7 +56,7 @@ export class TeamListComponent implements OnInit {
         .filter((team: any) => {
           const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
           const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
-          const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags.includes(t));
+          const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
           return (teamName || charaterName) && tag;
         });
         cat.teams = filteredTeams;

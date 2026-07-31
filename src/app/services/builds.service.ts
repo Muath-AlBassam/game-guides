@@ -43,10 +43,10 @@ export class BuildsService {
     return this.buildsList.find(b => b.gameCode == gameCode && b.character == characterName);
   }
 
-  countByWeapon(gameCode: any, weapon: any) {
+  getEquippedBy(gameCode: any, name: any, type: 'WEAPON' | 'SET') {
     return this.flatList
-      .filter(b => b.gameCode == gameCode && b.type == 'WEAPON' && b.name == weapon)
-      .length;
+      .filter(b => b.gameCode == gameCode && b.type == type && b.name == name)
+      .map(b => b.character);
   }
 
   countBySet(gameCode: any, set: any) {

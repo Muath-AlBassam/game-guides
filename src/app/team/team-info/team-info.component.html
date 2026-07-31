@@ -6,19 +6,25 @@
         <span [innerHTML]="team.name ?? '...'"></span>
         <img src="assets/svg/info.svg" height="15" class="mx-1 hover pointer" (click)="openTeamDetailsDialog()">
       </h5>
-      <div *ngIf="showTags" class="d-flex flex-wrap justify-content-center gap-1 mt-1">
-        <span *ngFor="let tag of teamTags" class="badge hover pointer team-badge"
-              [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
-          {{ tag.label }}
-        </span> 
-      </div>
+      @if (showTags) {
+        <div class="d-flex flex-wrap justify-content-center gap-1 mt-1">
+          @for (tag of teamTags; track $index) {
+            <span class="badge hover pointer team-badge" [ngClass]="{ 'bg-secondary': !tag.style }"
+                  [style]="tag.style">
+              {{ tag.label }}
+            </span>
+          }
+        </div>
+      }
     </div>
   </div>
   <div class="ti-characters-container d-flex justify-content-center align-items-center"
       [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
-    <app-character-image *ngFor="let character of team.characters" [gameCode]="gameCode"
-      [characterName]="character.name" [dimensions]="characterPFPSize" [styles]="'margin: 5px 10px;'"
-      [withDetailsDialog]="true" [withElement]="true" [mobileSizeRatio]="characterMobileSizeRation" [mobileIconSizeRatio]="0.8">
-    </app-character-image>
+    @for (character of team.characters; track $index) {
+      <app-character-image [gameCode]="gameCode" [characterName]="character.name" [dimensions]="characterPFPSize"
+        [styles]="'margin: 5px 10px;'" [withDetailsDialog]="true" [withElement]="true"
+        [mobileSizeRatio]="characterMobileSizeRation" [mobileIconSizeRatio]="0.8">
+      </app-character-image>
+    }
   </div>
 </div>

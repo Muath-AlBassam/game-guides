@@ -16,11 +16,15 @@
       </div>
     </div>
 
-    <app-character-build *ngIf="hasBuild" class="col-md-9" [gameCode]="gameCode" [character]="character" (hasBuild)="hasBuild = $event">
-    </app-character-build>
+    @if (hasBuild) {
+      <app-character-build class="col-md-9" [gameCode]="gameCode" [character]="character" (hasBuild)="hasBuild = $event">
+      </app-character-build>
+    }
 
-    <app-character-combos *ngIf="hasCombos" class="col-md-9" [gameCode]="gameCode" [character]="character" (hasCombos)="hasCombos = $event">
-    </app-character-combos>
+    @if (hasCombos) {
+      <app-character-combos class="col-md-9" [gameCode]="gameCode" [character]="character" (hasCombos)="hasCombos = $event">
+      </app-character-combos>
+    }
 
     <app-character-teams class="col-md-12" [gameCode]="gameCode" [character]="character">
     </app-character-teams>

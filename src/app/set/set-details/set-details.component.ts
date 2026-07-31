@@ -3,6 +3,7 @@ import { SetsService } from '../../services/sets.service';
 import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
 import { Utils } from '../../utils/utils';
+import { BuildsService } from '../../services/builds.service';
 
 @Component({
   selector: 'app-set-details',
@@ -16,25 +17,28 @@ export class SetDetailsComponent implements OnInit {
   @Input() gameCode: any = null;
   @Input() setName: any = null;
   @Input() equppiedPieces: any = null;
+  @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
 
   set: any = null;
   setId: string = '';
   setEffectsList: any[] = [];
+  equippedCharacters: any [] = [];
 
-  constructor(private setsService: SetsService, private textUtils: TextUtils) { }
+  constructor(private setsService: SetsService, private textUtils: TextUtils, private buildsService: BuildsService) { }
 
   ngOnInit(): void {
-    this.loadSet();
-    this.loadSetEffects();
+    this.loadData();
     this.setId = this.set.name.replace(/[^a-zA-Z0-9]/g, '');
   }
 
-  loadSet() {
-    this.set = this.setsService.getOne(this.gameCode, this.setName);
+  loadData() {
+    this.loadBasicData();
+    this.loadEquippedBy();
   }
 
-  loadSetEffects() {
+  loadBasicData() {
+    this.set = this.setsService.getOne(this.gameCode, this.setName);
     this.setEffectsList = [...this.set.effects];
     this.filterSetEffects();
     this.formatSetEffects();
@@ -61,5 +65,11 @@ export class SetDetailsComponent implements OnInit {
     this.setEffectsList.forEach((eff: any) => {
       eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
     });
+  }
+
+  loadEquippedBy() {
+    if (this.showEquippedBy) {
+      this.equippedCharacters = this.buildsService.getEquippedBy(this.gameCode, this.setName, 'SET');
+    }
   }
 }

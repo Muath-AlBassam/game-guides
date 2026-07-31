@@ -12,12 +12,14 @@
   (elementChange)="onElementChange($event)" (typeChange)="onTypeChange($event)" (reset)="onReset()">
 </app-advanced-filter>
 
-<div class="characters-container" id="characters-container">
-  <ng-template [ngIf]="characters && characters.length > 0">
-    <app-character-image *ngFor="let charmd of characters" [gameCode]="gameCode" [characterName]="charmd.name"
-      [dimensions]="160" [withDetailsDialog]="true" [withElement]="true" [withType]="true" [imageStyle]="'card'">
-    </app-character-image>
-  </ng-template>
-</div>
-
-<app-no-data *ngIf="characters.length == 0"></app-no-data>
+@if (characters && characters.length > 0) {
+  <div class="characters-container" id="characters-container">
+    @for (charmd of characters; track $index) {
+      <app-character-image [gameCode]="gameCode" [characterName]="charmd.name" [dimensions]="160"
+        [withDetailsDialog]="true" [withElement]="true" [withType]="true" [imageStyle]="'card'">
+      </app-character-image>
+    }
+  </div>
+} @else {
+  <app-no-data></app-no-data>
+}

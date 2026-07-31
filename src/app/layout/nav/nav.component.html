@@ -1,20 +1,24 @@
 <div class="sidebar-container">
   <div class="sidebar" [ngClass]="{'active': sidebarActive}">
     <ul>
-      <li *ngIf="activeGame != null">
-        <a routerLink="/web/home" routerLinkActive="active" class="sidebar-item home-item" title="Home"
-          [ngStyle]="{'background-image': gameBackgroundUrl != null ? gameBackgroundUrl : ''}">
-          <span class="nav-text" style="z-index: 1;">{{ activeGame.label }}</span>
-        </a>
-      </li>
-      <li *ngFor="let route of routesList">
-        <a class="sidebar-item" [routerLink]="route.path" routerLinkActive="active" [title]="route.label">
-          <i>
-            <img [src]="route.icon" [alt]="route.label" width="30" height="30" />
-          </i>
-          <span class="nav-text">{{ route.label }}</span>
-        </a>
-      </li>
+      @if (activeGame != null) {
+        <li>
+          <a routerLink="/web/home" routerLinkActive="active" class="sidebar-item home-item" title="Home"
+            [ngStyle]="{'background-image': gameBackgroundUrl != null ? gameBackgroundUrl : ''}">
+            <span class="nav-text" style="z-index: 1;">{{ activeGame.label }}</span>
+          </a>
+        </li>
+      }
+      @for (route of routesList; track $index) {
+        <li>
+          <a class="sidebar-item" [routerLink]="route.path" routerLinkActive="active" [title]="route.label">
+            <i>
+              <img [src]="route.icon" [alt]="route.label" width="30" height="30" />
+            </i>
+            <span class="nav-text">{{ route.label }}</span>
+          </a>
+        </li>
+      }
 
       <li class="settings-item">
         <a routerLink="/web/settings" routerLinkActive="active" class="sidebar-item settings-item" title="Settings">

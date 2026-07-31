@@ -10,18 +10,23 @@
       <div class="number">{{teamIndex}}</div>
       <div class="item">
         <div class="name pointer" [ngClass]="{'name-no-icon': team.iconUrl == null}" data-bs-toggle="collapse" data-bs-target="#teamDetails">
-          <img *ngIf="team.iconUrl != null" [src]="team.iconUrl" [height]="isMobile() ? '30' : '40'">
+          @if (team.iconUrl != null) {
+            <img [src]="team.iconUrl" [height]="isMobile() ? '30' : '40'">
+          }
           <span [innerHTML]="team.name ? team.name : '...'"></span>
         </div>
         <div class="members">
-          <app-character-image *ngFor="let char of dummyCharactersList; index as i" [gameCode]="gameCode"
-            [characterName]="team.characters[i]?.name" [dimensions]="characterPFPSize" styles="margin: 5px 10px;"
-            [withDetailsDialog]="true" [withElement]="true" [mobileSizeRatio]="0.6">
-          </app-character-image>
+          @for (char of dummyCharactersList; track i; let i = $index) {
+            <app-character-image [gameCode]="gameCode" [characterName]="team.characters[i]?.name"
+              [dimensions]="characterPFPSize" styles="margin: 5px 10px;" [withDetailsDialog]="true"
+              [withElement]="true" [mobileSizeRatio]="0.6">
+            </app-character-image>
+          }
 
-          <img *ngIf="activeGame.hasPet && petmd" [src]="petmd.imageUrl ?? unknownImg"
-            [height]="petPFPSize" [width]="petPFPSize" class="pet {{gameCode+'-rarity-'+petmd.rarity}}"
-            [title]="petmd.name">
+          @if (activeGame.hasPet && petmd) {
+            <img [src]="petmd.imageUrl ?? unknownImg" [height]="petPFPSize" [width]="petPFPSize"
+              class="pet {{gameCode+'-rarity-'+petmd.rarity}}" [title]="petmd.name">
+          }
         </div>
         <div class="actions pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">
           <img src="assets/svg/arrow-down.svg" height="50">
