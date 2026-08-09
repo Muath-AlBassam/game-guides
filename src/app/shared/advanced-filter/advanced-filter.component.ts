@@ -74,7 +74,15 @@ export class AdvancedFilterComponent implements OnInit {
 
   onElementChange(val: string) {
     this.elementValue = val;
-    this.elementChange.emit(val);
+    let values = [];
+    if (val) {
+      values.push(val);
+    }
+    const valDetails = this.elements.find(e => e.code == val);
+    if (valDetails?.isAlt) {
+      values.push(valDetails.baseElementCode);
+    }
+    this.elementChange.emit(values);
   }
 
   onTypeChange(val: string) {

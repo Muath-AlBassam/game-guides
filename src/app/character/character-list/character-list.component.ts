@@ -16,7 +16,7 @@ export class CharacterListComponent implements OnInit {
   // search
   textValue: any = '';
   rarityValue: any = '';
-  elementValue: any = '';
+  elementValue: any = [];
   typeValue: any = '';
 
   constructor(private routeService: RouteService, private charactersService: CharactersService) { }
@@ -41,7 +41,7 @@ export class CharacterListComponent implements OnInit {
     this.filterList();
   }
 
-  onElementChange(val: string) {
+  onElementChange(val: string[]) {
     this.elementValue = val;
     this.filterList();
   }
@@ -53,9 +53,9 @@ export class CharacterListComponent implements OnInit {
 
   filterList() {
     this.characters = this.allCharacters.filter(c => {
-      let filterByName = c.name.toLowerCase().includes(this.textValue.toLowerCase());
+      let filterByName = this.textValue ? c.name.toLowerCase().includes(this.textValue.toLowerCase()) : true;
       let filterByRarity = this.rarityValue ? c.rarity == this.rarityValue : true;
-      let filterByElement = this.elementValue ? c.element == this.elementValue : true;
+      let filterByElement = this.elementValue?.length > 0 ? this.elementValue.includes(c.element) : true;
       let filterByType = this.typeValue ? c.type == this.typeValue : true;
       return filterByName && filterByRarity && filterByElement && filterByType;
     });
@@ -64,7 +64,7 @@ export class CharacterListComponent implements OnInit {
   onReset() {
     this.textValue = '';
     this.rarityValue = '';
-    this.elementValue = '';
+    this.elementValue = [];
     this.typeValue = '';
     this.characters = this.allCharacters;
   }
