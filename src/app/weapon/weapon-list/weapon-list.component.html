@@ -15,7 +15,7 @@
 @if (weapons.length > 0) {
   <div id="weapons-container">
     <div class="row">
-      @for (weapon of weapons; track $index) {
+      @for (weapon of weapons; track weapon.name) {
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
           <app-weapon-details [gameCode]="gameCode" [weaponName]="weapon.name" [effectStyle]="'box'" [showEquippedBy]="true"></app-weapon-details>
         </div>

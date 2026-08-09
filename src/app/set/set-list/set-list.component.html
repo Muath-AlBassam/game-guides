@@ -12,7 +12,7 @@
 
 @if (setByType && setByType.size > 0) {
   <div id="sets-container">
-    @for (category of setByTypeList; track $index) {
+    @for (category of setByTypeList; track category[0]) {
       <div class="row">
         @if (setByType.size > 1) {
           <div class="line-text set-type-name">
@@ -20,7 +20,7 @@
           </div>
         }
 
-        @for (set of category[1]; track $index) { <!-- value -->
+        @for (set of category[1]; track set.code) { <!-- value -->
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
             <app-set-details [gameCode]="gameCode" [setName]="set.name" [effectStyle]="'box'" [showEquippedBy]="true">
             </app-set-details>

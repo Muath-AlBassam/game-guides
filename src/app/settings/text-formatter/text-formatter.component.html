@@ -6,7 +6,7 @@
 </h1>
 <div mat-dialog-content>
   <div class="mt-4">
-    @for (game of games; track $index) {
+    @for (game of games; track game.code) {
       <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="gamecode" [id]="'gamecode' + game.code"
               [(ngModel)]="gameCode" [value]="game.code" (ngModelChange)="onGameChange()">

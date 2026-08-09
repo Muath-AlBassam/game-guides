@@ -12,12 +12,12 @@
 
 @if (categories.length > 0) {
   <div class="category-container" id="category">
-    @for (category of categories; track $index) {
+    @for (category of categories; track category.code) {
       <div class="category-name line-text mb-1">
         {{category.label}}
       </div>
       <div class="row" style="margin: auto;">
-        @for (team of category.teams; track $index) {
+        @for (team of category.teams; track team.code) {
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3">
             <app-team-info [gameCode]="gameCode" [teamCode]="team.code" [showTags]="true"></app-team-info>
           </div>

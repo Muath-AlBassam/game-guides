@@ -6,7 +6,7 @@
         <span class="additional-text">({{teams.length}})</span>
       </h5>
       <div class="character-teams-container row justify-content-center">
-        @for (team of teams; track $index) {
+        @for (team of teams; track team.code) {
           <div class="col-xl-5 col-lg-5 col-md-5 col-sm-10 team-column m-1">
             <app-team-info [gameCode]="gameCode" [teamCode]="team.code" [nameStyle]="'top'"
               [characterMobileSizeRation]="0.5"></app-team-info>

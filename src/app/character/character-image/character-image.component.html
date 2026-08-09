@@ -23,7 +23,7 @@
   <!-- MULTIPLE (pfp) -->
   <div class="split-box split-box-{{charCount}}" [attr.style]="styles"
     [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
-    @for (char of charmdList; track $index) {
+    @for (char of charmdList; track char.name) {
       <div class="child {{withDetailsDialog ? 'pointer' : ''}} {{addRarityClass ? gameCode+'-rarity-'+char.rarity : ''}}"
         (click)="openCharacterDetailsDialog(char.name)">
         <img [src]="char.imageUrl ?? unknownImg" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
