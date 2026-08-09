@@ -78,9 +78,9 @@ export class AdvancedFilterComponent implements OnInit {
     if (val) {
       values.push(val);
     }
-    const valDetails = this.elements.find(e => e.code == val);
-    if (valDetails?.isAlt) {
-      values.push(valDetails.baseElementCode);
+    const subElements: any[] = this.lookupsService.getByType(this.gameCode, Constants.lookupType.ELEMENT, { isAlt: true, baseElementCode: val });
+    if (subElements) {
+      subElements.forEach(se => values.push(se.code));
     }
     this.elementChange.emit(values);
   }
