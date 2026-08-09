@@ -62,7 +62,7 @@ export class CharacterImageComponent implements OnInit {
       this.charmd = this.charactersService.getOne(this.gameCode, this.characterName);
       this.showElement = this.withElement && this.charmd.element;
       this.showType = this.withType && this.charmd.type;
-      this.elementCode = this.charmd.elementActual ?? this.charmd.element;
+      this.elementCode = this.charmd.element;
       this.elementImageUrl = this.lookupsService.getOne(this.gameCode, this.elementCode, Constants.lookupType.ELEMENT).imageUrl;
       this.typeImageUrl = this.lookupsService.getOne(this.gameCode, this.charmd.type, Constants.lookupType.TYPE)?.imageUrl;
       this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;

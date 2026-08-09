@@ -40,7 +40,6 @@ export class CharactersService {
       imageUrl: this.getImageByType(c.GAME_CODE, c.CODE, 'PFP'),
       cardImageUrl: this.getImageByType(c.GAME_CODE, c.CODE, 'CARD'),
       element: c.ELEMENT,
-      elementActual: c.ELEMENT_ACTUAL,
       type: c.TYPE,
       rarity: c.RARITY,
       enhanced: c.ENHANCED
