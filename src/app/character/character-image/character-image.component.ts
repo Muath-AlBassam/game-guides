@@ -32,22 +32,16 @@ export class CharacterImageComponent implements OnInit {
   iconSize: number = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
   defaultCardDimensions: number = 219 / 160;
 
-  charmd: any = null;
-  raritymd: any = null;
-
-  showBuild: boolean = false;
-  showElement: boolean = false;
-  showType: boolean = false;
-  elementCode: any = '';
-  elementImageUrl: any = '';
-  typeImageUrl: any = '';
-  addRarityClass: boolean = false;
-  // gallery
-  imageList: string[] = [];
-  currentImageIndex: number = 0;
-
   charCount: number = 0;
-  charmdList: any[] = [];
+  charmdList: {
+    charmd: any,
+    raritymd: any,
+    elementCode: any,
+    elementImageUrl: any,
+    typeImageUrl: any,
+    imageList: string[],
+    currentImageIndex: number
+  }[] = [];
 
   constructor(private charactersService: CharactersService, private lookupsService: LookupsService, private dialogService: DialogService) { }
 
@@ -59,20 +53,22 @@ export class CharacterImageComponent implements OnInit {
   loadData() {
     let charNameList = this.characterName.split(',');
     this.charCount = charNameList.length;
-    if (this.charCount == 1) {
-      this.charmd = this.charactersService.getOne(this.gameCode, this.characterName);
-      this.raritymd = this.lookupsService.getOne(this.gameCode, this.charmd.rarity, Constants.lookupType.RARITY);
-      this.showElement = this.withElement && this.charmd.element;
-      this.showType = this.withType && this.charmd.type;
-      this.elementCode = this.charmd.element;
-      this.elementImageUrl = this.lookupsService.getOne(this.gameCode, this.elementCode, Constants.lookupType.ELEMENT).imageUrl;
-      this.typeImageUrl = this.lookupsService.getOne(this.gameCode, this.charmd.type, Constants.lookupType.TYPE)?.imageUrl;
-      this.addRarityClass = this.withBackgroundClass && this.charmd.rarity;
-      this.imageList = this.charactersService.getAllImagesByCharacter(this.gameCode, this.characterName, ['CARD', 'SKIN']);
-    } else {
-      this.charmdList = charNameList.map((c: any) => this.charactersService.getOne(this.gameCode, c));
-      this.addRarityClass = this.withBackgroundClass;
-    }
+    charNameList.forEach((cname: string) => {
+      const tempCharMd = this.charactersService.getOne(this.gameCode, cname);
+      this.charmdList.push({
+        charmd: tempCharMd,
+        raritymd: this.lookupsService.getOne(this.gameCode, tempCharMd.rarity, Constants.lookupType.RARITY),
+        elementCode: tempCharMd.element,
+        elementImageUrl: this.lookupsService.getOne(this.gameCode, tempCharMd.element, Constants.lookupType.ELEMENT).imageUrl,
+        typeImageUrl: this.lookupsService.getOne(this.gameCode, tempCharMd.type, Constants.lookupType.TYPE)?.imageUrl,
+        imageList: this.charactersService.getAllImagesByCharacter(this.gameCode, cname, ['CARD', 'SKIN']),
+        currentImageIndex: 0
+      });
+    });
+  }
+
+  get firstChar() {
+    return this.charmdList[0];
   }
 
   calculateDimensions() {
@@ -88,12 +84,12 @@ export class CharacterImageComponent implements OnInit {
   }
 
   // gallery
-  nextGalleryImage(event?: Event) {
+  nextGalleryImage( char: any, event?: Event) {
     event?.stopPropagation();
-    this.currentImageIndex = (this.currentImageIndex + 1) % this.imageList.length;
+    char.currentImageIndex = (char.currentImageIndex + 1) % char.imageList.length;
   }
-  prevGalleryImage(event?: Event) {
+  prevGalleryImage(char: any, event?: Event) {
     event?.stopPropagation();
-    this.currentImageIndex = (this.currentImageIndex - 1 + this.imageList.length) % this.imageList.length;
+    char.currentImageIndex = (char.currentImageIndex - 1 + char.imageList.length) % char.imageList.length;
   }
 }
