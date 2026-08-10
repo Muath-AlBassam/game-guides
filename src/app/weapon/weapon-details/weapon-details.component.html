@@ -2,7 +2,7 @@
   <div class="weapon-container" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
       popoverClass="gagu-popover" [disablePopover]="effectStyle != 'popover' || !weapon.effect" container="body">
     <!-- Image -->
-    <div class="weapon-image {{gameCode}}-rarity-{{weapon.rarity}}">
+    <div class="weapon-image" [style]="rarity.style">
       <img [src]="weapon.imageUrl ?? unknownImg" height="80" />
     </div>
     <!-- Info -->

@@ -4,6 +4,7 @@ import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
 import { Utils } from '../../utils/utils';
 import { BuildsService } from '../../services/builds.service';
+import { LookupsService } from '../../services/lookups.service';
 
 @Component({
   selector: 'app-set-details',
@@ -23,9 +24,11 @@ export class SetDetailsComponent implements OnInit {
   set: any = null;
   setId: string = '';
   setEffectsList: any[] = [];
+  rarity: any = null;
   equippedCharacters: any [] = [];
 
-  constructor(private setsService: SetsService, private textUtils: TextUtils, private buildsService: BuildsService) { }
+  constructor(private setsService: SetsService, private textUtils: TextUtils, private buildsService: BuildsService,
+              private lookupsService: LookupsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -39,6 +42,7 @@ export class SetDetailsComponent implements OnInit {
 
   loadBasicData() {
     this.set = this.setsService.getOne(this.gameCode, this.setName);
+    this.rarity = this.lookupsService.getOne(this.gameCode, this.set.rarity, Constants.lookupType.RARITY);
     this.setEffectsList = [...this.set.effects];
     this.filterSetEffects();
     this.formatSetEffects();

@@ -11,6 +11,9 @@ import { LookupsService } from '../../services/lookups.service';
   styleUrl: './character-image.component.css'
 })
 export class CharacterImageComponent implements OnInit {
+  
+  readonly TRANSPARENT_IMG = Constants.images.transparent;
+  readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
 
   @Input() gameCode: any = null;
   @Input() characterName: any = null;
@@ -31,6 +34,8 @@ export class CharacterImageComponent implements OnInit {
   defaultCardDimensions: number = 219 / 160;
 
   charmd: any = null;
+  raritymd: any = null;
+
   showBuild: boolean = false;
   showElement: boolean = false;
   showType: boolean = false;
@@ -45,9 +50,6 @@ export class CharacterImageComponent implements OnInit {
   charCount: number = 0;
   charmdList: any[] = [];
 
-  transparentImg = Constants.images.transparent;
-  unknownImg = Constants.images.unknownCharacter;
-
   constructor(private charactersService: CharactersService, private lookupsService: LookupsService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
@@ -60,6 +62,7 @@ export class CharacterImageComponent implements OnInit {
     this.charCount = charNameList.length;
     if (this.charCount == 1) {
       this.charmd = this.charactersService.getOne(this.gameCode, this.characterName);
+      this.raritymd = this.lookupsService.getOne(this.gameCode, this.charmd.rarity, Constants.lookupType.RARITY);
       this.showElement = this.withElement && this.charmd.element;
       this.showType = this.withType && this.charmd.type;
       this.elementCode = this.charmd.element;

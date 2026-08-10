@@ -24,8 +24,8 @@
           }
 
           @if (activeGame.hasPet && petmd) {
-            <img [src]="petmd.imageUrl ?? unknownImg" [height]="petPFPSize" [width]="petPFPSize"
-              class="pet {{gameCode+'-rarity-'+petmd.rarity}}" [title]="petmd.name">
+            <img [src]="petmd.imageUrl ?? unknownImg" [height]="petPFPSize" [width]="petPFPSize" [title]="petmd.name"
+              class="pet" [style]="petRarityMd?.style">
           }
         </div>
         <div class="actions pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">

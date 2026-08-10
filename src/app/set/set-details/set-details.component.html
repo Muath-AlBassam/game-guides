@@ -1,6 +1,6 @@
 <div class="set-container">
   <!-- Image -->
-  <div class="set-image {{gameCode}}-rarity-{{set.rarity}}">
+  <div class="set-image" [style]="rarity.style">
     <img [src]="set.imageUrl ?? unknownImg" height="70" />
   </div>
   <!-- Info -->

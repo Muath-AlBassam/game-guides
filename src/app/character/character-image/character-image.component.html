@@ -1,14 +1,14 @@
 @if (imageStyle == 'card') {
   <!-- CARD -->
-  <div class="char-card {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}} {{charmd.enhanced ? 'glow-border' : ''}}"
+  <div class="char-card {{charmd.enhanced ? 'glow-border' : ''}}" [style]="addRarityClass ? raritymd.style : null"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement) {
-      <img class="ele-img" [src]="elementImageUrl ?? transparentImg" [width]="iconSize"
+      <img class="ele-img" [src]="elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize"
         [height]="iconSize" [title]="elementCode" loading="lazy" />
     }
     @if (showType) {
-      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? transparentImg"
+      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? TRANSPARENT_IMG"
         [width]="iconSize" [height]="iconSize" [title]="charmd.type" loading="lazy" />
     }
 
@@ -24,42 +24,43 @@
   <div class="split-box split-box-{{charCount}}" [attr.style]="styles"
     [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
     @for (char of charmdList; track char.name) {
-      <div class="child {{withDetailsDialog ? 'pointer' : ''}} {{addRarityClass ? gameCode+'-rarity-'+char.rarity : ''}}"
+      <!-- TODO : rarity style issue -->
+      <div class="child {{withDetailsDialog ? 'pointer' : ''}}"
         (click)="openCharacterDetailsDialog(char.name)">
-        <img [src]="char.imageUrl ?? unknownImg" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
+        <img [src]="char.imageUrl ?? UNKNOWN_IMG" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
           [width]="this.dimensions" [height]="this.dimensions" loading="lazy" />
       </div>
     }
   </div>
 } @else if (imageStyle == 'pfp' && charCount == 1) {
   <!-- SINGLE (pfp) -->
-  <div class="character-container {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}}"
-    [attr.style]="'border-radius: 5px;' + styles">
+  <div class="character-container" [style]="(addRarityClass ? raritymd.style : '') + ' border-radius: 5px; ' + styles">
     
-    <img [src]="charmd.imageUrl ?? unknownImg" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
+    <img [src]="charmd.imageUrl ?? UNKNOWN_IMG" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
       [attr.class]="'pfp' + classes + withDetailsDialog ? 'char-img-resize' : ''" style="display: block; height: auto;"
       [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
     @if (showElement) {
-      <img [src]="elementImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize"
+      <img [src]="elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize" [height]="iconSize"
         class="element-icon" [title]="elementCode" loading="lazy" />
     }
 
     @if (showType) {
-      <img [src]="typeImageUrl ?? transparentImg" [width]="iconSize" [height]="iconSize" class="type-icon"
+      <img [src]="typeImageUrl ?? TRANSPARENT_IMG" [width]="iconSize" [height]="iconSize" class="type-icon"
         [title]="charmd.type" loading="lazy" />
     }
   </div>
 } @else if (imageStyle == 'gallery') {
   <!-- GALLERY -->
-  <div class="char-card {{addRarityClass ? gameCode+'-rarity-'+charmd.rarity : ''}} {{charmd.enhanced ? 'glow-border' : ''}}"
+  <div class="char-card {{charmd.enhanced ? 'glow-border' : ''}}"
+    [style]="addRarityClass ? raritymd.style : null"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement) {
-      <img class="ele-img" [src]="elementImageUrl ?? transparentImg" [width]="iconSize"
+      <img class="ele-img" [src]="elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize"
         [height]="iconSize" [title]="elementCode" loading="lazy" />
     }
     @if (showType) {
-      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? transparentImg"
+      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="typeImageUrl ?? TRANSPARENT_IMG"
         [width]="iconSize" [height]="iconSize" [title]="charmd.type" loading="lazy" />
     }
 

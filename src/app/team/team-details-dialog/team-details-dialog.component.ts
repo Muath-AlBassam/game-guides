@@ -5,6 +5,7 @@ import { TeamsService } from '../../services/teams.service';
 import { PetsService } from '../../services/pets.service';
 import { Utils } from '../../utils/utils';
 import { Constants } from '../../utils/constants';
+import { LookupsService } from '../../services/lookups.service';
 
 @Component({
   selector: 'app-team-details-dialog',
@@ -25,11 +26,12 @@ export class TeamDetailsDialogComponent implements OnInit {
   team: any = null;
   teamId: any = null;
   petmd: any = null;
+  petRarityMd: any = null;
 
   dummyCharactersList: any[] = [];
 
   constructor(private gamesService: GamesService, private teamsService: TeamsService, private petsService: PetsService,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+              private lookupsService: LookupsService, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.gameCode = data.gameCode;
     this.teamCode = data.teamCode;
     this.teamIndex = data.teamIndex;
@@ -43,6 +45,7 @@ export class TeamDetailsDialogComponent implements OnInit {
     this.activeGame = this.gamesService.getOne(this.gameCode);
     this.team = this.teamsService.getOne(this.gameCode, this.teamCode);
     this.petmd = this.petsService.getOne(this.gameCode, this.team.pet);
+    this.petRarityMd = this.lookupsService.getOne(this.gameCode, this.petmd.rarity, Constants.lookupType.RARITY);
     this.teamId = `${this.gameCode}-${this.team.code}`;
     this.dummyCharactersList = Array(this.activeGame.teamSize);
     if (this.isMobile()) {
