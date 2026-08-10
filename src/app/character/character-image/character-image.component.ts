@@ -25,9 +25,8 @@ export class CharacterImageComponent implements OnInit {
   @Input() withType: boolean = false;
   @Input() imageStyle: 'pfp' | 'card' | 'gallery' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
-  @Input() mobileSizeRatio: number = 1;
-  @Input() mobileIconSizeRatio: number = 1;
-  @Input() enableDetailsDialog: boolean = true;
+  @Input() mobileSizeRatio: number = 1; // 100%
+  @Input() mobileIconSizeRatio: number = 1; // 100%
 
   dimensions: number = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
   iconSize: number = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
@@ -83,7 +82,7 @@ export class CharacterImageComponent implements OnInit {
   }
 
   openCharacterDetailsDialog(character: any) {
-    if (this.enableDetailsDialog) {
+    if (this.withDetailsDialog) {
       this.dialogService.openCharacterDetailsDialog(this.gameCode, character);
     }
   }

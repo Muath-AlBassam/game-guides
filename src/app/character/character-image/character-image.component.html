@@ -1,6 +1,6 @@
 @if (imageStyle == 'card') {
   <!-- CARD -->
-  <div class="char-card {{charmd.enhanced ? 'glow-border' : ''}}" [style]="addRarityClass ? raritymd.style : null"
+  <div class="char-card" [ngClass]="{'glow-border': charmd.enhanced}" [style]="addRarityClass ? raritymd.style : null"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement) {
@@ -12,7 +12,7 @@
         [width]="iconSize" [height]="iconSize" [title]="charmd.type" loading="lazy" />
     }
 
-    <img class="char-img {{withDetailsDialog ? 'char-img-resize pointer' : ''}}" [src]="charmd.cardImageUrl"
+    <img class="char-img" [ngClass]="{'char-img-resize pointer': withDetailsDialog}" [src]="charmd.cardImageUrl"
       [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'" [width]="dimensions"
       (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
 
@@ -25,7 +25,7 @@
     [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
     @for (char of charmdList; track char.name) {
       <!-- TODO : rarity style issue -->
-      <div class="child {{withDetailsDialog ? 'pointer' : ''}}"
+      <div class="child" [ngClass]="{'pointer': withDetailsDialog}"
         (click)="openCharacterDetailsDialog(char.name)">
         <img [src]="char.imageUrl ?? UNKNOWN_IMG" [alt]="char.name ?? '?'" [title]="char.name ?? '?'" class="pfp"
           [width]="this.dimensions" [height]="this.dimensions" loading="lazy" />
@@ -37,7 +37,7 @@
   <div class="character-container" [style]="(addRarityClass ? raritymd.style : '') + ' border-radius: 5px; ' + styles">
     
     <img [src]="charmd.imageUrl ?? UNKNOWN_IMG" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
-      [attr.class]="'pfp' + classes + withDetailsDialog ? 'char-img-resize' : ''" style="display: block; height: auto;"
+      [attr.class]="'pfp' + classes" style="display: block; height: auto;" [ngClass]="{'char-img-resize': withDetailsDialog}"
       [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy" />
     @if (showElement) {
       <img [src]="elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize" [height]="iconSize"
@@ -51,7 +51,7 @@
   </div>
 } @else if (imageStyle == 'gallery') {
   <!-- GALLERY -->
-  <div class="char-card {{charmd.enhanced ? 'glow-border' : ''}}"
+  <div class="char-card" [ngClass]="{'glow-border': charmd.enhanced}"
     [style]="addRarityClass ? raritymd.style : null"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
@@ -70,9 +70,9 @@
           <img src="assets/svg/arrow-left.svg" height="10">
         </button>
       }
-      <img class="char-img {{withDetailsDialog ? 'char-img-resize pointer' : ''}}" [src]="imageList[currentImageIndex]"
-        [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'" [width]="dimensions"
-        (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy"/>
+      <img class="char-img" [ngClass]="{'char-img-resize pointer': withDetailsDialog}"
+        [src]="imageList[currentImageIndex]" [alt]="charmd.name ?? '?'" [title]="charmd.name ?? '?'"
+        [width]="dimensions" (click)="openCharacterDetailsDialog(charmd.name)" loading="lazy"/>
       @if (imageList.length > 1) {
         <button class="char-gallery-btn right" (click)="nextGalleryImage($event)">
           <img src="assets/svg/arrow-right.svg" height="10">
