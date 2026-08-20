@@ -19,8 +19,8 @@ export class RouteService {
   private getGameFromUrl() {
     if (window.location.hash) {
       let hash = window.location.hash;
-      /* #/web/{gameCode} */
-      return hash.split('/')[2];
+      /* #/{gameCode} */
+      return hash.split('/')[1];
     } else {
       return null;
     }

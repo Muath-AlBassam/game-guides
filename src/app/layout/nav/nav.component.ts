@@ -64,7 +64,7 @@ export class NavComponent implements OnInit {
   getCharactersRoute() {
     return {
       label: 'Characters',
-      path: '/web/' + this.activeGame?.code + '/characters',
+      path: '/' + this.activeGame?.code + '/characters',
       icon: 'assets/images/character-front.jpg'
     };
   }
@@ -72,7 +72,7 @@ export class NavComponent implements OnInit {
   getTeamsRoute() {
     return {
       label: 'Teams',
-      path: '/web/' + this.activeGame?.code + '/teams',
+      path: '/' + this.activeGame?.code + '/teams',
       icon: 'assets/svg/team.svg'
     };
   }
@@ -80,7 +80,7 @@ export class NavComponent implements OnInit {
   getWeaponsRoute() {
     return {
       label: GameUtils.getWeaponsLabel(this.activeGame?.code),
-      path: '/web/' + this.activeGame?.code + '/weapons',
+      path: '/' + this.activeGame?.code + '/weapons',
       icon: 'assets/images/sword-double.jpg'
     };
   }
@@ -88,7 +88,7 @@ export class NavComponent implements OnInit {
   getSetsRoute() {
     return {
       label: GameUtils.getSetsLabel(this.activeGame?.code),
-      path: '/web/' + this.activeGame?.code + '/sets',
+      path: '/' + this.activeGame?.code + '/sets',
       icon: 'assets/images/artifact.jpg'
     };
   }
@@ -96,7 +96,7 @@ export class NavComponent implements OnInit {
   getNotesRoute() {
     return {
       label: 'Notes',
-      path: '/web/' + this.activeGame?.code + '/notes',
+      path: '/' + this.activeGame?.code + '/notes',
       icon: 'assets/svg/note.svg'
     };
   }

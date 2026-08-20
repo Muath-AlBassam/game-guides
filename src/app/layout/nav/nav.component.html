@@ -3,7 +3,7 @@
     <ul>
       @if (activeGame != null) {
         <li>
-          <a routerLink="/web/home" routerLinkActive="active" class="sidebar-item home-item" title="Home"
+          <a routerLink="/home" routerLinkActive="active" class="sidebar-item home-item" title="Home"
             [ngStyle]="{'background-image': gameBackgroundUrl != null ? gameBackgroundUrl : ''}">
             <span class="nav-text" style="z-index: 1;">{{ activeGame.label }}</span>
           </a>
@@ -21,7 +21,7 @@
       }
 
       <li class="settings-item">
-        <a routerLink="/web/settings" routerLinkActive="active" class="sidebar-item settings-item" title="Settings">
+        <a routerLink="/settings" routerLinkActive="active" class="sidebar-item settings-item" title="Settings">
           <i>
             <img src="assets/svg/cog.svg" alt="settings" width="30" height="30" />
           </i>

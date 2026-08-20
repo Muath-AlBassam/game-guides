@@ -12,14 +12,23 @@ import { SettingsComponent } from './settings/settings.component';
 import { GameNotesComponent } from './game/game-notes/game-notes.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'web', pathMatch: 'full' },
   {
-    path: 'web',
+    path: '',
     component: CoreComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'settings', component: SettingsComponent },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
       {
         path: ':gameCode',
         component: GameGuidesComponent,
