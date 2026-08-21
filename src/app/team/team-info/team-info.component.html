@@ -21,9 +21,14 @@
   <div class="ti-characters-container d-flex justify-content-center align-items-center"
       [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
     @for (character of team.characters; track $index) {
-      <app-character-image [gameCode]="gameCode" [characterName]="character.name" [dimensions]="characterPFPSize"
-        [styles]="'margin: 5px 10px;'" [withDetailsDialog]="true" [withElement]="true"
-        [mobileSizeRatio]="characterMobileSizeRation" [mobileIconSizeRatio]="0.8">
+      <app-character-image
+        [characterName]="character.name"
+        [dimensions]="characterPFPSize"
+        [styles]="'margin: 5px 10px;'"
+        [withDetailsDialog]="true"
+        [withElement]="true"
+        [mobileSizeRatio]="characterMobileSizeRation"
+        [mobileIconSizeRatio]="0.8">
       </app-character-image>
     }
   </div>

@@ -15,7 +15,6 @@ export class CharacterImageComponent implements OnInit {
   readonly TRANSPARENT_IMG = Constants.images.transparent;
   readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
 
-  @Input() gameCode: any = null;
   @Input() characterName: any = null;
   @Input() styles: any = '';
   @Input() classes: any = '';
@@ -54,14 +53,14 @@ export class CharacterImageComponent implements OnInit {
     let charNameList = this.characterName.split(',');
     this.charCount = charNameList.length;
     charNameList.forEach((cname: string) => {
-      const tempCharMd = this.charactersService.getOne(this.gameCode, cname);
+      const tempCharMd = this.charactersService.getOne(cname);
       this.charmdList.push({
         charmd: tempCharMd,
-        raritymd: this.lookupsService.getOne(this.gameCode, tempCharMd.rarity, Constants.lookupType.RARITY),
+        raritymd: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
         elementCode: tempCharMd.element,
-        elementImageUrl: this.lookupsService.getOne(this.gameCode, tempCharMd.element, Constants.lookupType.ELEMENT).imageUrl,
-        typeImageUrl: this.lookupsService.getOne(this.gameCode, tempCharMd.type, Constants.lookupType.TYPE)?.imageUrl,
-        imageList: this.charactersService.getAllImagesByCharacter(this.gameCode, cname, ['CARD', 'SKIN']),
+        elementImageUrl: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT).imageUrl,
+        typeImageUrl: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE)?.imageUrl,
+        imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
       });
     });
@@ -79,7 +78,7 @@ export class CharacterImageComponent implements OnInit {
 
   openCharacterDetailsDialog(character: any) {
     if (this.withDetailsDialog) {
-      this.dialogService.openCharacterDetailsDialog(this.gameCode, character);
+      this.dialogService.openCharacterDetailsDialog(character);
     }
   }
 

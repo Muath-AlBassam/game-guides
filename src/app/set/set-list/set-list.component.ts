@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SetsService } from '../../services/sets.service';
-import { RouteService } from '../../services/route.service';
 import { GameUtils } from '../../utils/game-utils';
 import { Utils } from '../../utils/utils';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-set-list',
@@ -11,7 +11,6 @@ import { Utils } from '../../utils/utils';
 })
 export class SetListComponent implements OnInit {
 
-  gameCode: any = null;
   allSets: any[] = [];
   setByType: Map<any, any> = new Map();
   setByTypeList: any[] = [];
@@ -21,16 +20,16 @@ export class SetListComponent implements OnInit {
   // search
   textValue: any = '';
 
-  constructor(private routeService: RouteService, private setsService: SetsService) { }
+  constructor(private setsService: SetsService, private gamesService: GamesService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
-    this.setsLabel = GameUtils.getSetsLabel(this.gameCode);
+  ngOnInit(): void {
+    const gameCode = this.gamesService.getActive().code;
+    this.setsLabel = GameUtils.getSetsLabel(gameCode);
     this.loadSets();
   }
 
   loadSets() {
-    this.allSets = this.setsService.getAll(this.gameCode);
+    this.allSets = this.setsService.getAll();
     this.setByType = Utils.groupBy(this.allSets, 'type');
     this.setByType.forEach((v, k) => this.count += v.length);
     this.setByTypeList = Array.from(this.setByType);

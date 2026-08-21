@@ -10,23 +10,23 @@
     <div class="col-md-3">
       <div class="gagu-box-shadow d-flex justify-content-center align-items-center p-3"
         style="width: 100%; height: 100%;">
-        <app-character-image [gameCode]="gameCode" [characterName]="character" [dimensions]="characterPFPSize"
+        <app-character-image [characterName]="character" [dimensions]="characterPFPSize"
           [withElement]="true" [withType]="true" [imageStyle]="'gallery'" [mobileSizeRatio]="0.6">
         </app-character-image>
       </div>
     </div>
 
     @if (hasBuild) {
-      <app-character-build class="col-md-9" [gameCode]="gameCode" [character]="character" (hasBuild)="hasBuild = $event">
+      <app-character-build class="col-md-9" [character]="character" (hasBuild)="hasBuild = $event">
       </app-character-build>
     }
 
     @if (hasCombos) {
-      <app-character-combos class="col-md-9" [gameCode]="gameCode" [character]="character" (hasCombos)="hasCombos = $event">
+      <app-character-combos class="col-md-9" [character]="character" (hasCombos)="hasCombos = $event">
       </app-character-combos>
     }
 
-    <app-character-teams class="col-md-12" [gameCode]="gameCode" [character]="character">
+    <app-character-teams class="col-md-12" [character]="character">
     </app-character-teams>
   </div>
 </div>

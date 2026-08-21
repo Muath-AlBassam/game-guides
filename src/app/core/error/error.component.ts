@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from '../../services/store.service';
+import { StoreKeys, StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-error',
@@ -18,12 +18,12 @@ export class ErrorComponent implements OnInit {
   }
 
   loadRouteMessage() {
-    const error = this.storeService.get('error');
+    const error = this.storeService.get(StoreKeys.ERROR);
     if (error != null && error.code != null && error.message != null) {
       this.errorCode = error.code;
       this.errorMessage = error.message;
     }
-    this.storeService.delete('error');
+    this.storeService.delete(StoreKeys.ERROR);
   }
 
   reload() {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class BuildsService {
   buildsList: any[] = [];
   flatList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -39,17 +40,20 @@ export class BuildsService {
     });
   }
 
-  getByCharacter(gameCode: any, characterName: any) {
+  getByCharacter(characterName: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.buildsList.find(b => b.gameCode == gameCode && b.character == characterName);
   }
 
-  getEquippedBy(gameCode: any, name: any, type: 'WEAPON' | 'SET') {
+  getEquippedBy(name: any, type: 'WEAPON' | 'SET') {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.flatList
       .filter(b => b.gameCode == gameCode && b.type == type && b.name == name)
       .map(b => b.character);
   }
 
-  countBySet(gameCode: any, set: any) {
+  countBySet(set: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.flatList
       .filter(b => b.gameCode == gameCode && b.type == 'SET' && b.name == set)
       .length;

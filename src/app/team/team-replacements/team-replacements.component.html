@@ -9,16 +9,24 @@
         @for (character of team.characters; track $index) {
           <tr>
             <td style="width: 50px; text-align: center">
-              <app-character-image [gameCode]="gameCode" [characterName]="character?.name" [dimensions]="characterPFPSize"
-                styles="margin: 5px 10px;" [mobileIconSizeRatio]="0.5">
+              <app-character-image
+                [characterName]="character?.name"
+                [dimensions]="characterPFPSize"
+                [styles]="'margin: 5px 10px;'"
+                [mobileIconSizeRatio]="0.5">
               </app-character-image>
             </td>
             <td>
               @if (character.replacements && character.replacements.length > 0) {
                 @for (rep of character.replacements; track $index) {
-                  <app-character-image [gameCode]="gameCode" [characterName]="rep" [dimensions]="characterPFPSize"
-                    styles="margin: 5px 10px;" [withDetailsDialog]="true" [withElement]="true"
-                    [mobileSizeRatio]="mobileSizeRatio" [mobileIconSizeRatio]="mobileSizeRatio">
+                  <app-character-image
+                    [characterName]="rep"
+                    [dimensions]="characterPFPSize"
+                    [styles]="'margin: 5px 10px;'"
+                    [withDetailsDialog]="true"
+                    [withElement]="true"
+                    [mobileSizeRatio]="mobileSizeRatio"
+                    [mobileIconSizeRatio]="mobileSizeRatio">
                   </app-character-image>
                 }
               } @else {

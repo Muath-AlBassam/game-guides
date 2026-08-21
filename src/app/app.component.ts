@@ -10,6 +10,10 @@ import { SetsService } from './services/sets.service';
 import { TeamsService } from './services/teams.service';
 import { WeaponsService } from './services/weapons.service';
 import { LookupsService } from './services/lookups.service';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { Constants } from './utils/constants';
+import { StoreKeys, StoreService } from './services/store.service';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +22,7 @@ import { LookupsService } from './services/lookups.service';
 })
 export class AppComponent implements OnInit {
 
+  gamesList: string[] = [];
   isLoading: boolean = true;
 
   constructor(
@@ -32,12 +37,33 @@ export class AppComponent implements OnInit {
     private buildsService: BuildsService,
     private petsService: PetsService,
     private teamsService: TeamsService,
+    private router: Router,
+    private store: StoreService
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+    this.setActiveGame();
+  }
+
+  loadData() {
     this.dataClient.loadWorkbook();
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res != '') this.isLoading = false;
     });
+  }
+
+  setActiveGame() {
+    this.gamesList = Object.values(Constants.games);
+    this.router.events
+      .pipe(filter((event): event is NavigationStart => event instanceof NavigationStart))
+      .subscribe(event => {
+        const gameCode = event.url.split('/')[1];
+        if (this.gamesList.includes(gameCode)) {
+          this.store.set(StoreKeys.GAME_CODE, gameCode);
+        } else {
+          this.store.delete(StoreKeys.GAME_CODE);
+        }
+      });
   }
 }

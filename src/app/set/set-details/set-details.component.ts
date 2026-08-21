@@ -15,7 +15,6 @@ export class SetDetailsComponent implements OnInit {
 
   readonly unknownImg = Constants.images.unknown;
 
-  @Input() gameCode: any = null;
   @Input() setName: any = null;
   @Input() equppiedPieces: any = null;
   @Input() showEquippedBy: boolean = false;
@@ -41,8 +40,8 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadBasicData() {
-    this.set = this.setsService.getOne(this.gameCode, this.setName);
-    this.rarity = this.lookupsService.getOne(this.gameCode, this.set.rarity, Constants.lookupType.RARITY);
+    this.set = this.setsService.getOne(this.setName);
+    this.rarity = this.lookupsService.getOne(this.set.rarity, Constants.lookupType.RARITY);
     this.setEffectsList = [...this.set.effects];
     this.filterSetEffects();
     this.formatSetEffects();
@@ -67,13 +66,13 @@ export class SetDetailsComponent implements OnInit {
 
   formatSetEffects() {
     this.setEffectsList.forEach((eff: any) => {
-      eff.formattedDescription = this.textUtils.colorize(eff.description, this.gameCode);
+      eff.formattedDescription = this.textUtils.colorize(eff.description, this.set.gameCode);
     });
   }
 
   loadEquippedBy() {
     if (this.showEquippedBy) {
-      this.equippedCharacters = this.buildsService.getEquippedBy(this.gameCode, this.setName, 'SET');
+      this.equippedCharacters = this.buildsService.getEquippedBy(this.setName, 'SET');
     }
   }
 }

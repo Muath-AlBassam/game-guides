@@ -17,9 +17,13 @@
         </div>
         <div class="members">
           @for (char of dummyCharactersList; track i; let i = $index) {
-            <app-character-image [gameCode]="gameCode" [characterName]="team.characters[i]?.name"
-              [dimensions]="characterPFPSize" styles="margin: 5px 10px;" [withDetailsDialog]="true"
-              [withElement]="true" [mobileSizeRatio]="0.6">
+            <app-character-image
+              [characterName]="team.characters[i]?.name"
+              [dimensions]="characterPFPSize"
+              [styles]="'margin: 5px 10px;'"
+              [withDetailsDialog]="true"
+              [withElement]="true"
+              [mobileSizeRatio]="0.6">
             </app-character-image>
           }
 
@@ -35,9 +39,9 @@
     </div>
     <div class="show" id="teamDetails">
       <div class="teams__details" >
-        <app-team-roles [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-roles>
-        <app-team-replacements [gameCode]="gameCode" [team]="team" class="table-responsive"></app-team-replacements>
-        <app-team-notes [gameCode]="gameCode" [teamCode]="teamCode" class="table-responsive"></app-team-notes>
+        <app-team-roles [team]="team" class="table-responsive"></app-team-roles>
+        <app-team-replacements [team]="team" class="table-responsive"></app-team-replacements>
+        <app-team-notes [teamCode]="teamCode" class="table-responsive"></app-team-notes>
       </div>
     </div>
   </div>

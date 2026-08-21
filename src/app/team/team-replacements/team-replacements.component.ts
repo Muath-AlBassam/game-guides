@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TeamReplacementsComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() team: any = null;
 
   characterPFPSize: number = 80;

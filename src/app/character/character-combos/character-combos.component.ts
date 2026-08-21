@@ -10,7 +10,6 @@ import { Constants } from '../../utils/constants';
 })
 export class CharacterCombosComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() character: any = null;
   @Output() hasCombos: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -23,7 +22,7 @@ export class CharacterCombosComponent implements OnInit {
   }
 
   loadCombos() {
-    let combosButtons = this.combosService.getAllByCharacter(this.gameCode, this.character);
+    let combosButtons = this.combosService.getAllByCharacter(this.character);
     if (combosButtons) {
       this.combos = combosButtons.map((combo: any) => {
         return combo.map((btn: any) => {
@@ -35,6 +34,6 @@ export class CharacterCombosComponent implements OnInit {
   }
 
   getButtonImage(buttonCode: any) {
-    return this.lookupsService.getOne(this.gameCode, buttonCode, Constants.lookupType.BUTTON).imageUrl;
+    return this.lookupsService.getOne(buttonCode, Constants.lookupType.BUTTON).imageUrl;
   }
 }

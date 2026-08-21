@@ -9,7 +9,6 @@ import { Constants } from '../../utils/constants';
 })
 export class TeamRolesComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() team: any = null;
 
   roles: any[] = [];
@@ -19,7 +18,7 @@ export class TeamRolesComponent implements OnInit {
   constructor(private lookupsService: LookupsService) { }
 
   ngOnInit(): void {
-    this.roles = this.lookupsService.getByType(null, Constants.lookupType.ROLE);
+    this.roles = this.lookupsService.getGeneralLookup(Constants.lookupType.ROLE);
   }
 
   getRole(roleCode: any) {

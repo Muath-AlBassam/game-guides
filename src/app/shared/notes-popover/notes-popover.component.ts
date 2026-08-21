@@ -9,7 +9,6 @@ import { Utils } from '../../utils/utils';
 })
 export class NotesPopoverComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() teamCode: any = null;
   @Input() iconSize: number = 25;
   @Input() position: string = 'superscript'; // inline, superscript
@@ -23,7 +22,7 @@ export class NotesPopoverComponent implements OnInit {
   }
 
   loadData() {
-    this.notes = this.formatNotes(this.notesService.getAllByTeam(this.gameCode, this.teamCode));
+    this.notes = this.formatNotes(this.notesService.getAllByOwnerTypeAndCode('TEAM', this.teamCode));
   }
 
   formatNotes(notesList: any[]) {

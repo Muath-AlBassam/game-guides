@@ -7,8 +7,8 @@
       <div class="row">
         @for (weapon of buildmd.weapons; track weapon.name) {
           <div class="{{!isMobile() && this.buildmd?.weapons?.length > 1 ? 'col-md-6' : 'col-md-12'}}">
-            <app-weapon-details [gameCode]="gameCode" [weaponName]="weapon.name"
-              [showAdditionalInfo]="false"></app-weapon-details>
+            <app-weapon-details [weaponName]="weapon.name" [showAdditionalInfo]="false">
+            </app-weapon-details>
           </div>
         }
       </div>
@@ -19,7 +19,7 @@
       <div class="row">
         @for (set of buildmd.sets; track set.name) {
           <div class="{{!isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}}">
-            <app-set-details [gameCode]="gameCode" [setName]="set.name" [equppiedPieces]="set.equppiedPieces">
+            <app-set-details [setName]="set.name" [equppiedPieces]="set.equppiedPieces">
             </app-set-details>
           </div>
         }

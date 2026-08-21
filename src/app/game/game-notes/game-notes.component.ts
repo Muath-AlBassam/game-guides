@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
-import { RouteService } from '../../services/route.service';
 import { TextUtils } from '../../utils/text-utils';
 
 @Component({
@@ -10,25 +9,23 @@ import { TextUtils } from '../../utils/text-utils';
 })
 export class GameNotesComponent implements OnInit {
 
-  gameCode: any = null;
   notes: any[] = [];
   formattedNotes: any[] = [];
 
-  constructor(private routeService: RouteService, private notesService: NotesService, private textUtils: TextUtils) {}
+  constructor(private notesService: NotesService, private textUtils: TextUtils) {}
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
+  ngOnInit(): void {
     this.loadGameNotes();
     this.formatNotes();
   }
 
   loadGameNotes() {
-    this.notes = this.notesService.getAllByGame(this.gameCode);
+    this.notes = this.notesService.getAllByOwnerType('GAME');
   }
 
   formatNotes() {
     if (this.notes && this.notes?.length > 0) {
-      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, this.gameCode));
+      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, n.gameCode));
     }
   }
 

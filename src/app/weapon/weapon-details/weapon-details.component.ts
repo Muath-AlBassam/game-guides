@@ -14,7 +14,6 @@ export class WeaponDetailsComponent implements OnInit {
 
   readonly unknownImg = Constants.images.unknown;
 
-  @Input() gameCode: any = null;
   @Input() weaponName: any = null;
   @Input() showAdditionalInfo: boolean = true;
   @Input() showEquippedBy: boolean = false;
@@ -40,15 +39,15 @@ export class WeaponDetailsComponent implements OnInit {
   }
 
   loadBasicData() {
-    this.weapon = this.weaponsService.getOne(this.gameCode, this.weaponName);
-    this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.gameCode);
-    this.rarity = this.lookupsService.getOne(this.gameCode, this.weapon.rarity, Constants.lookupType.RARITY);
-    this.type = this.lookupsService.getOne(this.gameCode, this.weapon.type, Constants.lookupType.TYPE);
+    this.weapon = this.weaponsService.getOne(this.weaponName);
+    this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.weapon.gameCode);
+    this.rarity = this.lookupsService.getOne(this.weapon.rarity, Constants.lookupType.RARITY);
+    this.type = this.lookupsService.getOne(this.weapon.type, Constants.lookupType.TYPE);
   }
 
   loadEquippedBy() {
     if (this.showEquippedBy) {
-      this.equippedCharacters = this.buildsService.getEquippedBy(this.gameCode, this.weaponName, 'WEAPON');
+      this.equippedCharacters = this.buildsService.getEquippedBy(this.weaponName, 'WEAPON');
     }
   }
 }

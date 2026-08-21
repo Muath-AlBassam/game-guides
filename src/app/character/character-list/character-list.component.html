@@ -7,16 +7,29 @@
   </div>
 </div>
 
-<app-advanced-filter [rarityFilter]="true" [elementFilter]="true" [typeFilter]="true" [resetButton]="true"
-  [placeholder]="'Search characters...'" (textChange)="onTextChange($event)" (rarityChange)="onRarityChange($event)"
-  (elementChange)="onElementChange($event)" (typeChange)="onTypeChange($event)" (reset)="onReset()">
+<app-advanced-filter
+  [rarityFilter]="true"
+  [elementFilter]="true"
+  [typeFilter]="true"
+  [resetButton]="true"
+  [placeholder]="'Search characters...'"
+  (textChange)="onTextChange($event)"
+  (rarityChange)="onRarityChange($event)"
+  (elementChange)="onElementChange($event)"
+  (typeChange)="onTypeChange($event)"
+  (reset)="onReset()">
 </app-advanced-filter>
 
 @if (characters && characters.length > 0) {
   <div class="characters-container" id="characters-container">
     @for (charmd of characters; track charmd.code) {
-      <app-character-image [gameCode]="gameCode" [characterName]="charmd.name" [dimensions]="160"
-        [withDetailsDialog]="true" [withElement]="true" [withType]="true" [imageStyle]="'card'">
+      <app-character-image
+        [characterName]="charmd.name"
+        [dimensions]="160"
+        [withDetailsDialog]="true"
+        [withElement]="true"
+        [withType]="true"
+        [imageStyle]="'card'">
       </app-character-image>
     }
   </div>

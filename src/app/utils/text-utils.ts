@@ -38,7 +38,7 @@ export class TextUtils {
   }
 
   private getCharacterImage(name: string, gameCode: string) {
-    const charmd = this.charactersService.getOne(gameCode, name?.trim());
+    const charmd = this.charactersService.getOne(name?.trim());
     const imgUrl = charmd && charmd.imageUrl ? charmd.imageUrl : Constants.images.unknownCharacter;
     return this.imageOf(imgUrl, name);
   }

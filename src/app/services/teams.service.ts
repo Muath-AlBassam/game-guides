@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class TeamsService {
 
   teamsList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -55,16 +56,19 @@ export class TeamsService {
     return this.teamsList.filter(t => t.gameCode == gameCode);
   }
 
-  getAllByCategory(gameCode: any, categoryCode: any) {
+  getAllByCategory(categoryCode: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.teamsList.filter(t => t.gameCode == gameCode && t.category == categoryCode);
   }
 
-  getOne(gameCode: any, code: any) {
+  getOne(code: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     const data = this.teamsList.find(t => t.gameCode == gameCode && t.code == code);
     return data ?? { code: code, name: code }
   }
 
-  getAllByCharacter(gameCode: any, character: any) {
+  getAllByCharacter(character: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.getAll(gameCode).filter(team => {
       return team.characters.some((ch: any) => {
         let all = [];

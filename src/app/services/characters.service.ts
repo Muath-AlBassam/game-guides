@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CharactersService {
   charactersList: any[] = [];
   imagesList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -50,20 +51,23 @@ export class CharactersService {
     return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode && i.type == type).map(i => i.imageUrl);
   }
 
-  getAll(gameCode: any) {
+  getAll() {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.charactersList.filter(c => c.gameCode == gameCode);
   }
 
-  getAllOrdered(gameCode: any) {
-    return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+  getAllOrdered() {
+    return this.getAll().sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   }
 
-  getOne(gameCode: any, code: any) {
+  getOne(code: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     const data = this.charactersList.find(c => c.gameCode == gameCode && c.code == code);
     return data ?? { code: code, name: code }
   }
 
-  getAllImagesByCharacter(gameCode: any, characterCode: any, types: any[]) {
+  getAllImagesByCharacter(characterCode: any, types: any[]) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.imagesList
       .filter(i => i.gameCode == gameCode && i.characterCode == characterCode && types.includes(i.type))
       .map(i => i.imageUrl);

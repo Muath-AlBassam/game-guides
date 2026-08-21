@@ -9,7 +9,6 @@ import { Utils } from '../../utils/utils';
 })
 export class CharacterTeamsComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() character: any = null;
 
   teams: any[] = [];
@@ -21,7 +20,7 @@ export class CharacterTeamsComponent implements OnInit {
   }
 
   loadTeams() {
-    this.teams = this.teamsService.getAllByCharacter(this.gameCode, this.character);
+    this.teams = this.teamsService.getAllByCharacter(this.character);
   }
 
   isMobile(): boolean {

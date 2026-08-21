@@ -12,25 +12,25 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
-  openCharacterDetailsDialog(gameCode: any, character: any) {
+  openCharacterDetailsDialog(character: any) {
     this.dialog.closeAll();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = Utils.isMobile() ? '100vw' : '60%';
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
     dialogConfig.panelClass = 'custom-mat-dialog';
-    dialogConfig.data = { gameCode: gameCode, character: character };
+    dialogConfig.data = { character: character };
     const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
   }
 
-  openTeamDetailsDialog(gameCode: any, teamCode: any) {
+  openTeamDetailsDialog(teamCode: any) {
     this.dialog.closeAll();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = Utils.isMobile() ? '100vw' : '80%';
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
     dialogConfig.panelClass = 'custom-mat-dialog';
-    dialogConfig.data = { gameCode: gameCode, teamCode: teamCode, teamIndex: 1 };
+    dialogConfig.data = { teamCode: teamCode, teamIndex: 1 };
     const dialogRef = this.dialog.open(TeamDetailsDialogComponent, dialogConfig);
   }
 

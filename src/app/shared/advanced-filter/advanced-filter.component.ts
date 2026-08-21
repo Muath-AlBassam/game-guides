@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { RouteService } from '../../services/route.service';
 import { LookupsService } from '../../services/lookups.service';
 import { Constants } from '../../utils/constants';
 
@@ -24,8 +23,6 @@ export class AdvancedFilterComponent implements OnInit {
   @Output() tagChange: EventEmitter<any[]> = new EventEmitter<any[]>();
   @Output() reset: EventEmitter<void> = new EventEmitter<void>();
 
-  gameCode: any = null;
-
   textValue: any = '';
 
   rarityValue: any = '';
@@ -40,25 +37,24 @@ export class AdvancedFilterComponent implements OnInit {
   tagValue: any[] = [];
   tags: any[] = [];
 
-  constructor(private routeService: RouteService, private lookupsService: LookupsService) { }
+  constructor(private lookupsService: LookupsService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
+  ngOnInit(): void {
     this.loadFilters();
   }
 
   loadFilters() {
     if (this.rarityFilter) {
-      this.rarities = this.lookupsService.getByType(this.gameCode, Constants.lookupType.RARITY);
+      this.rarities = this.lookupsService.getByType(Constants.lookupType.RARITY);
     }
     if (this.elementFilter) {
-      this.elements = this.lookupsService.getByType(this.gameCode, Constants.lookupType.ELEMENT, { isAlt: false });
+      this.elements = this.lookupsService.getByType(Constants.lookupType.ELEMENT, { isAlt: false });
     }
     if (this.typeFilter) {
-      this.types = this.lookupsService.getByType(this.gameCode, Constants.lookupType.TYPE);
+      this.types = this.lookupsService.getByType(Constants.lookupType.TYPE);
     }
     if (this.tagFilter) {
-      this.tags = this.lookupsService.getByType(this.gameCode, Constants.lookupType.TAG);
+      this.tags = this.lookupsService.getByType(Constants.lookupType.TAG);
     }
   }
 
@@ -78,7 +74,7 @@ export class AdvancedFilterComponent implements OnInit {
     if (val) {
       values.push(val);
     }
-    const subElements: any[] = this.lookupsService.getByType(this.gameCode, Constants.lookupType.ELEMENT, { isAlt: true, baseElementCode: val });
+    const subElements: any[] = this.lookupsService.getByType(Constants.lookupType.ELEMENT, { isAlt: true, baseElementCode: val });
     if (subElements) {
       subElements.forEach(se => values.push(se.code));
     }

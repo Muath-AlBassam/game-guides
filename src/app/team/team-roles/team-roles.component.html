@@ -10,8 +10,11 @@
       @for (character of team.characters; track $index) {
         <tr>
           <td style="width: 50px; text-align: center">
-            <app-character-image [gameCode]="gameCode" [characterName]="character.name" [dimensions]="characterPFPSize"
-              styles="margin: 5px 10px;" [mobileIconSizeRatio]="0.5">
+            <app-character-image
+              [characterName]="character.name"
+              [dimensions]="characterPFPSize"
+              [styles]="'margin: 5px 10px;'"
+              [mobileIconSizeRatio]="0.5">
             </app-character-image>
           </td>
           <td style="font-size: 1.2em; font-weight: bold;">

@@ -10,7 +10,6 @@ import { Utils } from '../../utils/utils';
 })
 export class CharacterBuildComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() character: any = null;
   @Output() hasBuild: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -21,13 +20,13 @@ export class CharacterBuildComponent implements OnInit {
   constructor(private buildsService: BuildsService) { }
 
   ngOnInit(): void {
-    this.weaponsLabel = GameUtils.getWeaponsLabel(this.gameCode);
-    this.setsLabel = GameUtils.getSetsLabel(this.gameCode);
     this.loadBuild();
+    this.weaponsLabel = GameUtils.getWeaponsLabel(this.buildmd.gameCode);
+    this.setsLabel = GameUtils.getSetsLabel(this.buildmd.gameCode);
   }
 
   loadBuild() {
-    this.buildmd = this.buildsService.getByCharacter(this.gameCode, this.character);
+    this.buildmd = this.buildsService.getByCharacter(this.character);
     this.hasBuild.emit(this.buildmd != null);
   }
 

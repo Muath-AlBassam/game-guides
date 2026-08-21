@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteService } from '../../services/route.service';
 import { WeaponsService } from '../../services/weapons.service';
 import { GameUtils } from '../../utils/game-utils';
+import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-weapon-list',
@@ -10,7 +10,6 @@ import { GameUtils } from '../../utils/game-utils';
 })
 export class WeaponListComponent implements OnInit {
 
-  gameCode: any = null;
   allWeapons: any[] = [];
   weapons: any[] = [];
 
@@ -20,16 +19,16 @@ export class WeaponListComponent implements OnInit {
   rarityValue: any = '';
   typeValue: any = '';
 
-  constructor(private routeService: RouteService, private weaponsService: WeaponsService) { }
+  constructor(private weaponsService: WeaponsService, private gamesService: GamesService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
-    this.weaponsLabel = GameUtils.getWeaponsLabel(this.gameCode) + 's';
+  ngOnInit(): void {
+    const gameCode = this.gamesService.getActive().code;
+    this.weaponsLabel = GameUtils.getWeaponsLabel(gameCode) + 's';
     this.loadWeapons();
   }
 
   loadWeapons() {
-    this.allWeapons = this.weaponsService.getAll(this.gameCode);
+    this.allWeapons = this.weaponsService.getAll();
     this.weapons = this.allWeapons;
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { StoreService } from './store.service';
+import { StoreKeys, StoreService } from './store.service';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import * as XLSX from 'xlsx';
@@ -18,7 +18,7 @@ export class DataClientService {
   loadWorkbook() {
     if (environment.production) {
       this.loadRemoteWorkbook();
-    } else if (this.store.get("remoteWorkbookMap") == null) {
+    } else if (this.store.get(StoreKeys.REMOTE_DB) == null) {
       this.loadLocalWorkbook();
     }
   }
@@ -28,7 +28,7 @@ export class DataClientService {
     this.http.get('assets/GaGu DB.xlsx', { responseType: 'arraybuffer' })
       .subscribe(arrayBuffer => {
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
-        this.store.set('localWorkbook', workbook);
+        this.store.set(StoreKeys.LOCAL_DB, workbook);
         this.sheetLoaded.next('success');
       });
   }
@@ -44,11 +44,11 @@ export class DataClientService {
           const jsonData = this.convertSheetDataToJSON(sheetData);
           remoteWorkbookMap.set(sheetName, jsonData);
         });
-        this.store.set('remoteWorkbookMap', remoteWorkbookMap);
+        this.store.set(StoreKeys.REMOTE_DB, remoteWorkbookMap);
         this.sheetLoaded.next('success');
       },
       error: (err) => {
-        this.store.set('error', { code: err?.error?.error?.code, message: err?.error?.error?.message });
+        this.store.set(StoreKeys.ERROR, { code: err?.error?.error?.code, message: err?.error?.error?.message });
         this.sheetLoaded.next('error');
         this.router.navigate(['/error']);
       }
@@ -87,17 +87,17 @@ export class DataClientService {
   }
 
   private getSheetData(sheetName: string) {
-    if (this.store.get("remoteWorkbookMap") != null) {
+    if (this.store.get(StoreKeys.REMOTE_DB) != null) {
       console.log('fetching data from remote sheet', sheetName);
-      const storeData = this.store.get("remoteWorkbookMap");
+      const storeData = this.store.get(StoreKeys.REMOTE_DB);
       if (storeData) {
         return storeData.get(sheetName);
       } else {
         return [];
       }
-    } else if (this.store.get("localWorkbook") != null) {
+    } else if (this.store.get(StoreKeys.LOCAL_DB) != null) {
       console.log('fetching data from local sheet', sheetName);
-      const storeData = this.store.get("localWorkbook");
+      const storeData = this.store.get(StoreKeys.LOCAL_DB);
       if (storeData) {
         const worksheet = storeData.Sheets[sheetName];
         return XLSX.utils.sheet_to_json(worksheet);

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
+import { Constants } from '../utils/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,7 @@ export class WeaponsService {
 
   weaponsList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -30,15 +32,17 @@ export class WeaponsService {
     });
   }
 
-  getAll(gameCode: any) {
+  getAll() {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.weaponsList.filter(w => w.gameCode == gameCode);
   }
 
   getAllOrdered(gameCode: any) {
-    return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    return this.getAll().sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   }
 
-  getOne(gameCode: any, code: any) {
+  getOne(code: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     const data = this.weaponsList.find(w => w.gameCode == gameCode && w.code == code);
     return data ?? { code: code, name: code }
   }

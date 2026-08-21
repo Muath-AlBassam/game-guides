@@ -1,5 +1,12 @@
 import { Injectable } from "@angular/core";
 
+export const StoreKeys = {
+  REMOTE_DB: 'remoteWorkbookMap',
+  LOCAL_DB: 'localWorkbook',
+  GAME_CODE: 'gameCode',
+  ERROR: 'error'
+}
+
 @Injectable({
   providedIn: 'root'
 })

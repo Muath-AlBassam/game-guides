@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 import { Utils } from '../../utils/utils';
-import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-game-header',
@@ -10,18 +9,16 @@ import { RouteService } from '../../services/route.service';
 })
 export class GameHeaderComponent implements OnInit {
 
-  gameCode: any = null;
   activeGame: any = null;
 
-  constructor(private routeService: RouteService, private gameService: GamesService) { }
+  constructor(private gameService: GamesService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
+  ngOnInit(): void {
     this.loadGame();
   }
 
   loadGame() {
-    this.activeGame = this.gameService.getOne(this.gameCode);
+    this.activeGame = this.gameService.getActive();
   }
 
   isMobile(): boolean {

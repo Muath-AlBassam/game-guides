@@ -9,7 +9,6 @@ import { TextUtils } from '../../utils/text-utils';
 })
 export class TeamNotesComponent implements OnInit {
 
-  @Input() gameCode: any = null;
   @Input() teamCode: any = null;
 
   notes: any[] = [];
@@ -23,12 +22,12 @@ export class TeamNotesComponent implements OnInit {
   }
 
   loadNotes() {
-    this.notes = this.notesService.getAllByTeam(this.gameCode, this.teamCode);
+    this.notes = this.notesService.getAllByOwnerTypeAndCode('TEAM', this.teamCode);
   }
 
   formatNotes() {
     if (this.notes && this.notes?.length > 0) {
-      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, this.gameCode));
+      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, n.gameCode));
     }
   }
 }

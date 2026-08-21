@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class GamesService {
 
   gamesList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -37,7 +38,8 @@ export class GamesService {
     return this.gamesList;
   }
 
-  getOne(gameCode: any) {
+  getActive() {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.gamesList.find(g => g.code == gameCode);
   }
 }

@@ -37,8 +37,7 @@
       <div class="equipped-by collapse" id="{{setId}}equippedby" data-bs-parent="#sets-container">
         <div>
           @for (char of equippedCharacters; track $index) {
-            <app-character-image [gameCode]="gameCode" [styles]="'margin: 0 5px; border-radius: 50%;'"
-              [characterName]="char" [dimensions]="40">
+            <app-character-image [styles]="'margin: 0 5px; border-radius: 50%;'" [characterName]="char" [dimensions]="40">
             </app-character-image>
           }
         </div>

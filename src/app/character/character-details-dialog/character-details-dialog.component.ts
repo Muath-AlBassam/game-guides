@@ -10,7 +10,6 @@ import { Utils } from '../../utils/utils';
 })
 export class CharacterDetailsDialogComponent implements OnInit {
 
-  gameCode: any = null;
   character: any = null;
 
   charmd: any = null;
@@ -20,7 +19,6 @@ export class CharacterDetailsDialogComponent implements OnInit {
   characterPFPSize: number = 260;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private charactersService: CharactersService) {
-    this.gameCode = data.gameCode;
     this.character = data.character;
   }
 
@@ -29,7 +27,7 @@ export class CharacterDetailsDialogComponent implements OnInit {
   }
 
   loadData() {
-    this.charmd = this.charactersService.getOne(this.gameCode, this.character);
+    this.charmd = this.charactersService.getOne(this.character);
   }
 
   isMobile(): boolean {

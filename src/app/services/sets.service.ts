@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class SetsService {
   setsList: any[] = [];
   setsEffectsList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -45,15 +46,17 @@ export class SetsService {
     }));
   }
 
-  getAll(gameCode: any) {
+  getAll() {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.setsList.filter(s => s.gameCode == gameCode);
   }
 
-  getAllOrdered(gameCode: any) {
-    return this.getAll(gameCode).sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+  getAllOrdered() {
+    return this.getAll().sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   }
 
-  getOne(gameCode: any, code: any) {
+  getOne(code: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     const data = this.setsList.find(s => s.gameCode == gameCode && s.code == code);
     return data ?? { code: code, name: code }
   }

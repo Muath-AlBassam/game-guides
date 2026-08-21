@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from './store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class CombosService {
 
   combosList: any[] = [];
 
-  constructor(private dataClient: DataClientService) {
+  constructor(private dataClient: DataClientService, private store: StoreService) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
@@ -32,7 +33,8 @@ export class CombosService {
     });
   }
 
-  getAllByCharacter(gameCode: any, characterName: any) {
+  getAllByCharacter(characterName: any) {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.combosList.find(c => c.gameCode == gameCode && c.character == characterName)?.combos;
   }
 }

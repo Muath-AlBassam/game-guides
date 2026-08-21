@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteService } from '../../services/route.service';
 import { TeamsService } from '../../services/teams.service';
 import { LookupsService } from '../../services/lookups.service';
 import { Constants } from '../../utils/constants';
@@ -11,7 +10,6 @@ import { Constants } from '../../utils/constants';
 })
 export class TeamListComponent implements OnInit {
 
-  gameCode: any = null;
   allCategories: any[] = [];
   categories: any[] = [];
   count: number = 0;
@@ -21,17 +19,16 @@ export class TeamListComponent implements OnInit {
   textValue: any = '';
   tagValue: any[] = [];
 
-  constructor(private routeService: RouteService, private lookupsService: LookupsService, private teamsService: TeamsService) { }
+  constructor(private lookupsService: LookupsService, private teamsService: TeamsService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
+  ngOnInit(): void {
     this.loadTeams();
   }
 
   loadTeams() {
-    this.allCategories = this.lookupsService.getByType(this.gameCode, Constants.lookupType.CATEGORY);
+    this.allCategories = this.lookupsService.getByType(Constants.lookupType.CATEGORY);
     this.allCategories.forEach(cat => {
-      let catTeams = this.teamsService.getAllByCategory(this.gameCode, cat.code);
+      let catTeams = this.teamsService.getAllByCategory(cat.code);
       cat.teams = catTeams;
       this.count += catTeams.length;
     });

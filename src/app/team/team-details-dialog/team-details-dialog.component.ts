@@ -16,7 +16,6 @@ export class TeamDetailsDialogComponent implements OnInit {
 
   readonly unknownImg = Constants.images.unknown;
 
-  gameCode: any = null;
   teamCode: any = null;
   teamIndex: any = null;
 
@@ -32,7 +31,6 @@ export class TeamDetailsDialogComponent implements OnInit {
 
   constructor(private gamesService: GamesService, private teamsService: TeamsService, private petsService: PetsService,
               private lookupsService: LookupsService, @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.gameCode = data.gameCode;
     this.teamCode = data.teamCode;
     this.teamIndex = data.teamIndex;
   }
@@ -42,11 +40,11 @@ export class TeamDetailsDialogComponent implements OnInit {
   }
 
   loadData() {
-    this.activeGame = this.gamesService.getOne(this.gameCode);
-    this.team = this.teamsService.getOne(this.gameCode, this.teamCode);
-    this.petmd = this.petsService.getOne(this.gameCode, this.team.pet);
-    this.petRarityMd = this.lookupsService.getOne(this.gameCode, this.petmd.rarity, Constants.lookupType.RARITY);
-    this.teamId = `${this.gameCode}-${this.team.code}`;
+    this.activeGame = this.gamesService.getActive();
+    this.team = this.teamsService.getOne(this.teamCode);
+    this.petmd = this.petsService.getOne(this.team.pet);
+    this.petRarityMd = this.lookupsService.getOne(this.petmd.rarity, Constants.lookupType.RARITY);
+    this.teamId = `${this.activeGame.code}-${this.team.code}`;
     this.dummyCharactersList = Array(this.activeGame.teamSize);
     if (this.isMobile()) {
       this.petPFPSize *= 0.7;

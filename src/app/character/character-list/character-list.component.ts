@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
-import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-character-list',
@@ -9,7 +8,6 @@ import { RouteService } from '../../services/route.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  gameCode: any = null;
   allCharacters: any[] = [];
   characters: any[] = [];
 
@@ -19,15 +17,14 @@ export class CharacterListComponent implements OnInit {
   elementValue: any = [];
   typeValue: any = '';
 
-  constructor(private routeService: RouteService, private charactersService: CharactersService) { }
+  constructor(private charactersService: CharactersService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.gameCode = await this.routeService.getActiveGame();
+  ngOnInit(): void {
     this.loadCharacters();
   }
 
   loadCharacters() {
-    this.allCharacters = this.charactersService.getAll(this.gameCode);
+    this.allCharacters = this.charactersService.getAll();
     this.characters = this.allCharacters;
   }
 
