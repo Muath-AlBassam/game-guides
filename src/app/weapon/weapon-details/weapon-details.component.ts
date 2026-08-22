@@ -18,6 +18,8 @@ export class WeaponDetailsComponent implements OnInit {
   @Input() showAdditionalInfo: boolean = true;
   @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
+  @Input() dimensions: number = 80;
+  @Input() simpleView: boolean = false;
 
   weapon: any = null;
   weaponId: string = '';

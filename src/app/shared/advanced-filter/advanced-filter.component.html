@@ -1,11 +1,18 @@
 <div class="team-search-container">
   <div>
-    <app-search [query]="textValue" [placeholder]="placeholder" (textChange)="onTextChange($event)"></app-search>
+    <app-search
+      [query]="textValue"
+      [placeholder]="placeholder"
+      (textChange)="onTextChange($event)">
+    </app-search>
   </div>
 
   @if (rarityFilter && rarities.length > 0) {
     <div>
-      <app-button-group [value]="rarityValue" [buttonList]="rarities" [titleLabel]="'label'"
+      <app-button-group
+        [value]="rarityValue"
+        [buttonList]="rarities"
+        [titleLabel]="'label'"
         (valueChange)="onRarityChange($event)">
       </app-button-group>
     </div>
@@ -13,7 +20,10 @@
 
   @if (elementFilter && elements.length > 0) {
     <div>
-      <app-button-group [value]="elementValue" [buttonList]="elements" [titleLabel]="'label'"
+      <app-button-group
+        [value]="elementValue"
+        [buttonList]="elements"
+        [titleLabel]="'label'"
         (valueChange)="onElementChange($event)">
       </app-button-group>
     </div>
@@ -21,7 +31,10 @@
 
   @if (typeFilter && types.length > 0) {
     <div>
-      <app-button-group [value]="typeValue" [buttonList]="types" [titleLabel]="'label'"
+      <app-button-group
+        [value]="typeValue"
+        [buttonList]="types"
+        [titleLabel]="'label'"
         (valueChange)="onTypeChange($event)">
       </app-button-group>
     </div>
@@ -29,11 +42,18 @@
 
   @if (tagFilter && tags.length > 0) {
     <div>
-      <ng-select [(ngModel)]="tagValue" (change)="onTagChange($event)" [multiple]="true" [placeholder]="'Select tags...'"
-                class="gagu-multi-form-control">
+      <ng-select 
+        [(ngModel)]="tagValue"
+        (change)="onTagChange($event)"
+        [multiple]="true"
+        [placeholder]="'Select tags...'"
+        class="gagu-multi-form-control">
         @for (tag of tags; track tag.code) {
           <ng-option [value]="tag.code">
-            <span class="badge hover pointer team-badge" [ngClass]="{ 'bg-secondary': !tag.style }" [style]="tag.style">
+            <span
+              class="badge hover pointer team-badge"
+              [ngClass]="{ 'bg-secondary': !tag.style }"
+              [style]="tag.style">
               {{ tag.label }}
             </span>
           </ng-option>
@@ -44,7 +64,10 @@
 
   @if (resetButton) {
     <div>
-      <button class="btn btn-secondary btn-reset" title="Reset" (click)="onReset();">
+      <button
+        class="btn btn-secondary btn-reset"
+        title="Reset"
+        (click)="onReset();">
         <span class="clear-icon" role="button">
           &times;
         </span>

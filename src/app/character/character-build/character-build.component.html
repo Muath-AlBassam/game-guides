@@ -1,29 +1,64 @@
 @if (buildmd) {
-  <div>
-    <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-      <h5 class="content-header" style="margin-top: 0;">
-        {{weaponsLabel}}
-      </h5>
-      <div class="row">
-        @for (weapon of buildmd.weapons; track weapon.name) {
-          <div class="{{!isMobile() && this.buildmd?.weapons?.length > 1 ? 'col-md-6' : 'col-md-12'}}">
-            <app-weapon-details [weaponName]="weapon.name" [showAdditionalInfo]="false">
-            </app-weapon-details>
-          </div>
-        }
+  @if (simpleView) {
+    <div class="simple-build">
+      <div class="build-block">
+        <span class="label">{{ weaponsLabel }}</span>
+        <div>
+          @for (weapon of buildmd.weapons; track weapon.name) {
+            <div class="col-md-12">
+              <app-weapon-details
+                [weaponName]="weapon.name"
+                [showAdditionalInfo]="false"
+                [dimensions]="50"
+                [simpleView]="true">
+              </app-weapon-details>
+            </div>
+          }
+        </div>
       </div>
-
-      <h5 class="content-header">
-        {{setsLabel}}
-      </h5>
-      <div class="row">
-        @for (set of buildmd.sets; track set.name) {
-          <div class="{{!isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}}">
-            <app-set-details [setName]="set.name" [equppiedPieces]="set.equppiedPieces">
-            </app-set-details>
-          </div>
-        }
+      <div class="build-block">
+        <span class="label">{{ setsLabel }}</span>
+        <div>
+          @for (set of buildmd.sets; track set.name) {
+            <div class="col-md-12">
+              <app-set-details
+                [setName]="set.name"
+                [equppiedPieces]="set.equppiedPieces"
+                [dimensions]="50"
+                [simpleView]="true">
+              </app-set-details>
+            </div>
+          }
+        </div>
       </div>
     </div>
-  </div>
+  } @else {
+    <div>
+      <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
+        <h5 class="content-header" style="margin-top: 0;">
+          {{weaponsLabel}}
+        </h5>
+        <div class="row">
+          @for (weapon of buildmd.weapons; track weapon.name) {
+            <div class="{{!isMobile() && this.buildmd?.weapons?.length > 1 ? 'col-md-6' : 'col-md-12'}}">
+              <app-weapon-details [weaponName]="weapon.name" [showAdditionalInfo]="false">
+              </app-weapon-details>
+            </div>
+          }
+        </div>
+
+        <h5 class="content-header">
+          {{setsLabel}}
+        </h5>
+        <div class="row">
+          @for (set of buildmd.sets; track set.name) {
+            <div class="{{!isMobile() && this.buildmd?.sets?.length > 2 ? 'col-md-6' : 'col-md-12'}}">
+              <app-set-details [setName]="set.name" [equppiedPieces]="set.equppiedPieces">
+              </app-set-details>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
 }

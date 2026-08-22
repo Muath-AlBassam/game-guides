@@ -5,6 +5,7 @@
   position: fixed;
   z-index: 15;
   user-select: none;
+  border-bottom: 1px solid #36373f;
 }
 
 .header .header-text {

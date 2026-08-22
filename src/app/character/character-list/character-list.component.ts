@@ -17,6 +17,13 @@ export class CharacterListComponent implements OnInit {
   elementValue: any = [];
   typeValue: any = '';
 
+  viewType: 'cards' | 'pfp' | 'details' = 'details';
+  viewTypeList: any[] = [
+    { code: 'cards', name: 'Cards', imageUrl: 'assets/svg/grid-2.svg' },
+    { code: 'pfp', name: 'PFP', imageUrl: 'assets/svg/grid-4.svg' },
+    { code: 'details', name: 'Details', imageUrl: 'assets/svg/grid-1.svg' },
+  ]
+
   constructor(private charactersService: CharactersService) { }
 
   ngOnInit(): void {

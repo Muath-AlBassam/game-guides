@@ -1,59 +1,126 @@
 @if (weapon) {
-  <div class="weapon-container" [ngbPopover]="weaponEffectPopover" [popoverTitle]="weapon.name"
-      popoverClass="gagu-popover" [disablePopover]="effectStyle != 'popover' || !weapon.effect" container="body">
-    <!-- Image -->
-    <div class="weapon-image" [style]="rarity.style">
-      <img [src]="weapon.imageUrl ?? unknownImg" height="80" />
-    </div>
-    <!-- Info -->
-    <div class="weapon-info">
-      <div>
-        <h5 class="weapon-name">
-          {{weapon.name}}
-        </h5>
-        @if (showAdditionalInfo) {
-          <p class="weapon-metadata">
-            <img [src]="rarity.imageUrl" [alt]="rarity.label" [title]="rarity.label" height="24" />
-            |
-            <img [src]="type.imageUrl" [alt]="type.label" [title]="type.label" height="24" />
-          </p>
-        }
+  @if (simpleView) {
+    <div
+      class="weapon-container"
+      [ngbPopover]="weaponEffectPopover"
+      [popoverTitle]="weapon.name"
+      popoverClass="gagu-popover"
+      [disablePopover]="effectStyle != 'popover' || !weapon.effect"
+      container="body"
+      [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10) + 'px)'}">
+      <!-- Image -->
+      <div
+        class="weapon-image"
+        [style]="rarity.backgroundStyle"
+        [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
+        <img [src]="weapon.imageUrl ?? unknownImg" [height]="dimensions" />
       </div>
-    </div>
-    <!-- Effect (box) - Trigger -->
-    @if ((effectStyle == 'box' && weapon.effect) || showEquippedBy) {
-      <div class="pointer effect-arrow collapsed" data-bs-toggle="collapse"
-        [attr.data-bs-target]="'#'+weaponId+'effect, #'+weaponId+'equippedby'">
-        <img src="assets/svg/arrow-down.svg" height="20">
-      </div>
-    }
-    <!-- Secondary stats -->
-    @if (showAdditionalInfo && weapon.secondaryStat) {
-      <div class="weapon-stat">
-        <b>{{weapon.secondaryStat}}</b>
-      </div>
-    }
-    <!-- Effect (box) -->
-    @if (effectStyle == 'box' && weapon.effect) {
-      <div class="weapon-effect collapse" id="{{weaponId}}effect" data-bs-parent="#weapons-container">
-        <div [innerHTML]="weapon.formattedEffect"></div>
-      </div>
-    }
-    <!-- Equipped characters -->
-    @if (showEquippedBy) {
-      <div class="equipped-by collapse" id="{{weaponId}}equippedby" data-bs-parent="#weapons-container">
+      <!-- Info -->
+      <div class="weapon-info">
         <div>
-          @for (char of equippedCharacters; track $index) {
-            <app-character-image
-              [styles]="'margin: 0 5px; border-radius: 50%;'"
-              [characterName]="char"
-              [dimensions]="40">
-            </app-character-image>
+          <span class="weapon-name">
+            {{weapon.name}}
+          </span>
+          @if (showAdditionalInfo) {
+            <p class="weapon-metadata">
+              <img
+                [src]="rarity.imageUrl"
+                [alt]="rarity.label"
+                [title]="rarity.label"
+                height="24" />
+              |
+              <img
+                [src]="type.imageUrl"
+                [alt]="type.label"
+                [title]="type.label"
+                height="24" />
+            </p>
           }
         </div>
       </div>
-    }
-  </div>
+    </div>
+  } @else {
+    <div
+      class="weapon-container"
+      [ngbPopover]="weaponEffectPopover"
+      [popoverTitle]="weapon.name"
+      popoverClass="gagu-popover"
+      [disablePopover]="effectStyle != 'popover' || !weapon.effect"
+      container="body"
+      [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10 + 50) + 'px) 50px'}">
+      <!-- Image -->
+      <div
+        class="weapon-image"
+        [style]="rarity.backgroundStyle"
+        [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
+        <img [src]="weapon.imageUrl ?? unknownImg" [height]="dimensions" />
+      </div>
+      <!-- Info -->
+      <div class="weapon-info">
+        <div>
+          <span class="weapon-name">
+            {{weapon.name}}
+          </span>
+          @if (showAdditionalInfo) {
+            <p class="weapon-metadata">
+              <img
+                [src]="rarity.imageUrl"
+                [alt]="rarity.label"
+                [title]="rarity.label"
+                height="24" />
+              |
+              <img
+                [src]="type.imageUrl"
+                [alt]="type.label"
+                [title]="type.label"
+                height="24" />
+            </p>
+          }
+        </div>
+      </div>
+      <!-- Effect (box) - Trigger -->
+      @if ((effectStyle == 'box' && weapon.effect) || showEquippedBy) {
+        <div
+          class="pointer effect-arrow collapsed"
+          data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#'+weaponId+'effect, #'+weaponId+'equippedby'">
+          <img src="assets/svg/arrow-down.svg" height="20">
+        </div>
+      }
+      <!-- Secondary stats -->
+      @if (showAdditionalInfo && weapon.secondaryStat) {
+        <div class="weapon-stat">
+          <b>{{weapon.secondaryStat}}</b>
+        </div>
+      }
+      <!-- Effect (box) -->
+      @if (effectStyle == 'box' && weapon.effect) {
+        <div
+          class="weapon-effect collapse"
+          id="{{weaponId}}effect"
+          data-bs-parent="#weapons-container">
+          <div [innerHTML]="weapon.formattedEffect"></div>
+        </div>
+      }
+      <!-- Equipped characters -->
+      @if (showEquippedBy) {
+        <div
+          class="equipped-by collapse"
+          id="{{weaponId}}equippedby"
+          data-bs-parent="#weapons-container">
+          <div>
+            @for (char of equippedCharacters; track $index) {
+              <app-character-image
+                [styles]="'margin: 0 5px; border-radius: 50%;'"
+                [characterName]="char"
+                [dimensions]="40">
+              </app-character-image>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
 }
 
 <!-- Effect (popover) -->

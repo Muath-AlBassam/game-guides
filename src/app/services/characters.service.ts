@@ -43,7 +43,8 @@ export class CharactersService {
       element: c.ELEMENT,
       type: c.TYPE,
       rarity: c.RARITY,
-      enhanced: c.ENHANCED
+      enhanced: c.ENHANCED,
+      skillDescription: c.SKILL_DESCRIPTION
     }));
   }
 

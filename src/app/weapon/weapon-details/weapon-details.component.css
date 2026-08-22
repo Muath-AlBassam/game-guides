@@ -3,8 +3,6 @@
   border: 2px solid #484950;
   align-items: center;
   display: grid;
-  grid-template-columns: 90px calc(100% - 140px) 50px;
-  grid-template-rows: auto auto auto;
 }
 
 .weapon-container .weapon-image {
@@ -12,8 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  width: 80px;
   grid-row: 1;
   grid-column: 1;
 }
@@ -27,10 +23,12 @@
 .weapon-container .weapon-info {
   align-items: center;
   display: flex;
+  width: 100%;
 }
 
 .weapon-container .weapon-info .weapon-name {
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .weapon-container .weapon-info .weapon-metadata {

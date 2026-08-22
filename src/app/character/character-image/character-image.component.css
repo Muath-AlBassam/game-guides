@@ -78,7 +78,7 @@
 
 .char-card .char-name {
   position: absolute;
-  bottom: 30px;
+  bottom: 15px;
   z-index: 5;
   color: var(--text-color);
   font-weight: bold;
@@ -94,11 +94,82 @@
   /* Position the overlay at the bottom */
   left: 0;
   width: 100%;
-  height: 30%;
+  height: 50%;
   /* Adjust this to control how far up the gradient goes */
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
   /*mix-blend-mode: lighten;*/
   pointer-events: none;
+}
+
+/* DETAILS */
+.character-details {
+  border: 1px solid #373a43;
+  background: #292a30eb;
+  min-height: 228px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-details .header {
+  background: linear-gradient(90deg, #ffffff0e, #ffffff03);
+  border-bottom: 1px solid #ffffff14;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 14px 16px 12px 18px;
+  display: flex;
+}
+
+.character-details .header .heading {
+  min-width: 0;
+  color: inherit;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.character-details .header .heading .character-icon {
+  isolation: isolate;
+  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-details .header .heading .name-wrapper {
+  gap: 3px;
+  min-width: 0;
+  display: grid;
+}
+
+.character-details .header .heading .name-wrapper .name {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.character-details .header .heading .name-wrapper .metadata {
+  text-transform: uppercase;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  display: inline-flex;
+}
+
+.character-details .description {
+  color: #d6d9df;
+  margin: 0;
+  padding: 15px 18px 12px;
+  line-height: 1.6;
+}
+
+.character-details .build {
 }
 
 /* PFP & CARD */

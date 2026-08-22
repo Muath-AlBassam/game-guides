@@ -18,11 +18,12 @@ export class CharacterImageComponent implements OnInit {
   @Input() characterName: any = null;
   @Input() styles: any = '';
   @Input() classes: any = '';
-  @Input() withDetailsDialog: boolean = false;
-  @Input() withBackgroundClass: boolean = true;
-  @Input() withElement: boolean = false;
-  @Input() withType: boolean = false;
-  @Input() imageStyle: 'pfp' | 'card' | 'gallery' = 'pfp';
+  @Input() enableDetailsDialog: boolean = false;
+  @Input() showBackgroundStyle: boolean = true;
+  @Input() showBorderStyle: boolean = false;
+  @Input() showElement: boolean = false;
+  @Input() showType: boolean = false;
+  @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'details' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
   @Input() mobileSizeRatio: number = 1; // 100%
   @Input() mobileIconSizeRatio: number = 1; // 100%
@@ -35,9 +36,8 @@ export class CharacterImageComponent implements OnInit {
   charmdList: {
     charmd: any,
     raritymd: any,
-    elementCode: any,
-    elementImageUrl: any,
-    typeImageUrl: any,
+    elementmd: any,
+    typemd: any,
     imageList: string[],
     currentImageIndex: number
   }[] = [];
@@ -57,9 +57,8 @@ export class CharacterImageComponent implements OnInit {
       this.charmdList.push({
         charmd: tempCharMd,
         raritymd: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
-        elementCode: tempCharMd.element,
-        elementImageUrl: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT).imageUrl,
-        typeImageUrl: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE)?.imageUrl,
+        elementmd: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
+        typemd: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
         imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
       });
@@ -77,7 +76,7 @@ export class CharacterImageComponent implements OnInit {
   }
 
   openCharacterDetailsDialog(character: any) {
-    if (this.withDetailsDialog) {
+    if (this.enableDetailsDialog) {
       this.dialogService.openCharacterDetailsDialog(character);
     }
   }

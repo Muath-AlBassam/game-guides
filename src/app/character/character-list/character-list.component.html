@@ -2,9 +2,20 @@
   <div class="col-md-12">
     <div class="content-header">
       Characters
-      <span class="additional-text">Showing ({{characters.length}}) Characters</span>
+      <span class="additional-text">
+        Showing ({{characters.length}}) Characters
+      </span>
     </div>
   </div>
+</div>
+
+<div class="row col-md-1">
+  <app-button-group
+    [showAllButton]="false"
+    [value]="viewType"
+    [buttonList]="viewTypeList"
+    (valueChange)="viewType = $event">
+  </app-button-group>
 </div>
 
 <app-advanced-filter
@@ -21,16 +32,37 @@
 </app-advanced-filter>
 
 @if (characters && characters.length > 0) {
-  <div class="characters-container" id="characters-container">
+  <div class="characters-container" id="characters-container" [class]="'characters-container-' + viewType">
     @for (charmd of characters; track charmd.code) {
-      <app-character-image
-        [characterName]="charmd.name"
-        [dimensions]="160"
-        [withDetailsDialog]="true"
-        [withElement]="true"
-        [withType]="true"
-        [imageStyle]="'card'">
-      </app-character-image>
+      @if (viewType == 'cards') {
+        <app-character-image
+          [characterName]="charmd.name"
+          [dimensions]="160"
+          [enableDetailsDialog]="true"
+          [showElement]="true"
+          [showType]="true"
+          [showBorderStyle]="true"
+          [imageStyle]="'card'">
+        </app-character-image>
+      } @else if (viewType == 'pfp') {
+        <app-character-image
+          [characterName]="charmd.name"
+          [enableDetailsDialog]="true"
+          [showElement]="true"
+          [showBorderStyle]="true"
+          [imageStyle]="'pfp'">
+        </app-character-image>
+      } @else if (viewType == 'details') {
+        <app-character-image
+          [characterName]="charmd.name"
+          [dimensions]="60"
+          [enableDetailsDialog]="true"
+          [showElement]="true"
+          [showType]="true"
+          [showBorderStyle]="true"
+          [imageStyle]="'details'">
+        </app-character-image>
+      }
     }
   </div>
 } @else {

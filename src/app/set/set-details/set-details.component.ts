@@ -19,6 +19,8 @@ export class SetDetailsComponent implements OnInit {
   @Input() equppiedPieces: any = null;
   @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
+  @Input() dimensions: number = 80;
+  @Input() simpleView: boolean = false;
 
   set: any = null;
   setId: string = '';

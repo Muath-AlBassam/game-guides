@@ -3,7 +3,6 @@
   border: 2px solid #484950;
   align-items: center;
   display: grid;
-  grid-template-columns: 90px calc(100% - 140px) 50px;
   grid-template-rows: auto auto;
 }
 
@@ -12,8 +11,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  width: 80px;
   grid-row: 1;
   grid-column: 1;
 }
@@ -30,7 +27,7 @@
 }
 
 .set-container .set-info .set-name {
-  /**/
+  font-weight: bold;
 }
 
 .set-container .set-info .equppied-pieces {

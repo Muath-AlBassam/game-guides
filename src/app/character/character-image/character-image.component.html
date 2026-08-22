@@ -1,65 +1,137 @@
 @if (imageStyle == 'card') {
   <!-- CARD -->
-  <div class="char-card" [ngClass]="{'glow-border': firstChar.charmd.enhanced}" [style]="withBackgroundClass ? firstChar.raritymd?.style : null"
+  <div
+    class="char-card"
+    [class]="firstChar.charmd.code"
+    [ngClass]="{'glow-border': firstChar.charmd.enhanced}"
+    [style]="
+      (showBackgroundStyle ? firstChar.raritymd?.backgroundStyle : '') +
+      (showBorderStyle ? ' border: 2px solid ' + firstChar.raritymd?.color + ';' : '')"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
-    @if (withElement && firstChar.elementImageUrl) {
-      <img class="ele-img" [src]="firstChar.elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize"
-        [height]="iconSize" [title]="firstChar.elementCode" loading="lazy" />
+    @if (showElement && firstChar.elementmd?.imageUrl) {
+      <img
+        class="ele-img"
+        [src]="firstChar.elementmd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        [title]="firstChar.elementmd.code" loading="lazy" />
     }
-    @if (withElement && firstChar.elementImageUrl) {
-      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="firstChar.typeImageUrl ?? TRANSPARENT_IMG"
-        [width]="iconSize" [height]="iconSize" [title]="firstChar.charmd.type" loading="lazy" />
+    @if (showType && firstChar.typemd?.imageUrl) {
+      <img
+        class="type-img"
+        [ngStyle]="{'top': iconSize + 'px'}"
+        [src]="firstChar.typemd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        [title]="firstChar.charmd.type" loading="lazy" />
     }
 
-    <img class="char-img" [ngClass]="{'char-img-resize pointer': withDetailsDialog}" [src]="firstChar.charmd.cardImageUrl"
-      [alt]="firstChar.charmd.name ?? '?'" [title]="firstChar.charmd.name ?? '?'" [width]="dimensions"
-      (click)="openCharacterDetailsDialog(firstChar.charmd.name)" loading="lazy" />
+    <img
+      class="char-img"
+      [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+      [src]="firstChar.charmd.cardImageUrl"
+      [alt]="firstChar.charmd.name ?? '?'"
+      [title]="firstChar.charmd.name ?? '?'"
+      [width]="dimensions"
+      (click)="openCharacterDetailsDialog(firstChar.charmd.name)"
+      loading="lazy" />
 
-    <span class="char-name">{{ firstChar.charmd.name }}</span>
+    <span class="char-name">
+      {{ firstChar.charmd.name }}
+    </span>
     <div class="smoky-overlay"></div>
   </div>
 } @else if (imageStyle == 'pfp' && charCount > 1) {
   <!-- MULTIPLE (pfp) -->
-  <div class="split-box split-box-{{charCount}}" [attr.style]="styles"
+  <div
+    class="split-box split-box-{{charCount}}"
+    [attr.style]="styles"
     [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
     @for (char of charmdList; track char.charmd.name) {
-      <div class="child" [ngClass]="{'pointer': withDetailsDialog}" [style]="withBackgroundClass ? char.raritymd?.style : null"
+      <div
+        class="child"
+        [class]="firstChar.charmd.code"
+        [ngClass]="{'pointer': enableDetailsDialog}"
+        [style]="showBackgroundStyle ? char.raritymd?.backgroundStyle : ''"
         (click)="openCharacterDetailsDialog(char.charmd.name)">
-        <img [src]="char.charmd.imageUrl ?? UNKNOWN_IMG" [alt]="char.charmd.name ?? '?'" [title]="char.charmd.name ?? '?'" class="pfp"
-          [width]="this.dimensions" [height]="this.dimensions" loading="lazy" />
+        <img
+          [src]="char.charmd.imageUrl ?? UNKNOWN_IMG"
+          [alt]="char.charmd.name ?? '?'"
+          [title]="char.charmd.name ?? '?'" class="pfp"
+          [width]="dimensions"
+          [height]="dimensions"
+          loading="lazy" />
       </div>
     }
   </div>
 } @else if (imageStyle == 'pfp' && charCount == 1) {
   <!-- SINGLE (pfp) -->
-  <div class="character-container" [style]="(withBackgroundClass ? firstChar.raritymd?.style : '') + ' border-radius: 5px; ' + styles">
-    <img [src]="firstChar.charmd.imageUrl ?? UNKNOWN_IMG" [alt]="firstChar.charmd.name ?? '?'" [title]="firstChar.charmd.name ?? '?'"
-      [attr.class]="'pfp' + classes" style="display: block; height: auto;" [ngClass]="{'char-img-resize': withDetailsDialog}"
-      [width]="dimensions" [height]="this.dimensions" (click)="openCharacterDetailsDialog(firstChar.charmd.name)" loading="lazy" />
-    @if (withElement && firstChar.elementImageUrl) {
-      <img [src]="firstChar.elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize" [height]="iconSize"
-        class="element-icon" [title]="firstChar.elementCode" loading="lazy" />
+  <div
+    class="character-container"
+    [class]="firstChar.charmd.code"
+    [style]="
+      (showBackgroundStyle ? firstChar.raritymd?.backgroundStyle : '') +
+      (showBorderStyle ? ' border: 2px solid ' + firstChar.raritymd?.color + ';' : '') +
+      ' border-radius: 5px; ' + styles">
+    <img
+      [src]="firstChar.charmd.imageUrl ?? UNKNOWN_IMG"
+      [alt]="firstChar.charmd.name ?? '?'"
+      [title]="firstChar.charmd.name ?? '?'"
+      [attr.class]="'pfp' + classes"
+      style="display: block; height: auto;"
+      [ngClass]="{'char-img-resize': enableDetailsDialog}"
+      [width]="dimensions"
+      [height]="dimensions"
+      (click)="openCharacterDetailsDialog(firstChar.charmd.name)"
+      loading="lazy" />
+    @if (showElement && firstChar.elementmd?.imageUrl) {
+      <img
+        [src]="firstChar.elementmd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        class="element-icon"
+        [title]="firstChar.elementmd.code"
+        loading="lazy" />
     }
 
-    @if (withType && firstChar.typeImageUrl) {
-      <img [src]="firstChar.typeImageUrl ?? TRANSPARENT_IMG" [width]="iconSize" [height]="iconSize" class="type-icon"
-        [title]="firstChar.charmd.type" loading="lazy" />
+    @if (showType && firstChar.typemd?.imageUrl) {
+      <img
+        [src]="firstChar.typemd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        class="type-icon"
+        [title]="firstChar.charmd.type"
+        loading="lazy" />
     }
   </div>
 } @else if (imageStyle == 'gallery') {
   <!-- GALLERY -->
-  <div class="char-card" [ngClass]="{'glow-border': firstChar.charmd.enhanced}"
-    [style]="withBackgroundClass ? firstChar.raritymd?.style : null"
+  <div
+    class="char-card"
+    [class]="firstChar.charmd.code"
+    [ngClass]="{'glow-border': firstChar.charmd.enhanced}"
+    [style]="showBackgroundStyle ? firstChar.raritymd?.backgroundStyle : ''"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
-    @if (withElement && firstChar.elementImageUrl) {
-      <img class="ele-img" [src]="firstChar.elementImageUrl ?? TRANSPARENT_IMG" [width]="iconSize"
-        [height]="iconSize" [title]="firstChar.elementCode" loading="lazy" />
+    @if (showElement && firstChar.elementmd?.imageUrl) {
+      <img
+        class="ele-img"
+        [src]="firstChar.elementmd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        [title]="firstChar.elementmd.code"
+        loading="lazy" />
     }
-    @if (withType && firstChar.typeImageUrl) {
-      <img class="type-img" [ngStyle]="{'top': iconSize + 'px'}" [src]="firstChar.typeImageUrl ?? TRANSPARENT_IMG"
-        [width]="iconSize" [height]="iconSize" [title]="firstChar.charmd.type" loading="lazy" />
+    @if (showType && firstChar.typemd?.imageUrl) {
+      <img
+        class="type-img"
+        [ngStyle]="{'top': iconSize + 'px'}"
+        [src]="firstChar.typemd.imageUrl ?? TRANSPARENT_IMG"
+        [width]="iconSize"
+        [height]="iconSize"
+        [title]="firstChar.charmd.type"
+        loading="lazy" />
     }
 
     <div class="char-gallery-wrapper">
@@ -68,9 +140,15 @@
           <img src="assets/svg/arrow-left.svg" height="10">
         </button>
       }
-      <img class="char-img" [ngClass]="{'char-img-resize pointer': withDetailsDialog}"
-        [src]="firstChar.imageList[firstChar.currentImageIndex]" [alt]="firstChar.charmd.name ?? '?'" [title]="firstChar.charmd.name ?? '?'"
-        [width]="dimensions" (click)="openCharacterDetailsDialog(firstChar.charmd.name)" loading="lazy"/>
+      <img
+        class="char-img"
+        [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+        [src]="firstChar.imageList[firstChar.currentImageIndex]"
+        [alt]="firstChar.charmd.name ?? '?'"
+        [title]="firstChar.charmd.name ?? '?'"
+        [width]="dimensions"
+        (click)="openCharacterDetailsDialog(firstChar.charmd.name)"
+        loading="lazy"/>
       @if (firstChar.imageList.length > 1) {
         <button class="char-gallery-btn right" (click)="nextGalleryImage(firstChar, $event)">
           <img src="assets/svg/arrow-right.svg" height="10">
@@ -78,7 +156,74 @@
       }
     </div>
 
-    <span class="char-name">{{ firstChar.charmd.name }}</span>
+    <span class="char-name">
+      {{ firstChar.charmd.name }}
+    </span>
     <div class="smoky-overlay"></div>
+  </div>
+} @else if (imageStyle == 'details') {
+  <!-- DETAILS -->
+  <div
+    class="character-details"
+    [class]="firstChar.charmd.code"
+    [style]="'border-left: 4px solid ' + firstChar.elementmd.color + ';'">
+    <div class="header">
+      <span>
+        <a class="heading" href="javascript:void(0)">
+          <span
+            class="character-icon"
+            [style]="
+              (showBackgroundStyle ? firstChar.raritymd?.backgroundStyle : '') +
+              (showBorderStyle ? ' border: 2px solid ' + firstChar.raritymd?.color + ';' : '')">
+            <img
+              [src]="firstChar.charmd.imageUrl ?? UNKNOWN_IMG"
+              [alt]="firstChar.charmd.name ?? '?'"
+              [title]="firstChar.charmd.name ?? '?'"
+              style="display: block; height: auto;"
+              [ngClass]="{'char-img-resize': enableDetailsDialog}"
+              [width]="dimensions"
+              [height]="dimensions"
+              (click)="openCharacterDetailsDialog(firstChar.charmd.name)"
+              loading="lazy" />
+          </span>
+          <span class="name-wrapper">
+            <span class="name">
+              {{ firstChar.charmd.name }}
+            </span>
+            <span class="metadata">
+              @if (showElement && firstChar.elementmd?.imageUrl) {
+                <img
+                  [src]="firstChar.elementmd.imageUrl ?? TRANSPARENT_IMG"
+                  [width]="iconSize"
+                  [height]="iconSize"
+                  class="element-icon"
+                  [title]="firstChar.elementmd.code"
+                  loading="lazy" />
+                {{ firstChar.elementmd.label }}
+              }
+              @if (showType && firstChar.typemd?.imageUrl) {
+                <img
+                  class="type-img"
+                  [ngStyle]="{'top': iconSize + 'px'}"
+                  [src]="firstChar.typemd.imageUrl ?? TRANSPARENT_IMG"
+                  [width]="iconSize"
+                  [height]="iconSize"
+                  [title]="firstChar.charmd.type" loading="lazy" />
+                {{ firstChar.typemd.label }}
+              }
+            </span>
+          </span>
+        </a>
+      </span>
+    </div>
+    <div class="description">
+      {{ firstChar.charmd.skillDescription }}
+    </div>
+    <div class="build">
+      <app-character-build
+        [character]="firstChar.charmd.code"
+        [simpleView]="true">
+      </app-character-build>
+    </div>
   </div>
 }

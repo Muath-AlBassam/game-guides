@@ -11,6 +11,7 @@ import { Utils } from '../../utils/utils';
 export class CharacterBuildComponent implements OnInit {
 
   @Input() character: any = null;
+  @Input() simpleView: boolean = false;
   @Output() hasBuild: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   buildmd: any = null;
