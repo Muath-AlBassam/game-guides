@@ -1,13 +1,17 @@
 <div class="row" id="set-list-header">
   <div class="col-md-12">
     <div class="content-header">
-      {{setsLabel}}
-      <span class="additional-text">Showing ({{count}}) {{setsLabel}}</span>
+      {{ setsLabel }}
+      <span class="additional-text">
+        Showing ({{ count }}) {{ setsLabel }}
+      </span>
     </div>
   </div>
 </div>
 
-<app-advanced-filter [placeholder]="'Search ' + setsLabel + '...'" (textChange)="onTextChange($event)">
+<app-advanced-filter
+  [placeholder]="'Search ' + setsLabel + '...'"
+  (textChange)="onTextChange($event)">
 </app-advanced-filter>
 
 @if (setByType && setByType.size > 0) {
@@ -16,13 +20,16 @@
       <div class="row">
         @if (setByType.size > 1) {
           <div class="line-text set-type-name">
-            {{category[0]}} <!-- key -->
+            {{ category[0] }} <!-- key -->
           </div>
         }
 
         @for (set of category[1]; track set.code) { <!-- value -->
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
-            <app-set-details [setName]="set.name" [effectStyle]="'box'" [showEquippedBy]="true">
+            <app-set-details
+              [setName]="set.name"
+              [effectStyle]="'box'"
+              [showEquippedBy]="true">
             </app-set-details>
           </div>
         }

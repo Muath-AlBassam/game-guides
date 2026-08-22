@@ -10,14 +10,14 @@
   display: block;
 }
 
-.character-container .element-icon {
+.character-container .element-img {
   position: absolute;
   top: 3px;
   left: 3px;
   filter: drop-shadow(0 2px 2px #000);
 }
 
-.character-container .type-icon {
+.character-container .type-img {
   position: absolute;
   top: 3px;
   right: 3px;
@@ -41,7 +41,7 @@
   margin: auto;
 }
 
-.char-card .ele-img {
+.char-card .element-img {
   position: absolute;
   padding: 2px;
   width: 29px;
@@ -131,7 +131,7 @@
   display: inline-flex;
 }
 
-.character-details .header .heading .character-icon {
+.character-details .header .heading .character-img {
   isolation: isolate;
   box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;
   position: relative;

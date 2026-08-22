@@ -14,7 +14,7 @@ import { LookupsService } from '../../services/lookups.service';
 })
 export class TeamDetailsDialogComponent implements OnInit {
 
-  readonly unknownImg = Constants.images.unknown;
+  readonly UNKNOWN_IMG = Constants.images.unknown;
 
   teamCode: any = null;
   teamIndex: any = null;

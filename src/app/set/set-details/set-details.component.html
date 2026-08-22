@@ -1,7 +1,12 @@
 @if (simpleView) {
 <div
-    class="set-container"
-    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10) + 'px)'}">
+    class="set-container simple-set-container"
+    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10) + 'px)'}"
+    [ngbPopover]="setEffectPopover"
+    [popoverTitle]="set.name"
+    popoverClass="gagu-popover"
+    [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
+    container="body">
     <!-- Image -->
     <div
       class="set-image"
@@ -12,61 +17,24 @@
     <!-- Info -->
     <div class="set-info">
       @if (equppiedPieces) {
-        <span class="equppied-pieces">({{equppiedPieces}})</span>
+        <span class="equppied-pieces">
+          ({{ equppiedPieces }})
+        </span>
       }
-      <span
-        class="set-name"
-        [ngbPopover]="setEffectPopover"
-        [popoverTitle]="set.name"
-        popoverClass="gagu-popover"
-        [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
-        container="body"
-        placement="right auto">
-        {{set.name}}
+      <span class="set-name">
+        {{ set.name }}
       </span>
     </div>
-    <!-- Effect (box) - Trigger -->
-    @if ((effectStyle == 'box' && setEffectsList.length > 0) || showEquippedBy) {
-      <div class="pointer effect-arrow collapsed" data-bs-toggle="collapse"
-        [attr.data-bs-target]="'#'+setId+'effect, #'+setId+'equippedby'">
-        <img src="assets/svg/arrow-down.svg" height="20">
-      </div>
-    }
-    <!-- Effect (box) -->
-    @if (effectStyle == 'box' && setEffectsList.length > 0) {
-      <div
-        class="set-effect collapse"
-        id="{{setId}}effect"
-        data-bs-parent="#sets-container">
-        @for (eff of setEffectsList; track $index) {
-          <div class="effect-item">
-            <b class="effect-label">{{ eff.label }}:</b>
-            <span [innerHTML]="eff.formattedDescription"></span>
-          </div>
-        }
-      </div>
-    }
-    <!-- Equipped characters -->
-      @if (showEquippedBy) {
-        <div
-          class="equipped-by collapse"
-          id="{{setId}}equippedby"
-          data-bs-parent="#sets-container">
-          <div>
-            @for (char of equippedCharacters; track $index) {
-              <app-character-image
-                [styles]="'margin: 0 5px; border-radius: 50%;'"
-                [characterName]="char" [dimensions]="40">
-              </app-character-image>
-            }
-          </div>
-        </div>
-      }
   </div>
 } @else {
   <div
     class="set-container"
-    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10 + 50) + 'px) 50px'}">
+    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10 + 50) + 'px) 50px'}"
+    [ngbPopover]="setEffectPopover"
+    [popoverTitle]="set.name"
+    popoverClass="gagu-popover"
+    [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
+    container="body">
     <!-- Image -->
     <div
       class="set-image"
@@ -77,17 +45,10 @@
     <!-- Info -->
     <div class="set-info">
       @if (equppiedPieces) {
-        <span class="equppied-pieces">({{equppiedPieces}})</span>
+        <span class="equppied-pieces">({{ equppiedPieces }})</span>
       }
-      <span
-        class="set-name"
-        [ngbPopover]="setEffectPopover"
-        [popoverTitle]="set.name"
-        popoverClass="gagu-popover"
-        [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
-        container="body"
-        placement="right auto">
-        {{set.name}}
+      <span class="set-name">
+        {{ set.name }}
       </span>
     </div>
     <!-- Effect (box) - Trigger -->
@@ -101,7 +62,7 @@
     @if (effectStyle == 'box' && setEffectsList.length > 0) {
       <div
         class="set-effect collapse"
-        id="{{setId}}effect"
+        [id]="setId + 'effect'"
         data-bs-parent="#sets-container">
         @for (eff of setEffectsList; track $index) {
           <div class="effect-item">
@@ -115,7 +76,7 @@
       @if (showEquippedBy) {
         <div
           class="equipped-by collapse"
-          id="{{setId}}equippedby"
+          [id]="setId + 'equippedby'"
           data-bs-parent="#sets-container">
           <div>
             @for (char of equippedCharacters; track $index) {

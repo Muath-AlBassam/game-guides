@@ -17,7 +17,7 @@
   <div class="category-container" id="category">
     @for (category of categories; track category.code) {
       <div class="category-name line-text mb-1">
-        {{category.label}}
+        {{ category.label }}
       </div>
       <div class="row" style="margin: auto;">
         @for (team of category.teams; track team.code) {

@@ -1,15 +1,27 @@
 <h1 mat-dialog-title>
-  <span>Team Details</span>
-  <span mat-icon-button [mat-dialog-close]="null" title="Close" style="float: right; margin-top: 15px; font-size: 1.5em;">
+  <span>
+    Team Details
+  </span>
+  <span
+    mat-icon-button
+    [mat-dialog-close]="null"
+    title="Close"
+    style="float: right; margin-top: 15px; font-size: 1.5em;">
     &times;
   </span>
 </h1>
 <div mat-dialog-content>
   <div>
     <div class="teams__container">
-      <div class="number">{{teamIndex}}</div>
+      <div class="number">
+        {{ teamIndex }}
+      </div>
       <div class="item">
-        <div class="name pointer" [ngClass]="{'name-no-icon': team.iconUrl == null}" data-bs-toggle="collapse" data-bs-target="#teamDetails">
+        <div
+          class="name pointer"
+          [ngClass]="{'name-no-icon': team.iconUrl == null}"
+          data-bs-toggle="collapse"
+          data-bs-target="#teamDetails">
           @if (team.iconUrl != null) {
             <img [src]="team.iconUrl" [height]="isMobile() ? '30' : '40'">
           }
@@ -28,8 +40,13 @@
           }
 
           @if (activeGame.hasPet && petmd) {
-            <img [src]="petmd.imageUrl ?? unknownImg" [height]="petPFPSize" [width]="petPFPSize" [title]="petmd.name"
-              class="pet" [style]="petRarityMd?.style">
+            <img
+              [src]="petmd.imageUrl ?? UNKNOWN_IMG"
+              [height]="petPFPSize"
+              [width]="petPFPSize"
+              [title]="petmd.name"
+              class="pet"
+              [style]="petRarityMd?.style">
           }
         </div>
         <div class="actions pointer" data-bs-toggle="collapse" data-bs-target="#teamDetails">

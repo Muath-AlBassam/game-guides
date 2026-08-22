@@ -12,7 +12,7 @@ import { BuildsService } from '../../services/builds.service';
 })
 export class WeaponDetailsComponent implements OnInit {
 
-  readonly unknownImg = Constants.images.unknown;
+  readonly UNKNOWN_IMG = Constants.images.unknown;
 
   @Input() weaponName: any = null;
   @Input() showAdditionalInfo: boolean = true;

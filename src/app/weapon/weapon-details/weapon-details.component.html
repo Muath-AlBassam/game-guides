@@ -1,7 +1,7 @@
 @if (weapon) {
   @if (simpleView) {
     <div
-      class="weapon-container"
+      class="weapon-container simpleweapon-container"
       [ngbPopover]="weaponEffectPopover"
       [popoverTitle]="weapon.name"
       popoverClass="gagu-popover"
@@ -13,13 +13,13 @@
         class="weapon-image"
         [style]="rarity.backgroundStyle"
         [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
-        <img [src]="weapon.imageUrl ?? unknownImg" [height]="dimensions" />
+        <img [src]="weapon.imageUrl ?? UNKNOWN_IMG" [height]="dimensions" />
       </div>
       <!-- Info -->
       <div class="weapon-info">
         <div>
           <span class="weapon-name">
-            {{weapon.name}}
+            {{ weapon.name }}
           </span>
           @if (showAdditionalInfo) {
             <p class="weapon-metadata">
@@ -53,13 +53,13 @@
         class="weapon-image"
         [style]="rarity.backgroundStyle"
         [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
-        <img [src]="weapon.imageUrl ?? unknownImg" [height]="dimensions" />
+        <img [src]="weapon.imageUrl ?? UNKNOWN_IMG" [height]="dimensions" />
       </div>
       <!-- Info -->
       <div class="weapon-info">
         <div>
           <span class="weapon-name">
-            {{weapon.name}}
+            {{ weapon.name }}
           </span>
           @if (showAdditionalInfo) {
             <p class="weapon-metadata">
@@ -83,21 +83,21 @@
         <div
           class="pointer effect-arrow collapsed"
           data-bs-toggle="collapse"
-          [attr.data-bs-target]="'#'+weaponId+'effect, #'+weaponId+'equippedby'">
+          [attr.data-bs-target]="'#' + weaponId + 'effect, #' + weaponId + 'equippedby'">
           <img src="assets/svg/arrow-down.svg" height="20">
         </div>
       }
       <!-- Secondary stats -->
       @if (showAdditionalInfo && weapon.secondaryStat) {
         <div class="weapon-stat">
-          <b>{{weapon.secondaryStat}}</b>
+          <b>{{ weapon.secondaryStat }}</b>
         </div>
       }
       <!-- Effect (box) -->
       @if (effectStyle == 'box' && weapon.effect) {
         <div
           class="weapon-effect collapse"
-          id="{{weaponId}}effect"
+          [id]="weaponId + 'effect'"
           data-bs-parent="#weapons-container">
           <div [innerHTML]="weapon.formattedEffect"></div>
         </div>
@@ -106,7 +106,7 @@
       @if (showEquippedBy) {
         <div
           class="equipped-by collapse"
-          id="{{weaponId}}equippedby"
+          [id]="weaponId + 'equippedby'"
           data-bs-parent="#weapons-container">
           <div>
             @for (char of equippedCharacters; track $index) {

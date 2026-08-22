@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NotesService } from '../../services/notes.service';
-import { Utils } from '../../utils/utils';
+import { NotesService } from '../../../services/notes.service';
+import { Utils } from '../../../utils/utils';
 
 @Component({
   selector: 'app-notes-popover',

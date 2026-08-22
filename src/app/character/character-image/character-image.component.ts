@@ -34,10 +34,16 @@ export class CharacterImageComponent implements OnInit {
 
   charCount: number = 0;
   charmdList: {
-    charmd: any,
-    raritymd: any,
-    elementmd: any,
-    typemd: any,
+    gameCode: any,
+    code: any,
+    name: any,
+    imageUrl: any,
+    cardImageUrl: any,
+    element: any,
+    type: any,
+    rarity: any,
+    enhanced: any,
+    skillDescription: any,
     imageList: string[],
     currentImageIndex: number
   }[] = [];
@@ -55,17 +61,23 @@ export class CharacterImageComponent implements OnInit {
     charNameList.forEach((cname: string) => {
       const tempCharMd = this.charactersService.getOne(cname);
       this.charmdList.push({
-        charmd: tempCharMd,
-        raritymd: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
-        elementmd: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
-        typemd: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
+        gameCode: tempCharMd.gameCode,
+        code: tempCharMd.code,
+        name: tempCharMd.name,
+        imageUrl: tempCharMd.imageUrl,
+        cardImageUrl: tempCharMd.cardImageUrl,
+        element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
+        type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
+        rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
+        enhanced: tempCharMd.enhanced,
+        skillDescription: tempCharMd.skillDescription,
         imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
       });
     });
   }
 
-  get firstChar() {
+  get charmd() {
     return this.charmdList[0];
   }
 

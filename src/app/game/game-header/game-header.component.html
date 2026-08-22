@@ -6,7 +6,10 @@
       </h1>
       <sup>
         @if (this.activeGame?.guideUrl) {
-          <a [href]="activeGame?.guideUrl" target="_blank" class="guide-url">
+          <a
+            [href]="activeGame?.guideUrl"
+            target="_blank"
+            class="guide-url">
             <i class="fa fa-external-link"></i>
           </a>
         }
@@ -16,7 +19,10 @@
       <img [height]="isMobile() ? '50' : '100'" [src]="activeGame?.logoUrl">
     </div>
     <div class="game-background">
-      <div class="bg-overlay" [ngStyle]="{'background-image': 'url(' + activeGame.backgroundUrl + ')'}"></div>
+      <div
+        class="bg-overlay"
+        [ngStyle]="{'background-image': 'url(' + activeGame.backgroundUrl + ')'}">
+      </div>
       <div class="logo">
         <img height="170" [src]="activeGame?.logoUrl">
       </div>

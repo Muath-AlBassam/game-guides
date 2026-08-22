@@ -30,17 +30,17 @@ import { SetDetailsComponent } from './set/set-details/set-details.component';
 import { SetListComponent } from './set/set-list/set-list.component';
 import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
 import { WeaponDetailsComponent } from './weapon/weapon-details/weapon-details.component';
-import { LoaderComponent } from './shared/loader/loader.component';
-import { ButtonGroupComponent } from './shared/button-group/button-group.component';
-import { SearchComponent } from './shared/search/search.component';
-import { AdvancedFilterComponent } from './shared/advanced-filter/advanced-filter.component';
-import { NotesPopoverComponent } from './shared/notes-popover/notes-popover.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { ButtonGroupComponent } from './shared/components/button-group/button-group.component';
+import { SearchComponent } from './shared/components/search/search.component';
+import { AdvancedFilterComponent } from './shared/components/advanced-filter/advanced-filter.component';
+import { NotesPopoverComponent } from './shared/components/notes-popover/notes-popover.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TextFormatterComponent } from './settings/text-formatter/text-formatter.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameNotesComponent } from './game/game-notes/game-notes.component';
-import { NoDataComponent } from './shared/no-data/no-data.component';
+import { NoDataComponent } from './shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
