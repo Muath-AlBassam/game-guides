@@ -18,7 +18,10 @@ export class CharacterDetailsDialogComponent implements OnInit {
   
   characterPFPSize: number = 260;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private charactersService: CharactersService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private charactersService: CharactersService
+  ) {
     this.character = data.character;
   }
 

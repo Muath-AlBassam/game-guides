@@ -105,7 +105,7 @@
 .character-details {
   border: 1px solid #373a43;
   background: #292a30eb;
-  min-height: 228px;
+  height: 100%;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -162,12 +162,24 @@
   display: inline-flex;
 }
 
+/*
 .character-details .description {
   color: #d6d9df;
   margin: 0;
   padding: 15px 18px 12px;
   line-height: 1.6;
 }
+*/
+
+.character-details .description-list {
+  color: #d6d9df;
+  margin: 0;
+  padding: 15px 18px 14px 34px;
+  line-height: 1.38;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 
 .character-details .build {
 }
@@ -369,4 +381,10 @@
 }
 .char-gallery-btn.right {
   right: 5px;
+}
+
+@media (max-width: 1000px) {
+  .character-details .description-list {
+    grid-template-columns: 1fr;
+  }
 }

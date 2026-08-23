@@ -3,16 +3,26 @@
   border: 2px solid #484950;
   align-items: center;
   display: grid;
+  grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr) 50px;
 }
 
+.weapon-container.simple-weapon-container {
+  grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr);
+}
+
+
 .weapon-container .weapon-image {
-  background-color: #2c2d33;
   display: flex;
   align-items: center;
   justify-content: center;
   grid-row: 1;
   grid-column: 1;
 }
+
+.weapon-container:not(.rarity-background-fade) .weapon-image {
+  background-color: #2c2d33;
+}
+
 
 .weapon-container .weapon-image img {
   width: 100%;
@@ -23,13 +33,14 @@
 .weapon-container .weapon-info {
   align-items: center;
   display: flex;
-  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .weapon-container .weapon-info .weapon-name {
   margin-bottom: 5px;
   font-weight: bold;
-}
+  }
 
 .weapon-container .weapon-info .weapon-metadata {
   font-size: 15px;

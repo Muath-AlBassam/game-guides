@@ -168,9 +168,11 @@
         </a>
       </span>
     </div>
-    <div class="description">
-      {{ charmd.skillDescription }}
-    </div>
+    <ul class="description-list">
+      @for (desc of charmd.skillDescriptionList; track $index) {
+        <li>{{ desc }}</li>
+      }
+    </ul>
     <div class="build">
       <app-character-build
         [character]="charmd.code"

@@ -15,7 +15,10 @@ export class CharacterCombosComponent implements OnInit {
 
   combos: any[] = [];
 
-  constructor(private combosService: CombosService, private lookupsService: LookupsService) { }
+  constructor(
+    private combosService: CombosService,
+    private lookupsService: LookupsService
+  ) {}
 
   ngOnInit(): void {
     this.loadCombos();

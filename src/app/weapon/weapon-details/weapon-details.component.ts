@@ -19,28 +19,31 @@ export class WeaponDetailsComponent implements OnInit {
   @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
   @Input() dimensions: number = 80;
+  @Input() rarityStyle: 'background' | 'fade' = 'background';
   @Input() simpleView: boolean = false;
 
   weapon: any = null;
-  weaponId: string = '';
   rarity: any = null;
   type: any = null;
-  equippedCharacters: any [] = [];
+  equippedCharacters: any[] = [];
 
-  constructor(private weaponsService: WeaponsService, private lookupsService: LookupsService, private textUtils: TextUtils,
-              private buildsService: BuildsService) {}
+  constructor(
+    private weaponsService: WeaponsService,
+    private lookupsService: LookupsService,
+    private textUtils: TextUtils,
+    private buildsService: BuildsService
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
-    this.weaponId = this.weapon.name.replace(/[^a-zA-Z0-9]/g, '');
   }
 
-  loadData() {
+  private loadData(): void {
     this.loadBasicData();
     this.loadEquippedBy();
   }
 
-  loadBasicData() {
+  private loadBasicData() {
     this.weapon = this.weaponsService.getOne(this.weaponName);
     this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.weapon.gameCode);
     this.rarity = this.lookupsService.getOne(this.weapon.rarity, Constants.lookupType.RARITY);
@@ -51,5 +54,51 @@ export class WeaponDetailsComponent implements OnInit {
     if (this.showEquippedBy) {
       this.equippedCharacters = this.buildsService.getEquippedBy(this.weaponName, 'WEAPON');
     }
+  }
+
+  get isRarityFade(): boolean {
+    return !!this.rarity && this.rarityStyle === 'fade';
+  }
+
+  get weaponImageStyle(): string {
+    if (!this.rarity || this.rarityStyle !== 'background') {
+      return '';
+    }
+    return this.rarity.backgroundStyle ?? '';
+  }
+
+  get hasPopoverEffect(): boolean {
+    return this.effectStyle === 'popover' && !!this.weapon?.effect;
+  }
+
+  get hasBoxEffect(): boolean {
+    return this.effectStyle === 'box' && !!this.weapon?.effect;
+  }
+
+  get showExpandButton(): boolean {
+    return this.hasBoxEffect || this.showEquippedBy;
+  }
+
+  get effectId(): string {
+    return `${this.weaponId}effect`;
+  }
+
+  get equippedById(): string {
+    return `${this.weaponId}equippedby`;
+  }
+
+  get weaponId(): string {
+    return this.weapon?.name?.replace(/[^a-zA-Z0-9]/g, '') ?? '';
+  }
+
+  get collapseTarget(): string {
+    const targets: string[] = [];
+    if (this.hasBoxEffect) {
+      targets.push(`#${this.effectId}`);
+    }
+    if (this.showEquippedBy) {
+      targets.push(`#${this.equippedById}`);
+    }
+    return targets.join(', ');
   }
 }

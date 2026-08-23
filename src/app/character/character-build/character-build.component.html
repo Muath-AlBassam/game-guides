@@ -6,14 +6,13 @@
         <span class="label">{{ weaponsLabel }}</span>
         <div>
           @for (weapon of buildmd.weapons; track weapon.name) {
-            <div class="col-md-12">
-              <app-weapon-details
-                [weaponName]="weapon.name"
-                [showAdditionalInfo]="false"
-                [dimensions]="50"
-                [simpleView]="true">
-              </app-weapon-details>
-            </div>
+            <app-weapon-details
+              [weaponName]="weapon.name"
+              [showAdditionalInfo]="false"
+              [dimensions]="50"
+              [simpleView]="true"
+              [rarityStyle]="'fade'">
+            </app-weapon-details>
           }
         </div>
       </div>
@@ -21,14 +20,12 @@
         <span class="label">{{ setsLabel }}</span>
         <div>
           @for (set of buildmd.sets; track set.name) {
-            <div class="col-md-12">
-              <app-set-details
-                [setName]="set.name"
-                [equppiedPieces]="set.equppiedPieces"
-                [dimensions]="50"
-                [simpleView]="true">
-              </app-set-details>
-            </div>
+            <app-set-details
+              [setName]="set.name"
+              [equppiedPieces]="set.equppiedPieces"
+              [dimensions]="50"
+              [simpleView]="true">
+            </app-set-details>
           }
         </div>
       </div>
@@ -46,7 +43,9 @@
               'col-md-6': !isMobile() && this.buildmd?.weapons?.length > 1,
               'col-md-12': isMobile() || this.buildmd?.weapons?.length == 1,
             }">
-              <app-weapon-details [weaponName]="weapon.name" [showAdditionalInfo]="false">
+              <app-weapon-details
+                [weaponName]="weapon.name"
+                [showAdditionalInfo]="false">
               </app-weapon-details>
             </div>
           }

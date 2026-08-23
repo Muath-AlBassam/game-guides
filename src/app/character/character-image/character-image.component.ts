@@ -43,12 +43,16 @@ export class CharacterImageComponent implements OnInit {
     type: any,
     rarity: any,
     enhanced: any,
-    skillDescription: any,
+    skillDescriptionList: any[],
     imageList: string[],
     currentImageIndex: number
   }[] = [];
 
-  constructor(private charactersService: CharactersService, private lookupsService: LookupsService, private dialogService: DialogService) { }
+  constructor(
+    private charactersService: CharactersService,
+    private lookupsService: LookupsService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -70,11 +74,18 @@ export class CharacterImageComponent implements OnInit {
         type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
         rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
         enhanced: tempCharMd.enhanced,
-        skillDescription: tempCharMd.skillDescription,
+        skillDescriptionList: this.formatSkillDescriptionToList(tempCharMd),
         imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
       });
     });
+  }
+
+  formatSkillDescriptionToList(char: any) {
+    if (char.skillDescription) {
+      return char.skillDescription.split(' & ');
+    }
+    return [];
   }
 
   get charmd() {
