@@ -18,7 +18,7 @@ export class DialogService {
     dialogConfig.width = Utils.isMobile() ? '100vw' : '60%';
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
-    dialogConfig.panelClass = 'custom-mat-dialog';
+    dialogConfig.panelClass = 'gagu-mat-dialog';
     dialogConfig.data = { character: character };
     const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
   }
@@ -29,7 +29,7 @@ export class DialogService {
     dialogConfig.width = Utils.isMobile() ? '100vw' : '80%';
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
-    dialogConfig.panelClass = 'custom-mat-dialog';
+    dialogConfig.panelClass = 'gagu-mat-dialog';
     dialogConfig.data = { teamCode: teamCode, teamIndex: 1 };
     const dialogRef = this.dialog.open(TeamDetailsDialogComponent, dialogConfig);
   }
@@ -41,7 +41,7 @@ export class DialogService {
     dialogConfig.width = Utils.isMobile() ? '100vw' : '40%';
     dialogConfig.maxWidth = '100vw';
     dialogConfig.maxHeight = '100%';
-    dialogConfig.panelClass = 'custom-mat-dialog';
+    dialogConfig.panelClass = 'gagu-mat-dialog';
     const dialogRef = this.dialog.open(TextFormatterComponent, dialogConfig);
   }
 }

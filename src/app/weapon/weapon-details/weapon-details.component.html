@@ -2,8 +2,8 @@
   <div
     class="weapon-container"
     [ngClass]="{
-      'simple-weapon-container': simpleView,
-      'rarity-background-fade': isRarityFade
+      'expandable': showExpandButton,
+      'rarity-background-fade': isBackgroundStyleFade
     }"
     [style.--rarity-color]="rarity?.color"
     [style.--weapon-dimensions.px]="dimensions"
@@ -59,58 +59,55 @@
       </div>
     </div>
 
-    @if (!simpleView) {
+    <!-- Effect / Equipped-by trigger -->
+    @if (showExpandButton) {
+      <div
+        class="pointer expandable-arrow collapsed"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="collapseTarget">
 
-      <!-- Effect / Equipped-by trigger -->
-      @if (showExpandButton) {
-        <div
-          class="pointer effect-arrow collapsed"
-          data-bs-toggle="collapse"
-          [attr.data-bs-target]="collapseTarget">
+        <img
+          src="assets/svg/arrow-down.svg"
+          height="20"
+          alt="Expand">
+      </div>
+    }
 
-          <img
-            src="assets/svg/arrow-down.svg"
-            height="20"
-            alt="Expand">
+    <!-- Secondary stat -->
+    @if (showAdditionalInfo && weapon.secondaryStat) {
+      <div class="weapon-stat">
+        <b>{{ weapon.secondaryStat }}</b>
+      </div>
+    }
+
+    <!-- Effect -->
+    @if (hasBoxEffect) {
+      <div
+        class="weapon-effect collapse"
+        [id]="effectId"
+        data-bs-parent="#weapons-container">
+
+        <div [innerHTML]="weapon.formattedEffect"></div>
+      </div>
+    }
+
+    <!-- Equipped characters -->
+    @if (showEquippedBy) {
+      <div
+        class="equipped-by collapse"
+        [id]="equippedById"
+        data-bs-parent="#weapons-container">
+
+        <div>
+          @for (char of equippedCharacters; track char) {
+            <app-character-image
+              [styles]="'margin: 0 5px; border-radius: 50%;'"
+              [characterName]="char"
+              [dimensions]="40">
+            </app-character-image>
+          }
         </div>
-      }
-
-      <!-- Secondary stat -->
-      @if (showAdditionalInfo && weapon.secondaryStat) {
-        <div class="weapon-stat">
-          <b>{{ weapon.secondaryStat }}</b>
-        </div>
-      }
-
-      <!-- Effect -->
-      @if (hasBoxEffect) {
-        <div
-          class="weapon-effect collapse"
-          [id]="effectId"
-          data-bs-parent="#weapons-container">
-
-          <div [innerHTML]="weapon.formattedEffect"></div>
-        </div>
-      }
-
-      <!-- Equipped characters -->
-      @if (showEquippedBy) {
-        <div
-          class="equipped-by collapse"
-          [id]="equippedById"
-          data-bs-parent="#weapons-container">
-
-          <div>
-            @for (char of equippedCharacters; track char) {
-              <app-character-image
-                [styles]="'margin: 0 5px; border-radius: 50%;'"
-                [characterName]="char"
-                [dimensions]="40">
-              </app-character-image>
-            }
-          </div>
-        </div>
-      }
+      </div>
     }
   </div>
 }

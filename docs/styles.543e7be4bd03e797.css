@@ -2279,6 +2279,14 @@ html {
   src: url('Death Star.b4f566cfe06f93a4.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: anuphan;
+  src: url('Anuphan_Medium.5af0301692ad8ad7.woff2') format("woff2");
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
 :root {
   --background-color: #23242a;
   --text-color: #fff;
@@ -2289,7 +2297,7 @@ html {
   /* width in mobile view */
   --sidebar-active-width: 240px;
   --sidebar-m-active-width: 100%;
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family: "anuphan", "anuphan Fallback", "Anuphan", system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -2384,23 +2392,23 @@ app-nav.active~.main-content {
 }
 
 /* Dialog styles ----------------------------------------------------------- */
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-title,
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content,
-.custom-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-title,
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content,
+.gagu-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
 }
 
-.custom-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+.gagu-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   border: 1px solid #888;
   border-radius: 5px;
 }
 
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
   max-height: 95vh;
 }
 
-.custom-mat-dialog .dialog-header {
+.gagu-mat-dialog .dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2577,6 +2585,32 @@ app-nav.active~.main-content {
       0 0 25px 5px rgba(255, 215, 0, 0.9),
       0 0 50px 10px rgba(255, 215, 0, 0.5);
   }
+}
+
+.rarity-background-fade {
+  /* --rarity-color is defined when required */
+  border-left: 2px solid var(--rarity-color);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--rarity-color) 44%, transparent) 0%,
+    color-mix(in srgb, var(--rarity-color) 18%, transparent) 12%,
+    color-mix(in srgb, var(--rarity-color) 4%, transparent) 24%,
+    transparent 38%
+  );
+}
+.rarity-background-fade::before {
+  content: "";
+  z-index: 1;
+  width: 3px;
+  position: absolute;
+  inset: 1px auto 1px 1px;
+}
+.rarity-background-fade::after {
+  content: "";
+  z-index: 0;
+  pointer-events: none;
+  position: absolute;
+  inset: 1px;
 }
 
 /* NG select --------------------------------------------------------------- */

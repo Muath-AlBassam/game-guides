@@ -4,6 +4,7 @@ import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
 import { LookupsService } from '../../services/lookups.service';
 import { BuildsService } from '../../services/builds.service';
+import { Utils } from '../../utils/utils';
 
 @Component({
   selector: 'app-weapon-details',
@@ -12,6 +13,7 @@ import { BuildsService } from '../../services/builds.service';
 })
 export class WeaponDetailsComponent implements OnInit {
 
+  readonly UUID = Utils.generateUUID();
   readonly UNKNOWN_IMG = Constants.images.unknown;
 
   @Input() weaponName: any = null;
@@ -19,8 +21,7 @@ export class WeaponDetailsComponent implements OnInit {
   @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
   @Input() dimensions: number = 80;
-  @Input() rarityStyle: 'background' | 'fade' = 'background';
-  @Input() simpleView: boolean = false;
+  @Input() backgroundStyle: 'solid' | 'fade' = 'solid';
 
   weapon: any = null;
   rarity: any = null;
@@ -56,12 +57,12 @@ export class WeaponDetailsComponent implements OnInit {
     }
   }
 
-  get isRarityFade(): boolean {
-    return !!this.rarity && this.rarityStyle === 'fade';
+  get isBackgroundStyleFade(): boolean {
+    return !!this.rarity && this.backgroundStyle === 'fade';
   }
 
   get weaponImageStyle(): string {
-    if (!this.rarity || this.rarityStyle !== 'background') {
+    if (!this.rarity || this.backgroundStyle !== 'solid') {
       return '';
     }
     return this.rarity.backgroundStyle ?? '';
@@ -88,7 +89,7 @@ export class WeaponDetailsComponent implements OnInit {
   }
 
   get weaponId(): string {
-    return this.weapon?.name?.replace(/[^a-zA-Z0-9]/g, '') ?? '';
+    return (this.weapon?.name?.replace(/[^a-zA-Z0-9]/g, '') ?? '') + this.UUID;
   }
 
   get collapseTarget(): string {

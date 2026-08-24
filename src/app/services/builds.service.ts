@@ -24,7 +24,7 @@ export class BuildsService {
         character: b.CHARACTER_CODE,
         type: b.TYPE,
         name: b.NAME,
-        equppiedPieces: b.EQUIPPED_PIECES
+        equippedPieces: b.EQUIPPED_PIECES
       }));
 
       const grouped = Utils.groupBy(this.flatList, 'gameCode', 'character');
@@ -34,7 +34,7 @@ export class BuildsService {
           gameCode: val[0].gameCode,
           character: val[0].character,
           weapons: val.filter((w: any) => w.type === 'WEAPON')?.map((w: any) => ({ name: w.name })),
-          sets: val.filter((s: any) => s.type === 'SET')?.map((s: any) => ({ name: s.name, equppiedPieces: String(s.equppiedPieces) }))
+          sets: val.filter((s: any) => s.type === 'SET')?.map((s: any) => ({ name: s.name, equippedPieces: String(s.equippedPieces) }))
         });
       });
     });

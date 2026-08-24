@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,} from '@angular/core';
 import { SetsService } from '../../services/sets.service';
 import { TextUtils } from '../../utils/text-utils';
 import { Constants } from '../../utils/constants';
@@ -13,68 +13,116 @@ import { LookupsService } from '../../services/lookups.service';
 })
 export class SetDetailsComponent implements OnInit {
 
-  readonly unknownImg = Constants.images.unknown;
+  readonly UUID = Utils.generateUUID();
+  readonly UNKNOWN_IMG = Constants.images.unknown;
 
-  @Input() setName: any = null;
-  @Input() equppiedPieces: any = null;
-  @Input() showEquippedBy: boolean = false;
+  @Input() setName: string | null = null;
+  @Input() equippedPieces: string | null = null;
+  @Input() showEquippedBy = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
-  @Input() dimensions: number = 80;
-  @Input() simpleView: boolean = false;
+  @Input() dimensions = 80;
+  @Input() backgroundStyle: 'flat' | 'split' = 'split';
 
   set: any = null;
-  setId: string = '';
   setEffectsList: any[] = [];
   rarity: any = null;
-  equippedCharacters: any [] = [];
+  equippedCharacters: string[] = [];
 
-  constructor(private setsService: SetsService, private textUtils: TextUtils, private buildsService: BuildsService,
-              private lookupsService: LookupsService) { }
+  constructor(
+    private readonly setsService: SetsService,
+    private readonly textUtils: TextUtils,
+    private readonly buildsService: BuildsService,
+    private readonly lookupsService: LookupsService
+  ) {}
 
   ngOnInit(): void {
-    this.loadData();
-    this.setId = this.set.name.replace(/[^a-zA-Z0-9]/g, '');
-  }
-
-  loadData() {
     this.loadBasicData();
+    this.formatEffects();
     this.loadEquippedBy();
   }
 
   loadBasicData() {
     this.set = this.setsService.getOne(this.setName);
     this.rarity = this.lookupsService.getOne(this.set.rarity, Constants.lookupType.RARITY);
-    this.setEffectsList = [...this.set.effects];
-    this.filterSetEffects();
-    this.formatSetEffects();
   }
 
-  filterSetEffects() {
-    if (this.equppiedPieces) {
-      const equippedPiecesArr = this.equppiedPieces.split(',');
-      this.setEffectsList = this.setEffectsList.filter((eff: any) => {
-        return equippedPiecesArr.some((pieceCode: any) => {
-          if (Utils.isNumber(pieceCode) && Utils.isNumber(eff.requiredPiece)) {
-            return Number(eff.requiredPiece) <= Number(pieceCode);
-          } else if (Utils.isNumber(eff.requiredPiece)) {
-            return Number(eff.requiredPiece) <= equippedPiecesArr.length
-          } else {
-            return eff.requiredPiece == pieceCode;
-          }
-        });
-      });
+  private formatEffects(): void {
+    if (!this.set) {
+      this.setEffectsList = [];
+      return;
     }
+    this.setEffectsList = this.filterSetEffects()
+      .map(effect => ({
+        ...effect,
+        formattedDescription: this.textUtils.colorize(
+          effect.description,
+          this.set!.gameCode
+        )
+      }));
   }
 
-  formatSetEffects() {
-    this.setEffectsList.forEach((eff: any) => {
-      eff.formattedDescription = this.textUtils.colorize(eff.description, this.set.gameCode);
-    });
+  private filterSetEffects(): any[] {
+    if (!this.equippedPieces) {
+      return this.set.effects;
+    }
+
+    const equippedPieces = this.equippedPieces.split(',')
+
+    return this.set.effects.filter((effect: any) =>
+      equippedPieces.some(pieceCode => {
+        if (Utils.isNumber(pieceCode) && Utils.isNumber(effect.requiredPiece)) {
+          return Number(effect.requiredPiece) <= Number(pieceCode);
+        } else if (Utils.isNumber(effect.requiredPiece)) {
+          return Number(effect.requiredPiece) <= equippedPieces.length;
+        } else {
+          return effect.requiredPiece === pieceCode;
+        }
+      })
+    );
   }
 
-  loadEquippedBy() {
+  private loadEquippedBy() {
     if (this.showEquippedBy) {
       this.equippedCharacters = this.buildsService.getEquippedBy(this.setName, 'SET');
     }
+  }
+
+  get hasEffects(): boolean {
+    return this.set.effects.length > 0;
+  }
+
+  get hasPopoverEffect(): boolean {
+    return this.effectStyle === 'popover' && this.hasEffects;
+  }
+
+  get hasBoxEffect(): boolean {
+    return this.effectStyle === 'box' && this.hasEffects;
+  }
+
+  get showExpandArrow(): boolean {
+    return this.hasBoxEffect || this.showEquippedBy;
+  }
+
+  get effectId(): string {
+    return `${this.setId}effect`;
+  }
+
+  get equippedById(): string {
+    return `${this.setId}equippedby`;
+  }
+
+  get setId(): string {
+    return (this.set?.name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() ?? '') + this.UUID;
+  }
+
+  get collapseTarget(): string {
+    const targets: string[] = [];
+    if (this.hasBoxEffect) {
+      targets.push(`#${this.effectId}`);
+    }
+    if (this.showEquippedBy) {
+      targets.push(`#${this.equippedById}`);
+    }
+    return targets.join(', ');
   }
 }

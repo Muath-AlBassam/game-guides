@@ -132,23 +132,23 @@ app-nav.active~.main-content {
 }
 
 /* Dialog styles ----------------------------------------------------------- */
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-title,
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content,
-.custom-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-title,
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content,
+.gagu-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   background-color: var(--background-color) !important;
   color: var(--text-color) !important;
 }
 
-.custom-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
+.gagu-mat-dialog .mat-mdc-dialog-container .mdc-dialog__surface {
   border: 1px solid #888;
   border-radius: 5px;
 }
 
-.custom-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
+.gagu-mat-dialog .mat-mdc-dialog-container .mat-mdc-dialog-content {
   max-height: 95vh;
 }
 
-.custom-mat-dialog .dialog-header {
+.gagu-mat-dialog .dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -10,8 +10,7 @@
               [weaponName]="weapon.name"
               [showAdditionalInfo]="false"
               [dimensions]="50"
-              [simpleView]="true"
-              [rarityStyle]="'fade'">
+              [backgroundStyle]="'fade'">
             </app-weapon-details>
           }
         </div>
@@ -22,9 +21,9 @@
           @for (set of buildmd.sets; track set.name) {
             <app-set-details
               [setName]="set.name"
-              [equppiedPieces]="set.equppiedPieces"
+              [equippedPieces]="set.equippedPieces"
               [dimensions]="50"
-              [simpleView]="true">
+              [backgroundStyle]="'flat'">
             </app-set-details>
           }
         </div>
@@ -60,7 +59,7 @@
               'col-md-6': !isMobile() && this.buildmd?.weapons?.length > 2,
               'col-md-12': isMobile() || this.buildmd?.weapons?.length <= 2,
             }">
-              <app-set-details [setName]="set.name" [equppiedPieces]="set.equppiedPieces">
+              <app-set-details [setName]="set.name" [equippedPieces]="set.equippedPieces">
               </app-set-details>
             </div>
           }

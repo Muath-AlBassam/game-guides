@@ -9,6 +9,8 @@ import { BrowserModule } from "@angular/platform-browser";
 })
 export class ButtonGroupComponent implements OnInit {
 
+  readonly UUID = Utils.generateUUID();
+
   @Input() buttonList: any[] = [];
   @Input() imageLabel: string = 'imageUrl';
   @Input() valueLabel: string = 'code';
@@ -17,8 +19,6 @@ export class ButtonGroupComponent implements OnInit {
 
   @Input() value: string = '';
   @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
-
-  uuid = Utils.generateUUID();;
 
   constructor() { }
 

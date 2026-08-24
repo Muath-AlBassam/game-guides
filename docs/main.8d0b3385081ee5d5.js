@@ -360,8 +360,8 @@ let AppModule = /*#__PURE__*/(() => {
 })();
 _angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_11__.CharacterDetailsDialogComponent, [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogContent, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_12__.CharacterBuildComponent, _character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_13__.CharacterTeamsComponent, _character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_14__.CharacterCombosComponent], []);
 _angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_20__.TeamDetailsDialogComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogContent, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_17__.TeamNotesComponent, _team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_18__.TeamReplacementsComponent, _team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_19__.TeamRolesComponent], []);
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_21__.SetDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgStyle, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_24__.WeaponDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgStyle, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
+_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_21__.SetDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
+_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_24__.WeaponDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
 
 /***/ }),
 
@@ -397,26 +397,20 @@ const _c0 = (a0, a1) => ({
 });
 function CharacterBuildComponent_Conditional_0_Conditional_0_For_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-weapon-details", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "app-weapon-details", 3);
   }
   if (rf & 2) {
     const weapon_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("weaponName", weapon_r1.name)("showAdditionalInfo", false)("dimensions", 50)("simpleView", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("weaponName", weapon_r1.name)("showAdditionalInfo", false)("dimensions", 50)("backgroundStyle", "fade");
   }
 }
 function CharacterBuildComponent_Conditional_0_Conditional_0_For_12_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-set-details", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "app-set-details", 4);
   }
   if (rf & 2) {
     const set_r2 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("setName", set_r2.name)("equppiedPieces", set_r2.equppiedPieces)("dimensions", 50)("simpleView", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("setName", set_r2.name)("equippedPieces", set_r2.equippedPieces)("dimensions", 50)("backgroundStyle", "flat");
   }
 }
 function CharacterBuildComponent_Conditional_0_Conditional_0_Template(rf, ctx) {
@@ -425,13 +419,13 @@ function CharacterBuildComponent_Conditional_0_Conditional_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](5, CharacterBuildComponent_Conditional_0_Conditional_0_For_6_Template, 2, 4, "div", 3, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](5, CharacterBuildComponent_Conditional_0_Conditional_0_For_6_Template, 1, 4, "app-weapon-details", 3, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "div", 1)(8, "span", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](10, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](11, CharacterBuildComponent_Conditional_0_Conditional_0_For_12_Template, 2, 4, "div", 3, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](11, CharacterBuildComponent_Conditional_0_Conditional_0_For_12_Template, 1, 4, "app-set-details", 4, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -448,8 +442,8 @@ function CharacterBuildComponent_Conditional_0_Conditional_0_Template(rf, ctx) {
 }
 function CharacterBuildComponent_Conditional_0_Conditional_1_For_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-weapon-details", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-weapon-details", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -462,8 +456,8 @@ function CharacterBuildComponent_Conditional_0_Conditional_1_For_6_Template(rf, 
 }
 function CharacterBuildComponent_Conditional_0_Conditional_1_For_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-set-details", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "app-set-details", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -471,22 +465,22 @@ function CharacterBuildComponent_Conditional_0_Conditional_1_For_11_Template(rf,
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction2"](3, _c0, !ctx_r2.isMobile() && (ctx_r2.buildmd == null ? null : ctx_r2.buildmd.weapons == null ? null : ctx_r2.buildmd.weapons.length) > 2, ctx_r2.isMobile() || (ctx_r2.buildmd == null ? null : ctx_r2.buildmd.weapons == null ? null : ctx_r2.buildmd.weapons.length) <= 2));
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("setName", set_r5.name)("equppiedPieces", set_r5.equppiedPieces);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("setName", set_r5.name)("equippedPieces", set_r5.equippedPieces);
   }
 }
 function CharacterBuildComponent_Conditional_0_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div")(1, "div", 6)(2, "h5", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div")(1, "div", 5)(2, "h5", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](5, CharacterBuildComponent_Conditional_0_Conditional_1_For_6_Template, 2, 6, "div", 9, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](4, "div", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](5, CharacterBuildComponent_Conditional_0_Conditional_1_For_6_Template, 2, 6, "div", 8, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "h5", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](7, "h5", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](8);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](10, CharacterBuildComponent_Conditional_0_Conditional_1_For_11_Template, 2, 6, "div", 9, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](9, "div", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](10, CharacterBuildComponent_Conditional_0_Conditional_1_For_11_Template, 2, 6, "div", 8, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -551,7 +545,7 @@ let CharacterBuildComponent = /*#__PURE__*/(() => {
         },
         decls: 1,
         vars: 1,
-        consts: [[1, "simple-build"], [1, "build-block"], [1, "label"], [1, "col-md-12"], [3, "weaponName", "showAdditionalInfo", "dimensions", "simpleView"], [3, "setName", "equppiedPieces", "dimensions", "simpleView"], [1, "gagu-box-shadow", "p-3", 2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "row"], [3, "ngClass"], [1, "content-header"], [3, "weaponName", "showAdditionalInfo"], [3, "setName", "equppiedPieces"]],
+        consts: [[1, "simple-build"], [1, "build-block"], [1, "label"], [3, "weaponName", "showAdditionalInfo", "dimensions", "backgroundStyle"], [3, "setName", "equippedPieces", "dimensions", "backgroundStyle"], [1, "gagu-box-shadow", "p-3", 2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "row"], [3, "ngClass"], [1, "content-header"], [3, "weaponName", "showAdditionalInfo"], [3, "setName", "equippedPieces"]],
         template: function CharacterBuildComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, CharacterBuildComponent_Conditional_0_Template, 2, 1);
@@ -561,7 +555,7 @@ let CharacterBuildComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.NgClass, _set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_3__.SetDetailsComponent, _weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_4__.WeaponDetailsComponent],
-        styles: [".simple-build[_ngcontent-%COMP%] {\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);\n  gap: 10px;\n  padding: 0 18px 18px;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%] {\n  align-content: start;\n  gap: 7px;\n  min-width: 0;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%]   .label[_ngcontent-%COMP%] {\n  color: #8c909b;\n  letter-spacing: 0;\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 900;\n  line-height: 1;\n}"]
+        styles: [".simple-build[_ngcontent-%COMP%] {\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);\n  gap: 10px;\n  padding: 0 18px 18px;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%] {\n  align-content: start;\n  gap: 7px;\n  min-width: 0;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%]   .label[_ngcontent-%COMP%] {\n  color: #8c909b;\n  letter-spacing: 0;\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n@media (max-width: 1000px) {\n  .simple-build[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 10px;\n    padding: 0 18px 18px;\n    display: grid;\n  }\n}"]
       });
     }
   }
@@ -1160,6 +1154,18 @@ function CharacterImageComponent_Conditional_4_Conditional_11_Template(rf, ctx) 
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.type.label, " ");
   }
 }
+function CharacterImageComponent_Conditional_4_For_14_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "li");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const desc_r12 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](desc_r12);
+  }
+}
 function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵgetCurrentView"]();
@@ -1176,11 +1182,11 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](9, "span", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](10, CharacterImageComponent_Conditional_4_Conditional_10_Template, 2, 2)(11, CharacterImageComponent_Conditional_4_Conditional_11_Template, 2, 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](12, "div", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](12, "ul", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](13, CharacterImageComponent_Conditional_4_For_14_Template, 2, 1, "li", null, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIndex"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](14, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](15, "app-character-build", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](15, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](16, "app-character-build", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -1194,7 +1200,7 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.backgroundStyle) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + (ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.color) + ";" : ""));
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("alt", (tmp_7_0 = ctx_r3.charmd.name) !== null && tmp_7_0 !== undefined ? tmp_7_0 : "?")("title", (tmp_8_0 = ctx_r3.charmd.name) !== null && tmp_8_0 !== undefined ? tmp_8_0 : "?")("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction1"](18, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("alt", (tmp_7_0 = ctx_r3.charmd.name) !== null && tmp_7_0 !== undefined ? tmp_7_0 : "?")("title", (tmp_8_0 = ctx_r3.charmd.name) !== null && tmp_8_0 !== undefined ? tmp_8_0 : "?")("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction1"](17, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
@@ -1202,8 +1208,8 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](11, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 11 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.skillDescription, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeater"](ctx_r3.charmd.skillDescriptionList);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("character", ctx_r3.charmd.code)("simpleView", true);
   }
 }
@@ -1270,11 +1276,17 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
           type: this.lookupsService.getOne(tempCharMd.type, _utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.lookupType.TYPE),
           rarity: this.lookupsService.getOne(tempCharMd.rarity, _utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.lookupType.RARITY),
           enhanced: tempCharMd.enhanced,
-          skillDescription: tempCharMd.skillDescription,
+          skillDescriptionList: this.formatSkillDescriptionToList(tempCharMd),
           imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
           currentImageIndex: 0
         });
       });
+    }
+    formatSkillDescriptionToList(char) {
+      if (char.skillDescription) {
+        return char.skillDescription.split(' & ');
+      }
+      return [];
     }
     get charmd() {
       return this.charmdList[0];
@@ -1323,17 +1335,17 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
         },
         decls: 9,
         vars: 1,
-        consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "description"], [1, "build"], [3, "character", "simpleView"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
+        consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "description-list"], [1, "build"], [3, "character", "simpleView"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
         template: function CharacterImageComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 17, 19)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](0, ctx.imageStyle == "card" ? 0 : ctx.imageStyle == "pfp" && ctx.charCount > 1 ? 1 : ctx.imageStyle == "pfp" && ctx.charCount == 1 ? 2 : ctx.imageStyle == "gallery" ? 3 : ctx.imageStyle == "details" ? 4 : -1);
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_7__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_7__.NgStyle, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_5__.CharacterBuildComponent],
-        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  min-height: 228px;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding: 15px 18px 12px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .build[_ngcontent-%COMP%] {\n}\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}"]
+        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n\n\n\n\n\n\n\n\n\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding: 15px 18px 14px 34px;\n  line-height: 1.38;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}\n\n\n.character-details[_ngcontent-%COMP%]   .build[_ngcontent-%COMP%] {\n}\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
   }
@@ -2444,7 +2456,7 @@ let BuildsService = /*#__PURE__*/(() => {
           character: b.CHARACTER_CODE,
           type: b.TYPE,
           name: b.NAME,
-          equppiedPieces: b.EQUIPPED_PIECES
+          equippedPieces: b.EQUIPPED_PIECES
         }));
         const grouped = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.groupBy(this.flatList, 'gameCode', 'character');
         // loop through object variables and read list items
@@ -2457,7 +2469,7 @@ let BuildsService = /*#__PURE__*/(() => {
             })),
             sets: val.filter(s => s.type === 'SET')?.map(s => ({
               name: s.name,
-              equppiedPieces: String(s.equppiedPieces)
+              equippedPieces: String(s.equippedPieces)
             }))
           });
         });
@@ -2880,7 +2892,7 @@ let DialogService = /*#__PURE__*/(() => {
       dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '60%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
-      dialogConfig.panelClass = 'custom-mat-dialog';
+      dialogConfig.panelClass = 'gagu-mat-dialog';
       dialogConfig.data = {
         character: character
       };
@@ -2892,7 +2904,7 @@ let DialogService = /*#__PURE__*/(() => {
       dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '80%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
-      dialogConfig.panelClass = 'custom-mat-dialog';
+      dialogConfig.panelClass = 'gagu-mat-dialog';
       dialogConfig.data = {
         teamCode: teamCode,
         teamIndex: 1
@@ -2906,7 +2918,7 @@ let DialogService = /*#__PURE__*/(() => {
       dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '40%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
-      dialogConfig.panelClass = 'custom-mat-dialog';
+      dialogConfig.panelClass = 'gagu-mat-dialog';
       const dialogRef = this.dialog.open(_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_3__.TextFormatterComponent, dialogConfig);
     }
     static {
@@ -3621,76 +3633,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const _c0 = a0 => ({
-  "grid-template-columns": a0
-});
-const _c1 = (a0, a1) => ({
-  "height": a0,
-  "width": a1
+const _forTrack0 = ($index, $item) => $item.label;
+const _c0 = (a0, a1) => ({
+  "expandable": a0,
+  "set-container__flat": a1
 });
 function SetDetailsComponent_Conditional_0_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "span", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "span", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" (", ctx_r0.equppiedPieces, ") ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" (", ctx_r0.equippedPieces, ") ");
   }
 }
-function SetDetailsComponent_Conditional_0_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 1)(1, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "div", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](4, SetDetailsComponent_Conditional_0_Conditional_4_Template, 2, 1, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "span", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()()();
-  }
-  if (rf & 2) {
-    let tmp_8_0;
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
-    const setEffectPopover_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction1"](11, _c0, ctx_r0.dimensions + 10 + "px calc(100% - " + (ctx_r0.dimensions + 10) + "px)"))("ngbPopover", setEffectPopover_r2)("popoverTitle", ctx_r0.set.name)("disablePopover", ctx_r0.effectStyle != "popover" || ctx_r0.setEffectsList.length == 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.rarity.backgroundStyle);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](13, _c1, ctx_r0.dimensions + "px", ctx_r0.dimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_8_0 = ctx_r0.set.imageUrl) !== null && tmp_8_0 !== undefined ? tmp_8_0 : ctx_r0.unknownImg, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("height", ctx_r0.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](4, ctx_r0.equppiedPieces ? 4 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r0.set.name, " ");
-  }
-}
-function SetDetailsComponent_Conditional_1_Conditional_4_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-  }
-  if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("(", ctx_r0.equppiedPieces, ")");
-  }
-}
-function SetDetailsComponent_Conditional_1_Conditional_7_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "button", 8);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "img", 11);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵattribute"]("data-bs-target", "#" + ctx_r0.setId + "effect, #" + ctx_r0.setId + "equippedby");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵattribute"]("data-bs-target", ctx_r0.collapseTarget);
   }
 }
-function SetDetailsComponent_Conditional_1_Conditional_8_For_2_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Conditional_8_For_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 12)(1, "b", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2);
@@ -3699,84 +3670,84 @@ function SetDetailsComponent_Conditional_1_Conditional_8_For_2_Template(rf, ctx)
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const eff_r3 = ctx.$implicit;
+    const eff_r2 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("", eff_r3.label, ":");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("", eff_r2.label, ":");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("innerHTML", eff_r3.formattedDescription, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeHtml"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("innerHTML", eff_r2.formattedDescription, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeHtml"]);
   }
 }
-function SetDetailsComponent_Conditional_1_Conditional_8_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](1, SetDetailsComponent_Conditional_1_Conditional_8_For_2_Template, 4, 2, "div", 12, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](1, SetDetailsComponent_Conditional_0_Conditional_8_For_2_Template, 4, 2, "div", 12, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.setId + "effect");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.effectId);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeater"](ctx_r0.setEffectsList);
   }
 }
-function SetDetailsComponent_Conditional_1_Conditional_9_For_3_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Conditional_9_For_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 16);
   }
   if (rf & 2) {
-    const char_r4 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("styles", "margin: 0 5px; border-radius: 50%;")("characterName", char_r4)("dimensions", 40);
+    const char_r3 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("styles", "margin: 0 5px; border-radius: 50%;")("characterName", char_r3)("dimensions", 40);
   }
 }
-function SetDetailsComponent_Conditional_1_Conditional_9_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Conditional_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 10)(1, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](2, SetDetailsComponent_Conditional_1_Conditional_9_For_3_Template, 1, 3, "app-character-image", 15, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 10)(1, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](2, SetDetailsComponent_Conditional_0_Conditional_9_For_3_Template, 1, 3, "app-character-image", 16, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIdentity"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.setId + "equippedby");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.equippedById);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeater"](ctx_r0.equippedCharacters);
   }
 }
-function SetDetailsComponent_Conditional_1_Template(rf, ctx) {
+function SetDetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 7)(1, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 2)(1, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "div", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](4, SetDetailsComponent_Conditional_1_Conditional_4_Template, 2, 1, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "span", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](4, SetDetailsComponent_Conditional_0_Conditional_4_Template, 2, 1, "span", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](5, "span", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](7, SetDetailsComponent_Conditional_1_Conditional_7_Template, 2, 1, "div", 8)(8, SetDetailsComponent_Conditional_1_Conditional_8_Template, 3, 1, "div", 9)(9, SetDetailsComponent_Conditional_1_Conditional_9_Template, 4, 1, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](7, SetDetailsComponent_Conditional_0_Conditional_7_Template, 2, 1, "button", 8)(8, SetDetailsComponent_Conditional_0_Conditional_8_Template, 3, 1, "div", 9)(9, SetDetailsComponent_Conditional_0_Conditional_9_Template, 4, 1, "div", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     let tmp_8_0;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
-    const setEffectPopover_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction1"](14, _c0, ctx_r0.dimensions + 10 + "px calc(100% - " + (ctx_r0.dimensions + 10 + 50) + "px) 50px"))("ngbPopover", setEffectPopover_r2)("popoverTitle", ctx_r0.set.name)("disablePopover", ctx_r0.effectStyle != "popover" || ctx_r0.setEffectsList.length == 0);
+    const setEffectPopover_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--set-dimension", ctx_r0.dimensions, "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](16, _c0, ctx_r0.showExpandArrow, ctx_r0.backgroundStyle === "flat"))("ngbPopover", setEffectPopover_r4)("popoverTitle", ctx_r0.set.name)("disablePopover", !ctx_r0.hasPopoverEffect);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.rarity.backgroundStyle);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](16, _c1, ctx_r0.dimensions + "px", ctx_r0.dimensions + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.rarity == null ? null : ctx_r0.rarity.backgroundStyle);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_8_0 = ctx_r0.set.imageUrl) !== null && tmp_8_0 !== undefined ? tmp_8_0 : ctx_r0.unknownImg, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("height", ctx_r0.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_8_0 = ctx_r0.set.imageUrl) !== null && tmp_8_0 !== undefined ? tmp_8_0 : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("width", ctx_r0.dimensions)("height", ctx_r0.dimensions);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](4, ctx_r0.equppiedPieces ? 4 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](4, ctx_r0.equippedPieces ? 4 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r0.set.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](7, ctx_r0.effectStyle == "box" && ctx_r0.setEffectsList.length > 0 || ctx_r0.showEquippedBy ? 7 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](7, ctx_r0.showExpandArrow ? 7 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](8, ctx_r0.effectStyle == "box" && ctx_r0.setEffectsList.length > 0 ? 8 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](8, ctx_r0.hasBoxEffect ? 8 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](9, ctx_r0.showEquippedBy ? 9 : -1);
   }
 }
-function SetDetailsComponent_ng_template_2_For_2_Template(rf, ctx) {
+function SetDetailsComponent_ng_template_1_For_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 12)(1, "b", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2);
@@ -3787,15 +3758,15 @@ function SetDetailsComponent_ng_template_2_For_2_Template(rf, ctx) {
   if (rf & 2) {
     const eff_r5 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"]("", eff_r5.label, ":");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", eff_r5.label, ": ");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("innerHTML", eff_r5.formattedDescription, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeHtml"]);
   }
 }
-function SetDetailsComponent_ng_template_2_Template(rf, ctx) {
+function SetDetailsComponent_ng_template_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](1, SetDetailsComponent_ng_template_2_For_2_Template, 4, 2, "div", 12, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](1, SetDetailsComponent_ng_template_1_For_2_Template, 4, 2, "div", 12, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -3811,59 +3782,88 @@ let SetDetailsComponent = /*#__PURE__*/(() => {
       this.textUtils = textUtils;
       this.buildsService = buildsService;
       this.lookupsService = lookupsService;
-      this.unknownImg = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknown;
+      this.UUID = _utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.generateUUID();
+      this.UNKNOWN_IMG = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknown;
       this.setName = null;
-      this.equppiedPieces = null;
+      this.equippedPieces = null;
       this.showEquippedBy = false;
       this.effectStyle = 'popover';
       this.dimensions = 80;
-      this.simpleView = false;
+      this.backgroundStyle = 'split';
       this.set = null;
-      this.setId = '';
       this.setEffectsList = [];
       this.rarity = null;
       this.equippedCharacters = [];
     }
     ngOnInit() {
-      this.loadData();
-      this.setId = this.set.name.replace(/[^a-zA-Z0-9]/g, '');
-    }
-    loadData() {
       this.loadBasicData();
+      this.formatEffects();
       this.loadEquippedBy();
     }
     loadBasicData() {
       this.set = this.setsService.getOne(this.setName);
       this.rarity = this.lookupsService.getOne(this.set.rarity, _utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.RARITY);
-      this.setEffectsList = [...this.set.effects];
-      this.filterSetEffects();
-      this.formatSetEffects();
+    }
+    formatEffects() {
+      if (!this.set) {
+        this.setEffectsList = [];
+        return;
+      }
+      this.setEffectsList = this.filterSetEffects().map(effect => ({
+        ...effect,
+        formattedDescription: this.textUtils.colorize(effect.description, this.set.gameCode)
+      }));
     }
     filterSetEffects() {
-      if (this.equppiedPieces) {
-        const equippedPiecesArr = this.equppiedPieces.split(',');
-        this.setEffectsList = this.setEffectsList.filter(eff => {
-          return equippedPiecesArr.some(pieceCode => {
-            if (_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(pieceCode) && _utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(eff.requiredPiece)) {
-              return Number(eff.requiredPiece) <= Number(pieceCode);
-            } else if (_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(eff.requiredPiece)) {
-              return Number(eff.requiredPiece) <= equippedPiecesArr.length;
-            } else {
-              return eff.requiredPiece == pieceCode;
-            }
-          });
-        });
+      if (!this.equippedPieces) {
+        return this.set.effects;
       }
-    }
-    formatSetEffects() {
-      this.setEffectsList.forEach(eff => {
-        eff.formattedDescription = this.textUtils.colorize(eff.description, this.set.gameCode);
-      });
+      const equippedPieces = this.equippedPieces.split(',');
+      return this.set.effects.filter(effect => equippedPieces.some(pieceCode => {
+        if (_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(pieceCode) && _utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(effect.requiredPiece)) {
+          return Number(effect.requiredPiece) <= Number(pieceCode);
+        } else if (_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.isNumber(effect.requiredPiece)) {
+          return Number(effect.requiredPiece) <= equippedPieces.length;
+        } else {
+          return effect.requiredPiece === pieceCode;
+        }
+      }));
     }
     loadEquippedBy() {
       if (this.showEquippedBy) {
         this.equippedCharacters = this.buildsService.getEquippedBy(this.setName, 'SET');
       }
+    }
+    get hasEffects() {
+      return this.set.effects.length > 0;
+    }
+    get hasPopoverEffect() {
+      return this.effectStyle === 'popover' && this.hasEffects;
+    }
+    get hasBoxEffect() {
+      return this.effectStyle === 'box' && this.hasEffects;
+    }
+    get showExpandArrow() {
+      return this.hasBoxEffect || this.showEquippedBy;
+    }
+    get effectId() {
+      return `${this.setId}effect`;
+    }
+    get equippedById() {
+      return `${this.setId}equippedby`;
+    }
+    get setId() {
+      return (this.set?.name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() ?? '') + this.UUID;
+    }
+    get collapseTarget() {
+      const targets = [];
+      if (this.hasBoxEffect) {
+        targets.push(`#${this.effectId}`);
+      }
+      if (this.showEquippedBy) {
+        targets.push(`#${this.equippedById}`);
+      }
+      return targets.join(', ');
     }
     static {
       this.ɵfac = function SetDetailsComponent_Factory(t) {
@@ -3876,24 +3876,24 @@ let SetDetailsComponent = /*#__PURE__*/(() => {
         selectors: [["app-set-details"]],
         inputs: {
           setName: "setName",
-          equppiedPieces: "equppiedPieces",
+          equippedPieces: "equippedPieces",
           showEquippedBy: "showEquippedBy",
           effectStyle: "effectStyle",
           dimensions: "dimensions",
-          simpleView: "simpleView"
+          backgroundStyle: "backgroundStyle"
         },
-        decls: 4,
+        decls: 3,
         vars: 1,
-        consts: [["setEffectPopover", ""], ["popoverClass", "gagu-popover", "container", "body", 1, "set-container", "simple-set-container", 3, "ngStyle", "ngbPopover", "popoverTitle", "disablePopover"], [1, "set-image", 3, "ngStyle"], [3, "src", "height"], [1, "set-info"], [1, "equppied-pieces"], [1, "set-name"], ["popoverClass", "gagu-popover", "container", "body", 1, "set-container", 3, "ngStyle", "ngbPopover", "popoverTitle", "disablePopover"], ["data-bs-toggle", "collapse", 1, "pointer", "effect-arrow", "collapsed"], ["data-bs-parent", "#sets-container", 1, "set-effect", "collapse", 3, "id"], ["data-bs-parent", "#sets-container", 1, "equipped-by", "collapse", 3, "id"], ["src", "assets/svg/arrow-down.svg", "height", "20"], [1, "effect-item"], [1, "effect-label"], [3, "innerHTML"], [3, "styles", "characterName", "dimensions"], [1, "set-effect"]],
+        consts: [["setEffectPopover", ""], ["popoverClass", "gagu-popover", "container", "body", 1, "set-container", 3, "ngClass", "--set-dimension", "ngbPopover", "popoverTitle", "disablePopover"], ["popoverClass", "gagu-popover", "container", "body", 1, "set-container", 3, "ngClass", "ngbPopover", "popoverTitle", "disablePopover"], [1, "set-image"], ["alt", "", 3, "src", "width", "height"], [1, "set-info"], [1, "equipped-pieces"], [1, "set-name"], ["type", "button", "data-bs-toggle", "collapse", 1, "expandable-arrow", "pointer", "collapsed"], ["data-bs-parent", "#sets-container", 1, "set-effect", "collapse", 3, "id"], ["data-bs-parent", "#sets-container", 1, "equipped-by", "collapse", 3, "id"], ["src", "assets/svg/arrow-down.svg", "width", "20", "height", "20", "alt", ""], [1, "effect-item"], [1, "effect-label"], [3, "innerHTML"], [1, "equipped-characters"], [3, "styles", "characterName", "dimensions"], [1, "set-effect"]],
         template: function SetDetailsComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, SetDetailsComponent_Conditional_0_Template, 7, 16, "div", 1)(1, SetDetailsComponent_Conditional_1_Template, 10, 19)(2, SetDetailsComponent_ng_template_2_Template, 3, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, SetDetailsComponent_Conditional_0_Template, 10, 19, "div", 1)(1, SetDetailsComponent_ng_template_1_Template, 3, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](0, ctx.simpleView ? 0 : 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](0, ctx.set ? 0 : -1);
           }
         },
-        styles: [".set-container[_ngcontent-%COMP%] {\n  background-color: #36373d;\n  border: 2px solid #484950;\n  align-items: center;\n  display: grid;\n  grid-template-rows: auto auto;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-image[_ngcontent-%COMP%] {\n  background-color: #2c2d33;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  grid-row: 1;\n  grid-column: 1;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 90%;\n  height: 90%;\n  object-fit: contain;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%] {\n  align-items: center;\n  display: flex;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%]   .set-name[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%]   .equppied-pieces[_ngcontent-%COMP%] {\n  color: hsla(0, 0%, 100%, .75);\n  display: inline;\n  margin-left: 5px;\n  padding-right: 5px;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-effect[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 3;\n  grid-column: 1 / span 3;\n}\n\n.set-container[_ngcontent-%COMP%]   .equipped-by[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 4;\n  grid-column: 1 / span 3;\n}\n\n.set-effect[_ngcontent-%COMP%]   .effect-item[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 5px;\n  padding-top: 5px;\n  border-top: 1px solid rgba(255, 255, 255, 0.2);\n}\n\n.set-effect[_ngcontent-%COMP%]   .effect-label[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  margin-inline-end: 10px;\n}\n\n.effect-arrow[_ngcontent-%COMP%]:not(.collapsed)   img[_ngcontent-%COMP%] {\n  transform: rotate(-180deg);\n}\n.effect-arrow.collapsed[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transform: rotate(0deg);\n}"]
+        styles: [".set-container[_ngcontent-%COMP%] {\n  --set-dimension: 80px;\n  background-color: #36373d;\n  border: 2px solid #484950;\n  display: grid;\n  align-items: center;\n}\n.set-container.expandable[_ngcontent-%COMP%] {\n  grid-template-rows: auto auto auto;\n  grid-template-columns: calc(var(--set-dimension) + 10px) minmax(0, 1fr) 50px;\n}\n.set-container[_ngcontent-%COMP%]:not(.expandable) {\n  grid-template-rows: auto;\n  grid-template-columns: calc(var(--set-dimension) + 10px) minmax(0, 1fr);\n}\n\n.set-container__flat[_ngcontent-%COMP%] {\n  background-color: #2c2d33;\n}\n\n\n\n.set-container[_ngcontent-%COMP%]   .set-image[_ngcontent-%COMP%] {\n  width: var(--set-dimension);\n  height: var(--set-dimension);\n  background-color: #2c2d33;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  grid-column: 1;\n  grid-row: 1;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 90%;\n  height: 90%;\n  object-fit: contain;\n}\n\n\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%] {\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  grid-column: 2;\n  grid-row: 1;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%]   .set-name[_ngcontent-%COMP%] {\n  font-weight: bold;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-info[_ngcontent-%COMP%]   .equipped-pieces[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n  color: hsla(0, 0%, 100%, .75);\n  margin-inline-start: 5px;\n  padding-inline-end: 5px;\n}\n\n\n\n.expandable-arrow[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  border: 0;\n  background: transparent;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  grid-column: 3;\n  grid-row: 1;\n}\n\n.expandable-arrow[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: transform 0.2s ease;\n}\n\n.expandable-arrow[_ngcontent-%COMP%]:not(.collapsed)   img[_ngcontent-%COMP%] {\n  transform: rotate(180deg);\n}\n\n\n\n.set-container[_ngcontent-%COMP%]   .set-effect[_ngcontent-%COMP%], .set-container[_ngcontent-%COMP%]   .equipped-by[_ngcontent-%COMP%] {\n  width: 100%;\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  grid-column: 1 / -1;\n}\n\n.set-container[_ngcontent-%COMP%]   .set-effect[_ngcontent-%COMP%] {\n  grid-row: 2;\n}\n\n.set-container[_ngcontent-%COMP%]   .equipped-by[_ngcontent-%COMP%] {\n  grid-row: 3;\n}\n\n\n\n.set-effect[_ngcontent-%COMP%]   .effect-item[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 5px;\n  padding-top: 5px;\n  border-top: 1px solid rgba(255, 255, 255, 0.2);\n}\n\n.set-effect[_ngcontent-%COMP%]   .effect-label[_ngcontent-%COMP%] {\n  margin-inline-end: 10px;\n  text-decoration: underline;\n}\n\n\n\n.equipped-characters[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n}"]
       });
     }
   }
@@ -4726,6 +4726,7 @@ function ButtonGroupComponent_For_3_Template(rf, ctx) {
 let ButtonGroupComponent = /*#__PURE__*/(() => {
   class ButtonGroupComponent {
     constructor() {
+      this.UUID = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.generateUUID();
       this.buttonList = [];
       this.imageLabel = 'imageUrl';
       this.valueLabel = 'code';
@@ -4733,7 +4734,6 @@ let ButtonGroupComponent = /*#__PURE__*/(() => {
       this.showAllButton = true;
       this.value = '';
       this.valueChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__.EventEmitter();
-      this.uuid = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.generateUUID();
     }
     ngOnInit() {}
     emitChange(value) {
@@ -4770,7 +4770,7 @@ let ButtonGroupComponent = /*#__PURE__*/(() => {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("id", ctx.uuid);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("id", ctx.UUID);
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵconditional"](1, ctx.showAllButton ? 1 : -1);
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"]();
@@ -6518,194 +6518,165 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   WeaponDetailsComponent: () => (/* binding */ WeaponDetailsComponent)
 /* harmony export */ });
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/constants */ 5869);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _services_weapons_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/weapons.service */ 4231);
-/* harmony import */ var _services_lookups_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/lookups.service */ 757);
-/* harmony import */ var _utils_text_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/text-utils */ 8645);
-/* harmony import */ var _services_builds_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/builds.service */ 6959);
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ 7709);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _services_weapons_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/weapons.service */ 4231);
+/* harmony import */ var _services_lookups_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/lookups.service */ 757);
+/* harmony import */ var _utils_text_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/text-utils */ 8645);
+/* harmony import */ var _services_builds_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/builds.service */ 6959);
 
 
 
 
 
 
-const _c0 = a0 => ({
-  "grid-template-columns": a0
+
+const _c0 = (a0, a1) => ({
+  "expandable": a0,
+  "rarity-background-fade": a1
 });
-const _c1 = (a0, a1) => ({
-  "height": a0,
-  "width": a1
-});
-function WeaponDetailsComponent_Conditional_0_Conditional_0_Conditional_7_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "p", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "img", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, " | ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "img", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "img", 12);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r0.rarity.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", ctx_r0.rarity.label)("title", ctx_r0.rarity.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r0.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", ctx_r0.type.label)("title", ctx_r0.type.label);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", ctx_r0.rarity.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("alt", ctx_r0.rarity.label)("title", ctx_r0.rarity.label);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_0_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 1)(1, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "img", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "div", 4)(4, "div")(5, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](7, WeaponDetailsComponent_Conditional_0_Conditional_0_Conditional_7_Template, 4, 6, "p", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()()();
-  }
-  if (rf & 2) {
-    let tmp_9_0;
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-    const weaponEffectPopover_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵreference"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngbPopover", weaponEffectPopover_r2)("popoverTitle", ctx_r0.weapon.name)("disablePopover", ctx_r0.effectStyle != "popover" || !ctx_r0.weapon.effect)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](11, _c0, ctx_r0.dimensions + 10 + "px calc(100% - " + (ctx_r0.dimensions + 10) + "px)"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵstyleMap"](ctx_r0.rarity.backgroundStyle);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction2"](13, _c1, ctx_r0.dimensions + "px", ctx_r0.dimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", (tmp_9_0 = ctx_r0.weapon.imageUrl) !== null && tmp_9_0 !== undefined ? tmp_9_0 : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("height", ctx_r0.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r0.weapon.name, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](7, ctx_r0.showAdditionalInfo ? 7 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](0, " | ");
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_7_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "p", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "img", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2, " | ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](3, "img", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "img", 12);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r0.rarity.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", ctx_r0.rarity.label)("title", ctx_r0.rarity.label);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", ctx_r0.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", ctx_r0.type.label)("title", ctx_r0.type.label);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", ctx_r0.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("alt", ctx_r0.type.label)("title", ctx_r0.type.label);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_8_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "img", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "p", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](1, WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_1_Template, 1, 3, "img", 12)(2, WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_2_Template, 1, 0)(3, WeaponDetailsComponent_Conditional_0_Conditional_7_Conditional_3_Template, 1, 3, "img", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵattribute"]("data-bs-target", "#" + ctx_r0.weaponId + "effect, #" + ctx_r0.weaponId + "equippedby");
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](1, ctx_r0.rarity ? 1 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](2, ctx_r0.rarity && ctx_r0.type ? 2 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](3, ctx_r0.type ? 3 : -1);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_9_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_8_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 10)(1, "b");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "img", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx_r0.weapon.secondaryStat);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵattribute"]("data-bs-target", ctx_r0.collapseTarget);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_10_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](1, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 9)(1, "b");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("id", ctx_r0.weaponId + "effect");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("innerHTML", ctx_r0.weapon.formattedEffect, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeHtml"]);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate"](ctx_r0.weapon.secondaryStat);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_11_For_3_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_10_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "app-character-image", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](1, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const char_r3 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("styles", "margin: 0 5px; border-radius: 50%;")("characterName", char_r3)("dimensions", 40);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.effectId);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("innerHTML", ctx_r0.weapon.formattedEffect, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeHtml"]);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_11_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_11_For_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 12)(1, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterCreate"](2, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_11_For_3_Template, 1, 3, "app-character-image", 15, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeaterTrackByIndex"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 15);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("id", ctx_r0.weaponId + "equippedby");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵrepeater"](ctx_r0.equippedCharacters);
+    const char_r2 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("styles", "margin: 0 5px; border-radius: 50%;")("characterName", char_r2)("dimensions", 40);
   }
 }
-function WeaponDetailsComponent_Conditional_0_Conditional_1_Template(rf, ctx) {
+function WeaponDetailsComponent_Conditional_0_Conditional_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 8)(1, "div", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](2, "img", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](3, "div", 4)(4, "div")(5, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](7, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_7_Template, 4, 6, "p", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](8, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_8_Template, 2, 1, "div", 9)(9, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_9_Template, 3, 1, "div", 10)(10, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_10_Template, 2, 2, "div", 11)(11, WeaponDetailsComponent_Conditional_0_Conditional_1_Conditional_11_Template, 4, 1, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 11)(1, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](2, WeaponDetailsComponent_Conditional_0_Conditional_11_For_3_Template, 1, 3, "app-character-image", 15, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterTrackByIdentity"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    let tmp_9_0;
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](2);
-    const weaponEffectPopover_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵreference"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngbPopover", weaponEffectPopover_r2)("popoverTitle", ctx_r0.weapon.name)("disablePopover", ctx_r0.effectStyle != "popover" || !ctx_r0.weapon.effect)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](15, _c0, ctx_r0.dimensions + 10 + "px calc(100% - " + (ctx_r0.dimensions + 10 + 50) + "px) 50px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵstyleMap"](ctx_r0.rarity.backgroundStyle);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction2"](17, _c1, ctx_r0.dimensions + "px", ctx_r0.dimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", (tmp_9_0 = ctx_r0.weapon.imageUrl) !== null && tmp_9_0 !== undefined ? tmp_9_0 : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("height", ctx_r0.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate1"](" ", ctx_r0.weapon.name, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](7, ctx_r0.showAdditionalInfo ? 7 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](8, ctx_r0.effectStyle == "box" && ctx_r0.weapon.effect || ctx_r0.showEquippedBy ? 8 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](9, ctx_r0.showAdditionalInfo && ctx_r0.weapon.secondaryStat ? 9 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](10, ctx_r0.effectStyle == "box" && ctx_r0.weapon.effect ? 10 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](11, ctx_r0.showEquippedBy ? 11 : -1);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("id", ctx_r0.equippedById);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeater"](ctx_r0.equippedCharacters);
   }
 }
 function WeaponDetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, WeaponDetailsComponent_Conditional_0_Conditional_0_Template, 8, 16, "div", 1)(1, WeaponDetailsComponent_Conditional_0_Conditional_1_Template, 12, 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 2)(1, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](2, "img", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](3, "div", 5)(4, "div")(5, "span", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](7, WeaponDetailsComponent_Conditional_0_Conditional_7_Template, 4, 3, "p", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](8, WeaponDetailsComponent_Conditional_0_Conditional_8_Template, 2, 1, "div", 8)(9, WeaponDetailsComponent_Conditional_0_Conditional_9_Template, 3, 1, "div", 9)(10, WeaponDetailsComponent_Conditional_0_Conditional_10_Template, 2, 2, "div", 10)(11, WeaponDetailsComponent_Conditional_0_Conditional_11_Template, 4, 1, "div", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](0, ctx_r0.simpleView ? 0 : 1);
+    let tmp_11_0;
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
+    const weaponEffectPopover_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--rarity-color", ctx_r0.rarity == null ? null : ctx_r0.rarity.color)("--weapon-dimensions", ctx_r0.dimensions, "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](23, _c0, ctx_r0.showExpandButton, ctx_r0.isBackgroundStyleFade))("ngbPopover", weaponEffectPopover_r3)("popoverTitle", ctx_r0.weapon.name)("disablePopover", !ctx_r0.hasPopoverEffect);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.weaponImageStyle);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("width", ctx_r0.dimensions, "px")("height", ctx_r0.dimensions, "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("src", (tmp_11_0 = ctx_r0.weapon.imageUrl) !== null && tmp_11_0 !== undefined ? tmp_11_0 : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeUrl"])("height", ctx_r0.dimensions)("alt", ctx_r0.weapon.name);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" ", ctx_r0.weapon.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](7, ctx_r0.showAdditionalInfo ? 7 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](8, ctx_r0.showExpandButton ? 8 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](9, ctx_r0.showAdditionalInfo && ctx_r0.weapon.secondaryStat ? 9 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](10, ctx_r0.hasBoxEffect ? 10 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](11, ctx_r0.showEquippedBy ? 11 : -1);
   }
 }
 function WeaponDetailsComponent_ng_template_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelement"](0, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "div", 14);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("innerHTML", ctx_r0.weapon.formattedEffect, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeHtml"]);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("innerHTML", ctx_r0.weapon == null ? null : ctx_r0.weapon.formattedEffect, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsanitizeHtml"]);
   }
 }
 let WeaponDetailsComponent = /*#__PURE__*/(() => {
@@ -6715,22 +6686,21 @@ let WeaponDetailsComponent = /*#__PURE__*/(() => {
       this.lookupsService = lookupsService;
       this.textUtils = textUtils;
       this.buildsService = buildsService;
+      this.UUID = _utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.generateUUID();
       this.UNKNOWN_IMG = _utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknown;
       this.weaponName = null;
       this.showAdditionalInfo = true;
       this.showEquippedBy = false;
       this.effectStyle = 'popover';
       this.dimensions = 80;
-      this.simpleView = false;
+      this.backgroundStyle = 'solid';
       this.weapon = null;
-      this.weaponId = '';
       this.rarity = null;
       this.type = null;
       this.equippedCharacters = [];
     }
     ngOnInit() {
       this.loadData();
-      this.weaponId = this.weapon.name.replace(/[^a-zA-Z0-9]/g, '');
     }
     loadData() {
       this.loadBasicData();
@@ -6747,13 +6717,50 @@ let WeaponDetailsComponent = /*#__PURE__*/(() => {
         this.equippedCharacters = this.buildsService.getEquippedBy(this.weaponName, 'WEAPON');
       }
     }
+    get isBackgroundStyleFade() {
+      return !!this.rarity && this.backgroundStyle === 'fade';
+    }
+    get weaponImageStyle() {
+      if (!this.rarity || this.backgroundStyle !== 'solid') {
+        return '';
+      }
+      return this.rarity.backgroundStyle ?? '';
+    }
+    get hasPopoverEffect() {
+      return this.effectStyle === 'popover' && !!this.weapon?.effect;
+    }
+    get hasBoxEffect() {
+      return this.effectStyle === 'box' && !!this.weapon?.effect;
+    }
+    get showExpandButton() {
+      return this.hasBoxEffect || this.showEquippedBy;
+    }
+    get effectId() {
+      return `${this.weaponId}effect`;
+    }
+    get equippedById() {
+      return `${this.weaponId}equippedby`;
+    }
+    get weaponId() {
+      return (this.weapon?.name?.replace(/[^a-zA-Z0-9]/g, '') ?? '') + this.UUID;
+    }
+    get collapseTarget() {
+      const targets = [];
+      if (this.hasBoxEffect) {
+        targets.push(`#${this.effectId}`);
+      }
+      if (this.showEquippedBy) {
+        targets.push(`#${this.equippedById}`);
+      }
+      return targets.join(', ');
+    }
     static {
       this.ɵfac = function WeaponDetailsComponent_Factory(t) {
-        return new (t || WeaponDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_weapons_service__WEBPACK_IMPORTED_MODULE_1__.WeaponsService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_lookups_service__WEBPACK_IMPORTED_MODULE_2__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_utils_text_utils__WEBPACK_IMPORTED_MODULE_3__.TextUtils), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_builds_service__WEBPACK_IMPORTED_MODULE_4__.BuildsService));
+        return new (t || WeaponDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_weapons_service__WEBPACK_IMPORTED_MODULE_2__.WeaponsService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_lookups_service__WEBPACK_IMPORTED_MODULE_3__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_utils_text_utils__WEBPACK_IMPORTED_MODULE_4__.TextUtils), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_services_builds_service__WEBPACK_IMPORTED_MODULE_5__.BuildsService));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({
         type: WeaponDetailsComponent,
         selectors: [["app-weapon-details"]],
         inputs: {
@@ -6762,20 +6769,20 @@ let WeaponDetailsComponent = /*#__PURE__*/(() => {
           showEquippedBy: "showEquippedBy",
           effectStyle: "effectStyle",
           dimensions: "dimensions",
-          simpleView: "simpleView"
+          backgroundStyle: "backgroundStyle"
         },
         decls: 3,
         vars: 1,
-        consts: [["weaponEffectPopover", ""], ["popoverClass", "gagu-popover", "container", "body", 1, "weapon-container", "simpleweapon-container", 3, "ngbPopover", "popoverTitle", "disablePopover", "ngStyle"], [1, "weapon-image", 3, "ngStyle"], [3, "src", "height"], [1, "weapon-info"], [1, "weapon-name"], [1, "weapon-metadata"], ["height", "24", 3, "src", "alt", "title"], ["popoverClass", "gagu-popover", "container", "body", 1, "weapon-container", 3, "ngbPopover", "popoverTitle", "disablePopover", "ngStyle"], ["data-bs-toggle", "collapse", 1, "pointer", "effect-arrow", "collapsed"], [1, "weapon-stat"], ["data-bs-parent", "#weapons-container", 1, "weapon-effect", "collapse", 3, "id"], ["data-bs-parent", "#weapons-container", 1, "equipped-by", "collapse", 3, "id"], ["src", "assets/svg/arrow-down.svg", "height", "20"], [3, "innerHTML"], [3, "styles", "characterName", "dimensions"]],
+        consts: [["weaponEffectPopover", ""], ["popoverClass", "gagu-popover", "container", "body", 1, "weapon-container", 3, "ngClass", "--rarity-color", "--weapon-dimensions", "ngbPopover", "popoverTitle", "disablePopover"], ["popoverClass", "gagu-popover", "container", "body", 1, "weapon-container", 3, "ngClass", "ngbPopover", "popoverTitle", "disablePopover"], [1, "weapon-image"], [3, "src", "height", "alt"], [1, "weapon-info"], [1, "weapon-name"], [1, "weapon-metadata"], ["data-bs-toggle", "collapse", 1, "pointer", "expandable-arrow", "collapsed"], [1, "weapon-stat"], ["data-bs-parent", "#weapons-container", 1, "weapon-effect", "collapse", 3, "id"], ["data-bs-parent", "#weapons-container", 1, "equipped-by", "collapse", 3, "id"], ["height", "24", 3, "src", "alt", "title"], ["src", "assets/svg/arrow-down.svg", "height", "20", "alt", "Expand"], [3, "innerHTML"], [3, "styles", "characterName", "dimensions"]],
         template: function WeaponDetailsComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, WeaponDetailsComponent_Conditional_0_Template, 2, 1)(1, WeaponDetailsComponent_ng_template_1_Template, 1, 1, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, WeaponDetailsComponent_Conditional_0_Template, 12, 26, "div", 1)(1, WeaponDetailsComponent_ng_template_1_Template, 1, 1, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵconditional"](0, ctx.weapon ? 0 : -1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](0, ctx.weapon ? 0 : -1);
           }
         },
-        styles: [".weapon-container[_ngcontent-%COMP%] {\n  background-color: #36373d;\n  border: 2px solid #484950;\n  align-items: center;\n  display: grid;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-image[_ngcontent-%COMP%] {\n  background-color: #2c2d33;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  grid-row: 1;\n  grid-column: 1;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%] {\n  align-items: center;\n  display: flex;\n  width: 100%;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%]   .weapon-name[_ngcontent-%COMP%] {\n  margin-bottom: 5px;\n  font-weight: bold;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%]   .weapon-metadata[_ngcontent-%COMP%] {\n  font-size: 15px;\n  line-height: 25px;\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-stat[_ngcontent-%COMP%] {\n  background-color: #484950;\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 2;\n  grid-column: 1 / span 3;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-effect[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 3;\n  grid-column: 1 / span 3;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .equipped-by[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 4;\n  grid-column: 1 / span 3;\n}\n\n.effect-arrow[_ngcontent-%COMP%]:not(.collapsed)   img[_ngcontent-%COMP%] {\n  transform: rotate(-180deg);\n}\n.effect-arrow.collapsed[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transform: rotate(0deg);\n}"]
+        styles: [".weapon-container[_ngcontent-%COMP%] {\n  background-color: #36373d;\n  border: 2px solid #484950;\n  align-items: center;\n  display: grid;\n  \n}\n.weapon-container.expandable[_ngcontent-%COMP%] {\n  grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr) 50px;\n}\n.weapon-container[_ngcontent-%COMP%]:not(.expandable) {\n  grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr);\n}\n\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-image[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  grid-row: 1;\n  grid-column: 1;\n}\n\n.weapon-container[_ngcontent-%COMP%]:not(.rarity-background-fade)   .weapon-image[_ngcontent-%COMP%] {\n  background-color: #2c2d33;\n}\n\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%] {\n  align-items: center;\n  display: flex;\n  min-width: 0;\n  overflow: hidden;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%]   .weapon-name[_ngcontent-%COMP%] {\n  margin-bottom: 5px;\n  font-weight: bold;\n  }\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-info[_ngcontent-%COMP%]   .weapon-metadata[_ngcontent-%COMP%] {\n  font-size: 15px;\n  line-height: 25px;\n  margin-top: 5px;\n  margin-bottom: 0;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-stat[_ngcontent-%COMP%] {\n  background-color: #484950;\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 2;\n  grid-column: 1 / span 3;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .weapon-effect[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 3;\n  grid-column: 1 / span 3;\n}\n\n.weapon-container[_ngcontent-%COMP%]   .equipped-by[_ngcontent-%COMP%] {\n  background-color: var(--background-color);\n  border-top: 2px solid #484950;\n  padding: 2px 5px;\n  width: 100%;\n  grid-row: 4;\n  grid-column: 1 / span 3;\n}\n\n.expandable-arrow[_ngcontent-%COMP%]:not(.collapsed)   img[_ngcontent-%COMP%] {\n  transform: rotate(-180deg);\n}\n.expandable-arrow.collapsed[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transform: rotate(0deg);\n}"]
       });
     }
   }

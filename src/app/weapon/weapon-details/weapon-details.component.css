@@ -3,10 +3,12 @@
   border: 2px solid #484950;
   align-items: center;
   display: grid;
+  
+}
+.weapon-container.expandable {
   grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr) 50px;
 }
-
-.weapon-container.simple-weapon-container {
+.weapon-container:not(.expandable) {
   grid-template-columns: calc(var(--weapon-dimensions) + 10px) minmax(0, 1fr);
 }
 
@@ -76,9 +78,9 @@
   grid-column: 1 / span 3;
 }
 
-.effect-arrow:not(.collapsed) img {
+.expandable-arrow:not(.collapsed) img {
   transform: rotate(-180deg);
 }
-.effect-arrow.collapsed img {
+.expandable-arrow.collapsed img {
   transform: rotate(0deg);
 }

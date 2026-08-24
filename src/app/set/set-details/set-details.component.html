@@ -1,70 +1,66 @@
-@if (simpleView) {
-<div
-    class="set-container simple-set-container"
-    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10) + 'px)'}"
-    [ngbPopover]="setEffectPopover"
-    [popoverTitle]="set.name"
-    popoverClass="gagu-popover"
-    [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
-    container="body">
-    <!-- Image -->
-    <div
-      class="set-image"
-      [style]="rarity.backgroundStyle"
-      [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
-      <img [src]="set.imageUrl ?? unknownImg" [height]="dimensions" />
-    </div>
-    <!-- Info -->
-    <div class="set-info">
-      @if (equppiedPieces) {
-        <span class="equppied-pieces">
-          ({{ equppiedPieces }})
-        </span>
-      }
-      <span class="set-name">
-        {{ set.name }}
-      </span>
-    </div>
-  </div>
-} @else {
+@if (set) {
   <div
     class="set-container"
-    [ngStyle]="{'grid-template-columns': (dimensions + 10) + 'px calc(100% - ' + (dimensions + 10 + 50) + 'px) 50px'}"
+    [ngClass]="{
+      'expandable': showExpandArrow,
+      'set-container__flat': backgroundStyle === 'flat'
+    }"
+    [style.--set-dimension.px]="dimensions"
     [ngbPopover]="setEffectPopover"
     [popoverTitle]="set.name"
     popoverClass="gagu-popover"
-    [disablePopover]="effectStyle != 'popover' || setEffectsList.length == 0"
+    [disablePopover]="!hasPopoverEffect"
     container="body">
+
     <!-- Image -->
     <div
       class="set-image"
-      [style]="rarity.backgroundStyle"
-      [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
-      <img [src]="set.imageUrl ?? unknownImg" [height]="dimensions" />
+      [style]="rarity?.backgroundStyle">
+
+      <img
+        [src]="set.imageUrl ?? UNKNOWN_IMG"
+        [width]="dimensions"
+        [height]="dimensions"
+        alt="" />
     </div>
+
     <!-- Info -->
     <div class="set-info">
-      @if (equppiedPieces) {
-        <span class="equppied-pieces">({{ equppiedPieces }})</span>
+      @if (equippedPieces) {
+        <span class="equipped-pieces">
+          ({{ equippedPieces }})
+        </span>
       }
+
       <span class="set-name">
         {{ set.name }}
       </span>
     </div>
-    <!-- Effect (box) - Trigger -->
-    @if ((effectStyle == 'box' && setEffectsList.length > 0) || showEquippedBy) {
-      <div class="pointer effect-arrow collapsed" data-bs-toggle="collapse"
-        [attr.data-bs-target]="'#'+setId+'effect, #'+setId+'equippedby'">
-        <img src="assets/svg/arrow-down.svg" height="20">
-      </div>
+
+    <!-- Effect / Equipped By trigger -->
+    @if (showExpandArrow) {
+      <button
+        type="button"
+        class="expandable-arrow pointer collapsed"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="collapseTarget">
+
+        <img
+          src="assets/svg/arrow-down.svg"
+          width="20"
+          height="20"
+          alt="" />
+      </button>
     }
-    <!-- Effect (box) -->
-    @if (effectStyle == 'box' && setEffectsList.length > 0) {
+
+    <!-- Effect -->
+    @if (hasBoxEffect) {
       <div
         class="set-effect collapse"
-        [id]="setId + 'effect'"
+        [id]="effectId"
         data-bs-parent="#sets-container">
-        @for (eff of setEffectsList; track $index) {
+
+        @for (eff of setEffectsList; track eff.label) {
           <div class="effect-item">
             <b class="effect-label">{{ eff.label }}:</b>
             <span [innerHTML]="eff.formattedDescription"></span>
@@ -72,31 +68,36 @@
         }
       </div>
     }
+
     <!-- Equipped characters -->
-      @if (showEquippedBy) {
-        <div
-          class="equipped-by collapse"
-          [id]="setId + 'equippedby'"
-          data-bs-parent="#sets-container">
-          <div>
-            @for (char of equippedCharacters; track $index) {
-              <app-character-image
-                [styles]="'margin: 0 5px; border-radius: 50%;'"
-                [characterName]="char" [dimensions]="40">
-              </app-character-image>
-            }
-          </div>
+    @if (showEquippedBy) {
+      <div
+        class="equipped-by collapse"
+        [id]="equippedById"
+        data-bs-parent="#sets-container">
+
+        <div class="equipped-characters">
+          @for (char of equippedCharacters; track char) {
+            <app-character-image
+              [styles]="'margin: 0 5px; border-radius: 50%;'"
+              [characterName]="char"
+              [dimensions]="40">
+            </app-character-image>
+          }
         </div>
-      }
+      </div>
+    }
   </div>
 }
 
-<!-- Effect (popover) -->
+<!-- Effect popover -->
 <ng-template #setEffectPopover>
   <div class="set-effect">
-    @for (eff of setEffectsList; track $index) {
+    @for (eff of setEffectsList; track eff.label) {
       <div class="effect-item">
-        <b class="effect-label">{{ eff.label }}:</b>
+        <b class="effect-label">
+          {{ eff.label }}:
+        </b>
         <span [innerHTML]="eff.formattedDescription"></span>
       </div>
     }
