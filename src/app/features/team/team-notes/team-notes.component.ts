@@ -1,0 +1,36 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { NotesService } from '../../../shared/api/notes.service';
+import { TextUtils } from '../../../shared/utils/text-utils';
+
+@Component({
+  selector: 'app-team-notes',
+  templateUrl: './team-notes.component.html',
+  styleUrl: './team-notes.component.css'
+})
+export class TeamNotesComponent implements OnInit {
+
+  @Input() teamCode: any = null;
+
+  notes: any[] = [];
+  formattedNotes: any[] = [];
+
+  constructor(
+    private notesService: NotesService,
+    private textUtils: TextUtils
+  ) {}
+
+  ngOnInit(): void {
+    this.loadNotes();
+    this.formatNotes();
+  }
+
+  loadNotes() {
+    this.notes = this.notesService.getAllByOwnerTypeAndCode('TEAM', this.teamCode);
+  }
+
+  formatNotes() {
+    if (this.notes && this.notes?.length > 0) {
+      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, n.gameCode));
+    }
+  }
+}

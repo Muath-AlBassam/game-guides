@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
-import { CharacterListComponent } from './character/character-list/character-list.component';
-import { GameGuidesComponent } from './core/game-guides/game-guides.component';
-import { CoreComponent } from './core/core/core.component';
-import { SetListComponent } from './set/set-list/set-list.component';
-import { WeaponListComponent } from './weapon/weapon-list/weapon-list.component';
-import { TeamListComponent } from './team/team-list/team-list.component';
+import { CharacterListComponent } from './features/character/character-list/character-list.component';
+import { GameGuidesComponent } from './layout/game-guides/game-guides.component';
+import { CoreComponent } from './layout/core/core.component';
+import { SetListComponent } from './features/set/set-list/set-list.component';
+import { WeaponListComponent } from './features/weapon/weapon-list/weapon-list.component';
+import { TeamListComponent } from './features/team/team-list/team-list.component';
 import { ErrorComponent } from './core/error/error.component';
-import { SettingsComponent } from './settings/settings.component';
-import { GameNotesComponent } from './game/game-notes/game-notes.component';
+import { SettingsComponent } from './features/settings/settings.component';
+import { GameNotesComponent } from './features/game/game-notes/game-notes.component';
 
 const routes: Routes = [
   {
