@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreKeys, StoreService } from '../../services/store.service';
+import { StoreKeys, StoreService } from '../../shared/services/store.service';
 
 @Component({
   selector: 'app-error',

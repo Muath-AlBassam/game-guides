@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
-import { DialogService } from '../../services/dialog.service';
+import { DialogService } from '../../shared/services/dialog.service';
 import { LookupsService } from '../../services/lookups.service';
 import { Constants } from '../../shared/utils/constants';
 

@@ -4,8 +4,7 @@ import { GameUtils } from '../../shared/utils/game-utils';
 import { Constants } from '../../shared/utils/constants';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { BusService } from '../../services/bus.service';
-import { RouteService } from '../../services/route.service';
+import { BusService } from '../../shared/services/bus.service';
 
 @Component({
   selector: 'app-nav',
@@ -20,7 +19,11 @@ export class NavComponent implements OnInit {
   sidebarActive: boolean = false;
   routesList: any[] = [];
 
-  constructor(private router: Router, private busService: BusService, private gamesService: GamesService, private routeService: RouteService) { }
+  constructor(
+    private router: Router,
+    private busService: BusService,
+    private gamesService: GamesService
+  ) {}
 
   ngOnInit(): void {
     this.loadGame();

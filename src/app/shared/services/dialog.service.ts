@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Utils } from '../shared/utils/utils';
-import { CharacterDetailsDialogComponent } from '../character/character-details-dialog/character-details-dialog.component';
-import { TeamDetailsDialogComponent } from '../team/team-details-dialog/team-details-dialog.component';
-import { TextFormatterComponent } from '../settings/text-formatter/text-formatter.component';
+import { Utils } from '../utils/utils';
+import { CharacterDetailsDialogComponent } from '../../character/character-details-dialog/character-details-dialog.component';
+import { TeamDetailsDialogComponent } from '../../team/team-details-dialog/team-details-dialog.component';
+import { TextFormatterComponent } from '../../settings/text-formatter/text-formatter.component';
 
 @Injectable({
   providedIn: 'root'

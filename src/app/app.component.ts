@@ -13,7 +13,7 @@ import { LookupsService } from './services/lookups.service';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { Constants } from './shared/utils/constants';
-import { StoreKeys, StoreService } from './services/store.service';
+import { StoreKeys, StoreService } from './shared/services/store.service';
 
 @Component({
   selector: 'app-root',

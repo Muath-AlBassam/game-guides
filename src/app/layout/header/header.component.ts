@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BusService } from '../../services/bus.service';
+import { BusService } from '../../shared/services/bus.service';
 
 @Component({
   selector: 'app-header',

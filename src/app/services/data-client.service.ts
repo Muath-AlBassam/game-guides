@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { StoreKeys, StoreService } from './store.service';
+import { StoreKeys, StoreService } from '../shared/services/store.service';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import * as XLSX from 'xlsx';
 
 @Injectable({
   providedIn: 'root'
