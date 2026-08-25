@@ -2,27 +2,31 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
+import { Team, TeamCharacterModel, TeamModel } from '../models/team.mode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
 
-  teamsList: any[] = [];
+  teamsList: TeamModel[] = [];
 
-  constructor(private dataClient: DataClientService, private store: StoreService) {
+  constructor(
+    private dataClient: DataClientService,
+    private store: StoreService
+  ) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
   }
 
-  private fetchData() {
+  private fetchData(): void {
     this.dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS']).then(resMap => {
       this.teamsList = this.mapTeams(resMap);
     });
   }
 
-  private mapTeams(resMap: any) {
+  private mapTeams(resMap: any): TeamModel[] {
     const teamCharacterList = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
     return resMap.get('TEAMS').map((t: any) => ({
       gameCode: t.GAME_CODE,
@@ -35,12 +39,12 @@ export class TeamsService {
       tags: t.TAGS?.split(','),
       order: t.ORDER,
       characters: teamCharacterList
-        .filter((c: any) => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
+        .filter((c: TeamCharacterModel) => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
     }))
-      .sort((a: any, b: any) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));;
+      .sort((a: TeamModel, b: TeamModel) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));;
   }
 
-  private mapTeamsCharacters(characters: any) {
+  private mapTeamsCharacters(characters: any): TeamCharacterModel[] {
     return characters.map((c: any) => ({
       gameCode: c.GAME_CODE,
       teamCode: c.TEAM_CODE,
@@ -52,25 +56,28 @@ export class TeamsService {
     }));
   }
 
-  getAll(gameCode: any) {
-    return this.teamsList.filter(t => t.gameCode == gameCode);
+  getAll(gameCode: string): TeamModel[] {
+    return this.teamsList
+      .filter(t => t.gameCode == gameCode);
   }
 
-  getAllByCategory(categoryCode: any) {
+  getAllByCategory(categoryCode: any): TeamModel[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    return this.teamsList.filter(t => t.gameCode == gameCode && t.category == categoryCode);
+    return this.teamsList
+      .filter(t => t.gameCode == gameCode && t.category == categoryCode);
   }
 
-  getOne(code: any) {
+  getOne(code: any): TeamModel {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.teamsList.find(t => t.gameCode == gameCode && t.code == code);
-    return data ?? { code: code, name: code }
+    const data = this.teamsList
+      .find(t => t.gameCode == gameCode && t.code == code);
+    return data ?? new Team(code, code);
   }
 
-  getAllByCharacter(character: any) {
+  getAllByCharacter(character: string) {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.getAll(gameCode).filter(team => {
-      return team.characters.some((ch: any) => {
+      return team.characters.some((ch: TeamCharacterModel) => {
         let all = [];
         all.push(ch.name);
         if (ch.replacements && ch.replacements.length > 0) {

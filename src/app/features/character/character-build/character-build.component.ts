@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameUtils } from '../../../shared/utils/game-utils';
 import { BuildsService } from '../../../shared/api/builds.service';
 import { Utils } from '../../../shared/utils/utils';
+import { BuildModel } from '../../../shared/models/build.model';
 
 @Component({
   selector: 'app-character-build',
@@ -10,11 +11,11 @@ import { Utils } from '../../../shared/utils/utils';
 })
 export class CharacterBuildComponent implements OnInit {
 
-  @Input() character: any = null;
+  @Input() character!: string;
   @Input() simpleView: boolean = false;
   @Output() hasBuild: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  buildmd: any = null;
+  buildmd: BuildModel | undefined = undefined;
   weaponsLabel: string = '';
   setsLabel: string = '';
 
@@ -22,11 +23,13 @@ export class CharacterBuildComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadBuild();
-    this.weaponsLabel = GameUtils.getWeaponsLabel(this.buildmd.gameCode);
-    this.setsLabel = GameUtils.getSetsLabel(this.buildmd.gameCode);
+    if (this.buildmd) {
+      this.weaponsLabel = GameUtils.getWeaponsLabel(this.buildmd.gameCode);
+      this.setsLabel = GameUtils.getSetsLabel(this.buildmd.gameCode);
+    }
   }
 
-  loadBuild() {
+  loadBuild(): void {
     this.buildmd = this.buildsService.getByCharacter(this.character);
     this.hasBuild.emit(this.buildmd != null);
   }

@@ -5,7 +5,7 @@
       'expandable': showExpandButton,
       'rarity-background-fade': isBackgroundStyleFade
     }"
-    [style.--rarity-color]="rarity?.color"
+    [style.--rarity-color]="rarity['color']"
     [style.--weapon-dimensions.px]="dimensions"
     [ngbPopover]="weaponEffectPopover"
     [popoverTitle]="weapon.name"
@@ -21,7 +21,7 @@
       [style.height.px]="dimensions">
 
       <img
-        [src]="weapon.imageUrl ?? UNKNOWN_IMG"
+        [src]="weapon.imageUrl"
         [height]="dimensions"
         [alt]="weapon.name">
     </div>
@@ -114,5 +114,5 @@
 
 <!-- Effect (popover) -->
 <ng-template #weaponEffectPopover>
-  <div [innerHTML]="weapon?.formattedEffect"></div>
+  <div [innerHTML]="weapon.formattedEffect"></div>
 </ng-template>

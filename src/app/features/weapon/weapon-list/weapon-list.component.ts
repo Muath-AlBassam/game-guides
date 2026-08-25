@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WeaponsService } from '../../../shared/api/weapons.service';
 import { GameUtils } from '../../../shared/utils/game-utils';
 import { GamesService } from '../../../shared/api/games.service';
+import { WeaponModel } from '../../../shared/models/weapon.model';
 
 @Component({
   selector: 'app-weapon-list',
@@ -10,14 +11,14 @@ import { GamesService } from '../../../shared/api/games.service';
 })
 export class WeaponListComponent implements OnInit {
 
-  allWeapons: any[] = [];
-  weapons: any[] = [];
+  allWeapons: WeaponModel[] = [];
+  weapons: WeaponModel[] = [];
 
-  weaponsLabel: any = '';
+  weaponsLabel: string = '';
   // search
-  textValue: any = '';
-  rarityValue: any = '';
-  typeValue: any = '';
+  textValue: string = '';
+  rarityValue: string = '';
+  typeValue: string = '';
 
   constructor(
     private weaponsService: WeaponsService,
@@ -25,32 +26,32 @@ export class WeaponListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const gameCode = this.gamesService.getActive().code;
+    const gameCode = this.gamesService.getActive()!.code;
     this.weaponsLabel = GameUtils.getWeaponsLabel(gameCode) + 's';
     this.loadWeapons();
   }
 
-  loadWeapons() {
+  loadWeapons(): void {
     this.allWeapons = this.weaponsService.getAll();
     this.weapons = this.allWeapons;
   }
 
-  onTextChange(val: string) {
+  onTextChange(val: string): void {
     this.textValue = val;
     this.filterList();
   }
 
-  onRarityChange(val: string) {
+  onRarityChange(val: string): void {
     this.rarityValue = val;
     this.filterList();
   }
 
-  onTypeChange(val: string) {
+  onTypeChange(val: string): void {
     this.typeValue = val;
     this.filterList();
   }
 
-  filterList() {
+  filterList(): void {
     this.weapons = this.allWeapons.filter(w => {
       let filterByName = w.name.toLowerCase().includes(this.textValue.toLowerCase());
       let filterByRarity = this.rarityValue ? w.rarity == this.rarityValue : true;
@@ -59,7 +60,7 @@ export class WeaponListComponent implements OnInit {
     });
   }
 
-  onReset() {
+  onReset(): void {
     this.textValue = '';
     this.rarityValue = '';
     this.typeValue = '';

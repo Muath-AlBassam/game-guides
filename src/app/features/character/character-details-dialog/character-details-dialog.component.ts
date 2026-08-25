@@ -2,6 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CharactersService } from '../../../shared/api/characters.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Utils } from '../../../shared/utils/utils';
+import { CharacterModel } from '../../../shared/models/character.model';
 
 @Component({
   selector: 'app-character-details-dialog',
@@ -10,9 +11,9 @@ import { Utils } from '../../../shared/utils/utils';
 })
 export class CharacterDetailsDialogComponent implements OnInit {
 
-  character: any = null;
+  character!: string;
 
-  charmd: any = null;
+  charmd!: CharacterModel;
   hasBuild: boolean = true;
   hasCombos: boolean = true;
   
@@ -29,7 +30,7 @@ export class CharacterDetailsDialogComponent implements OnInit {
     this.loadData();
   }
 
-  loadData() {
+  loadData(): void {
     this.charmd = this.charactersService.getOne(this.character);
   }
 

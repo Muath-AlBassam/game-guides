@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TeamModel } from '../../../shared/models/team.mode';
 
 @Component({
   selector: 'app-team-replacements',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TeamReplacementsComponent implements OnInit {
 
-  @Input() team: any = null;
+  @Input() team!: TeamModel;
 
   characterPFPSize: number = 80;
   mobileSizeRatio: number = 0.5;

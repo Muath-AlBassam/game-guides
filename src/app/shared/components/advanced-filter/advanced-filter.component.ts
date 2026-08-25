@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LookupsService } from '../../api/lookups.service';
 import { Constants } from '../../utils/constants';
+import { LookupModel } from '../../models/lookup.model';
 
 @Component({
   selector: 'app-advanced-filter',
@@ -23,19 +24,19 @@ export class AdvancedFilterComponent implements OnInit {
   @Output() tagChange: EventEmitter<any[]> = new EventEmitter<any[]>();
   @Output() reset: EventEmitter<void> = new EventEmitter<void>();
 
-  textValue: any = '';
+  textValue: string = '';
 
-  rarityValue: any = '';
-  rarities: any[] = [];
+  rarityValue: string = '';
+  rarities: LookupModel[] = [];
 
-  elementValue: any = '';
-  elements: any[] = [];
+  elementValue: string = '';
+  elements: LookupModel[] = [];
 
-  typeValue: any = '';
-  types: any[] = [];
+  typeValue: string = '';
+  types: LookupModel[] = [];
 
-  tagValue: any[] = [];
-  tags: any[] = [];
+  tagValue: string[] = [];
+  tags: LookupModel[] = [];
 
   constructor(private lookupsService: LookupsService) { }
 
@@ -86,7 +87,7 @@ export class AdvancedFilterComponent implements OnInit {
     this.typeChange.emit(val);
   }
 
-  onTagChange(tags: any[]) {
+  onTagChange(tags: string[]) {
     if (tags == null) tags = [];
     this.tagValue = tags;
     this.tagChange.emit(tags);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../shared/api/games.service';
+import { GameModel } from '../../shared/models/game.model';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { GamesService } from '../../shared/api/games.service';
 })
 export class HomeComponent implements OnInit {
 
-  games: any[] = [];
+  games: GameModel[] = [];
 
   constructor(private gamesService: GamesService) { }
 

@@ -1,4 +1,4 @@
-import { DomSanitizer } from "@angular/platform-browser";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { CharactersService } from "../api/characters.service";
 import { Constants } from "./constants";
 import { Utils } from "./utils";
@@ -182,7 +182,7 @@ export class TextUtils {
     return this.sanitizer.bypassSecurityTrustHtml(colorized);
   }
 
-  formatAndColorize(text: string | null, gameCode: string) {
+  formatAndColorize(text: string | null, gameCode: string): SafeHtml {
     if (text == null) {
       return '';
     }

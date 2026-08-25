@@ -3,8 +3,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../../shared/utils/constants';
 import { TextUtils } from '../../../shared/utils/text-utils';
 import { GamesService } from '../../../shared/api/games.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Utils } from '../../../shared/utils/utils';
+import { GameModel } from '../../../shared/models/game.model';
 
 @Component({
   selector: 'app-text-formatter',
@@ -13,12 +14,12 @@ import { Utils } from '../../../shared/utils/utils';
 })
 export class TextFormatterComponent implements OnInit {
 
-  games: any[] = [];
+  games: GameModel[] = [];
   gameCode: string = Constants.games.GI;
 
   @ViewChild('myTextarea') textarea!: ElementRef<HTMLTextAreaElement>;
   text: string = '';
-  formattedText: any = '';
+  formattedText: SafeHtml = '';
   showFormatted: boolean = false;
 
   allFormatsList: any[] = [];
@@ -38,7 +39,7 @@ export class TextFormatterComponent implements OnInit {
     this.modifyFormatsList();
   }
 
-  modifyFormatsList() {
+  modifyFormatsList(): void {
     const formatsList = this.allFormatsList
       .filter(f => f.games.includes(this.gameCode) || f.games == 'ALL')
       .map(f => {
@@ -52,21 +53,21 @@ export class TextFormatterComponent implements OnInit {
     this.groupedFormatsList = Array.from(formatsMap);
   }
 
-  onGameChange() {
+  onGameChange(): void {
     this.modifyFormatsList();
     this.formatText();
   }
 
-  formatText() {
+  formatText(): void {
     this.formattedText = this.textUtils.format(this.text, this.gameCode);
   }
 
-  applyFormat(format: any) {
+  applyFormat(format: any): void {
     this.insertText(format.rawText, format.offset);
     this.formatText();
   }
 
-  getRawText(format: any) {
+  getRawText(format: any): void {
     return format.regex.toString()
       .replace(' ', '')
       .replace('(.*?)', '')
@@ -74,7 +75,7 @@ export class TextFormatterComponent implements OnInit {
       .replace('/g', '');
   }
 
-  insertText(textToInsert: string, offset: number) {
+  insertText(textToInsert: string, offset: number): void {
     const textarea = this.textarea.nativeElement;
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;

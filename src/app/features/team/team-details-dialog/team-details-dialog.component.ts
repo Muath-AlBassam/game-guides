@@ -6,6 +6,10 @@ import { PetsService } from '../../../shared/api/pets.service';
 import { Utils } from '../../../shared/utils/utils';
 import { Constants } from '../../../shared/utils/constants';
 import { LookupsService } from '../../../shared/api/lookups.service';
+import { GameModel } from '../../../shared/models/game.model';
+import { TeamModel } from '../../../shared/models/team.mode';
+import { PetModel } from '../../../shared/models/pet.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
 
 @Component({
   selector: 'app-team-details-dialog',
@@ -16,18 +20,16 @@ export class TeamDetailsDialogComponent implements OnInit {
 
   readonly UNKNOWN_IMG = Constants.images.unknown;
 
-  teamCode: any = null;
-  teamIndex: any = null;
+  teamCode!: string;
+  teamIndex!: any;
 
   characterPFPSize: number = 160;
   petPFPSize: number = 80;
-  activeGame: any = null;
-  team: any = null;
-  teamId: any = null;
-  petmd: any = null;
-  petRarityMd: any = null;
-
-  dummyCharactersList: any[] = [];
+  activeGame!: GameModel;
+  team!: TeamModel;
+  teamId!: string;
+  petmd: PetModel | null = null;
+  petRarityMd: LookupModel | null = null;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -44,13 +46,12 @@ export class TeamDetailsDialogComponent implements OnInit {
     this.loadData();
   }
 
-  loadData() {
-    this.activeGame = this.gamesService.getActive();
+  loadData(): void {
+    this.activeGame = this.gamesService.getActive()!;
     this.team = this.teamsService.getOne(this.teamCode);
     this.petmd = this.petsService.getOne(this.team.pet);
     this.petRarityMd = this.lookupsService.getOne(this.petmd.rarity, Constants.lookupType.RARITY);
     this.teamId = `${this.activeGame.code}-${this.team.code}`;
-    this.dummyCharactersList = Array(this.activeGame.teamSize);
     if (this.isMobile()) {
       this.petPFPSize *= 0.7;
     }

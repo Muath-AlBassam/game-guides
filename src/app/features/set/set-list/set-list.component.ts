@@ -3,6 +3,12 @@ import { SetsService } from '../../../shared/api/sets.service';
 import { GameUtils } from '../../../shared/utils/game-utils';
 import { Utils } from '../../../shared/utils/utils';
 import { GamesService } from '../../../shared/api/games.service';
+import { SetModel } from '../../../shared/models/set.model';
+
+interface SetByTypeModel {
+  type: string;
+  sets: SetModel[];
+}
 
 @Component({
   selector: 'app-set-list',
@@ -11,14 +17,14 @@ import { GamesService } from '../../../shared/api/games.service';
 })
 export class SetListComponent implements OnInit {
 
-  allSets: any[] = [];
-  setByType: Map<any, any> = new Map();
-  setByTypeList: any[] = [];
+  allSets: SetModel[] = [];
+  setByType: Map<string, SetModel[]> = new Map();
+  setByTypeList: SetByTypeModel[] = [];
   count: number = 0;
 
   setsLabel = '';
   // search
-  textValue: any = '';
+  textValue: string = '';
 
   constructor(
     private setsService: SetsService,
@@ -26,22 +32,22 @@ export class SetListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const gameCode = this.gamesService.getActive().code;
+    const gameCode = this.gamesService.getActive()!.code;
     this.setsLabel = GameUtils.getSetsLabel(gameCode);
     this.loadSets();
     this.formatSetList(this.allSets);
   }
 
-  loadSets() {
+  loadSets(): void {
     this.allSets = this.setsService.getAll();
   }
 
-  onTextChange(val: string) {
+  onTextChange(val: string): void {
     this.textValue = val;
     this.filterList();
   }
 
-  filterList() {
+  filterList(): void {
     this.count = 0;
     let filtered = this.allSets.filter(s => {
       return s.name.toLowerCase().includes(this.textValue.toLowerCase());
@@ -49,9 +55,12 @@ export class SetListComponent implements OnInit {
     this.formatSetList(filtered);
   }
 
-  formatSetList(setList: any[]) {
+  formatSetList(setList: SetModel[]): void {
     this.setByType = Utils.groupBy(setList, 'type');
     this.setByType.forEach((v, k) => this.count += v.length);
-    this.setByTypeList = Array.from(this.setByType);
+    this.setByTypeList = Array.from(
+      this.setByType,
+      ([type, sets]) => ({ type, sets })
+    );
   }
 }

@@ -52,8 +52,8 @@
           <ng-option [value]="tag.code">
             <span
               class="badge hover pointer team-badge"
-              [ngClass]="{ 'bg-secondary': !tag.style }"
-              [style]="tag.style">
+              [ngClass]="{ 'bg-secondary': !tag['style'] }"
+              [style]="tag['style']">
               {{ tag.label }}
             </span>
           </ng-option>

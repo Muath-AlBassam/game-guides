@@ -39,8 +39,8 @@
         <div class="row">
           @for (weapon of buildmd.weapons; track weapon.name) {
             <div [ngClass]="{
-              'col-md-6': !isMobile() && this.buildmd?.weapons?.length > 1,
-              'col-md-12': isMobile() || this.buildmd?.weapons?.length == 1,
+              'col-md-6': !isMobile() && this.buildmd.weapons.length > 1,
+              'col-md-12': isMobile() || this.buildmd.weapons.length == 1,
             }">
               <app-weapon-details
                 [weaponName]="weapon.name"
@@ -56,8 +56,8 @@
         <div class="row">
           @for (set of buildmd.sets; track set.name) {
             <div [ngClass]="{
-              'col-md-6': !isMobile() && this.buildmd?.weapons?.length > 2,
-              'col-md-12': isMobile() || this.buildmd?.weapons?.length <= 2,
+              'col-md-6': !isMobile() && this.buildmd.weapons.length > 2,
+              'col-md-12': isMobile() || this.buildmd.weapons.length <= 2,
             }">
               <app-set-details [setName]="set.name" [equippedPieces]="set.equippedPieces">
               </app-set-details>

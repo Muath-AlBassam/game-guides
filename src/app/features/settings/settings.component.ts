@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  viewTextFormatterPopup() {
+  viewTextFormatterPopup(): void {
     this.dialogService.openTextFormatterDialog();
   }
 }

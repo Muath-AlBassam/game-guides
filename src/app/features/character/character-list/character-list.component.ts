@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharactersService } from '../../../shared/api/characters.service';
+import { CharacterModel } from '../../../shared/models/character.model';
 
 @Component({
   selector: 'app-character-list',
@@ -8,14 +9,14 @@ import { CharactersService } from '../../../shared/api/characters.service';
 })
 export class CharacterListComponent implements OnInit {
 
-  allCharacters: any[] = [];
-  characters: any[] = [];
+  allCharacters: CharacterModel[] = [];
+  characters: CharacterModel[] = [];
 
   // search
-  textValue: any = '';
-  rarityValue: any = '';
-  elementValue: any = [];
-  typeValue: any = '';
+  textValue: string = '';
+  rarityValue: string = '';
+  elementValue: string[] = [];
+  typeValue: string = '';
 
   viewType: 'cards' | 'pfp' | 'details' = 'details';
   viewTypeList: any[] = [
@@ -30,32 +31,32 @@ export class CharacterListComponent implements OnInit {
     this.loadCharacters();
   }
 
-  loadCharacters() {
+  loadCharacters(): void {
     this.allCharacters = this.charactersService.getAll();
     this.characters = this.allCharacters;
   }
 
-  onTextChange(val: string) {
+  onTextChange(val: string): void {
     this.textValue = val;
     this.filterList();
   }
 
-  onRarityChange(val: string) {
+  onRarityChange(val: string): void {
     this.rarityValue = val;
     this.filterList();
   }
 
-  onElementChange(val: string[]) {
+  onElementChange(val: string[]): void {
     this.elementValue = val;
     this.filterList();
   }
 
-  onTypeChange(val: string) {
+  onTypeChange(val: string): void {
     this.typeValue = val;
     this.filterList();
   }
 
-  filterList() {
+  filterList(): void {
     this.characters = this.allCharacters.filter(c => {
       let filterByName = this.textValue ? c.name.toLowerCase().includes(this.textValue.toLowerCase()) : true;
       let filterByRarity = this.rarityValue ? c.rarity == this.rarityValue : true;
@@ -65,7 +66,7 @@ export class CharacterListComponent implements OnInit {
     });
   }
 
-  onReset() {
+  onReset(): void {
     this.textValue = '';
     this.rarityValue = '';
     this.elementValue = [];

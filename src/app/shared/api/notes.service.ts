@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
+import { NoteModel } from '../models/note.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
 
-  notesList: any[] = [];
+  notesList: NoteModel[] = [];
 
-  constructor(private dataClient: DataClientService, private store: StoreService) {
+  constructor(
+    private dataClient: DataClientService,
+    private store: StoreService
+  ) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
   }
 
-  private fetchData() {
+  private fetchData(): void {
     this.dataClient.loadData('NOTES').then(notes => {
       const flatList = notes.map((n: any) => ({
         gameCode: n.GAME_CODE, ownerCode: n.OWNER_CODE, ownerType: n.OWNER_TYPE, text: n.TEXT
@@ -34,15 +38,17 @@ export class NotesService {
     });
   }
 
-  getAllByOwnerType(type: any) {
+  getAllByOwnerType(type: string): { text: string }[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerType == type);
-    return data ? data.notes : null;
+    const data = this.notesList
+      .find(n => n.gameCode == gameCode && n.ownerType == type);
+    return data ? data.notes : [];
   }
 
-  getAllByOwnerTypeAndCode(type: any, teamCode: any) {
+  getAllByOwnerTypeAndCode(type: string, teamCode: string): { text: string }[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == type);
-    return data ? data.notes : null;
+    const data = this.notesList
+      .find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == type);
+    return data ? data.notes : [];
   }
 }

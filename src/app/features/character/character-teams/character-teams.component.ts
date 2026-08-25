@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from '../../../shared/api/teams.service';
 import { Utils } from '../../../shared/utils/utils';
+import { TeamModel } from '../../../shared/models/team.mode';
 
 @Component({
   selector: 'app-character-teams',
@@ -9,9 +10,9 @@ import { Utils } from '../../../shared/utils/utils';
 })
 export class CharacterTeamsComponent implements OnInit {
 
-  @Input() character: any = null;
+  @Input() character!: any;
 
-  teams: any[] = [];
+  teams: TeamModel[] = [];
 
   constructor(private teamsService: TeamsService) { }
 
@@ -19,7 +20,7 @@ export class CharacterTeamsComponent implements OnInit {
     this.loadTeams();
   }
 
-  loadTeams() {
+  loadTeams(): void {
     this.teams = this.teamsService.getAllByCharacter(this.character);
   }
 

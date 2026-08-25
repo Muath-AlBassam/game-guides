@@ -15,10 +15,10 @@
     <!-- Image -->
     <div
       class="set-image"
-      [style]="rarity?.backgroundStyle">
+      [style]="rarity ? rarity['backgroundStyle'] : ''">
 
       <img
-        [src]="set.imageUrl ?? UNKNOWN_IMG"
+        [src]="set.imageUrl"
         [width]="dimensions"
         [height]="dimensions"
         alt="" />

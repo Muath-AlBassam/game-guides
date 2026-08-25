@@ -16,15 +16,15 @@
 
 @if (setByType && setByType.size > 0) {
   <div id="sets-container">
-    @for (category of setByTypeList; track category[0]) {
+    @for (category of setByTypeList; track category.type) {
       <div class="row">
         @if (setByType.size > 1) {
           <div class="line-text set-type-name">
-            {{ category[0] }} <!-- key -->
+            {{ category.type }}
           </div>
         }
 
-        @for (set of category[1]; track set.code) { <!-- value -->
+        @for (set of category.sets; track set.code) {
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3">
             <app-set-details
               [setName]="set.name"

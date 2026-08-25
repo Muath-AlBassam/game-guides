@@ -4,6 +4,23 @@ import { CharactersService } from '../../../shared/api/characters.service';
 import { Constants } from '../../../shared/utils/constants';
 import { DialogService } from '../../../shared/services/dialog.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
+import { CharacterModel } from '../../../shared/models/character.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
+
+interface CharacterDetailsModel {
+  gameCode: string;
+  code: string;
+  name: string;
+  imageUrl: string | undefined;
+  cardImageUrl: string | undefined;
+  element: LookupModel;
+  type: LookupModel;
+  rarity: LookupModel;
+  enhanced: boolean;
+  skillDescriptionList: string[];
+  imageList: string[];
+  currentImageIndex: number;
+}
 
 @Component({
   selector: 'app-character-image',
@@ -15,9 +32,9 @@ export class CharacterImageComponent implements OnInit {
   readonly TRANSPARENT_IMG = Constants.images.transparent;
   readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
 
-  @Input() characterName: any = null;
-  @Input() styles: any = '';
-  @Input() classes: any = '';
+  @Input() characterName!: string;
+  @Input() styles: string = '';
+  @Input() classes: string = '';
   @Input() enableDetailsDialog: boolean = false;
   @Input() showBackgroundStyle: boolean = true;
   @Input() showBorderStyle: boolean = false;
@@ -34,20 +51,7 @@ export class CharacterImageComponent implements OnInit {
   defaultCardDimensions: number = 219 / 160;
 
   charCount: number = 0;
-  charmdList: {
-    gameCode: any,
-    code: any,
-    name: any,
-    imageUrl: any,
-    cardImageUrl: any,
-    element: any,
-    type: any,
-    rarity: any,
-    enhanced: any,
-    skillDescriptionList: any[],
-    imageList: string[],
-    currentImageIndex: number
-  }[] = [];
+  charmdList: CharacterDetailsModel[] = [];
 
   constructor(
     private charactersService: CharactersService,
@@ -60,11 +64,11 @@ export class CharacterImageComponent implements OnInit {
     this.calculateDimensions();
   }
 
-  loadData() {
+  loadData(): void {
     let charNameList = this.characterName.split(',');
     this.charCount = charNameList.length;
     charNameList.forEach((cname: string) => {
-      const tempCharMd = this.charactersService.getOne(cname);
+      const tempCharMd: CharacterModel = this.charactersService.getOne(cname);
       this.charmdList.push({
         gameCode: tempCharMd.gameCode,
         code: tempCharMd.code,
@@ -82,35 +86,35 @@ export class CharacterImageComponent implements OnInit {
     });
   }
 
-  formatSkillDescriptionToList(char: any) {
+  formatSkillDescriptionToList(char: CharacterModel): string[] {
     if (char.skillDescription) {
       return char.skillDescription.split(' & ');
     }
     return [];
   }
 
-  get charmd() {
+  get charmd(): CharacterDetailsModel {
     return this.charmdList[0];
   }
 
-  calculateDimensions() {
+  calculateDimensions(): void {
     this.dimensions = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
     this.iconSize = Utils.isMobile() ? this.inputIconSize * this.mobileIconSizeRatio : this.inputIconSize;
     this.defaultCardDimensions = 219 / 160;
   }
 
-  openCharacterDetailsDialog(character: any) {
+  openCharacterDetailsDialog(character: string): void {
     if (this.enableDetailsDialog) {
       this.dialogService.openCharacterDetailsDialog(character);
     }
   }
 
   // gallery
-  nextGalleryImage( char: any, event?: Event) {
+  nextGalleryImage(char: CharacterDetailsModel, event?: Event): void {
     event?.stopPropagation();
     char.currentImageIndex = (char.currentImageIndex + 1) % char.imageList.length;
   }
-  prevGalleryImage(char: any, event?: Event) {
+  prevGalleryImage(char: CharacterDetailsModel, event?: Event): void {
     event?.stopPropagation();
     char.currentImageIndex = (char.currentImageIndex - 1 + char.imageList.length) % char.imageList.length;
   }

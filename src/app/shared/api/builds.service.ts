@@ -2,22 +2,26 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
+import { BuildFlatModel, BuildModel } from '../models/build.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BuildsService {
 
-  buildsList: any[] = [];
-  flatList: any[] = [];
+  buildsList: BuildModel[] = [];
+  flatList: BuildFlatModel[] = [];
 
-  constructor(private dataClient: DataClientService, private store: StoreService) {
+  constructor(
+    private dataClient: DataClientService,
+    private store: StoreService
+  ) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
   }
 
-  private fetchData() {
+  private fetchData(): void {
     this.dataClient.loadData('BUILDS').then(builds => {
       this.flatList = builds.map((b: any) => ({
         gameCode: b.GAME_CODE,
@@ -33,29 +37,36 @@ export class BuildsService {
         this.buildsList.push({
           gameCode: val[0].gameCode,
           character: val[0].character,
-          weapons: val.filter((w: any) => w.type === 'WEAPON')?.map((w: any) => ({ name: w.name })),
-          sets: val.filter((s: any) => s.type === 'SET')?.map((s: any) => ({ name: s.name, equippedPieces: String(s.equippedPieces) }))
+          weapons: val
+            .filter((w: any) => w.type === 'WEAPON')
+            ?.map((w: any) => ({ name: w.name })),
+          sets: val
+            .filter((s: any) => s.type === 'SET')
+            ?.map((s: any) => ({ name: s.name, equippedPieces: String(s.equippedPieces) }))
         });
       });
     });
   }
 
-  getByCharacter(characterName: any) {
+  getByCharacter(characterName: string): BuildModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    return this.buildsList.find(b => b.gameCode == gameCode && b.character == characterName);
+    return this.buildsList
+      .find(b => b.gameCode == gameCode && b.character == characterName);
   }
 
-  getEquippedBy(name: any, type: 'WEAPON' | 'SET') {
+  getEquippedBy(name: string, type: 'WEAPON' | 'SET'): string[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.flatList
       .filter(b => b.gameCode == gameCode && b.type == type && b.name == name)
       .map(b => b.character);
   }
 
+  /*
   countBySet(set: any) {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.flatList
       .filter(b => b.gameCode == gameCode && b.type == 'SET' && b.name == set)
       .length;
   }
+  */
 }

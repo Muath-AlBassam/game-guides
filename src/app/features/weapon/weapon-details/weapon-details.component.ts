@@ -5,6 +5,8 @@ import { Constants } from '../../../shared/utils/constants';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { BuildsService } from '../../../shared/api/builds.service';
 import { Utils } from '../../../shared/utils/utils';
+import { WeaponModel } from '../../../shared/models/weapon.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
 
 @Component({
   selector: 'app-weapon-details',
@@ -14,18 +16,17 @@ import { Utils } from '../../../shared/utils/utils';
 export class WeaponDetailsComponent implements OnInit {
 
   readonly UUID = Utils.generateUUID();
-  readonly UNKNOWN_IMG = Constants.images.unknown;
 
-  @Input() weaponName: any = null;
+  @Input() weaponName!: string;
   @Input() showAdditionalInfo: boolean = true;
   @Input() showEquippedBy: boolean = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
   @Input() dimensions: number = 80;
   @Input() backgroundStyle: 'solid' | 'fade' = 'solid';
 
-  weapon: any = null;
-  rarity: any = null;
-  type: any = null;
+  weapon!: WeaponModel;
+  rarity!: LookupModel;
+  type!: LookupModel;
   equippedCharacters: any[] = [];
 
   constructor(
@@ -44,14 +45,14 @@ export class WeaponDetailsComponent implements OnInit {
     this.loadEquippedBy();
   }
 
-  private loadBasicData() {
+  private loadBasicData(): void {
     this.weapon = this.weaponsService.getOne(this.weaponName);
     this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.weapon.gameCode);
     this.rarity = this.lookupsService.getOne(this.weapon.rarity, Constants.lookupType.RARITY);
     this.type = this.lookupsService.getOne(this.weapon.type, Constants.lookupType.TYPE);
   }
 
-  loadEquippedBy() {
+  loadEquippedBy(): void {
     if (this.showEquippedBy) {
       this.equippedCharacters = this.buildsService.getEquippedBy(this.weaponName, 'WEAPON');
     }
@@ -65,7 +66,7 @@ export class WeaponDetailsComponent implements OnInit {
     if (!this.rarity || this.backgroundStyle !== 'solid') {
       return '';
     }
-    return this.rarity.backgroundStyle ?? '';
+    return this.rarity['backgroundStyle'] ? (this.rarity['backgroundStyle'] as string) : '';
   }
 
   get hasPopoverEffect(): boolean {

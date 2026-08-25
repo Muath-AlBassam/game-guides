@@ -9,7 +9,10 @@ import { DialogService } from '../../shared/services/dialog.service';
 })
 export class GameGuidesComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private dialogService: DialogService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.reOpenDialog();

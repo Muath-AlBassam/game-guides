@@ -5,6 +5,13 @@ import { Constants } from '../../shared/utils/constants';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BusService } from '../../shared/services/bus.service';
+import { GameModel } from '../../shared/models/game.model';
+
+interface RouteItem {
+  label: string;
+  path: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-nav',
@@ -13,11 +20,11 @@ import { BusService } from '../../shared/services/bus.service';
 })
 export class NavComponent implements OnInit {
 
-  activeGame: any = null;
+  activeGame: GameModel | undefined = undefined;
   gameBackgroundUrl: string | null = null;
 
   sidebarActive: boolean = false;
-  routesList: any[] = [];
+  routesList: RouteItem[] = [];
 
   constructor(
     private router: Router,
@@ -48,7 +55,7 @@ export class NavComponent implements OnInit {
     }
   }
 
-  generateRoutesList() {
+  generateRoutesList(): void {
     let gameStyle = this.activeGame?.style ?? Constants.gameStyles.NONE;
     this.routesList = [];
     if (this.activeGame) {
@@ -62,7 +69,7 @@ export class NavComponent implements OnInit {
     }
   }
 
-  getCharactersRoute() {
+  getCharactersRoute(): RouteItem {
     return {
       label: 'Characters',
       path: '/' + this.activeGame?.code + '/characters',
@@ -70,7 +77,7 @@ export class NavComponent implements OnInit {
     };
   }
 
-  getTeamsRoute() {
+  getTeamsRoute(): RouteItem {
     return {
       label: 'Teams',
       path: '/' + this.activeGame?.code + '/teams',
@@ -78,7 +85,7 @@ export class NavComponent implements OnInit {
     };
   }
 
-  getWeaponsRoute() {
+  getWeaponsRoute(): RouteItem {
     return {
       label: GameUtils.getWeaponsLabel(this.activeGame?.code),
       path: '/' + this.activeGame?.code + '/weapons',
@@ -86,7 +93,7 @@ export class NavComponent implements OnInit {
     };
   }
 
-  getSetsRoute() {
+  getSetsRoute(): RouteItem {
     return {
       label: GameUtils.getSetsLabel(this.activeGame?.code),
       path: '/' + this.activeGame?.code + '/sets',
@@ -94,7 +101,7 @@ export class NavComponent implements OnInit {
     };
   }
 
-  getNotesRoute() {
+  getNotesRoute(): RouteItem {
     return {
       label: 'Notes',
       path: '/' + this.activeGame?.code + '/notes',

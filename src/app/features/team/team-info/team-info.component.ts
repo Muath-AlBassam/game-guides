@@ -3,6 +3,8 @@ import { TeamsService } from '../../../shared/api/teams.service';
 import { DialogService } from '../../../shared/services/dialog.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
+import { TeamModel } from '../../../shared/models/team.mode';
+import { LookupModel } from '../../../shared/models/lookup.model';
 
 @Component({
   selector: 'app-team-info',
@@ -11,17 +13,17 @@ import { Constants } from '../../../shared/utils/constants';
 })
 export class TeamInfoComponent implements OnInit {
 
-  @Input() teamCode: any = null;
+  @Input() teamCode!: string;
   @Input() characterMobileSizeRation: number = 0.7;
   @Input() nameStyle: 'side' | 'top' = 'side';
   @Input() showTags: boolean = false;
 
-  team: any = null;
+  team!: TeamModel;
 
   characterPFPSize: number = 100;
 
-  allTags: any[] = [];
-  teamTags: any[] = [];
+  allTags: LookupModel[] = [];
+  teamTags: LookupModel[] = [];
 
   constructor(
     private teamsService: TeamsService,
@@ -34,18 +36,22 @@ export class TeamInfoComponent implements OnInit {
     this.setTeamTags();
   }
 
-  loadTeam() {
+  loadTeam(): void {
     this.team = this.teamsService.getOne(this.teamCode);
   }
 
-  setTeamTags() {
+  setTeamTags(): void {
     if (this.showTags) {
       this.allTags = this.lookupsService.getByType(Constants.lookupType.TAG);
-      this.teamTags = this.team?.tags?.map((tt: any) => this.allTags.find((at: any) => tt == at.code));
+      if (this.team && this.team.tags) {
+        this.teamTags = this.team.tags
+          .map((tt: any) => this.allTags.find((at: any) => tt == at.code))
+          .filter((t): t is LookupModel => t !== undefined);
+      }
     }
   }
 
-  openTeamDetailsDialog() {
+  openTeamDetailsDialog(): void {
     this.dialogService.openTeamDetailsDialog(this.teamCode);
   }
 

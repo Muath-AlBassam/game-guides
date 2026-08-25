@@ -10,7 +10,7 @@ import { Constants } from '../../../shared/utils/constants';
 })
 export class CharacterCombosComponent implements OnInit {
 
-  @Input() character: any = null;
+  @Input() character!: string;
   @Output() hasCombos: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   combos: any[] = [];
@@ -24,7 +24,7 @@ export class CharacterCombosComponent implements OnInit {
     this.loadCombos();
   }
 
-  loadCombos() {
+  loadCombos(): void {
     let combosButtons = this.combosService.getAllByCharacter(this.character);
     if (combosButtons) {
       this.combos = combosButtons.map((combo: any) => {
@@ -36,7 +36,7 @@ export class CharacterCombosComponent implements OnInit {
     this.hasCombos.emit(this.combos != null && this.combos.length > 0);
   }
 
-  getButtonImage(buttonCode: any) {
+  getButtonImage(buttonCode: string): string {
     return this.lookupsService.getOne(buttonCode, Constants.lookupType.BUTTON).imageUrl;
   }
 }

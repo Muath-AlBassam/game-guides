@@ -5,6 +5,8 @@ import { Constants } from '../../../shared/utils/constants';
 import { Utils } from '../../../shared/utils/utils';
 import { BuildsService } from '../../../shared/api/builds.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
+import { SetEffectModel, SetModel } from '../../../shared/models/set.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
 
 @Component({
   selector: 'app-set-details',
@@ -14,18 +16,17 @@ import { LookupsService } from '../../../shared/api/lookups.service';
 export class SetDetailsComponent implements OnInit {
 
   readonly UUID = Utils.generateUUID();
-  readonly UNKNOWN_IMG = Constants.images.unknown;
 
-  @Input() setName: string | null = null;
+  @Input() setName!: string;
   @Input() equippedPieces: string | null = null;
   @Input() showEquippedBy = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
-  @Input() dimensions = 80;
+  @Input() dimensions: number = 80;
   @Input() backgroundStyle: 'flat' | 'split' = 'split';
 
-  set: any = null;
-  setEffectsList: any[] = [];
-  rarity: any = null;
+  set!: SetModel;
+  setEffectsList: SetEffectModel[] = [];
+  rarity: LookupModel | null = null;
   equippedCharacters: string[] = [];
 
   constructor(
@@ -41,7 +42,7 @@ export class SetDetailsComponent implements OnInit {
     this.loadEquippedBy();
   }
 
-  loadBasicData() {
+  loadBasicData(): void {
     this.set = this.setsService.getOne(this.setName);
     this.rarity = this.lookupsService.getOne(this.set.rarity, Constants.lookupType.RARITY);
   }
@@ -52,23 +53,23 @@ export class SetDetailsComponent implements OnInit {
       return;
     }
     this.setEffectsList = this.filterSetEffects()
-      .map(effect => ({
-        ...effect,
-        formattedDescription: this.textUtils.colorize(
+      .map(effect => {
+        effect.formattedDescription = this.textUtils.colorize(
           effect.description,
           this.set!.gameCode
-        )
-      }));
+        );
+        return effect;
+      });
   }
 
-  private filterSetEffects(): any[] {
+  private filterSetEffects(): SetEffectModel[] {
     if (!this.equippedPieces) {
       return this.set.effects;
     }
 
     const equippedPieces = this.equippedPieces.split(',')
 
-    return this.set.effects.filter((effect: any) =>
+    return this.set.effects.filter((effect: SetEffectModel) =>
       equippedPieces.some(equippedPieceCode => {
         if (Utils.isNumber(equippedPieceCode) && Utils.isNumber(effect.requiredPiece)) {
           return Number(effect.requiredPiece) <= Number(equippedPieceCode);
@@ -81,7 +82,7 @@ export class SetDetailsComponent implements OnInit {
     );
   }
 
-  private loadEquippedBy() {
+  private loadEquippedBy(): void {
     if (this.showEquippedBy) {
       this.equippedCharacters = this.buildsService.getEquippedBy(this.setName, 'SET');
     }

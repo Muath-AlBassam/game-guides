@@ -2,12 +2,12 @@
   <div class="game-header">
     <div class="title">
       <h1>
-        {{ activeGame?.label }}
+        {{ activeGame.label }}
       </h1>
       <sup>
-        @if (this.activeGame?.guideUrl) {
+        @if (this.activeGame.guideUrl) {
           <a
-            [href]="activeGame?.guideUrl"
+            [href]="activeGame.guideUrl"
             target="_blank"
             class="guide-url">
             <i class="fa fa-external-link"></i>
@@ -16,7 +16,7 @@
       </sup>
     </div>
     <div class="logo d-flex justify-content-end">
-      <img [height]="isMobile() ? '50' : '100'" [src]="activeGame?.logoUrl">
+      <img [height]="isMobile() ? '50' : '100'" [src]="activeGame.logoUrl">
     </div>
     <div class="game-background">
       <div
@@ -24,7 +24,7 @@
         [ngStyle]="{'background-image': 'url(' + activeGame.backgroundUrl + ')'}">
       </div>
       <div class="logo">
-        <img height="170" [src]="activeGame?.logoUrl">
+        <img height="170" [src]="activeGame.logoUrl">
       </div>
     </div>
   </div>

@@ -2,21 +2,25 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
+import { GameClass, GameModel } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
 
-  gamesList: any[] = [];
+  gamesList: GameModel[] = [];
 
-  constructor(private dataClient: DataClientService, private store: StoreService) {
+  constructor(
+    private dataClient: DataClientService,
+    private store: StoreService
+  ) {
     this.dataClient.sheetLoaded$.subscribe(res => {
       if (res) this.fetchData();
     });
   }
 
-  private fetchData() {
+  private fetchData(): void {
     this.dataClient.loadData('GAMES').then(games => {
       this.gamesList = games.map((g: any) => ({
         code: g.CODE,
@@ -34,12 +38,13 @@ export class GamesService {
     });
   }
 
-  getAll() {
+  getAll(): GameModel[] {
     return this.gamesList;
   }
 
-  getActive() {
+  getActive(): GameModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    return this.gamesList.find(g => g.code == gameCode);
+    return this.gamesList
+      .find(g => g.code == gameCode);
   }
 }

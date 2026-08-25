@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../../shared/api/games.service';
 import { Utils } from '../../../shared/utils/utils';
+import { GameModel } from '../../../shared/models/game.model';
 
 @Component({
   selector: 'app-game-header',
@@ -9,7 +10,7 @@ import { Utils } from '../../../shared/utils/utils';
 })
 export class GameHeaderComponent implements OnInit {
 
-  activeGame: any = null;
+  activeGame!: GameModel;
 
   constructor(private gameService: GamesService) { }
 
@@ -17,8 +18,8 @@ export class GameHeaderComponent implements OnInit {
     this.loadGame();
   }
 
-  loadGame() {
-    this.activeGame = this.gameService.getActive();
+  loadGame(): void {
+    this.activeGame = this.gameService.getActive()!;
   }
 
   isMobile(): boolean {
