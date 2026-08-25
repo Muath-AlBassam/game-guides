@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { GamesService } from '../../services/games.service';
-import { TeamsService } from '../../services/teams.service';
-import { PetsService } from '../../services/pets.service';
+import { GamesService } from '../../shared/api/games.service';
+import { TeamsService } from '../../shared/api/teams.service';
+import { PetsService } from '../../shared/api/pets.service';
 import { Utils } from '../../shared/utils/utils';
 import { Constants } from '../../shared/utils/constants';
-import { LookupsService } from '../../services/lookups.service';
+import { LookupsService } from '../../shared/api/lookups.service';
 
 @Component({
   selector: 'app-team-details-dialog',

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Utils } from '../../shared/utils/utils';
-import { CharactersService } from '../../services/characters.service';
+import { CharactersService } from '../../shared/api/characters.service';
 import { Constants } from '../../shared/utils/constants';
 import { DialogService } from '../../shared/services/dialog.service';
-import { LookupsService } from '../../services/lookups.service';
+import { LookupsService } from '../../shared/api/lookups.service';
 
 @Component({
   selector: 'app-character-image',

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameUtils } from '../../shared/utils/game-utils';
-import { BuildsService } from '../../services/builds.service';
+import { BuildsService } from '../../shared/api/builds.service';
 import { Utils } from '../../shared/utils/utils';
 
 @Component({

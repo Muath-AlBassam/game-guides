@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamsService } from '../../services/teams.service';
-import { LookupsService } from '../../services/lookups.service';
+import { TeamsService } from '../../shared/api/teams.service';
+import { LookupsService } from '../../shared/api/lookups.service';
 import { Constants } from '../../shared/utils/constants';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LookupsService } from '../../services/lookups.service';
+import { LookupsService } from '../../shared/api/lookups.service';
 import { Constants } from '../../shared/utils/constants';
 
 @Component({

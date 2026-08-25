@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { WeaponsService } from '../../services/weapons.service';
+import { WeaponsService } from '../../shared/api/weapons.service';
 import { TextUtils } from '../../shared/utils/text-utils';
 import { Constants } from '../../shared/utils/constants';
-import { LookupsService } from '../../services/lookups.service';
-import { BuildsService } from '../../services/builds.service';
+import { LookupsService } from '../../shared/api/lookups.service';
+import { BuildsService } from '../../shared/api/builds.service';
 import { Utils } from '../../shared/utils/utils';
 
 @Component({

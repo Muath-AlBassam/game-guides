@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
-import { Utils } from '../shared/utils/utils';
-import { StoreKeys, StoreService } from '../shared/services/store.service';
+import { Utils } from '../utils/utils';
+import { StoreKeys, StoreService } from '../services/store.service';
 
 @Injectable({
   providedIn: 'root'

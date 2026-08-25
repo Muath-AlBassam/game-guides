@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotesService } from '../../services/notes.service';
+import { NotesService } from '../../shared/api/notes.service';
 import { TextUtils } from '../../shared/utils/text-utils';
 
 @Component({

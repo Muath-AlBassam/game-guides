@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { LookupsService } from '../../../services/lookups.service';
+import { LookupsService } from '../../api/lookups.service';
 import { Constants } from '../../utils/constants';
 
 @Component({

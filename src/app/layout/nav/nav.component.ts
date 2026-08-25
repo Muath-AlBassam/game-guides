@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GamesService } from '../../services/games.service';
+import { GamesService } from '../../shared/api/games.service';
 import { GameUtils } from '../../shared/utils/game-utils';
 import { Constants } from '../../shared/utils/constants';
 import { NavigationEnd, Router } from '@angular/router';

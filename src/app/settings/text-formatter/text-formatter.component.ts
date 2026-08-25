@@ -2,7 +2,7 @@ import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../../shared/utils/constants';
 import { TextUtils } from '../../shared/utils/text-utils';
-import { GamesService } from '../../services/games.service';
+import { GamesService } from '../../shared/api/games.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Utils } from '../../shared/utils/utils';
 

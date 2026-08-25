@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WeaponsService } from '../../services/weapons.service';
+import { WeaponsService } from '../../shared/api/weapons.service';
 import { GameUtils } from '../../shared/utils/game-utils';
-import { GamesService } from '../../services/games.service';
+import { GamesService } from '../../shared/api/games.service';
 
 @Component({
   selector: 'app-weapon-list',

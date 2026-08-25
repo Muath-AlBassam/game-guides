@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CharactersService } from '../../services/characters.service';
+import { CharactersService } from '../../shared/api/characters.service';
 
 @Component({
   selector: 'app-character-list',

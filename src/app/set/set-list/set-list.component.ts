@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SetsService } from '../../services/sets.service';
+import { SetsService } from '../../shared/api/sets.service';
 import { GameUtils } from '../../shared/utils/game-utils';
 import { Utils } from '../../shared/utils/utils';
-import { GamesService } from '../../services/games.service';
+import { GamesService } from '../../shared/api/games.service';
 
 @Component({
   selector: 'app-set-list',

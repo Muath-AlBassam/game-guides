@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { CharactersService } from '../../services/characters.service';
+import { CharactersService } from '../../shared/api/characters.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Utils } from '../../shared/utils/utils';
 

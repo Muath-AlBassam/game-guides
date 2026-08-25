@@ -1,10 +1,10 @@
 import { Component, Input, OnInit,} from '@angular/core';
-import { SetsService } from '../../services/sets.service';
+import { SetsService } from '../../shared/api/sets.service';
 import { TextUtils } from '../../shared/utils/text-utils';
 import { Constants } from '../../shared/utils/constants';
 import { Utils } from '../../shared/utils/utils';
-import { BuildsService } from '../../services/builds.service';
-import { LookupsService } from '../../services/lookups.service';
+import { BuildsService } from '../../shared/api/builds.service';
+import { LookupsService } from '../../shared/api/lookups.service';
 
 @Component({
   selector: 'app-set-details',

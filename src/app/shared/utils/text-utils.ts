@@ -1,5 +1,5 @@
 import { DomSanitizer } from "@angular/platform-browser";
-import { CharactersService } from "../../services/characters.service";
+import { CharactersService } from "../api/characters.service";
 import { Constants } from "./constants";
 import { Utils } from "./utils";
 import { Injectable } from "@angular/core";
