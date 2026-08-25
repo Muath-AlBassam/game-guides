@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-game-header',

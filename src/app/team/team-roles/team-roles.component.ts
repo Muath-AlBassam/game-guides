@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LookupsService } from '../../services/lookups.service';
-import { Constants } from '../../utils/constants';
+import { Constants } from '../../shared/utils/constants';
 
 @Component({
   selector: 'app-team-roles',

@@ -1,5 +1,5 @@
 import { DomSanitizer } from "@angular/platform-browser";
-import { CharactersService } from "../services/characters.service";
+import { CharactersService } from "../../services/characters.service";
 import { Constants } from "./constants";
 import { Utils } from "./utils";
 import { Injectable } from "@angular/core";
@@ -9,7 +9,10 @@ import { Injectable } from "@angular/core";
 })
 export class TextUtils {
 
-  constructor(private charactersService: CharactersService, private sanitizer: DomSanitizer) {}
+  constructor(
+    private charactersService: CharactersService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   private isGI = (gameCode: string): boolean => gameCode == Constants.games.GI;
   private isHSR = (gameCode: string): boolean => gameCode == Constants.games.HSR;

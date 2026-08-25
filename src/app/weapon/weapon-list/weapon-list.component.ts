@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeaponsService } from '../../services/weapons.service';
-import { GameUtils } from '../../utils/game-utils';
+import { GameUtils } from '../../shared/utils/game-utils';
 import { GamesService } from '../../services/games.service';
 
 @Component({

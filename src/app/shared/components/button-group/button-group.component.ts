@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Utils } from '../../../utils/utils';
-import { BrowserModule } from "@angular/platform-browser";
+import { Utils } from '../../utils/utils';
 
 @Component({
   selector: 'app-button-group',

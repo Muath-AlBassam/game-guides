@@ -12,7 +12,7 @@ import { WeaponsService } from './services/weapons.service';
 import { LookupsService } from './services/lookups.service';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { Constants } from './utils/constants';
+import { Constants } from './shared/utils/constants';
 import { StoreKeys, StoreService } from './services/store.service';
 
 @Component({

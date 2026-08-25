@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { WeaponsService } from '../../services/weapons.service';
-import { TextUtils } from '../../utils/text-utils';
-import { Constants } from '../../utils/constants';
+import { TextUtils } from '../../shared/utils/text-utils';
+import { Constants } from '../../shared/utils/constants';
 import { LookupsService } from '../../services/lookups.service';
 import { BuildsService } from '../../services/builds.service';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-weapon-details',

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CombosService } from '../../services/combos.service';
 import { LookupsService } from '../../services/lookups.service';
-import { Constants } from '../../utils/constants';
+import { Constants } from '../../shared/utils/constants';
 
 @Component({
   selector: 'app-character-combos',

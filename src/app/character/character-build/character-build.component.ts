@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GameUtils } from '../../utils/game-utils';
+import { GameUtils } from '../../shared/utils/game-utils';
 import { BuildsService } from '../../services/builds.service';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-character-build',

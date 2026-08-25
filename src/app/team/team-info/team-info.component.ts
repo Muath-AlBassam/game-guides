@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
 import { DialogService } from '../../services/dialog.service';
 import { LookupsService } from '../../services/lookups.service';
-import { Constants } from '../../utils/constants';
+import { Constants } from '../../shared/utils/constants';
 
 @Component({
   selector: 'app-team-info',

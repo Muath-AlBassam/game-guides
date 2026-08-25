@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SetsService } from '../../services/sets.service';
-import { GameUtils } from '../../utils/game-utils';
-import { Utils } from '../../utils/utils';
+import { GameUtils } from '../../shared/utils/game-utils';
+import { Utils } from '../../shared/utils/utils';
 import { GamesService } from '../../services/games.service';
 
 @Component({

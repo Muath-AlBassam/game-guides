@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
-import { TextUtils } from '../../utils/text-utils';
+import { TextUtils } from '../../shared/utils/text-utils';
 
 @Component({
   selector: 'app-game-notes',

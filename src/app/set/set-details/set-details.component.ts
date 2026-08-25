@@ -1,8 +1,8 @@
 import { Component, Input, OnInit,} from '@angular/core';
 import { SetsService } from '../../services/sets.service';
-import { TextUtils } from '../../utils/text-utils';
-import { Constants } from '../../utils/constants';
-import { Utils } from '../../utils/utils';
+import { TextUtils } from '../../shared/utils/text-utils';
+import { Constants } from '../../shared/utils/constants';
+import { Utils } from '../../shared/utils/utils';
 import { BuildsService } from '../../services/builds.service';
 import { LookupsService } from '../../services/lookups.service';
 

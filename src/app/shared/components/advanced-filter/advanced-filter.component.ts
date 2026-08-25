@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LookupsService } from '../../../services/lookups.service';
-import { Constants } from '../../../utils/constants';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-advanced-filter',

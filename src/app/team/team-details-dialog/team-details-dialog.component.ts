@@ -3,8 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GamesService } from '../../services/games.service';
 import { TeamsService } from '../../services/teams.service';
 import { PetsService } from '../../services/pets.service';
-import { Utils } from '../../utils/utils';
-import { Constants } from '../../utils/constants';
+import { Utils } from '../../shared/utils/utils';
+import { Constants } from '../../shared/utils/constants';
 import { LookupsService } from '../../services/lookups.service';
 
 @Component({

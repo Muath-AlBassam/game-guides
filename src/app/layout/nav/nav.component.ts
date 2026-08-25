@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
-import { GameUtils } from '../../utils/game-utils';
-import { Constants } from '../../utils/constants';
+import { GameUtils } from '../../shared/utils/game-utils';
+import { Constants } from '../../shared/utils/constants';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { BusService } from '../../services/bus.service';

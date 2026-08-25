@@ -1,10 +1,10 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Constants } from '../../utils/constants';
-import { TextUtils } from '../../utils/text-utils';
+import { Constants } from '../../shared/utils/constants';
+import { TextUtils } from '../../shared/utils/text-utils';
 import { GamesService } from '../../services/games.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-text-formatter',

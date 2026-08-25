@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from '../../services/teams.service';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-character-teams',

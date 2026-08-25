@@ -1,5 +1,5 @@
-import { environment } from '../../environments/environment';
-import { Constants } from './constants';
+import { environment } from '../../../environments/environment';
+import { Constants } from '../utils/constants';
 
 export class Utils {
 

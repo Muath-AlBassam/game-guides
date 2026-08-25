@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-character-details-dialog',

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../../shared/utils/utils';
 import { CharactersService } from '../../services/characters.service';
-import { Constants } from '../../utils/constants';
+import { Constants } from '../../shared/utils/constants';
 import { DialogService } from '../../services/dialog.service';
 import { LookupsService } from '../../services/lookups.service';
 
