@@ -69,13 +69,13 @@ export class SetDetailsComponent implements OnInit {
     const equippedPieces = this.equippedPieces.split(',')
 
     return this.set.effects.filter((effect: any) =>
-      equippedPieces.some(pieceCode => {
-        if (Utils.isNumber(pieceCode) && Utils.isNumber(effect.requiredPiece)) {
-          return Number(effect.requiredPiece) <= Number(pieceCode);
+      equippedPieces.some(equippedPieceCode => {
+        if (Utils.isNumber(equippedPieceCode) && Utils.isNumber(effect.requiredPiece)) {
+          return Number(effect.requiredPiece) <= Number(equippedPieceCode);
         } else if (Utils.isNumber(effect.requiredPiece)) {
           return Number(effect.requiredPiece) <= equippedPieces.length;
         } else {
-          return effect.requiredPiece === pieceCode;
+          return effect.requiredPiece === equippedPieceCode;
         }
       })
     );

@@ -15,6 +15,7 @@ export class TeamInfoComponent implements OnInit {
   @Input() characterMobileSizeRation: number = 0.7;
   @Input() nameStyle: 'side' | 'top' = 'side';
   @Input() showTags: boolean = false;
+
   team: any = null;
 
   characterPFPSize: number = 100;
@@ -22,7 +23,11 @@ export class TeamInfoComponent implements OnInit {
   allTags: any[] = [];
   teamTags: any[] = [];
 
-  constructor(private teamsService: TeamsService, private dialogService: DialogService, private lookupsService: LookupsService) { }
+  constructor(
+    private teamsService: TeamsService,
+    private dialogService: DialogService,
+    private lookupsService: LookupsService
+  ) {}
 
   ngOnInit(): void {
     this.loadTeam();

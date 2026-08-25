@@ -25,11 +25,12 @@ export class CharacterImageComponent implements OnInit {
   @Input() showType: boolean = false;
   @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'details' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
+  @Input('iconSize') inputIconSize: number = 26;
   @Input() mobileSizeRatio: number = 1; // 100%
   @Input() mobileIconSizeRatio: number = 1; // 100%
 
-  dimensions: number = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
-  iconSize: number = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
+  dimensions: number = 100;
+  iconSize: number = 26;
   defaultCardDimensions: number = 219 / 160;
 
   charCount: number = 0;
@@ -94,7 +95,7 @@ export class CharacterImageComponent implements OnInit {
 
   calculateDimensions() {
     this.dimensions = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
-    this.iconSize = Utils.isMobile() ? 26 * this.mobileIconSizeRatio : 26;
+    this.iconSize = Utils.isMobile() ? this.inputIconSize * this.mobileIconSizeRatio : this.inputIconSize;
     this.defaultCardDimensions = 219 / 160;
   }
 

@@ -14,7 +14,10 @@ export class TeamNotesComponent implements OnInit {
   notes: any[] = [];
   formattedNotes: any[] = [];
 
-  constructor(private notesService: NotesService, private textUtils: TextUtils) { }
+  constructor(
+    private notesService: NotesService,
+    private textUtils: TextUtils
+  ) {}
 
   ngOnInit(): void {
     this.loadNotes();

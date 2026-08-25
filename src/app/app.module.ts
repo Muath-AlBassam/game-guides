@@ -34,7 +34,6 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { ButtonGroupComponent } from './shared/components/button-group/button-group.component';
 import { SearchComponent } from './shared/components/search/search.component';
 import { AdvancedFilterComponent } from './shared/components/advanced-filter/advanced-filter.component';
-import { NotesPopoverComponent } from './shared/components/notes-popover/notes-popover.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TextFormatterComponent } from './settings/text-formatter/text-formatter.component';
 import { FormsModule } from '@angular/forms';
@@ -74,7 +73,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ButtonGroupComponent,
     SearchComponent,
     AdvancedFilterComponent,
-    NotesPopoverComponent,
     SettingsComponent,
     TextFormatterComponent,
     GameNotesComponent,

@@ -25,8 +25,12 @@ export class TextFormatterComponent implements OnInit {
   // formatsList: any[] = [];
   groupedFormatsList: any[] = [];
 
-  constructor(private textUtils: TextUtils, private gamesService: GamesService, private sanitizer: DomSanitizer,
-              @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private textUtils: TextUtils,
+    private gamesService: GamesService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     this.games = this.gamesService.getAll();

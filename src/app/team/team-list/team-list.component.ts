@@ -19,7 +19,10 @@ export class TeamListComponent implements OnInit {
   textValue: any = '';
   tagValue: any[] = [];
 
-  constructor(private lookupsService: LookupsService, private teamsService: TeamsService) { }
+  constructor(
+    private lookupsService: LookupsService,
+    private teamsService: TeamsService
+  ) {}
 
   ngOnInit(): void {
     this.loadTeams();

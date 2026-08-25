@@ -29,8 +29,13 @@ export class TeamDetailsDialogComponent implements OnInit {
 
   dummyCharactersList: any[] = [];
 
-  constructor(private gamesService: GamesService, private teamsService: TeamsService, private petsService: PetsService,
-              private lookupsService: LookupsService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private gamesService: GamesService,
+    private teamsService: TeamsService,
+    private petsService: PetsService,
+    private lookupsService: LookupsService
+  ) {
     this.teamCode = data.teamCode;
     this.teamIndex = data.teamIndex;
   }

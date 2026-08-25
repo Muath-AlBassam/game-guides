@@ -19,7 +19,10 @@ export class WeaponListComponent implements OnInit {
   rarityValue: any = '';
   typeValue: any = '';
 
-  constructor(private weaponsService: WeaponsService, private gamesService: GamesService) { }
+  constructor(
+    private weaponsService: WeaponsService,
+    private gamesService: GamesService
+  ) {}
 
   ngOnInit(): void {
     const gameCode = this.gamesService.getActive().code;
