@@ -3,7 +3,6 @@ import { DataClientService } from './shared/api/data-client.service';
 import { GamesService } from './shared/api/games.service';
 import { BuildsService } from './shared/api/builds.service';
 import { CharactersService } from './shared/api/characters.service';
-import { CombosService } from './shared/api/combos.service';
 import { NotesService } from './shared/api/notes.service';
 import { PetsService } from './shared/api/pets.service';
 import { SetsService } from './shared/api/sets.service';
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit {
     private gamesService: GamesService,
     private lookupsService: LookupsService,
     private notesService: NotesService,
-    private combosService: CombosService,
     private charactersService: CharactersService,
     private weaponsService: WeaponsService,
     private setsService: SetsService,

@@ -118,24 +118,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AppComponent: () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/router */ 7901);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! rxjs */ 5964);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/router */ 7901);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! rxjs */ 5964);
 /* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./shared/utils/constants */ 4041);
 /* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./shared/services/store.service */ 1315);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./shared/api/data-client.service */ 8292);
 /* harmony import */ var _shared_api_games_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/api/games.service */ 9503);
 /* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/api/lookups.service */ 3315);
 /* harmony import */ var _shared_api_notes_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/api/notes.service */ 8221);
-/* harmony import */ var _shared_api_combos_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/api/combos.service */ 2931);
-/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/api/characters.service */ 8808);
-/* harmony import */ var _shared_api_weapons_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/api/weapons.service */ 5301);
-/* harmony import */ var _shared_api_sets_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/api/sets.service */ 8961);
-/* harmony import */ var _shared_api_builds_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/api/builds.service */ 3481);
-/* harmony import */ var _shared_api_pets_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/api/pets.service */ 8382);
-/* harmony import */ var _shared_api_teams_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/api/teams.service */ 8534);
-/* harmony import */ var _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shared/components/loader/loader.component */ 765);
-
+/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./shared/api/characters.service */ 8808);
+/* harmony import */ var _shared_api_weapons_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/api/weapons.service */ 5301);
+/* harmony import */ var _shared_api_sets_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/api/sets.service */ 8961);
+/* harmony import */ var _shared_api_builds_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/api/builds.service */ 3481);
+/* harmony import */ var _shared_api_pets_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/api/pets.service */ 8382);
+/* harmony import */ var _shared_api_teams_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/api/teams.service */ 8534);
+/* harmony import */ var _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/components/loader/loader.component */ 765);
 
 
 
@@ -156,22 +154,21 @@ __webpack_require__.r(__webpack_exports__);
 
 function AppComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵelement"](0, "app-loader");
+    _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵelement"](0, "app-loader");
   }
 }
 function AppComponent_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵelement"](0, "router-outlet");
+    _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵelement"](0, "router-outlet");
   }
 }
 let AppComponent = /*#__PURE__*/(() => {
   class AppComponent {
-    constructor(dataClient, gamesService, lookupsService, notesService, combosService, charactersService, weaponsService, setsService, buildsService, petsService, teamsService, router, store) {
+    constructor(dataClient, gamesService, lookupsService, notesService, charactersService, weaponsService, setsService, buildsService, petsService, teamsService, router, store) {
       this.dataClient = dataClient;
       this.gamesService = gamesService;
       this.lookupsService = lookupsService;
       this.notesService = notesService;
-      this.combosService = combosService;
       this.charactersService = charactersService;
       this.weaponsService = weaponsService;
       this.setsService = setsService;
@@ -195,7 +192,7 @@ let AppComponent = /*#__PURE__*/(() => {
     }
     setActiveGame() {
       this.gamesList = Object.values(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games);
-      this.router.events.pipe((0,rxjs__WEBPACK_IMPORTED_MODULE_15__.filter)(event => event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_16__.NavigationStart)).subscribe(event => {
+      this.router.events.pipe((0,rxjs__WEBPACK_IMPORTED_MODULE_14__.filter)(event => event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_15__.NavigationStart)).subscribe(event => {
         const gameCode = event.url.split('/')[1];
         if (this.gamesList.includes(gameCode)) {
           this.store.set(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE, gameCode);
@@ -206,24 +203,24 @@ let AppComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function AppComponent_Factory(t) {
-        return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_games_service__WEBPACK_IMPORTED_MODULE_3__.GamesService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_4__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_notes_service__WEBPACK_IMPORTED_MODULE_5__.NotesService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_combos_service__WEBPACK_IMPORTED_MODULE_6__.CombosService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_7__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_weapons_service__WEBPACK_IMPORTED_MODULE_8__.WeaponsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_sets_service__WEBPACK_IMPORTED_MODULE_9__.SetsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_builds_service__WEBPACK_IMPORTED_MODULE_10__.BuildsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_pets_service__WEBPACK_IMPORTED_MODULE_11__.PetsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_12__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_16__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdirectiveInject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_games_service__WEBPACK_IMPORTED_MODULE_3__.GamesService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_4__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_notes_service__WEBPACK_IMPORTED_MODULE_5__.NotesService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_6__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_weapons_service__WEBPACK_IMPORTED_MODULE_7__.WeaponsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_sets_service__WEBPACK_IMPORTED_MODULE_8__.SetsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_builds_service__WEBPACK_IMPORTED_MODULE_9__.BuildsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_pets_service__WEBPACK_IMPORTED_MODULE_10__.PetsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_11__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_15__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdirectiveInject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineComponent"]({
         type: AppComponent,
         selectors: [["app-root"]],
         decls: 2,
         vars: 1,
         template: function AppComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵtemplate"](0, AppComponent_Conditional_0_Template, 1, 0, "app-loader")(1, AppComponent_Conditional_1_Template, 1, 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵtemplate"](0, AppComponent_Conditional_0_Template, 1, 0, "app-loader")(1, AppComponent_Conditional_1_Template, 1, 0);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_14__["ɵɵconditional"](0, ctx.isLoading ? 0 : 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵconditional"](0, ctx.isLoading ? 0 : 1);
           }
         },
-        dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterOutlet, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_13__.LoaderComponent]
+        dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_15__.RouterOutlet, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_12__.LoaderComponent]
       });
     }
   }
@@ -748,7 +745,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/constants */ 4041);
-/* harmony import */ var _shared_api_combos_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/api/combos.service */ 2931);
+/* harmony import */ var _shared_api_notes_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/api/notes.service */ 8221);
 /* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/api/lookups.service */ 3315);
 
 
@@ -793,8 +790,8 @@ function CharacterCombosComponent_Conditional_0_Template(rf, ctx) {
 }
 let CharacterCombosComponent = /*#__PURE__*/(() => {
   class CharacterCombosComponent {
-    constructor(combosService, lookupsService) {
-      this.combosService = combosService;
+    constructor(notesServices, lookupsService) {
+      this.notesServices = notesServices;
       this.lookupsService = lookupsService;
       this.hasCombos = new _angular_core__WEBPACK_IMPORTED_MODULE_3__.EventEmitter();
       this.combos = [];
@@ -803,10 +800,10 @@ let CharacterCombosComponent = /*#__PURE__*/(() => {
       this.loadCombos();
     }
     loadCombos() {
-      let combosButtons = this.combosService.getAllByCharacter(this.character);
-      if (combosButtons) {
-        this.combos = combosButtons.map(combo => {
-          return combo.map(btn => {
+      const noteList = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character);
+      if (noteList) {
+        this.combos = noteList.map(combo => {
+          return combo.text.split(',').map(btn => {
             return {
               code: btn,
               imageUrl: this.getButtonImage(btn)
@@ -821,7 +818,7 @@ let CharacterCombosComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function CharacterCombosComponent_Factory(t) {
-        return new (t || CharacterCombosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_shared_api_combos_service__WEBPACK_IMPORTED_MODULE_1__.CombosService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_2__.LookupsService));
+        return new (t || CharacterCombosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_shared_api_notes_service__WEBPACK_IMPORTED_MODULE_1__.NotesService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_2__.LookupsService));
       };
     }
     static {
@@ -4504,74 +4501,6 @@ let CharactersService = /*#__PURE__*/(() => {
 
 /***/ }),
 
-/***/ 2931:
-/*!**********************************************!*\
-  !*** ./src/app/shared/api/combos.service.ts ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CombosService: () => (/* binding */ CombosService)
-/* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
-
-
-
-
-
-let CombosService = /*#__PURE__*/(() => {
-  class CombosService {
-    constructor(dataClient, store) {
-      this.dataClient = dataClient;
-      this.store = store;
-      this.combosList = [];
-      this.dataClient.sheetLoaded$.subscribe(res => {
-        if (res) this.fetchData();
-      });
-    }
-    fetchData() {
-      this.dataClient.loadData('COMBOS').then(combos => {
-        const flatList = combos.map(c => ({
-          gameCode: c.GAME_CODE,
-          character: c.CHARACTER_CODE,
-          combo: c.COMBO
-        }));
-        const grouped = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.groupBy(flatList, 'gameCode', 'character');
-        grouped.forEach((val, key) => {
-          this.combosList.push({
-            gameCode: val[0].gameCode,
-            character: val[0].character,
-            combos: val.map(c => c.combo.split(','))
-          });
-        });
-      });
-    }
-    getAllByCharacter(characterName) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
-      return this.combosList.find(c => c.gameCode == gameCode && c.character == characterName)?.combos;
-    }
-    static {
-      this.ɵfac = function CombosService_Factory(t) {
-        return new (t || CombosService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
-      };
-    }
-    static {
-      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({
-        token: CombosService,
-        factory: CombosService.ɵfac,
-        providedIn: 'root'
-      });
-    }
-  }
-  return CombosService;
-})();
-
-/***/ }),
-
 /***/ 8292:
 /*!***************************************************!*\
   !*** ./src/app/shared/api/data-client.service.ts ***!
@@ -4919,9 +4848,9 @@ let NotesService = /*#__PURE__*/(() => {
       const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerType == type);
       return data ? data.notes : [];
     }
-    getAllByOwnerTypeAndCode(type, teamCode) {
+    getAllByOwnerTypeAndCode(ownerType, ownerCode) {
       const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
-      const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == type);
+      const data = this.notesList.find(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
       return data ? data.notes : [];
     }
     static {

@@ -45,10 +45,10 @@ export class NotesService {
     return data ? data.notes : [];
   }
 
-  getAllByOwnerTypeAndCode(type: string, teamCode: string): { text: string }[] {
+  getAllByOwnerTypeAndCode(ownerType: string, ownerCode: string): { text: string }[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     const data = this.notesList
-      .find(n => n.gameCode == gameCode && n.ownerCode == teamCode && n.ownerType == type);
+      .find(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
     return data ? data.notes : [];
   }
 }

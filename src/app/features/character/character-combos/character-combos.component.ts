@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CombosService } from '../../../shared/api/combos.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
+import { NotesService } from '../../../shared/api/notes.service';
 
 @Component({
   selector: 'app-character-combos',
@@ -16,7 +16,7 @@ export class CharacterCombosComponent implements OnInit {
   combos: any[] = [];
 
   constructor(
-    private combosService: CombosService,
+    private notesServices: NotesService,
     private lookupsService: LookupsService
   ) {}
 
@@ -25,10 +25,10 @@ export class CharacterCombosComponent implements OnInit {
   }
 
   loadCombos(): void {
-    let combosButtons = this.combosService.getAllByCharacter(this.character);
-    if (combosButtons) {
-      this.combos = combosButtons.map((combo: any) => {
-        return combo.map((btn: any) => {
+    const noteList: { text: string }[] = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character);
+    if (noteList) {
+      this.combos = noteList.map((combo: any) => {
+        return combo.text.split(',').map((btn: any) => {
           return { code: btn, imageUrl: this.getButtonImage(btn) }
         })
       });
