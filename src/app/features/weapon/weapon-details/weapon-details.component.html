@@ -28,35 +28,33 @@
 
     <!-- Info -->
     <div class="weapon-info">
-      <div>
-        <span class="weapon-name">
-          {{ weapon.name }}
-        </span>
+      <span class="weapon-name">
+        {{ weapon.name }}
+      </span>
 
-        @if (showAdditionalInfo) {
-          <p class="weapon-metadata">
-            @if (rarity) {
-              <img
-                [src]="rarity.imageUrl"
-                [alt]="rarity.label"
-                [title]="rarity.label"
-                height="24">
-            }
+      @if (showAdditionalInfo) {
+        <p class="weapon-metadata">
+          @if (rarity) {
+            <img
+              [src]="rarity.imageUrl"
+              [alt]="rarity.label"
+              [title]="rarity.label"
+              height="20">
+          }
 
-            @if (rarity && type) {
-              |
-            }
+          @if (rarity && type) {
+            <span class="separator">|</span>
+          }
 
-            @if (type) {
-              <img
-                [src]="type.imageUrl"
-                [alt]="type.label"
-                [title]="type.label"
-                height="24">
-            }
-          </p>
-        }
-      </div>
+          @if (type) {
+            <img
+              [src]="type.imageUrl"
+              [alt]="type.label"
+              [title]="type.label"
+              height="20">
+          }
+        </p>
+      }
     </div>
 
     <!-- Effect / Equipped-by trigger -->

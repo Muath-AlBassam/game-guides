@@ -1,5 +1,4 @@
 .set-container {
-  --set-dimension: 80px;
   background-color: #36373d;
   border: 2px solid #484950;
   display: grid;
@@ -47,9 +46,11 @@
 
 .set-container .set-info .set-name {
   font-weight: bold;
+  /* hide overflow name */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-inline-end: 5px;
 }
 
 .set-container .set-info .equipped-pieces {
