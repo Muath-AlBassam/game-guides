@@ -1,18 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../../../shared/api/teams.service';
-import { LookupsService } from '../../../shared/api/lookups.service';
-import { Constants } from '../../../shared/utils/constants';
-import { LookupModel } from '../../../shared/models/lookup.model';
 import { TeamModel } from '../../../shared/models/team.mode';
-
-interface TeamCategoryModel {
-  gameCode: string;
-  code: string;
-  label: string;
-  type: string;
-  imageUrl: string;
-  teams: TeamModel[];
-}
+import { Utils } from '../../../shared/utils/utils';
+import { ListByCategoryModel } from '../../../shared/models/list-by-category.model';
 
 @Component({
   selector: 'app-team-list',
@@ -21,8 +11,8 @@ interface TeamCategoryModel {
 })
 export class TeamListComponent implements OnInit {
 
-  allCategories: TeamCategoryModel[] = [];
-  categories: TeamCategoryModel[] = [];
+  allTeamsList: TeamModel[] = [];
+  teamByCatList: ListByCategoryModel<TeamModel>[] = [];
   count: number = 0;
   characterPFPSize: number = 160;
 
@@ -30,26 +20,15 @@ export class TeamListComponent implements OnInit {
   textValue: string = '';
   tagValue: string[] = [];
 
-  constructor(
-    private lookupsService: LookupsService,
-    private teamsService: TeamsService
-  ) {}
+  constructor(private teamsService: TeamsService) {}
 
   ngOnInit(): void {
     this.loadTeams();
+    this.mapToCategoryList(this.allTeamsList);
   }
 
   loadTeams(): void {
-    const categoryLookup = this.lookupsService.getByType(Constants.lookupType.CATEGORY);
-    this.allCategories = categoryLookup.map(cat => {
-      const m = {
-        ...cat,
-        teams: this.teamsService.getAllByCategory(cat.code)
-      }
-      this.count += m.teams.length;
-      return m;
-    });
-    this.categories = this.allCategories;
+    this.allTeamsList = this.teamsService.getAll();
   }
 
   onTextChange(val: string): void {
@@ -63,19 +42,21 @@ export class TeamListComponent implements OnInit {
   }
 
   filterList(): void {
-    this.count = 0;
-    let filtered = structuredClone(this.allCategories);
-    this.categories = filtered.filter(cat => {
-      let filteredTeams = cat.teams
-        .filter((team: any) => {
-          const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
-          const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
-          const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
-          return (teamName || charaterName) && tag;
-        });
-        cat.teams = filteredTeams;
-        this.count += filteredTeams.length;
-        return filteredTeams.length > 0;
+    const filteredList: TeamModel[] = this.allTeamsList.filter(team => {
+      const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
+      const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
+      const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
+      return (teamName || charaterName) && tag;
     });
+    this.count += filteredList.length;
+    this.mapToCategoryList(filteredList);
+  }
+
+  mapToCategoryList(teamList: TeamModel[]): void {
+    const teamByCat: Map<string, TeamModel[]> = Utils.groupBy(teamList, 'category');
+    this.teamByCatList = Array.from(
+      teamByCat,
+      ([category, teams]) => ({ label: category, list: teams })
+    );
   }
 }

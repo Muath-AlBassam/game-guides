@@ -53,7 +53,6 @@ export class Constants {
       RARITY: 'RARITY',
       ELEMENT: 'ELEMENT',
       BUTTON: 'BUTTON',
-      TAG: 'TAG',
-      CATEGORY: 'CATEGORY'
+      TAG: 'TAG'
     }
 }

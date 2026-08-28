@@ -56,7 +56,8 @@ export class TeamsService {
     }));
   }
 
-  getAll(gameCode: string): TeamModel[] {
+  getAll(): TeamModel[] {
+    const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.teamsList
       .filter(t => t.gameCode == gameCode);
   }
@@ -75,8 +76,7 @@ export class TeamsService {
   }
 
   getAllByCharacter(character: string) {
-    const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    return this.getAll(gameCode).filter(team => {
+    return this.getAll().filter(team => {
       return team.characters.some((ch: TeamCharacterModel) => {
         let all = [];
         all.push(ch.name);

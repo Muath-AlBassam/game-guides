@@ -1,0 +1,22 @@
+@if (categories.length > 0) {
+  <div class="category-list-container">
+    @for (category of categories; track $index) {
+      <div class="row">
+        @if (showCategoryLabel) {
+          <div class="line-text" [class]="categoryLabelClass">
+            {{ category.label }}
+          </div>
+        }
+
+        @for (item of category.list; track item[listItemUniqueValueProperty]) {
+          <ng-container
+            [ngTemplateOutlet]="itemTemplate"
+            [ngTemplateOutletContext]="{ $implicit: item }">
+          </ng-container>
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <app-no-data></app-no-data>
+}

@@ -40,6 +40,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameNotesComponent } from './features/game/game-notes/game-notes.component';
 import { NoDataComponent } from './shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ListByCategoryComponent } from './shared/components/list-by-category/list-by-category.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TextFormatterComponent,
     GameNotesComponent,
     NoDataComponent,
+    ListByCategoryComponent,
   ],
   imports: [
     BrowserModule,

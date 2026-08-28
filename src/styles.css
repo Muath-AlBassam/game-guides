@@ -196,7 +196,9 @@ app-nav.active~.main-content {
   position: relative;
   width: 100%;
   font-size: 1.5em;
+  font-weight: bold;
   margin-top: 1em;
+  text-transform: uppercase;
 }
 
 .line-text::before,
