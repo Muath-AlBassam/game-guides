@@ -8,6 +8,11 @@
   padding-left: 20px;
 }
 
-.notes-container .team-notes .note-content {
+.notes-container .team-notes .team-notes__title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.notes-container .team-notes .team-notes__content {
   /**/
 }

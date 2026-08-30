@@ -54,10 +54,10 @@ export class TextUtils {
   private gi = {
     normal: this.tooltip('N', 'Normal Attack'),
     charged: this.tooltip('CA', 'Charged Attack'),
-    skill: this.tooltip('E', 'Skill'),
-    tapSkill: this.tooltip('tE', 'Tap Skill'),
-    holdSkill: this.tooltip('hE', 'Hold Skill'),
-    ultimate: this.tooltip('Q', 'Ultimate'),
+    skill: this.tooltip('E', 'Elemental Skill'),
+    tapSkill: this.tooltip('tE', 'Elemental Skill (Tap)'),
+    holdSkill: this.tooltip('hE', 'Elemental Skill (Hold)'),
+    burst: this.tooltip('Q', 'Elemental Burst'),
     plunge: this.tooltip('P', 'Plunge'),
   }
 
@@ -84,10 +84,10 @@ export class TextUtils {
     return [
       { groupId: 1, title: 'Normal Attack', games: 'GI', offset: 6, regex: /normal/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.normal : match },
       { groupId: 1, title: 'Charged Attack', games: 'GI,ZZZ', offset: 7, regex: /charged/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.charged : this.isZZZ(gameCode) ? this.zzz.charged : match },
-      { groupId: 1, title: 'Skill (Tap)', games: 'GI', offset: 8, regex: /tapskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.tapSkill : match },
-      { groupId: 1, title: 'Skill (Hold)', games: 'GI', offset: 9, regex: /holdskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.holdSkill : match },
-      { groupId: 1, title: 'Skill', games: 'GI', offset: 5, regex: /skill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.skill : match },
-      { groupId: 1, title: 'Ultimate', games: 'GI,ZZZ', offset: 8, regex: /ultimate/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.ultimate : this.isZZZ(gameCode) ? this.zzz.ultimate : match },
+      { groupId: 1, title: 'Elemental Skill (Tap)', games: 'GI', offset: 8, regex: /tapskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.tapSkill : match },
+      { groupId: 1, title: 'Elemental Skill (Hold)', games: 'GI', offset: 9, regex: /holdskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.holdSkill : match },
+      { groupId: 1, title: 'Elemental Skill', games: 'GI', offset: 5, regex: /skill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.skill : match },
+      { groupId: 1, title: 'Elemental Burst', games: 'GI,ZZZ', offset: 8, regex: /eburst/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.burst : this.isZZZ(gameCode) ? this.zzz.ultimate : match },
       { groupId: 1, title: 'Plunge', games: 'GI', offset: 6, regex: /plunge/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.plunge : match },
       { groupId: 1, title: 'Basic Attack', games: 'ZZZ', offset: 5, regex: /basic/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.basic : match },
       { groupId: 1, title: 'EX Special', games: 'ZZZ', offset: 9, regex: /exspecial/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.exSpecial : match },

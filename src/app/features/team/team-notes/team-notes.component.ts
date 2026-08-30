@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NotesService } from '../../../shared/api/notes.service';
 import { TextUtils } from '../../../shared/utils/text-utils';
-import { SafeHtml } from '@angular/platform-browser';
 import { StoreKeys, StoreService } from '../../../shared/services/store.service';
+import { NoteModel } from '../../../shared/models/note.model';
 
 @Component({
   selector: 'app-team-notes',
@@ -13,8 +13,7 @@ export class TeamNotesComponent implements OnInit {
 
   @Input() teamCode!: string;
 
-  notes: { text: string }[] = [];
-  formattedNotes: SafeHtml[] = [];
+  notes: NoteModel[] = [];
 
   constructor(
     private notesService: NotesService,
@@ -34,7 +33,12 @@ export class TeamNotesComponent implements OnInit {
   formatNotes(): void {
     if (this.notes && this.notes?.length > 0) {
       const gameCode = this.store.get(StoreKeys.GAME_CODE);
-      this.formattedNotes = this.notes.map(n => this.textUtils.formatAndColorize(n.text, gameCode));
+      this.notes.forEach(n => {
+        if (n.title) {
+          n.formattedTitle = this.textUtils.format(n.title, gameCode);
+        }
+        n.formattedText = this.textUtils.formatAndColorize(n.text, gameCode);
+      });
     }
   }
 }

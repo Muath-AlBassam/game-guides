@@ -4,12 +4,18 @@
     Notes
   </h5>
   <div>
-    @if (formattedNotes.length > 0) {
+    @if (notes.length > 0) {
       <ul class="team-notes">
-        @for (note of formattedNotes; track $index) {
+        @for (note of notes; track $index) {
           <li>
-            <span class="note-content" [innerHTML]="note">
-            </span>
+            @if (note.formattedTitle) {
+              <span class="team-notes__title">
+                <span [innerHTML]="note.formattedTitle"></span>
+                :
+              </span>
+              <br/>
+            }
+            <span class="team-notes__content" [innerHTML]="note.formattedText"></span>
           </li>
         }
       </ul>

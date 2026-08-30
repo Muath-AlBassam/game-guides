@@ -22,33 +22,25 @@ export class NotesService {
 
   private fetchData(): void {
     this.dataClient.loadData('NOTES').then(notes => {
-      const flatList = notes.map((n: any) => ({
-        gameCode: n.GAME_CODE, ownerCode: n.OWNER_CODE, ownerType: n.OWNER_TYPE, text: n.TEXT
+      this.notesList = notes.map((n: any) => ({
+        gameCode: n.GAME_CODE,
+        ownerCode: n.OWNER_CODE,
+        ownerType: n.OWNER_TYPE,
+        title: n.TITLE,
+        text: n.TEXT
       }));
-
-      const grouped = Utils.groupBy(flatList, 'gameCode', 'ownerCode');
-      grouped.forEach((val, key) => {
-        this.notesList.push({
-          gameCode: val[0].gameCode,
-          ownerCode: val[0].ownerCode,
-          ownerType: val[0].ownerType,
-          notes: val.map((n: any) => ({ text: n.text })),
-        });
-      })
     });
   }
 
-  getAllByOwnerType(type: string): { text: string }[] {
+  getAllByOwnerType(type: string): NoteModel[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.notesList
-      .find(n => n.gameCode == gameCode && n.ownerType == type);
-    return data ? data.notes : [];
+    return this.notesList
+      .filter(n => n.gameCode == gameCode && n.ownerType == type);
   }
 
-  getAllByOwnerTypeAndCode(ownerType: string, ownerCode: string): { text: string }[] {
+  getAllByOwnerTypeAndCode(ownerType: string, ownerCode: string): NoteModel[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.notesList
-      .find(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
-    return data ? data.notes : [];
+    return this.notesList
+      .filter(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
   }
 }

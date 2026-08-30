@@ -6,6 +6,9 @@ import { DialogService } from '../../../shared/services/dialog.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { CharacterModel } from '../../../shared/models/character.model';
 import { LookupModel } from '../../../shared/models/lookup.model';
+import { NoteModel } from '../../../shared/models/note.model';
+import { NotesService } from '../../../shared/api/notes.service';
+import { TextUtils } from '../../../shared/utils/text-utils';
 
 interface CharacterDetailsModel {
   gameCode: string;
@@ -18,6 +21,7 @@ interface CharacterDetailsModel {
   rarity: LookupModel;
   enhanced: boolean;
   skillDescriptionList: string[];
+  notes: NoteModel[];
   imageList: string[];
   currentImageIndex: number;
 }
@@ -40,6 +44,7 @@ export class CharacterImageComponent implements OnInit {
   @Input() showBorderStyle: boolean = false;
   @Input() showElement: boolean = false;
   @Input() showType: boolean = false;
+  @Input() showNotes: boolean = false;
   @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'details' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
   @Input('iconSize') inputIconSize: number = 26;
@@ -56,7 +61,9 @@ export class CharacterImageComponent implements OnInit {
   constructor(
     private charactersService: CharactersService,
     private lookupsService: LookupsService,
-    private dialogService: DialogService
+    private notesService: NotesService,
+    private dialogService: DialogService,
+    private textUtils: TextUtils
   ) {}
 
   ngOnInit(): void {
@@ -80,6 +87,7 @@ export class CharacterImageComponent implements OnInit {
         rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
         enhanced: tempCharMd.enhanced,
         skillDescriptionList: this.formatSkillDescriptionToList(tempCharMd),
+        notes: this.getCharacterNotes(tempCharMd.gameCode, tempCharMd.code),
         imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
       });
@@ -87,8 +95,24 @@ export class CharacterImageComponent implements OnInit {
   }
 
   formatSkillDescriptionToList(char: CharacterModel): string[] {
-    if (char.skillDescription) {
-      return char.skillDescription.split(' & ');
+    if (this.showNotes && char.skillDescription) {
+      return char.skillDescription.split(' | ');
+    }
+    return [];
+  }
+
+  getCharacterNotes(gameCode: string, character: string) {
+    if (this.showNotes) {
+      const notes = this.notesService.getAllByOwnerTypeAndCode('CHARACTER', character);
+      if (notes && notes?.length > 0) {
+        notes.forEach(n => {
+          if (n.title) {
+            n.formattedTitle = this.textUtils.format(n.title, gameCode);
+          }
+          n.formattedText = this.textUtils.formatAndColorize(n.text, gameCode);
+        });
+        return notes;
+      }
     }
     return [];
   }

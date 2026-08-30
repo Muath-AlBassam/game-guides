@@ -162,22 +162,31 @@
   display: inline-flex;
 }
 
-/*
+.character-details .details {
+  padding: 10px 19px 15px 19px;
+}
+
 .character-details .description {
   color: #d6d9df;
   margin: 0;
-  padding: 15px 18px 12px;
+  padding-top: 15px;
   line-height: 1.6;
 }
-*/
+
+.character-details .description .description__title {
+  text-decoration: underline;
+}
 
 .character-details .description-list {
   color: #d6d9df;
   margin: 0;
-  padding: 15px 18px 14px 34px;
+  padding-top: 15px;
+  padding-inline-start: 0;
   line-height: 1.38;
+  list-style-position: inside;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
 
 

@@ -20,3 +20,8 @@
 .g-notes-container ul.game-notes li:not(:first-child) {
   margin-top: 10px;
 }
+
+.g-notes-container ul.game-notes li .game-notes__title {
+  text-transform: uppercase;
+}
+

@@ -1,10 +1,12 @@
-@if (formattedNotes.length > 0) {
+@if (notes.length > 0) {
   <div class="g-notes-container">
     <ul class="game-notes">
-      @for (note of formattedNotes; track $index) {
+      @for (note of notes; track $index) {
         <li>
-          <span class="note-content" [innerHTML]="note">
-          </span>
+          @if (note.formattedTitle) {
+            <span class="game-notes__title" [innerHTML]="note.formattedTitle"></span>:
+          }
+          <span class="game-notes__content" [innerHTML]="note.formattedText"></span>
         </li>
       }
     </ul>

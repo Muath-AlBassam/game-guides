@@ -168,16 +168,36 @@
         </a>
       </span>
     </div>
-    <ul class="description-list">
-      @for (desc of charmd.skillDescriptionList; track $index) {
-        <li>{{ desc }}</li>
+    <div class="details">
+      @if (showNotes) {
+        @if (charmd.notes.length > 0) {
+          <div class="description">
+            @for (note of charmd.notes; track $index) {
+              <div [ngClass]="{'mt-2': $index > 0}"></div>
+              @if (note.formattedTitle) {
+                <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+              }
+              <span class="description__content" [innerHTML]="note.formattedText">
+              </span>
+              <br>
+            }
+          </div>
+        }
+        @if (charmd.skillDescriptionList.length > 0) {
+          <ul class="description-list">
+            @for (desc of charmd.skillDescriptionList; track $index) {
+              <li>{{ desc }}</li>
+            }
+          </ul>
+        }
       }
-    </ul>
-    <div class="build">
-      <app-character-build
-        [character]="charmd.code"
-        [simpleView]="true">
-      </app-character-build>
+      <div style="padding-top: 15px;"></div>
+      <div class="build">
+        <app-character-build
+          [character]="charmd.code"
+          [simpleView]="true">
+        </app-character-build>
+      </div>
     </div>
   </div>
 }

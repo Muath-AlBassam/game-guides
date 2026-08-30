@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
 import { NotesService } from '../../../shared/api/notes.service';
+import { NoteModel } from '../../../shared/models/note.model';
 
 @Component({
   selector: 'app-character-combos',
@@ -25,7 +26,7 @@ export class CharacterCombosComponent implements OnInit {
   }
 
   loadCombos(): void {
-    const noteList: { text: string }[] = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character);
+    const noteList: NoteModel[] = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character);
     if (noteList) {
       this.combos = noteList.map((combo: any) => {
         return combo.text.split(',').map((btn: any) => {
