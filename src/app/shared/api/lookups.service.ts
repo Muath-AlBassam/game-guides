@@ -3,6 +3,7 @@ import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
 import { Lookup, LookupModel } from '../models/lookup.model';
+import { Constants } from '../utils/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,21 @@ export class LookupsService {
         imageUrl: Utils.appendRepoUrl(l.IMAGE_URL),
         ...(l.EXTRA_FIELDS ? JSON.parse(l.EXTRA_FIELDS) : {})
       }));
+      this.registerCSSVariables();
+    });
+  }
+
+  private registerCSSVariables() {
+    const withColor = this.lookupsList
+      .filter(r => r.type == Constants.lookupType.ELEMENT || r.type == Constants.lookupType.RARITY);
+    withColor.forEach(item => {
+      const color = item['color'];
+      if (typeof color === 'string') {
+        document.documentElement.style.setProperty(
+          `--${item.type.toLowerCase()}-${item.gameCode}-${item.code}`,
+          color
+        );
+      }
     });
   }
 

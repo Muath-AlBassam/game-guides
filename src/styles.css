@@ -39,6 +39,8 @@
   --sidebar-active-width: 240px;
   --sidebar-m-active-width: 100%;
   --font-family: "anuphan", "anuphan Fallback", "Anuphan", system-ui, -apple-system, sans-serif;
+
+  --number-color: #f3e137;
 }
 
 * {

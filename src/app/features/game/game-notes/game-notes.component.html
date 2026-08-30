@@ -5,6 +5,7 @@
         <li>
           @if (note.formattedTitle) {
             <span class="game-notes__title" [innerHTML]="note.formattedTitle"></span>:
+            <br>
           }
           <span class="game-notes__content" [innerHTML]="note.formattedText"></span>
         </li>

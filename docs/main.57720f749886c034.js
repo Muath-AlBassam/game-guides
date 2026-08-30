@@ -1078,7 +1078,7 @@ function CharacterImageComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 2) {
     let tmp_3_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.charmd.rarity["color"] + ";" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : ""));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](14, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction2"](16, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
@@ -1176,7 +1176,7 @@ function CharacterImageComponent_Conditional_2_Template(rf, ctx) {
     let tmp_3_0;
     let tmp_5_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.charmd.rarity["color"] + ";" : "") + " border-radius: 5px; " + ctx_r3.styles);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : "") + " border-radius: 5px; " + ctx_r3.styles);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_5_0 = ctx_r3.charmd.imageUrl) !== null && tmp_5_0 !== undefined ? tmp_5_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](13, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
@@ -1420,10 +1420,10 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     let tmp_5_0;
     let tmp_6_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]("border-left: 4px solid " + ctx_r3.charmd.element["color"] + ";");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]("border-left: 4px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.charmd.rarity["color"] + ";" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : ""));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](18, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
@@ -2040,6 +2040,7 @@ function GameNotesComponent_Conditional_0_For_3_Conditional_1_Template(rf, ctx) 
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](0, "span", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1, ": ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "br");
   }
   if (rf & 2) {
     const note_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"]().$implicit;
@@ -2049,7 +2050,7 @@ function GameNotesComponent_Conditional_0_For_3_Conditional_1_Template(rf, ctx) 
 function GameNotesComponent_Conditional_0_For_3_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](1, GameNotesComponent_Conditional_0_For_3_Conditional_1_Template, 2, 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](1, GameNotesComponent_Conditional_0_For_3_Conditional_1_Template, 3, 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](2, "span", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
@@ -2125,7 +2126,7 @@ let GameNotesComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_3__.NoDataComponent],
-        styles: [".g-notes-container[_ngcontent-%COMP%] {\n  margin-top: 2rem;\n  width: 100%;\n  padding: 1rem;\n  border: 1px solid black;\n  background: #1d1d1d;\n  box-shadow:\n    inset 6px 6px 12px rgba(0, 0, 0, 0.5),\n    inset -6px -6px 12px rgba(255, 255, 255, 0.05);\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%] {\n  font-size: 1.1em;\n  list-style-type: disc;\n  margin-bottom: 0;\n  padding-inline-start: 10px;\n  margin-left: 20px;\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 10px;\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   .game-notes__title[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n}"]
+        styles: [".g-notes-container[_ngcontent-%COMP%] {\n  margin-top: 2rem;\n  width: 100%;\n  padding: 1rem;\n  border: 1px solid black;\n  background: #1d1d1d;\n  box-shadow:\n    inset 6px 6px 12px rgba(0, 0, 0, 0.5),\n    inset -6px -6px 12px rgba(255, 255, 255, 0.05);\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%] {\n  font-size: 1.1em;\n  list-style-type: disc;\n  margin-bottom: 0;\n  padding-inline-start: 10px;\n  margin-left: 20px;\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  list-style: none;\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:not(:first-child) {\n  margin-top: 30px;\n}\n\n.g-notes-container[_ngcontent-%COMP%]   ul.game-notes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   .game-notes__title[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n}"]
       });
     }
   }
@@ -3780,7 +3781,7 @@ function WeaponDetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
     const weaponEffectPopover_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--rarity-color", ctx_r0.rarity["color"])("--weapon-dimensions", ctx_r0.dimensions, "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--rarity-color", "var(--rarity-" + ctx_r0.rarity.gameCode + "-" + ctx_r0.rarity.code + ");")("--weapon-dimensions", ctx_r0.dimensions, "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](23, _c0, ctx_r0.showExpandButton, ctx_r0.isBackgroundStyleFade))("ngbPopover", weaponEffectPopover_r3)("popoverTitle", ctx_r0.weapon.name)("disablePopover", !ctx_r0.hasPopoverEffect);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.weaponImageStyle);
@@ -4859,8 +4860,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
 /* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
 /* harmony import */ var _models_lookup_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/lookup.model */ 1708);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/constants */ 4041);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./data-client.service */ 8292);
+
 
 
 
@@ -4887,6 +4890,16 @@ let LookupsService = /*#__PURE__*/(() => {
           imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(l.IMAGE_URL),
           ...(l.EXTRA_FIELDS ? JSON.parse(l.EXTRA_FIELDS) : {})
         }));
+        this.registerCSSVariables();
+      });
+    }
+    registerCSSVariables() {
+      const withColor = this.lookupsList.filter(r => r.type == _utils_constants__WEBPACK_IMPORTED_MODULE_3__.Constants.lookupType.ELEMENT || r.type == _utils_constants__WEBPACK_IMPORTED_MODULE_3__.Constants.lookupType.RARITY);
+      withColor.forEach(item => {
+        const color = item['color'];
+        if (typeof color === 'string') {
+          document.documentElement.style.setProperty(`--${item.type.toLowerCase()}-${item.gameCode}-${item.code}`, color);
+        }
       });
     }
     getByType(type, extraFilters = {}) {
@@ -4903,11 +4916,11 @@ let LookupsService = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function LookupsService_Factory(t) {
-        return new (t || LookupsService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_3__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || LookupsService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_4__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
-      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
+      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
         token: LookupsService,
         factory: LookupsService.ɵfac,
         providedIn: 'root'
@@ -6535,7 +6548,7 @@ let TextUtils = /*#__PURE__*/(() => {
       this.imageOf = (path, tooltip = 'image', style = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
       this.splitImage2Of = (path1, path2) => `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
       this.splitImage4Of = (path1, path2, path3, path4) => `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
-      this.color = (text, color) => `<b style="color: #${color}">${text}</b>`;
+      this.color = (text, color) => `<b style="color: var(${color})">${text}</b>`;
       // GI moves shortcuts
       this.gi = {
         normal: this.tooltip('N', 'Normal Attack'),
@@ -6562,15 +6575,15 @@ let TextUtils = /*#__PURE__*/(() => {
         corrupt: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;')
       };
     }
-    applyColor(gameCode, text, gi = '', hsr = '', zzz = '', hi3 = '') {
+    applyColor(gameCode, type = '', text, gi = '', hsr = '', zzz = '', hi3 = '') {
       if (this.isGI(gameCode) && gi) {
-        return this.color(text, gi);
+        return this.color(text, `--${type}-${gameCode}-${gi}`);
       } else if (this.isHSR(gameCode) && hsr) {
-        return this.color(text, hsr);
+        return this.color(text, `--${type}-${gameCode}-${hsr}`);
       } else if (this.isZZZ(gameCode) && zzz) {
-        return this.color(text, zzz);
+        return this.color(text, `--${type}-${gameCode}-${zzz}`);
       } else if (this.isHI3(gameCode) && hi3) {
-        return this.color(text, hi3);
+        return this.color(text, `--${type}-${gameCode}-${hi3}`);
       } else {
         return text;
       }
@@ -6835,100 +6848,100 @@ let TextUtils = /*#__PURE__*/(() => {
       return [{
         title: 'Fire',
         regex: /\b(?:fire dmg|fire|burning)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', 'ff5521', 'ff5521', 'fe7b79')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Fire', 'Fire', 'Fire')
       }, {
         title: 'Electric',
         regex: /\b(?:electric dmg|electric|shocked)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '', '2eb6ff')
+        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Electric')
       }, {
         title: 'Ether',
         regex: /\b(?:ether dmg|ether|corruption)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '', 'fe437e')
+        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Ether')
       }, {
         title: 'Ice',
         regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '98eff0', '98eff0', '78ffe3')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Ice', 'Ice', 'Ice')
       }, {
         title: 'Physical',
         regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '979797', 'f0d12b', 'f59b41')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Physical', 'Physical', 'Physical')
       }, {
         title: 'Lightning',
         regex: /\b(?:lightning dmg|lightning)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', 'c65ade', '', 'fbea78')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Lightning', '', 'Lightning')
       }, {
         title: 'Wind',
         regex: /\b(?:wind dmg|wind)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '61cf93', '61a6ff')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Wind', 'Wind')
       }, {
         title: 'Quantum',
         regex: /\b(?:quantum dmg|quantum)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '766dd6')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Quantum')
       }, {
         title: 'Imaginary',
         regex: /\b(?:imaginary dmg|imaginary)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', 'f3e137')
+        replace: match => this.applyColor(gameCode, 'element', match, '', 'Pyro')
       }, {
         title: 'Pyro',
         regex: /\b(?:pyro dmg|pyro)\b/gi,
-        replace: match => this.applyColor(gameCode, match, 'ef7938')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Pyro')
       }, {
         title: 'Cryo',
         regex: /\b(?:cryo dmg|cryo)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '9fd6e3')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Cryo')
       }, {
         title: 'Hydro',
         regex: /\b(?:hydro dmg|hydro)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '4cc2f1')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Hydro')
       }, {
         title: 'Electro',
         regex: /\b(?:electro dmg|electro)\b/gi,
-        replace: match => this.applyColor(gameCode, match, 'af8ec1')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Electro')
       }, {
         title: 'Anemo',
         regex: /\b(?:anemo dmg|anemo)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '74c2a8')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Anemo')
       }, {
         title: 'Geo',
         regex: /\b(?:geo dmg|geo)\b/gi,
-        replace: match => this.applyColor(gameCode, match, 'fab632')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Geo')
       }, {
         title: 'Dendro',
         regex: /\b(?:dendro dmg|dendro)\b/gi,
-        replace: match => this.applyColor(gameCode, match, 'a5c83b')
+        replace: match => this.applyColor(gameCode, 'element', match, 'Dendro')
       }, {
         title: 'Lumiflux',
         regex: /\b(?:lumiflux dmg|lumiflux)\b/gi,
-        replace: match => this.applyColor(gameCode, match, '', '', 'ffa9dd')
+        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Lumiflux')
       }, {
         title: 'Numbers (%)',
         regex: /\d+(\.\d+)?%/gi,
-        replace: match => this.color(match, 'f3e137')
+        replace: match => this.color(match, '--number-color')
       }, {
         title: 'Numbers (s)',
         regex: /\d+(\.\d+)?s/gi,
-        replace: match => this.color(match, 'f3e137')
+        replace: match => this.color(match, '--number-color')
       }, {
         title: 'Numbers (n/s)',
         regex: /\d+(\.\d+)?\/s/gi,
-        replace: match => this.color(match, 'f3e137')
+        replace: match => this.color(match, '--number-color')
       }, {
         title: 'Numbers (+)',
         regex: /(?<=\+)\d+(\.\d+)?/gi,
-        replace: match => this.color(match, 'f3e137')
+        replace: match => this.color(match, '--number-color')
       }, {
         title: 'PHEC',
         regex: /\b(?=.*P)(?=.*H)(?=.*E)(?=.*C)[PHEC]{4}\b/g,
         replace: match => match.split('').map(letter => {
           switch (letter) {
             case 'P':
-              return this.color(letter, 'ef7938');
+              return this.applyColor(gameCode, 'element', letter, 'Pyro');
             case 'E':
-              return this.color(letter, 'af8ec1');
+              return this.applyColor(gameCode, 'element', letter, 'Electro');
             case 'C':
-              return this.color(letter, '9fd6e3');
+              return this.applyColor(gameCode, 'element', letter, 'Cryo');
             case 'H':
-              return this.color(letter, '4cc2f1');
+              return this.applyColor(gameCode, 'element', letter, 'Hydro');
             default:
               return letter;
           }

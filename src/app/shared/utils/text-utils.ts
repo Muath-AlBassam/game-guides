@@ -25,16 +25,16 @@ export class TextUtils {
   private imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
   private splitImage2Of = (path1: string, path2: string) => `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
   private splitImage4Of = (path1: string, path2: string, path3: string, path4: string) => `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
-  private color = (text: string, color: string) => `<b style="color: #${color}">${text}</b>`;
-  private applyColor(gameCode: string, text: string, gi: string = '', hsr: string = '', zzz: string = '', hi3 = '') {
+  private color = (text: string, color: string) => `<b style="color: var(${color})">${text}</b>`;
+  private applyColor(gameCode: string, type = '', text: string, gi: string = '', hsr: string = '', zzz: string = '', hi3 = '') {
     if (this.isGI(gameCode) && gi) {
-      return this.color(text, gi);
+      return this.color(text, `--${type}-${gameCode}-${gi}`);
     } else if (this.isHSR(gameCode) && hsr) {
-      return this.color(text, hsr);
+      return this.color(text, `--${type}-${gameCode}-${hsr}`);
     } else if (this.isZZZ(gameCode) && zzz) {
-      return this.color(text, zzz);
+      return this.color(text, `--${type}-${gameCode}-${zzz}`);
     } else if (this.isHI3(gameCode) && hi3) {
-      return this.color(text, hi3);
+      return this.color(text, `--${type}-${gameCode}-${hi3}`);
     } else {
       return text;
     }
@@ -125,33 +125,33 @@ export class TextUtils {
 
   COLOR_FORMATS_LIST(gameCode: string) {
     return [
-      { title: 'Fire', regex: /\b(?:fire dmg|fire|burning)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'ff5521', 'ff5521', 'fe7b79') },
-      { title: 'Electric', regex: /\b(?:electric dmg|electric|shocked)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', '2eb6ff') },
-      { title: 'Ether', regex: /\b(?:ether dmg|ether|corruption)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', 'fe437e') },
-      { title: 'Ice', regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '98eff0', '98eff0', '78ffe3') },
-      { title: 'Physical', regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '979797', 'f0d12b', 'f59b41') },
-      { title: 'Lightning', regex: /\b(?:lightning dmg|lightning)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'c65ade', '', 'fbea78') },
-      { title: 'Wind', regex: /\b(?:wind dmg|wind)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '61cf93', '61a6ff') },
-      { title: 'Quantum', regex: /\b(?:quantum dmg|quantum)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '766dd6') },
-      { title: 'Imaginary', regex: /\b(?:imaginary dmg|imaginary)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', 'f3e137') },
-      { title: 'Pyro', regex: /\b(?:pyro dmg|pyro)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, 'ef7938') },
-      { title: 'Cryo', regex: /\b(?:cryo dmg|cryo)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '9fd6e3') },
-      { title: 'Hydro', regex: /\b(?:hydro dmg|hydro)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '4cc2f1') },
-      { title: 'Electro', regex: /\b(?:electro dmg|electro)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, 'af8ec1') },
-      { title: 'Anemo', regex: /\b(?:anemo dmg|anemo)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '74c2a8') },
-      { title: 'Geo', regex: /\b(?:geo dmg|geo)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, 'fab632') },
-      { title: 'Dendro', regex: /\b(?:dendro dmg|dendro)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, 'a5c83b') },
-      { title: 'Lumiflux', regex: /\b(?:lumiflux dmg|lumiflux)\b/gi, replace: (match: any) => this.applyColor(gameCode, match, '', '', 'ffa9dd') },
-      { title: 'Numbers (%)', regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (s)', regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (n/s)', regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, 'f3e137') },
-      { title: 'Numbers (+)', regex: /(?<=\+)\d+(\.\d+)?/gi, replace: (match: any) => this.color(match, 'f3e137') },
+      { title: 'Fire', regex: /\b(?:fire dmg|fire|burning)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Fire', 'Fire', 'Fire') },
+      { title: 'Electric', regex: /\b(?:electric dmg|electric|shocked)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Electric') },
+      { title: 'Ether', regex: /\b(?:ether dmg|ether|corruption)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Ether') },
+      { title: 'Ice', regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Ice', 'Ice', 'Ice') },
+      { title: 'Physical', regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Physical', 'Physical', 'Physical') },
+      { title: 'Lightning', regex: /\b(?:lightning dmg|lightning)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Lightning', '', 'Lightning') },
+      { title: 'Wind', regex: /\b(?:wind dmg|wind)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Wind', 'Wind') },
+      { title: 'Quantum', regex: /\b(?:quantum dmg|quantum)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Quantum') },
+      { title: 'Imaginary', regex: /\b(?:imaginary dmg|imaginary)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Pyro') },
+      { title: 'Pyro', regex: /\b(?:pyro dmg|pyro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Pyro') },
+      { title: 'Cryo', regex: /\b(?:cryo dmg|cryo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Cryo') },
+      { title: 'Hydro', regex: /\b(?:hydro dmg|hydro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Hydro') },
+      { title: 'Electro', regex: /\b(?:electro dmg|electro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Electro') },
+      { title: 'Anemo', regex: /\b(?:anemo dmg|anemo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Anemo') },
+      { title: 'Geo', regex: /\b(?:geo dmg|geo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Geo') },
+      { title: 'Dendro', regex: /\b(?:dendro dmg|dendro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Dendro') },
+      { title: 'Lumiflux', regex: /\b(?:lumiflux dmg|lumiflux)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Lumiflux') },
+      { title: 'Numbers (%)', regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, '--number-color') },
+      { title: 'Numbers (s)', regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, '--number-color') },
+      { title: 'Numbers (n/s)', regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, '--number-color') },
+      { title: 'Numbers (+)', regex: /(?<=\+)\d+(\.\d+)?/gi, replace: (match: any) => this.color(match, '--number-color') },
       { title: 'PHEC', regex: /\b(?=.*P)(?=.*H)(?=.*E)(?=.*C)[PHEC]{4}\b/g, replace: (match: string) => match.split('').map(letter => {
           switch (letter) {
-            case 'P': return this.color(letter, 'ef7938');
-            case 'E': return this.color(letter, 'af8ec1');
-            case 'C': return this.color(letter, '9fd6e3');
-            case 'H': return this.color(letter, '4cc2f1');
+            case 'P': return this.applyColor(gameCode, 'element', letter, 'Pyro');
+            case 'E': return this.applyColor(gameCode, 'element', letter, 'Electro');
+            case 'C': return this.applyColor(gameCode, 'element', letter, 'Cryo');
+            case 'H': return this.applyColor(gameCode, 'element', letter, 'Hydro');
             default: return letter;
           }
         }).join('')
