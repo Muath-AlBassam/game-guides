@@ -6,7 +6,7 @@
     [ngClass]="{'glow-border': charmd.enhanced}"
     [style]="
       (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid var(--rarity-' + charmd.gameCode + '-' + charmd.rarity.code + ');' : '')"
+      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '')"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement && charmd.element.imageUrl) {
@@ -61,7 +61,7 @@
     [class]="charmd.code"
     [style]="
       (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid var(--rarity-' + charmd.gameCode + '-' + charmd.rarity.code + ');' : '') +
+      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '') +
       ' border-radius: 5px; ' + styles">
     <img
       [src]="charmd.imageUrl ?? UNKNOWN_IMG"
@@ -130,7 +130,7 @@
   <div
     class="character-details"
     [class]="charmd.code"
-    [style]="'border-left: 4px solid var(--rarity-' + charmd.gameCode + '-' + charmd.rarity.code + ');'">
+    [style]="'border-left: 4px solid ' + Utils.elementCSSVar(charmd.gameCode, charmd.element.code) + ';'">
     <div class="header">
       <span>
         <a class="heading" href="javascript:void(0)">
@@ -138,7 +138,7 @@
             class="character-img"
             [style]="
               (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-              (showBorderStyle ? ' border: 2px solid var(--rarity-' + charmd.gameCode + '-' + charmd.rarity.code + ');' : '')">
+              (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '')">
             <img
               [src]="charmd.imageUrl ?? UNKNOWN_IMG"
               [alt]="charmd.name"
@@ -191,8 +191,7 @@
           </ul>
         }
       }
-      <div style="padding-top: 15px;"></div>
-      <div class="build">
+      <div class="build" style="padding-top: 15px;">
         <app-character-build
           [character]="charmd.code"
           [simpleView]="true">

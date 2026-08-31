@@ -33,6 +33,7 @@ interface CharacterDetailsModel {
 })
 export class CharacterImageComponent implements OnInit {
   
+  readonly Utils = Utils;
   readonly TRANSPARENT_IMG = Constants.images.transparent;
   readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
 

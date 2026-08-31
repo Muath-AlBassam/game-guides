@@ -15,6 +15,7 @@ import { LookupModel } from '../../../shared/models/lookup.model';
 })
 export class WeaponDetailsComponent implements OnInit {
 
+  readonly Utils = Utils;
   readonly UUID = Utils.generateUUID();
 
   @Input() weaponName!: string;

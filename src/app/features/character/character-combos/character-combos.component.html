@@ -9,7 +9,7 @@
           @for (combo of combos; track $index) {
             <li>
               @for (button of combo; track $index) {
-                <img [src]="button.imageUrl" width="40" [title]="button.code" />
+                <img [src]="button.imageUrl" width="40" [title]="button.title" />
               }
             </li>
           }

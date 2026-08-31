@@ -175,6 +175,7 @@
 
 .character-details .description .description__title {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 .character-details .description-list {
@@ -190,8 +191,8 @@
 }
 
 
-.character-details .build {
-}
+/* .character-details .build {
+} */
 
 /* PFP & CARD */
 .char-img-resize {

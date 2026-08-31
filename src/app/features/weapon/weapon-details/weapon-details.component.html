@@ -5,7 +5,7 @@
       'expandable': showExpandButton,
       'rarity-background-fade': isBackgroundStyleFade
     }"
-    [style.--rarity-color]="'var(--rarity-' + rarity.gameCode + '-' + rarity.code + ');'"
+    [style.--rarity-color]="Utils.rarityCSSVar(rarity.gameCode, rarity.code)"
     [style.--weapon-dimensions.px]="dimensions"
     [ngbPopover]="weaponEffectPopover"
     [popoverTitle]="weapon.name"
