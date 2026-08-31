@@ -39,4 +39,12 @@ export class Utils {
   static isNumber(text: any) {
     return !isNaN(Number(text));
   }
+
+  static rarityCSSVar(gameCode: string, code: string) {
+    return `var(--rarity-${gameCode}-${code})`;
+  }
+
+  static elementCSSVar(gameCode: string, code: string) {
+    return `var(--element-${gameCode}-${code})`;
+  }
 }

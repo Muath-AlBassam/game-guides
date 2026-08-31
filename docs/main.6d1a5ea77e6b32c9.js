@@ -724,7 +724,7 @@ let CharacterBuildComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.NgClass, _set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_3__.SetDetailsComponent, _weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_4__.WeaponDetailsComponent],
-        styles: [".simple-build[_ngcontent-%COMP%] {\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);\n  gap: 10px;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%] {\n  align-content: start;\n  gap: 7px;\n  min-width: 0;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%]   .label[_ngcontent-%COMP%] {\n  color: #8c909b;\n  letter-spacing: 0;\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n@media (max-width: 1000px) {\n  .simple-build[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 10px;\n    padding: 0 18px 18px;\n    display: grid;\n  }\n}"]
+        styles: [".simple-build[_ngcontent-%COMP%] {\n  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);\n  gap: 10px;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%] {\n  align-content: start;\n  gap: 7px;\n  min-width: 0;\n  display: grid;\n}\n\n.simple-build[_ngcontent-%COMP%]   .build-block[_ngcontent-%COMP%]   .label[_ngcontent-%COMP%] {\n  color: #8c909b;\n  letter-spacing: 0;\n  text-transform: uppercase;\n  font-size: 11px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n@media (max-width: 1000px) {\n  .simple-build[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 10px;\n    display: grid;\n  }\n}"]
       });
     }
   }
@@ -758,7 +758,7 @@ function CharacterCombosComponent_Conditional_0_For_7_For_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const button_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("src", button_r1.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeUrl"])("title", button_r1.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("src", button_r1.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeUrl"])("title", button_r1.title);
   }
 }
 function CharacterCombosComponent_Conditional_0_For_7_Template(rf, ctx) {
@@ -794,27 +794,31 @@ let CharacterCombosComponent = /*#__PURE__*/(() => {
       this.notesServices = notesServices;
       this.lookupsService = lookupsService;
       this.hasCombos = new _angular_core__WEBPACK_IMPORTED_MODULE_3__.EventEmitter();
+      this.buttons = [];
       this.combos = [];
     }
     ngOnInit() {
+      this.loadButtons();
       this.loadCombos();
     }
+    loadButtons() {
+      this.buttons = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.BUTTON);
+    }
     loadCombos() {
-      const noteList = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character);
+      const noteList = this.notesServices.getAllByOwnerTypeAndCode('CHARACTER', this.character).filter(n => n.title == 'COMBO');
       if (noteList) {
         this.combos = noteList.map(combo => {
-          return combo.text.split(',').map(btn => {
+          return combo.text.split(',').map(btnCode => {
+            const btnmd = this.buttons.find(b => b.code == btnCode);
             return {
-              code: btn,
-              imageUrl: this.getButtonImage(btn)
+              code: btnCode,
+              title: btnmd.label,
+              imageUrl: btnmd.imageUrl
             };
           });
         });
       }
       this.hasCombos.emit(this.combos != null && this.combos.length > 0);
-    }
-    getButtonImage(buttonCode) {
-      return this.lookupsService.getOne(buttonCode, _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.BUTTON).imageUrl;
     }
     static {
       this.ɵfac = function CharacterCombosComponent_Factory(t) {
@@ -1078,7 +1082,7 @@ function CharacterImageComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 2) {
     let tmp_3_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity.code) + ";" : ""));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](14, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction2"](16, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
@@ -1176,7 +1180,7 @@ function CharacterImageComponent_Conditional_2_Template(rf, ctx) {
     let tmp_3_0;
     let tmp_5_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : "") + " border-radius: 5px; " + ctx_r3.styles);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity.code) + ";" : "") + " border-radius: 5px; " + ctx_r3.styles);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_5_0 = ctx_r3.charmd.imageUrl) !== null && tmp_5_0 !== undefined ? tmp_5_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](13, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
@@ -1322,7 +1326,7 @@ function CharacterImageComponent_Conditional_4_Conditional_11_Template(rf, ctx) 
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "span", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "span", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, ": ");
   }
   if (rf & 2) {
@@ -1332,9 +1336,9 @@ function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "div", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Conditional_1_Template, 2, 1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "span", 35)(3, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "span", 34)(3, "br");
   }
   if (rf & 2) {
     const note_r12 = ctx.$implicit;
@@ -1348,7 +1352,7 @@ function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Template, 4, 5, null, null, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterTrackByIndex"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1372,7 +1376,7 @@ function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_For_
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "ul", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "ul", 32);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_For_2_Template, 2, 1, "li", null, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterTrackByIndex"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1384,7 +1388,7 @@ function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Temp
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template, 3, 0, "div", 32)(1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template, 3, 0, "ul", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template, 3, 0, "div", 31)(1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template, 3, 0, "ul", 32);
   }
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1411,19 +1415,18 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](13, CharacterImageComponent_Conditional_4_Conditional_13_Template, 2, 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](14, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](16, "app-character-build", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](15, "app-character-build", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
     let tmp_5_0;
     let tmp_6_0;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]("border-left: 4px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]("border-left: 4px solid " + ctx_r3.Utils.elementCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.element.code) + ";");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid var(--rarity-" + ctx_r3.charmd.gameCode + "-" + ctx_r3.charmd.rarity.code + ");" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity.code) + ";" : ""));
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](18, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
@@ -1434,13 +1437,13 @@ function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](11, ctx_r3.showType && ctx_r3.charmd.type.imageUrl ? 11 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](13, ctx_r3.showNotes ? 13 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("character", ctx_r3.charmd.code)("simpleView", true);
   }
 }
 function CharacterImageComponent_ng_template_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 36);
   }
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
@@ -1449,7 +1452,7 @@ function CharacterImageComponent_ng_template_5_Template(rf, ctx) {
 }
 function CharacterImageComponent_ng_template_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 37);
   }
   if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
@@ -1464,6 +1467,7 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
       this.notesService = notesService;
       this.dialogService = dialogService;
       this.textUtils = textUtils;
+      this.Utils = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils;
       this.TRANSPARENT_IMG = _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.images.transparent;
       this.UNKNOWN_IMG = _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.images.unknownCharacter;
       this.styles = '';
@@ -1581,17 +1585,17 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
         },
         decls: 9,
         vars: 1,
-        consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "details"], [2, "padding-top", "15px"], [1, "build"], [3, "character", "simpleView"], [1, "description"], [1, "description-list"], [3, "ngClass"], [1, "description__content", 3, "innerHTML"], [1, "description__title", 3, "innerHTML"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
+        consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "details"], [1, "build", 2, "padding-top", "15px"], [3, "character", "simpleView"], [1, "description"], [1, "description-list"], [3, "ngClass"], [1, "description__content", 3, "innerHTML"], [1, "description__title", 3, "innerHTML"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
         template: function CharacterImageComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 17, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](0, ctx.imageStyle == "card" ? 0 : ctx.imageStyle == "pfp" && ctx.charCount > 1 ? 1 : ctx.imageStyle == "pfp" && ctx.charCount == 1 ? 2 : ctx.imageStyle == "gallery" ? 3 : ctx.imageStyle == "details" ? 4 : -1);
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgStyle, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_7__.CharacterBuildComponent],
-        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .details[_ngcontent-%COMP%] {\n  padding: 10px 19px 15px 19px;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n}\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n}\n\n\n.character-details[_ngcontent-%COMP%]   .build[_ngcontent-%COMP%] {\n}\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
+        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .details[_ngcontent-%COMP%] {\n  padding: 10px 19px 15px 19px;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n}\n\n\n\n\n\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
   }
@@ -2515,7 +2519,7 @@ let SetListComponent = /*#__PURE__*/(() => {
         selectors: [["app-set-list"]],
         decls: 9,
         vars: 6,
-        consts: [["id", "set-list-header", 1, "row"], [1, "col-md-12"], [1, "content-header"], [1, "additional-text"], [3, "textChange", "placeholder"], [3, "categories", "showCategoryLabel"], [1, "col-xl-4", "col-lg-4", "col-md-6", "col-sm-12", "mt-3"], [3, "setName", "effectStyle", "showEquippedBy"]],
+        consts: [["id", "set-list-header", 1, "row"], [1, "col-md-12"], [1, "content-header"], [1, "additional-text"], [3, "textChange", "placeholder"], ["id", "sets-container", 3, "categories", "showCategoryLabel"], [1, "col-xl-4", "col-lg-4", "col-md-6", "col-sm-12", "mt-3"], [3, "setName", "effectStyle", "showEquippedBy"]],
         template: function SetListComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2);
@@ -3781,7 +3785,7 @@ function WeaponDetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
     const weaponEffectPopover_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵreference"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--rarity-color", "var(--rarity-" + ctx_r0.rarity.gameCode + "-" + ctx_r0.rarity.code + ");")("--weapon-dimensions", ctx_r0.dimensions, "px");
+    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleProp"]("--rarity-color", ctx_r0.Utils.rarityCSSVar(ctx_r0.rarity.gameCode, ctx_r0.rarity.code))("--weapon-dimensions", ctx_r0.dimensions, "px");
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵpureFunction2"](23, _c0, ctx_r0.showExpandButton, ctx_r0.isBackgroundStyleFade))("ngbPopover", weaponEffectPopover_r3)("popoverTitle", ctx_r0.weapon.name)("disablePopover", !ctx_r0.hasPopoverEffect);
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵstyleMap"](ctx_r0.weaponImageStyle);
@@ -3818,6 +3822,7 @@ let WeaponDetailsComponent = /*#__PURE__*/(() => {
       this.lookupsService = lookupsService;
       this.textUtils = textUtils;
       this.buildsService = buildsService;
+      this.Utils = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils;
       this.UUID = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.generateUUID();
       this.showAdditionalInfo = true;
       this.showEquippedBy = false;
@@ -6525,9 +6530,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ 4041);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ 86);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _api_characters_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api/characters.service */ 8808);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ 345);
+/* harmony import */ var _assets_config_text_formats_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/config/text-formats.json */ 4618);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _api_characters_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/characters.service */ 8808);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 345);
+
 
 
 
@@ -6538,18 +6545,10 @@ let TextUtils = /*#__PURE__*/(() => {
     constructor(charactersService, sanitizer) {
       this.charactersService = charactersService;
       this.sanitizer = sanitizer;
-      this.isGI = gameCode => gameCode == _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI;
-      this.isHSR = gameCode => gameCode == _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HSR;
-      this.isZZZ = gameCode => gameCode == _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ;
-      this.isHI3 = gameCode => gameCode == _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HI3;
-      this.repeat = text => `<span class="arrow-border">${text}</span>`;
-      this.tooltip = (text, tooltip) => `<span title="${tooltip}">${text}</span>`;
-      this.htmlTooltip = (text, tooltip) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
-      this.imageOf = (path, tooltip = 'image', style = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
-      this.splitImage2Of = (path1, path2) => `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
-      this.splitImage4Of = (path1, path2, path3, path4) => `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
-      this.color = (text, color) => `<b style="color: var(${color})">${text}</b>`;
-      // GI moves shortcuts
+      this.config = _assets_config_text_formats_json__WEBPACK_IMPORTED_MODULE_2__;
+      // ===========================================================================
+      // Shortcuts
+      // ===========================================================================
       this.gi = {
         normal: this.tooltip('N', 'Normal Attack'),
         charged: this.tooltip('CA', 'Charged Attack'),
@@ -6559,7 +6558,6 @@ let TextUtils = /*#__PURE__*/(() => {
         burst: this.tooltip('Q', 'Elemental Burst'),
         plunge: this.tooltip('P', 'Plunge')
       };
-      // ZZZ moves shortcuts
       this.zzz = {
         basic: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic', 'margin-top: 0;'),
         charged: this.tooltip(this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') + `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">(Hold)</span>`, 'Charged Attack'),
@@ -6575,423 +6573,193 @@ let TextUtils = /*#__PURE__*/(() => {
         corrupt: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;')
       };
     }
-    applyColor(gameCode, type = '', text, gi = '', hsr = '', zzz = '', hi3 = '') {
-      if (this.isGI(gameCode) && gi) {
-        return this.color(text, `--${type}-${gameCode}-${gi}`);
-      } else if (this.isHSR(gameCode) && hsr) {
-        return this.color(text, `--${type}-${gameCode}-${hsr}`);
-      } else if (this.isZZZ(gameCode) && zzz) {
-        return this.color(text, `--${type}-${gameCode}-${zzz}`);
-      } else if (this.isHI3(gameCode) && hi3) {
-        return this.color(text, `--${type}-${gameCode}-${hi3}`);
-      } else {
-        return text;
-      }
-    }
-    getCharacterImage(name, gameCode) {
-      const charmd = this.charactersService.getOne(name?.trim());
-      const imgUrl = charmd && charmd.imageUrl ? charmd.imageUrl : _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknownCharacter;
-      return this.imageOf(imgUrl, name);
-    }
-    getCharacterImageAsTooltip(name, gameCode) {
-      return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name, gameCode)}</b>`;
-    }
-    TEXT_FORMATS_LIST(gameCode) {
-      return [{
-        groupId: 1,
-        title: 'Normal Attack',
-        games: 'GI',
-        offset: 6,
-        regex: /normal/g,
-        replace: match => this.isGI(gameCode) ? this.gi.normal : match
-      }, {
-        groupId: 1,
-        title: 'Charged Attack',
-        games: 'GI,ZZZ',
-        offset: 7,
-        regex: /charged/g,
-        replace: match => this.isGI(gameCode) ? this.gi.charged : this.isZZZ(gameCode) ? this.zzz.charged : match
-      }, {
-        groupId: 1,
-        title: 'Elemental Skill (Tap)',
-        games: 'GI',
-        offset: 8,
-        regex: /tapskill/g,
-        replace: match => this.isGI(gameCode) ? this.gi.tapSkill : match
-      }, {
-        groupId: 1,
-        title: 'Elemental Skill (Hold)',
-        games: 'GI',
-        offset: 9,
-        regex: /holdskill/g,
-        replace: match => this.isGI(gameCode) ? this.gi.holdSkill : match
-      }, {
-        groupId: 1,
-        title: 'Elemental Skill',
-        games: 'GI',
-        offset: 5,
-        regex: /skill/g,
-        replace: match => this.isGI(gameCode) ? this.gi.skill : match
-      }, {
-        groupId: 1,
-        title: 'Elemental Burst',
-        games: 'GI,ZZZ',
-        offset: 8,
-        regex: /eburst/g,
-        replace: match => this.isGI(gameCode) ? this.gi.burst : this.isZZZ(gameCode) ? this.zzz.ultimate : match
-      }, {
-        groupId: 1,
-        title: 'Plunge',
-        games: 'GI',
-        offset: 6,
-        regex: /plunge/g,
-        replace: match => this.isGI(gameCode) ? this.gi.plunge : match
-      }, {
-        groupId: 1,
-        title: 'Basic Attack',
-        games: 'ZZZ',
-        offset: 5,
-        regex: /basic/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.basic : match
-      }, {
-        groupId: 1,
-        title: 'EX Special',
-        games: 'ZZZ',
-        offset: 9,
-        regex: /exspecial/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.exSpecial : match
-      }, {
-        groupId: 1,
-        title: 'Special',
-        games: 'ZZZ',
-        offset: 7,
-        regex: /special/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.special : match
-      }, {
-        groupId: 1,
-        title: 'Chain Attack',
-        games: 'ZZZ',
-        offset: 5,
-        regex: /chain/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.chain : match
-      }, {
-        groupId: 1,
-        title: 'Dash',
-        games: 'ZZZ',
-        offset: 4,
-        regex: /dash/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.dash : match
-      }, {
-        groupId: 1,
-        title: 'Assault',
-        games: 'ZZZ',
-        offset: 7,
-        regex: /assault/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.assault : match
-      }, {
-        groupId: 1,
-        title: 'Burn',
-        games: 'ZZZ',
-        offset: 4,
-        regex: /burn/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.burn : match
-      }, {
-        groupId: 1,
-        title: 'Shock',
-        games: 'ZZZ',
-        offset: 5,
-        regex: /shock/g,
-        replace: match => this.isZZZ(gameCode) ? this.zzz.shock : match
-      }, {
-        groupId: 2,
-        title: 'Switch',
-        games: 'ALL',
-        offset: 6,
-        regex: /switch/g,
-        replace: () => '>'
-      }, {
-        groupId: 2,
-        title: 'Multiply (x)',
-        games: 'ALL',
-        offset: 7,
-        regex: / times /g,
-        replace: () => _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.times
-      }, {
-        groupId: 2,
-        title: 'Arrow (Up)',
-        games: 'ALL',
-        offset: 8,
-        regex: /arrow_up/g,
-        replace: () => `<span style="margin: auto 5px;">${_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_up}</span>`
-      }, {
-        groupId: 2,
-        title: 'Arrow (Down)',
-        games: 'ALL',
-        offset: 10,
-        regex: /arrow_down/g,
-        replace: () => `<span style="margin: auto 5px;">${_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_down}</span>`
-      }, {
-        groupId: 2,
-        title: 'Arrow (Right)',
-        games: 'ALL',
-        offset: 11,
-        regex: /arrow_right/g,
-        replace: () => `<span style="margin: auto 5px;">${_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_right}</span>`
-      }, {
-        groupId: 2,
-        title: 'Arrow (Left)',
-        games: 'ALL',
-        offset: 10,
-        regex: /arrow_left/g,
-        replace: () => `<span style="margin: auto 5px;">${_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_left}</span>`
-      }, {
-        groupId: 3,
-        title: 'Character Image',
-        games: 'ALL',
-        offset: 2,
-        regex: /c_(.*?)_c/g,
-        replace: (match, capture) => this.getCharacterImage(capture, gameCode)
-      }, {
-        groupId: 3,
-        title: 'Character Image + Name',
-        games: 'ALL',
-        offset: 3,
-        regex: /cn_(.*?)_cn/g,
-        replace: (match, capture) => this.getCharacterImage(capture, gameCode) + ` <b class="no-break">${capture}</b>`
-      }, {
-        groupId: 3,
-        title: 'Character Image as Tooltip',
-        games: 'ALL',
-        offset: 3,
-        regex: /ca_(.*?)_ca/g,
-        replace: (match, capture) => this.getCharacterImageAsTooltip(capture, gameCode)
-      }, {
-        groupId: 4,
-        title: 'Title',
-        games: 'ALL',
-        offset: 2,
-        regex: /t_(.*?)_t/g,
-        replace: (match, capture) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>`
-      }, {
-        groupId: 4,
-        title: 'Image',
-        games: 'ALL',
-        offset: 4,
-        regex: /img_(.*?)_img/g,
-        replace: (match, capture) => this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(capture))
-      }, {
-        groupId: 4,
-        title: 'Double Image',
-        games: 'ALL',
-        offset: 5,
-        regex: /img2_(.*?)\+(.*?)_img2/g,
-        replace: (match, capture1, capture2) => this.splitImage2Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(capture1), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(capture2))
-      }, {
-        groupId: 4,
-        title: 'Quad Image',
-        games: 'ALL',
-        offset: 5,
-        regex: /img4_(.*?)\+(.*?)\+(.*?)\+(.*?)_img4/g,
-        replace: (match, cap1, cap2, cap3, cap4) => this.splitImage4Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(cap1), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(cap2), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(cap3), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(cap4))
-      }, {
-        groupId: 4,
-        title: 'Small Text',
-        games: 'ALL',
-        offset: 3,
-        regex: /st_(.*?)_st/g,
-        replace: (match, capture) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${capture}</span>`
-      }, {
-        groupId: 4,
-        title: 'Bold',
-        games: 'ALL',
-        offset: 2,
-        regex: /b_(.*?)_b/g,
-        replace: (match, capture) => `<b>${capture}</b>`
-      }, {
-        groupId: 4,
-        title: 'Underline',
-        games: 'ALL',
-        offset: 2,
-        regex: /u_(.*?)_u/g,
-        replace: (match, capture) => `<u>${capture}</u>`
-      }, {
-        groupId: 4,
-        title: 'Italic',
-        games: 'ALL',
-        offset: 2,
-        regex: /i_(.*?)_i/g,
-        replace: (match, capture) => `<i>${capture}</i>`
-      }, {
-        groupId: 4,
-        title: 'New Line',
-        games: 'ALL',
-        offset: 3,
-        regex: /nl_/g,
-        replace: () => `<br/>`
-      }, {
-        groupId: 4,
-        title: 'Text + Tooltip',
-        games: 'ALL',
-        offset: 3,
-        regex: /tp_(.*?)_(.*?)_tp/g,
-        replace: (match, capture1, capture2) => this.htmlTooltip(capture1, capture2)
-      }, {
-        groupId: 4,
-        title: 'Combo',
-        games: 'ALL',
-        offset: 3,
-        regex: /cb_(.*?)_cb/g,
-        replace: (match, capture) => `<b>[</b>${capture}<b>]</b>`
-      }];
-    }
-    COLOR_FORMATS_LIST(gameCode) {
-      return [{
-        title: 'Fire',
-        regex: /\b(?:fire dmg|fire|burning)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Fire', 'Fire', 'Fire')
-      }, {
-        title: 'Electric',
-        regex: /\b(?:electric dmg|electric|shocked)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Electric')
-      }, {
-        title: 'Ether',
-        regex: /\b(?:ether dmg|ether|corruption)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Ether')
-      }, {
-        title: 'Ice',
-        regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Ice', 'Ice', 'Ice')
-      }, {
-        title: 'Physical',
-        regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Physical', 'Physical', 'Physical')
-      }, {
-        title: 'Lightning',
-        regex: /\b(?:lightning dmg|lightning)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Lightning', '', 'Lightning')
-      }, {
-        title: 'Wind',
-        regex: /\b(?:wind dmg|wind)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Wind', 'Wind')
-      }, {
-        title: 'Quantum',
-        regex: /\b(?:quantum dmg|quantum)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Quantum')
-      }, {
-        title: 'Imaginary',
-        regex: /\b(?:imaginary dmg|imaginary)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', 'Pyro')
-      }, {
-        title: 'Pyro',
-        regex: /\b(?:pyro dmg|pyro)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Pyro')
-      }, {
-        title: 'Cryo',
-        regex: /\b(?:cryo dmg|cryo)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Cryo')
-      }, {
-        title: 'Hydro',
-        regex: /\b(?:hydro dmg|hydro)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Hydro')
-      }, {
-        title: 'Electro',
-        regex: /\b(?:electro dmg|electro)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Electro')
-      }, {
-        title: 'Anemo',
-        regex: /\b(?:anemo dmg|anemo)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Anemo')
-      }, {
-        title: 'Geo',
-        regex: /\b(?:geo dmg|geo)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Geo')
-      }, {
-        title: 'Dendro',
-        regex: /\b(?:dendro dmg|dendro)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, 'Dendro')
-      }, {
-        title: 'Lumiflux',
-        regex: /\b(?:lumiflux dmg|lumiflux)\b/gi,
-        replace: match => this.applyColor(gameCode, 'element', match, '', '', 'Lumiflux')
-      }, {
-        title: 'Numbers (%)',
-        regex: /\d+(\.\d+)?%/gi,
-        replace: match => this.color(match, '--number-color')
-      }, {
-        title: 'Numbers (s)',
-        regex: /\d+(\.\d+)?s/gi,
-        replace: match => this.color(match, '--number-color')
-      }, {
-        title: 'Numbers (n/s)',
-        regex: /\d+(\.\d+)?\/s/gi,
-        replace: match => this.color(match, '--number-color')
-      }, {
-        title: 'Numbers (+)',
-        regex: /(?<=\+)\d+(\.\d+)?/gi,
-        replace: match => this.color(match, '--number-color')
-      }, {
-        title: 'PHEC',
-        regex: /\b(?=.*P)(?=.*H)(?=.*E)(?=.*C)[PHEC]{4}\b/g,
-        replace: match => match.split('').map(letter => {
-          switch (letter) {
-            case 'P':
-              return this.applyColor(gameCode, 'element', letter, 'Pyro');
-            case 'E':
-              return this.applyColor(gameCode, 'element', letter, 'Electro');
-            case 'C':
-              return this.applyColor(gameCode, 'element', letter, 'Cryo');
-            case 'H':
-              return this.applyColor(gameCode, 'element', letter, 'Hydro');
-            default:
-              return letter;
-          }
-        }).join('')
-      }
-      //{ title: 'TTT', offset: 333, regex: /REGEX/g, replace: () => {} },
-      ];
-    }
+    // ===========================================================================
+    // Public API
+    // ===========================================================================
     format(text, gameCode) {
       if (text == null) {
         return '';
       }
-      let formatted = String(text);
-      for (const rule of this.TEXT_FORMATS_LIST(gameCode)) {
-        formatted = formatted.replace(rule.regex, rule.replace);
-      }
-      return this.sanitizer.bypassSecurityTrustHtml(formatted);
+      const formatted = this.applyRules(String(text), this.config.textFormats, gameCode);
+      return this.sanitize(formatted);
     }
     colorize(text, gameCode) {
       if (text == null) {
         return '';
       }
-      let colorized = String(text);
-      for (const rule of this.COLOR_FORMATS_LIST(gameCode)) {
-        colorized = colorized.replace(rule.regex, rule.replace);
-      }
-      return this.sanitizer.bypassSecurityTrustHtml(colorized);
+      const colorized = this.applyRules(String(text), this.config.colorFormats, gameCode);
+      return this.sanitize(colorized);
     }
     formatAndColorize(text, gameCode) {
       if (text == null) {
         return '';
       }
-      let formatted = String(text);
-      const textFormatsList = this.TEXT_FORMATS_LIST(gameCode);
-      for (const rule of textFormatsList) {
-        formatted = formatted.replace(rule.regex, rule.replace);
+      let result = String(text);
+      result = this.applyRules(result, this.config.textFormats, gameCode);
+      result = this.applyRules(result, this.config.colorFormats, gameCode);
+      return this.sanitize(result);
+    }
+    TEXT_FORMATS_LIST(gameCode) {
+      return this.config.textFormats.filter(rule => this.isApplicable(rule.games, gameCode));
+    }
+    COLOR_FORMATS_LIST(gameCode) {
+      return this.config.colorFormats.filter(rule => this.isApplicable(this.getColorGames(rule), gameCode));
+    }
+    // ===========================================================================
+    // Rule processing
+    // ===========================================================================
+    applyRules(text, rules, gameCode) {
+      let result = text;
+      for (const rule of rules) {
+        if (!this.isApplicable(this.getRuleGames(rule), gameCode)) {
+          continue;
+        }
+        const regex = new RegExp(rule.regex, rule.flags ?? 'g');
+        result = result.replace(regex, (...args) => this.resolveReplacement(rule, gameCode, args));
       }
-      const colorFormatsList = this.COLOR_FORMATS_LIST(gameCode);
-      for (const rule of colorFormatsList) {
-        formatted = formatted.replace(rule.regex, rule.replace);
+      return result;
+    }
+    resolveReplacement(rule, gameCode, args) {
+      const match = args[0];
+      const captures = args.slice(1);
+      const replacement = rule.replacement;
+      if (this.isColorReplacement(replacement)) {
+        return this.resolveColorReplacement(match, gameCode, replacement);
       }
-      return this.sanitizer.bypassSecurityTrustHtml(formatted);
+      return this.resolveTextReplacement(replacement, match, captures, gameCode);
+    }
+    // ===========================================================================
+    // Text replacements
+    // ===========================================================================
+    resolveTextReplacement(replacement, match, captures, gameCode) {
+      switch (replacement.type) {
+        case 'text':
+          return replacement.value;
+        case 'constant':
+          return this.getConstant(replacement.value);
+        case 'shortcut':
+          return this.getShortcut(replacement, gameCode, match);
+        case 'characterImage':
+          return this.getCharacterImage(captures[0]);
+        case 'characterImageName':
+          return this.getCharacterImage(captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
+        case 'characterTooltip':
+          return this.getCharacterImageAsTooltip(captures[0]);
+        case 'image':
+          return this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]));
+        case 'image2':
+          return this.splitImage2Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]));
+        case 'image4':
+          return this.splitImage4Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[2]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[3]));
+        case 'html':
+          return this.applyTemplate(replacement.template, captures);
+        case 'arrow':
+          return this.arrow(replacement.direction);
+        default:
+          return match;
+      }
+    }
+    // ===========================================================================
+    // Color replacements
+    // ===========================================================================
+    resolveColorReplacement(match, gameCode, replacement) {
+      const colorName = replacement.values[gameCode] ?? replacement.values['ALL'];
+      if (!colorName) {
+        return match;
+      }
+      if (replacement.colorType === 'number') {
+        return this.color(match, '--' + colorName);
+      }
+      return this.color(match, `--${replacement.colorType}-${gameCode}-${colorName}`);
+    }
+    getShortcut(replacement, gameCode, fallback) {
+      const shortcut = replacement.values?.[gameCode] ?? replacement.value;
+      if (!shortcut) {
+        return fallback;
+      }
+      if (gameCode === _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI) {
+        return this.gi[shortcut] ?? fallback;
+      }
+      if (gameCode === _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ) {
+        return this.zzz[shortcut] ?? fallback;
+      }
+      return fallback;
+    }
+    // ===========================================================================
+    // Character helpers
+    // ===========================================================================
+    getCharacterImage(name) {
+      const character = this.charactersService.getOne(name?.trim());
+      const imageUrl = character?.imageUrl ?? _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknownCharacter;
+      return this.imageOf(imageUrl, name);
+    }
+    getCharacterImageAsTooltip(name) {
+      return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name)}</b>`;
+    }
+    // ===========================================================================
+    // HTML helpers
+    // ===========================================================================
+    tooltip(text, tooltip) {
+      return `<span title="${tooltip}">${text}</span>`;
+    }
+    imageOf(path, tooltip = 'image', style = null) {
+      return `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
+    }
+    splitImage2Of(path1, path2) {
+      return `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
+    }
+    splitImage4Of(path1, path2, path3, path4) {
+      return `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
+    }
+    htmlTooltip(text, tooltip) {
+      return `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
+    }
+    arrow(direction) {
+      const arrows = {
+        up: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_up,
+        down: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_down,
+        left: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_left,
+        right: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_right
+      };
+      return `<span style="margin: auto 5px;">${arrows[direction]}</span>`;
+    }
+    color(text, color) {
+      return `<b style="color: var(${color})">${text}</b>`;
+    }
+    applyTemplate(template, captures) {
+      return template.replace(/\$(\d+)/g, (match, index) => captures[Number(index) - 1] ?? match);
+    }
+    // ===========================================================================
+    // Utility
+    // ===========================================================================
+    isApplicable(games, gameCode) {
+      return games.includes('ALL') || games.includes(gameCode);
+    }
+    getRuleGames(rule) {
+      if ('games' in rule) {
+        return rule.games;
+      }
+      return Object.keys(rule.replacement.values);
+    }
+    getColorGames(rule) {
+      return Object.keys(rule.replacement.values);
+    }
+    getConstant(name) {
+      return _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode[name];
+    }
+    sanitize(html) {
+      return this.sanitizer.bypassSecurityTrustHtml(html);
+    }
+    isColorReplacement(replacement) {
+      return replacement.type === 'color';
     }
     static {
       this.ɵfac = function TextUtils_Factory(t) {
-        return new (t || TextUtils)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_api_characters_service__WEBPACK_IMPORTED_MODULE_2__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.DomSanitizer));
+        return new (t || TextUtils)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_api_characters_service__WEBPACK_IMPORTED_MODULE_3__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.DomSanitizer));
       };
     }
     static {
-      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({
+      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
         token: TextUtils,
         factory: TextUtils.ɵfac,
         providedIn: 'root'
@@ -7048,6 +6816,12 @@ class Utils {
   }
   static isNumber(text) {
     return !isNaN(Number(text));
+  }
+  static rarityCSSVar(gameCode, code) {
+    return `var(--rarity-${gameCode}-${code})`;
+  }
+  static elementCSSVar(gameCode, code) {
+    return `var(--element-${gameCode}-${code})`;
   }
 }
 
@@ -151725,6 +151499,16 @@ function __rewriteRelativeImportExtension(path, preserveJsx) {
   __rewriteRelativeImportExtension,
 });
 
+
+/***/ }),
+
+/***/ 4618:
+/*!*********************************************!*\
+  !*** ./src/assets/config/text-formats.json ***!
+  \*********************************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"textFormats":[{"groupId":1,"title":"Normal Attack","games":["GI"],"offset":6,"regex":"normal","flags":"g","replacement":{"type":"shortcut","value":"normal"}},{"groupId":1,"title":"Charged Attack","games":["GI","ZZZ"],"offset":7,"regex":"charged","flags":"g","replacement":{"type":"shortcut","values":{"GI":"charged","ZZZ":"charged"}}},{"groupId":1,"title":"Elemental Skill (Tap)","games":["GI"],"offset":8,"regex":"tapskill","flags":"g","replacement":{"type":"shortcut","value":"tapSkill"}},{"groupId":1,"title":"Elemental Skill (Hold)","games":["GI"],"offset":9,"regex":"holdskill","flags":"g","replacement":{"type":"shortcut","value":"holdSkill"}},{"groupId":1,"title":"Elemental Skill","games":["GI"],"offset":5,"regex":"skill","flags":"g","replacement":{"type":"shortcut","value":"skill"}},{"groupId":1,"title":"Elemental Burst","games":["GI"],"offset":8,"regex":"eburst","flags":"g","replacement":{"type":"shortcut","value":"burst"}},{"groupId":1,"title":"Ultimate","games":["ZZZ"],"offset":8,"regex":"ultimate","flags":"g","replacement":{"type":"shortcut","value":"ultimate"}},{"groupId":1,"title":"Plunge","games":["GI"],"offset":6,"regex":"plunge","flags":"g","replacement":{"type":"shortcut","value":"plunge"}},{"groupId":1,"title":"Basic Attack","games":["ZZZ"],"offset":5,"regex":"basic","flags":"g","replacement":{"type":"shortcut","value":"basic"}},{"groupId":1,"title":"EX Special","games":["ZZZ"],"offset":9,"regex":"exspecial","flags":"g","replacement":{"type":"shortcut","value":"exSpecial"}},{"groupId":1,"title":"Special","games":["ZZZ"],"offset":7,"regex":"special","flags":"g","replacement":{"type":"shortcut","value":"special"}},{"groupId":1,"title":"Chain Attack","games":["ZZZ"],"offset":5,"regex":"chain","flags":"g","replacement":{"type":"shortcut","value":"chain"}},{"groupId":1,"title":"Dash","games":["ZZZ"],"offset":4,"regex":"dash","flags":"g","replacement":{"type":"shortcut","value":"dash"}},{"groupId":1,"title":"Assault","games":["ZZZ"],"offset":7,"regex":"assault","flags":"g","replacement":{"type":"shortcut","value":"assault"}},{"groupId":1,"title":"Burn","games":["ZZZ"],"offset":4,"regex":"burn","flags":"g","replacement":{"type":"shortcut","value":"burn"}},{"groupId":1,"title":"Shock","games":["ZZZ"],"offset":5,"regex":"shock","flags":"g","replacement":{"type":"shortcut","value":"shock"}},{"groupId":2,"title":"Switch","games":["ALL"],"offset":6,"regex":"switch","flags":"g","replacement":{"type":"text","value":">"}},{"groupId":2,"title":"Multiply (x)","games":["ALL"],"offset":7,"regex":" times ","flags":"g","replacement":{"type":"constant","value":"times"}},{"groupId":2,"title":"Arrow (Up)","games":["ALL"],"offset":8,"regex":"arrow_up","flags":"g","replacement":{"type":"arrow","direction":"up"}},{"groupId":2,"title":"Arrow (Down)","games":["ALL"],"offset":10,"regex":"arrow_down","flags":"g","replacement":{"type":"arrow","direction":"down"}},{"groupId":2,"title":"Arrow (Right)","games":["ALL"],"offset":11,"regex":"arrow_right","flags":"g","replacement":{"type":"arrow","direction":"right"}},{"groupId":2,"title":"Arrow (Left)","games":["ALL"],"offset":10,"regex":"arrow_left","flags":"g","replacement":{"type":"arrow","direction":"left"}},{"groupId":3,"title":"Character Image","games":["ALL"],"offset":2,"regex":"c_(.*?)_c","flags":"g","replacement":{"type":"characterImage"}},{"groupId":3,"title":"Character Image + Name","games":["ALL"],"offset":3,"regex":"cn_(.*?)_cn","flags":"g","replacement":{"type":"characterImageName"}},{"groupId":3,"title":"Character Image as Tooltip","games":["ALL"],"offset":3,"regex":"ca_(.*?)_ca","flags":"g","replacement":{"type":"characterTooltip"}},{"groupId":4,"title":"Title","games":["ALL"],"offset":2,"regex":"t_(.*?)_t","flags":"g","replacement":{"type":"html","template":"<b style=\\"text-transform: uppercase; margin-right: 10px;\\">$1:</b>"}},{"groupId":4,"title":"Image","games":["ALL"],"offset":4,"regex":"img_(.*?)_img","flags":"g","replacement":{"type":"image"}},{"groupId":4,"title":"Double Image","games":["ALL"],"offset":5,"regex":"img2_(.*?)\\\\+(.*?)_img2","flags":"g","replacement":{"type":"image2"}},{"groupId":4,"title":"Quad Image","games":["ALL"],"offset":5,"regex":"img4_(.*?)\\\\+(.*?)\\\\+(.*?)\\\\+(.*?)_img4","flags":"g","replacement":{"type":"image4"}},{"groupId":4,"title":"Small Text","games":["ALL"],"offset":3,"regex":"st_(.*?)_st","flags":"g","replacement":{"type":"html","template":"<span style=\\"font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;\\">$1</span>"}},{"groupId":4,"title":"Bold","games":["ALL"],"offset":2,"regex":"b_(.*?)_b","flags":"g","replacement":{"type":"html","template":"<b>$1</b>"}},{"groupId":4,"title":"Underline","games":["ALL"],"offset":2,"regex":"u_(.*?)_u","flags":"g","replacement":{"type":"html","template":"<u>$1</u>"}},{"groupId":4,"title":"Italic","games":["ALL"],"offset":2,"regex":"i_(.*?)_i","flags":"g","replacement":{"type":"html","template":"<i>$1</i>"}},{"groupId":4,"title":"New Line","games":["ALL"],"offset":3,"regex":"nl_","flags":"g","replacement":{"type":"html","template":"<br/>"}},{"groupId":4,"title":"Text + Tooltip","games":["ALL"],"offset":3,"regex":"tp_(.*?)_(.*?)_tp","flags":"g","replacement":{"type":"html","template":"<span class=\\"html-tooltip\\">$1<span class=\\"tooltip-content\\">$2</span></span>"}},{"groupId":4,"title":"Combo","games":["ALL"],"offset":3,"regex":"cb_(.*?)_cb","flags":"g","replacement":{"type":"html","template":"<b>[</b>$1<b>]</b>"}}],"colorFormats":[{"title":"Fire","regex":"\\\\b(?:fire dmg|fire|burning)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Fire","ZZZ":"Fire","HI3":"Fire"}}},{"title":"Electric","regex":"\\\\b(?:electric dmg|electric|shocked)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"ZZZ":"Electric"}}},{"title":"Ether","regex":"\\\\b(?:ether dmg|ether|corruption)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"ZZZ":"Ether"}}},{"title":"Ice","regex":"\\\\b(?:ice dmg|ice|freeze|shatter)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Ice","ZZZ":"Ice","HI3":"Ice"}}},{"title":"Physical","regex":"\\\\b(?:physical dmg|physical sheer dmg|physical)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Physical","ZZZ":"Physical","HI3":"Physical"}}},{"title":"Lightning","regex":"\\\\b(?:lightning dmg|lightning)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Lightning","HI3":"Lightning"}}},{"title":"Wind","regex":"\\\\b(?:wind dmg|wind)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Wind","ZZZ":"Wind"}}},{"title":"Quantum","regex":"\\\\b(?:quantum dmg|quantum)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Quantum"}}},{"title":"Imaginary","regex":"\\\\b(?:imaginary dmg|imaginary)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"HSR":"Imaginary"}}},{"title":"Pyro","regex":"\\\\b(?:pyro dmg|pyro)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Pyro"}}},{"title":"Cryo","regex":"\\\\b(?:cryo dmg|cryo)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Cryo"}}},{"title":"Hydro","regex":"\\\\b(?:hydro dmg|hydro)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Hydro"}}},{"title":"Electro","regex":"\\\\b(?:electro dmg|electro)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Electro"}}},{"title":"Anemo","regex":"\\\\b(?:anemo dmg|anemo)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Anemo"}}},{"title":"Geo","regex":"\\\\b(?:geo dmg|geo)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Geo"}}},{"title":"Dendro","regex":"\\\\b(?:dendro dmg|dendro)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"GI":"Dendro"}}},{"title":"Lumiflux","regex":"\\\\b(?:lumiflux dmg|lumiflux)\\\\b","flags":"gi","replacement":{"type":"color","colorType":"element","values":{"ZZZ":"Lumiflux"}}},{"title":"Numbers (%)","regex":"\\\\d+(\\\\.\\\\d+)?%","flags":"gi","replacement":{"type":"color","colorType":"number","values":{"ALL":"number-color"}}},{"title":"Numbers (s)","regex":"\\\\d+(\\\\.\\\\d+)?s","flags":"gi","replacement":{"type":"color","colorType":"number","values":{"ALL":"number-color"}}},{"title":"Numbers (n/s)","regex":"\\\\d+(\\\\.\\\\d+)?/s","flags":"gi","replacement":{"type":"color","colorType":"number","values":{"ALL":"number-color"}}},{"title":"Numbers (+)","regex":"(?<=\\\\+)\\\\d+(\\\\.\\\\d+)?","flags":"gi","replacement":{"type":"color","colorType":"number","values":{"ALL":"number-color"}}}]}');
 
 /***/ })
 

@@ -1,73 +1,198 @@
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import { CharactersService } from "../api/characters.service";
-import { Constants } from "./constants";
-import { Utils } from "./utils";
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CharactersService } from '../api/characters.service';
+import { Constants } from './constants';
+import { Utils } from './utils';
+import {
+  TextFormatsConfig,
+  TextFormatConfig,
+  ColorFormatConfig,
+  ReplacementConfig,
+  ShortcutReplacement,
+  ColorReplacementConfig
+} from './text-format.models';
+import formats from '../../../assets/config/text-formats.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TextUtils {
 
+  private readonly config = formats as TextFormatsConfig;
+
   constructor(
     private charactersService: CharactersService,
     private sanitizer: DomSanitizer
   ) {}
 
-  private isGI = (gameCode: string): boolean => gameCode == Constants.games.GI;
-  private isHSR = (gameCode: string): boolean => gameCode == Constants.games.HSR;
-  private isZZZ = (gameCode: string): boolean => gameCode == Constants.games.ZZZ;
-  private isHI3 = (gameCode: string): boolean => gameCode == Constants.games.HI3;
+  // ===========================================================================
+  // Public API
+  // ===========================================================================
 
-  private repeat = (text: string) => `<span class="arrow-border">${text}</span>`;
-  private tooltip = (text: string, tooltip: string) => `<span title="${tooltip}">${text}</span>`;
-  private htmlTooltip = (text: string, tooltip: string) => `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
-  private imageOf = (path: string, tooltip: string | null = 'image', style: string | null = null) => `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
-  private splitImage2Of = (path1: string, path2: string) => `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
-  private splitImage4Of = (path1: string, path2: string, path3: string, path4: string) => `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
-  private color = (text: string, color: string) => `<b style="color: var(${color})">${text}</b>`;
-  private applyColor(gameCode: string, type = '', text: string, gi: string = '', hsr: string = '', zzz: string = '', hi3 = '') {
-    if (this.isGI(gameCode) && gi) {
-      return this.color(text, `--${type}-${gameCode}-${gi}`);
-    } else if (this.isHSR(gameCode) && hsr) {
-      return this.color(text, `--${type}-${gameCode}-${hsr}`);
-    } else if (this.isZZZ(gameCode) && zzz) {
-      return this.color(text, `--${type}-${gameCode}-${zzz}`);
-    } else if (this.isHI3(gameCode) && hi3) {
-      return this.color(text, `--${type}-${gameCode}-${hi3}`);
-    } else {
-      return text;
+  format(text: string | null, gameCode: string): SafeHtml | string {
+    if (text == null) {
+      return '';
+    }
+    const formatted = this.applyRules(String(text), this.config.textFormats, gameCode);
+    return this.sanitize(formatted);
+  }
+
+  colorize(text: string | null, gameCode: string): SafeHtml | string {
+    if (text == null) {
+      return '';
+    }
+    const colorized = this.applyRules(String(text), this.config.colorFormats, gameCode);
+    return this.sanitize(colorized);
+  }
+
+  formatAndColorize(text: string | null, gameCode: string): SafeHtml | string {
+    if (text == null) {
+      return '';
+    }
+    let result = String(text);
+    result = this.applyRules(result, this.config.textFormats, gameCode);
+    result = this.applyRules(result, this.config.colorFormats, gameCode);
+    return this.sanitize(result);
+  }
+
+  TEXT_FORMATS_LIST(gameCode: string): TextFormatConfig[] {
+    return this.config.textFormats.filter(
+      rule => this.isApplicable(rule.games, gameCode)
+    );
+  }
+
+  COLOR_FORMATS_LIST(gameCode: string): ColorFormatConfig[] {
+    return this.config.colorFormats.filter(
+      rule => this.isApplicable(
+        this.getColorGames(rule),
+        gameCode
+      )
+    );
+  }
+
+  // ===========================================================================
+  // Rule processing
+  // ===========================================================================
+
+  private applyRules(
+    text: string,
+    rules: Array<TextFormatConfig | ColorFormatConfig>,
+    gameCode: string
+  ): string {
+    let result = text;
+    for (const rule of rules) {
+      if (!this.isApplicable(this.getRuleGames(rule), gameCode)) {
+        continue;
+      }
+      const regex = new RegExp(rule.regex, rule.flags ?? 'g');
+      result = result.replace(
+        regex,
+        (...args: any[]) => this.resolveReplacement(rule, gameCode, args)
+      );
+    }
+    return result;
+  }
+
+  private resolveReplacement(
+    rule: TextFormatConfig | ColorFormatConfig,
+    gameCode: string,
+    args: any[]
+  ): string {
+    const match = args[0] as string;
+    const captures = args.slice(1);
+    const replacement = rule.replacement;
+    if (this.isColorReplacement(replacement)) {
+      return this.resolveColorReplacement(match, gameCode, replacement);
+    }
+    return this.resolveTextReplacement(replacement, match, captures, gameCode);
+  }
+
+  // ===========================================================================
+  // Text replacements
+  // ===========================================================================
+
+  private resolveTextReplacement(
+    replacement: ReplacementConfig,
+    match: string,
+    captures: string[],
+    gameCode: string
+  ): string {
+    switch (replacement.type) {
+      case 'text':
+        return replacement.value;
+      case 'constant':
+        return this.getConstant(replacement.value);
+      case 'shortcut':
+        return this.getShortcut(replacement, gameCode, match);
+      case 'characterImage':
+        return this.getCharacterImage(captures[0]);
+      case 'characterImageName':
+        return this.getCharacterImage(captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
+      case 'characterTooltip':
+        return this.getCharacterImageAsTooltip(captures[0]);
+      case 'image':
+        return this.imageOf(Utils.appendRepoUrl(captures[0]));
+      case 'image2':
+        return this.splitImage2Of(
+          Utils.appendRepoUrl(captures[0]),
+          Utils.appendRepoUrl(captures[1]));
+      case 'image4':
+        return this.splitImage4Of(
+          Utils.appendRepoUrl(captures[0]),
+          Utils.appendRepoUrl(captures[1]),
+          Utils.appendRepoUrl(captures[2]),
+          Utils.appendRepoUrl(captures[3]));
+      case 'html':
+        return this.applyTemplate(replacement.template, captures);
+      case 'arrow':
+        return this.arrow(replacement.direction);
+      default:
+        return match;
     }
   }
 
-  private getCharacterImage(name: string, gameCode: string) {
-    const charmd = this.charactersService.getOne(name?.trim());
-    const imgUrl = charmd && charmd.imageUrl ? charmd.imageUrl : Constants.images.unknownCharacter;
-    return this.imageOf(imgUrl, name);
+  // ===========================================================================
+  // Color replacements
+  // ===========================================================================
+
+  private resolveColorReplacement(
+    match: string,
+    gameCode: string,
+    replacement: ColorReplacementConfig
+  ): string {
+    const colorName =
+      replacement.values[gameCode] ??
+      replacement.values['ALL'];
+    if (!colorName) {
+      return match;
+    }
+    if (replacement.colorType === 'number') {
+      return this.color(match, '--' + colorName);
+    }
+    return this.color(match, `--${replacement.colorType}-${gameCode}-${colorName}`);
   }
 
-  private getCharacterImageAsTooltip(name: string, gameCode: string) {
-    return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name, gameCode)}</b>`;
-  }
+  // ===========================================================================
+  // Shortcuts
+  // ===========================================================================
 
-  // GI moves shortcuts
-  private gi = {
+  private readonly gi = {
     normal: this.tooltip('N', 'Normal Attack'),
     charged: this.tooltip('CA', 'Charged Attack'),
     skill: this.tooltip('E', 'Elemental Skill'),
     tapSkill: this.tooltip('tE', 'Elemental Skill (Tap)'),
     holdSkill: this.tooltip('hE', 'Elemental Skill (Hold)'),
     burst: this.tooltip('Q', 'Elemental Burst'),
-    plunge: this.tooltip('P', 'Plunge'),
-  }
+    plunge: this.tooltip('P', 'Plunge')
+  };
 
-  // ZZZ moves shortcuts
-  private zzz = {
+  private readonly zzz = {
     basic: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic', 'margin-top: 0;'),
     charged: this.tooltip(
-      this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') + 
-      `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">(Hold)</span>`,
-      'Charged Attack'),
+      this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') 
+      + `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">(Hold)</span>`,
+      'Charged Attack'
+    ),
     exSpecial: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special', 'margin-top: 0;'),
     special: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special', 'margin-top: 0;'),
     ultimate: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate', 'margin-top: 0;'),
@@ -77,124 +202,115 @@ export class TextUtils {
     burn: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn', 'margin-top: 0;'),
     shock: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock', 'margin-top: 0;'),
     freeze: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ice.png'), 'Freeze', 'margin-top: 0;'),
-    corrupt: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;'),
+    corrupt: this.imageOf(Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;')
+  };
+
+  private getShortcut(replacement: ShortcutReplacement, gameCode: string, fallback: string): string {
+    const shortcut =
+      replacement.values?.[gameCode] ??
+      replacement.value;
+    if (!shortcut) {
+      return fallback;
+    }
+    if (gameCode === Constants.games.GI) {
+      return (this.gi as Record<string, string>)[shortcut] ?? fallback;
+    }
+    if (gameCode === Constants.games.ZZZ) {
+      return (this.zzz as Record<string, string>)[shortcut] ?? fallback;
+    }
+    return fallback;
   }
 
-  TEXT_FORMATS_LIST(gameCode: string) {
-    return [
-      { groupId: 1, title: 'Normal Attack', games: 'GI', offset: 6, regex: /normal/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.normal : match },
-      { groupId: 1, title: 'Charged Attack', games: 'GI,ZZZ', offset: 7, regex: /charged/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.charged : this.isZZZ(gameCode) ? this.zzz.charged : match },
-      { groupId: 1, title: 'Elemental Skill (Tap)', games: 'GI', offset: 8, regex: /tapskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.tapSkill : match },
-      { groupId: 1, title: 'Elemental Skill (Hold)', games: 'GI', offset: 9, regex: /holdskill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.holdSkill : match },
-      { groupId: 1, title: 'Elemental Skill', games: 'GI', offset: 5, regex: /skill/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.skill : match },
-      { groupId: 1, title: 'Elemental Burst', games: 'GI,ZZZ', offset: 8, regex: /eburst/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.burst : this.isZZZ(gameCode) ? this.zzz.ultimate : match },
-      { groupId: 1, title: 'Plunge', games: 'GI', offset: 6, regex: /plunge/g, replace: (match: any) => this.isGI(gameCode) ? this.gi.plunge : match },
-      { groupId: 1, title: 'Basic Attack', games: 'ZZZ', offset: 5, regex: /basic/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.basic : match },
-      { groupId: 1, title: 'EX Special', games: 'ZZZ', offset: 9, regex: /exspecial/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.exSpecial : match },
-      { groupId: 1, title: 'Special', games: 'ZZZ', offset: 7, regex: /special/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.special : match },
-      { groupId: 1, title: 'Chain Attack', games: 'ZZZ', offset: 5, regex: /chain/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.chain : match },
-      { groupId: 1, title: 'Dash', games: 'ZZZ', offset: 4, regex: /dash/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.dash : match },
-      { groupId: 1, title: 'Assault', games: 'ZZZ', offset: 7, regex: /assault/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.assault : match },
-      { groupId: 1, title: 'Burn', games: 'ZZZ', offset: 4, regex: /burn/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.burn : match },
-      { groupId: 1, title: 'Shock', games: 'ZZZ', offset: 5, regex: /shock/g, replace: (match: any) => this.isZZZ(gameCode) ? this.zzz.shock : match },
+  // ===========================================================================
+  // Character helpers
+  // ===========================================================================
 
-      { groupId: 2, title: 'Switch', games: 'ALL', offset: 6, regex: /switch/g, replace: () => '>' },
-      { groupId: 2, title: 'Multiply (x)', games: 'ALL', offset: 7, regex: / times /g, replace: () => Constants.unicode.times },
-      { groupId: 2, title: 'Arrow (Up)', games: 'ALL', offset: 8, regex: /arrow_up/g, replace: () => `<span style="margin: auto 5px;">${Constants.unicode.arrow_up}</span>` },
-      { groupId: 2, title: 'Arrow (Down)', games: 'ALL', offset: 10, regex: /arrow_down/g, replace: () => `<span style="margin: auto 5px;">${Constants.unicode.arrow_down}</span>` },
-      { groupId: 2, title: 'Arrow (Right)', games: 'ALL', offset: 11, regex: /arrow_right/g, replace: () => `<span style="margin: auto 5px;">${Constants.unicode.arrow_right}</span>` },
-      { groupId: 2, title: 'Arrow (Left)', games: 'ALL', offset: 10, regex: /arrow_left/g, replace: () => `<span style="margin: auto 5px;">${Constants.unicode.arrow_left}</span>` },
-
-      { groupId: 3, title: 'Character Image', games: 'ALL', offset: 2, regex: /c_(.*?)_c/g, replace: (match: any, capture: any) => this.getCharacterImage(capture, gameCode) },
-      { groupId: 3, title: 'Character Image + Name', games: 'ALL', offset: 3, regex: /cn_(.*?)_cn/g, replace: (match: any, capture: any) => this.getCharacterImage(capture, gameCode) + ` <b class="no-break">${capture}</b>` },
-      { groupId: 3, title: 'Character Image as Tooltip', games: 'ALL', offset: 3, regex: /ca_(.*?)_ca/g, replace: (match: any, capture: any) => this.getCharacterImageAsTooltip(capture, gameCode) },
-
-      { groupId: 4, title: 'Title', games: 'ALL', offset: 2, regex: /t_(.*?)_t/g, replace: (match: any, capture: any) => `<b style="text-transform: uppercase; margin-right: 10px;">${capture}:</b>` },
-      { groupId: 4, title: 'Image', games: 'ALL', offset: 4, regex: /img_(.*?)_img/g, replace: (match: any, capture: any) => this.imageOf(Utils.appendRepoUrl(capture)) },
-      { groupId: 4, title: 'Double Image', games: 'ALL', offset: 5, regex: /img2_(.*?)\+(.*?)_img2/g, replace: (match: any, capture1: any, capture2: any) => this.splitImage2Of(Utils.appendRepoUrl(capture1), Utils.appendRepoUrl(capture2)) },
-      { groupId: 4, title: 'Quad Image', games: 'ALL', offset: 5, regex: /img4_(.*?)\+(.*?)\+(.*?)\+(.*?)_img4/g, replace: (match: any, cap1: any, cap2: any, cap3: any, cap4: any) => this.splitImage4Of(Utils.appendRepoUrl(cap1), Utils.appendRepoUrl(cap2), Utils.appendRepoUrl(cap3), Utils.appendRepoUrl(cap4)) },
-      { groupId: 4, title: 'Small Text', games: 'ALL', offset: 3, regex: /st_(.*?)_st/g, replace: (match: any, capture: any) => `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">${capture}</span>` },
-      { groupId: 4, title: 'Bold', games: 'ALL', offset: 2, regex: /b_(.*?)_b/g, replace: (match: any, capture: any) => `<b>${capture}</b>` },
-      { groupId: 4, title: 'Underline', games: 'ALL', offset: 2, regex: /u_(.*?)_u/g, replace: (match: any, capture: any) => `<u>${capture}</u>` },
-      { groupId: 4, title: 'Italic', games: 'ALL', offset: 2, regex: /i_(.*?)_i/g, replace: (match: any, capture: any) => `<i>${capture}</i>` },
-      { groupId: 4, title: 'New Line', games: 'ALL', offset: 3, regex: /nl_/g, replace: () => `<br/>` },
-      { groupId: 4, title: 'Text + Tooltip', games: 'ALL', offset: 3, regex: /tp_(.*?)_(.*?)_tp/g, replace: (match: any, capture1: any, capture2: any) => this.htmlTooltip(capture1, capture2) },
-      { groupId: 4, title: 'Combo', games: 'ALL', offset: 3, regex: /cb_(.*?)_cb/g, replace: (match: any, capture: any) => `<b>[</b>${capture}<b>]</b>` },
-    ];
+  private getCharacterImage(name: string): string {
+    const character =
+      this.charactersService.getOne(name?.trim());
+    const imageUrl =
+      character?.imageUrl ??
+      Constants.images.unknownCharacter;
+    return this.imageOf(imageUrl, name);
   }
 
-  COLOR_FORMATS_LIST(gameCode: string) {
-    return [
-      { title: 'Fire', regex: /\b(?:fire dmg|fire|burning)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Fire', 'Fire', 'Fire') },
-      { title: 'Electric', regex: /\b(?:electric dmg|electric|shocked)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Electric') },
-      { title: 'Ether', regex: /\b(?:ether dmg|ether|corruption)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Ether') },
-      { title: 'Ice', regex: /\b(?:ice dmg|ice|freeze|shatter)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Ice', 'Ice', 'Ice') },
-      { title: 'Physical', regex: /\b(?:physical dmg|physical sheer dmg|physical)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Physical', 'Physical', 'Physical') },
-      { title: 'Lightning', regex: /\b(?:lightning dmg|lightning)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Lightning', '', 'Lightning') },
-      { title: 'Wind', regex: /\b(?:wind dmg|wind)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Wind', 'Wind') },
-      { title: 'Quantum', regex: /\b(?:quantum dmg|quantum)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Quantum') },
-      { title: 'Imaginary', regex: /\b(?:imaginary dmg|imaginary)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', 'Pyro') },
-      { title: 'Pyro', regex: /\b(?:pyro dmg|pyro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Pyro') },
-      { title: 'Cryo', regex: /\b(?:cryo dmg|cryo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Cryo') },
-      { title: 'Hydro', regex: /\b(?:hydro dmg|hydro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Hydro') },
-      { title: 'Electro', regex: /\b(?:electro dmg|electro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Electro') },
-      { title: 'Anemo', regex: /\b(?:anemo dmg|anemo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Anemo') },
-      { title: 'Geo', regex: /\b(?:geo dmg|geo)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Geo') },
-      { title: 'Dendro', regex: /\b(?:dendro dmg|dendro)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, 'Dendro') },
-      { title: 'Lumiflux', regex: /\b(?:lumiflux dmg|lumiflux)\b/gi, replace: (match: any) => this.applyColor(gameCode, 'element', match, '', '', 'Lumiflux') },
-      { title: 'Numbers (%)', regex: /\d+(\.\d+)?%/gi, replace: (match: any) => this.color(match, '--number-color') },
-      { title: 'Numbers (s)', regex: /\d+(\.\d+)?s/gi, replace: (match: any) => this.color(match, '--number-color') },
-      { title: 'Numbers (n/s)', regex: /\d+(\.\d+)?\/s/gi, replace: (match: any) => this.color(match, '--number-color') },
-      { title: 'Numbers (+)', regex: /(?<=\+)\d+(\.\d+)?/gi, replace: (match: any) => this.color(match, '--number-color') },
-      { title: 'PHEC', regex: /\b(?=.*P)(?=.*H)(?=.*E)(?=.*C)[PHEC]{4}\b/g, replace: (match: string) => match.split('').map(letter => {
-          switch (letter) {
-            case 'P': return this.applyColor(gameCode, 'element', letter, 'Pyro');
-            case 'E': return this.applyColor(gameCode, 'element', letter, 'Electro');
-            case 'C': return this.applyColor(gameCode, 'element', letter, 'Cryo');
-            case 'H': return this.applyColor(gameCode, 'element', letter, 'Hydro');
-            default: return letter;
-          }
-        }).join('')
-      },
-      //{ title: 'TTT', offset: 333, regex: /REGEX/g, replace: () => {} },
-    ];
-  }  
-
-  format(text: string | null, gameCode: string) {
-    if (text == null) {
-      return '';
-    }
-    let formatted = String(text);
-    for (const rule of this.TEXT_FORMATS_LIST(gameCode)) {
-      formatted = formatted.replace(rule.regex, rule.replace);
-    }
-    return this.sanitizer.bypassSecurityTrustHtml(formatted);
+  private getCharacterImageAsTooltip(name: string): string {
+    return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name)}</b>`;
   }
 
-  colorize(text: string | null, gameCode: string) {
-    if (text == null) {
-      return '';
-    }
-    let colorized = String(text);
-    for (const rule of this.COLOR_FORMATS_LIST(gameCode)) {
-      colorized = colorized.replace(rule.regex, rule.replace);
-    }
-    return this.sanitizer.bypassSecurityTrustHtml(colorized);
+  // ===========================================================================
+  // HTML helpers
+  // ===========================================================================
+
+  private tooltip(text: string, tooltip: string): string {
+    return `<span title="${tooltip}">${text}</span>`;
   }
 
-  formatAndColorize(text: string | null, gameCode: string): SafeHtml {
-    if (text == null) {
-      return '';
+  private imageOf(path: string, tooltip: string | null = 'image', style: string | null = null): string {
+    return `<img src="${path}" width="30" title="${tooltip}" style="margin-top: -8px; ${style ?? ''}" />`;
+  }
+
+  private splitImage2Of(path1: string, path2: string): string {
+    return `<div class="split-image-2"><img src="${path1}" class="left-img" width="30"><img src="${path2}" class="right-img" width="30"></div>`;
+  }
+
+  private splitImage4Of(path1: string, path2: string, path3: string, path4: string): string {
+    return `<div class="split-image-4"><img src="${path1}" class="top-img" width="30"><img src="${path2}" class="right-img" width="30"><img src="${path3}" class="bottom-img" width="30"><img src="${path4}" class="left-img" width="30"></div>`;
+  }
+
+  private htmlTooltip(text: string, tooltip: string): string {
+    return `<span class="html-tooltip">${text}<span class="tooltip-content">${tooltip}</span></span>`;
+  }
+
+  private arrow(direction: 'up' | 'down' | 'left' | 'right'): string {
+    const arrows = {
+      up: Constants.unicode.arrow_up,
+      down: Constants.unicode.arrow_down,
+      left: Constants.unicode.arrow_left,
+      right: Constants.unicode.arrow_right
+    };
+    return `<span style="margin: auto 5px;">${arrows[direction]}</span>`;
+  }
+
+  private color(text: string, color: string): string {
+    return `<b style="color: var(${color})">${text}</b>`;
+  }
+
+  private applyTemplate(template: string, captures: string[]): string {
+    return template.replace(
+      /\$(\d+)/g,
+      (match, index) => captures[Number(index) - 1] ?? match
+    );
+  }
+
+  // ===========================================================================
+  // Utility
+  // ===========================================================================
+
+  private isApplicable(games: string[], gameCode: string): boolean {
+    return games.includes('ALL') || games.includes(gameCode);
+  }
+
+  private getRuleGames(rule: TextFormatConfig | ColorFormatConfig): string[] {
+    if ('games' in rule) {
+      return rule.games;
     }
-    let formatted = String(text);
-    const textFormatsList = this.TEXT_FORMATS_LIST(gameCode);
-    for (const rule of textFormatsList) {
-      formatted = formatted.replace(rule.regex, rule.replace);
-    }
-    const colorFormatsList = this.COLOR_FORMATS_LIST(gameCode);
-    for (const rule of colorFormatsList) {
-      formatted = formatted.replace(rule.regex, rule.replace);
-    }
-    return this.sanitizer.bypassSecurityTrustHtml(formatted);
+    return Object.keys(rule.replacement.values);
+  }
+
+  private getColorGames(rule: ColorFormatConfig): string[] {
+    return Object.keys(rule.replacement.values);
+  }
+
+  private getConstant(name: keyof typeof Constants.unicode): string {
+    return Constants.unicode[name];
+  }
+
+  private sanitize(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
+  private isColorReplacement(replacement: any): replacement is ColorReplacementConfig {
+    return replacement.type === 'color';
   }
 }
