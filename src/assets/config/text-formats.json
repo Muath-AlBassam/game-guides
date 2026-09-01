@@ -216,8 +216,8 @@
       "regex": " times ",
       "flags": "g",
       "replacement": {
-        "type": "constant",
-        "value": "times"
+        "type": "text",
+        "value": "&times;"
       }
     },
     {

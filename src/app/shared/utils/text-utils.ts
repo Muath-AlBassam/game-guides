@@ -120,8 +120,6 @@ export class TextUtils {
     switch (replacement.type) {
       case 'text':
         return replacement.value;
-      case 'constant':
-        return this.getConstant(replacement.value);
       case 'shortcut':
         return this.getShortcut(replacement, gameCode, match);
       case 'characterImage':
@@ -300,10 +298,6 @@ export class TextUtils {
 
   private getColorGames(rule: ColorFormatConfig): string[] {
     return Object.keys(rule.replacement.values);
-  }
-
-  private getConstant(name: keyof typeof Constants.unicode): string {
-    return Constants.unicode[name];
   }
 
   private sanitize(html: string): SafeHtml {

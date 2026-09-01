@@ -8,18 +8,3 @@ export interface LookupModel {
   // EXTRA_FIELDS
   [key: string]: unknown;
 }
-
-export class Lookup implements LookupModel {
-  gameCode = '';
-  code = '';
-  label = '';
-  type = '';
-  imageUrl = '';
-
-  [key: string]: unknown;
-
-  constructor(code = '', label = '') {
-    this.code = code;
-    this.label = label;
-  }
-}

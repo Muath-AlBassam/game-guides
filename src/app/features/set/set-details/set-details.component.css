@@ -1,5 +1,4 @@
 .set-container {
-  background-color: #36373d;
   border: 2px solid #484950;
   display: grid;
   align-items: center;
@@ -13,20 +12,26 @@
   grid-template-columns: calc(var(--set-dimension) + 10px) minmax(0, 1fr);
 }
 
-.set-container__flat {
+.set-container__none {
   background-color: #2c2d33;
+}
+
+.set-container__solid {
+  background-color: #36373d;
 }
 
 /* Image */
 .set-container .set-image {
   width: var(--set-dimension);
   height: var(--set-dimension);
-  background-color: #2c2d33;
   display: flex;
   align-items: center;
   justify-content: center;
   grid-column: 1;
   grid-row: 1;
+}
+.set-container__solid .set-image {
+  background-color: #2c2d33;
 }
 
 .set-container .set-image img {

@@ -29,7 +29,7 @@ export class TeamDetailsDialogComponent implements OnInit {
   team!: TeamModel;
   teamId!: string;
   petmd: PetModel | null = null;
-  petRarityMd: LookupModel | null = null;
+  petRarityMd: LookupModel | undefined = undefined;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,

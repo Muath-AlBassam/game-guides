@@ -3,8 +3,11 @@
     class="set-container"
     [ngClass]="{
       'expandable': showExpandArrow,
-      'set-container__flat': backgroundStyle === 'flat'
+      'set-container__none': backgroundStyle === 'none' || (backgroundStyle == 'fade' && !rarity),
+      'set-container__solid': backgroundStyle === 'solid',
+      'rarity-background-fade': isBackgroundStyleFade
     }"
+    [style.--rarity-color]="rarity ? Utils.rarityCSSVar(rarity.gameCode, rarity.code) : 'transparent'"
     [style.--set-dimension.px]="dimensions"
     [ngbPopover]="setEffectPopover"
     [popoverTitle]="set.name"
@@ -15,7 +18,7 @@
     <!-- Image -->
     <div
       class="set-image"
-      [style]="rarity ? rarity['backgroundStyle'] : ''">
+      [style]="rarity && backgroundStyle == 'solid' ? rarity['backgroundStyle'] : ''">
 
       <img
         [src]="set.imageUrl"

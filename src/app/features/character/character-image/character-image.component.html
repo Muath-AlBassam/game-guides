@@ -186,7 +186,7 @@
         @if (charmd.skillDescriptionList.length > 0) {
           <ul class="description-list">
             @for (desc of charmd.skillDescriptionList; track $index) {
-              <li>{{ desc }}</li>
+              <li [class.full-width]="desc.length >= 33">{{ desc }}</li>
             }
           </ul>
         }

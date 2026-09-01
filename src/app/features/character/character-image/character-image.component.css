@@ -189,10 +189,14 @@
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 }
+.character-details .description-list .full-width {
+  grid-column: 1 / -1;
+}
 
-
-/* .character-details .build {
-} */
+/*
+.character-details .build {
+}
+*/
 
 /* PFP & CARD */
 .char-img-resize {

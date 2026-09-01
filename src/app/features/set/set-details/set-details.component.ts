@@ -15,6 +15,7 @@ import { LookupModel } from '../../../shared/models/lookup.model';
 })
 export class SetDetailsComponent implements OnInit {
 
+  readonly Utils = Utils;
   readonly UUID = Utils.generateUUID();
 
   @Input() setName!: string;
@@ -22,11 +23,11 @@ export class SetDetailsComponent implements OnInit {
   @Input() showEquippedBy = false;
   @Input() effectStyle: 'popover' | 'box' = 'popover';
   @Input() dimensions: number = 80;
-  @Input() backgroundStyle: 'flat' | 'split' = 'split';
+  @Input() backgroundStyle: 'solid' | 'fade' | 'none' = 'solid';
 
   set!: SetModel;
   setEffectsList: SetEffectModel[] = [];
-  rarity: LookupModel | null = null;
+  rarity: LookupModel | undefined = undefined;
   equippedCharacters: string[] = [];
 
   constructor(
@@ -86,6 +87,10 @@ export class SetDetailsComponent implements OnInit {
     if (this.showEquippedBy) {
       this.equippedCharacters = this.buildsService.getEquippedBy(this.setName, 'SET');
     }
+  }
+
+  get isBackgroundStyleFade(): boolean {
+    return !!this.rarity && this.backgroundStyle === 'fade';
   }
 
   get hasEffects(): boolean {

@@ -49,8 +49,8 @@ export class WeaponDetailsComponent implements OnInit {
   private loadBasicData(): void {
     this.weapon = this.weaponsService.getOne(this.weaponName);
     this.weapon.formattedEffect = this.textUtils.colorize(this.weapon.effect, this.weapon.gameCode);
-    this.rarity = this.lookupsService.getOne(this.weapon.rarity, Constants.lookupType.RARITY);
-    this.type = this.lookupsService.getOne(this.weapon.type, Constants.lookupType.TYPE);
+    this.rarity = this.lookupsService.getOne(this.weapon.rarity, Constants.lookupType.RARITY)!;
+    this.type = this.lookupsService.getOne(this.weapon.type, Constants.lookupType.TYPE)!;
   }
 
   loadEquippedBy(): void {

@@ -22,7 +22,6 @@ export interface ColorFormatConfig {
 
 export type ReplacementConfig =
   | TextReplacement
-  | ConstantReplacement
   | ShortcutReplacement
   | CharacterImageReplacement
   | CharacterImageNameReplacement
@@ -36,11 +35,6 @@ export type ReplacementConfig =
 export interface TextReplacement {
   type: 'text';
   value: string;
-}
-
-export interface ConstantReplacement {
-  type: 'constant';
-  value: keyof typeof import('./constants').Constants.unicode;
 }
 
 export interface ShortcutReplacement {

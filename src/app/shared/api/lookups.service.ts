@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { Lookup, LookupModel } from '../models/lookup.model';
+import { LookupModel } from '../models/lookup.model';
 import { Constants } from '../utils/constants';
 
 @Injectable({
@@ -56,11 +56,10 @@ export class LookupsService {
         r.gameCode == gameCode && r.type == type && Object.entries(extraFilters).every(([key, value]) => r[key] === value));
   }
 
-  getOne(code: string, type: string): LookupModel {
+  getOne(code: string, type: string): LookupModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.lookupsList
+    return this.lookupsList
       .find(r => r.gameCode == gameCode && r.code == code && r.type == type);
-    return data ?? new Lookup(code, code);
   }
 
   getGeneralLookup(type: string, extraFilters: any = {}) {
