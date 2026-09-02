@@ -3,6 +3,9 @@ import { TeamsService } from '../../../shared/api/teams.service';
 import { TeamModel } from '../../../shared/models/team.mode';
 import { Utils } from '../../../shared/utils/utils';
 import { ListByCategoryModel } from '../../../shared/models/list-by-category.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
+import { LookupsService } from '../../../shared/api/lookups.service';
+import { Constants } from '../../../shared/utils/constants';
 
 @Component({
   selector: 'app-team-list',
@@ -11,28 +14,36 @@ import { ListByCategoryModel } from '../../../shared/models/list-by-category.mod
 })
 export class TeamListComponent implements OnInit {
 
-  allTeamsList: TeamModel[] = [];
-  teamByCatList: ListByCategoryModel<TeamModel>[] = [];
+  allTeams: TeamModel[] = [];
+  groupedTeamsList: ListByCategoryModel<TeamModel>[] = [];
+  categories: LookupModel[] = [];
+
   count: number = 0;
   characterPFPSize: number = 160;
-
-  // search
-  textValue: string = '';
+  searchValue: string = '';
   tagValue: string[] = [];
 
-  constructor(private teamsService: TeamsService) {}
+  constructor(
+    private teamsService: TeamsService,
+    private lookupsService: LookupsService
+  ) {}
 
   ngOnInit(): void {
     this.loadTeams();
-    this.mapToCategoryList(this.allTeamsList);
+    this.loadCategories();
+    this.mapToCategoryList(this.allTeams);
   }
 
   loadTeams(): void {
-    this.allTeamsList = this.teamsService.getAll();
+    this.allTeams = this.teamsService.getAll();
+  }
+
+  loadCategories(): void {
+    this.categories = this.lookupsService.getByType(Constants.lookupType.TEAM_CATEGORY);
   }
 
   onTextChange(val: string): void {
-    this.textValue = val;
+    this.searchValue = val;
     this.filterList();
   }
 
@@ -42,9 +53,9 @@ export class TeamListComponent implements OnInit {
   }
 
   filterList(): void {
-    const filteredList: TeamModel[] = this.allTeamsList.filter(team => {
-      const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.textValue.toLowerCase()) : false;
-      const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.textValue.toLowerCase()));
+    const filteredList: TeamModel[] = this.allTeams.filter(team => {
+      const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.searchValue.toLowerCase()) : false;
+      const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.searchValue.toLowerCase()));
       const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
       return (teamName || charaterName) && tag;
     });
@@ -53,10 +64,6 @@ export class TeamListComponent implements OnInit {
   }
 
   mapToCategoryList(teamList: TeamModel[]): void {
-    const teamByCat: Map<string, TeamModel[]> = Utils.groupBy(teamList, 'category');
-    this.teamByCatList = Array.from(
-      teamByCat,
-      ([category, teams]) => ({ label: category, list: teams })
-    );
+    this.groupedTeamsList = Utils.groupByLookup(teamList, this.categories, 'category')
   }
 }

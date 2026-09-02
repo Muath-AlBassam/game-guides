@@ -43,7 +43,7 @@ export class SetsService {
       gameCode: s.GAME_CODE,
       code: s.CODE,
       name: s.NAME,
-      type: s.TYPE,
+      category: s.CATEGORY,
       imageUrl: Utils.appendRepoUrl(s.IMAGE_URL),
       rarity: s.RARITY,
       effects: this.setsEffectsList

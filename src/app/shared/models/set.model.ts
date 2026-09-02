@@ -4,7 +4,7 @@ export interface SetModel {
   gameCode: string;
   code: string;
   name: string;
-  type: string;
+  category: string;
   imageUrl: string;
   rarity: string;
   effects: SetEffectModel[];
@@ -23,7 +23,7 @@ export class SetClass implements SetModel {
   gameCode = '';
   code = '';
   name = '';
-  type = '';
+  category = '';
   imageUrl = '';
   rarity = '';
   effects: SetEffectModel[] = [];

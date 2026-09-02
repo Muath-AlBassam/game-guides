@@ -1,4 +1,6 @@
 import { environment } from '../../../environments/environment';
+import { ListByCategoryModel } from '../models/list-by-category.model';
+import { LookupModel } from '../models/lookup.model';
 import { Constants } from '../utils/constants';
 
 export class Utils {
@@ -36,15 +38,36 @@ export class Utils {
     return map;
   }
 
+  static groupByLookup<T>(
+    items: T[],
+    lookup: LookupModel[],
+    field: keyof T
+  ): ListByCategoryModel<T>[] {
+    return lookup
+      .map(category => ({
+        label: category.label,
+        list: items.filter(item => item[field] === category.code),
+        order: Number(category['order'])
+      }))
+      .filter(item => item.list.length > 0)
+      .sort((a, b) => Number(a['order']) - Number(b['order']));
+  }
+
   static isNumber(text: any) {
     return !isNaN(Number(text));
   }
 
-  static rarityCSSVar(gameCode: string, code: string) {
-    return `var(--rarity-${gameCode}-${code})`;
+  static rarityCSSVar(gameCode: string, code: string | undefined) {
+    if (gameCode && code) {
+      return `var(--rarity-${gameCode}-${code})`;
+    }
+    return '';
   }
 
-  static elementCSSVar(gameCode: string, code: string) {
-    return `var(--element-${gameCode}-${code})`;
+  static elementCSSVar(gameCode: string, code: string | undefined) {
+    if (gameCode && code) {
+      return `var(--element-${gameCode}-${code})`;
+    }
+    return '';
   }
 }

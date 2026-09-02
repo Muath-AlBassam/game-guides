@@ -5,14 +5,14 @@
     [class]="charmd.code"
     [ngClass]="{'glow-border': charmd.enhanced}"
     [style]="
-      (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '')"
+      (showBackgroundStyle ? (charmd.rarity?.['backgroundStyle'] ?? '') : '') +
+      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity?.code) + ';' : '')"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
-    @if (showElement && charmd.element.imageUrl) {
+    @if (showElement && charmd.element?.imageUrl) {
       <ng-container *ngTemplateOutlet="elementImage"></ng-container>
     }
-    @if (showType && charmd.type.imageUrl) {
+    @if (showType && charmd.type?.imageUrl) {
       <ng-container *ngTemplateOutlet="typeImage"></ng-container>
     }
 
@@ -42,7 +42,7 @@
         class="child"
         [class]="charmd.code"
         [ngClass]="{'pointer': enableDetailsDialog}"
-        [style]="showBackgroundStyle ? char.rarity['backgroundStyle'] : ''"
+        [style]="showBackgroundStyle ? char.rarity?.['backgroundStyle'] : ''"
         (click)="openCharacterDetailsDialog(char.name)">
         <img
           [src]="char.imageUrl ?? UNKNOWN_IMG"
@@ -60,8 +60,8 @@
     class="character-container"
     [class]="charmd.code"
     [style]="
-      (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '') +
+      (showBackgroundStyle ? (charmd.rarity?.['backgroundStyle'] ?? '') : '') +
+      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity?.code) + ';' : '') +
       ' border-radius: 5px; ' + styles">
     <img
       [src]="charmd.imageUrl ?? UNKNOWN_IMG"
@@ -74,11 +74,11 @@
       [height]="dimensions"
       (click)="openCharacterDetailsDialog(charmd.name)"
       loading="lazy" />
-    @if (showElement && charmd.element.imageUrl) {
+    @if (showElement && charmd.element?.imageUrl) {
       <ng-container *ngTemplateOutlet="elementImage"></ng-container>
     }
 
-    @if (showType && charmd.type.imageUrl) {
+    @if (showType && charmd.type?.imageUrl) {
       <ng-container *ngTemplateOutlet="typeImage"></ng-container>
     }
   </div>
@@ -88,13 +88,13 @@
     class="char-card"
     [class]="charmd.code"
     [ngClass]="{'glow-border': charmd.enhanced}"
-    [style]="showBackgroundStyle ? charmd.rarity['backgroundStyle'] : ''"
+    [style]="showBackgroundStyle ? charmd.rarity?.['backgroundStyle'] : ''"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
-    @if (showElement && charmd.element.imageUrl) {
+    @if (showElement && charmd.element?.imageUrl) {
       <ng-container *ngTemplateOutlet="elementImage"></ng-container>
     }
-    @if (showType && charmd.type.imageUrl) {
+    @if (showType && charmd.type?.imageUrl) {
       <ng-container *ngTemplateOutlet="typeImage"></ng-container>
     }
 
@@ -130,15 +130,15 @@
   <div
     class="character-details"
     [class]="charmd.code"
-    [style]="'border-left: 4px solid ' + Utils.elementCSSVar(charmd.gameCode, charmd.element.code) + ';'">
+    [style]="'border-left: 4px solid ' + Utils.elementCSSVar(charmd.gameCode, charmd.element?.code) + ';'">
     <div class="header">
       <span>
         <a class="heading" href="javascript:void(0)">
           <span
             class="character-img"
             [style]="
-              (showBackgroundStyle ? (charmd.rarity['backgroundStyle'] ?? '') : '') +
-              (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity.code) + ';' : '')">
+              (showBackgroundStyle ? (charmd.rarity?.['backgroundStyle'] ?? '') : '') +
+              (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity?.code) + ';' : '')">
             <img
               [src]="charmd.imageUrl ?? UNKNOWN_IMG"
               [alt]="charmd.name"
@@ -155,13 +155,13 @@
               {{ charmd.name }}
             </span>
             <span class="metadata">
-              @if (showElement && charmd.element.imageUrl) {
+              @if (showElement && charmd.element?.imageUrl) {
                 <ng-container *ngTemplateOutlet="elementImage"></ng-container>
-                {{ charmd.element.label }}
+                {{ charmd.element ? charmd.element.label : '-' }}
               }
-              @if (showType && charmd.type.imageUrl) {
+              @if (showType && charmd.type?.imageUrl) {
                 <ng-container *ngTemplateOutlet="typeImage"></ng-container>
-                {{ charmd.type.label }}
+                {{ charmd.type ? charmd.type.label : '-' }}
               }
             </span>
           </span>
@@ -205,10 +205,10 @@
 <ng-template #elementImage>
   <img
     class="element-img"
-    [src]="charmd.element.imageUrl"
+    [src]="charmd.element?.imageUrl"
     [width]="iconSize"
     [height]="iconSize"
-    [title]="charmd.element.code"
+    [title]="charmd.element?.code"
     loading="lazy" />
 </ng-template>
 
@@ -216,9 +216,9 @@
   <img
     class="type-img"
     [ngStyle]="{'top': iconSize + 'px'}"
-    [src]="charmd.type.imageUrl"
+    [src]="charmd.type?.imageUrl"
     [width]="iconSize"
     [height]="iconSize"
-    [title]="charmd.type.label"
+    [title]="charmd.type?.label"
     loading="lazy" />
 </ng-template>

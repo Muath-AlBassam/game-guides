@@ -1,6 +1,6 @@
-@if (categories.length > 0) {
+@if (data.length > 0) {
   <div class="category-list-container">
-    @for (category of categories; track $index) {
+    @for (category of data; track $index) {
       <div class="row">
         @if (showCategoryLabel) {
           <div class="line-text" [class]="categoryLabelClass">

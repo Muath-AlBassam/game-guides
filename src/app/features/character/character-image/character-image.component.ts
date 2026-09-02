@@ -16,9 +16,9 @@ interface CharacterDetailsModel {
   name: string;
   imageUrl: string | undefined;
   cardImageUrl: string | undefined;
-  element: LookupModel;
-  type: LookupModel;
-  rarity: LookupModel;
+  element: LookupModel | undefined;
+  type: LookupModel | undefined;
+  rarity: LookupModel | undefined;
   enhanced: boolean;
   skillDescriptionList: string[];
   notes: NoteModel[];
@@ -83,9 +83,9 @@ export class CharacterImageComponent implements OnInit {
         name: tempCharMd.name,
         imageUrl: tempCharMd.imageUrl,
         cardImageUrl: tempCharMd.cardImageUrl,
-        element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT)!,
-        type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE)!,
-        rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY)!,
+        element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
+        type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
+        rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
         enhanced: tempCharMd.enhanced,
         skillDescriptionList: this.formatSkillDescriptionToList(tempCharMd),
         notes: this.getCharacterNotes(tempCharMd.gameCode, tempCharMd.code),

@@ -9,7 +9,7 @@ import { ListByCategoryModel } from '../../models/list-by-category.model';
 // Record<string, any> -> roughly means: { [key: string]: any; }
 export class ListByCategoryComponent<T extends Record<string, any>> {
 
-  @Input() categories: ListByCategoryModel<T>[] = [];
+  @Input() data: ListByCategoryModel<T>[] = [];
   @Input() showCategoryLabel = true;
   @Input() categoryLabelClass = '';
   @Input() listItemUniqueValueProperty: string = 'code';

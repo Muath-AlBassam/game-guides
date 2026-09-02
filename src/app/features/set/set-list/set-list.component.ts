@@ -5,6 +5,9 @@ import { Utils } from '../../../shared/utils/utils';
 import { GamesService } from '../../../shared/api/games.service';
 import { SetModel } from '../../../shared/models/set.model';
 import { ListByCategoryModel } from '../../../shared/models/list-by-category.model';
+import { LookupModel } from '../../../shared/models/lookup.model';
+import { LookupsService } from '../../../shared/api/lookups.service';
+import { Constants } from '../../../shared/utils/constants';
 
 @Component({
   selector: 'app-set-list',
@@ -14,50 +17,51 @@ import { ListByCategoryModel } from '../../../shared/models/list-by-category.mod
 export class SetListComponent implements OnInit {
 
   allSets: SetModel[] = [];
-  setByTypeList: ListByCategoryModel<SetModel>[] = [];
+  groupedSetsList: ListByCategoryModel<SetModel>[] = [];
+  categories: LookupModel[] = [];
+  
   count: number = 0;
   showCategoryLabel: boolean = false;
-
   setsLabel = '';
-  // search
-  textValue: string = '';
+  searchValue: string = '';
 
   constructor(
     private setsService: SetsService,
-    private gamesService: GamesService
+    private gamesService: GamesService,
+    private lookupsService: LookupsService
   ) {}
 
   ngOnInit(): void {
     const gameCode = this.gamesService.getActive()!.code;
     this.setsLabel = GameUtils.getSetsLabel(gameCode);
     this.loadSets();
-    this.mapToTypeList(this.allSets);
+    this.loadCategories();
+    this.mapToCategoryList(this.allSets);
   }
 
   loadSets(): void {
     this.allSets = this.setsService.getAll();
-    const distinctTypes = new Set(this.allSets.map(set => set.type));
-    this.showCategoryLabel = distinctTypes.size > 1;
+  }
+
+  loadCategories(): void {
+    this.categories = this.lookupsService.getByType(Constants.lookupType.SET_CATEGORY);
   }
 
   onTextChange(val: string): void {
-    this.textValue = val;
+    this.searchValue = val;
     this.filterList();
   }
 
   filterList(): void {
     const filteredList: SetModel[] = this.allSets.filter(s => {
-      return s.name.toLowerCase().includes(this.textValue.trim().toLowerCase());
+      return s.name.toLowerCase().includes(this.searchValue.trim().toLowerCase());
     });
     this.count = filteredList.length;
-    this.mapToTypeList(filteredList);
+    this.mapToCategoryList(filteredList);
   }
 
-  mapToTypeList(setList: SetModel[]): void {
-    const setByType: Map<string, SetModel[]> = Utils.groupBy(setList, 'type');
-    this.setByTypeList = Array.from(
-      setByType,
-      ([type, sets]) => ({ label: type, list: sets })
-    );
+  mapToCategoryList(setList: SetModel[]): void {
+    this.groupedSetsList = Utils.groupByLookup(setList, this.categories, 'category')
+    this.showCategoryLabel = this.groupedSetsList.length > 1;
   }
 }

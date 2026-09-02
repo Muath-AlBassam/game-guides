@@ -15,5 +15,7 @@ export interface BuildFlatModel {
   character: string;
   type: string;
   name: string;
-  equippedPieces: string;
+
+  // EXTRA_FIELDS
+  [key: string]: unknown;
 }

@@ -28,7 +28,7 @@ export class BuildsService {
         character: b.CHARACTER_CODE,
         type: b.TYPE,
         name: b.NAME,
-        equippedPieces: b.EQUIPPED_PIECES
+        ...(b.EXTRA_FIELDS ? JSON.parse(b.EXTRA_FIELDS) : {})
       }));
 
       const grouped = Utils.groupBy(this.flatList, 'gameCode', 'character');
@@ -42,7 +42,7 @@ export class BuildsService {
             ?.map((w: any) => ({ name: w.name })),
           sets: val
             .filter((s: any) => s.type === 'SET')
-            ?.map((s: any) => ({ name: s.name, equippedPieces: String(s.equippedPieces) }))
+            ?.map((s: any) => ({ name: s.name, equippedPieces: String(s['equippedPieces']) }))
         });
       });
     });
