@@ -1,3 +1,19 @@
-.roles-container {
-  /**/
+.character-role__image {
+  width: 50px;
+  text-align: center;
+}
+
+.character-role__description {
+  padding: 5px !important;
+  vertical-align: middle;
+}
+
+.character-role__description-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 100%;
+  padding: 8px;
+  font-size: 1.2em;
 }

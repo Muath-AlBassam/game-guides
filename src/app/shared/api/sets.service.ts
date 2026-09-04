@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { SetClass, SetEffectModel, SetModel } from '../models/set.model';
+import { SetModel, SetEffectModel } from '../models/set.model';
 
 @Injectable({
   providedIn: 'root'
@@ -62,10 +62,9 @@ export class SetsService {
       .sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   }
 
-  getOne(code: any): SetModel {
+  getOne(code: any): SetModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.setsList
+    return this.setsList
       .find(s => s.gameCode == gameCode && s.code == code);
-    return data ?? new SetClass(code, code);
   }
 }

@@ -105,7 +105,7 @@ export class DataClientService {
         return [];
       }
     } else {
-      console.log('workbook not loaded');
+      console.log('workbook not loaded', sheetName);
       return [];
     }
   }

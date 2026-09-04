@@ -10,6 +10,7 @@ import { GameModel } from '../../../shared/models/game.model';
 import { TeamModel } from '../../../shared/models/team.mode';
 import { PetModel } from '../../../shared/models/pet.model';
 import { LookupModel } from '../../../shared/models/lookup.model';
+import { CharactersService } from '../../../shared/api/characters.service';
 
 @Component({
   selector: 'app-team-details-dialog',
@@ -28,13 +29,14 @@ export class TeamDetailsDialogComponent implements OnInit {
   activeGame!: GameModel;
   team!: TeamModel;
   teamId!: string;
-  petmd: PetModel | null = null;
+  petmd: PetModel | undefined = undefined;
   petRarityMd: LookupModel | undefined = undefined;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private gamesService: GamesService,
     private teamsService: TeamsService,
+    private characterService: CharactersService,
     private petsService: PetsService,
     private lookupsService: LookupsService
   ) {
@@ -48,12 +50,27 @@ export class TeamDetailsDialogComponent implements OnInit {
 
   loadData(): void {
     this.activeGame = this.gamesService.getActive()!;
-    this.team = this.teamsService.getOne(this.teamCode);
-    this.petmd = this.petsService.getOne(this.team.pet);
-    this.petRarityMd = this.lookupsService.getOne(this.petmd.rarity, Constants.lookupType.RARITY);
-    this.teamId = `${this.activeGame.code}-${this.team.code}`;
+    this.loadTeam();
+    this.loadPet();
     if (this.isMobile()) {
       this.petPFPSize *= 0.7;
+    }
+  }
+
+  loadTeam(): void {
+    this.team = this.teamsService.getOne(this.teamCode)!;
+    this.teamId = `${this.activeGame.code}-${this.team.code}`;
+    this.team.characters.forEach(c => {
+      c.roleDescriptionList = this.characterService.getOne(c.name)?.skillDescription?.split(' | ');
+    })
+  }
+
+  loadPet(): void {
+    if (this.activeGame.hasPet) {
+      this.petmd = this.petsService.getOne(this.team.pet);
+      if (this.petmd) {
+        this.petRarityMd = this.lookupsService.getOne(this.petmd.rarity, Constants.lookupType.RARITY);
+      }
     }
   }
 

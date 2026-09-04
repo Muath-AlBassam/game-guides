@@ -37,7 +37,7 @@ export class TeamInfoComponent implements OnInit {
   }
 
   loadTeam(): void {
-    this.team = this.teamsService.getOne(this.teamCode);
+    this.team = this.teamsService.getOne(this.teamCode)!;
   }
 
   setTeamTags(): void {

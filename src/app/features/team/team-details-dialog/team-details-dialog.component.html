@@ -39,13 +39,13 @@
             </app-character-image>
           }
 
-          @if (activeGame.hasPet && petmd) {
+          @if (activeGame.hasPet) {
             <img
-              [src]="petmd.imageUrl ?? UNKNOWN_IMG"
+              class="pet"
+              [src]="petmd ? petmd.imageUrl : UNKNOWN_IMG"
               [height]="petPFPSize"
               [width]="petPFPSize"
-              [title]="petmd.name"
-              class="pet"
+              [title]="petmd ? petmd.name : '?'"
               [style]="petRarityMd ? petRarityMd['style'] : ''">
           }
         </div>

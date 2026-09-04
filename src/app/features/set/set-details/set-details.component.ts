@@ -44,7 +44,7 @@ export class SetDetailsComponent implements OnInit {
   }
 
   loadBasicData(): void {
-    this.set = this.setsService.getOne(this.setName);
+    this.set = this.setsService.getOne(this.setName)!;
     this.rarity = this.lookupsService.getOne(this.set.rarity, Constants.lookupType.RARITY);
   }
 

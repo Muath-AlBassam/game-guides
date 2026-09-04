@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { Pet, PetModel } from '../models/pet.model';
+import { PetModel } from '../models/pet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -38,10 +38,9 @@ export class PetsService {
       .filter(p => p.gameCode == gameCode);
   }
 
-  getOne(code: string): PetModel {
+  getOne(code: string): PetModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.petsList
+    return this.petsList
       .find(p => p.gameCode == gameCode && p.code == code);
-    return data ?? new Pet(code, code);
   }
 }

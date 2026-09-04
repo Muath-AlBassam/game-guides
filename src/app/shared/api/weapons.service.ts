@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { Weapon, WeaponModel } from '../models/weapon.model';
+import { WeaponModel } from '../models/weapon.model';
 
 @Injectable({
   providedIn: 'root'
@@ -46,10 +46,9 @@ export class WeaponsService {
       .sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
   }
 
-  getOne(code: string): WeaponModel {
+  getOne(code: string): WeaponModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.weaponsList
+    return this.weaponsList
       .find(w => w.gameCode == gameCode && w.code == code);
-    return data ?? new Weapon(code, code)
   }
 }

@@ -16,25 +16,7 @@ export interface TeamCharacterModel {
   teamCode: string;
   name: string;
   roleCode: string;
-  roleDescription?: string;
+  roleDescriptionList?: string[];
   isMain: boolean;
   replacements: string[];
-}
-
-export class Team implements TeamModel {
-  gameCode = '';
-  code = '';
-  category = '';
-  name = '';
-  speciality = '';
-  iconUrl = '';
-  pet = '';
-  tags: string[] = [];
-  order = 0;
-  characters: TeamCharacterModel[] = [];
-
-  constructor(code: string, name: string) {
-    this.code = code;
-    this.name = name;
-  }
 }

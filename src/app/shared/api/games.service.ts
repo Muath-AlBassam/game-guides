@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { GameClass, GameModel } from '../models/game.model';
+import { GameModel } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'

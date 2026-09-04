@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { Team, TeamCharacterModel, TeamModel } from '../models/team.mode';
+import { TeamModel, TeamCharacterModel } from '../models/team.mode';
 
 @Injectable({
   providedIn: 'root'
@@ -50,7 +50,6 @@ export class TeamsService {
       teamCode: c.TEAM_CODE,
       name: c.NAME,
       roleCode: c.ROLE_CODE,
-      roleDescription: c.ROLE_DESCRIPTION,
       isMain: c.IS_MAIN,
       replacements: c.REPLACEMENTS?.split(',')
     }));
@@ -68,14 +67,13 @@ export class TeamsService {
       .filter(t => t.gameCode == gameCode && t.category == categoryCode);
   }
 
-  getOne(code: any): TeamModel {
+  getOne(code: any): TeamModel | undefined {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
-    const data = this.teamsList
+    return this.teamsList
       .find(t => t.gameCode == gameCode && t.code == code);
-    return data ?? new Team(code, code);
   }
 
-  getAllByCharacter(character: string) {
+  getAllByCharacter(character: string): TeamModel[] {
     return this.getAll().filter(team => {
       return team.characters.some((ch: TeamCharacterModel) => {
         let all = [];

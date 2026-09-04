@@ -18,18 +18,3 @@ export interface SetEffectModel {
   description: string;
   formattedDescription?: SafeHtml
 }
-
-export class SetClass implements SetModel {
-  gameCode = '';
-  code = '';
-  name = '';
-  category = '';
-  imageUrl = '';
-  rarity = '';
-  effects: SetEffectModel[] = [];
-
-  constructor(code = '', name = '') {
-    this.code = code;
-    this.name = name;
-  }
-}
