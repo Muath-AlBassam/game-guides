@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Utils } from '../../../shared/utils/utils';
 import { CharactersService } from '../../../shared/api/characters.service';
 import { Constants } from '../../../shared/utils/constants';
-import { DialogService } from '../../../shared/services/dialog.service';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { CharacterModel } from '../../../shared/models/character.model';
 import { LookupModel } from '../../../shared/models/lookup.model';
 import { NoteModel } from '../../../shared/models/note.model';
 import { NotesService } from '../../../shared/api/notes.service';
 import { TextUtils } from '../../../shared/utils/text-utils';
+import { Router } from '@angular/router';
 
 interface CharacterDetailsModel {
   gameCode: string;
@@ -63,8 +63,8 @@ export class CharacterImageComponent implements OnInit {
     private charactersService: CharactersService,
     private lookupsService: LookupsService,
     private notesService: NotesService,
-    private dialogService: DialogService,
-    private textUtils: TextUtils
+    private textUtils: TextUtils,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -128,9 +128,10 @@ export class CharacterImageComponent implements OnInit {
     this.defaultCardDimensions = 219 / 160;
   }
 
-  openCharacterDetailsDialog(character: string): void {
+  openCharacterDetails(aCharmd: CharacterDetailsModel): void {
     if (this.enableDetailsDialog) {
-      this.dialogService.openCharacterDetailsDialog(character);
+      const formatted = aCharmd.code.replaceAll(' ', '-');
+      this.router.navigate([aCharmd.gameCode + '/characters/' + formatted]);
     }
   }
 

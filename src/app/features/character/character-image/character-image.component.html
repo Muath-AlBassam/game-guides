@@ -23,7 +23,7 @@
       [alt]="charmd.name"
       [title]="charmd.name"
       [width]="dimensions"
-      (click)="openCharacterDetailsDialog(charmd.name)"
+      (click)="openCharacterDetails(charmd)"
       loading="lazy" />
 
     <span class="char-name">
@@ -43,7 +43,7 @@
         [class]="charmd.code"
         [ngClass]="{'pointer': enableDetailsDialog}"
         [style]="showBackgroundStyle ? char.rarity?.['backgroundStyle'] : ''"
-        (click)="openCharacterDetailsDialog(char.name)">
+        (click)="openCharacterDetails(char)">
         <img
           [src]="char.imageUrl ?? UNKNOWN_IMG"
           [alt]="char.name"
@@ -72,7 +72,7 @@
       [ngClass]="{'char-img-resize': enableDetailsDialog}"
       [width]="dimensions"
       [height]="dimensions"
-      (click)="openCharacterDetailsDialog(charmd.name)"
+      (click)="openCharacterDetails(charmd)"
       loading="lazy" />
     @if (showElement && charmd.element?.imageUrl) {
       <ng-container *ngTemplateOutlet="elementImage"></ng-container>
@@ -88,7 +88,7 @@
     class="char-card"
     [class]="charmd.code"
     [ngClass]="{'glow-border': charmd.enhanced}"
-    [style]="showBackgroundStyle ? charmd.rarity?.['backgroundStyle'] : ''"
+    [style]="(showBackgroundStyle ? charmd.rarity?.['backgroundStyle'] : '') + styles"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement && charmd.element?.imageUrl) {
@@ -111,7 +111,7 @@
         [alt]="charmd.name"
         [title]="charmd.name"
         [width]="dimensions"
-        (click)="openCharacterDetailsDialog(charmd.name)"
+        (click)="openCharacterDetails(charmd)"
         loading="lazy"/>
       @if (charmd.imageList.length > 1) {
         <button class="char-gallery-btn right" (click)="nextGalleryImage(charmd, $event)">
@@ -147,7 +147,7 @@
               [ngClass]="{'char-img-resize': enableDetailsDialog}"
               [width]="dimensions"
               [height]="dimensions"
-              (click)="openCharacterDetailsDialog(charmd.name)"
+              (click)="openCharacterDetails(charmd)"
               loading="lazy" />
           </span>
           <span class="name-wrapper">

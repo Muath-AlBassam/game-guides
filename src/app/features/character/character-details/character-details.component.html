@@ -1,0 +1,78 @@
+@if (isLoading) {
+  <app-loader></app-loader>
+} @else if (code && charmd) {
+  <div class="cahracter-details">
+    <div
+      class="d-flex justify-content-start align-items-center"
+      style="width: 100%; height: 100%;">
+      <app-character-image
+        [styles]="'border: 2px solid black;'"
+        [characterName]="code"
+        [dimensions]="PFP_SIZE"
+        [imageStyle]="'gallery'"
+        [mobileSizeRatio]="0.6">
+      </app-character-image>
+    </div>
+
+    <div class="character-data">
+      <ul>
+        <li class="name">
+          {{ charmd.name }}
+        </li>
+        @if (rarity) {
+          <li
+            class="tag"
+            [style.border-color]="Utils.rarityCSSVar(charmd.gameCode, rarity.code)">
+            <img
+              [src]="rarity.imageUrl"
+              [height]="ICON_SIZE"
+              [title]="rarity.code"
+              loading="lazy" />
+            <span>{{ rarity.label }}</span>
+          </li>
+        }
+        @if (element) {
+          <li
+            class="tag"
+            [style.border-color]="Utils.elementCSSVar(charmd.gameCode, element.code)"
+            [style.background-color]="Utils.elementCSSVar(charmd.gameCode, element.code, 0.1)">
+            <img
+              [src]="element.imageUrl"
+              [height]="ICON_SIZE"
+              [title]="element.code"
+              loading="lazy" />
+            <span>{{ element.label }}</span>
+          </li>
+        }
+        @if (type) {
+          <li class="tag">
+            <img
+              [src]="type.imageUrl"
+              [height]="ICON_SIZE"
+              [title]="type.code"
+              loading="lazy" />
+            <span>{{ type.label }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    @if (hasBuild) {
+      <app-character-build
+        [character]="code"
+        (hasBuild)="hasBuild = $event">
+      </app-character-build>
+    } @else if (hasCombos) {
+      <app-character-combos
+        [character]="code"
+        (hasCombos)="hasCombos = $event">
+      </app-character-combos>
+    } @else {
+      <div></div>
+    }
+
+    <app-character-teams
+      [character]="code">
+    </app-character-teams>
+  </div>
+}

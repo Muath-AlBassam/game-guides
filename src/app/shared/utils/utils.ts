@@ -64,9 +64,10 @@ export class Utils {
     return '';
   }
 
-  static elementCSSVar(gameCode: string, code: string | undefined) {
+  static elementCSSVar(gameCode: string, code: string | undefined, opacity?: number) {
     if (gameCode && code) {
-      return `var(--element-${gameCode}-${code})`;
+      const cssVar = `var(--element-${gameCode}-${code})`;
+      return opacity !== undefined ? `color-mix(in srgb, ${cssVar} ${opacity * 100}%, transparent)` : cssVar;
     }
     return '';
   }

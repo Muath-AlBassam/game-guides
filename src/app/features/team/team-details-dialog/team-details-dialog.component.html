@@ -30,7 +30,7 @@
         <div class="members">
           @for (char of team.characters; track i; let i = $index) {
             <app-character-image
-              [characterName]="char.name"
+              [characterName]="char.character"
               [dimensions]="characterPFPSize"
               [styles]="'margin: 5px 10px;'"
               [enableDetailsDialog]="true"

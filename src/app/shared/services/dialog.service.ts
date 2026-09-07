@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Utils } from '../utils/utils';
-import { CharacterDetailsDialogComponent } from '../../features/character/character-details-dialog/character-details-dialog.component';
 import { TeamDetailsDialogComponent } from '../../features/team/team-details-dialog/team-details-dialog.component';
 import { TextFormatterComponent } from '../../features/settings/text-formatter/text-formatter.component';
 
@@ -12,7 +11,7 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) { }
 
-  openCharacterDetailsDialog(character: any) {
+  /*openCharacterDetailsDialog(character: any) {
     this.dialog.closeAll();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = Utils.isMobile() ? '100vw' : '60%';
@@ -21,7 +20,7 @@ export class DialogService {
     dialogConfig.panelClass = 'gagu-mat-dialog';
     dialogConfig.data = { character: character };
     const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
-  }
+  }*/
 
   openTeamDetailsDialog(teamCode: any) {
     this.dialog.closeAll();

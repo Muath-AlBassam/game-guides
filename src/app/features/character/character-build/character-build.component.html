@@ -32,8 +32,10 @@
   } @else {
     <!-- DEFAULT VIEW -->
     <div>
-      <div class="gagu-box-shadow p-3" style="width: 100%; height: 100%;">
-        <h5 class="content-header" style="margin-top: 0;">
+      <div style="width: 100%; height: 100%;">
+        <h5
+          class="content-header"
+          style="margin-top: 0;">
           {{ weaponsLabel }}
         </h5>
         <div class="row">
@@ -56,8 +58,8 @@
         <div class="row">
           @for (set of buildmd.sets; track set.name) {
             <div [ngClass]="{
-              'col-md-6': !isMobile() && this.buildmd.weapons.length > 2,
-              'col-md-12': isMobile() || this.buildmd.weapons.length <= 2,
+              'col-md-6': !isMobile() && this.buildmd.sets.length > 2,
+              'col-md-12': isMobile() || this.buildmd.sets.length <= 2,
             }">
               <app-set-details [setName]="set.name" [equippedPieces]="set.equippedPieces">
               </app-set-details>

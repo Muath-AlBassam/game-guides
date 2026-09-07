@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlMatcher } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
 import { CharacterListComponent } from './features/character/character-list/character-list.component';
+import { CharacterDetailsComponent } from './features/character/character-details/character-details.component';
 import { GameGuidesComponent } from './layout/game-guides/game-guides.component';
 import { CoreComponent } from './layout/core/core.component';
 import { SetListComponent } from './features/set/set-list/set-list.component';
@@ -45,11 +46,12 @@ const routes: Routes = [
       },
       {
         matcher: gameCodeMatcher,
-        path: ':gameCode',
+        // path: ':gameCode',
         component: GameGuidesComponent,
         children: [
           { path: '', redirectTo: 'characters', pathMatch: 'full' },
           { path: 'characters', component: CharacterListComponent },
+          { path: 'characters/:code', component: CharacterDetailsComponent },
           { path: 'teams', component: TeamListComponent },
           { path: 'weapons', component: WeaponListComponent },
           { path: 'sets', component: SetListComponent },

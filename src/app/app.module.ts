@@ -15,7 +15,6 @@ import { HomeComponent } from './core/home/home.component';
 import { ErrorComponent } from './core/error/error.component';
 import { CharacterImageComponent } from './features/character/character-image/character-image.component';
 import { CharacterListComponent } from './features/character/character-list/character-list.component';
-import { CharacterDetailsDialogComponent } from './features/character/character-details-dialog/character-details-dialog.component';
 import { CharacterBuildComponent } from './features/character/character-build/character-build.component';
 import { CharacterTeamsComponent } from './features/character/character-teams/character-teams.component';
 import { CharacterCombosComponent } from './features/character/character-combos/character-combos.component';
@@ -41,6 +40,7 @@ import { GameNotesComponent } from './features/game/game-notes/game-notes.compon
 import { NoDataComponent } from './shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListByCategoryComponent } from './shared/components/list-by-category/list-by-category.component';
+import { CharacterDetailsComponent } from './features/character/character-details/character-details.component';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { ListByCategoryComponent } from './shared/components/list-by-category/li
     ErrorComponent,
     CharacterImageComponent,
     CharacterListComponent,
-    CharacterDetailsDialogComponent,
+    CharacterDetailsComponent,
     CharacterBuildComponent,
     CharacterTeamsComponent,
     CharacterCombosComponent,

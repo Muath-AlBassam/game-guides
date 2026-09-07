@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DialogService } from '../../shared/services/dialog.service';
 
 @Component({
   selector: 'app-game-guides',
@@ -9,23 +7,8 @@ import { DialogService } from '../../shared/services/dialog.service';
 })
 export class GameGuidesComponent implements OnInit {
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private dialogService: DialogService
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.reOpenDialog();
-  }
-
-  reOpenDialog() {
-    this.activatedRoute.queryParamMap.subscribe((paramMap) => {
-      if (paramMap.has('t')) {
-        this.dialogService.openTeamDetailsDialog(paramMap.get('t'));
-      } else if (paramMap.has('c')) {
-        this.dialogService.openCharacterDetailsDialog(paramMap.get('c'));
-      }
-    });
-  }
+  ngOnInit(): void {}
 
 }

@@ -14,7 +14,7 @@ export interface TeamModel {
 export interface TeamCharacterModel {
   gameCode: string;
   teamCode: string;
-  name: string;
+  character: string;
   roleCode: string;
   roleDescriptionList?: string[];
   isMain: boolean;

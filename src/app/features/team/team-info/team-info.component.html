@@ -22,7 +22,7 @@
       [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
     @for (character of team.characters; track $index) {
       <app-character-image
-        [characterName]="character.name"
+        [characterName]="character.character"
         [dimensions]="characterPFPSize"
         [styles]="'margin: 5px 10px;'"
         [enableDetailsDialog]="true"

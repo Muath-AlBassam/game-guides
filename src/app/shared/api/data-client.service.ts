@@ -13,7 +13,11 @@ export class DataClientService {
   sheetLoaded: BehaviorSubject<string> = new BehaviorSubject<string>('');
   sheetLoaded$ = this.sheetLoaded.asObservable();
 
-  constructor(private http: HttpClient, private store: StoreService, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private store: StoreService,
+    private router: Router
+  ) { }
 
   loadWorkbook() {
     if (environment.production) {

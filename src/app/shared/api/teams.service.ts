@@ -48,7 +48,7 @@ export class TeamsService {
     return characters.map((c: any) => ({
       gameCode: c.GAME_CODE,
       teamCode: c.TEAM_CODE,
-      name: c.NAME,
+      character: c.CHARACTER,
       roleCode: c.ROLE_CODE,
       isMain: c.IS_MAIN,
       replacements: c.REPLACEMENTS?.split(',')
@@ -77,7 +77,7 @@ export class TeamsService {
     return this.getAll().filter(team => {
       return team.characters.some((ch: TeamCharacterModel) => {
         let all = [];
-        all.push(ch.name);
+        all.push(ch.character);
         if (ch.replacements && ch.replacements.length > 0) {
           all.push(...ch.replacements);
         }

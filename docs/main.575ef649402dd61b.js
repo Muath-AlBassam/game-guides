@@ -11,19 +11,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   AppRoutingModule: () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 7901);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ 7901);
 /* harmony import */ var _core_home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/home/home.component */ 8174);
 /* harmony import */ var _features_character_character_list_character_list_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./features/character/character-list/character-list.component */ 7704);
-/* harmony import */ var _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./layout/game-guides/game-guides.component */ 5663);
-/* harmony import */ var _layout_core_core_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layout/core/core.component */ 9927);
-/* harmony import */ var _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./features/set/set-list/set-list.component */ 269);
-/* harmony import */ var _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./features/weapon/weapon-list/weapon-list.component */ 4223);
-/* harmony import */ var _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./features/team/team-list/team-list.component */ 9318);
-/* harmony import */ var _core_error_error_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./core/error/error.component */ 4866);
-/* harmony import */ var _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./features/settings/settings.component */ 2130);
-/* harmony import */ var _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/game/game-notes/game-notes.component */ 1715);
-/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/utils/constants */ 4041);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _features_character_character_details_character_details_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./features/character/character-details/character-details.component */ 1138);
+/* harmony import */ var _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./layout/game-guides/game-guides.component */ 5663);
+/* harmony import */ var _layout_core_core_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./layout/core/core.component */ 9927);
+/* harmony import */ var _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./features/set/set-list/set-list.component */ 269);
+/* harmony import */ var _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./features/weapon/weapon-list/weapon-list.component */ 4223);
+/* harmony import */ var _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./features/team/team-list/team-list.component */ 9318);
+/* harmony import */ var _core_error_error_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./core/error/error.component */ 4866);
+/* harmony import */ var _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/settings/settings.component */ 2130);
+/* harmony import */ var _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/game/game-notes/game-notes.component */ 1715);
+/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/utils/constants */ 4041);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 7705);
+
 
 
 
@@ -39,7 +41,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const gameCodeMatcher = segments => {
-  const validCodes = Object.values(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_10__.Constants.games);
+  const validCodes = Object.values(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_11__.Constants.games);
   if (segments.length > 0 && validCodes.includes(segments[0].path)) {
     return {
       consumed: [segments[0]],
@@ -52,7 +54,7 @@ const gameCodeMatcher = segments => {
 };
 const routes = [{
   path: '',
-  component: _layout_core_core_component__WEBPACK_IMPORTED_MODULE_3__.CoreComponent,
+  component: _layout_core_core_component__WEBPACK_IMPORTED_MODULE_4__.CoreComponent,
   children: [{
     path: '',
     redirectTo: 'home',
@@ -62,11 +64,11 @@ const routes = [{
     component: _core_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent
   }, {
     path: 'settings',
-    component: _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_8__.SettingsComponent
+    component: _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_9__.SettingsComponent
   }, {
     matcher: gameCodeMatcher,
-    path: ':gameCode',
-    component: _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_2__.GameGuidesComponent,
+    // path: ':gameCode',
+    component: _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_3__.GameGuidesComponent,
     children: [{
       path: '',
       redirectTo: 'characters',
@@ -75,22 +77,25 @@ const routes = [{
       path: 'characters',
       component: _features_character_character_list_character_list_component__WEBPACK_IMPORTED_MODULE_1__.CharacterListComponent
     }, {
+      path: 'characters/:code',
+      component: _features_character_character_details_character_details_component__WEBPACK_IMPORTED_MODULE_2__.CharacterDetailsComponent
+    }, {
       path: 'teams',
-      component: _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_6__.TeamListComponent
+      component: _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_7__.TeamListComponent
     }, {
       path: 'weapons',
-      component: _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_5__.WeaponListComponent
+      component: _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_6__.WeaponListComponent
     }, {
       path: 'sets',
-      component: _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_4__.SetListComponent
+      component: _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_5__.SetListComponent
     }, {
       path: 'notes',
-      component: _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_9__.GameNotesComponent
+      component: _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_10__.GameNotesComponent
     }]
   }]
 }, {
   path: '**',
-  component: _core_error_error_component__WEBPACK_IMPORTED_MODULE_7__.ErrorComponent
+  component: _core_error_error_component__WEBPACK_IMPORTED_MODULE_8__.ErrorComponent
 }];
 let AppRoutingModule = /*#__PURE__*/(() => {
   class AppRoutingModule {
@@ -100,24 +105,24 @@ let AppRoutingModule = /*#__PURE__*/(() => {
       };
     }
     static {
-      this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineNgModule"]({
+      this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({
         type: AppRoutingModule
       });
     }
     static {
-      this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineInjector"]({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule.forRoot(routes, {
+      this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule.forRoot(routes, {
           useHash: true
-        }), _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule]
+        }), _angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule]
       });
     }
   }
   return AppRoutingModule;
 })();
 (function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule],
-    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule]
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](AppRoutingModule, {
+    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule],
+    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule]
   });
 })();
 
@@ -270,34 +275,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_error_error_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./core/error/error.component */ 4866);
 /* harmony import */ var _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./features/character/character-image/character-image.component */ 6862);
 /* harmony import */ var _features_character_character_list_character_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./features/character/character-list/character-list.component */ 7704);
-/* harmony import */ var _features_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/character/character-details-dialog/character-details-dialog.component */ 4990);
-/* harmony import */ var _features_character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./features/character/character-build/character-build.component */ 6834);
-/* harmony import */ var _features_character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./features/character/character-teams/character-teams.component */ 3274);
-/* harmony import */ var _features_character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./features/character/character-combos/character-combos.component */ 2638);
-/* harmony import */ var _features_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./features/team/team-info/team-info.component */ 6934);
-/* harmony import */ var _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./features/team/team-list/team-list.component */ 9318);
-/* harmony import */ var _features_team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./features/team/team-notes/team-notes.component */ 1614);
-/* harmony import */ var _features_team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./features/team/team-replacements/team-replacements.component */ 558);
-/* harmony import */ var _features_team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./features/team/team-roles/team-roles.component */ 6230);
-/* harmony import */ var _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./features/team/team-details-dialog/team-details-dialog.component */ 6274);
-/* harmony import */ var _features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./features/set/set-details/set-details.component */ 4117);
-/* harmony import */ var _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./features/set/set-list/set-list.component */ 269);
-/* harmony import */ var _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./features/weapon/weapon-list/weapon-list.component */ 4223);
-/* harmony import */ var _features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./features/weapon/weapon-details/weapon-details.component */ 8663);
-/* harmony import */ var _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/components/loader/loader.component */ 765);
-/* harmony import */ var _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/components/button-group/button-group.component */ 7103);
-/* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/components/search/search.component */ 1163);
-/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./shared/components/advanced-filter/advanced-filter.component */ 3589);
-/* harmony import */ var _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./features/settings/settings.component */ 2130);
-/* harmony import */ var _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./features/settings/text-formatter/text-formatter.component */ 932);
+/* harmony import */ var _features_character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./features/character/character-build/character-build.component */ 6834);
+/* harmony import */ var _features_character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./features/character/character-teams/character-teams.component */ 3274);
+/* harmony import */ var _features_character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./features/character/character-combos/character-combos.component */ 2638);
+/* harmony import */ var _features_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./features/team/team-info/team-info.component */ 6934);
+/* harmony import */ var _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./features/team/team-list/team-list.component */ 9318);
+/* harmony import */ var _features_team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./features/team/team-notes/team-notes.component */ 1614);
+/* harmony import */ var _features_team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./features/team/team-replacements/team-replacements.component */ 558);
+/* harmony import */ var _features_team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./features/team/team-roles/team-roles.component */ 6230);
+/* harmony import */ var _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./features/team/team-details-dialog/team-details-dialog.component */ 6274);
+/* harmony import */ var _features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./features/set/set-details/set-details.component */ 4117);
+/* harmony import */ var _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./features/set/set-list/set-list.component */ 269);
+/* harmony import */ var _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./features/weapon/weapon-list/weapon-list.component */ 4223);
+/* harmony import */ var _features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./features/weapon/weapon-details/weapon-details.component */ 8663);
+/* harmony import */ var _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./shared/components/loader/loader.component */ 765);
+/* harmony import */ var _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/components/button-group/button-group.component */ 7103);
+/* harmony import */ var _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/components/search/search.component */ 1163);
+/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/components/advanced-filter/advanced-filter.component */ 3589);
+/* harmony import */ var _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./features/settings/settings.component */ 2130);
+/* harmony import */ var _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./features/settings/text-formatter/text-formatter.component */ 932);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/forms */ 9417);
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ 9401);
-/* harmony import */ var _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./features/game/game-notes/game-notes.component */ 1715);
-/* harmony import */ var _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./shared/components/no-data/no-data.component */ 2565);
+/* harmony import */ var _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./features/game/game-notes/game-notes.component */ 1715);
+/* harmony import */ var _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/components/no-data/no-data.component */ 2565);
 /* harmony import */ var _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! @ng-select/ng-select */ 2510);
-/* harmony import */ var _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./shared/components/list-by-category/list-by-category.component */ 3745);
+/* harmony import */ var _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./shared/components/list-by-category/list-by-category.component */ 3745);
+/* harmony import */ var _features_character_character_details_character_details_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./features/character/character-details/character-details.component */ 1138);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/core */ 7705);
-
 
 
 
@@ -366,14 +370,12 @@ let AppModule = /*#__PURE__*/(() => {
 })();
 (function () {
   (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetNgModuleScope"](AppModule, {
-    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__.HeaderComponent, _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_3__.NavComponent, _layout_core_core_component__WEBPACK_IMPORTED_MODULE_4__.CoreComponent, _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_5__.GameGuidesComponent, _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_6__.GameHeaderComponent, _core_home_home_component__WEBPACK_IMPORTED_MODULE_7__.HomeComponent, _core_error_error_component__WEBPACK_IMPORTED_MODULE_8__.ErrorComponent, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _features_character_character_list_character_list_component__WEBPACK_IMPORTED_MODULE_10__.CharacterListComponent, _features_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_11__.CharacterDetailsDialogComponent, _features_character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_12__.CharacterBuildComponent, _features_character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_13__.CharacterTeamsComponent, _features_character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_14__.CharacterCombosComponent, _features_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_15__.TeamInfoComponent, _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_16__.TeamListComponent, _features_team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_17__.TeamNotesComponent, _features_team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_18__.TeamReplacementsComponent, _features_team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_19__.TeamRolesComponent, _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_20__.TeamDetailsDialogComponent, _features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_21__.SetDetailsComponent, _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_22__.SetListComponent, _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_23__.WeaponListComponent, _features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_24__.WeaponDetailsComponent, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_25__.LoaderComponent, _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_26__.ButtonGroupComponent, _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_27__.SearchComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_28__.AdvancedFilterComponent, _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_29__.SettingsComponent, _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_30__.TextFormatterComponent, _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_31__.GameNotesComponent, _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_32__.NoDataComponent, _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_33__.ListByCategoryComponent],
+    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _layout_header_header_component__WEBPACK_IMPORTED_MODULE_2__.HeaderComponent, _layout_nav_nav_component__WEBPACK_IMPORTED_MODULE_3__.NavComponent, _layout_core_core_component__WEBPACK_IMPORTED_MODULE_4__.CoreComponent, _layout_game_guides_game_guides_component__WEBPACK_IMPORTED_MODULE_5__.GameGuidesComponent, _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_6__.GameHeaderComponent, _core_home_home_component__WEBPACK_IMPORTED_MODULE_7__.HomeComponent, _core_error_error_component__WEBPACK_IMPORTED_MODULE_8__.ErrorComponent, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _features_character_character_list_character_list_component__WEBPACK_IMPORTED_MODULE_10__.CharacterListComponent, _features_character_character_details_character_details_component__WEBPACK_IMPORTED_MODULE_33__.CharacterDetailsComponent, _features_character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_11__.CharacterBuildComponent, _features_character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_12__.CharacterTeamsComponent, _features_character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_13__.CharacterCombosComponent, _features_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_14__.TeamInfoComponent, _features_team_team_list_team_list_component__WEBPACK_IMPORTED_MODULE_15__.TeamListComponent, _features_team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_16__.TeamNotesComponent, _features_team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_17__.TeamReplacementsComponent, _features_team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_18__.TeamRolesComponent, _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_19__.TeamDetailsDialogComponent, _features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_20__.SetDetailsComponent, _features_set_set_list_set_list_component__WEBPACK_IMPORTED_MODULE_21__.SetListComponent, _features_weapon_weapon_list_weapon_list_component__WEBPACK_IMPORTED_MODULE_22__.WeaponListComponent, _features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_23__.WeaponDetailsComponent, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_24__.LoaderComponent, _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_25__.ButtonGroupComponent, _shared_components_search_search_component__WEBPACK_IMPORTED_MODULE_26__.SearchComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_27__.AdvancedFilterComponent, _features_settings_settings_component__WEBPACK_IMPORTED_MODULE_28__.SettingsComponent, _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_29__.TextFormatterComponent, _features_game_game_notes_game_notes_component__WEBPACK_IMPORTED_MODULE_30__.GameNotesComponent, _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_31__.NoDataComponent, _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_32__.ListByCategoryComponent],
     imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_35__.BrowserModule, _angular_common__WEBPACK_IMPORTED_MODULE_36__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_37__.FormsModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_38__.BrowserAnimationsModule, _angular_common_http__WEBPACK_IMPORTED_MODULE_39__.HttpClientModule, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogModule, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbModule, _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_42__.NgSelectModule]
   });
 })();
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_11__.CharacterDetailsDialogComponent, [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogContent, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _features_character_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_12__.CharacterBuildComponent, _features_character_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_13__.CharacterTeamsComponent, _features_character_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_14__.CharacterCombosComponent], []);
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_20__.TeamDetailsDialogComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_40__.MatDialogContent, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent, _features_team_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_17__.TeamNotesComponent, _features_team_team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_18__.TeamReplacementsComponent, _features_team_team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_19__.TeamRolesComponent], []);
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_21__.SetDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
-_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_24__.WeaponDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
+_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_set_set_details_set_details_component__WEBPACK_IMPORTED_MODULE_20__.SetDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
+_angular_core__WEBPACK_IMPORTED_MODULE_34__["ɵɵsetComponentScope"](_features_weapon_weapon_details_weapon_details_component__WEBPACK_IMPORTED_MODULE_23__.WeaponDetailsComponent, [_angular_common__WEBPACK_IMPORTED_MODULE_36__.NgClass, _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_41__.NgbPopover, _features_character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_9__.CharacterImageComponent], []);
 
 /***/ }),
 
@@ -646,7 +648,7 @@ function CharacterBuildComponent_Conditional_0_Conditional_1_For_11_Template(rf,
   if (rf & 2) {
     const set_r5 = ctx.$implicit;
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction2"](3, _c0, !ctx_r2.isMobile() && ctx_r2.buildmd.weapons.length > 2, ctx_r2.isMobile() || ctx_r2.buildmd.weapons.length <= 2));
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction2"](3, _c0, !ctx_r2.isMobile() && ctx_r2.buildmd.sets.length > 2, ctx_r2.isMobile() || ctx_r2.buildmd.sets.length <= 2));
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("setName", set_r5.name)("equippedPieces", set_r5.equippedPieces);
   }
@@ -729,7 +731,7 @@ let CharacterBuildComponent = /*#__PURE__*/(() => {
         },
         decls: 1,
         vars: 1,
-        consts: [[1, "simple-build"], [1, "build-block"], [1, "label"], [3, "weaponName", "showAdditionalInfo", "dimensions", "backgroundStyle"], [3, "setName", "equippedPieces", "dimensions", "backgroundStyle"], [1, "gagu-box-shadow", "p-3", 2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "row"], [3, "ngClass"], [1, "content-header"], [3, "weaponName", "showAdditionalInfo"], [3, "setName", "equippedPieces"]],
+        consts: [[1, "simple-build"], [1, "build-block"], [1, "label"], [3, "weaponName", "showAdditionalInfo", "dimensions", "backgroundStyle"], [3, "setName", "equippedPieces", "dimensions", "backgroundStyle"], [2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "row"], [3, "ngClass"], [1, "content-header"], [3, "weaponName", "showAdditionalInfo"], [3, "setName", "equippedPieces"]],
         template: function CharacterBuildComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtemplate"](0, CharacterBuildComponent_Conditional_0_Template, 2, 1);
@@ -869,122 +871,221 @@ let CharacterCombosComponent = /*#__PURE__*/(() => {
 
 /***/ }),
 
-/***/ 4990:
-/*!***************************************************************************************************!*\
-  !*** ./src/app/features/character/character-details-dialog/character-details-dialog.component.ts ***!
-  \***************************************************************************************************/
+/***/ 1138:
+/*!*************************************************************************************!*\
+  !*** ./src/app/features/character/character-details/character-details.component.ts ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CharacterDetailsDialogComponent: () => (/* binding */ CharacterDetailsDialogComponent)
+/* harmony export */   CharacterDetailsComponent: () => (/* binding */ CharacterDetailsComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
-/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/utils */ 86);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/api/characters.service */ 8808);
+/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/constants */ 4041);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/utils/utils */ 86);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/api/characters.service */ 8808);
+/* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/api/lookups.service */ 3315);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 7901);
+/* harmony import */ var _character_image_character_image_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../character-image/character-image.component */ 6862);
+/* harmony import */ var _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../character-build/character-build.component */ 6834);
+/* harmony import */ var _character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../character-teams/character-teams.component */ 3274);
+/* harmony import */ var _character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../character-combos/character-combos.component */ 2638);
+/* harmony import */ var _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../shared/components/loader/loader.component */ 765);
 
 
 
 
-function CharacterDetailsDialogComponent_Conditional_10_Template(rf, ctx) {
+
+
+
+
+
+
+
+function CharacterDetailsComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "app-character-build", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("hasBuild", function CharacterDetailsDialogComponent_Conditional_10_Template_app_character_build_hasBuild_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r1);
-      const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r1.hasBuild = $event);
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-  }
-  if (rf & 2) {
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("character", ctx_r1.character);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](0, "app-loader");
   }
 }
-function CharacterDetailsDialogComponent_Conditional_11_Template(rf, ctx) {
+function CharacterDetailsComponent_Conditional_1_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "app-character-combos", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("hasCombos", function CharacterDetailsDialogComponent_Conditional_11_Template_app_character_combos_hasCombos_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3);
-      const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresetView"](ctx_r1.hasCombos = $event);
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "li", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](1, "img", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](2, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("character", ctx_r1.character);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵstyleProp"]("border-color", ctx_r0.Utils.rarityCSSVar(ctx_r0.charmd.gameCode, ctx_r0.rarity.code));
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("src", ctx_r0.rarity.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsanitizeUrl"])("height", ctx_r0.ICON_SIZE)("title", ctx_r0.rarity.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate"](ctx_r0.rarity.label);
   }
 }
-let CharacterDetailsDialogComponent = /*#__PURE__*/(() => {
-  class CharacterDetailsDialogComponent {
-    constructor(data, charactersService) {
-      this.data = data;
+function CharacterDetailsComponent_Conditional_1_Conditional_8_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "li", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](1, "img", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](2, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵstyleProp"]("border-color", ctx_r0.Utils.elementCSSVar(ctx_r0.charmd.gameCode, ctx_r0.element.code))("background-color", ctx_r0.Utils.elementCSSVar(ctx_r0.charmd.gameCode, ctx_r0.element.code, 0.1));
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("src", ctx_r0.element.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsanitizeUrl"])("height", ctx_r0.ICON_SIZE)("title", ctx_r0.element.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate"](ctx_r0.element.label);
+  }
+}
+function CharacterDetailsComponent_Conditional_1_Conditional_9_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "li", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](1, "img", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](2, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("src", ctx_r0.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsanitizeUrl"])("height", ctx_r0.ICON_SIZE)("title", ctx_r0.type.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate"](ctx_r0.type.label);
+  }
+}
+function CharacterDetailsComponent_Conditional_1_Conditional_10_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "app-character-build", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("hasBuild", function CharacterDetailsComponent_Conditional_1_Conditional_10_Template_app_character_build_hasBuild_0_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r2);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r0.hasBuild = $event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("character", ctx_r0.code);
+  }
+}
+function CharacterDetailsComponent_Conditional_1_Conditional_11_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "app-character-combos", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("hasCombos", function CharacterDetailsComponent_Conditional_1_Conditional_11_Template_app_character_combos_hasCombos_0_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r3);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵresetView"](ctx_r0.hasCombos = $event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("character", ctx_r0.code);
+  }
+}
+function CharacterDetailsComponent_Conditional_1_Conditional_12_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](0, "div");
+  }
+}
+function CharacterDetailsComponent_Conditional_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "div", 0)(1, "div", 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](2, "app-character-image", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](3, "div", 3)(4, "ul")(5, "li", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](7, CharacterDetailsComponent_Conditional_1_Conditional_7_Template, 4, 6, "li", 5)(8, CharacterDetailsComponent_Conditional_1_Conditional_8_Template, 4, 8, "li", 6)(9, CharacterDetailsComponent_Conditional_1_Conditional_9_Template, 4, 4, "li", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](10, CharacterDetailsComponent_Conditional_1_Conditional_10_Template, 1, 1, "app-character-build", 8)(11, CharacterDetailsComponent_Conditional_1_Conditional_11_Template, 1, 1)(12, CharacterDetailsComponent_Conditional_1_Conditional_12_Template, 1, 0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](13, "app-character-teams", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("styles", "border: 2px solid black;")("characterName", ctx_r0.code)("dimensions", ctx_r0.PFP_SIZE)("imageStyle", "gallery")("mobileSizeRatio", 0.6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtextInterpolate1"](" ", ctx_r0.charmd.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵconditional"](7, ctx_r0.rarity ? 7 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵconditional"](8, ctx_r0.element ? 8 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵconditional"](9, ctx_r0.type ? 9 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵconditional"](10, ctx_r0.hasBuild ? 10 : ctx_r0.hasCombos ? 11 : 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵproperty"]("character", ctx_r0.code);
+  }
+}
+let CharacterDetailsComponent = /*#__PURE__*/(() => {
+  class CharacterDetailsComponent {
+    constructor(charactersService, lookupsService, route) {
       this.charactersService = charactersService;
+      this.lookupsService = lookupsService;
+      this.route = route;
+      this.Utils = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils;
+      this.PFP_SIZE = 260;
+      this.ICON_SIZE = 26;
+      this.code = undefined;
       this.hasBuild = true;
       this.hasCombos = true;
-      this.characterPFPSize = 260;
-      this.character = data.character;
+      this.isLoading = false;
+      this.charmd = undefined;
+      this.element = undefined;
+      this.type = undefined;
+      this.rarity = undefined;
     }
     ngOnInit() {
-      this.loadData();
+      this.codeSubscription = this.route.paramMap.subscribe(params => {
+        const routeCode = params.get('code') ?? '';
+        this.code = routeCode.replaceAll('-', ' ');
+        this.isLoading = true;
+        this.loadData();
+        setTimeout(() => this.isLoading = false, 1000);
+      });
     }
     loadData() {
-      this.charmd = this.charactersService.getOne(this.character);
-    }
-    isMobile() {
-      return _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile();
+      this.charmd = this.charactersService.getOne(this.code);
+      this.element = this.lookupsService.getOne(this.charmd.element, _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.ELEMENT);
+      this.type = this.lookupsService.getOne(this.charmd.type, _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.TYPE);
+      this.rarity = this.lookupsService.getOne(this.charmd.rarity, _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.RARITY);
     }
     static {
-      this.ɵfac = function CharacterDetailsDialogComponent_Factory(t) {
-        return new (t || CharacterDetailsDialogComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MAT_DIALOG_DATA), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_1__.CharactersService));
+      this.ɵfac = function CharacterDetailsComponent_Factory(t) {
+        return new (t || CharacterDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_2__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_10__.ActivatedRoute));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
-        type: CharacterDetailsDialogComponent,
-        selectors: [["app-character-details-dialog"]],
-        decls: 13,
-        vars: 11,
-        consts: [["mat-dialog-title", ""], ["mat-icon-button", "", "title", "Close", 2, "float", "right", "margin-top", "15px", "font-size", "1.5em", 3, "mat-dialog-close"], ["mat-dialog-content", ""], [1, "row", "gy-2", "gx-3"], [1, "col-md-3"], [1, "gagu-box-shadow", "d-flex", "justify-content-center", "align-items-center", "p-3", 2, "width", "100%", "height", "100%"], [3, "characterName", "dimensions", "showElement", "showType", "imageStyle", "mobileSizeRatio"], [1, "col-md-9", 3, "character"], [1, "col-md-12", 3, "character"], [1, "col-md-9", 3, "hasBuild", "character"], [1, "col-md-9", 3, "hasCombos", "character"]],
-        template: function CharacterDetailsDialogComponent_Template(rf, ctx) {
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineComponent"]({
+        type: CharacterDetailsComponent,
+        selectors: [["app-character-details"]],
+        decls: 2,
+        vars: 1,
+        consts: [[1, "cahracter-details"], [1, "d-flex", "justify-content-start", "align-items-center", 2, "width", "100%", "height", "100%"], [3, "styles", "characterName", "dimensions", "imageStyle", "mobileSizeRatio"], [1, "character-data"], [1, "name"], [1, "tag", 3, "border-color"], [1, "tag", 3, "border-color", "background-color"], [1, "tag"], [3, "character"], ["loading", "lazy", 3, "src", "height", "title"], [3, "hasBuild", "character"], [3, "hasCombos", "character"]],
+        template: function CharacterDetailsComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "h1", 0)(1, "span");
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "span", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](4, " \u00D7 ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 2)(6, "div", 3)(7, "div", 4)(8, "div", 5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](9, "app-character-image", 6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](10, CharacterDetailsDialogComponent_Conditional_10_Template, 1, 1, "app-character-build", 7)(11, CharacterDetailsDialogComponent_Conditional_11_Template, 1, 1, "app-character-combos", 7);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "app-character-teams", 8);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵtemplate"](0, CharacterDetailsComponent_Conditional_0_Template, 1, 0, "app-loader")(1, CharacterDetailsComponent_Conditional_1_Template, 14, 11);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx.character, "'s Details ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("mat-dialog-close", null);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("characterName", ctx.character)("dimensions", ctx.characterPFPSize)("showElement", true)("showType", true)("imageStyle", "gallery")("mobileSizeRatio", 0.6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](10, ctx.hasBuild ? 10 : -1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵconditional"](11, ctx.hasCombos ? 11 : -1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("character", ctx.character);
+            _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵconditional"](0, ctx.isLoading ? 0 : ctx.code && ctx.charmd ? 1 : -1);
           }
         },
-        styles: [".empty-dialog[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100px;\n}\n\n@media (max-width: 1000px) {\n  .character-details-dialog[_ngcontent-%COMP%] {\n    padding-top: 0;\n  }\n\n  .character-details-dialog-content[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n}"]
+        dependencies: [_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_4__.CharacterImageComponent, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_5__.CharacterBuildComponent, _character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_6__.CharacterTeamsComponent, _character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_7__.CharacterCombosComponent, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_8__.LoaderComponent],
+        styles: [".cahracter-details[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 6fr;\n  grid-gap: 16px;\n  margin-top: 1em;\n}\n\n.cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(4), .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(5) {\n  grid-column: 1 / -1;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding-left: 0;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%] {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  background: #ffffff14;\n  border: 1px solid #ffffff1f;\n  min-height: 34px;\n  padding: 8px;\n  font-weight: 800;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  margin-right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .cahracter-details[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr 2fr;\n  }\n  .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(3), .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(4), .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(5) {\n    grid-column: 1 / -1;\n  }\n}"]
       });
     }
   }
-  return CharacterDetailsDialogComponent;
+  return CharacterDetailsComponent;
 })();
 
 /***/ }),
@@ -1001,14 +1102,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/utils */ 86);
 /* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/utils/constants */ 4041);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/api/characters.service */ 8808);
 /* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/api/lookups.service */ 3315);
 /* harmony import */ var _shared_api_notes_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/api/notes.service */ 8221);
-/* harmony import */ var _shared_services_dialog_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/services/dialog.service */ 1454);
-/* harmony import */ var _shared_utils_text_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/utils/text-utils */ 2729);
+/* harmony import */ var _shared_utils_text_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/utils/text-utils */ 2729);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 7901);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common */ 177);
-/* harmony import */ var _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../character-build/character-build.component */ 6834);
+/* harmony import */ var _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../character-build/character-build.component */ 6834);
 
 
 
@@ -1048,441 +1149,441 @@ const _c7 = a0 => ({
 });
 function CharacterImageComponent_Conditional_0_Conditional_1_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_0_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Conditional_1_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Conditional_1_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
   }
 }
 function CharacterImageComponent_Conditional_0_Conditional_2_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_0_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
   }
 }
 function CharacterImageComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_0_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_0_Conditional_2_Template, 1, 1, "ng-container");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "img", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_0_Template_img_click_3_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r1);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.openCharacterDetailsDialog(ctx_r3.charmd.name));
+    const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_0_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_0_Conditional_2_Template, 1, 1, "ng-container");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "img", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_0_Template_img_click_3_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r1);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(ctx_r3.charmd));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "div", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](4, "span", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](6, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     let tmp_3_0;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : ""));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](14, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction2"](16, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](1, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 1 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](2, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 2 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](19, _c2, ctx_r3.enableDetailsDialog))("src", ctx_r3.charmd.cardImageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("width", ctx_r3.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"](ctx_r3.charmd.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](14, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction2"](16, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](1, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 1 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](2, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 2 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](19, _c2, ctx_r3.enableDetailsDialog))("src", ctx_r3.charmd.cardImageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("width", ctx_r3.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
   }
 }
 function CharacterImageComponent_Conditional_1_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_1_For_2_Template_div_click_0_listener() {
-      const char_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r5).$implicit;
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.openCharacterDetailsDialog(char_r6.name));
+    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_1_For_2_Template_div_click_0_listener() {
+      const char_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r5).$implicit;
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(char_r6));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "img", 11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](1, "img", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     let tmp_16_0;
     const char_r6 = ctx.$implicit;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"](ctx_r3.showBackgroundStyle ? char_r6.rarity == null ? null : char_r6.rarity["backgroundStyle"] : "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](10, _c4, ctx_r3.enableDetailsDialog));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_16_0 = char_r6.imageUrl) !== null && tmp_16_0 !== undefined ? tmp_16_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", char_r6.name)("title", char_r6.name)("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"](ctx_r3.showBackgroundStyle ? char_r6.rarity == null ? null : char_r6.rarity["backgroundStyle"] : "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"](ctx_r3.charmd.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](10, _c4, ctx_r3.enableDetailsDialog));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", (tmp_16_0 = char_r6.imageUrl) !== null && tmp_16_0 !== undefined ? tmp_16_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", char_r6.name)("title", char_r6.name)("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
   }
 }
 function CharacterImageComponent_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_1_For_2_Template, 2, 12, "div", 9, _forTrack0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_1_For_2_Template, 2, 12, "div", 9, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"]("split-box split-box-" + ctx_r3.charCount);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction2"](4, _c3, ctx_r3.dimensions + "px", ctx_r3.dimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵattribute"]("style", ctx_r3.styles, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeStyle"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeater"](ctx_r3.charmdList);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"]("split-box split-box-" + ctx_r3.charCount);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction2"](4, _c3, ctx_r3.dimensions + "px", ctx_r3.dimensions + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵattribute"]("style", ctx_r3.styles, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeStyle"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeater"](ctx_r3.charmdList);
   }
 }
 function CharacterImageComponent_Conditional_2_Conditional_2_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_2_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_2_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_2_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
   }
 }
 function CharacterImageComponent_Conditional_2_Conditional_3_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_2_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_2_Conditional_3_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_2_Conditional_3_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
   }
 }
 function CharacterImageComponent_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 12)(1, "img", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_2_Template_img_click_1_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r7);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.openCharacterDetailsDialog(ctx_r3.charmd.name));
+    const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 12)(1, "img", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_2_Template_img_click_1_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r7);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(ctx_r3.charmd));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](2, CharacterImageComponent_Conditional_2_Conditional_2_Template, 1, 1, "ng-container")(3, CharacterImageComponent_Conditional_2_Conditional_3_Template, 1, 1, "ng-container");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](2, CharacterImageComponent_Conditional_2_Conditional_2_Template, 1, 1, "ng-container")(3, CharacterImageComponent_Conditional_2_Conditional_3_Template, 1, 1, "ng-container");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     let tmp_3_0;
     let tmp_5_0;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : "") + " border-radius: 5px; " + ctx_r3.styles);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_5_0 = ctx_r3.charmd.imageUrl) !== null && tmp_5_0 !== undefined ? tmp_5_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](13, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵattribute"]("class", "pfp" + ctx_r3.classes);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](2, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 2 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](3, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 3 : -1);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_3_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_3_0 !== undefined ? tmp_3_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : "") + " border-radius: 5px; " + ctx_r3.styles);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"](ctx_r3.charmd.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", (tmp_5_0 = ctx_r3.charmd.imageUrl) !== null && tmp_5_0 !== undefined ? tmp_5_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](13, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵattribute"]("class", "pfp" + ctx_r3.classes);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](2, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 2 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](3, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 3 : -1);
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_1_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_3_Conditional_1_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_3_Conditional_1_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_2_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_3_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_3_Conditional_2_ng_container_0_Template, 1, 0, "ng-container", 7);
   }
   if (rf & 2) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
-    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_4_Template_button_click_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r9);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.prevGalleryImage(ctx_r3.charmd, $event));
+    const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_4_Template_button_click_0_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r9);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.prevGalleryImage(ctx_r3.charmd, $event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "img", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](1, "img", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
 }
 function CharacterImageComponent_Conditional_3_Conditional_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_6_Template_button_click_0_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r10);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.nextGalleryImage(ctx_r3.charmd, $event));
+    const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "button", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_6_Template_button_click_0_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r10);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.nextGalleryImage(ctx_r3.charmd, $event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "img", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](1, "img", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
 }
 function CharacterImageComponent_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
-    const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_3_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_3_Conditional_2_Template, 1, 1, "ng-container");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](4, CharacterImageComponent_Conditional_3_Conditional_4_Template, 2, 0, "button", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "img", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Template_img_click_5_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r8);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.openCharacterDetailsDialog(ctx_r3.charmd.name));
+    const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_3_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_3_Conditional_2_Template, 1, 1, "ng-container");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](4, CharacterImageComponent_Conditional_3_Conditional_4_Template, 2, 0, "button", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](5, "img", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Template_img_click_5_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r8);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(ctx_r3.charmd));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, CharacterImageComponent_Conditional_3_Conditional_6_Template, 2, 0, "button", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](9, "div", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](6, CharacterImageComponent_Conditional_3_Conditional_6_Template, 2, 0, "button", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](7, "span", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](9, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"](ctx_r3.showBackgroundStyle ? ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"] : "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](16, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction2"](18, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](1, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 1 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](2, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 2 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](4, ctx_r3.charmd.imageList.length > 1 ? 4 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](21, _c2, ctx_r3.enableDetailsDialog))("src", ctx_r3.charmd.imageList[ctx_r3.charmd.currentImageIndex], _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("width", ctx_r3.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](6, ctx_r3.charmd.imageList.length > 1 ? 6 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"] : "") + ctx_r3.styles);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"](ctx_r3.charmd.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](16, _c0, ctx_r3.charmd.enhanced))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction2"](18, _c1, ctx_r3.dimensions + "px", ctx_r3.dimensions * ctx_r3.defaultCardDimensions + "px"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](1, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 1 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](2, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 2 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](4, ctx_r3.charmd.imageList.length > 1 ? 4 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](21, _c2, ctx_r3.enableDetailsDialog))("src", ctx_r3.charmd.imageList[ctx_r3.charmd.currentImageIndex], _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("width", ctx_r3.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](6, ctx_r3.charmd.imageList.length > 1 ? 6 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_10_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_10_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_10_ng_container_0_Template, 1, 0, "ng-container", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_10_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1);
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.element ? ctx_r3.charmd.element.label : "-", " ");
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const elementImage_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", elementImage_r2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.element ? ctx_r3.charmd.element.label : "-", " ");
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_11_ng_container_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainer"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementContainer"](0);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_11_ng_container_0_Template, 1, 0, "ng-container", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_11_ng_container_0_Template, 1, 0, "ng-container", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1);
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.type ? ctx_r3.charmd.type.label : "-", " ");
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    const typeImage_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵreference"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.type ? ctx_r3.charmd.type.label : "-", " ");
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "span", 35);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, ": ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "span", 35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1, ": ");
   }
   if (rf & 2) {
-    const note_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("innerHTML", note_r12.formattedTitle, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeHtml"]);
+    const note_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("innerHTML", note_r12.formattedTitle, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeHtml"]);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "div", 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Conditional_1_Template, 2, 1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "span", 34)(3, "br");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Conditional_1_Template, 2, 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](2, "span", 34)(3, "br");
   }
   if (rf & 2) {
     const note_r12 = ctx.$implicit;
     const $index_r13 = ctx.$index;
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](3, _c6, $index_r13 > 0));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](1, note_r12.formattedTitle ? 1 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("innerHTML", note_r12.formattedText, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeHtml"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](3, _c6, $index_r13 > 0));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](1, note_r12.formattedTitle ? 1 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("innerHTML", note_r12.formattedText, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeHtml"]);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Template, 4, 5, null, null, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterTrackByIndex"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_For_2_Template, 4, 5, null, null, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeater"](ctx_r3.charmd.notes);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeater"](ctx_r3.charmd.notes);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "li");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const desc_r14 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("full-width", desc_r14.length >= 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate"](desc_r14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassProp"]("full-width", desc_r14.length >= 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate"](desc_r14);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "ul", 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_For_2_Template, 2, 3, "li", 36, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeaterTrackByIndex"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "ul", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterCreate"](1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_For_2_Template, 2, 3, "li", 36, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrepeater"](ctx_r3.charmd.skillDescriptionList);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeater"](ctx_r3.charmd.skillDescriptionList);
   }
 }
 function CharacterImageComponent_Conditional_4_Conditional_13_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template, 3, 0, "div", 31)(1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template, 3, 0, "ul", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_0_Template, 3, 0, "div", 31)(1, CharacterImageComponent_Conditional_4_Conditional_13_Conditional_1_Template, 3, 0, "ul", 32);
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](0, ctx_r3.charmd.notes.length > 0 ? 0 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](1, ctx_r3.charmd.skillDescriptionList.length > 0 ? 1 : -1);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](0, ctx_r3.charmd.notes.length > 0 ? 0 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](1, ctx_r3.charmd.skillDescriptionList.length > 0 ? 1 : -1);
   }
 }
 function CharacterImageComponent_Conditional_4_Template(rf, ctx) {
   if (rf & 1) {
-    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 21)(1, "div", 22)(2, "span")(3, "a", 23)(4, "span", 24)(5, "img", 13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_4_Template_img_click_5_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵrestoreView"](_r11);
-      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵresetView"](ctx_r3.openCharacterDetailsDialog(ctx_r3.charmd.name));
+    const _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 21)(1, "div", 22)(2, "span")(3, "a", 23)(4, "span", 24)(5, "img", 13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_4_Template_img_click_5_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r11);
+      const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(ctx_r3.charmd));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "span", 25)(7, "span", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "span", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](10, CharacterImageComponent_Conditional_4_Conditional_10_Template, 2, 2)(11, CharacterImageComponent_Conditional_4_Conditional_11_Template, 2, 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](13, CharacterImageComponent_Conditional_4_Conditional_13_Template, 2, 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](15, "app-character-build", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](6, "span", 25)(7, "span", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](9, "span", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](10, CharacterImageComponent_Conditional_4_Conditional_10_Template, 2, 2)(11, CharacterImageComponent_Conditional_4_Conditional_11_Template, 2, 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](12, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](13, CharacterImageComponent_Conditional_4_Conditional_13_Template, 2, 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](14, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](15, "app-character-build", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
     let tmp_5_0;
     let tmp_6_0;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]("border-left: 4px solid " + ctx_r3.Utils.elementCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.code) + ";");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassMap"](ctx_r3.charmd.code);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : ""));
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](18, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](10, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 10 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](11, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 11 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](13, ctx_r3.showNotes ? 13 : -1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("character", ctx_r3.charmd.code)("simpleView", true);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"]("border-left: 4px solid " + ctx_r3.Utils.elementCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.code) + ";");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"](ctx_r3.charmd.code);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"]((ctx_r3.showBackgroundStyle ? (tmp_5_0 = ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity["backgroundStyle"]) !== null && tmp_5_0 !== undefined ? tmp_5_0 : "" : "") + (ctx_r3.showBorderStyle ? " border: 2px solid " + ctx_r3.Utils.rarityCSSVar(ctx_r3.charmd.gameCode, ctx_r3.charmd.rarity == null ? null : ctx_r3.charmd.rarity.code) + ";" : ""));
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", (tmp_6_0 = ctx_r3.charmd.imageUrl) !== null && tmp_6_0 !== undefined ? tmp_6_0 : ctx_r3.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](18, _c5, ctx_r3.enableDetailsDialog))("width", ctx_r3.dimensions)("height", ctx_r3.dimensions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](10, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 10 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](11, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 11 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](13, ctx_r3.showNotes ? 13 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("character", ctx_r3.charmd.code)("simpleView", true);
   }
 }
 function CharacterImageComponent_ng_template_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 37);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "img", 37);
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("src", ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("width", ctx_r3.iconSize)("height", ctx_r3.iconSize)("title", ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.code);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("width", ctx_r3.iconSize)("height", ctx_r3.iconSize)("title", ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.code);
   }
 }
 function CharacterImageComponent_ng_template_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "img", 38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "img", 38);
   }
   if (rf & 2) {
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpureFunction1"](5, _c7, ctx_r3.iconSize + "px"))("src", ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsanitizeUrl"])("width", ctx_r3.iconSize)("height", ctx_r3.iconSize)("title", ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.label);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](5, _c7, ctx_r3.iconSize + "px"))("src", ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("width", ctx_r3.iconSize)("height", ctx_r3.iconSize)("title", ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.label);
   }
 }
 let CharacterImageComponent = /*#__PURE__*/(() => {
   class CharacterImageComponent {
-    constructor(charactersService, lookupsService, notesService, dialogService, textUtils) {
+    constructor(charactersService, lookupsService, notesService, textUtils, router) {
       this.charactersService = charactersService;
       this.lookupsService = lookupsService;
       this.notesService = notesService;
-      this.dialogService = dialogService;
       this.textUtils = textUtils;
+      this.router = router;
       this.Utils = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils;
       this.TRANSPARENT_IMG = _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.images.transparent;
       this.UNKNOWN_IMG = _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.images.unknownCharacter;
@@ -1560,9 +1661,10 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
       this.iconSize = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? this.inputIconSize * this.mobileIconSizeRatio : this.inputIconSize;
       this.defaultCardDimensions = 219 / 160;
     }
-    openCharacterDetailsDialog(character) {
+    openCharacterDetails(aCharmd) {
       if (this.enableDetailsDialog) {
-        this.dialogService.openCharacterDetailsDialog(character);
+        const formatted = aCharmd.code.replaceAll(' ', '-');
+        this.router.navigate([aCharmd.gameCode + '/characters/' + formatted]);
       }
     }
     // gallery
@@ -1576,11 +1678,11 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function CharacterImageComponent_Factory(t) {
-        return new (t || CharacterImageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_2__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_api_notes_service__WEBPACK_IMPORTED_MODULE_4__.NotesService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_services_dialog_service__WEBPACK_IMPORTED_MODULE_5__.DialogService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_utils_text_utils__WEBPACK_IMPORTED_MODULE_6__.TextUtils));
+        return new (t || CharacterImageComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_2__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_notes_service__WEBPACK_IMPORTED_MODULE_4__.NotesService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_utils_text_utils__WEBPACK_IMPORTED_MODULE_5__.TextUtils), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
         type: CharacterImageComponent,
         selectors: [["app-character-image"]],
         inputs: {
@@ -1594,8 +1696,8 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
           showType: "showType",
           showNotes: "showNotes",
           imageStyle: "imageStyle",
-          inputDimensions: [_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵInputFlags"].None, "dimensions", "inputDimensions"],
-          inputIconSize: [_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵInputFlags"].None, "iconSize", "inputIconSize"],
+          inputDimensions: [_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵInputFlags"].None, "dimensions", "inputDimensions"],
+          inputIconSize: [_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵInputFlags"].None, "iconSize", "inputIconSize"],
           mobileSizeRatio: "mobileSizeRatio",
           mobileIconSizeRatio: "mobileIconSizeRatio"
         },
@@ -1604,13 +1706,13 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
         consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "details"], [1, "build", 2, "padding-top", "15px"], [3, "character", "simpleView"], [1, "description"], [1, "description-list"], [3, "ngClass"], [1, "description__content", 3, "innerHTML"], [1, "description__title", 3, "innerHTML"], [3, "full-width"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
         template: function CharacterImageComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 10, 23)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵconditional"](0, ctx.imageStyle == "card" ? 0 : ctx.imageStyle == "pfp" && ctx.charCount > 1 ? 1 : ctx.imageStyle == "pfp" && ctx.charCount == 1 ? 2 : ctx.imageStyle == "gallery" ? 3 : ctx.imageStyle == "details" ? 4 : -1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](0, ctx.imageStyle == "card" ? 0 : ctx.imageStyle == "pfp" && ctx.charCount > 1 ? 1 : ctx.imageStyle == "pfp" && ctx.charCount == 1 ? 2 : ctx.imageStyle == "gallery" ? 3 : ctx.imageStyle == "details" ? 4 : -1);
           }
         },
-        dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgStyle, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_7__.CharacterBuildComponent],
+        dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgStyle, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_6__.CharacterBuildComponent],
         styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .details[_ngcontent-%COMP%] {\n  padding: 10px 19px 15px 19px;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n}\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%]   .full-width[_ngcontent-%COMP%] {\n  grid-column: 1 / -1;\n}\n\n\n\n\n\n\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
@@ -1844,18 +1946,13 @@ const _forTrack0 = ($index, $item) => $item.code;
 function CharacterTeamsComponent_Conditional_0_For_8_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](1, "app-team-info", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](1, "app-team-info", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const team_r1 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("teamCode", team_r1.code)("nameStyle", "top")("characterMobileSizeRation", 0.5);
-  }
-}
-function CharacterTeamsComponent_Conditional_0_Conditional_9_Template(rf, ctx) {
-  if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](0, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("teamCode", team_r1.code)("characterMobileSizeRation", 0.5);
   }
 }
 function CharacterTeamsComponent_Conditional_0_Template(rf, ctx) {
@@ -1866,8 +1963,7 @@ function CharacterTeamsComponent_Conditional_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterCreate"](7, CharacterTeamsComponent_Conditional_0_For_8_Template, 2, 3, "div", 4, _forTrack0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](9, CharacterTeamsComponent_Conditional_0_Conditional_9_Template, 1, 0, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterCreate"](7, CharacterTeamsComponent_Conditional_0_For_8_Template, 2, 2, "div", 4, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -1876,8 +1972,6 @@ function CharacterTeamsComponent_Conditional_0_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate1"](" (", ctx_r1.teams.length, ") ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeater"](ctx_r1.teams);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵconditional"](9, !ctx_r1.isMobile() && ctx_r1.teams.length > 1 && ctx_r1.teams.length % 2 != 0 ? 9 : -1);
   }
 }
 let CharacterTeamsComponent = /*#__PURE__*/(() => {
@@ -1909,17 +2003,16 @@ let CharacterTeamsComponent = /*#__PURE__*/(() => {
         },
         decls: 1,
         vars: 1,
-        consts: [[1, "gagu-box-shadow", "p-3", 2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "additional-text"], [1, "character-teams-container", "row", "justify-content-center"], [1, "col-xl-5", "col-lg-5", "col-md-5", "col-sm-10", "team-column", "m-1"], [1, "col-xl-5", "col-lg-5", "col-md-5", "col-sm-10", "m-1"], [3, "teamCode", "nameStyle", "characterMobileSizeRation"]],
+        consts: [[2, "width", "100%", "height", "100%"], [1, "content-header", 2, "margin-top", "0"], [1, "additional-text"], [1, "character-teams-container", "row"], [1, "col-xl-4", "col-lg-4", "col-md-4", "col-sm-12", "mb-3"], [3, "teamCode", "characterMobileSizeRation"]],
         template: function CharacterTeamsComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, CharacterTeamsComponent_Conditional_0_Template, 10, 2, "div");
+            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, CharacterTeamsComponent_Conditional_0_Template, 9, 1, "div");
           }
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵconditional"](0, ctx.teams.length > 0 ? 0 : -1);
           }
         },
-        dependencies: [_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_2__.TeamInfoComponent],
-        styles: [".character-teams-container[_ngcontent-%COMP%] {\n  max-height: 340px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n\n.character-teams-container[_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 4px;\n}"]
+        dependencies: [_team_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_2__.TeamInfoComponent]
       });
     }
   }
@@ -2893,15 +2986,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TeamDetailsDialogComponent: () => (/* binding */ TeamDetailsDialogComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
 /* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../shared/utils/utils */ 86);
 /* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/utils/constants */ 4041);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _shared_api_games_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../shared/api/games.service */ 9503);
 /* harmony import */ var _shared_api_teams_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/api/teams.service */ 8534);
 /* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../shared/api/characters.service */ 8808);
 /* harmony import */ var _shared_api_pets_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../shared/api/pets.service */ 8382);
 /* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../shared/api/lookups.service */ 3315);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ 177);
+/* harmony import */ var _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../character/character-image/character-image.component */ 6862);
+/* harmony import */ var _team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../team-notes/team-notes.component */ 1614);
+/* harmony import */ var _team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../team-replacements/team-replacements.component */ 558);
+/* harmony import */ var _team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../team-roles/team-roles.component */ 6230);
+
+
+
+
+
+
 
 
 
@@ -2916,31 +3020,31 @@ const _c0 = a0 => ({
 });
 function TeamDetailsDialogComponent_Conditional_12_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "img", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](0, "img", 7);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", ctx_r0.team.iconUrl, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("height", ctx_r0.isMobile() ? "30" : "40");
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("src", ctx_r0.team.iconUrl, _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsanitizeUrl"])("height", ctx_r0.isMobile() ? "30" : "40");
   }
 }
 function TeamDetailsDialogComponent_For_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "app-character-image", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](0, "app-character-image", 10);
   }
   if (rf & 2) {
     const char_r2 = ctx.$implicit;
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("characterName", char_r2.name)("dimensions", ctx_r0.characterPFPSize)("styles", "margin: 5px 10px;")("enableDetailsDialog", true)("showElement", true)("mobileSizeRatio", 0.6);
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("characterName", char_r2.character)("dimensions", ctx_r0.characterPFPSize)("styles", "margin: 5px 10px;")("enableDetailsDialog", true)("showElement", true)("mobileSizeRatio", 0.6);
   }
 }
 function TeamDetailsDialogComponent_Conditional_17_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "img", 18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](0, "img", 18);
   }
   if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵstyleMap"](ctx_r0.petRarityMd ? ctx_r0.petRarityMd["style"] : "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("src", ctx_r0.petmd ? ctx_r0.petmd.imageUrl : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("height", ctx_r0.petPFPSize)("width", ctx_r0.petPFPSize)("title", ctx_r0.petmd ? ctx_r0.petmd.name : "?");
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵstyleMap"](ctx_r0.petRarityMd ? ctx_r0.petRarityMd["style"] : "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("src", ctx_r0.petmd ? ctx_r0.petmd.imageUrl : ctx_r0.UNKNOWN_IMG, _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsanitizeUrl"])("height", ctx_r0.petPFPSize)("width", ctx_r0.petPFPSize)("title", ctx_r0.petmd ? ctx_r0.petmd.name : "?");
   }
 }
 let TeamDetailsDialogComponent = /*#__PURE__*/(() => {
@@ -2975,7 +3079,7 @@ let TeamDetailsDialogComponent = /*#__PURE__*/(() => {
       this.team = this.teamsService.getOne(this.teamCode);
       this.teamId = `${this.activeGame.code}-${this.team.code}`;
       this.team.characters.forEach(c => {
-        c.roleDescriptionList = this.characterService.getOne(c.name)?.skillDescription?.split(' | ');
+        c.roleDescriptionList = this.characterService.getOne(c.character)?.skillDescription?.split(' | ');
       });
     }
     loadPet() {
@@ -2991,11 +3095,11 @@ let TeamDetailsDialogComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function TeamDetailsDialogComponent_Factory(t) {
-        return new (t || TeamDetailsDialogComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__.MAT_DIALOG_DATA), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_games_service__WEBPACK_IMPORTED_MODULE_2__.GamesService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_3__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_4__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_pets_service__WEBPACK_IMPORTED_MODULE_5__.PetsService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_6__.LookupsService));
+        return new (t || TeamDetailsDialogComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__.MAT_DIALOG_DATA), _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_shared_api_games_service__WEBPACK_IMPORTED_MODULE_2__.GamesService), _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_3__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_4__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_shared_api_pets_service__WEBPACK_IMPORTED_MODULE_5__.PetsService), _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_6__.LookupsService));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineComponent"]({
         type: TeamDetailsDialogComponent,
         selectors: [["app-team-details-dialog"]],
         decls: 25,
@@ -3003,53 +3107,54 @@ let TeamDetailsDialogComponent = /*#__PURE__*/(() => {
         consts: [["mat-dialog-title", ""], ["mat-icon-button", "", "title", "Close", 2, "float", "right", "margin-top", "15px", "font-size", "1.5em", 3, "mat-dialog-close"], ["mat-dialog-content", ""], [1, "teams__container"], [1, "number"], [1, "item"], ["data-bs-toggle", "collapse", "data-bs-target", "#teamDetails", 1, "name", "pointer", 3, "ngClass"], [3, "src", "height"], [3, "innerHTML"], [1, "members"], [3, "characterName", "dimensions", "styles", "enableDetailsDialog", "showElement", "mobileSizeRatio"], [1, "pet", 3, "src", "height", "width", "title", "style"], ["data-bs-toggle", "collapse", "data-bs-target", "#teamDetails", 1, "actions", "pointer"], ["src", "assets/svg/arrow-down.svg", "height", "50"], ["id", "teamDetails", 1, "show"], [1, "teams__details"], [1, "table-responsive", 3, "team"], [1, "table-responsive", 3, "teamCode"], [1, "pet", 3, "src", "height", "width", "title"]],
         template: function TeamDetailsDialogComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "h1", 0)(1, "span");
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](2, " Team Details ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "span", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](4, " \u00D7 ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](5, "div", 2)(6, "div")(7, "div", 3)(8, "div", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](9);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](10, "div", 5)(11, "div", 6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](12, TeamDetailsDialogComponent_Conditional_12_Template, 1, 2, "img", 7);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](13, "span", 8);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](14, "div", 9);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterCreate"](15, TeamDetailsDialogComponent_For_16_Template, 1, 6, "app-character-image", 10, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterTrackByIndex"]);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](17, TeamDetailsDialogComponent_Conditional_17_Template, 1, 6, "img", 11);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](18, "div", 12);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](19, "img", 13);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](20, "div", 14)(21, "div", 15);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](22, "app-team-roles", 16)(23, "app-team-replacements", 16)(24, "app-team-notes", 17);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](0, "h1", 0)(1, "span");
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtext"](2, " Team Details ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](3, "span", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtext"](4, " \u00D7 ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](5, "div", 2)(6, "div")(7, "div", 3)(8, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtext"](9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](10, "div", 5)(11, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtemplate"](12, TeamDetailsDialogComponent_Conditional_12_Template, 1, 2, "img", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](13, "span", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](14, "div", 9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵrepeaterCreate"](15, TeamDetailsDialogComponent_For_16_Template, 1, 6, "app-character-image", 10, _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵrepeaterTrackByIndex"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtemplate"](17, TeamDetailsDialogComponent_Conditional_17_Template, 1, 6, "img", 11);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](18, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](19, "img", 13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]()()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](20, "div", 14)(21, "div", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](22, "app-team-roles", 16)(23, "app-team-replacements", 16)(24, "app-team-notes", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]()()()();
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("mat-dialog-close", null);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx.teamIndex, " ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](9, _c0, ctx.team.iconUrl == null));
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](12, ctx.team.iconUrl != null ? 12 : -1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("innerHTML", ctx.team.name ? ctx.team.name : "...", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeHtml"]);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeater"](ctx.team.characters);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](17, ctx.activeGame.hasPet ? 17 : -1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("team", ctx.team);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("team", ctx.team);
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("teamCode", ctx.teamCode);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("mat-dialog-close", null);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtextInterpolate1"](" ", ctx.teamIndex, " ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵpureFunction1"](9, _c0, ctx.team.iconUrl == null));
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵconditional"](12, ctx.team.iconUrl != null ? 12 : -1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("innerHTML", ctx.team.name ? ctx.team.name : "...", _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsanitizeHtml"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵrepeater"](ctx.team.characters);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵconditional"](17, ctx.activeGame.hasPet ? 17 : -1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("team", ctx.team);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("team", ctx.team);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("teamCode", ctx.teamCode);
           }
         },
+        dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_13__.NgClass, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__.MatDialogClose, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__.MatDialogTitle, _angular_material_dialog__WEBPACK_IMPORTED_MODULE_12__.MatDialogContent, _character_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_7__.CharacterImageComponent, _team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_8__.TeamNotesComponent, _team_replacements_team_replacements_component__WEBPACK_IMPORTED_MODULE_9__.TeamReplacementsComponent, _team_roles_team_roles_component__WEBPACK_IMPORTED_MODULE_10__.TeamRolesComponent],
         styles: [".teams__container[_ngcontent-%COMP%] {\n  border: 1px solid #33343a;\n  border-radius: 0;\n  display: flex;\n  margin: 20px 0 0 0;\n  width: 100%;\n  height: 210px;\n  \n\n}\n\n.teams__container[_ngcontent-%COMP%]   .number[_ngcontent-%COMP%] {\n  align-items: center;\n  background-color: #ef5350;\n  color: #191817;\n  display: flex;\n  font-size: 22px;\n  font-weight: 700;\n  justify-content: center;\n  width: 65px;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%] {\n  grid-gap: 0;\n  background-color: #2c2d33;\n  border-radius: 0;\n  display: grid;\n  grid-template-columns: 25% 50% 25%;\n  justify-content: space-between;\n  position: relative;\n  width: 100%;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%] > div[_ngcontent-%COMP%]:nth-child(even) {\n  background-color: #36373f;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 30px;\n  font-weight: bold;\n  display: grid;\n  grid-template-columns: 20% 80%;\n  align-items: center;\n  justify-items: center;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .name-no-icon[_ngcontent-%COMP%] {\n  grid-template-columns: 100%;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .members[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .pet[_ngcontent-%COMP%] {\n  border-radius: 50%;\n  margin-left: 20px;\n  border: 5px solid black;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .actions[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n.actions[_ngcontent-%COMP%]:not(.collapsed)   img[_ngcontent-%COMP%] {\n  transform: rotate(-180deg);\n}\n\n.actions.collapsed[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transform: rotate(0deg);\n}\n\n.teams__details[_ngcontent-%COMP%] {\n  display: grid;\n  border: 2px solid #33343a;\n  grid-template-columns: 33% 34% 33%;\n}\n\n@media (min-width: 1000px) {\n\n  \n\n  .teams__details[_ngcontent-%COMP%] {\n    \n\n\n\n\n    background: linear-gradient(to right,\n        transparent, transparent calc(33% - 3px), #33343a, transparent calc(33%),\n        transparent, transparent calc(67% - 3px), #33343a, transparent calc(67%));\n  }\n}\n\n\n\n.teams__details[_ngcontent-%COMP%]   .container[_ngcontent-%COMP%] {\n  padding: 0 15px;\n}\n\n.empty-details[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: calc(100% - 70px);\n  \n\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.collapsing[_ngcontent-%COMP%]   .table-responsive[_ngcontent-%COMP%] {\n  \n\n  overflow: visible !important;\n}\n\n@media (max-width: 1000px) {\n  .teams__container[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr;\n    height: 420px;\n    \n\n  }\n\n  .teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n\n  .teams__container[_ngcontent-%COMP%]   .number[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n\n  .teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    padding: 10px 0;\n  }\n\n  .teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .members[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    justify-items: center;\n    padding: 10px 0;\n  }\n\n  .teams__container[_ngcontent-%COMP%]   .item[_ngcontent-%COMP%]   .pet[_ngcontent-%COMP%] {\n    margin-left: 0;\n  }\n\n  .teams__details[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n\n  \n\n  .teams__details[_ngcontent-%COMP%]   .container[_ngcontent-%COMP%] {\n    border-top: 2px solid #33343a;\n  }\n}"]
       });
     }
@@ -3130,7 +3235,7 @@ function TeamInfoComponent_For_9_Template(rf, ctx) {
   if (rf & 2) {
     const character_r3 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("characterName", character_r3.name)("dimensions", ctx_r1.characterPFPSize)("styles", "margin: 5px 10px;")("enableDetailsDialog", true)("showElement", true)("mobileSizeRatio", ctx_r1.characterMobileSizeRation)("mobileIconSizeRatio", 0.8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("characterName", character_r3.character)("dimensions", ctx_r1.characterPFPSize)("styles", "margin: 5px 10px;")("enableDetailsDialog", true)("showElement", true)("mobileSizeRatio", ctx_r1.characterMobileSizeRation)("mobileIconSizeRatio", 0.8);
   }
 }
 let TeamInfoComponent = /*#__PURE__*/(() => {
@@ -3528,7 +3633,7 @@ function TeamReplacementsComponent_Conditional_5_For_2_Template(rf, ctx) {
     const character_r3 = ctx.$implicit;
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("characterName", character_r3.name)("dimensions", ctx_r1.characterPFPSize)("styles", "margin: 5px 10px;")("mobileIconSizeRatio", 0.5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("characterName", character_r3.character)("dimensions", ctx_r1.characterPFPSize)("styles", "margin: 5px 10px;")("mobileIconSizeRatio", 0.5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵconditional"](4, character_r3.replacements && character_r3.replacements.length > 0 ? 4 : 5);
   }
@@ -3650,7 +3755,7 @@ function TeamRolesComponent_For_8_Template(rf, ctx) {
     const character_r2 = ctx.$implicit;
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("characterName", character_r2.name)("dimensions", ctx_r2.characterPFPSize)("styles", "margin: 5px 10px;")("mobileIconSizeRatio", 0.5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("characterName", character_r2.character)("dimensions", ctx_r2.characterPFPSize)("styles", "margin: 5px 10px;")("mobileIconSizeRatio", 0.5);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("src", (tmp_14_0 = ctx_r2.getRole(character_r2.roleCode)) == null ? null : tmp_14_0.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeUrl"])("title", (tmp_15_0 = ctx_r2.getRole(character_r2.roleCode)) == null ? null : tmp_15_0.label);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"]();
@@ -4224,49 +4329,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GameGuidesComponent: () => (/* binding */ GameGuidesComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 7901);
-/* harmony import */ var _shared_services_dialog_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/services/dialog.service */ 1454);
-/* harmony import */ var _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../features/game/game-header/game-header.component */ 4261);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 7901);
+/* harmony import */ var _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../features/game/game-header/game-header.component */ 4261);
 
 
 
 let GameGuidesComponent = /*#__PURE__*/(() => {
   class GameGuidesComponent {
-    constructor(activatedRoute, dialogService) {
-      this.activatedRoute = activatedRoute;
-      this.dialogService = dialogService;
-    }
-    ngOnInit() {
-      this.reOpenDialog();
-    }
-    reOpenDialog() {
-      this.activatedRoute.queryParamMap.subscribe(paramMap => {
-        if (paramMap.has('t')) {
-          this.dialogService.openTeamDetailsDialog(paramMap.get('t'));
-        } else if (paramMap.has('c')) {
-          this.dialogService.openCharacterDetailsDialog(paramMap.get('c'));
-        }
-      });
-    }
+    constructor() {}
+    ngOnInit() {}
     static {
       this.ɵfac = function GameGuidesComponent_Factory(t) {
-        return new (t || GameGuidesComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_shared_services_dialog_service__WEBPACK_IMPORTED_MODULE_0__.DialogService));
+        return new (t || GameGuidesComponent)();
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
         type: GameGuidesComponent,
         selectors: [["app-game-guides"]],
         decls: 2,
         vars: 0,
         template: function GameGuidesComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "app-game-header")(1, "router-outlet");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](0, "app-game-header")(1, "router-outlet");
           }
         },
-        dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterOutlet, _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_1__.GameHeaderComponent]
+        dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterOutlet, _features_game_game_header_game_header_component__WEBPACK_IMPORTED_MODULE_0__.GameHeaderComponent]
       });
     }
   }
@@ -5271,7 +5360,7 @@ let TeamsService = /*#__PURE__*/(() => {
       return characters.map(c => ({
         gameCode: c.GAME_CODE,
         teamCode: c.TEAM_CODE,
-        name: c.NAME,
+        character: c.CHARACTER,
         roleCode: c.ROLE_CODE,
         isMain: c.IS_MAIN,
         replacements: c.REPLACEMENTS?.split(',')
@@ -5293,7 +5382,7 @@ let TeamsService = /*#__PURE__*/(() => {
       return this.getAll().filter(team => {
         return team.characters.some(ch => {
           let all = [];
-          all.push(ch.name);
+          all.push(ch.character);
           if (ch.replacements && ch.replacements.length > 0) {
             all.push(...ch.replacements);
           }
@@ -6188,13 +6277,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   DialogService: () => (/* binding */ DialogService)
 /* harmony export */ });
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _features_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../features/character/character-details-dialog/character-details-dialog.component */ 4990);
-/* harmony import */ var _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../features/team/team-details-dialog/team-details-dialog.component */ 6274);
-/* harmony import */ var _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../features/settings/text-formatter/text-formatter.component */ 932);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7705);
-
+/* harmony import */ var _features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../features/team/team-details-dialog/team-details-dialog.component */ 6274);
+/* harmony import */ var _features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../features/settings/text-formatter/text-formatter.component */ 932);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
 
 
 
@@ -6206,21 +6293,19 @@ let DialogService = /*#__PURE__*/(() => {
     constructor(dialog) {
       this.dialog = dialog;
     }
-    openCharacterDetailsDialog(character) {
+    /*openCharacterDetailsDialog(character: any) {
       this.dialog.closeAll();
-      const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__.MatDialogConfig();
-      dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '60%';
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.width = Utils.isMobile() ? '100vw' : '60%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
       dialogConfig.panelClass = 'gagu-mat-dialog';
-      dialogConfig.data = {
-        character: character
-      };
-      const dialogRef = this.dialog.open(_features_character_character_details_dialog_character_details_dialog_component__WEBPACK_IMPORTED_MODULE_1__.CharacterDetailsDialogComponent, dialogConfig);
-    }
+      dialogConfig.data = { character: character };
+      const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
+    }*/
     openTeamDetailsDialog(teamCode) {
       this.dialog.closeAll();
-      const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__.MatDialogConfig();
+      const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogConfig();
       dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '80%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
@@ -6229,25 +6314,25 @@ let DialogService = /*#__PURE__*/(() => {
         teamCode: teamCode,
         teamIndex: 1
       };
-      const dialogRef = this.dialog.open(_features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_2__.TeamDetailsDialogComponent, dialogConfig);
+      const dialogRef = this.dialog.open(_features_team_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_1__.TeamDetailsDialogComponent, dialogConfig);
     }
     // settings
     openTextFormatterDialog() {
       this.dialog.closeAll();
-      const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__.MatDialogConfig();
+      const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogConfig();
       dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '40%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
       dialogConfig.panelClass = 'gagu-mat-dialog';
-      const dialogRef = this.dialog.open(_features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_3__.TextFormatterComponent, dialogConfig);
+      const dialogRef = this.dialog.open(_features_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_2__.TextFormatterComponent, dialogConfig);
     }
     static {
       this.ɵfac = function DialogService_Factory(t) {
-        return new (t || DialogService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__.MatDialog));
+        return new (t || DialogService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialog));
       };
     }
     static {
-      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjectable"]({
+      this.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({
         token: DialogService,
         factory: DialogService.ɵfac,
         providedIn: 'root'
@@ -6749,9 +6834,10 @@ class Utils {
     }
     return '';
   }
-  static elementCSSVar(gameCode, code) {
+  static elementCSSVar(gameCode, code, opacity) {
     if (gameCode && code) {
-      return `var(--element-${gameCode}-${code})`;
+      const cssVar = `var(--element-${gameCode}-${code})`;
+      return opacity !== undefined ? `color-mix(in srgb, ${cssVar} ${opacity * 100}%, transparent)` : cssVar;
     }
     return '';
   }
