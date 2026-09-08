@@ -9,5 +9,8 @@ export class BusService {
   toggleSidebar: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   toggleSidebar$ = this.toggleSidebar.asObservable();
 
+  gameChange: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  gameChange$ = this.gameChange.asObservable();
+
   constructor() { }
 }

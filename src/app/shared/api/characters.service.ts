@@ -48,7 +48,8 @@ export class CharactersService {
       type: c.TYPE,
       rarity: c.RARITY,
       enhanced: c.ENHANCED,
-      skillDescription: c.SKILL_DESCRIPTION
+      skillDescription: c.SKILL_DESCRIPTION,
+      skillDescriptionList: c.SKILL_DESCRIPTION ? c.SKILL_DESCRIPTION.split(' | ') : []
     }));
   }
 

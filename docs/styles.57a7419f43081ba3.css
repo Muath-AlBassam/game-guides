@@ -2386,11 +2386,39 @@ app-nav.active~.main-content {
 }
 
 .main-content {
-  padding: 75px;
+  padding: 80px 60px;
   /* height: 300vh; */
   background-color: var(--background-color);
   color: var(--text-color);
   transition: all 0.5s ease;
+}
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--game-background-image);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 80%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+.main-content > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Dialog styles ----------------------------------------------------------- */

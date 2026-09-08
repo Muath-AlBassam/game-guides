@@ -1,16 +1,27 @@
-<div class="team-info-container row gagu-box-shadow-10" style="margin: auto;">
-  <div class="d-flex align-self-stretch" [ngClass]="{'col-md-4 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
-    <div class="name-container d-flex flex-column justify-content-center align-items-center w-100"
-        [ngClass]="{'name-container-side': nameStyle == 'side'}">
+<div
+  class="team-info-container row gagu-box-shadow-10"
+  style="margin: auto;">
+  <div
+    class="d-flex align-self-stretch"
+    [ngClass]="{'col-md-4 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
+    <div
+      class="name-container d-flex flex-column justify-content-center align-items-center w-100"
+      [ngClass]="{'name-container-side': nameStyle == 'side'}">
       <h5 class="fw-bold text-shadow">
         <span [innerHTML]="team.name ?? '...'"></span>
-        <img src="assets/svg/info.svg" height="15" class="mx-1 hover pointer" (click)="openTeamDetailsDialog()">
+        <img
+          src="assets/svg/info.svg"
+          height="15"
+          class="mx-1 hover pointer"
+          (click)="openTeamDetailsDialog()">
       </h5>
       @if (showTags) {
         <div class="d-flex flex-wrap justify-content-center gap-1 mt-1">
           @for (tag of teamTags; track $index) {
-            <span class="badge hover pointer team-badge" [ngClass]="{ 'bg-secondary': !tag['style'] }"
-                  [style]="tag['style']">
+            <span
+              class="badge hover pointer team-badge"
+              [ngClass]="{ 'bg-secondary': !tag['style'] }"
+              [style]="tag['style']">
               {{ tag.label }}
             </span>
           }
@@ -18,8 +29,9 @@
       }
     </div>
   </div>
-  <div class="ti-characters-container d-flex justify-content-center align-items-center"
-      [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
+  <div
+    class="ti-characters-container d-flex justify-content-center align-items-center"
+    [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
     @for (character of team.characters; track $index) {
       <app-character-image
         [characterName]="character.character"

@@ -1,2 +1,21 @@
+<nav aria-label="breadcrumb">
+  <ul class="breadcrumb">
+    @for (breadcrumb of breadcrumbs; track breadcrumb.label; let idx = $index) {
+      @if (idx > 0) {
+        <li class="divider">/</li>
+      }
+      <li>
+        @if (breadcrumb.url) {
+          <a [routerLink]="breadcrumb.url">
+            {{ breadcrumb.label }}
+          </a>
+        } @else {
+          {{ breadcrumb.label }}
+        }
+      </li>
+    }
+  </ul>
+</nav>
+
 <app-game-header></app-game-header>
 <router-outlet></router-outlet>

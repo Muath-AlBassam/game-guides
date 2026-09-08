@@ -4,9 +4,7 @@
     class="char-card"
     [class]="charmd.code"
     [ngClass]="{'glow-border': charmd.enhanced}"
-    [style]="
-      (showBackgroundStyle ? (charmd.rarity?.['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity?.code) + ';' : '')"
+    [style]="styles"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement && charmd.element?.imageUrl) {
@@ -59,10 +57,7 @@
   <div
     class="character-container"
     [class]="charmd.code"
-    [style]="
-      (showBackgroundStyle ? (charmd.rarity?.['backgroundStyle'] ?? '') : '') +
-      (showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(charmd.gameCode, charmd.rarity?.code) + ';' : '') +
-      ' border-radius: 5px; ' + styles">
+    [style]="'border-radius: 5px; ' + styles">
     <img
       [src]="charmd.imageUrl ?? UNKNOWN_IMG"
       [alt]="charmd.name"
@@ -88,7 +83,7 @@
     class="char-card"
     [class]="charmd.code"
     [ngClass]="{'glow-border': charmd.enhanced}"
-    [style]="(showBackgroundStyle ? charmd.rarity?.['backgroundStyle'] : '') + styles"
+    [style]="styles"
     [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
 
     @if (showElement && charmd.element?.imageUrl) {

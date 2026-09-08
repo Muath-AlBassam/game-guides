@@ -38,7 +38,7 @@ export class CharacterImageComponent implements OnInit {
   readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
 
   @Input() characterName!: string;
-  @Input() styles: string = '';
+  @Input('styles') inputStyles: string = '';
   @Input() classes: string = '';
   @Input() enableDetailsDialog: boolean = false;
   @Input() showBackgroundStyle: boolean = true;
@@ -55,6 +55,7 @@ export class CharacterImageComponent implements OnInit {
   dimensions: number = 100;
   iconSize: number = 26;
   defaultCardDimensions: number = 219 / 160;
+  styles: string = '';
 
   charCount: number = 0;
   charmdList: CharacterDetailsModel[] = [];
@@ -70,6 +71,7 @@ export class CharacterImageComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.calculateDimensions();
+    this.computeStyleTag();
   }
 
   loadData(): void {
@@ -87,7 +89,7 @@ export class CharacterImageComponent implements OnInit {
         type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
         rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
         enhanced: tempCharMd.enhanced,
-        skillDescriptionList: this.formatSkillDescriptionToList(tempCharMd),
+        skillDescriptionList: tempCharMd.skillDescriptionList,
         notes: this.getCharacterNotes(tempCharMd.gameCode, tempCharMd.code),
         imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
         currentImageIndex: 0
@@ -95,14 +97,7 @@ export class CharacterImageComponent implements OnInit {
     });
   }
 
-  formatSkillDescriptionToList(char: CharacterModel): string[] {
-    if (this.showNotes && char.skillDescription) {
-      return char.skillDescription.split(' | ');
-    }
-    return [];
-  }
-
-  getCharacterNotes(gameCode: string, character: string) {
+  getCharacterNotes(gameCode: string, character: string): NoteModel[] {
     if (this.showNotes) {
       const notes = this.notesService.getAllByOwnerTypeAndCode('CHARACTER', character);
       if (notes && notes?.length > 0) {
@@ -126,6 +121,14 @@ export class CharacterImageComponent implements OnInit {
     this.dimensions = Utils.isMobile() ? this.inputDimensions * this.mobileSizeRatio : this.inputDimensions;
     this.iconSize = Utils.isMobile() ? this.inputIconSize * this.mobileIconSizeRatio : this.inputIconSize;
     this.defaultCardDimensions = 219 / 160;
+  }
+
+  computeStyleTag(): void {
+    this.styles = 
+      this.inputStyles
+      + (this.showBackgroundStyle ? (this.charmd.rarity?.['backgroundStyle'] ?? '') : '')
+      + (this.showBorderStyle ? ' border: 2px solid ' + Utils.rarityCSSVar(this.charmd.gameCode, this.charmd.rarity?.code) + ';' : '');
+    
   }
 
   openCharacterDetails(aCharmd: CharacterDetailsModel): void {

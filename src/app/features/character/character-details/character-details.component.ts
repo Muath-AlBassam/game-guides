@@ -7,6 +7,9 @@ import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
 import { Utils } from '../../../shared/utils/utils';
 import { Subscription } from 'rxjs';
+import { NoteModel } from '../../../shared/models/note.model';
+import { NotesService } from '../../../shared/api/notes.service';
+import { TextUtils } from '../../../shared/utils/text-utils';
 
 @Component({
   selector: 'app-character-details',
@@ -29,10 +32,13 @@ export class CharacterDetailsComponent implements OnInit {
   element: LookupModel | undefined = undefined;
   type: LookupModel | undefined = undefined;
   rarity: LookupModel | undefined = undefined;
+  notes: NoteModel[] = [];
 
   constructor(
     private charactersService: CharactersService,
     private lookupsService: LookupsService,
+    private notesService: NotesService,
+    private textUtils: TextUtils,
     private route: ActivatedRoute
   ) {}
 
@@ -42,6 +48,7 @@ export class CharacterDetailsComponent implements OnInit {
       this.code = routeCode.replaceAll('-', ' ');
       this.isLoading = true;
       this.loadData();
+      this.getCharacterNotes();
       setTimeout(() => this.isLoading = false, 1000)
     });
   }
@@ -51,6 +58,19 @@ export class CharacterDetailsComponent implements OnInit {
     this.element = this.lookupsService.getOne(this.charmd.element, Constants.lookupType.ELEMENT);
     this.type = this.lookupsService.getOne(this.charmd.type, Constants.lookupType.TYPE);
     this.rarity = this.lookupsService.getOne(this.charmd.rarity, Constants.lookupType.RARITY);
+  }
+
+  getCharacterNotes(): void {
+    const notes = this.notesService.getAllByOwnerTypeAndCode('CHARACTER', this.charmd!.code);
+    if (notes && notes?.length > 0) {
+      notes.forEach(n => {
+        if (n.title) {
+          n.formattedTitle = this.textUtils.format(n.title, this.charmd!.gameCode);
+        }
+        n.formattedText = this.textUtils.formatAndColorize(n.text, this.charmd!.gameCode);
+      });
+      this.notes = notes;
+    }
   }
 
 }

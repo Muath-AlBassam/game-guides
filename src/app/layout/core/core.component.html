@@ -1,6 +1,8 @@
 <app-header></app-header>
 <app-nav [ngClass]="{'active': sidebarActive}"></app-nav>
 
-<div class="main-content">
+<div
+  class="main-content"
+  [style.--game-background-image]="'url(' + backgroundImage + ')'">
   <router-outlet></router-outlet>
 </div>

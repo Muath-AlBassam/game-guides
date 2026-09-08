@@ -50,12 +50,30 @@ const routes: Routes = [
         component: GameGuidesComponent,
         children: [
           { path: '', redirectTo: 'characters', pathMatch: 'full' },
-          { path: 'characters', component: CharacterListComponent },
-          { path: 'characters/:code', component: CharacterDetailsComponent },
-          { path: 'teams', component: TeamListComponent },
-          { path: 'weapons', component: WeaponListComponent },
-          { path: 'sets', component: SetListComponent },
-          { path: 'notes', component: GameNotesComponent },
+          {
+            path: 'characters',
+            component: CharacterListComponent
+          },
+          {
+            path: 'characters/:code',
+            component: CharacterDetailsComponent
+          },
+          {
+            path: 'teams',
+            component: TeamListComponent
+          },
+          {
+            path: 'weapons',
+            component: WeaponListComponent
+          },
+          {
+            path: 'sets',
+            component: SetListComponent
+          },
+          {
+            path: 'notes',
+            component: GameNotesComponent
+          },
         ]
       }
     ],

@@ -13,6 +13,7 @@ import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { Constants } from './shared/utils/constants';
 import { StoreKeys, StoreService } from './shared/services/store.service';
+import { BusService } from './shared/services/bus.service';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,8 @@ export class AppComponent implements OnInit {
     private petsService: PetsService,
     private teamsService: TeamsService,
     private router: Router,
-    private store: StoreService
+    private store: StoreService,
+    private busService: BusService,
   ) { }
 
   ngOnInit(): void {
@@ -59,8 +61,10 @@ export class AppComponent implements OnInit {
         const gameCode = event.url.split('/')[1];
         if (this.gamesList.includes(gameCode)) {
           this.store.set(StoreKeys.GAME_CODE, gameCode);
+          this.busService.gameChange.next(gameCode);
         } else {
           this.store.delete(StoreKeys.GAME_CODE);
+          this.busService.gameChange.next('1');
         }
       });
   }
