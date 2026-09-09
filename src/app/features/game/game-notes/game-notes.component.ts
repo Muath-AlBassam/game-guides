@@ -3,6 +3,7 @@ import { NotesService } from '../../../shared/api/notes.service';
 import { TextUtils } from '../../../shared/utils/text-utils';
 import { StoreKeys, StoreService } from '../../../shared/services/store.service';
 import { NoteModel } from '../../../shared/models/note.model';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-game-notes',
@@ -16,10 +17,12 @@ export class GameNotesComponent implements OnInit {
   constructor(
     private notesService: NotesService,
     private textUtils: TextUtils,
-    private store: StoreService
+    private store: StoreService,
+    private breadcrumbsService: BreadcrumbsService,
   ) {}
 
   ngOnInit(): void {
+    this.breadcrumbsService.notesList();
     this.loadGameNotes();
     this.formatNotes();
   }

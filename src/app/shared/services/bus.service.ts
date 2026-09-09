@@ -12,5 +12,8 @@ export class BusService {
   gameChange: BehaviorSubject<string> = new BehaviorSubject<string>('');
   gameChange$ = this.gameChange.asObservable();
 
+  breadCrumbChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  breadCrumbChange$ = this.breadCrumbChange.asObservable();
+
   constructor() { }
 }

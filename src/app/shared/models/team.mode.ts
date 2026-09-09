@@ -8,15 +8,25 @@ export interface TeamModel {
   pet: string;
   tags: string[];
   order: number;
-  characters: TeamCharacterModel[];
+  members: TeamMemberModel[];
 }
 
-export interface TeamCharacterModel {
+export interface TeamMemberModel {
   gameCode: string;
   teamCode: string;
-  character: string;
+  characterCode: string;
   roleCode: string;
   roleDescriptionList?: string[];
   isMain: boolean;
-  replacements: string[];
+  // replacements: string[]; // delete
+  replacements: TeamMemberReplacementModel[];
+}
+
+export interface TeamMemberReplacementModel {
+  gameCode: string;
+  teamCode: string;
+  characterCode: string;
+  replacementCode: string;
+  roleCode: string;
+  notes: string;
 }

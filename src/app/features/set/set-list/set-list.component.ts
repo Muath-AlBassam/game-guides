@@ -8,6 +8,7 @@ import { ListByCategoryModel } from '../../../shared/models/list-by-category.mod
 import { LookupModel } from '../../../shared/models/lookup.model';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-set-list',
@@ -28,10 +29,12 @@ export class SetListComponent implements OnInit {
   constructor(
     private setsService: SetsService,
     private gamesService: GamesService,
-    private lookupsService: LookupsService
+    private lookupsService: LookupsService,
+    private breadcrumbsService: BreadcrumbsService,
   ) {}
 
   ngOnInit(): void {
+    this.breadcrumbsService.setsList();
     const gameCode = this.gamesService.getActive()!.code;
     this.setsLabel = GameUtils.getSetsLabel(gameCode);
     this.loadSets();

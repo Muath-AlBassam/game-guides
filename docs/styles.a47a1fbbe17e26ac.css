@@ -2386,7 +2386,7 @@ app-nav.active~.main-content {
 }
 
 .main-content {
-  padding: 80px 60px;
+  padding: 90px 60px;
   /* height: 300vh; */
   background-color: var(--background-color);
   color: var(--text-color);

@@ -77,10 +77,9 @@ export class CharactersService {
     return data ?? new Character(code, code);
   }
 
-  getAllImagesByCharacter(characterCode: string, types: string[]): string[] {
+  getAllImagesByCharacter(characterCode: string, types: string[]): CharacterImageModel[] {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.imagesList
-      .filter(i => i.gameCode == gameCode && i.characterCode == characterCode && types.includes(i.type))
-      .map(i => i.imageUrl);
+      .filter(i => i.gameCode == gameCode && i.characterCode == characterCode && types.includes(i.type));
   }
 }

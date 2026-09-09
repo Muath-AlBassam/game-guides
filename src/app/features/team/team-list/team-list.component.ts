@@ -6,6 +6,7 @@ import { ListByCategoryModel } from '../../../shared/models/list-by-category.mod
 import { LookupModel } from '../../../shared/models/lookup.model';
 import { LookupsService } from '../../../shared/api/lookups.service';
 import { Constants } from '../../../shared/utils/constants';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-team-list',
@@ -25,10 +26,12 @@ export class TeamListComponent implements OnInit {
 
   constructor(
     private teamsService: TeamsService,
-    private lookupsService: LookupsService
+    private lookupsService: LookupsService,
+    private breadcrumbsService: BreadcrumbsService,
   ) {}
 
   ngOnInit(): void {
+    this.breadcrumbsService.teamList();
     this.loadTeams();
     this.loadCategories();
     this.mapToCategoryList(this.allTeams);
@@ -55,7 +58,7 @@ export class TeamListComponent implements OnInit {
   filterList(): void {
     const filteredList: TeamModel[] = this.allTeams.filter(team => {
       const teamName: boolean = team.name ? team.name.toLowerCase().includes(this.searchValue.toLowerCase()) : false;
-      const charaterName: boolean = team.characters.some((c: any) => c.name.toLowerCase().includes(this.searchValue.toLowerCase()));
+      const charaterName: boolean = team.members.some((m: any) => m.name.toLowerCase().includes(this.searchValue.toLowerCase()));
       const tag: boolean = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
       return (teamName || charaterName) && tag;
     });

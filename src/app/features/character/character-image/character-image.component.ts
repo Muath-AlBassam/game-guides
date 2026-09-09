@@ -3,7 +3,7 @@ import { Utils } from '../../../shared/utils/utils';
 import { CharactersService } from '../../../shared/api/characters.service';
 import { Constants } from '../../../shared/utils/constants';
 import { LookupsService } from '../../../shared/api/lookups.service';
-import { CharacterModel } from '../../../shared/models/character.model';
+import { CharacterModel, CharacterImageModel } from '../../../shared/models/character.model';
 import { LookupModel } from '../../../shared/models/lookup.model';
 import { NoteModel } from '../../../shared/models/note.model';
 import { NotesService } from '../../../shared/api/notes.service';
@@ -22,7 +22,7 @@ interface CharacterDetailsModel {
   enhanced: boolean;
   skillDescriptionList: string[];
   notes: NoteModel[];
-  imageList: string[];
+  imageList: CharacterImageModel[];
   currentImageIndex: number;
 }
 
@@ -91,7 +91,7 @@ export class CharacterImageComponent implements OnInit {
         enhanced: tempCharMd.enhanced,
         skillDescriptionList: tempCharMd.skillDescriptionList,
         notes: this.getCharacterNotes(tempCharMd.gameCode, tempCharMd.code),
-        imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN']),
+        imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN', 'ALT']),
         currentImageIndex: 0
       });
     });

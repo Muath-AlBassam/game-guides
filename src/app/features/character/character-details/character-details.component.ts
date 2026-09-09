@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { NoteModel } from '../../../shared/models/note.model';
 import { NotesService } from '../../../shared/api/notes.service';
 import { TextUtils } from '../../../shared/utils/text-utils';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-character-details',
@@ -39,6 +40,7 @@ export class CharacterDetailsComponent implements OnInit {
     private lookupsService: LookupsService,
     private notesService: NotesService,
     private textUtils: TextUtils,
+    private breadcrumbsService: BreadcrumbsService,
     private route: ActivatedRoute
   ) {}
 
@@ -46,10 +48,11 @@ export class CharacterDetailsComponent implements OnInit {
     this.codeSubscription = this.route.paramMap.subscribe(params => {
       const routeCode = params.get('code') ?? '';
       this.code = routeCode.replaceAll('-', ' ');
+      this.breadcrumbsService.charactersDetails(this.code);
       this.isLoading = true;
       this.loadData();
       this.getCharacterNotes();
-      setTimeout(() => this.isLoading = false, 1000)
+      setTimeout(() => this.isLoading = false, 1000);
     });
   }
 

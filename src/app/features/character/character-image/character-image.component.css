@@ -61,6 +61,17 @@
   /* top: ${this.iconSize}px; */
 }
 
+.char-card .image-type {
+  position: absolute;
+  right: 0;
+  padding: 4px;
+  height: 29px;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
 .char-card .team-img {
   position: absolute;
   padding: 2px;
@@ -336,7 +347,6 @@
 }
 
 @keyframes switch-pairs {
-
   0%,
   49% {
     z-index: 1;
@@ -351,7 +361,6 @@
 }
 
 @keyframes switch-pairs-reverse {
-
   0%,
   49% {
     z-index: 0;

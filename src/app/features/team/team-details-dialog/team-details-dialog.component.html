@@ -28,9 +28,9 @@
           <span [innerHTML]="team.name ? team.name : '...'"></span>
         </div>
         <div class="members">
-          @for (char of team.characters; track i; let i = $index) {
+          @for (member of team.members; track i; let i = $index) {
             <app-character-image
-              [characterName]="char.character"
+              [characterName]="member.characterCode"
               [dimensions]="characterPFPSize"
               [styles]="'margin: 5px 10px;'"
               [enableDetailsDialog]="true"

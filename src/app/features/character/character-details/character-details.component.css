@@ -1,14 +1,13 @@
 .cahracter-details {
   display: grid;
-  grid-template-columns: 1fr 0.7fr 3fr 3fr;
+  grid-template-columns: 2fr 3fr 3fr;
   column-gap: 24px;
   row-gap: 50px;
   margin-top: 1em;
 }
 
-.cahracter-details > :nth-child(5),
-.cahracter-details > :nth-child(6),
-.cahracter-details > :nth-child(7) {
+.cahracter-details > :nth-child(4),
+.cahracter-details > :nth-child(5) {
   grid-column: 1 / -1;
 }
 
@@ -65,12 +64,7 @@
 
 @media (max-width: 1000px) {
   .cahracter-details {
-    grid-template-columns: 1fr 2fr;
-  }
-  .cahracter-details > :nth-child(3),
-  .cahracter-details > :nth-child(4),
-  .cahracter-details > :nth-child(5) {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 
   .skill-list {

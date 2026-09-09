@@ -10,6 +10,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { CoreComponent } from './layout/core/core.component';
 import { GameGuidesComponent } from './layout/game-guides/game-guides.component';
+import { BreadcrumbsComponent } from './layout/breadcrumbs/breadcrumbs.component';
 import { GameHeaderComponent } from './features/game/game-header/game-header.component';
 import { HomeComponent } from './core/home/home.component';
 import { ErrorComponent } from './core/error/error.component';
@@ -18,6 +19,7 @@ import { CharacterListComponent } from './features/character/character-list/char
 import { CharacterBuildComponent } from './features/character/character-build/character-build.component';
 import { CharacterTeamsComponent } from './features/character/character-teams/character-teams.component';
 import { CharacterCombosComponent } from './features/character/character-combos/character-combos.component';
+import { CharacterDetailsComponent } from './features/character/character-details/character-details.component';
 import { TeamInfoComponent } from './features/team/team-info/team-info.component';
 import { TeamListComponent } from './features/team/team-list/team-list.component';
 import { TeamNotesComponent } from './features/team/team-notes/team-notes.component';
@@ -40,7 +42,6 @@ import { GameNotesComponent } from './features/game/game-notes/game-notes.compon
 import { NoDataComponent } from './shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListByCategoryComponent } from './shared/components/list-by-category/list-by-category.component';
-import { CharacterDetailsComponent } from './features/character/character-details/character-details.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CharacterDetailsComponent } from './features/character/character-detail
     NavComponent,
     CoreComponent,
     GameGuidesComponent,
+    BreadcrumbsComponent,
     GameHeaderComponent,
     HomeComponent,
     ErrorComponent,

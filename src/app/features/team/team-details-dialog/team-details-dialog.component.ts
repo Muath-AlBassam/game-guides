@@ -60,8 +60,8 @@ export class TeamDetailsDialogComponent implements OnInit {
   loadTeam(): void {
     this.team = this.teamsService.getOne(this.teamCode)!;
     this.teamId = `${this.activeGame.code}-${this.team.code}`;
-    this.team.characters.forEach(c => {
-      c.roleDescriptionList = this.characterService.getOne(c.character)?.skillDescription?.split(' | ');
+    this.team.members.forEach(m => {
+      m.roleDescriptionList = this.characterService.getOne(m.characterCode)?.skillDescription?.split(' | ');
     })
   }
 

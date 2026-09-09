@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharactersService } from '../../../shared/api/characters.service';
 import { CharacterModel } from '../../../shared/models/character.model';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-character-list',
@@ -25,10 +26,14 @@ export class CharacterListComponent implements OnInit {
     { code: 'details', name: 'Details', imageUrl: 'assets/svg/grid-1.svg' },
   ]
 
-  constructor(private charactersService: CharactersService) { }
+  constructor(
+    private charactersService: CharactersService,
+    private breadcrumbsService: BreadcrumbsService
+  ) { }
 
   ngOnInit(): void {
     this.loadCharacters();
+    this.breadcrumbsService.charactersList();
   }
 
   loadCharacters(): void {

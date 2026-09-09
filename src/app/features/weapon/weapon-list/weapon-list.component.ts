@@ -3,6 +3,7 @@ import { WeaponsService } from '../../../shared/api/weapons.service';
 import { GameUtils } from '../../../shared/utils/game-utils';
 import { GamesService } from '../../../shared/api/games.service';
 import { WeaponModel } from '../../../shared/models/weapon.model';
+import { BreadcrumbsService } from '../../../shared/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-weapon-list',
@@ -22,10 +23,12 @@ export class WeaponListComponent implements OnInit {
 
   constructor(
     private weaponsService: WeaponsService,
-    private gamesService: GamesService
+    private gamesService: GamesService,
+    private breadcrumbsService: BreadcrumbsService,
   ) {}
 
   ngOnInit(): void {
+    this.breadcrumbsService.weaponsList();
     const gameCode = this.gamesService.getActive()!.code;
     this.weaponsLabel = GameUtils.getWeaponsLabel(gameCode) + 's';
     this.loadWeapons();

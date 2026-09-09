@@ -7,11 +7,11 @@
   </div>
   <table class="table table-striped table-bordered">
     <tbody>
-      @for (character of team.characters; track $index) {
+      @for (member of team.members; track $index) {
         <tr class="character-role">
           <td class="character-role__image">
             <app-character-image
-              [characterName]="character.character"
+              [characterName]="member.characterCode"
               [dimensions]="characterPFPSize"
               [styles]="'margin: 5px 10px;'"
               [mobileIconSizeRatio]="0.5">
@@ -21,13 +21,13 @@
           <td class="character-role__description">
             <div class="character-role__description-content">
               <img
-                [src]="getRole(character.roleCode)?.imageUrl"
+                [src]="getRole(member.roleCode)?.imageUrl"
                 height="30"
-                [title]="getRole(character.roleCode)?.label">
+                [title]="getRole(member.roleCode)?.label">
 
-              @if (character.roleDescriptionList) {
+              @if (member.roleDescriptionList) {
                 <ul style="margin-bottom: 0;">
-                  @for (desc of character.roleDescriptionList; track $index) {
+                  @for (desc of member.roleDescriptionList; track $index) {
                     <li> {{ desc }} </li>
                   }
                 </ul>

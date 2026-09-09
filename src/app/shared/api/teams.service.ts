@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataClientService } from './data-client.service';
 import { Utils } from '../utils/utils';
 import { StoreKeys, StoreService } from '../services/store.service';
-import { TeamModel, TeamCharacterModel } from '../models/team.mode';
+import { TeamModel, TeamMemberModel, TeamMemberReplacementModel } from '../models/team.mode';
 
 @Injectable({
   providedIn: 'root'
@@ -21,13 +21,13 @@ export class TeamsService {
   }
 
   private fetchData(): void {
-    this.dataClient.loadData(['TEAMS', 'TEAMS_CHARACTERS']).then(resMap => {
+    this.dataClient.loadData(['TEAMS', 'TEAM_MEMBERS', 'TEAM_MEMBER_REPLACEMENT']).then(resMap => {
       this.teamsList = this.mapTeams(resMap);
     });
   }
 
   private mapTeams(resMap: any): TeamModel[] {
-    const teamCharacterList = this.mapTeamsCharacters(resMap.get('TEAMS_CHARACTERS'));
+    const teamCharacterList = this.mapTeamMembers(resMap.get('TEAM_MEMBERS'), resMap.get('TEAM_MEMBER_REPLACEMENT'));
     return resMap.get('TEAMS').map((t: any) => ({
       gameCode: t.GAME_CODE,
       code: t.CODE,
@@ -38,20 +38,33 @@ export class TeamsService {
       pet: t.PET,
       tags: t.TAGS?.split(','),
       order: t.ORDER,
-      characters: teamCharacterList
-        .filter((c: TeamCharacterModel) => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
+      members: teamCharacterList
+        .filter((c: TeamMemberModel) => c.gameCode == t.GAME_CODE && c.teamCode == t.CODE)
     }))
       .sort((a: TeamModel, b: TeamModel) => (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0));;
   }
 
-  private mapTeamsCharacters(characters: any): TeamCharacterModel[] {
-    return characters.map((c: any) => ({
+  private mapTeamMembers(members: any, replacements: any): TeamMemberModel[] {
+    const replacementsList = this.mapTeamMembersReplacements(replacements);
+    return members.map((c: any) => ({
       gameCode: c.GAME_CODE,
       teamCode: c.TEAM_CODE,
-      character: c.CHARACTER,
+      characterCode: c.CHARACTER_CODE,
       roleCode: c.ROLE_CODE,
       isMain: c.IS_MAIN,
-      replacements: c.REPLACEMENTS?.split(',')
+      replacements: replacementsList
+        .filter((r: TeamMemberReplacementModel) => r.gameCode == c.GAME_CODE && r.teamCode == c.TEAM_CODE && r.characterCode == c.CHARACTER_CODE)
+    }));
+  }
+
+  private mapTeamMembersReplacements(replacements: any): TeamMemberReplacementModel[] {
+    return replacements.map((r: any) => ({
+      gameCode: r.GAME_CODE,
+      teamCode: r.TEAM_CODE,
+      characterCode: r.CHARACTER_CODE,
+      replacementCode: r.REPLACEMENT_CODE,
+      roleCode: r.ROLE_CODE,
+      notes: r.NOTES
     }));
   }
 
@@ -75,11 +88,11 @@ export class TeamsService {
 
   getAllByCharacter(character: string): TeamModel[] {
     return this.getAll().filter(team => {
-      return team.characters.some((ch: TeamCharacterModel) => {
+      return team.members.some((m: TeamMemberModel) => {
         let all = [];
-        all.push(ch.character);
-        if (ch.replacements && ch.replacements.length > 0) {
-          all.push(...ch.replacements);
+        all.push(m.characterCode);
+        if (m.replacements && m.replacements.length > 0) {
+          all.push(...(m.replacements.map(r => r.replacementCode)));
         }
         return all.includes(character);
       });

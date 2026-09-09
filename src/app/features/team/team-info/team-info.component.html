@@ -32,9 +32,9 @@
   <div
     class="ti-characters-container d-flex justify-content-center align-items-center"
     [ngClass]="{'col-md-8 col-sm-12': nameStyle == 'side', 'col-12': nameStyle == 'top'}">
-    @for (character of team.characters; track $index) {
+    @for (member of team.members; track $index) {
       <app-character-image
-        [characterName]="character.character"
+        [characterName]="member.characterCode"
         [dimensions]="characterPFPSize"
         [styles]="'margin: 5px 10px;'"
         [enableDetailsDialog]="true"

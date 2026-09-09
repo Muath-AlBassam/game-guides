@@ -2,59 +2,59 @@
   <app-loader></app-loader>
 } @else if (code && charmd) {
   <div class="cahracter-details">
-    <div
-      class="d-flex justify-content-start align-items-center"
-      style="width: 100%; height: 100%;">
-      <app-character-image
-        [characterName]="code"
-        [dimensions]="PFP_SIZE"
-        [imageStyle]="'gallery'"
-        [mobileSizeRatio]="0.6"
-        [showBorderStyle]="true">
-      </app-character-image>
-    </div>
+    <div class="row">
+      <div class="col">
+        <app-character-image
+          [characterName]="code"
+          [dimensions]="PFP_SIZE"
+          [imageStyle]="'gallery'"
+          [mobileSizeRatio]="0.6"
+          [showBorderStyle]="true">
+        </app-character-image>
+      </div>
 
-    <div class="character-data">
-      <ul>
-        <li class="name">
-          {{ charmd.name }}
-        </li>
-        @if (rarity) {
-          <li
-            class="tag"
-            [style.border-color]="Utils.rarityCSSVar(charmd.gameCode, rarity.code)">
-            <img
-              [src]="rarity.imageUrl"
-              [height]="ICON_SIZE"
-              [title]="rarity.code"
-              loading="lazy" />
-            <span>{{ rarity.label }}</span>
+      <div class="character-data col">
+        <ul>
+          <li class="name">
+            {{ charmd.name }}
           </li>
-        }
-        @if (element) {
-          <li
-            class="tag"
-            [style.border-color]="Utils.elementCSSVar(charmd.gameCode, element.code)"
-            [style.background-color]="Utils.elementCSSVar(charmd.gameCode, element.code, 0.1)">
-            <img
-              [src]="element.imageUrl"
-              [height]="ICON_SIZE"
-              [title]="element.code"
-              loading="lazy" />
-            <span>{{ element.label }}</span>
-          </li>
-        }
-        @if (type) {
-          <li class="tag">
-            <img
-              [src]="type.imageUrl"
-              [height]="ICON_SIZE"
-              [title]="type.code"
-              loading="lazy" />
-            <span>{{ type.label }}</span>
-          </li>
-        }
-      </ul>
+          @if (rarity) {
+            <li
+              class="tag"
+              [style.border-color]="Utils.rarityCSSVar(charmd.gameCode, rarity.code)">
+              <img
+                [src]="rarity.imageUrl"
+                [height]="ICON_SIZE"
+                [title]="rarity.code"
+                loading="lazy" />
+              <span>{{ rarity.label }}</span>
+            </li>
+          }
+          @if (element) {
+            <li
+              class="tag"
+              [style.border-color]="Utils.elementCSSVar(charmd.gameCode, element.code)"
+              [style.background-color]="Utils.elementCSSVar(charmd.gameCode, element.code, 0.1)">
+              <img
+                [src]="element.imageUrl"
+                [height]="ICON_SIZE"
+                [title]="element.code"
+                loading="lazy" />
+              <span>{{ element.label }}</span>
+            </li>
+          }
+          @if (type) {
+            <li class="tag">
+              <img
+                [src]="type.imageUrl"
+                [height]="ICON_SIZE"
+                [title]="type.code"
+                loading="lazy" />
+              <span>{{ type.label }}</span>
+            </li>
+          }
+        </ul>
+      </div>
     </div>
 
     <div>
@@ -68,6 +68,21 @@
           <li>{{ desc }}</li>
         }
       </ul>
+      @if (notes.length > 0) {
+        <div>
+          <div class="description">
+            @for (note of notes; track $index) {
+              <div [ngClass]="{'mt-2': $index > 0}"></div>
+              @if (note.formattedTitle) {
+                <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+              }
+              <span class="description__content" [innerHTML]="note.formattedText">
+              </span>
+              <br>
+            }
+          </div>
+        </div>
+      }
     </div>
 
     @if (hasBuild) {
@@ -84,24 +99,7 @@
       <div></div>
     }
 
-    @if (notes.length > 0) {
-      <div>
-        <h5 class="content-header" style="margin-bottom: 0;">
-          Notes
-        </h5>
-        <div class="description">
-          @for (note of notes; track $index) {
-            <div [ngClass]="{'mt-2': $index > 0}"></div>
-            @if (note.formattedTitle) {
-              <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
-            }
-            <span class="description__content" [innerHTML]="note.formattedText">
-            </span>
-            <br>
-          }
-        </div>
-      </div>
-    }
+    
 
     <app-character-teams
       [character]="code">
