@@ -1,6 +1,6 @@
 // // src/app/app-init.service.ts
 // import { Injectable } from '@angular/core';
-// import { environment } from '../environments/environment';
+// import { environment } from '@environment/environment';
 // import * as XLSX from 'xlsx';
 // import { StoreService } from './services/store.service';
 

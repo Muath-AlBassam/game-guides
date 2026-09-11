@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DataClientService } from './data-client.service';
-import { Utils } from '../utils/utils';
-import { StoreKeys, StoreService } from '../services/store.service';
-import { LookupModel } from '../models/lookup.model';
+import { DataClientService } from '@shared/api/data-client.service';
+import { Utils } from '@shared/utils/utils';
+import { StoreKeys, StoreService } from '@shared/services/store.service';
+import { LookupModel } from '@shared/models/lookup.model';
 import { Constants } from '../utils/constants';
 
 @Injectable({

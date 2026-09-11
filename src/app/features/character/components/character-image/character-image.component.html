@@ -1,0 +1,220 @@
+@if (imageStyle == 'card') {
+  <!-- CARD -->
+  <div
+    class="char-card"
+    [class]="charmd.code"
+    [ngClass]="{'glow-border': charmd.enhanced}"
+    [style]="styles"
+    [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
+
+    @if (showElement && charmd.element?.imageUrl) {
+      <ng-container *ngTemplateOutlet="elementImage"></ng-container>
+    }
+    @if (showType && charmd.type?.imageUrl) {
+      <ng-container *ngTemplateOutlet="typeImage"></ng-container>
+    }
+
+    <img
+      class="char-img"
+      [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+      [src]="charmd.cardImageUrl"
+      [alt]="charmd.name"
+      [title]="charmd.name"
+      [width]="dimensions"
+      (click)="openCharacterDetails(charmd)"
+      loading="lazy" />
+
+    <span class="char-name">
+      {{ charmd.name }}
+    </span>
+    <div class="smoky-overlay"></div>
+  </div>
+} @else if (imageStyle == 'pfp' && charCount > 1) {
+  <!-- MULTIPLE (pfp) -->
+  <div
+    [class]="'split-box split-box-' + charCount"
+    [attr.style]="styles"
+    [ngStyle]="{'height': dimensions + 'px', 'width': dimensions + 'px'}">
+    @for (char of charmdList; track char.name) {
+      <div
+        class="child"
+        [class]="charmd.code"
+        [ngClass]="{'pointer': enableDetailsDialog}"
+        [style]="showBackgroundStyle ? char.rarity?.['backgroundStyle'] : ''"
+        (click)="openCharacterDetails(char)">
+        <img
+          [src]="char.imageUrl ?? UNKNOWN_IMG"
+          [alt]="char.name"
+          [title]="char.name" class="pfp"
+          [width]="dimensions"
+          [height]="dimensions"
+          loading="lazy" />
+      </div>
+    }
+  </div>
+} @else if (imageStyle == 'pfp' && charCount == 1) {
+  <!-- SINGLE (pfp) -->
+  <div
+    class="character-container"
+    [class]="charmd.code"
+    [style]="'border-radius: 5px; ' + styles">
+    <img
+      [src]="charmd.imageUrl ?? UNKNOWN_IMG"
+      [alt]="charmd.name"
+      [title]="charmd.name"
+      [attr.class]="'pfp' + classes"
+      style="display: block; height: auto;"
+      [ngClass]="{'char-img-resize': enableDetailsDialog}"
+      [width]="dimensions"
+      [height]="dimensions"
+      (click)="openCharacterDetails(charmd)"
+      loading="lazy" />
+    @if (showElement && charmd.element?.imageUrl) {
+      <ng-container *ngTemplateOutlet="elementImage"></ng-container>
+    }
+
+    @if (showType && charmd.type?.imageUrl) {
+      <ng-container *ngTemplateOutlet="typeImage"></ng-container>
+    }
+  </div>
+} @else if (imageStyle == 'gallery') {
+  <!-- GALLERY -->
+  <div
+    class="char-card"
+    [class]="charmd.code"
+    [ngClass]="{'glow-border': charmd.enhanced}"
+    [style]="styles"
+    [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * defaultCardDimensions + 'px'}">
+
+    @if (showElement && charmd.element?.imageUrl) {
+      <ng-container *ngTemplateOutlet="elementImage"></ng-container>
+    }
+    @if (showType && charmd.type?.imageUrl) {
+      <ng-container *ngTemplateOutlet="typeImage"></ng-container>
+    }
+    <div class="image-type">
+      {{ charmd.imageList[charmd.currentImageIndex].type }}
+    </div>
+
+    <div class="char-gallery-wrapper">
+      @if (charmd.imageList.length > 1) {
+        <button class="char-gallery-btn left" (click)="prevGalleryImage(charmd, $event)">
+          <img src="assets/svg/arrow-left.svg" height="10">
+        </button>
+      }
+      <img
+        class="char-img"
+        [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+        [src]="charmd.imageList[charmd.currentImageIndex].imageUrl"
+        [alt]="charmd.name"
+        [title]="charmd.name"
+        [width]="dimensions"
+        (click)="openCharacterDetails(charmd)"
+        loading="lazy"/>
+      @if (charmd.imageList.length > 1) {
+        <button class="char-gallery-btn right" (click)="nextGalleryImage(charmd, $event)">
+          <img src="assets/svg/arrow-right.svg" height="10">
+        </button>
+      }
+    </div>
+
+    <span class="char-name">
+      {{ charmd.name }}
+    </span>
+    <div class="smoky-overlay"></div>
+  </div>
+} @else if (imageStyle == 'details') {
+  <!-- DETAILS -->
+  <div
+    class="character-details"
+    [class]="charmd.code"
+    [style]="'border-left: 4px solid ' + Utils.elementCSSVar(charmd.gameCode, charmd.element?.code) + ';'">
+    <div class="header">
+      <span>
+        <a class="heading" href="javascript:void(0)">
+          <span
+            class="character-img"
+            [style]="styles">
+            <img
+              [src]="charmd.imageUrl ?? UNKNOWN_IMG"
+              [alt]="charmd.name"
+              [title]="charmd.name"
+              style="display: block; height: auto;"
+              [ngClass]="{'char-img-resize': enableDetailsDialog}"
+              [width]="dimensions"
+              [height]="dimensions"
+              (click)="openCharacterDetails(charmd)"
+              loading="lazy" />
+          </span>
+          <span class="name-wrapper">
+            <span class="name">
+              {{ charmd.name }}
+            </span>
+            <span class="metadata">
+              @if (showElement && charmd.element?.imageUrl) {
+                <ng-container *ngTemplateOutlet="elementImage"></ng-container>
+                {{ charmd.element ? charmd.element.label : '-' }}
+              }
+              @if (showType && charmd.type?.imageUrl) {
+                <ng-container *ngTemplateOutlet="typeImage"></ng-container>
+                {{ charmd.type ? charmd.type.label : '-' }}
+              }
+            </span>
+          </span>
+        </a>
+      </span>
+    </div>
+    <div class="details">
+      @if (showNotes) {
+        @if (charmd.notes.length > 0) {
+          <div class="description">
+            @for (note of charmd.notes; track $index) {
+              <div [ngClass]="{'mt-2': $index > 0}"></div>
+              @if (note.formattedTitle) {
+                <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+              }
+              <span class="description__content" [innerHTML]="note.formattedText">
+              </span>
+              <br>
+            }
+          </div>
+        }
+        @if (charmd.skillDescriptionList.length > 0) {
+          <ul class="description-list">
+            @for (desc of charmd.skillDescriptionList; track $index) {
+              <li [class.full-width]="desc.length >= 33">{{ desc }}</li>
+            }
+          </ul>
+        }
+      }
+      <div class="build" style="padding-top: 15px;">
+        <app-character-build
+          [character]="charmd.code"
+          [simpleView]="true">
+        </app-character-build>
+      </div>
+    </div>
+  </div>
+}
+
+
+<ng-template #elementImage>
+  <img
+    class="element-img"
+    [src]="charmd.element?.imageUrl"
+    [width]="iconSize"
+    [height]="iconSize"
+    [title]="charmd.element?.code"
+    loading="lazy" />
+</ng-template>
+
+<ng-template #typeImage>
+  <img
+    class="type-img"
+    [ngStyle]="{'top': iconSize + 'px'}"
+    [src]="charmd.type?.imageUrl"
+    [width]="iconSize"
+    [height]="iconSize"
+    [title]="charmd.type?.label"
+    loading="lazy" />
+</ng-template>

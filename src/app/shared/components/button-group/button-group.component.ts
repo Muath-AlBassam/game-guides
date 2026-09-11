@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Utils } from '../../utils/utils';
+import { Utils } from '@shared/utils/utils';
 
 @Component({
   selector: 'app-button-group',

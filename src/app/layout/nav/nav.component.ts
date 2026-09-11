@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GamesService } from '../../shared/api/games.service';
-import { GameUtils } from '../../shared/utils/game-utils';
-import { Constants } from '../../shared/utils/constants';
+import { GamesService } from '@shared/api/games.service';
+import { GameUtils } from '@shared/utils/game-utils';
+import { Constants } from '@shared/utils/constants';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { BusService } from '../../shared/services/bus.service';
-import { GameModel } from '../../shared/models/game.model';
+import { BusService } from '@shared/services/bus.service';
+import { GameModel } from '@shared/models/game.model';
 
 interface RouteItem {
   label: string;

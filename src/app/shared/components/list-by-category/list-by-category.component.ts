@@ -1,5 +1,5 @@
 import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
-import { ListByCategoryModel } from '../../models/list-by-category.model';
+import { ListByCategoryModel } from '@shared/models/list-by-category.model';
 
 @Component({
   selector: 'app-list-by-category',

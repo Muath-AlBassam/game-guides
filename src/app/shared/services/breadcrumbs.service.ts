@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BusService } from "./bus.service";
-import { GamesService } from "../api/games.service";
-import { GameUtils } from "../utils/game-utils";
+import { GamesService } from "@shared/api/games.service";
+import { GameUtils } from "@shared/utils/game-utils";
 
 @Injectable({
   providedIn: 'root'

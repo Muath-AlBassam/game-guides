@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BusService } from '../../shared/services/bus.service';
-import { GamesService } from '../../shared/api/games.service';
+import { BusService } from '@shared/services/bus.service';
+import { GamesService } from '@shared/api/games.service';
 
 @Component({
   selector: 'app-core',

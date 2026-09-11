@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { DataClientService } from './shared/api/data-client.service';
-import { GamesService } from './shared/api/games.service';
-import { BuildsService } from './shared/api/builds.service';
-import { CharactersService } from './shared/api/characters.service';
-import { NotesService } from './shared/api/notes.service';
-import { PetsService } from './shared/api/pets.service';
-import { SetsService } from './shared/api/sets.service';
-import { TeamsService } from './shared/api/teams.service';
-import { WeaponsService } from './shared/api/weapons.service';
-import { LookupsService } from './shared/api/lookups.service';
+import { DataClientService } from '@shared/api/data-client.service';
+import { GamesService } from '@shared/api/games.service';
+import { BuildsService } from '@shared/api/builds.service';
+import { CharactersService } from '@shared/api/characters.service';
+import { NotesService } from '@shared/api/notes.service';
+import { PetsService } from '@shared/api/pets.service';
+import { SetsService } from '@shared/api/sets.service';
+import { TeamsService } from '@shared/api/teams.service';
+import { WeaponsService } from '@shared/api/weapons.service';
+import { LookupsService } from '@shared/api/lookups.service';
 import { NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { Constants } from './shared/utils/constants';
-import { StoreKeys, StoreService } from './shared/services/store.service';
-import { BusService } from './shared/services/bus.service';
+import { Constants } from '@shared/utils/constants';
+import { StoreKeys, StoreService } from '@shared/services/store.service';
+import { BusService } from '@shared/services/bus.service';
 
 @Component({
   selector: 'app-root',

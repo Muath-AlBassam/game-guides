@@ -1,6 +1,6 @@
-import { environment } from '../../../environments/environment';
-import { ListByCategoryModel } from '../models/list-by-category.model';
-import { LookupModel } from '../models/lookup.model';
+import { environment } from '@environment/environment';
+import { ListByCategoryModel } from '@shared/models/list-by-category.model';
+import { LookupModel } from '@shared/models/lookup.model';
 import { Constants } from '../utils/constants';
 
 export class Utils {

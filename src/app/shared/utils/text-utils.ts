@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CharactersService } from '../api/characters.service';
-import { Constants } from './constants';
-import { Utils } from './utils';
+import { CharactersService } from '@shared/api/characters.service';
+import { Constants } from '@shared/utils/constants';
+import { Utils } from '@shared/utils/utils';
 import {
   TextFormatsConfig,
   TextFormatConfig,
@@ -10,8 +10,8 @@ import {
   ReplacementConfig,
   ShortcutReplacement,
   ColorReplacementConfig
-} from './text-format.models';
-import formats from '../../../assets/config/text-formats.json';
+} from '@shared/utils/text-format.models';
+import formats from '@assets/config/text-formats.json';
 
 @Injectable({
   providedIn: 'root'

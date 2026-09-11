@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Utils } from '../utils/utils';
-import { TeamDetailsDialogComponent } from '../../features/team/team-details-dialog/team-details-dialog.component';
-import { TextFormatterComponent } from '../../features/settings/text-formatter/text-formatter.component';
+import { Utils } from '@shared/utils/utils';
+import { TeamDetailsDialogComponent } from '../../features/team/components/team-details-dialog/team-details-dialog.component';
+import { TextFormatterComponent } from '../../core/pages/settings/text-formatter/text-formatter.component';
 
 @Injectable({
   providedIn: 'root'

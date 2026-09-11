@@ -1,0 +1,40 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GameUtils } from '@shared/utils/game-utils';
+import { BuildsService } from '@shared/api/builds.service';
+import { Utils } from '@shared/utils/utils';
+import { BuildModel } from '@shared/models/build.model';
+
+@Component({
+  selector: 'app-character-build',
+  templateUrl: './character-build.component.html',
+  styleUrl: './character-build.component.css'
+})
+export class CharacterBuildComponent implements OnInit {
+
+  @Input() character!: string;
+  @Input() simpleView: boolean = false;
+  @Output() hasBuild: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  buildmd: BuildModel | undefined = undefined;
+  weaponsLabel: string = '';
+  setsLabel: string = '';
+
+  constructor(private buildsService: BuildsService) { }
+
+  ngOnInit(): void {
+    this.loadBuild();
+    if (this.buildmd) {
+      this.weaponsLabel = GameUtils.getWeaponsLabel(this.buildmd.gameCode);
+      this.setsLabel = GameUtils.getSetsLabel(this.buildmd.gameCode);
+    }
+  }
+
+  loadBuild(): void {
+    this.buildmd = this.buildsService.getByCharacter(this.character);
+    this.hasBuild.emit(this.buildmd != null);
+  }
+
+  isMobile(): boolean {
+    return Utils.isMobile();
+  }
+}

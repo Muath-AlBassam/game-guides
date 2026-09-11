@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlMatcher } from '@angular/router';
-import { HomeComponent } from './core/home/home.component';
-import { CharacterListComponent } from './features/character/character-list/character-list.component';
-import { CharacterDetailsComponent } from './features/character/character-details/character-details.component';
-import { GameGuidesComponent } from './layout/game-guides/game-guides.component';
+import { HomeComponent } from './core/pages/home/home.component';
+import { CharacterListComponent } from './features/character/pages/character-list/character-list.component';
+import { CharacterDetailsComponent } from './features/character/pages/character-details/character-details.component';
+import { GameGuidesComponent } from './game-guides/game-guides.component';
 import { CoreComponent } from './layout/core/core.component';
-import { SetListComponent } from './features/set/set-list/set-list.component';
-import { WeaponListComponent } from './features/weapon/weapon-list/weapon-list.component';
-import { TeamListComponent } from './features/team/team-list/team-list.component';
-import { ErrorComponent } from './core/error/error.component';
-import { SettingsComponent } from './features/settings/settings.component';
-import { GameNotesComponent } from './features/game/game-notes/game-notes.component';
-import { Constants } from './shared/utils/constants';
+import { SetListComponent } from './features/set/pages/set-list/set-list.component';
+import { WeaponListComponent } from './features/weapon/pages/weapon-list/weapon-list.component';
+import { TeamListComponent } from './features/team/pages/team-list/team-list.component';
+import { ErrorComponent } from './core/pages/error/error.component';
+import { SettingsComponent } from './core/pages/settings/settings.component';
+import { GameNotesComponent } from './features/game/pages/game-notes/game-notes.component';
+import { Constants } from '@shared/utils/constants';
 
 const gameCodeMatcher: UrlMatcher = (segments) => {
   const validCodes = Object.values(Constants.games);
@@ -52,11 +52,16 @@ const routes: Routes = [
           { path: '', redirectTo: 'characters', pathMatch: 'full' },
           {
             path: 'characters',
-            component: CharacterListComponent
-          },
-          {
-            path: 'characters/:code',
-            component: CharacterDetailsComponent
+            children: [
+              {
+                path: '',
+                component: CharacterListComponent
+              },
+              {
+                path: ':code',
+                component: CharacterDetailsComponent
+              }
+            ]
           },
           {
             path: 'teams',

@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { GamesService } from '@shared/api/games.service';
+import { Utils } from '@shared/utils/utils';
+import { GameModel } from '@shared/models/game.model';
+
+@Component({
+  selector: 'app-game-header',
+  templateUrl: './game-header.component.html',
+  styleUrl: './game-header.component.css'
+})
+export class GameHeaderComponent implements OnInit {
+
+  activeGame!: GameModel;
+
+  constructor(private gameService: GamesService) { }
+
+  ngOnInit(): void {
+    this.loadGame();
+  }
+
+  loadGame(): void {
+    this.activeGame = this.gameService.getActive()!;
+  }
+
+  isMobile(): boolean {
+    return Utils.isMobile();
+  }
+}
