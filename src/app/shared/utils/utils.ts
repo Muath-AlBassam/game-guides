@@ -19,8 +19,8 @@ export class Utils {
     return mq.matches;
   }
 
-  static appendRepoUrl(imageUrl: any): any {
-    if (imageUrl) {
+  static appendRepoUrl(imageUrl: string): any {
+    if (imageUrl && !imageUrl.startsWith('http')) {
       return environment.imagesRepositoryURL + imageUrl;
     }
     return imageUrl;

@@ -2233,13 +2233,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CharacterListComponent: () => (/* binding */ CharacterListComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/api/characters.service */ 8808);
-/* harmony import */ var _shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/breadcrumbs.service */ 2636);
-/* harmony import */ var _components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/character-image/character-image.component */ 2231);
-/* harmony import */ var _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/components/button-group/button-group.component */ 7103);
-/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/components/advanced-filter/advanced-filter.component */ 3589);
-/* harmony import */ var _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/components/no-data/no-data.component */ 2565);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/api/characters.service */ 8808);
+/* harmony import */ var _shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/services/breadcrumbs.service */ 2636);
+/* harmony import */ var _components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/character-image/character-image.component */ 2231);
+/* harmony import */ var _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/components/button-group/button-group.component */ 7103);
+/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/components/advanced-filter/advanced-filter.component */ 3589);
+/* harmony import */ var _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared/components/no-data/no-data.component */ 2565);
+
+
 
 
 
@@ -2250,62 +2253,63 @@ __webpack_require__.r(__webpack_exports__);
 const _forTrack0 = ($index, $item) => $item.code;
 function CharacterListComponent_Conditional_9_For_2_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "app-character-image", 9);
   }
   if (rf & 2) {
-    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("characterName", charmd_r1.name)("dimensions", 160)("enableDetailsDialog", true)("showElement", true)("showType", true)("showBorderStyle", true)("imageStyle", "card");
+    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("characterName", charmd_r1.name)("dimensions", 160)("enableDetailsDialog", true)("showElement", true)("showType", true)("showBorderStyle", true)("imageStyle", "card");
   }
 }
 function CharacterListComponent_Conditional_9_For_2_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "app-character-image", 10);
   }
   if (rf & 2) {
-    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("characterName", charmd_r1.name)("enableDetailsDialog", true)("showElement", true)("showBorderStyle", true)("imageStyle", "pfp");
+    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("characterName", charmd_r1.name)("enableDetailsDialog", true)("showElement", true)("showBorderStyle", true)("imageStyle", "pfp");
   }
 }
 function CharacterListComponent_Conditional_9_For_2_Conditional_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-character-image", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "app-character-image", 11);
   }
   if (rf & 2) {
-    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]().$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("characterName", charmd_r1.name)("dimensions", 60)("iconSize", 20)("enableDetailsDialog", true)("showElement", true)("showType", true)("showBorderStyle", true)("showNotes", true)("imageStyle", "details");
+    const charmd_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]().$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("characterName", charmd_r1.name)("dimensions", 60)("iconSize", 20)("enableDetailsDialog", true)("showElement", true)("showType", true)("showBorderStyle", true)("showNotes", true)("imageStyle", "details");
   }
 }
 function CharacterListComponent_Conditional_9_For_2_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](0, CharacterListComponent_Conditional_9_For_2_Conditional_0_Template, 1, 7, "app-character-image", 9)(1, CharacterListComponent_Conditional_9_For_2_Conditional_1_Template, 1, 5)(2, CharacterListComponent_Conditional_9_For_2_Conditional_2_Template, 1, 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterListComponent_Conditional_9_For_2_Conditional_0_Template, 1, 7, "app-character-image", 9)(1, CharacterListComponent_Conditional_9_For_2_Conditional_1_Template, 1, 5)(2, CharacterListComponent_Conditional_9_For_2_Conditional_2_Template, 1, 9);
   }
   if (rf & 2) {
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](0, ctx_r1.viewType == "cards" ? 0 : ctx_r1.viewType == "pfp" ? 1 : ctx_r1.viewType == "details" ? 2 : -1);
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](0, ctx_r1.viewType == "cards" ? 0 : ctx_r1.viewType == "pfp" ? 1 : ctx_r1.viewType == "details" ? 2 : -1);
   }
 }
 function CharacterListComponent_Conditional_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeaterCreate"](1, CharacterListComponent_Conditional_9_For_2_Template, 3, 1, null, null, _forTrack0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeaterCreate"](1, CharacterListComponent_Conditional_9_For_2_Template, 3, 1, null, null, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
-    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵclassMap"]("characters-container-" + ctx_r1.viewType);
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵrepeater"](ctx_r1.characters);
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵclassMap"]("characters-container-" + ctx_r1.viewType);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrepeater"](ctx_r1.characters);
   }
 }
 function CharacterListComponent_Conditional_10_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelement"](0, "app-no-data");
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](0, "app-no-data");
   }
 }
 let CharacterListComponent = /*#__PURE__*/(() => {
   class CharacterListComponent {
-    constructor(charactersService, breadcrumbsService) {
+    constructor(charactersService, store, breadcrumbsService) {
       this.charactersService = charactersService;
+      this.store = store;
       this.breadcrumbsService = breadcrumbsService;
       this.allCharacters = [];
       this.characters = [];
@@ -2314,7 +2318,6 @@ let CharacterListComponent = /*#__PURE__*/(() => {
       this.rarityValue = '';
       this.elementValue = [];
       this.typeValue = '';
-      this.viewType = 'details';
       this.viewTypeList = [{
         code: 'cards',
         name: 'Cards',
@@ -2330,12 +2333,17 @@ let CharacterListComponent = /*#__PURE__*/(() => {
       }];
     }
     ngOnInit() {
+      this.viewType = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.VIEW_TYPE) ?? 'details';
       this.loadCharacters();
       this.breadcrumbsService.charactersList();
     }
     loadCharacters() {
       this.allCharacters = this.charactersService.getAll();
       this.characters = this.allCharacters;
+    }
+    onViewTypeChange(val) {
+      this.viewType = val;
+      this.store.set(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.VIEW_TYPE, this.viewType);
     }
     onTextChange(val) {
       this.textValue = val;
@@ -2371,11 +2379,11 @@ let CharacterListComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function CharacterListComponent_Factory(t) {
-        return new (t || CharacterListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_0__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdirectiveInject"](_shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_1__.BreadcrumbsService));
+        return new (t || CharacterListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_1__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_2__.BreadcrumbsService));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
         type: CharacterListComponent,
         selectors: [["app-character-list"]],
         decls: 11,
@@ -2383,18 +2391,18 @@ let CharacterListComponent = /*#__PURE__*/(() => {
         consts: [["id", "team-characters-header", 1, "row"], [1, "col-md-12"], [1, "content-header"], [1, "additional-text"], [1, "row", "col-md-1"], [3, "valueChange", "showAllButton", "value", "buttonList"], [3, "textChange", "rarityChange", "elementChange", "typeChange", "reset", "rarityFilter", "elementFilter", "typeFilter", "resetButton", "placeholder"], ["id", "characters-container", 1, "characters-container", 3, "class"], ["id", "characters-container", 1, "characters-container"], [3, "characterName", "dimensions", "enableDetailsDialog", "showElement", "showType", "showBorderStyle", "imageStyle"], [3, "characterName", "enableDetailsDialog", "showElement", "showBorderStyle", "imageStyle"], [3, "characterName", "dimensions", "iconSize", "enableDetailsDialog", "showElement", "showType", "showBorderStyle", "showNotes", "imageStyle"]],
         template: function CharacterListComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](3, " Characters ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](4, "span", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtext"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()()()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](6, "div", 4)(7, "app-button-group", 5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("valueChange", function CharacterListComponent_Template_app_button_group_valueChange_7_listener($event) {
-              return ctx.viewType = $event;
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](3, " Characters ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](4, "span", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()()()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](6, "div", 4)(7, "app-button-group", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("valueChange", function CharacterListComponent_Template_app_button_group_valueChange_7_listener($event) {
+              return ctx.onViewTypeChange($event);
             });
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementStart"](8, "app-advanced-filter", 6);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵlistener"]("textChange", function CharacterListComponent_Template_app_advanced_filter_textChange_8_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](8, "app-advanced-filter", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("textChange", function CharacterListComponent_Template_app_advanced_filter_textChange_8_listener($event) {
               return ctx.onTextChange($event);
             })("rarityChange", function CharacterListComponent_Template_app_advanced_filter_rarityChange_8_listener($event) {
               return ctx.onRarityChange($event);
@@ -2405,21 +2413,21 @@ let CharacterListComponent = /*#__PURE__*/(() => {
             })("reset", function CharacterListComponent_Template_app_advanced_filter_reset_8_listener() {
               return ctx.onReset();
             });
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtemplate"](9, CharacterListComponent_Conditional_9_Template, 3, 2, "div", 7)(10, CharacterListComponent_Conditional_10_Template, 1, 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](9, CharacterListComponent_Conditional_9_Template, 3, 2, "div", 7)(10, CharacterListComponent_Conditional_10_Template, 1, 0);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵtextInterpolate1"](" Showing (", ctx.characters.length, ") Characters ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"](2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("showAllButton", false)("value", ctx.viewType)("buttonList", ctx.viewTypeList);
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵproperty"]("rarityFilter", true)("elementFilter", true)("typeFilter", true)("resetButton", true)("placeholder", "Search characters...");
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵconditional"](9, ctx.characters && ctx.characters.length > 0 ? 9 : 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" Showing (", ctx.characters.length, ") Characters ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("showAllButton", false)("value", ctx.viewType)("buttonList", ctx.viewTypeList);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("rarityFilter", true)("elementFilter", true)("typeFilter", true)("resetButton", true)("placeholder", "Search characters...");
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](9, ctx.characters && ctx.characters.length > 0 ? 9 : 10);
           }
         },
-        dependencies: [_components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_2__.CharacterImageComponent, _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_3__.ButtonGroupComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_4__.AdvancedFilterComponent, _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_5__.NoDataComponent],
+        dependencies: [_components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_3__.CharacterImageComponent, _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_4__.ButtonGroupComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_5__.AdvancedFilterComponent, _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_6__.NoDataComponent],
         styles: [".characters-container[_ngcontent-%COMP%] {\n  display: grid;\n  justify-content: space-between;\n  margin-top: 24px;\n}\n\n.characters-container-cards[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 160px);\n}\n\n.characters-container-pfp[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 100px);\n}\n\n.characters-container-details[_ngcontent-%COMP%] {\n  grid-gap: 20px 20px;\n  grid-template-columns: 24% 24% 24% 24%;\n}\n\n@media (max-width: 1000px) {\n  .characters-container[_ngcontent-%COMP%] {\n    padding: 0 1em;\n  }\n\n  .characters-container-details[_ngcontent-%COMP%] {\n    grid-gap: 20px 20px;\n    grid-template-columns: 100%;\n  }\n}"]
       });
     }
@@ -4726,10 +4734,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BuildsService: () => (/* binding */ BuildsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -4755,7 +4763,7 @@ let BuildsService = /*#__PURE__*/(() => {
           name: b.NAME,
           ...(b.EXTRA_FIELDS ? JSON.parse(b.EXTRA_FIELDS) : {})
         }));
-        const grouped = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.groupBy(this.flatList, 'gameCode', 'character');
+        const grouped = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.groupBy(this.flatList, 'gameCode', 'character');
         // loop through object variables and read list items
         grouped.forEach((val, key) => {
           this.buildsList.push({
@@ -4773,16 +4781,16 @@ let BuildsService = /*#__PURE__*/(() => {
       });
     }
     getByCharacter(characterName) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.buildsList.find(b => b.gameCode == gameCode && b.character == characterName);
     }
     getEquippedBy(name, type) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.flatList.filter(b => b.gameCode == gameCode && b.type == type && b.name == name).map(b => b.character);
     }
     static {
       this.ɵfac = function BuildsService_Factory(t) {
-        return new (t || BuildsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || BuildsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -4808,11 +4816,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CharactersService: () => (/* binding */ CharactersService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
-/* harmony import */ var _models_character_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/character.model */ 497);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
+/* harmony import */ var _shared_models_character_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/models/character.model */ 497);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -4840,7 +4848,7 @@ let CharactersService = /*#__PURE__*/(() => {
       this.imagesList = resMap.get('CHARACTERS_IMAGES').map(i => ({
         gameCode: i.GAME_CODE,
         characterCode: i.CHARACTER_CODE,
-        imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(i.IMAGE_URL),
+        imageUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(i.IMAGE_URL),
         type: i.TYPE
       }));
     }
@@ -4863,24 +4871,24 @@ let CharactersService = /*#__PURE__*/(() => {
       return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode && i.type == type).map(i => i.imageUrl)[0];
     }
     getAll() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.charactersList.filter(c => c.gameCode == gameCode);
     }
     getAllOrdered() {
       return this.getAll().sort((a, b) => a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     }
     getOne(code) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       const data = this.charactersList.find(c => c.gameCode == gameCode && c.code == code);
-      return data ?? new _models_character_model__WEBPACK_IMPORTED_MODULE_2__.Character(code, code);
+      return data ?? new _shared_models_character_model__WEBPACK_IMPORTED_MODULE_2__.Character(code, code);
     }
     getAllImagesByCharacter(characterCode, types) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.imagesList.filter(i => i.gameCode == gameCode && i.characterCode == characterCode && types.includes(i.type));
     }
     static {
       this.ɵfac = function CharactersService_Factory(t) {
-        return new (t || CharactersService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_3__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || CharactersService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_3__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -4908,8 +4916,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var C_Users_ascal_Desktop_game_guides_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 467);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 4412);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment */ 5312);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
+/* harmony import */ var _environment_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @environment/environment */ 5312);
 /* harmony import */ var xlsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! xlsx */ 2288);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ 1626);
@@ -4933,9 +4941,9 @@ let DataClientService = /*#__PURE__*/(() => {
       this.sheetLoaded$ = this.sheetLoaded.asObservable();
     }
     loadWorkbook() {
-      if (_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.production) {
+      if (_environment_environment__WEBPACK_IMPORTED_MODULE_2__.environment.production) {
         this.loadRemoteWorkbook();
-      } else if (this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB) == null) {
+      } else if (this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB) == null) {
         this.loadLocalWorkbook();
       }
     }
@@ -4947,13 +4955,13 @@ let DataClientService = /*#__PURE__*/(() => {
         const workbook = xlsx__WEBPACK_IMPORTED_MODULE_4__.read(arrayBuffer, {
           type: 'array'
         });
-        this.store.set(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB, workbook);
+        this.store.set(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB, workbook);
         this.sheetLoaded.next('success');
       });
     }
     loadRemoteWorkbook() {
       console.log('loading remote workbook');
-      this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.googleSheetApiURL).subscribe({
+      this.http.get(_environment_environment__WEBPACK_IMPORTED_MODULE_2__.environment.googleSheetApiURL).subscribe({
         next: data => {
           const remoteWorkbookMap = new Map();
           data.sheets.forEach(sheet => {
@@ -4962,11 +4970,11 @@ let DataClientService = /*#__PURE__*/(() => {
             const jsonData = this.convertSheetDataToJSON(sheetData);
             remoteWorkbookMap.set(sheetName, jsonData);
           });
-          this.store.set(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB, remoteWorkbookMap);
+          this.store.set(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB, remoteWorkbookMap);
           this.sheetLoaded.next('success');
         },
         error: err => {
-          this.store.set(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.ERROR, {
+          this.store.set(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.ERROR, {
             code: err?.error?.error?.code,
             message: err?.error?.error?.message
           });
@@ -5005,17 +5013,17 @@ let DataClientService = /*#__PURE__*/(() => {
       })();
     }
     getSheetData(sheetName) {
-      if (this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB) != null) {
+      if (this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB) != null) {
         console.log('fetching data from remote sheet', sheetName);
-        const storeData = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB);
+        const storeData = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.REMOTE_DB);
         if (storeData) {
           return storeData.get(sheetName);
         } else {
           return [];
         }
-      } else if (this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB) != null) {
+      } else if (this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB) != null) {
         console.log('fetching data from local sheet', sheetName);
-        const storeData = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB);
+        const storeData = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.LOCAL_DB);
         if (storeData) {
           const worksheet = storeData.Sheets[sheetName];
           return xlsx__WEBPACK_IMPORTED_MODULE_4__.utils.sheet_to_json(worksheet);
@@ -5029,7 +5037,7 @@ let DataClientService = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function DataClientService_Factory(t) {
-        return new (t || DataClientService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__.Router));
+        return new (t || DataClientService)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__.Router));
       };
     }
     static {
@@ -5055,10 +5063,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GamesService: () => (/* binding */ GamesService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5082,9 +5090,9 @@ let GamesService = /*#__PURE__*/(() => {
           style: g.STYLE,
           teamSize: g.TEAM_SIZE,
           hasPet: g.HAS_PET,
-          iconUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.ICON_URL),
-          logoUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.LOGO_URL),
-          backgroundUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.BACKGROUND_URL),
+          iconUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.ICON_URL),
+          logoUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.LOGO_URL),
+          backgroundUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.BACKGROUND_URL),
           guideUrl: g.GUIDE_URL,
           isActive: g.IS_ACTIVE
         })).filter(g => g.isActive);
@@ -5094,12 +5102,12 @@ let GamesService = /*#__PURE__*/(() => {
       return this.gamesList;
     }
     getActive() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.gamesList.find(g => g.code == gameCode);
     }
     static {
       this.ɵfac = function GamesService_Factory(t) {
-        return new (t || GamesService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || GamesService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5125,11 +5133,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   LookupsService: () => (/* binding */ LookupsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/constants */ 4041);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5153,7 +5161,7 @@ let LookupsService = /*#__PURE__*/(() => {
           code: l.CODE,
           label: l.LABEL,
           type: l.TYPE,
-          imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(l.IMAGE_URL),
+          imageUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(l.IMAGE_URL),
           ...(l.EXTRA_FIELDS ? JSON.parse(l.EXTRA_FIELDS) : {})
         }));
         this.registerCSSVariables();
@@ -5169,11 +5177,11 @@ let LookupsService = /*#__PURE__*/(() => {
       });
     }
     getByType(type, extraFilters = {}) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.lookupsList.filter(r => r.gameCode == gameCode && r.type == type && Object.entries(extraFilters).every(([key, value]) => r[key] === value));
     }
     getOne(code, type) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.lookupsList.find(r => r.gameCode == gameCode && r.code == code && r.type == type);
     }
     getGeneralLookup(type, extraFilters = {}) {
@@ -5181,7 +5189,7 @@ let LookupsService = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function LookupsService_Factory(t) {
-        return new (t || LookupsService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_3__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || LookupsService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_3__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5207,9 +5215,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   NotesService: () => (/* binding */ NotesService)
 /* harmony export */ });
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5236,16 +5244,16 @@ let NotesService = /*#__PURE__*/(() => {
       });
     }
     getAllByOwnerType(type) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.GAME_CODE);
       return this.notesList.filter(n => n.gameCode == gameCode && n.ownerType == type);
     }
     getAllByOwnerTypeAndCode(ownerType, ownerCode) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.GAME_CODE);
       return this.notesList.filter(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
     }
     static {
       this.ɵfac = function NotesService_Factory(t) {
-        return new (t || NotesService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_1__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreService));
+        return new (t || NotesService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_1__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreService));
       };
     }
     static {
@@ -5271,10 +5279,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   PetsService: () => (/* binding */ PetsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5296,22 +5304,22 @@ let PetsService = /*#__PURE__*/(() => {
           gameCode: p.GAME_CODE,
           code: p.CODE,
           name: p.NAME,
-          imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(p.IMAGE_URL),
+          imageUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(p.IMAGE_URL),
           rarity: p.RARITY
         }));
       });
     }
     getAll() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.petsList.filter(p => p.gameCode == gameCode);
     }
     getOne(code) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.petsList.find(p => p.gameCode == gameCode && p.code == code);
     }
     static {
       this.ɵfac = function PetsService_Factory(t) {
-        return new (t || PetsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || PetsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5337,10 +5345,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SetsService: () => (/* binding */ SetsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5378,25 +5386,25 @@ let SetsService = /*#__PURE__*/(() => {
         code: s.CODE,
         name: s.NAME,
         category: s.CATEGORY,
-        imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(s.IMAGE_URL),
+        imageUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(s.IMAGE_URL),
         rarity: s.RARITY,
         effects: this.setsEffectsList.filter(eff => eff.gameCode == s.GAME_CODE && eff.setCode == s.CODE)
       }));
     }
     getAll() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.setsList.filter(s => s.gameCode == gameCode);
     }
     getAllOrdered() {
       return this.getAll().sort((a, b) => a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     }
     getOne(code) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.setsList.find(s => s.gameCode == gameCode && s.code == code);
     }
     static {
       this.ɵfac = function SetsService_Factory(t) {
-        return new (t || SetsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || SetsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5422,10 +5430,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TeamsService: () => (/* binding */ TeamsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5454,7 +5462,7 @@ let TeamsService = /*#__PURE__*/(() => {
         category: t.CATEGORY,
         name: t.NAME,
         speciality: t.SPECIALITY,
-        iconUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(t.ICON_URL),
+        iconUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(t.ICON_URL),
         pet: t.PET,
         tags: t.TAGS?.split(','),
         order: t.ORDER,
@@ -5484,15 +5492,15 @@ let TeamsService = /*#__PURE__*/(() => {
       }));
     }
     getAll() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.teamsList.filter(t => t.gameCode == gameCode);
     }
     getAllByCategory(categoryCode) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.teamsList.filter(t => t.gameCode == gameCode && t.category == categoryCode);
     }
     getOne(code) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.teamsList.find(t => t.gameCode == gameCode && t.code == code);
     }
     getAllByCharacter(character) {
@@ -5509,7 +5517,7 @@ let TeamsService = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function TeamsService_Factory(t) {
-        return new (t || TeamsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || TeamsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5535,10 +5543,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   WeaponsService: () => (/* binding */ WeaponsService)
 /* harmony export */ });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
-/* harmony import */ var _services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/store.service */ 1315);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/store.service */ 1315);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data-client.service */ 8292);
+/* harmony import */ var _shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/data-client.service */ 8292);
 
 
 
@@ -5563,25 +5571,25 @@ let WeaponsService = /*#__PURE__*/(() => {
           type: w.TYPE,
           secondaryStat: w.SECONDARY_STAT,
           effect: w.EFFECT,
-          imageUrl: _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(w.IMAGE_URL),
+          imageUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(w.IMAGE_URL),
           rarity: w.RARITY
         }));
       });
     }
     getAll() {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.weaponsList.filter(w => w.gameCode == gameCode);
     }
     getAllOrdered() {
       return this.getAll().sort((a, b) => a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     }
     getOne(code) {
-      const gameCode = this.store.get(_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
       return this.weaponsList.find(w => w.gameCode == gameCode && w.code == code);
     }
     static {
       this.ɵfac = function WeaponsService_Factory(t) {
-        return new (t || WeaponsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
+        return new (t || WeaponsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_data_client_service__WEBPACK_IMPORTED_MODULE_2__.DataClientService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreService));
       };
     }
     static {
@@ -5608,8 +5616,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   AdvancedFilterComponent: () => (/* binding */ AdvancedFilterComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/constants */ 4041);
-/* harmony import */ var _api_lookups_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/lookups.service */ 3315);
+/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/constants */ 4041);
+/* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/api/lookups.service */ 3315);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 177);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ 9417);
 /* harmony import */ var _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-select/ng-select */ 2510);
@@ -5770,18 +5778,18 @@ let AdvancedFilterComponent = /*#__PURE__*/(() => {
     }
     loadFilters() {
       if (this.rarityFilter) {
-        this.rarities = this.lookupsService.getByType(_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.RARITY);
+        this.rarities = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.RARITY);
       }
       if (this.elementFilter) {
-        this.elements = this.lookupsService.getByType(_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.ELEMENT, {
+        this.elements = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.ELEMENT, {
           isAlt: false
         });
       }
       if (this.typeFilter) {
-        this.types = this.lookupsService.getByType(_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.TYPE);
+        this.types = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.TYPE);
       }
       if (this.tagFilter) {
-        this.tags = this.lookupsService.getByType(_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.TAG);
+        this.tags = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.TAG);
       }
     }
     onTextChange(val) {
@@ -5798,7 +5806,7 @@ let AdvancedFilterComponent = /*#__PURE__*/(() => {
       if (val) {
         values.push(val);
       }
-      const subElements = this.lookupsService.getByType(_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.ELEMENT, {
+      const subElements = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.lookupType.ELEMENT, {
         isAlt: true,
         baseElementCode: val
       });
@@ -5826,7 +5834,7 @@ let AdvancedFilterComponent = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function AdvancedFilterComponent_Factory(t) {
-        return new (t || AdvancedFilterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_api_lookups_service__WEBPACK_IMPORTED_MODULE_1__.LookupsService));
+        return new (t || AdvancedFilterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_1__.LookupsService));
       };
     }
     static {
@@ -6004,7 +6012,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ButtonGroupComponent: () => (/* binding */ ButtonGroupComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utils/utils */ 86);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 177);
 
 
@@ -6057,7 +6065,7 @@ function ButtonGroupComponent_For_3_Template(rf, ctx) {
 let ButtonGroupComponent = /*#__PURE__*/(() => {
   class ButtonGroupComponent {
     constructor() {
-      this.UUID = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.generateUUID();
+      this.UUID = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.generateUUID();
       this.buttonList = [];
       this.imageLabel = 'imageUrl';
       this.valueLabel = 'code';
@@ -6463,10 +6471,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   BreadcrumbsService: () => (/* binding */ BreadcrumbsService)
 /* harmony export */ });
-/* harmony import */ var _utils_game_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/game-utils */ 204);
+/* harmony import */ var _shared_utils_game_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/game-utils */ 204);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _bus_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bus.service */ 6092);
-/* harmony import */ var _api_games_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../api/games.service */ 9503);
+/* harmony import */ var _shared_api_games_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/games.service */ 9503);
 
 
 
@@ -6516,7 +6524,7 @@ let BreadcrumbsService = /*#__PURE__*/(() => {
         label: game.label,
         url: ['/home']
       }, {
-        label: _utils_game_utils__WEBPACK_IMPORTED_MODULE_0__.GameUtils.getWeaponsLabel(game.code)
+        label: _shared_utils_game_utils__WEBPACK_IMPORTED_MODULE_0__.GameUtils.getWeaponsLabel(game.code)
       }];
       this.bus.breadCrumbChange.next(breadcrumbs);
     }
@@ -6526,7 +6534,7 @@ let BreadcrumbsService = /*#__PURE__*/(() => {
         label: game.label,
         url: ['/home']
       }, {
-        label: _utils_game_utils__WEBPACK_IMPORTED_MODULE_0__.GameUtils.getSetsLabel(game.code)
+        label: _shared_utils_game_utils__WEBPACK_IMPORTED_MODULE_0__.GameUtils.getSetsLabel(game.code)
       }];
       this.bus.breadCrumbChange.next(breadcrumbs);
     }
@@ -6542,7 +6550,7 @@ let BreadcrumbsService = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function BreadcrumbsService_Factory(t) {
-        return new (t || BreadcrumbsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_bus_service__WEBPACK_IMPORTED_MODULE_1__.BusService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_api_games_service__WEBPACK_IMPORTED_MODULE_2__.GamesService));
+        return new (t || BreadcrumbsService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_bus_service__WEBPACK_IMPORTED_MODULE_1__.BusService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_shared_api_games_service__WEBPACK_IMPORTED_MODULE_2__.GamesService));
       };
     }
     static {
@@ -6611,7 +6619,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DialogService: () => (/* binding */ DialogService)
 /* harmony export */ });
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ 4006);
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/utils */ 86);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
 /* harmony import */ var _features_team_components_team_details_dialog_team_details_dialog_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../features/team/components/team-details-dialog/team-details-dialog.component */ 4363);
 /* harmony import */ var _core_pages_settings_text_formatter_text_formatter_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/pages/settings/text-formatter/text-formatter.component */ 137);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
@@ -6639,7 +6647,7 @@ let DialogService = /*#__PURE__*/(() => {
     openTeamDetailsDialog(teamCode) {
       this.dialog.closeAll();
       const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogConfig();
-      dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '80%';
+      dialogConfig.width = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '80%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
       dialogConfig.panelClass = 'gagu-mat-dialog';
@@ -6653,7 +6661,7 @@ let DialogService = /*#__PURE__*/(() => {
     openTextFormatterDialog() {
       this.dialog.closeAll();
       const dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__.MatDialogConfig();
-      dialogConfig.width = _utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '40%';
+      dialogConfig.width = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.isMobile() ? '100vw' : '40%';
       dialogConfig.maxWidth = '100vw';
       dialogConfig.maxHeight = '100%';
       dialogConfig.panelClass = 'gagu-mat-dialog';
@@ -6694,6 +6702,7 @@ const StoreKeys = {
   REMOTE_DB: 'remoteWorkbookMap',
   LOCAL_DB: 'localWorkbook',
   GAME_CODE: 'gameCode',
+  VIEW_TYPE: 'viewType',
   ERROR: 'error'
 };
 let StoreService = /*#__PURE__*/(() => {
@@ -6822,19 +6831,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GameUtils: () => (/* binding */ GameUtils)
 /* harmony export */ });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ 4041);
+/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/constants */ 4041);
 
 class GameUtils {
   constructor() {}
   static getWeaponsLabel(gameCode) {
     switch (gameCode) {
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI:
         return 'Weapon';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HSR:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HSR:
         return 'Light Cone';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ:
         return 'W-Engine';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.BL4:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.BL4:
         return 'Guns';
       default:
         return 'Weapon';
@@ -6842,15 +6851,15 @@ class GameUtils {
   }
   static getSetsLabel(gameCode) {
     switch (gameCode) {
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI:
         return 'Artifacts';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HSR:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HSR:
         return 'Relics';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ:
         return 'Drive Discs';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HI3:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.HI3:
         return 'Stigmata';
-      case _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.BL4:
+      case _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.BL4:
         return 'Equipment';
       default:
         return 'Sets';
@@ -6870,11 +6879,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TextUtils: () => (/* binding */ TextUtils)
 /* harmony export */ });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ 4041);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ 86);
-/* harmony import */ var _assets_config_text_formats_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/config/text-formats.json */ 4618);
+/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/constants */ 4041);
+/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/utils/utils */ 86);
+/* harmony import */ var _assets_config_text_formats_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @assets/config/text-formats.json */ 4618);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _api_characters_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/characters.service */ 8808);
+/* harmony import */ var _shared_api_characters_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/api/characters.service */ 8808);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ 345);
 
 
@@ -6901,18 +6910,18 @@ let TextUtils = /*#__PURE__*/(() => {
         plunge: this.tooltip('P', 'Plunge')
       };
       this.zzz = {
-        basic: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic', 'margin-top: 0;'),
-        charged: this.tooltip(this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') + `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">(Hold)</span>`, 'Charged Attack'),
-        exSpecial: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special', 'margin-top: 0;'),
-        special: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special', 'margin-top: 0;'),
-        ultimate: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate', 'margin-top: 0;'),
-        chain: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain Attack', 'margin-top: 0;'),
-        dash: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash', 'margin-top: 0;'),
-        assault: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault', 'margin-top: 0;'),
-        burn: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn', 'margin-top: 0;'),
-        shock: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock', 'margin-top: 0;'),
-        freeze: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ice.png'), 'Freeze', 'margin-top: 0;'),
-        corrupt: this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;')
+        basic: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Basic', 'margin-top: 0;'),
+        charged: this.tooltip(this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Basic.png'), 'Charged Attack', 'margin-top: 0;') + `<span style="font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;">(Hold)</span>`, 'Charged Attack'),
+        exSpecial: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_ExSpecial.png'), 'EX Special', 'margin-top: 0;'),
+        special: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Special.png'), 'Special', 'margin-top: 0;'),
+        ultimate: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ultimate.png'), 'Ultimate', 'margin-top: 0;'),
+        chain: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Chain.png'), 'Chain Attack', 'margin-top: 0;'),
+        dash: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Dash.png'), 'Dash', 'margin-top: 0;'),
+        assault: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Physical.png'), 'Assault', 'margin-top: 0;'),
+        burn: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Fire.png'), 'Burn', 'margin-top: 0;'),
+        shock: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Electric.png'), 'Shock', 'margin-top: 0;'),
+        freeze: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ice.png'), 'Freeze', 'margin-top: 0;'),
+        corrupt: this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl('assets/images/zzz/icons/ZZZ_Ether.png'), 'Corrupt', 'margin-top: 0;')
       };
     }
     // ===========================================================================
@@ -6986,11 +6995,11 @@ let TextUtils = /*#__PURE__*/(() => {
         case 'characterTooltip':
           return this.getCharacterImageAsTooltip(captures[0]);
         case 'image':
-          return this.imageOf(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]));
+          return this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]));
         case 'image2':
-          return this.splitImage2Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]));
+          return this.splitImage2Of(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]));
         case 'image4':
-          return this.splitImage4Of(_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[2]), _utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[3]));
+          return this.splitImage4Of(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]), _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[1]), _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[2]), _shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[3]));
         case 'html':
           return this.applyTemplate(replacement.template, captures);
         case 'arrow':
@@ -7017,10 +7026,10 @@ let TextUtils = /*#__PURE__*/(() => {
       if (!shortcut) {
         return fallback;
       }
-      if (gameCode === _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI) {
+      if (gameCode === _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.GI) {
         return this.gi[shortcut] ?? fallback;
       }
-      if (gameCode === _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ) {
+      if (gameCode === _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.games.ZZZ) {
         return this.zzz[shortcut] ?? fallback;
       }
       return fallback;
@@ -7030,7 +7039,7 @@ let TextUtils = /*#__PURE__*/(() => {
     // ===========================================================================
     getCharacterImage(name) {
       const character = this.charactersService.getOne(name?.trim());
-      const imageUrl = character?.imageUrl ?? _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknownCharacter;
+      const imageUrl = character?.imageUrl ?? _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknownCharacter;
       return this.imageOf(imageUrl, name);
     }
     getCharacterImageAsTooltip(name) {
@@ -7056,10 +7065,10 @@ let TextUtils = /*#__PURE__*/(() => {
     }
     arrow(direction) {
       const arrows = {
-        up: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_up,
-        down: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_down,
-        left: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_left,
-        right: _constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_right
+        up: _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_up,
+        down: _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_down,
+        left: _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_left,
+        right: _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.unicode.arrow_right
       };
       return `<span style="margin: auto 5px;">${arrows[direction]}</span>`;
     }
@@ -7092,7 +7101,7 @@ let TextUtils = /*#__PURE__*/(() => {
     }
     static {
       this.ɵfac = function TextUtils_Factory(t) {
-        return new (t || TextUtils)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_api_characters_service__WEBPACK_IMPORTED_MODULE_3__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.DomSanitizer));
+        return new (t || TextUtils)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_shared_api_characters_service__WEBPACK_IMPORTED_MODULE_3__.CharactersService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__.DomSanitizer));
       };
     }
     static {
@@ -7118,7 +7127,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Utils: () => (/* binding */ Utils)
 /* harmony export */ });
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../environments/environment */ 5312);
+/* harmony import */ var _environment_environment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @environment/environment */ 5312);
 /* harmony import */ var _utils_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/constants */ 4041);
 
 
@@ -7135,8 +7144,8 @@ class Utils {
     return mq.matches;
   }
   static appendRepoUrl(imageUrl) {
-    if (imageUrl) {
-      return _environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.imagesRepositoryURL + imageUrl;
+    if (imageUrl && !imageUrl.startsWith('http')) {
+      return _environment_environment__WEBPACK_IMPORTED_MODULE_0__.environment.imagesRepositoryURL + imageUrl;
     }
     return imageUrl;
   }
@@ -7209,12 +7218,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 345);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7705);
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.module */ 635);
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./environments/environment */ 5312);
+/* harmony import */ var _environment_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @environment/environment */ 5312);
 
 
 
 
-if (_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.production) {
+if (_environment_environment__WEBPACK_IMPORTED_MODULE_1__.environment.production) {
   (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.enableProdMode)();
 }
 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_0__.AppModule).catch(err => console.error(err));

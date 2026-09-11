@@ -4,6 +4,7 @@ export const StoreKeys = {
   REMOTE_DB: 'remoteWorkbookMap',
   LOCAL_DB: 'localWorkbook',
   GAME_CODE: 'gameCode',
+  VIEW_TYPE: 'viewType',
   ERROR: 'error'
 }
 

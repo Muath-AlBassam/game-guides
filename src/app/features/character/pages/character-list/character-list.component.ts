@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CharactersService } from '@shared/api/characters.service';
 import { CharacterModel } from '@shared/models/character.model';
 import { BreadcrumbsService } from '@shared/services/breadcrumbs.service';
+import { StoreKeys, StoreService } from '@shared/services/store.service';
+
+export type VeiewType = 'cards' | 'pfp' | 'details';
 
 @Component({
   selector: 'app-character-list',
@@ -19,7 +22,7 @@ export class CharacterListComponent implements OnInit {
   elementValue: string[] = [];
   typeValue: string = '';
 
-  viewType: 'cards' | 'pfp' | 'details' = 'details';
+  viewType!: VeiewType;
   viewTypeList: any[] = [
     { code: 'cards', name: 'Cards', imageUrl: 'assets/svg/grid-2.svg' },
     { code: 'pfp', name: 'PFP', imageUrl: 'assets/svg/grid-4.svg' },
@@ -28,10 +31,12 @@ export class CharacterListComponent implements OnInit {
 
   constructor(
     private charactersService: CharactersService,
+    private store: StoreService,
     private breadcrumbsService: BreadcrumbsService
   ) { }
 
   ngOnInit(): void {
+    this.viewType = this.store.get(StoreKeys.VIEW_TYPE) ?? 'details';
     this.loadCharacters();
     this.breadcrumbsService.charactersList();
   }
@@ -39,6 +44,11 @@ export class CharacterListComponent implements OnInit {
   loadCharacters(): void {
     this.allCharacters = this.charactersService.getAll();
     this.characters = this.allCharacters;
+  }
+
+  onViewTypeChange(val: VeiewType): void {
+    this.viewType = val;
+    this.store.set(StoreKeys.VIEW_TYPE, this.viewType);
   }
 
   onTextChange(val: string): void {
