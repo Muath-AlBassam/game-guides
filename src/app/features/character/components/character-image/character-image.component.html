@@ -92,9 +92,11 @@
     @if (showType && charmd.type?.imageUrl) {
       <ng-container *ngTemplateOutlet="typeImage"></ng-container>
     }
-    <div class="image-type">
-      {{ charmd.imageList[charmd.currentImageIndex].type }}
-    </div>
+    @if (charmd.imageList.length > 1) {
+      <div class="image-type">
+        {{ charmd.imageList[charmd.currentImageIndex].type }}
+      </div>
+    }
 
     <div class="char-gallery-wrapper">
       @if (charmd.imageList.length > 1) {

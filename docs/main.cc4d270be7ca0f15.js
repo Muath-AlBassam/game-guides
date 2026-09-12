@@ -736,7 +736,7 @@ let TextFormatterComponent = /*#__PURE__*/(() => {
     }
     ngOnInit() {
       this.games = this.gamesService.getAll();
-      this.allFormatsList = this.textUtils.TEXT_FORMATS_LIST('X');
+      this.allFormatsList = this.textUtils.TEXT_FORMATS_LIST(this.gameCode);
       this.modifyFormatsList();
     }
     modifyFormatsList() {
@@ -751,6 +751,7 @@ let TextFormatterComponent = /*#__PURE__*/(() => {
       this.groupedFormatsList = Array.from(formatsMap);
     }
     onGameChange() {
+      this.allFormatsList = this.textUtils.TEXT_FORMATS_LIST(this.gameCode);
       this.modifyFormatsList();
       this.formatText();
     }
@@ -794,7 +795,7 @@ let TextFormatterComponent = /*#__PURE__*/(() => {
         },
         decls: 23,
         vars: 10,
-        consts: [["myTextarea", ""], ["mat-dialog-title", ""], ["mat-icon-button", "", "title", "Close", 2, "float", "right", "margin-top", "15px", "font-size", "1.5em", 3, "mat-dialog-close"], ["mat-dialog-content", ""], [1, "mt-4"], [1, "form-check", "form-check-inline"], [1, "form-check"], ["type", "checkbox", "id", "showpreview", 1, "form-check-input", 3, "ngModelChange", "ngModel"], ["for", "showpreview", 1, "form-check-label"], [1, "row", "mt-3"], [1, "col-md-12"], [1, "mb-1", "btn-group"], ["name", "rawtext", 1, "form-control", "mt-3", 2, "height", "150px", 3, "ngModelChange", "ngClass", "ngModel"], [1, "formatted-text-box", 3, "ngClass", "innerHTML"], ["type", "radio", "name", "gamecode", 1, "form-check-input", 3, "ngModelChange", "id", "ngModel", "value"], [1, "form-check-label", 3, "for"], ["height", "30", 3, "src", "title"], [1, "btn", "btn-sm", "btn-formatter", 3, "disabled", "innerHTML", "title"], [1, "btn", "btn-sm", "btn-formatter", 3, "click", "disabled", "innerHTML", "title"]],
+        consts: [["myTextarea", ""], ["mat-dialog-title", ""], ["mat-icon-button", "", "title", "Close", 2, "float", "right", "margin-top", "15px", "font-size", "1.5em", 3, "mat-dialog-close"], ["mat-dialog-content", ""], [1, "mt-4"], [1, "form-check", "form-check-inline"], [1, "form-check"], ["type", "checkbox", "id", "showpreview", 1, "form-check-input", 3, "ngModelChange", "ngModel"], ["for", "showpreview", 1, "form-check-label"], [1, "row", "mt-3"], [1, "col-md-12"], [1, "mb-1", "btn-group"], ["name", "rawtext", 1, "form-control", "mt-3", 2, "height", "150px", 3, "ngModelChange", "ngClass", "ngModel"], [1, "formatted-text-box", "mt-3", 3, "ngClass", "innerHTML"], ["type", "radio", "name", "gamecode", 1, "form-check-input", 3, "ngModelChange", "id", "ngModel", "value"], [1, "form-check-label", 3, "for"], ["height", "30", 3, "src", "title"], [1, "btn", "btn-sm", "btn-formatter", 3, "disabled", "innerHTML", "title"], [1, "btn", "btn-sm", "btn-formatter", 3, "click", "disabled", "innerHTML", "title"]],
         template: function TextFormatterComponent_Template(rf, ctx) {
           if (rf & 1) {
             const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵgetCurrentView"]();
@@ -1427,11 +1428,23 @@ function CharacterImageComponent_Conditional_3_Conditional_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngTemplateOutlet", typeImage_r3);
   }
 }
-function CharacterImageComponent_Conditional_3_Conditional_6_Template(rf, ctx) {
+function CharacterImageComponent_Conditional_3_Conditional_3_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.imageList[ctx_r3.charmd.currentImageIndex].type, " ");
+  }
+}
+function CharacterImageComponent_Conditional_3_Conditional_5_Template(rf, ctx) {
   if (rf & 1) {
     const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "button", 18);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_6_Template_button_click_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_5_Template_button_click_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r9);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.prevGalleryImage(ctx_r3.charmd, $event));
@@ -1440,11 +1453,11 @@ function CharacterImageComponent_Conditional_3_Conditional_6_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
 }
-function CharacterImageComponent_Conditional_3_Conditional_8_Template(rf, ctx) {
+function CharacterImageComponent_Conditional_3_Conditional_7_Template(rf, ctx) {
   if (rf & 1) {
     const _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_8_Template_button_click_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Conditional_7_Template_button_click_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r10);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.nextGalleryImage(ctx_r3.charmd, $event));
@@ -1457,25 +1470,22 @@ function CharacterImageComponent_Conditional_3_Template(rf, ctx) {
   if (rf & 1) {
     const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](0, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_3_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_3_Conditional_2_Template, 1, 1, "ng-container");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](3, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](5, "div", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](6, CharacterImageComponent_Conditional_3_Conditional_6_Template, 2, 0, "button", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](7, "img", 4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Template_img_click_7_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](1, CharacterImageComponent_Conditional_3_Conditional_1_Template, 1, 1, "ng-container")(2, CharacterImageComponent_Conditional_3_Conditional_2_Template, 1, 1, "ng-container")(3, CharacterImageComponent_Conditional_3_Conditional_3_Template, 2, 1, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](4, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](5, CharacterImageComponent_Conditional_3_Conditional_5_Template, 2, 0, "button", 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](6, "img", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵlistener"]("click", function CharacterImageComponent_Conditional_3_Template_img_click_6_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r8);
       const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r3.openCharacterDetails(ctx_r3.charmd));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](8, CharacterImageComponent_Conditional_3_Conditional_8_Template, 2, 0, "button", 17);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](7, CharacterImageComponent_Conditional_3_Conditional_7_Template, 2, 0, "button", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](9, "span", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementStart"](8, "span", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](11, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelement"](10, "div", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -1487,14 +1497,14 @@ function CharacterImageComponent_Conditional_3_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](1, ctx_r3.showElement && (ctx_r3.charmd.element == null ? null : ctx_r3.charmd.element.imageUrl) ? 1 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](2, ctx_r3.showType && (ctx_r3.charmd.type == null ? null : ctx_r3.charmd.type.imageUrl) ? 2 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](3, ctx_r3.charmd.imageList.length > 1 ? 3 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.imageList[ctx_r3.charmd.currentImageIndex].type, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](6, ctx_r3.charmd.imageList.length > 1 ? 6 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](5, ctx_r3.charmd.imageList.length > 1 ? 5 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵpureFunction1"](22, _c2, ctx_r3.enableDetailsDialog))("src", ctx_r3.charmd.imageList[ctx_r3.charmd.currentImageIndex].imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsanitizeUrl"])("alt", ctx_r3.charmd.name)("title", ctx_r3.charmd.name)("width", ctx_r3.dimensions);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](8, ctx_r3.charmd.imageList.length > 1 ? 8 : -1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](7, ctx_r3.charmd.imageList.length > 1 ? 7 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtextInterpolate1"](" ", ctx_r3.charmd.name, " ");
   }
@@ -1756,8 +1766,7 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
     }
     openCharacterDetails(aCharmd) {
       if (this.enableDetailsDialog) {
-        const formatted = aCharmd.code.replaceAll(' ', '-');
-        this.router.navigate([aCharmd.gameCode + '/characters/' + formatted]);
+        this.router.navigate([aCharmd.gameCode + '/characters/' + aCharmd.code]);
       }
     }
     // gallery
@@ -1799,14 +1808,14 @@ let CharacterImageComponent = /*#__PURE__*/(() => {
         consts: [["elementImage", ""], ["typeImage", ""], [1, "char-card", 3, "class", "ngClass", "style", "ngStyle"], [1, "char-card", 3, "ngClass", "ngStyle"], ["loading", "lazy", 1, "char-img", 3, "click", "ngClass", "src", "alt", "title", "width"], [1, "char-name"], [1, "smoky-overlay"], [4, "ngTemplateOutlet"], [3, "ngStyle"], [1, "child", 3, "class", "ngClass", "style"], [1, "child", 3, "click", "ngClass"], ["loading", "lazy", 1, "pfp", 3, "src", "alt", "title", "width", "height"], [1, "character-container"], ["loading", "lazy", 2, "display", "block", "height", "auto", 3, "click", "src", "alt", "title", "ngClass", "width", "height"], [1, "image-type"], [1, "char-gallery-wrapper"], [1, "char-gallery-btn", "left"], [1, "char-gallery-btn", "right"], [1, "char-gallery-btn", "left", 3, "click"], ["src", "assets/svg/arrow-left.svg", "height", "10"], [1, "char-gallery-btn", "right", 3, "click"], ["src", "assets/svg/arrow-right.svg", "height", "10"], [1, "character-details"], [1, "header"], ["href", "javascript:void(0)", 1, "heading"], [1, "character-img"], [1, "name-wrapper"], [1, "name"], [1, "metadata"], [1, "details"], [1, "build", 2, "padding-top", "15px"], [3, "character", "simpleView"], [1, "description"], [1, "description-list"], [3, "ngClass"], [1, "description__content", 3, "innerHTML"], [1, "description__title", 3, "innerHTML"], [3, "full-width"], ["loading", "lazy", 1, "element-img", 3, "src", "width", "height", "title"], ["loading", "lazy", 1, "type-img", 3, "ngStyle", "src", "width", "height", "title"]],
         template: function CharacterImageComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 12, 24)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplate"](0, CharacterImageComponent_Conditional_0_Template, 7, 21, "div", 2)(1, CharacterImageComponent_Conditional_1_Template, 3, 7)(2, CharacterImageComponent_Conditional_2_Template, 4, 15)(3, CharacterImageComponent_Conditional_3_Template, 11, 24)(4, CharacterImageComponent_Conditional_4_Template, 16, 20)(5, CharacterImageComponent_ng_template_5_Template, 1, 4, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"])(7, CharacterImageComponent_ng_template_7_Template, 1, 7, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵtemplateRefExtractor"]);
           }
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵconditional"](0, ctx.imageStyle == "card" ? 0 : ctx.imageStyle == "pfp" && ctx.charCount > 1 ? 1 : ctx.imageStyle == "pfp" && ctx.charCount == 1 ? 2 : ctx.imageStyle == "gallery" ? 3 : ctx.imageStyle == "details" ? 4 : -1);
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_9__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgTemplateOutlet, _angular_common__WEBPACK_IMPORTED_MODULE_9__.NgStyle, _character_build_character_build_component__WEBPACK_IMPORTED_MODULE_6__.CharacterBuildComponent],
-        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .image-type[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0;\n  padding: 4px;\n  height: 29px;\n  z-index: 5;\n  background-color: rgba(0, 0, 0, 0.7);\n  border-radius: 5px;\n  opacity: 0.8;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .details[_ngcontent-%COMP%] {\n  padding: 10px 19px 15px 19px;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n}\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%]   .full-width[_ngcontent-%COMP%] {\n  grid-column: 1 / -1;\n}\n\n\n\n\n\n\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
+        styles: ["\n\n.character-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n}\n\n.character-container[_ngcontent-%COMP%]   .pfp[_ngcontent-%COMP%] {\n  display: block;\n}\n\n.character-container[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.character-container[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 3px;\n  right: 3px;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n\n\n.char-card[_ngcontent-%COMP%] {\n  transform: scale(1);\n  overflow: hidden;\n  -webkit-user-select: none;\n          user-select: none;\n\n  \n\n  \n\n}\n\n\n\n\n.char-card[_ngcontent-%COMP%]   .char-img[_ngcontent-%COMP%] {\n  display: block;\n  margin: auto;\n}\n\n.char-card[_ngcontent-%COMP%]   .element-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .type-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n\n  \n\n}\n\n.char-card[_ngcontent-%COMP%]   .image-type[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0;\n  padding: 1px 4px;\n  z-index: 5;\n  background-color: rgba(0, 0, 0, 0.7);\n  border-radius: 5px;\n  opacity: 0.8;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%] {\n  position: absolute;\n  padding: 2px;\n  width: 29px;\n  height: 29px;\n  right: 0;\n  z-index: 5;\n  filter: drop-shadow(0 2px 2px #000);\n  border-radius: 50%;\n}\n\n.char-card[_ngcontent-%COMP%]   .team-img[_ngcontent-%COMP%]:hover {\n  background-color: rgba(0, 0, 0, 0.2);\n}\n\n.char-card[_ngcontent-%COMP%]   .char-name[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 15px;\n  z-index: 5;\n  color: var(--text-color);\n  font-weight: bold;\n  font-size: 1em;\n  width: 100%;\n  text-align: center;\n  filter: drop-shadow(0 3px 2px #000);\n}\n\n.char-card[_ngcontent-%COMP%]   .smoky-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 0;\n  \n\n  left: 0;\n  width: 100%;\n  height: 50%;\n  \n\n  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));\n  \n\n  pointer-events: none;\n}\n\n\n\n.character-details[_ngcontent-%COMP%] {\n  border: 1px solid #373a43;\n  background: #292a30eb;\n  height: 100%;\n  padding: 0;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  border-bottom: 1px solid #ffffff14;\n  justify-content: space-between;\n  align-items: center;\n  gap: 14px;\n  min-height: 74px;\n  padding: 14px 16px 12px 18px;\n  display: flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%] {\n  min-width: 0;\n  color: inherit;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .character-img[_ngcontent-%COMP%] {\n  isolation: isolate;\n  box-shadow: inset 0 -14px 18px #00000061, 0 0 16px #e6b25738;\n  position: relative;\n  overflow: hidden;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%] {\n  gap: 3px;\n  min-width: 0;\n  display: grid;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 900;\n  line-height: 1;\n}\n\n.character-details[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%]   .heading[_ngcontent-%COMP%]   .name-wrapper[_ngcontent-%COMP%]   .metadata[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: 5px;\n  font-size: 12px;\n  font-weight: 900;\n  line-height: 1.2;\n  display: inline-flex;\n}\n\n.character-details[_ngcontent-%COMP%]   .details[_ngcontent-%COMP%] {\n  padding: 10px 19px 15px 19px;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.character-details[_ngcontent-%COMP%]   .description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n}\n.character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%]   .full-width[_ngcontent-%COMP%] {\n  grid-column: 1 / -1;\n}\n\n\n\n\n\n\n\n\n\n.char-img-resize[_ngcontent-%COMP%] {\n  cursor: pointer;\n  transition: all 0.3s ease-out;\n}\n\n.char-img-resize[_ngcontent-%COMP%]:hover {\n  transform: scale(1.1);\n}\n\n\n\n.split-box[_ngcontent-%COMP%] {\n  position: relative;\n  overflow: hidden;\n  border-radius: 5px;\n  text-align: left;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\n.split-box[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  transition: all 0.3s ease-out;\n}\n\n\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-2[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1) {\n  clip-path: polygon(50% 33%, 97% 100%, 3% 100%);\n\n  & img {\n    transform: translateY(25%);\n  }\n\n  & img:hover {\n    transform: translateY(25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  clip-path: polygon(0% 0%, 47% 0%, 47% 27%, 0% 97%);\n\n  & img {\n    transform: translate(-25%);\n  }\n\n  & img:hover {\n    transform: translate(-25%) scale(1.1);\n  }\n}\n\n.split-box-3[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(100% 0%, 53% 0%, 53% 27%, 100% 97%);\n\n  & img {\n    transform: translate(25%);\n  }\n\n  & img:hover {\n    transform: translate(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%]   .child[_ngcontent-%COMP%] {\n  transition: visibility 0s linear 0.5s, z-index 0s linear 0.5s;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3) {\n  clip-path: polygon(0% 0%, 0% 97%, 97% 0%);\n\n  & img {\n    transform: translateX(-25%);\n  }\n\n  & img:hover {\n    transform: translateX(-25%) scale(1.1);\n  }\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  clip-path: polygon(100% 100%, 100% 3%, 3% 100%);\n\n  & img {\n    transform: translateX(25%);\n  }\n\n  & img:hover {\n    transform: translateX(25%) scale(1.1);\n  }\n}\n\n\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(1), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(2) {\n  z-index: 1;\n  visibility: visible;\n  animation: _ngcontent-%COMP%_switch-pairs 3s infinite alternate;\n}\n\n.split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(3), .split-box-4[_ngcontent-%COMP%] > .child[_ngcontent-%COMP%]:nth-child(4) {\n  z-index: 0;\n  visibility: hidden;\n  animation: _ngcontent-%COMP%_switch-pairs-reverse 3s infinite alternate;\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs {\n  0%,\n  49% {\n    z-index: 1;\n    visibility: visible;\n  }\n\n  50%,\n  100% {\n    z-index: 0;\n    visibility: hidden;\n  }\n}\n\n@keyframes _ngcontent-%COMP%_switch-pairs-reverse {\n  0%,\n  49% {\n    z-index: 0;\n    visibility: hidden;\n  }\n\n  50%,\n  100% {\n    z-index: 1;\n    visibility: visible;\n  }\n}\n\n.char-gallery-wrapper[_ngcontent-%COMP%] {\n  position: relative;\n  width: -moz-fit-content;\n  width: fit-content;\n  margin: auto;\n}\n\n.char-gallery-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 50%;\n  background: rgba(0, 0, 0, 0.5);\n  color: white;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.char-gallery-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.char-gallery-btn.left[_ngcontent-%COMP%] {\n  left: 5px;\n}\n.char-gallery-btn.right[_ngcontent-%COMP%] {\n  right: 5px;\n}\n\n@media (max-width: 1000px) {\n  .character-details[_ngcontent-%COMP%]   .description-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
   }
@@ -2026,6 +2035,7 @@ function CharacterDetailsComponent_Conditional_1_Conditional_17_For_3_Conditiona
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵelement"](0, "span", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵtext"](1, ": ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵelement"](2, "br");
   }
   if (rf & 2) {
     const note_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵnextContext"]().$implicit;
@@ -2035,7 +2045,7 @@ function CharacterDetailsComponent_Conditional_1_Conditional_17_For_3_Conditiona
 function CharacterDetailsComponent_Conditional_1_Conditional_17_For_3_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵelement"](0, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵtemplate"](1, CharacterDetailsComponent_Conditional_1_Conditional_17_For_3_Conditional_1_Template, 2, 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵtemplate"](1, CharacterDetailsComponent_Conditional_1_Conditional_17_For_3_Conditional_1_Template, 3, 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵelement"](2, "span", 15)(3, "br");
   }
   if (rf & 2) {
@@ -2165,8 +2175,7 @@ let CharacterDetailsComponent = /*#__PURE__*/(() => {
     }
     ngOnInit() {
       this.codeSubscription = this.route.paramMap.subscribe(params => {
-        const routeCode = params.get('code') ?? '';
-        this.code = routeCode.replaceAll('-', ' ');
+        this.code = params.get('code') ?? '';
         this.breadcrumbsService.charactersDetails(this.code);
         this.isLoading = true;
         this.loadData();
@@ -2214,7 +2223,7 @@ let CharacterDetailsComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_14__.NgClass, _components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_7__.CharacterImageComponent, _components_character_build_character_build_component__WEBPACK_IMPORTED_MODULE_8__.CharacterBuildComponent, _components_character_teams_character_teams_component__WEBPACK_IMPORTED_MODULE_9__.CharacterTeamsComponent, _components_character_combos_character_combos_component__WEBPACK_IMPORTED_MODULE_10__.CharacterCombosComponent, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_11__.LoaderComponent],
-        styles: [".cahracter-details[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 2fr 3fr 3fr;\n  column-gap: 24px;\n  row-gap: 50px;\n  margin-top: 1em;\n}\n\n.cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(4), .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(5) {\n  grid-column: 1 / -1;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding-left: 0;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%] {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  background: #ffffff14;\n  border: 1px solid #ffffff1f;\n  min-height: 34px;\n  padding: 8px;\n  font-weight: 800;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  margin-right: 5px;\n}\n\n.skill-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 5px;\n}\n\n.description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n@media (max-width: 1000px) {\n  .cahracter-details[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n\n  .skill-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
+        styles: [".cahracter-details[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 2fr 3fr 3fr;\n  column-gap: 24px;\n  row-gap: 50px;\n  margin-top: 1em;\n}\n\n.cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(4), .cahracter-details[_ngcontent-%COMP%]    > [_ngcontent-%COMP%]:nth-child(5) {\n  grid-column: 1 / -1;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding-left: 0;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%] {\n  display: flex;\n  width: -moz-fit-content;\n  width: fit-content;\n  background: #ffffff14;\n  border: 1px solid #ffffff1f;\n  min-height: 34px;\n  padding: 8px;\n  font-weight: 800;\n}\n\n.cahracter-details[_ngcontent-%COMP%]   .character-data[_ngcontent-%COMP%]   .tag[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  margin-right: 5px;\n}\n\n.skill-list[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  padding-inline-start: 0;\n  line-height: 1.38;\n  list-style-position: inside;\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 5px;\n}\n\n.description[_ngcontent-%COMP%] {\n  color: #d6d9df;\n  margin: 0;\n  padding-top: 15px;\n  line-height: 1.6;\n}\n\n.description[_ngcontent-%COMP%]   .description__title[_ngcontent-%COMP%] {\n  text-decoration: underline;\n  font-weight: bold;\n}\n\n.description[_ngcontent-%COMP%]   .description__content[_ngcontent-%COMP%] {\n  display: block;\n  padding-left: 20px;\n}\n\n@media (max-width: 1000px) {\n  .cahracter-details[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n\n  .skill-list[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
   }
@@ -4879,6 +4888,9 @@ let CharactersService = /*#__PURE__*/(() => {
     }
     getOne(code) {
       const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
+      return this.getOneByGame(gameCode, code);
+    }
+    getOneByGame(gameCode, code) {
       const data = this.charactersList.find(c => c.gameCode == gameCode && c.code == code);
       return data ?? new _shared_models_character_model__WEBPACK_IMPORTED_MODULE_2__.Character(code, code);
     }
@@ -6989,11 +7001,11 @@ let TextUtils = /*#__PURE__*/(() => {
         case 'shortcut':
           return this.getShortcut(replacement, gameCode, match);
         case 'characterImage':
-          return this.getCharacterImage(captures[0]);
+          return this.getCharacterImage(gameCode, captures[0]);
         case 'characterImageName':
-          return this.getCharacterImage(captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
+          return this.getCharacterImage(gameCode, captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
         case 'characterTooltip':
-          return this.getCharacterImageAsTooltip(captures[0]);
+          return this.getCharacterImageAsTooltip(gameCode, captures[0]);
         case 'image':
           return this.imageOf(_shared_utils_utils__WEBPACK_IMPORTED_MODULE_1__.Utils.appendRepoUrl(captures[0]));
         case 'image2':
@@ -7037,13 +7049,13 @@ let TextUtils = /*#__PURE__*/(() => {
     // ===========================================================================
     // Character helpers
     // ===========================================================================
-    getCharacterImage(name) {
-      const character = this.charactersService.getOne(name?.trim());
+    getCharacterImage(gameCode, name) {
+      const character = this.charactersService.getOneByGame(gameCode, name?.trim());
       const imageUrl = character?.imageUrl ?? _shared_utils_constants__WEBPACK_IMPORTED_MODULE_0__.Constants.images.unknownCharacter;
       return this.imageOf(imageUrl, name);
     }
-    getCharacterImageAsTooltip(name) {
-      return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name)}</b>`;
+    getCharacterImageAsTooltip(gameCode, name) {
+      return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(gameCode, name)}</b>`;
     }
     // ===========================================================================
     // HTML helpers

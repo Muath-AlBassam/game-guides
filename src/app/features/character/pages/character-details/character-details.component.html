@@ -75,6 +75,7 @@
               <div [ngClass]="{'mt-2': $index > 0}"></div>
               @if (note.formattedTitle) {
                 <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+                <br>
               }
               <span class="description__content" [innerHTML]="note.formattedText">
               </span>

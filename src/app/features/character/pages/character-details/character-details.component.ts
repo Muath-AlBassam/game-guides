@@ -46,8 +46,7 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.codeSubscription = this.route.paramMap.subscribe(params => {
-      const routeCode = params.get('code') ?? '';
-      this.code = routeCode.replaceAll('-', ' ');
+      this.code = params.get('code') ?? '';
       this.breadcrumbsService.charactersDetails(this.code);
       this.isLoading = true;
       this.loadData();

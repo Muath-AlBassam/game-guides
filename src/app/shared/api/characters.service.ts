@@ -72,6 +72,10 @@ export class CharactersService {
 
   getOne(code: string): CharacterModel {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
+    return this.getOneByGame(gameCode, code);
+  }
+
+  getOneByGame(gameCode: string, code: string): CharacterModel {
     const data = this.charactersList
       .find(c => c.gameCode == gameCode && c.code == code);
     return data ?? new Character(code, code);

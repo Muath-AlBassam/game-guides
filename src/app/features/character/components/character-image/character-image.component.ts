@@ -133,8 +133,7 @@ export class CharacterImageComponent implements OnInit {
 
   openCharacterDetails(aCharmd: CharacterDetailsModel): void {
     if (this.enableDetailsDialog) {
-      const formatted = aCharmd.code.replaceAll(' ', '-');
-      this.router.navigate([aCharmd.gameCode + '/characters/' + formatted]);
+      this.router.navigate([aCharmd.gameCode + '/characters/' + aCharmd.code]);
     }
   }
 

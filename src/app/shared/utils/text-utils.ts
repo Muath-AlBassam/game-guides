@@ -123,11 +123,11 @@ export class TextUtils {
       case 'shortcut':
         return this.getShortcut(replacement, gameCode, match);
       case 'characterImage':
-        return this.getCharacterImage(captures[0]);
+        return this.getCharacterImage(gameCode, captures[0]);
       case 'characterImageName':
-        return this.getCharacterImage(captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
+        return this.getCharacterImage(gameCode, captures[0]) + ` <b class="no-break">${captures[0]}</b>`;
       case 'characterTooltip':
-        return this.getCharacterImageAsTooltip(captures[0]);
+        return this.getCharacterImageAsTooltip(gameCode, captures[0]);
       case 'image':
         return this.imageOf(Utils.appendRepoUrl(captures[0]));
       case 'image2':
@@ -223,17 +223,17 @@ export class TextUtils {
   // Character helpers
   // ===========================================================================
 
-  private getCharacterImage(name: string): string {
+  private getCharacterImage(gameCode: string, name: string): string {
     const character =
-      this.charactersService.getOne(name?.trim());
+      this.charactersService.getOneByGame(gameCode, name?.trim());
     const imageUrl =
       character?.imageUrl ??
       Constants.images.unknownCharacter;
     return this.imageOf(imageUrl, name);
   }
 
-  private getCharacterImageAsTooltip(name: string): string {
-    return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(name)}</b>`;
+  private getCharacterImageAsTooltip(gameCode: string, name: string): string {
+    return `<b class="img-tooltip no-break">${name}${this.getCharacterImage(gameCode, name)}</b>`;
   }
 
   // ===========================================================================
