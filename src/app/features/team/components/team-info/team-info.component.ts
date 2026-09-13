@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TeamsService } from '@shared/api/teams.service';
-import { DialogService } from '@shared/services/dialog.service';
 import { LookupsService } from '@shared/api/lookups.service';
 import { Constants } from '@shared/utils/constants';
 import { TeamModel } from '@shared/models/team.mode';
 import { LookupModel } from '@shared/models/lookup.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-info',
@@ -27,8 +27,8 @@ export class TeamInfoComponent implements OnInit {
 
   constructor(
     private teamsService: TeamsService,
-    private dialogService: DialogService,
-    private lookupsService: LookupsService
+    private lookupsService: LookupsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,8 +51,8 @@ export class TeamInfoComponent implements OnInit {
     }
   }
 
-  openTeamDetailsDialog(): void {
-    this.dialogService.openTeamDetailsDialog(this.teamCode);
+  goToTeamDetails(): void {
+    this.router.navigate([this.team.gameCode + '/teams/' + this.team.code]);
   }
 
 }

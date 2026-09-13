@@ -22,10 +22,8 @@ import { CharacterCombosComponent } from './features/character/components/charac
 import { CharacterDetailsComponent } from './features/character/pages/character-details/character-details.component';
 import { TeamInfoComponent } from './features/team/components/team-info/team-info.component';
 import { TeamListComponent } from './features/team/pages/team-list/team-list.component';
+import { TeamDetailsComponent } from './features/team/pages/team-details/team-details.component';
 import { TeamNotesComponent } from './features/team/components/team-notes/team-notes.component';
-import { TeamReplacementsComponent } from './features/team/components/team-replacements/team-replacements.component';
-import { TeamRolesComponent } from './features/team/components/team-roles/team-roles.component';
-import { TeamDetailsDialogComponent } from './features/team/components/team-details-dialog/team-details-dialog.component';
 import { SetDetailsComponent } from './features/set/components/set-details/set-details.component';
 import { SetListComponent } from './features/set/pages/set-list/set-list.component';
 import { WeaponListComponent } from './features/weapon/pages/weapon-list/weapon-list.component';
@@ -63,10 +61,8 @@ import { ListByCategoryComponent } from '@shared/components/list-by-category/lis
     CharacterCombosComponent,
     TeamInfoComponent,
     TeamListComponent,
+    TeamDetailsComponent,
     TeamNotesComponent,
-    TeamReplacementsComponent,
-    TeamRolesComponent,
-    TeamDetailsDialogComponent,
     SetDetailsComponent,
     SetListComponent,
     WeaponListComponent,

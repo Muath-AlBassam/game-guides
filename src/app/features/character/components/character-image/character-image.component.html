@@ -16,12 +16,12 @@
 
     <img
       class="char-img"
-      [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+      [ngClass]="{'char-img-resize pointer': enableDetailsRedirect}"
       [src]="charmd.cardImageUrl"
       [alt]="charmd.name"
       [title]="charmd.name"
       [width]="dimensions"
-      (click)="openCharacterDetails(charmd)"
+      (click)="goToCharacterDetails(charmd)"
       loading="lazy" />
 
     <span class="char-name">
@@ -39,9 +39,9 @@
       <div
         class="child"
         [class]="charmd.code"
-        [ngClass]="{'pointer': enableDetailsDialog}"
+        [ngClass]="{'pointer': enableDetailsRedirect}"
         [style]="showBackgroundStyle ? char.rarity?.['backgroundStyle'] : ''"
-        (click)="openCharacterDetails(char)">
+        (click)="goToCharacterDetails(char)">
         <img
           [src]="char.imageUrl ?? UNKNOWN_IMG"
           [alt]="char.name"
@@ -64,10 +64,10 @@
       [title]="charmd.name"
       [attr.class]="'pfp' + classes"
       style="display: block; height: auto;"
-      [ngClass]="{'char-img-resize': enableDetailsDialog}"
+      [ngClass]="{'char-img-resize': enableDetailsRedirect}"
       [width]="dimensions"
       [height]="dimensions"
-      (click)="openCharacterDetails(charmd)"
+      (click)="goToCharacterDetails(charmd)"
       loading="lazy" />
     @if (showElement && charmd.element?.imageUrl) {
       <ng-container *ngTemplateOutlet="elementImage"></ng-container>
@@ -106,12 +106,12 @@
       }
       <img
         class="char-img"
-        [ngClass]="{'char-img-resize pointer': enableDetailsDialog}"
+        [ngClass]="{'char-img-resize pointer': enableDetailsRedirect}"
         [src]="charmd.imageList[charmd.currentImageIndex].imageUrl"
         [alt]="charmd.name"
         [title]="charmd.name"
         [width]="dimensions"
-        (click)="openCharacterDetails(charmd)"
+        (click)="goToCharacterDetails(charmd)"
         loading="lazy"/>
       @if (charmd.imageList.length > 1) {
         <button class="char-gallery-btn right" (click)="nextGalleryImage(charmd, $event)">
@@ -142,10 +142,10 @@
               [alt]="charmd.name"
               [title]="charmd.name"
               style="display: block; height: auto;"
-              [ngClass]="{'char-img-resize': enableDetailsDialog}"
+              [ngClass]="{'char-img-resize': enableDetailsRedirect}"
               [width]="dimensions"
               [height]="dimensions"
-              (click)="openCharacterDetails(charmd)"
+              (click)="goToCharacterDetails(charmd)"
               loading="lazy" />
           </span>
           <span class="name-wrapper">

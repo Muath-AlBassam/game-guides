@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Utils } from '@shared/utils/utils';
-import { TeamDetailsDialogComponent } from '../../features/team/components/team-details-dialog/team-details-dialog.component';
 import { TextFormatterComponent } from '../../core/pages/settings/text-formatter/text-formatter.component';
 
 @Injectable({
@@ -22,7 +21,7 @@ export class DialogService {
     const dialogRef = this.dialog.open(CharacterDetailsDialogComponent, dialogConfig);
   }*/
 
-  openTeamDetailsDialog(teamCode: any) {
+  /*openTeamDetailsDialog(teamCode: any) {
     this.dialog.closeAll();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = Utils.isMobile() ? '100vw' : '80%';
@@ -31,7 +30,7 @@ export class DialogService {
     dialogConfig.panelClass = 'gagu-mat-dialog';
     dialogConfig.data = { teamCode: teamCode, teamIndex: 1 };
     const dialogRef = this.dialog.open(TeamDetailsDialogComponent, dialogConfig);
-  }
+  }*/
 
   // settings
   openTextFormatterDialog() {

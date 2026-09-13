@@ -8,7 +8,6 @@ export interface CharacterModel {
   type: string;
   rarity: string;
   enhanced: boolean;
-  skillDescription: string;
   skillDescriptionList: string[]
 }
 
@@ -29,7 +28,6 @@ export class Character implements CharacterModel {
   type = '';
   rarity = '';
   enhanced = false;
-  skillDescription = '';
   skillDescriptionList = [];
 
   constructor(code = '', name = '') {

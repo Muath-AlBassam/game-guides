@@ -41,6 +41,16 @@ export class BreadcrumbsService {
     this.bus.breadCrumbChange.next(breadcrumbs);
   }
 
+  teamDetails(team: string): void {
+    const game = this.gamesService.getActive()!;
+    const breadcrumbs: any[] = [
+      { label: game.label, url: ['/home'] },
+      { label: 'Teams', url: ['/', game.code, 'teams'] },
+      { label: team }
+    ];
+    this.bus.breadCrumbChange.next(breadcrumbs);
+  }
+
   weaponsList(): void {
     const game = this.gamesService.getActive()!;
     const breadcrumbs: any[] = [

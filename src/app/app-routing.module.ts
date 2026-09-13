@@ -12,6 +12,7 @@ import { ErrorComponent } from './core/pages/error/error.component';
 import { SettingsComponent } from './core/pages/settings/settings.component';
 import { GameNotesComponent } from './features/game/pages/game-notes/game-notes.component';
 import { Constants } from '@shared/utils/constants';
+import { TeamDetailsComponent } from './features/team/pages/team-details/team-details.component';
 
 const gameCodeMatcher: UrlMatcher = (segments) => {
   const validCodes = Object.values(Constants.games);
@@ -65,7 +66,16 @@ const routes: Routes = [
           },
           {
             path: 'teams',
-            component: TeamListComponent
+            children: [
+              {
+                path: '',
+                component: TeamListComponent
+              },
+              {
+                path: ':code',
+                component: TeamDetailsComponent
+              }
+            ]
           },
           {
             path: 'weapons',

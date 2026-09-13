@@ -1,3 +1,5 @@
+import { CharacterModel } from "./character.model";
+
 export interface TeamModel {
   gameCode: string;
   code: string;
@@ -16,10 +18,11 @@ export interface TeamMemberModel {
   teamCode: string;
   characterCode: string;
   roleCode: string;
-  roleDescriptionList?: string[];
   isMain: boolean;
   // replacements: string[]; // delete
   replacements: TeamMemberReplacementModel[];
+
+  character?: CharacterModel;
 }
 
 export interface TeamMemberReplacementModel {

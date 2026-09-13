@@ -1,0 +1,49 @@
+@if (isLoading) {
+  <app-loader></app-loader>
+} @else if (teamCode && team) {
+  <div class="members-container" [style.--columns]="team.members.length">
+    @for (member of team.members; track member.characterCode) {
+      <div
+        class="member-card"
+        [style]="'border-left: 4px solid ' + Utils.elementCSSVar(team.gameCode, member.character?.element) + ';'">
+        <div class="member-card__image">
+          <app-character-image
+            [characterName]="member.characterCode"
+            [dimensions]="characterPFPSize"
+            [enableDetailsRedirect]="true"
+            [showElement]="true"
+            [mobileSizeRatio]="0.6">
+          </app-character-image>
+          <h3>
+            {{ member.character?.name }}
+          </h3>
+        </div>
+        <div class="member-card__role">
+          <img
+            [src]="getRole(member.roleCode)?.imageUrl"
+            height="30"
+            [title]="getRole(member.roleCode)?.label">
+
+          @if (member.character && member.character.skillDescriptionList) {
+            <ul style="margin-bottom: 0;">
+              @for (desc of member.character.skillDescriptionList; track $index) {
+                <li> {{ desc }} </li>
+              }
+            </ul>
+          }
+        </div>
+        <div class="member-card__replacements">
+          @for (rep of member.replacements; track rep.replacementCode) {
+            <app-character-image
+              [styles]="'margin: 0 5px; border-radius: 50%;'"
+              [characterName]="rep.replacementCode"
+              [dimensions]="50">
+            </app-character-image>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <app-team-notes [teamCode]="teamCode"></app-team-notes>
+}

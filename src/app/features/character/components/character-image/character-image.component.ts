@@ -40,7 +40,7 @@ export class CharacterImageComponent implements OnInit {
   @Input() characterName!: string;
   @Input('styles') inputStyles: string = '';
   @Input() classes: string = '';
-  @Input() enableDetailsDialog: boolean = false;
+  @Input() enableDetailsRedirect: boolean = false;
   @Input() showBackgroundStyle: boolean = true;
   @Input() showBorderStyle: boolean = false;
   @Input() showElement: boolean = false;
@@ -131,8 +131,8 @@ export class CharacterImageComponent implements OnInit {
     
   }
 
-  openCharacterDetails(aCharmd: CharacterDetailsModel): void {
-    if (this.enableDetailsDialog) {
+  goToCharacterDetails(aCharmd: CharacterDetailsModel): void {
+    if (this.enableDetailsRedirect) {
       this.router.navigate([aCharmd.gameCode + '/characters/' + aCharmd.code]);
     }
   }

@@ -38,7 +38,7 @@
         <app-character-image
           [characterName]="charmd.name"
           [dimensions]="160"
-          [enableDetailsDialog]="true"
+          [enableDetailsRedirect]="true"
           [showElement]="true"
           [showType]="true"
           [showBorderStyle]="true"
@@ -47,7 +47,7 @@
       } @else if (viewType == 'pfp') {
         <app-character-image
           [characterName]="charmd.name"
-          [enableDetailsDialog]="true"
+          [enableDetailsRedirect]="true"
           [showElement]="true"
           [showBorderStyle]="true"
           [imageStyle]="'pfp'">
@@ -57,7 +57,7 @@
           [characterName]="charmd.name"
           [dimensions]="60"
           [iconSize]="20"
-          [enableDetailsDialog]="true"
+          [enableDetailsRedirect]="true"
           [showElement]="true"
           [showType]="true"
           [showBorderStyle]="true"
