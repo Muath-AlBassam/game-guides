@@ -16,16 +16,10 @@
           (click)="goToTeamDetails()">
       </h5>
       @if (showTags) {
-        <div class="d-flex flex-wrap justify-content-center gap-1 mt-1">
-          @for (tag of teamTags; track $index) {
-            <span
-              class="badge hover pointer team-badge"
-              [ngClass]="{ 'bg-secondary': !tag['style'] }"
-              [style]="tag['style']">
-              {{ tag.label }}
-            </span>
-          }
-        </div>
+        <app-team-tags
+          [tags]="team.tags"
+          [containerClass]="'d-flex flex-wrap justify-content-center gap-1 mt-1'">
+        </app-team-tags>
       }
     </div>
   </div>

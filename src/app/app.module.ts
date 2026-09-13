@@ -40,6 +40,7 @@ import { GameNotesComponent } from './features/game/pages/game-notes/game-notes.
 import { NoDataComponent } from '@shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListByCategoryComponent } from '@shared/components/list-by-category/list-by-category.component';
+import { TeamTagsComponent } from './features/team/components/team-tags/team-tags.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { ListByCategoryComponent } from '@shared/components/list-by-category/lis
     GameNotesComponent,
     NoDataComponent,
     ListByCategoryComponent,
+    TeamTagsComponent,
   ],
   imports: [
     BrowserModule,
