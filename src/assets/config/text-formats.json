@@ -116,11 +116,11 @@
       "title": "EX Special",
       "games": ["ZZZ"],
       "offset": 9,
-      "regex": "exspecial",
+      "regex": "zexspecial",
       "flags": "g",
       "replacement": {
         "type": "shortcut",
-        "value": "exSpecial"
+        "value": "zexSpecial"
       }
     },
     {
@@ -128,11 +128,11 @@
       "title": "Special",
       "games": ["ZZZ"],
       "offset": 7,
-      "regex": "special",
+      "regex": "zspecial",
       "flags": "g",
       "replacement": {
         "type": "shortcut",
-        "value": "special"
+        "value": "zspecial"
       }
     },
     {
