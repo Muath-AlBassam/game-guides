@@ -23,12 +23,14 @@
         <div
           class="member-card"
           [style]="'border-left: 4px solid ' + Utils.elementCSSVar(team.gameCode, member.character?.element) + ';'">
-          <div class="member-card__image">
+          <div class="member-card__profile">
             <app-character-image
               [characterName]="member.characterCode"
               [dimensions]="characterPFPSize"
               [enableDetailsRedirect]="true"
               [showElement]="true"
+              [showBorderStyle]="true"
+              [styles]="'border-radius: 0;'"
               [mobileSizeRatio]="0.6">
             </app-character-image>
             <h3>

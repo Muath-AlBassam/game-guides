@@ -3516,17 +3516,17 @@ function TeamDetailsComponent_Conditional_1_For_12_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
-    let tmp_18_0;
-    let tmp_19_0;
+    let tmp_20_0;
+    let tmp_21_0;
     const member_r2 = ctx.$implicit;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵnextContext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵstyleMap"]("border-left: 4px solid " + ctx_r3.Utils.elementCSSVar(ctx_r3.team.gameCode, member_r2.character == null ? null : member_r2.character.element) + ";");
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("characterName", member_r2.characterCode)("dimensions", ctx_r3.characterPFPSize)("enableDetailsRedirect", true)("showElement", true)("mobileSizeRatio", 0.6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("characterName", member_r2.characterCode)("dimensions", ctx_r3.characterPFPSize)("enableDetailsRedirect", true)("showElement", true)("showBorderStyle", true)("styles", "border-radius: 0;")("mobileSizeRatio", 0.6);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtextInterpolate1"](" ", member_r2.character == null ? null : member_r2.character.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("src", (tmp_18_0 = ctx_r3.getRole(member_r2.roleCode)) == null ? null : tmp_18_0.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsanitizeUrl"])("title", (tmp_19_0 = ctx_r3.getRole(member_r2.roleCode)) == null ? null : tmp_19_0.label);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("src", (tmp_20_0 = ctx_r3.getRole(member_r2.roleCode)) == null ? null : tmp_20_0.imageUrl, _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsanitizeUrl"])("title", (tmp_21_0 = ctx_r3.getRole(member_r2.roleCode)) == null ? null : tmp_21_0.label);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵconditional"](7, member_r2.character && member_r2.character.skillDescriptionList ? 7 : -1);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
@@ -3546,7 +3546,7 @@ function TeamDetailsComponent_Conditional_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtext"](9, " Members ");
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](10, "div", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵrepeaterCreate"](11, TeamDetailsComponent_Conditional_1_For_12_Template, 11, 11, "div", 8, _forTrack0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵrepeaterCreate"](11, TeamDetailsComponent_Conditional_1_For_12_Template, 11, 13, "div", 8, _forTrack0);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelementStart"](13, "div", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵelement"](14, "app-team-notes", 10);
@@ -3636,7 +3636,7 @@ let TeamDetailsComponent = /*#__PURE__*/(() => {
         selectors: [["app-team-details"]],
         decls: 2,
         vars: 1,
-        consts: [[1, "team-details"], [1, "team-data"], [1, "name"], [1, "tags"], [3, "tags"], [1, "content-header"], ["src", "assets/svg/people.svg", "height", "20", 2, "margin-right", "5px"], [1, "members-container"], [1, "member-card", 3, "style"], [2, "margin-top", "3em"], [3, "teamCode"], [1, "member-card"], [1, "member-card__image"], [3, "characterName", "dimensions", "enableDetailsRedirect", "showElement", "mobileSizeRatio"], [1, "member-card__role"], ["height", "30", 3, "src", "title"], [2, "margin-bottom", "0"], [1, "member-card__replacements"], [3, "styles", "characterName", "dimensions"]],
+        consts: [[1, "team-details"], [1, "team-data"], [1, "name"], [1, "tags"], [3, "tags"], [1, "content-header"], ["src", "assets/svg/people.svg", "height", "20", 2, "margin-right", "5px"], [1, "members-container"], [1, "member-card", 3, "style"], [2, "margin-top", "3em"], [3, "teamCode"], [1, "member-card"], [1, "member-card__profile"], [3, "characterName", "dimensions", "enableDetailsRedirect", "showElement", "showBorderStyle", "styles", "mobileSizeRatio"], [1, "member-card__role"], ["height", "30", 3, "src", "title"], [2, "margin-bottom", "0"], [1, "member-card__replacements"], [3, "styles", "characterName", "dimensions"]],
         template: function TeamDetailsComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtemplate"](0, TeamDetailsComponent_Conditional_0_Template, 1, 0, "app-loader")(1, TeamDetailsComponent_Conditional_1_Template, 15, 5);
@@ -3646,7 +3646,7 @@ let TeamDetailsComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_character_components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_7__.CharacterImageComponent, _components_team_notes_team_notes_component__WEBPACK_IMPORTED_MODULE_8__.TeamNotesComponent, _shared_components_loader_loader_component__WEBPACK_IMPORTED_MODULE_9__.LoaderComponent, _components_team_tags_team_tags_component__WEBPACK_IMPORTED_MODULE_10__.TeamTagsComponent],
-        styles: [".team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding-left: 0;\n}\n\n.team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   .tags[_ngcontent-%COMP%] {\n  font-size: 1.3em;\n  font-weight: bold;\n}\n\n.members-container[_ngcontent-%COMP%] {\n  margin-top: 3em;\n  display: grid;\n  grid-template-columns: repeat(var(--columns), 1fr);\n  gap: 16px;\n  \n\n  \n\n  \n\n  \n\n}\n\n.member-card[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  background-color: #33343a;\n  border-radius: 10px;\n  padding: 16px;\n  border: 4px solid var(--background-color);\n  \n\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__image[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  align-items: center;\n  gap: 16px;\n  background-color: var(--background-color);\n  padding: 5px 5px 0 5px;\n  border-radius: 10px;\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__role[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  vertical-align: middle;\n  font-size: 1.2em;\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__replacements[_ngcontent-%COMP%] {\n  min-height: 69px;\n  box-sizing: border-box;\n  border-top: 3px solid var(--background-color);\n  padding-top: 10px;\n}\n\n@media (max-width: 1000px) {\n  .members-container[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
+        styles: [".team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding-left: 0;\n}\n\n.team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n  font-size: 2em;\n  font-weight: bold;\n}\n\n.team-details[_ngcontent-%COMP%]   .team-data[_ngcontent-%COMP%]   .tags[_ngcontent-%COMP%] {\n  font-size: 1.3em;\n  font-weight: bold;\n}\n\n.members-container[_ngcontent-%COMP%] {\n  margin-top: 3em;\n  display: grid;\n  grid-template-columns: repeat(var(--columns), 1fr);\n  gap: 16px;\n  \n\n  \n\n  \n\n  \n\n}\n\n.member-card[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  background-color: #292a30eb;\n  \n\n  border: 1px solid #373a43;\n  \n\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__profile[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  align-items: center;\n  gap: 16px;\n  background: linear-gradient(90deg, #ffffff0e, #ffffff03);\n  padding: 16px 16px 11px 16px;\n  border-bottom: 1px solid #373a43;\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__role[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  align-items: center;\n  gap: 10px;\n  padding: 16px;\n  vertical-align: middle;\n  font-size: 1.2em;\n}\n\n.member-card[_ngcontent-%COMP%]   .member-card__replacements[_ngcontent-%COMP%] {\n  min-height: 79px; \n\n  padding: 10px;\n  box-sizing: border-box;\n  border-top: 3px solid #373a43;\n}\n\n@media (max-width: 1000px) {\n  .members-container[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}"]
       });
     }
   }
