@@ -357,7 +357,7 @@
       "flags": "g",
       "replacement": {
         "type": "html",
-        "template": "<span style=\"font-size: 0.8rem; font-weight: normal; margin-left: 1px; vertical-align: 2px; opacity: 0.6;\">$1</span>"
+        "template": "<span style=\"font-size: 0.8rem; font-weight: normal; margin-left: 1px; opacity: 0.6;\">$1</span>"
       }
     },
     {
