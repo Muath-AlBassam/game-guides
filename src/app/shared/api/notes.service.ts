@@ -26,7 +26,8 @@ export class NotesService {
         ownerCode: n.OWNER_CODE,
         ownerType: n.OWNER_TYPE,
         title: n.TITLE,
-        text: n.TEXT
+        text: n.TEXT,
+        isActive: n.IS_ACTIVE
       }));
     });
   }
@@ -41,5 +42,10 @@ export class NotesService {
     const gameCode = this.store.get(StoreKeys.GAME_CODE);
     return this.notesList
       .filter(n => n.gameCode == gameCode && n.ownerType == ownerType && n.ownerCode == ownerCode);
+  }
+
+  getAllByOwnerTypeAndCodeAndActive(ownerType: string, ownerCode: string): NoteModel[] {
+    return this.getAllByOwnerTypeAndCode(ownerType, ownerCode)
+      .filter(n => n.isActive);
   }
 }

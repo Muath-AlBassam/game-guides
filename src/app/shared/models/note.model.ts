@@ -6,6 +6,7 @@ export interface NoteModel {
   ownerType: string;
   title: string;
   text: string;
+  isActive: boolean;
 
   formattedTitle?: SafeHtml;
   formattedText?: SafeHtml;

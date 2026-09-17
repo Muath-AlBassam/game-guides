@@ -99,7 +99,7 @@ export class CharacterImageComponent implements OnInit {
 
   getCharacterNotes(gameCode: string, character: string): NoteModel[] {
     if (this.showNotes) {
-      const notes = this.notesService.getAllByOwnerTypeAndCode('CHARACTER', character);
+      const notes = this.notesService.getAllByOwnerTypeAndCodeAndActive('CHARACTER', character);
       if (notes && notes?.length > 0) {
         notes.forEach(n => {
           if (n.title) {
