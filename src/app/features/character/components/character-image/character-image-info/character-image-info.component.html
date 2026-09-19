@@ -1,0 +1,70 @@
+<div
+  class="character-details"
+  [class]="charmd.code"
+  [style]="'border-left: 4px solid ' + Utils.elementCSSVar(charmd.gameCode, charmd.element?.code) + ';'">
+  <div class="header">
+    <span>
+      <a class="heading" href="javascript:void(0)">
+        <span
+          class="character-img"
+          [style]="styles">
+          <img
+            [src]="charmd.imageUrl ?? UNKNOWN_IMG"
+            [alt]="charmd.name"
+            [title]="charmd.name"
+            style="display: block; height: auto;"
+            [ngClass]="{'char-img-resize': enableViewCharacter}"
+            [width]="dimensions"
+            [height]="dimensions"
+            (click)="goToCharacterDetails()"
+            loading="lazy" />
+        </span>
+        <span class="name-wrapper">
+          <span class="name">
+            {{ charmd.name }}
+          </span>
+          <span class="metadata">
+            @if (showElement && charmd.element?.imageUrl) {
+              <ng-container *ngTemplateOutlet="elementImageTemplate"></ng-container>
+              {{ charmd.element ? charmd.element.label : '-' }}
+            }
+            @if (showType && charmd.type?.imageUrl) {
+              <ng-container *ngTemplateOutlet="typeImageTemplate"></ng-container>
+              {{ charmd.type ? charmd.type.label : '-' }}
+            }
+          </span>
+        </span>
+      </a>
+    </span>
+  </div>
+  <div class="details">
+    @if (showNotes) {
+      @if (notes.length > 0) {
+        <div class="description">
+          @for (note of notes; track $index) {
+            <div [ngClass]="{'mt-2': $index > 0}"></div>
+            @if (note.formattedTitle) {
+              <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+            }
+            <span class="description__content" [innerHTML]="note.formattedText">
+            </span>
+            <br>
+          }
+        </div>
+      }
+      @if (charmd.skillDescriptionList.length > 0) {
+        <ul class="description-list">
+          @for (desc of charmd.skillDescriptionList; track $index) {
+            <li [class.full-width]="desc.length >= 33">{{ desc }}</li>
+          }
+        </ul>
+      }
+    }
+    <div class="build" style="padding-top: 15px;">
+      <app-character-build
+        [character]="charmd.code"
+        [simpleView]="true">
+      </app-character-build>
+    </div>
+  </div>
+</div>

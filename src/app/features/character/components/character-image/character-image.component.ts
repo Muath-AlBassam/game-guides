@@ -3,14 +3,11 @@ import { Utils } from '@shared/utils/utils';
 import { CharactersService } from '@shared/api/characters.service';
 import { Constants } from '@shared/utils/constants';
 import { LookupsService } from '@shared/api/lookups.service';
-import { CharacterModel, CharacterImageModel } from '@shared/models/character.model';
+import { CharacterModel } from '@shared/models/character.model';
 import { LookupModel } from '@shared/models/lookup.model';
-import { NoteModel } from '@shared/models/note.model';
-import { NotesService } from '@shared/api/notes.service';
-import { TextUtils } from '@shared/utils/text-utils';
 import { Router } from '@angular/router';
 
-interface CharacterDetailsModel {
+export interface CharacterDetailsModel {
   gameCode: string;
   code: string;
   name: string;
@@ -21,15 +18,12 @@ interface CharacterDetailsModel {
   rarity: LookupModel | undefined;
   enhanced: boolean;
   skillDescriptionList: string[];
-  notes: NoteModel[];
-  imageList: CharacterImageModel[];
-  currentImageIndex: number;
 }
 
 @Component({
   selector: 'app-character-image',
   templateUrl: './character-image.component.html',
-  styleUrl: './character-image.component.css'
+  styleUrl: './character-image-shared.css'
 })
 export class CharacterImageComponent implements OnInit {
   
@@ -46,7 +40,7 @@ export class CharacterImageComponent implements OnInit {
   @Input() showElement: boolean = false;
   @Input() showType: boolean = false;
   @Input() showNotes: boolean = false;
-  @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'details' = 'pfp';
+  @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'info' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
   @Input('iconSize') inputIconSize: number = 26;
   @Input() mobileSizeRatio: number = 1; // 100%
@@ -57,14 +51,11 @@ export class CharacterImageComponent implements OnInit {
   defaultCardDimensions: number = 219 / 160;
   styles: string = '';
 
-  charCount: number = 0;
-  charmdList: CharacterDetailsModel[] = [];
+  charmd!: CharacterDetailsModel;
 
   constructor(
     private charactersService: CharactersService,
     private lookupsService: LookupsService,
-    private notesService: NotesService,
-    private textUtils: TextUtils,
     private router: Router
   ) {}
 
@@ -75,46 +66,19 @@ export class CharacterImageComponent implements OnInit {
   }
 
   loadData(): void {
-    let charNameList = this.characterName.split(',');
-    this.charCount = charNameList.length;
-    charNameList.forEach((cname: string) => {
-      const tempCharMd: CharacterModel = this.charactersService.getOne(cname);
-      this.charmdList.push({
-        gameCode: tempCharMd.gameCode,
-        code: tempCharMd.code,
-        name: tempCharMd.name,
-        imageUrl: tempCharMd.imageUrl,
-        cardImageUrl: tempCharMd.cardImageUrl,
-        element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
-        type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
-        rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
-        enhanced: tempCharMd.enhanced,
-        skillDescriptionList: tempCharMd.skillDescriptionList,
-        notes: this.getCharacterNotes(tempCharMd.gameCode, tempCharMd.code),
-        imageList: this.charactersService.getAllImagesByCharacter(cname, ['CARD', 'SKIN', 'ALT']),
-        currentImageIndex: 0
-      });
-    });
-  }
-
-  getCharacterNotes(gameCode: string, character: string): NoteModel[] {
-    if (this.showNotes) {
-      const notes = this.notesService.getAllByOwnerTypeAndCodeAndActive('CHARACTER', character);
-      if (notes && notes?.length > 0) {
-        notes.forEach(n => {
-          if (n.title) {
-            n.formattedTitle = this.textUtils.format(n.title, gameCode);
-          }
-          n.formattedText = this.textUtils.formatAndColorize(n.text, gameCode);
-        });
-        return notes;
-      }
-    }
-    return [];
-  }
-
-  get charmd(): CharacterDetailsModel {
-    return this.charmdList[0];
+    const tempCharMd: CharacterModel = this.charactersService.getOne(this.characterName);
+    this.charmd = {
+      gameCode: tempCharMd.gameCode,
+      code: tempCharMd.code,
+      name: tempCharMd.name,
+      imageUrl: tempCharMd.imageUrl,
+      cardImageUrl: tempCharMd.cardImageUrl,
+      element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
+      type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
+      rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),
+      enhanced: tempCharMd.enhanced,
+      skillDescriptionList: tempCharMd.skillDescriptionList,
+    };
   }
 
   calculateDimensions(): void {
@@ -131,19 +95,9 @@ export class CharacterImageComponent implements OnInit {
     
   }
 
-  goToCharacterDetails(aCharmd: CharacterDetailsModel): void {
+  goToCharacterDetails(): void {
     if (this.enableDetailsRedirect) {
-      this.router.navigate([aCharmd.gameCode + '/characters/' + aCharmd.code]);
+      this.router.navigate([this.charmd.gameCode + '/characters/' + this.charmd.code]);
     }
-  }
-
-  // gallery
-  nextGalleryImage(char: CharacterDetailsModel, event?: Event): void {
-    event?.stopPropagation();
-    char.currentImageIndex = (char.currentImageIndex + 1) % char.imageList.length;
-  }
-  prevGalleryImage(char: CharacterDetailsModel, event?: Event): void {
-    event?.stopPropagation();
-    char.currentImageIndex = (char.currentImageIndex - 1 + char.imageList.length) % char.imageList.length;
   }
 }

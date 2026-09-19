@@ -52,7 +52,7 @@
           [showBorderStyle]="true"
           [imageStyle]="'pfp'">
         </app-character-image>
-      } @else if (viewType == 'details') {
+      } @else if (viewType == 'info') {
         <app-character-image
           [characterName]="charmd.name"
           [dimensions]="60"
@@ -62,7 +62,7 @@
           [showType]="true"
           [showBorderStyle]="true"
           [showNotes]="true"
-          [imageStyle]="'details'">
+          [imageStyle]="'info'">
         </app-character-image>
       }
     }

@@ -10,14 +10,14 @@
   display: block;
 }
 
-.character-container .element-img {
+.element-img-pfp {
   position: absolute;
   top: 3px;
   left: 3px;
   filter: drop-shadow(0 2px 2px #000);
 }
 
-.character-container .type-img {
+.type-img-pfp {
   position: absolute;
   top: 3px;
   right: 3px;
@@ -41,7 +41,7 @@
   margin: auto;
 }
 
-.char-card .element-img {
+.element-img-card {
   position: absolute;
   padding: 2px;
   width: 29px;
@@ -50,7 +50,7 @@
   filter: drop-shadow(0 2px 2px #000);
 }
 
-.char-card .type-img {
+.type-img-card {
   position: absolute;
   padding: 2px;
   width: 29px;

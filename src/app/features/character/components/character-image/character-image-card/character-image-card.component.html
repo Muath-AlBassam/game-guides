@@ -1,0 +1,29 @@
+<div
+  class="char-card"
+  [class]="charmd.code"
+  [ngClass]="{'glow-border': charmd.enhanced}"
+  [style]="styles"
+  [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * CARD_ASPECT_RATION + 'px'}">
+
+  @if (showElement && charmd.element?.imageUrl) {
+    <ng-container *ngTemplateOutlet="elementImageTemplate"></ng-container>
+  }
+  @if (showType && charmd.type?.imageUrl) {
+    <ng-container *ngTemplateOutlet="typeImageTemplate"></ng-container>
+  }
+
+  <img
+    class="char-img"
+    [ngClass]="{'char-img-resize pointer': enableViewCharacter}"
+    [src]="charmd.cardImageUrl"
+    [alt]="charmd.name"
+    [title]="charmd.name"
+    [width]="dimensions"
+    (click)="goToCharacterDetails()"
+    loading="lazy" />
+
+  <span class="char-name">
+    {{ charmd.name }}
+  </span>
+  <div class="smoky-overlay"></div>
+</div>

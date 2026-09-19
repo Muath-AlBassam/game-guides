@@ -15,6 +15,10 @@ import { GameHeaderComponent } from './features/game/components/game-header/game
 import { HomeComponent } from './core/pages/home/home.component';
 import { ErrorComponent } from './core/pages/error/error.component';
 import { CharacterImageComponent } from './features/character/components/character-image/character-image.component';
+import { CharacterImagePfpComponent } from './features/character/components/character-image/character-image-pfp/character-image-pfp.component';
+import { CharacterImageCardComponent } from './features/character/components/character-image/character-image-card/character-image-card.component';
+import { CharacterImageInfoComponent } from './features/character/components/character-image/character-image-info/character-image-info.component';
+import { CharacterImageGalleryComponent } from './features/character/components/character-image/character-image-gallery/character-image-gallery.component';
 import { CharacterListComponent } from './features/character/pages/character-list/character-list.component';
 import { CharacterBuildComponent } from './features/character/components/character-build/character-build.component';
 import { CharacterTeamsComponent } from './features/character/components/character-teams/character-teams.component';
@@ -55,6 +59,10 @@ import { TeamTagsComponent } from './features/team/components/team-tags/team-tag
     HomeComponent,
     ErrorComponent,
     CharacterImageComponent,
+    CharacterImagePfpComponent,
+    CharacterImageCardComponent,
+    CharacterImageInfoComponent,
+    CharacterImageGalleryComponent,
     CharacterListComponent,
     CharacterDetailsComponent,
     CharacterBuildComponent,

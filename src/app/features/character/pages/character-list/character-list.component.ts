@@ -4,7 +4,7 @@ import { CharacterModel } from '@shared/models/character.model';
 import { BreadcrumbsService } from '@shared/services/breadcrumbs.service';
 import { StoreKeys, StoreService } from '@shared/services/store.service';
 
-export type VeiewType = 'cards' | 'pfp' | 'details';
+export type VeiewType = 'cards' | 'pfp' | 'info';
 
 @Component({
   selector: 'app-character-list',
@@ -26,7 +26,7 @@ export class CharacterListComponent implements OnInit {
   viewTypeList: any[] = [
     { code: 'cards', name: 'Cards', imageUrl: 'assets/svg/grid-2.svg' },
     { code: 'pfp', name: 'PFP', imageUrl: 'assets/svg/grid-4.svg' },
-    { code: 'details', name: 'Details', imageUrl: 'assets/svg/grid-1.svg' },
+    { code: 'info', name: 'Info', imageUrl: 'assets/svg/grid-1.svg' },
   ]
 
   constructor(

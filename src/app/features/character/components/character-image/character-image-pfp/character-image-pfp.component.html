@@ -1,0 +1,23 @@
+<div
+  class="character-container"
+  [class]="charmd.code"
+  [style]="'border-radius: 5px; ' + styles">
+  <img
+    [src]="charmd.imageUrl ?? UNKNOWN_IMG"
+    [alt]="charmd.name"
+    [title]="charmd.name"
+    [attr.class]="'pfp' + classes"
+    style="display: block; height: auto;"
+    [ngClass]="{'char-img-resize': enableViewCharacter}"
+    [width]="dimensions"
+    [height]="dimensions"
+    (click)="goToCharacterDetails()"
+    loading="lazy" />
+  @if (showElement && charmd.element?.imageUrl) {
+    <ng-container *ngTemplateOutlet="elementImageTemplate"></ng-container>
+  }
+
+  @if (showType && charmd.type?.imageUrl) {
+    <ng-container *ngTemplateOutlet="typeImageTemplate"></ng-container>
+  }
+</div>

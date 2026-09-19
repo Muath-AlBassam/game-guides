@@ -1,0 +1,46 @@
+<div
+  class="char-card"
+  [class]="charmd.code"
+  [ngClass]="{'glow-border': charmd.enhanced}"
+  [style]="styles"
+  [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * CARD_ASPECT_RATION + 'px'}">
+
+  @if (showElement && charmd.element?.imageUrl) {
+    <ng-container *ngTemplateOutlet="elementImageTemplate"></ng-container>
+  }
+  @if (showType && charmd.type?.imageUrl) {
+    <ng-container *ngTemplateOutlet="typeImageTemplate"></ng-container>
+  }
+  @if (imageList.length > 1) {
+    <div class="image-type">
+      {{ imageList[currentImageIndex].type }}
+    </div>
+  }
+
+  <div class="char-gallery-wrapper">
+    @if (imageList.length > 1) {
+      <button class="char-gallery-btn left" (click)="prevGalleryImage($event)">
+        <img src="assets/svg/arrow-left.svg" height="10">
+      </button>
+    }
+    <img
+      class="char-img"
+      [ngClass]="{'char-img-resize pointer': enableViewCharacter}"
+      [src]="imageList[currentImageIndex].imageUrl"
+      [alt]="charmd.name"
+      [title]="charmd.name"
+      [width]="dimensions"
+      (click)="goToCharacterDetails()"
+      loading="lazy"/>
+    @if (imageList.length > 1) {
+      <button class="char-gallery-btn right" (click)="nextGalleryImage($event)">
+        <img src="assets/svg/arrow-right.svg" height="10">
+      </button>
+    }
+  </div>
+
+  <span class="char-name">
+    {{ charmd.name }}
+  </span>
+  <div class="smoky-overlay"></div>
+</div>
