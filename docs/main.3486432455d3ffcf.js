@@ -2639,7 +2639,7 @@ let CharacterListComponent = /*#__PURE__*/(() => {
       }];
     }
     ngOnInit() {
-      this.viewType = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.VIEW_TYPE) ?? 'details';
+      this.viewType = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_0__.StoreKeys.VIEW_TYPE) ?? 'info';
       this.loadCharacters();
       this.breadcrumbsService.charactersList();
     }
@@ -2734,7 +2734,7 @@ let CharacterListComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_3__.CharacterImageComponent, _shared_components_button_group_button_group_component__WEBPACK_IMPORTED_MODULE_4__.ButtonGroupComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_5__.AdvancedFilterComponent, _shared_components_no_data_no_data_component__WEBPACK_IMPORTED_MODULE_6__.NoDataComponent],
-        styles: [".characters-container[_ngcontent-%COMP%] {\n  display: grid;\n  justify-content: space-between;\n  margin-top: 24px;\n}\n\n.characters-container-cards[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 160px);\n}\n\n.characters-container-pfp[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 100px);\n}\n\n.characters-container-details[_ngcontent-%COMP%] {\n  grid-gap: 20px 20px;\n  grid-template-columns: 24% 24% 24% 24%;\n}\n\n@media (max-width: 1000px) {\n  .characters-container[_ngcontent-%COMP%] {\n    padding: 0 1em;\n  }\n\n  .characters-container-details[_ngcontent-%COMP%] {\n    grid-gap: 20px 20px;\n    grid-template-columns: 100%;\n  }\n}"]
+        styles: [".characters-container[_ngcontent-%COMP%] {\n  display: grid;\n  justify-content: space-between;\n  margin-top: 24px;\n}\n\n.characters-container-cards[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 160px);\n}\n\n.characters-container-pfp[_ngcontent-%COMP%] {\n  grid-gap: 8px 8px;\n  grid-template-columns: repeat(auto-fill, 100px);\n}\n\n.characters-container-info[_ngcontent-%COMP%] {\n  grid-gap: 20px 20px;\n  grid-template-columns: 24% 24% 24% 24%;\n}\n\n@media (max-width: 1000px) {\n  .characters-container[_ngcontent-%COMP%] {\n    padding: 0 1em;\n  }\n\n  .characters-container-info[_ngcontent-%COMP%] {\n    grid-gap: 20px 20px;\n    grid-template-columns: 100%;\n  }\n}"]
       });
     }
   }

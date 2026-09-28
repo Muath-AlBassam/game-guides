@@ -36,7 +36,7 @@ export class CharacterListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.viewType = this.store.get(StoreKeys.VIEW_TYPE) ?? 'details';
+    this.viewType = this.store.get(StoreKeys.VIEW_TYPE) ?? 'info';
     this.loadCharacters();
     this.breadcrumbsService.charactersList();
   }
