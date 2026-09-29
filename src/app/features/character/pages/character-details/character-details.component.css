@@ -6,12 +6,24 @@
   margin-top: 1em;
 }
 
+.details-card {
+  background-color: #292a30eb;
+  border: 1px solid #373a43;
+  padding: 20px;
+}
+
 .cahracter-details > :nth-child(4),
 .cahracter-details > :nth-child(5) {
   grid-column: 1 / -1;
 }
 
-.cahracter-details .character-data ul {
+.character-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.character-info .character-metadata ul {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -19,12 +31,12 @@
   padding-left: 0;
 }
 
-.cahracter-details .character-data .name {
+.character-info .character-metadata .name {
   font-size: 2em;
   font-weight: bold;
 }
 
-.cahracter-details .character-data .tag {
+.character-info .character-metadata .tag {
   display: flex;
   width: fit-content;
   background: #ffffff14;
@@ -34,7 +46,7 @@
   font-weight: 800;
 }
 
-.cahracter-details .character-data .tag img {
+.character-info .character-metadata .tag img {
   margin-right: 5px;
 }
 
@@ -70,6 +82,10 @@
 @media (max-width: 1000px) {
   .cahracter-details {
     grid-template-columns: 1fr;
+  }
+
+  .character-info {
+    gap: 10px;
   }
 
   .skill-list {

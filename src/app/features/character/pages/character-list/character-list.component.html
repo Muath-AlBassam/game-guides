@@ -42,7 +42,8 @@
           [showElement]="true"
           [showType]="true"
           [showBorderStyle]="true"
-          [imageStyle]="'card'">
+          [imageStyle]="'card'"
+          [mobileSizeRatio]="0.8">
         </app-character-image>
       } @else if (viewType == 'pfp') {
         <app-character-image
@@ -50,7 +51,8 @@
           [enableDetailsRedirect]="true"
           [showElement]="true"
           [showBorderStyle]="true"
-          [imageStyle]="'pfp'">
+          [imageStyle]="'pfp'"
+          [mobileSizeRatio]="0.8">
         </app-character-image>
       } @else if (viewType == 'info') {
         <app-character-image

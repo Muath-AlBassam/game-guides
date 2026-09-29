@@ -2,18 +2,16 @@
   <app-loader></app-loader>
 } @else if (code && charmd) {
   <div class="cahracter-details">
-    <div class="row">
-      <div class="col">
-        <app-character-image
-          [characterName]="code"
-          [dimensions]="PFP_SIZE"
-          [imageStyle]="'gallery'"
-          [mobileSizeRatio]="0.6"
-          [showBorderStyle]="true">
-        </app-character-image>
-      </div>
+    <div class="character-info details-card gagu-box-shadow-10">
+      <app-character-image
+        [characterName]="code"
+        [dimensions]="PFP_SIZE"
+        [imageStyle]="'gallery'"
+        [mobileSizeRatio]="0.6"
+        [showBorderStyle]="true">
+      </app-character-image>
 
-      <div class="character-data col">
+      <div class="character-metadata">
         <ul>
           <li class="name">
             {{ charmd.name }}
@@ -57,7 +55,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="details-card gagu-box-shadow-10">
       <h5
         class="content-header"
         style="margin-top: 0;">
@@ -74,33 +72,31 @@
             @for (note of notes; track $index) {
               <div [ngClass]="{'mt-2': $index > 0}"></div>
               @if (note.formattedTitle) {
-                <span class="description__title" [innerHTML]="note.formattedTitle"></span>:
+                <span class="description__title" [innerHTML]="note.formattedTitle"></span>
+                <span class="description__title"> :</span>
                 <br>
               }
               <span class="description__content" [innerHTML]="note.formattedText">
               </span>
-              <br>
             }
           </div>
         </div>
       }
     </div>
 
-    @if (hasBuild) {
-      <app-character-build
-        [character]="code"
-        (hasBuild)="hasBuild = $event">
-      </app-character-build>
-    } @else if (hasCombos) {
-      <app-character-combos
-        [character]="code"
-        (hasCombos)="hasCombos = $event">
-      </app-character-combos>
-    } @else {
-      <div></div>
-    }
-
-    
+    <div class="details-card gagu-box-shadow-10">
+      @if (hasBuild) {
+        <app-character-build
+          [character]="code"
+          (hasBuild)="hasBuild = $event">
+        </app-character-build>
+      } @else if (hasCombos) {
+        <app-character-combos
+          [character]="code"
+          (hasCombos)="hasCombos = $event">
+        </app-character-combos>
+      }
+    </div>
 
     <app-character-teams
       [character]="code">
