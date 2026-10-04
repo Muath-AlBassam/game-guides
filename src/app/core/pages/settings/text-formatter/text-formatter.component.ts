@@ -34,7 +34,7 @@ export class TextFormatterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.games = this.gamesService.getAll();
+    this.games = this.gamesService.getAllActive();
     this.allFormatsList = this.textUtils.TEXT_FORMATS_LIST(this.gameCode);
     this.modifyFormatsList();
   }

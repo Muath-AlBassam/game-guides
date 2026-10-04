@@ -12,6 +12,7 @@ export class TeamTagsComponent implements OnInit {
 
   @Input('tags') tagCodeList: string[] = [];
   @Input() containerClass: string = '';
+  @Input() tagClass: string = '';
   allTags: LookupModel[] = [];
   tags: LookupModel[] = [];
 

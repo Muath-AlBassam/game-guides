@@ -33,7 +33,6 @@ export class TeamsService {
       code: t.CODE,
       category: t.CATEGORY,
       name: t.NAME,
-      speciality: t.SPECIALITY,
       iconUrl: Utils.appendRepoUrl(t.ICON_URL),
       pet: t.PET,
       tags: t.TAGS?.split(','),

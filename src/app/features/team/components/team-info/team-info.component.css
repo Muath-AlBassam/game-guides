@@ -15,10 +15,6 @@
   border-radius: 5px;
 }
 
-.team-info-container .speciality {
-  color: darkgrey;
-}
-
 .team-info-container .ti-characters-container {
   display: flex;
   color: #ffffff;

@@ -499,7 +499,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const _forTrack0 = ($index, $item) => $item.code;
-const _c0 = a0 => ({
+const _c0 = (a0, a1) => ({
+  "active": a0,
+  "disabled": a1
+});
+const _c1 = a0 => ({
   "background-image": a0
 });
 function HomeComponent_For_6_Template(rf, ctx) {
@@ -510,7 +514,7 @@ function HomeComponent_For_6_Template(rf, ctx) {
   }
   if (rf & 2) {
     const g_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", "/" + g_r1.code)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](3, _c0, "url(" + g_r1.backgroundUrl + ")"));
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("routerLink", g_r1.isActive ? "/" + g_r1.code : null)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction2"](4, _c0, g_r1.isActive, !g_r1.isActive))("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](7, _c1, "url(" + g_r1.backgroundUrl + ")"));
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", g_r1.label, " ");
   }
@@ -543,7 +547,7 @@ let HomeComponent = /*#__PURE__*/(() => {
         selectors: [["app-home"]],
         decls: 8,
         vars: 1,
-        consts: [[1, "home"], [1, "title", "mt-5", "mb-5"], [1, "mt-5", "mb-5"], [1, "row", "justify-content-around"], [1, "col-md-5", "game-box", "pointer", "mb-4", 3, "routerLink", "ngStyle"], [1, "col-md-5"], [1, "game-title"]],
+        consts: [[1, "home"], [1, "title", "mt-5", "mb-5"], [1, "mt-5", "mb-5"], [1, "row", "justify-content-around"], [1, "col-md-5", "game-box", "mb-4", 3, "routerLink", "ngClass", "ngStyle"], [1, "col-md-5"], [1, "game-title"]],
         template: function HomeComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0)(1, "h1", 1);
@@ -551,7 +555,7 @@ let HomeComponent = /*#__PURE__*/(() => {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "hr", 2);
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrepeaterCreate"](5, HomeComponent_For_6_Template, 3, 5, "a", 4, _forTrack0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrepeaterCreate"](5, HomeComponent_For_6_Template, 3, 9, "a", 4, _forTrack0);
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](7, HomeComponent_Conditional_7_Template, 1, 0, "div", 5);
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]()();
           }
@@ -562,8 +566,8 @@ let HomeComponent = /*#__PURE__*/(() => {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵconditional"](7, ctx.games.length % 2 != 0 ? 7 : -1);
           }
         },
-        dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink],
-        styles: [".home[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: 'Death Star';\n  text-align: center;\n}\n\n.home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%] {\n  height: 150px;\n  border: 2px solid #33343a;\n  background-size: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  opacity: 0.8;\n  margin-top: 1em;\n  display: table;\n  transition: background-size 0.3s linear;\n  \n\n  color: inherit;\n  text-decoration: none;\n}\n\n.home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%]:hover {\n  background-size: 110%;\n}\n\n.home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%]   .game-title[_ngcontent-%COMP%] {\n  font-family: 'Death Star';\n  text-align: center;\n  display: table-cell;\n  vertical-align: middle;\n  text-shadow: 0 0 10px #000, 0 0 10px #000;\n}\n\n@media (max-width: 1000px) {\n  .home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%] {\n    height: 80px;\n  }\n}"]
+        dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_2__.NgStyle, _angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink],
+        styles: [".home[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\n  font-family: 'Death Star';\n  text-align: center;\n}\n\n.home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%] {\n  height: 150px;\n  border: 2px solid #33343a;\n  background-size: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  opacity: 0.8;\n  margin-top: 1em;\n  display: table;\n  transition: background-size 0.3s linear;\n  \n\n  color: inherit;\n  text-decoration: none;\n}\n\n.home[_ngcontent-%COMP%]   .game-box.active[_ngcontent-%COMP%]:hover {\n  background-size: 110%;\n  cursor: pointer;\n}\n\n.home[_ngcontent-%COMP%]   .game-box.disabled[_ngcontent-%COMP%] {\n  filter: grayscale(100%);\n}\n.home[_ngcontent-%COMP%]   .game-box.disabled[_ngcontent-%COMP%]:hover {\n  cursor: not-allowed;\n}\n\n.home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%]   .game-title[_ngcontent-%COMP%] {\n  font-family: 'Death Star';\n  text-align: center;\n  display: table-cell;\n  vertical-align: middle;\n  text-shadow: 0 0 10px #000, 0 0 10px #000;\n}\n\n@media (max-width: 1000px) {\n  .home[_ngcontent-%COMP%]   .game-box[_ngcontent-%COMP%] {\n    height: 80px;\n  }\n}"]
       });
     }
   }
@@ -747,7 +751,7 @@ let TextFormatterComponent = /*#__PURE__*/(() => {
       this.groupedFormatsList = [];
     }
     ngOnInit() {
-      this.games = this.gamesService.getAll();
+      this.games = this.gamesService.getAllActive();
       this.allFormatsList = this.textUtils.TEXT_FORMATS_LIST(this.gameCode);
       this.modifyFormatsList();
     }
@@ -3495,7 +3499,7 @@ let TeamInfoComponent = /*#__PURE__*/(() => {
           }
         },
         dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgClass, _character_components_character_image_character_image_component__WEBPACK_IMPORTED_MODULE_1__.CharacterImageComponent, _team_tags_team_tags_component__WEBPACK_IMPORTED_MODULE_2__.TeamTagsComponent],
-        styles: [".team-info-container[_ngcontent-%COMP%] {\n  \n\n  border: 2px solid #33343a;\n  background-color: #33343a;\n}\n\n.team-info-container[_ngcontent-%COMP%]   .name-container[_ngcontent-%COMP%] {\n  padding: 5px;\n  color: #ffffff;\n  background-color: #33343a;\n}\n.team-info-container[_ngcontent-%COMP%]   .name-container-side[_ngcontent-%COMP%] {\n  height: 60%;\n  margin: auto 0;\n  border-radius: 5px;\n}\n\n.team-info-container[_ngcontent-%COMP%]   .speciality[_ngcontent-%COMP%] {\n  color: darkgrey;\n}\n\n.team-info-container[_ngcontent-%COMP%]   .ti-characters-container[_ngcontent-%COMP%] {\n  display: flex;\n  color: #ffffff;\n}"]
+        styles: [".team-info-container[_ngcontent-%COMP%] {\n  \n\n  border: 2px solid #33343a;\n  background-color: #33343a;\n}\n\n.team-info-container[_ngcontent-%COMP%]   .name-container[_ngcontent-%COMP%] {\n  padding: 5px;\n  color: #ffffff;\n  background-color: #33343a;\n}\n.team-info-container[_ngcontent-%COMP%]   .name-container-side[_ngcontent-%COMP%] {\n  height: 60%;\n  margin: auto 0;\n  border-radius: 5px;\n}\n\n.team-info-container[_ngcontent-%COMP%]   .ti-characters-container[_ngcontent-%COMP%] {\n  display: flex;\n  color: #ffffff;\n}"]
       });
     }
   }
@@ -3658,8 +3662,10 @@ function TeamTagsComponent_For_2_Template(rf, ctx) {
   }
   if (rf & 2) {
     const tag_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleMap"]("margin-right: 4px; " + tag_r1["style"]);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](4, _c0, !tag_r1["style"]));
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleMap"](tag_r1["style"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵclassMap"]("badge hover pointer tag " + ctx_r1.tagClass);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](6, _c0, !tag_r1["style"]));
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", tag_r1.label, " ");
   }
@@ -3670,6 +3676,7 @@ let TeamTagsComponent = /*#__PURE__*/(() => {
       this.lookupsService = lookupsService;
       this.tagCodeList = [];
       this.containerClass = '';
+      this.tagClass = '';
       this.allTags = [];
       this.tags = [];
     }
@@ -3693,15 +3700,16 @@ let TeamTagsComponent = /*#__PURE__*/(() => {
         selectors: [["app-team-tags"]],
         inputs: {
           tagCodeList: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵInputFlags"].None, "tags", "tagCodeList"],
-          containerClass: "containerClass"
+          containerClass: "containerClass",
+          tagClass: "tagClass"
         },
         decls: 3,
         vars: 2,
-        consts: [[1, "badge", "hover", "pointer", "tag", 3, "ngClass", "style"], [1, "badge", "hover", "pointer", "tag", 3, "ngClass"]],
+        consts: [[3, "class", "ngClass", "style"], [3, "ngClass"]],
         template: function TeamTagsComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div");
-            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrepeaterCreate"](1, TeamTagsComponent_For_2_Template, 2, 6, "span", 0, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrepeaterTrackByIndex"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrepeaterCreate"](1, TeamTagsComponent_For_2_Template, 2, 8, "span", 0, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrepeaterTrackByIndex"]);
             _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
           }
           if (rf & 2) {
@@ -3853,7 +3861,7 @@ function TeamDetailsComponent_Conditional_1_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtextInterpolate1"](" ", ctx_r3.team.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("tags", ctx_r3.team.tags);
+    _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵproperty"]("tags", ctx_r3.team.tags)("tagClass", "mx-1");
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵstyleProp"]("--columns", ctx_r3.team.members.length);
     _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵadvance"]();
@@ -3932,10 +3940,10 @@ let TeamDetailsComponent = /*#__PURE__*/(() => {
         selectors: [["app-team-details"]],
         decls: 2,
         vars: 1,
-        consts: [[1, "team-details"], [1, "team-data"], [1, "name"], [1, "tags"], [3, "tags"], [1, "content-header"], ["src", "assets/svg/people.svg", "height", "20", 2, "margin-right", "5px"], [1, "members-container"], [1, "member-card", 3, "style"], [2, "margin-top", "3em"], [3, "teamCode"], [1, "member-card"], [1, "member-card__profile"], [3, "characterName", "dimensions", "enableDetailsRedirect", "showElement", "showBorderStyle", "styles", "mobileSizeRatio"], [1, "member-card__role"], ["height", "30", 3, "src", "title"], [2, "margin-bottom", "0"], [1, "member-card__replacements"], [3, "styles", "characterName", "dimensions"]],
+        consts: [[1, "team-details"], [1, "team-data"], [1, "name"], [1, "tags"], [3, "tags", "tagClass"], [1, "content-header"], ["src", "assets/svg/people.svg", "height", "20", 2, "margin-right", "5px"], [1, "members-container"], [1, "member-card", 3, "style"], [2, "margin-top", "3em"], [3, "teamCode"], [1, "member-card"], [1, "member-card__profile"], [3, "characterName", "dimensions", "enableDetailsRedirect", "showElement", "showBorderStyle", "styles", "mobileSizeRatio"], [1, "member-card__role"], ["height", "30", 3, "src", "title"], [2, "margin-bottom", "0"], [1, "member-card__replacements"], [3, "styles", "characterName", "dimensions"]],
         template: function TeamDetailsComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtemplate"](0, TeamDetailsComponent_Conditional_0_Template, 1, 0, "app-loader")(1, TeamDetailsComponent_Conditional_1_Template, 15, 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵtemplate"](0, TeamDetailsComponent_Conditional_0_Template, 1, 0, "app-loader")(1, TeamDetailsComponent_Conditional_1_Template, 15, 6);
           }
           if (rf & 2) {
             _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵconditional"](0, ctx.isLoading ? 0 : ctx.teamCode && ctx.team ? 1 : -1);
@@ -3961,46 +3969,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   TeamListComponent: () => (/* binding */ TeamListComponent)
 /* harmony export */ });
-/* harmony import */ var _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/utils/utils */ 86);
-/* harmony import */ var _shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/utils/constants */ 4041);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7705);
-/* harmony import */ var _shared_api_teams_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @shared/api/teams.service */ 8534);
-/* harmony import */ var _shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/api/lookups.service */ 3315);
-/* harmony import */ var _shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/services/breadcrumbs.service */ 2636);
-/* harmony import */ var _components_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/team-info/team-info.component */ 623);
-/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared/components/advanced-filter/advanced-filter.component */ 3589);
-/* harmony import */ var _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @shared/components/list-by-category/list-by-category.component */ 3745);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7705);
+/* harmony import */ var _shared_api_teams_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @shared/api/teams.service */ 8534);
+/* harmony import */ var _shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @shared/services/breadcrumbs.service */ 2636);
+/* harmony import */ var _components_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/team-info/team-info.component */ 623);
+/* harmony import */ var _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @shared/components/advanced-filter/advanced-filter.component */ 3589);
 
 
 
 
 
-
-
-
-
-function TeamListComponent_ng_template_6_Template(rf, ctx) {
+function TeamListComponent_For_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "app-team-info", 6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelement"](1, "app-team-info", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const team_r1 = ctx.$implicit;
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("teamCode", team_r1.code)("showTags", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("teamCode", team_r1.code)("showTags", true);
   }
 }
 let TeamListComponent = /*#__PURE__*/(() => {
   class TeamListComponent {
-    constructor(teamsService, lookupsService, breadcrumbsService) {
+    constructor(teamsService, breadcrumbsService) {
       this.teamsService = teamsService;
-      this.lookupsService = lookupsService;
       this.breadcrumbsService = breadcrumbsService;
       this.allTeams = [];
-      this.groupedTeamsList = [];
-      this.categories = [];
-      this.count = 0;
+      this.teams = [];
       this.characterPFPSize = 160;
       this.searchValue = '';
       this.tagValue = [];
@@ -4008,14 +4005,10 @@ let TeamListComponent = /*#__PURE__*/(() => {
     ngOnInit() {
       this.breadcrumbsService.teamList();
       this.loadTeams();
-      this.loadCategories();
-      this.mapToCategoryList(this.allTeams);
     }
     loadTeams() {
       this.allTeams = this.teamsService.getAll();
-    }
-    loadCategories() {
-      this.categories = this.lookupsService.getByType(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_1__.Constants.lookupType.TEAM_CATEGORY);
+      this.teams = this.allTeams;
     }
     onTextChange(val) {
       this.searchValue = val;
@@ -4026,54 +4019,53 @@ let TeamListComponent = /*#__PURE__*/(() => {
       this.filterList();
     }
     filterList() {
-      const filteredList = this.allTeams.filter(team => {
+      this.teams = this.allTeams.filter(team => {
         const teamName = team.name ? team.name.toLowerCase().includes(this.searchValue.toLowerCase()) : false;
         const charaterName = team.members.some(m => m.characterCode.toLowerCase().includes(this.searchValue.toLowerCase()));
         const tag = this.tagValue.length == 0 || this.tagValue.every(t => team.tags?.includes(t));
         return (teamName || charaterName) && tag;
       });
-      this.count += filteredList.length;
-      this.mapToCategoryList(filteredList);
-    }
-    mapToCategoryList(teamList) {
-      this.groupedTeamsList = _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.groupByLookup(teamList, this.categories, 'category');
     }
     static {
       this.ɵfac = function TeamListComponent_Factory(t) {
-        return new (t || TeamListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_2__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_api_lookups_service__WEBPACK_IMPORTED_MODULE_3__.LookupsService), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdirectiveInject"](_shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_4__.BreadcrumbsService));
+        return new (t || TeamListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_shared_api_teams_service__WEBPACK_IMPORTED_MODULE_0__.TeamsService), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdirectiveInject"](_shared_services_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_1__.BreadcrumbsService));
       };
     }
     static {
-      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineComponent"]({
+      this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({
         type: TeamListComponent,
         selectors: [["app-team-list"]],
-        decls: 7,
-        vars: 5,
-        consts: [["id", "team-category-list-header", 1, "row"], [1, "col-md-12"], [1, "content-header"], [3, "textChange", "tagChange", "placeholder", "tagFilter"], [3, "data", "showCategoryLabel", "categoryLabelClass"], [1, "col-xl-4", "col-lg-4", "col-md-4", "col-sm-12", "mb-3"], [3, "teamCode", "showTags"]],
+        decls: 10,
+        vars: 3,
+        consts: [["id", "team-category-list-header", 1, "row"], [1, "col-md-12"], [1, "content-header"], [1, "additional-text"], [3, "textChange", "tagChange", "placeholder", "tagFilter"], [1, "row", "mt-4"], [1, "col-xl-4", "col-lg-4", "col-md-4", "col-sm-12", "mb-3"], [3, "teamCode", "showTags"]],
         template: function TeamListComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, " Teams ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "app-advanced-filter", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("textChange", function TeamListComponent_Template_app_advanced_filter_textChange_4_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](3, " Teams ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](4, "span", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()()()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](6, "app-advanced-filter", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("textChange", function TeamListComponent_Template_app_advanced_filter_textChange_6_listener($event) {
               return ctx.onTextChange($event);
-            })("tagChange", function TeamListComponent_Template_app_advanced_filter_tagChange_4_listener($event) {
+            })("tagChange", function TeamListComponent_Template_app_advanced_filter_tagChange_6_listener($event) {
               return ctx.onTagChange($event);
             });
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "app-list-by-category", 4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, TeamListComponent_ng_template_6_Template, 2, 2, "ng-template");
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "div", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeaterCreate"](8, TeamListComponent_For_9_Template, 2, 2, "div", 6, _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeaterTrackByIndex"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](4);
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("placeholder", "Search teams and characters...")("tagFilter", true);
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("data", ctx.groupedTeamsList)("showCategoryLabel", true)("categoryLabelClass", "mb-3");
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate1"](" Showing (", ctx.teams.length, ") Characters ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("placeholder", "Search teams and characters...")("tagFilter", true);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeater"](ctx.teams);
           }
         },
-        dependencies: [_components_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_5__.TeamInfoComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_6__.AdvancedFilterComponent, _shared_components_list_by_category_list_by_category_component__WEBPACK_IMPORTED_MODULE_7__.ListByCategoryComponent]
+        dependencies: [_components_team_info_team_info_component__WEBPACK_IMPORTED_MODULE_2__.TeamInfoComponent, _shared_components_advanced_filter_advanced_filter_component__WEBPACK_IMPORTED_MODULE_3__.AdvancedFilterComponent]
       });
     }
   }
@@ -5280,11 +5272,14 @@ let GamesService = /*#__PURE__*/(() => {
           backgroundUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(g.BACKGROUND_URL),
           guideUrl: g.GUIDE_URL,
           isActive: g.IS_ACTIVE
-        })).filter(g => g.isActive);
+        }));
       });
     }
     getAll() {
       return this.gamesList;
+    }
+    getAllActive() {
+      return this.gamesList.filter(g => g.isActive);
     }
     getActive() {
       const gameCode = this.store.get(_shared_services_store_service__WEBPACK_IMPORTED_MODULE_1__.StoreKeys.GAME_CODE);
@@ -5650,7 +5645,6 @@ let TeamsService = /*#__PURE__*/(() => {
         code: t.CODE,
         category: t.CATEGORY,
         name: t.NAME,
-        speciality: t.SPECIALITY,
         iconUrl: _shared_utils_utils__WEBPACK_IMPORTED_MODULE_0__.Utils.appendRepoUrl(t.ICON_URL),
         pet: t.PET,
         tags: t.TAGS?.split(','),

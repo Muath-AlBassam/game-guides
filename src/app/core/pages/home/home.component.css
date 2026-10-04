@@ -18,8 +18,16 @@
   text-decoration: none;
 }
 
-.home .game-box:hover {
+.home .game-box.active:hover {
   background-size: 110%;
+  cursor: pointer;
+}
+
+.home .game-box.disabled {
+  filter: grayscale(100%);
+}
+.home .game-box.disabled:hover {
+  cursor: not-allowed;
 }
 
 .home .game-box .game-title {

@@ -5,7 +5,6 @@ export interface TeamModel {
   code: string;
   category: string;
   name?: string;
-  speciality: string;
   iconUrl: string;
   pet: string;
   tags: string[];
@@ -19,7 +18,6 @@ export interface TeamMemberModel {
   characterCode: string;
   roleCode: string;
   isMain: boolean;
-  // replacements: string[]; // delete
   replacements: TeamMemberReplacementModel[];
 
   character?: CharacterModel;

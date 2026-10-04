@@ -1,9 +1,9 @@
 <div [class]="containerClass">
   @for (tag of tags; track $index) {
     <span
-      class="badge hover pointer tag"
+      [class]="'badge hover pointer tag ' + tagClass"
       [ngClass]="{ 'bg-secondary': !tag['style'] }"
-      [style]="'margin-right: 4px; ' + tag['style']">
+      [style]="tag['style']">
       {{ tag.label }}
     </span>
   }

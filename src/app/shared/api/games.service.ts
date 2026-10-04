@@ -34,12 +34,15 @@ export class GamesService {
         guideUrl: g.GUIDE_URL,
         isActive: g.IS_ACTIVE
       }))
-      .filter((g: any) => g.isActive);
     });
   }
 
   getAll(): GameModel[] {
     return this.gamesList;
+  }
+
+  getAllActive(): GameModel[] {
+    return this.gamesList.filter((g: any) => g.isActive);
   }
 
   getActive(): GameModel | undefined {
