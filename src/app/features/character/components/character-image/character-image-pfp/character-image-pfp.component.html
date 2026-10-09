@@ -1,16 +1,20 @@
 <div
   class="character-container"
   [class]="charmd.code"
-  [style]="'border-radius: 5px; ' + styles">
+  [style]="'border-radius: 5px; ' + styles"
+  [style.width.px]="crop.containerWidth"
+  [style.height.px]="crop.containerHeight">
   <img
-    [src]="charmd.imageUrl ?? UNKNOWN_IMG"
+    [src]="charmd.imagePFP ? charmd.imagePFP.imageUrl : UNKNOWN_IMG"
     [alt]="charmd.name"
     [title]="charmd.name"
     [attr.class]="'pfp' + classes"
-    style="display: block; height: auto;"
     [ngClass]="{'char-img-resize': enableViewCharacter}"
-    [width]="dimensions"
-    [height]="dimensions"
+    [style.width.px]="crop.imageWidth"
+    [style.height.px]="crop.imageHeight"
+    [style.left.px]="crop.imageLeft"
+    [style.top.px]="crop.imageTop"
+    (load)="onImageLoad($event)"
     (click)="goToCharacterDetails()"
     loading="lazy" />
   @if (showElement && charmd.element?.imageUrl) {

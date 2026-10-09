@@ -3,7 +3,10 @@
   [class]="charmd.code"
   [ngClass]="{'glow-border': charmd.enhanced}"
   [style]="styles"
-  [ngStyle]="{'width': dimensions + 'px', 'height': dimensions * CARD_ASPECT_RATION + 'px'}">
+  [ngStyle]="{
+    'width': dimensions + 'px',
+    'height': dimensions * CARD_HEIGHT_ASPECT_RATIO + 'px'
+  }">
 
   @if (showElement && charmd.element?.imageUrl) {
     <ng-container *ngTemplateOutlet="elementImageTemplate"></ng-container>
@@ -29,9 +32,13 @@
       [src]="imageList[currentImageIndex].imageUrl"
       [alt]="charmd.name"
       [title]="charmd.name"
-      [width]="dimensions"
+      [style.width.px]="crop.imageWidth"
+      [style.height.px]="crop.imageHeight"
+      [style.left.px]="crop.imageLeft"
+      [style.top.px]="crop.imageTop"
+      (load)="onImageLoad($event)"
       (click)="goToCharacterDetails()"
-      loading="lazy"/>
+      loading="lazy" />
     @if (imageList.length > 1) {
       <button class="char-gallery-btn right" (click)="nextGalleryImage($event)">
         <img src="assets/svg/arrow-right.svg" height="10">

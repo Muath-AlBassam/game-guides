@@ -2,13 +2,13 @@ export interface CharacterModel {
   gameCode: string;
   code: string;
   name: string;
-  imageUrl: string | undefined;
-  cardImageUrl: string | undefined;
+  imagePFP: CharacterImageModel | undefined;
+  imageCard: CharacterImageModel | undefined;
   element: string;
   type: string;
   rarity: string;
   enhanced: boolean;
-  skillDescriptionList: string[]
+  skillDescriptionList: string[];
 }
 
 export interface CharacterImageModel {
@@ -16,22 +16,8 @@ export interface CharacterImageModel {
   characterCode: string;
   imageUrl: string;
   type: string;
-}
-
-export class Character implements CharacterModel {
-  gameCode = '';
-  code = '';
-  name = '';
-  imageUrl = undefined;
-  cardImageUrl = undefined;
-  element = '';
-  type = '';
-  rarity = '';
-  enhanced = false;
-  skillDescriptionList = [];
-
-  constructor(code = '', name = '') {
-    this.code = code;
-    this.name = name;
-  }
+  startX: number,
+  startY: number,
+  width: number,
+  height: number
 }

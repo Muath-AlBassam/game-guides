@@ -13,10 +13,20 @@ export const StoreKeys = {
 })
 export class StoreService {
 
+  // private readonly STORAGE_KEY = 'storeValues';
+
   state = new Map([]);
+
+  // constructor() {
+  //   const storedValues = localStorage.getItem(this.STORAGE_KEY);
+  //   if (storedValues) {
+  //     this.state = new Map<string, any>(JSON.parse(storedValues));
+  //   }
+  // }
 
   set(key: string, value: any) {
     this.state.set(key, value);
+    // this.save();
   }
 
   get(key: string): any {
@@ -28,4 +38,11 @@ export class StoreService {
       this.state.delete(key);
     }
   }
+
+  // private save(): void {
+  //   localStorage.setItem(
+  //     this.STORAGE_KEY,
+  //     JSON.stringify(Array.from(this.state.entries()))
+  //   );
+  // }
 }

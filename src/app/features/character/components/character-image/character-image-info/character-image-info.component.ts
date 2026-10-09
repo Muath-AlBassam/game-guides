@@ -5,6 +5,7 @@ import { Utils } from '@shared/utils/utils';
 import { NoteModel } from '@shared/models/note.model';
 import { NotesService } from '@shared/api/notes.service';
 import { TextUtils } from '@shared/utils/text-utils';
+import { CharacterImageCrop, CharacterImageCropper } from '@shared/utils/character-image-crop';
 
 @Component({
   selector: 'app-character-image-info',
@@ -33,6 +34,8 @@ export class CharacterImageInfoComponent implements OnInit {
 
   skillDescriptionList: string[] = [];
   notes: NoteModel[] = [];
+  
+  crop: CharacterImageCrop = CharacterImageCropper.EMPTY;
 
   constructor(
     private notesService: NotesService,
@@ -61,6 +64,17 @@ export class CharacterImageInfoComponent implements OnInit {
 
   goToCharacterDetails(): void {
     this.viewCharacter.emit(this.charmd);
+  }
+
+  onImageLoad(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    this.crop = CharacterImageCropper.crop(
+      img.naturalWidth,
+      img.naturalHeight,
+      this.charmd.imagePFP,
+      this.dimensions,
+      this.dimensions
+    );
   }
 
 }

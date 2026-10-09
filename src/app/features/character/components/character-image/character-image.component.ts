@@ -3,7 +3,7 @@ import { Utils } from '@shared/utils/utils';
 import { CharactersService } from '@shared/api/characters.service';
 import { Constants } from '@shared/utils/constants';
 import { LookupsService } from '@shared/api/lookups.service';
-import { CharacterModel } from '@shared/models/character.model';
+import { CharacterImageModel, CharacterModel } from '@shared/models/character.model';
 import { LookupModel } from '@shared/models/lookup.model';
 import { Router } from '@angular/router';
 
@@ -11,8 +11,8 @@ export interface CharacterDetailsModel {
   gameCode: string;
   code: string;
   name: string;
-  imageUrl: string | undefined;
-  cardImageUrl: string | undefined;
+  imagePFP: CharacterImageModel | undefined;
+  imageCard: CharacterImageModel | undefined;
   element: LookupModel | undefined;
   type: LookupModel | undefined;
   rarity: LookupModel | undefined;
@@ -71,8 +71,8 @@ export class CharacterImageComponent implements OnInit {
       gameCode: tempCharMd.gameCode,
       code: tempCharMd.code,
       name: tempCharMd.name,
-      imageUrl: tempCharMd.imageUrl,
-      cardImageUrl: tempCharMd.cardImageUrl,
+      imagePFP: tempCharMd.imagePFP,
+      imageCard: tempCharMd.imageCard,
       element: this.lookupsService.getOne(tempCharMd.element, Constants.lookupType.ELEMENT),
       type: this.lookupsService.getOne(tempCharMd.type, Constants.lookupType.TYPE),
       rarity: this.lookupsService.getOne(tempCharMd.rarity, Constants.lookupType.RARITY),

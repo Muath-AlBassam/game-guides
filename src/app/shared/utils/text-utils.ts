@@ -227,8 +227,8 @@ export class TextUtils {
     const character =
       this.charactersService.getOneByGame(gameCode, name?.trim());
     const imageUrl =
-      character?.imageUrl ??
-      Constants.images.unknownCharacter;
+      character && character.imagePFP && character.imagePFP.imageUrl ? character.imagePFP.imageUrl
+      : Constants.images.unknownCharacter;
     return this.imageOf(imageUrl, name);
   }
 

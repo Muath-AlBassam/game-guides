@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { CharacterDetailsModel } from '../character-image.component';
 import { Constants } from '@shared/utils/constants';
-import { CharacterImageModel } from '@shared/models/character.model';
 import { CharactersService } from '@shared/api/characters.service';
+import { CharacterImageModel } from '@shared/models/character.model';
+import { CharacterImageCrop, CharacterImageCropper } from '@shared/utils/character-image-crop';
 
 @Component({
   selector: 'app-character-image-gallery',
@@ -12,7 +13,7 @@ import { CharactersService } from '@shared/api/characters.service';
 export class CharacterImageGalleryComponent implements OnInit {
 
   readonly UNKNOWN_IMG = Constants.images.unknownCharacter;
-  readonly CARD_ASPECT_RATION: number = 219 / 160;
+  readonly CARD_HEIGHT_ASPECT_RATIO: number = 219 / 160;
 
   @Input() charmd!: CharacterDetailsModel;
 
@@ -30,10 +31,28 @@ export class CharacterImageGalleryComponent implements OnInit {
   imageList: CharacterImageModel[] = [];
   currentImageIndex: number = 0;
 
+  crop: CharacterImageCrop = CharacterImageCropper.EMPTY;
+
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {
     this.imageList = this.charactersService.getAllImagesByCharacter(this.charmd.code, ['CARD', 'SKIN', 'ALT']);
+  }
+
+  onImageLoad(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    const currentImage = this.imageList[this.currentImageIndex];
+    if (!currentImage) {
+      return;
+    }
+    this.crop = CharacterImageCropper.crop(
+      img.naturalWidth,
+      img.naturalHeight,
+      currentImage,
+      this.dimensions,
+      this.dimensions * this.CARD_HEIGHT_ASPECT_RATIO,
+      true
+    );
   }
 
   nextGalleryImage(event?: Event): void {
