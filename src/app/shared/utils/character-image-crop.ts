@@ -9,15 +9,6 @@ export interface CharacterImageCrop {
   imageTop: number;
 }
 
-export const CHAR_IMG_CROP_EMPTY: CharacterImageCrop = {
-  containerWidth: 0,
-  containerHeight: 0,
-  imageWidth: 0,
-  imageHeight: 0,
-  imageLeft: 0,
-  imageTop: 0
-};
-
 export class CharacterImageCropper {
   
   static EMPTY: CharacterImageCrop = {
@@ -26,7 +17,7 @@ export class CharacterImageCropper {
     imageWidth: 0,
     imageHeight: 0,
     imageLeft: 0,
-    imageTop: 0
+    imageTop: 0,
   };
   
   static crop(
@@ -43,15 +34,6 @@ export class CharacterImageCropper {
     const sourceWidth = hasCrop ? image.width : naturalWidth;
     const sourceHeight = hasCrop ? image.height : naturalHeight;
 
-    const empty: CharacterImageCrop = {
-      containerWidth: 0,
-      containerHeight: 0,
-      imageWidth: 0,
-      imageHeight: 0,
-      imageLeft: 0,
-      imageTop: 0
-    };
-
     if (
       naturalWidth <= 0 ||
       naturalHeight <= 0 ||
@@ -60,7 +42,7 @@ export class CharacterImageCropper {
       maxWidth <= 0 ||
       maxHeight <= 0
     ) {
-      return empty;
+      return this.EMPTY;
     }
 
     const scale = Math.min(
@@ -74,7 +56,7 @@ export class CharacterImageCropper {
       imageWidth: naturalWidth * scale,
       imageHeight: naturalHeight * scale,
       imageLeft: -(hasCrop ? image.startX : 0) * scale,
-      imageTop: -(hasCrop ? image.startY : 0) * scale
+      imageTop: -(hasCrop ? image.startY : 0) * scale,
     };
   }
 }

@@ -40,6 +40,7 @@ export class CharacterImageComponent implements OnInit {
   @Input() showElement: boolean = false;
   @Input() showType: boolean = false;
   @Input() showNotes: boolean = false;
+  @Input() showFullImage: boolean = false;
   @Input() imageStyle: 'pfp' | 'card' | 'gallery' | 'info' = 'pfp';
   @Input('dimensions') inputDimensions: number = 100;
   @Input('iconSize') inputIconSize: number = 26;

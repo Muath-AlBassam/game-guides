@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>
+  <span>
+    {{ data.name }}
+  </span>
+  <span mat-icon-button [mat-dialog-close]="null" title="Close" style="float: right; margin-top: 15px; font-size: 1.5em;">
+    &times;
+  </span>
+</h1>
+<div mat-dialog-content>
+  <div class="mt-4">
+    <img [src]="data.imageUrl" alt="..." class="dialog-image">
+  </div>
+</div>

@@ -45,6 +45,7 @@ import { NoDataComponent } from '@shared/components/no-data/no-data.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ListByCategoryComponent } from '@shared/components/list-by-category/list-by-category.component';
 import { TeamTagsComponent } from './features/team/components/team-tags/team-tags.component';
+import { ImageDialogComponent } from './shared/components/image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { TeamTagsComponent } from './features/team/components/team-tags/team-tag
     NoDataComponent,
     ListByCategoryComponent,
     TeamTagsComponent,
+    ImageDialogComponent,
   ],
   imports: [
     BrowserModule,

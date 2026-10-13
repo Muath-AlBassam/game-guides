@@ -19,6 +19,14 @@
       {{ imageList[currentImageIndex].type }}
     </div>
   }
+  @if (showFullImage) {
+    <img
+      class="full-screen pointer"
+      src="assets/svg/resize-full-screen.svg"
+      [width]="25"
+      [height]="25"
+      (click)="openImageDialog()"/>
+  }
 
   <div class="char-gallery-wrapper">
     @if (imageList.length > 1) {

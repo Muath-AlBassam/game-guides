@@ -4,6 +4,7 @@ import { Constants } from '@shared/utils/constants';
 import { CharactersService } from '@shared/api/characters.service';
 import { CharacterImageModel } from '@shared/models/character.model';
 import { CharacterImageCrop, CharacterImageCropper } from '@shared/utils/character-image-crop';
+import { DialogService } from '@shared/services/dialog.service';
 
 @Component({
   selector: 'app-character-image-gallery',
@@ -21,6 +22,7 @@ export class CharacterImageGalleryComponent implements OnInit {
   @Input() dimensions!: number;
   @Input() showElement: boolean = false;
   @Input() showType: boolean = false;
+  @Input() showFullImage: boolean = false;
   @Input() enableViewCharacter: boolean = false;
 
   @Input() elementImageTemplate!: TemplateRef<unknown>;
@@ -33,7 +35,10 @@ export class CharacterImageGalleryComponent implements OnInit {
 
   crop: CharacterImageCrop = CharacterImageCropper.EMPTY;
 
-  constructor(private charactersService: CharactersService) {}
+  constructor(
+    private charactersService: CharactersService,
+    private dialogService: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.imageList = this.charactersService.getAllImagesByCharacter(this.charmd.code, ['CARD', 'SKIN', 'ALT']);
@@ -67,5 +72,10 @@ export class CharacterImageGalleryComponent implements OnInit {
 
   goToCharacterDetails(): void {
     this.viewCharacter.emit(this.charmd);
+  }
+
+  openImageDialog() {
+    const imgUrl = this.imageList[this.currentImageIndex].imageUrl;
+    this.dialogService.openImageDialog(this.charmd.name, imgUrl);
   }
 }
