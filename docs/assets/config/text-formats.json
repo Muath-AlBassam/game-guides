@@ -270,40 +270,6 @@
     },
 
     {
-      "groupId": 3,
-      "title": "Character Image",
-      "games": ["ALL"],
-      "offset": 2,
-      "regex": "c_(.*?)_c",
-      "flags": "g",
-      "replacement": {
-        "type": "characterImage"
-      }
-    },
-    {
-      "groupId": 3,
-      "title": "Character Image + Name",
-      "games": ["ALL"],
-      "offset": 3,
-      "regex": "cn_(.*?)_cn",
-      "flags": "g",
-      "replacement": {
-        "type": "characterImageName"
-      }
-    },
-    {
-      "groupId": 3,
-      "title": "Character Image as Tooltip",
-      "games": ["ALL"],
-      "offset": 3,
-      "regex": "ca_(.*?)_ca",
-      "flags": "g",
-      "replacement": {
-        "type": "characterTooltip"
-      }
-    },
-
-    {
       "groupId": 4,
       "title": "Title",
       "games": ["ALL"],
@@ -693,6 +659,40 @@
         "values": {
           "ALL": "number-color"
         }
+      }
+    },
+
+    {
+      "groupId": 3,
+      "title": "Character Image",
+      "games": ["ALL"],
+      "offset": 2,
+      "regex": "c_(.*?)_c",
+      "flags": "g",
+      "replacement": {
+        "type": "characterImage"
+      }
+    },
+    {
+      "groupId": 3,
+      "title": "Character Image + Name",
+      "games": ["ALL"],
+      "offset": 3,
+      "regex": "cn_(.*?)_cn",
+      "flags": "g",
+      "replacement": {
+        "type": "characterImageName"
+      }
+    },
+    {
+      "groupId": 3,
+      "title": "Character Image as Tooltip",
+      "games": ["ALL"],
+      "offset": 3,
+      "regex": "ca_(.*?)_ca",
+      "flags": "g",
+      "replacement": {
+        "type": "characterTooltip"
       }
     }
   ]

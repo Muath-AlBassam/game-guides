@@ -36,10 +36,13 @@ export class DialogService {
   openImageDialog(name: string, imageUrl: string) {
     this.dialog.closeAll();
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '100vw';
     dialogConfig.maxWidth = '100vw';
-    dialogConfig.maxHeight = Utils.isMobile() ? '100vh' : '90vh';
-    dialogConfig.panelClass = 'gagu-mat-dialog';
-    dialogConfig.data = { name: name, imageUrl: imageUrl };
+    dialogConfig.height = '100dvh';
+    dialogConfig.maxHeight = '100dvh';
+    dialogConfig.panelClass = 'gagu-transparent-dialog';
+    dialogConfig.backdropClass = 'gagu-dialog-dark-backdrop';
+    dialogConfig.data = { imageUrl: imageUrl };
     const dialogRef = this.dialog.open(ImageDialogComponent, dialogConfig);
   }
 
