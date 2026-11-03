@@ -43,7 +43,13 @@ export class TextFormatterComponent implements OnInit {
     const formatsList = this.allFormatsList
       .filter(f => f.games.includes(this.gameCode) || f.games == 'ALL')
       .map(f => {
-        let rawText =  f.regex.toString().replace(' ', '').replace('(.*?)', '').replace('/', '').replace('/g', '');
+        let rawText = f.regex.toString()
+          .replace(' ', '')
+          .replace('(.*?)', '')
+          .replace('/', '')
+          .replace('/g', '')
+          .replace('(?<![A-Za-z0-9])', '')
+          .replace('(?![A-Za-z0-9])', '');
         f.rawText = rawText;
         f.sample = rawText.substring(0, f.offset) + (f.offset > 0 && f.offset <= 3 ? 'Test' : '') + rawText.substring(f.offset);
         f.sample = this.sanitizer.bypassSecurityTrustHtml(f.sample.replace(f.regex, f.replace));

@@ -36,7 +36,7 @@ export class CharacterImagePfpComponent {
 
   onImageLoad(event: Event): void {
     const img = event.target as HTMLImageElement;
-    this.crop = CharacterImageCropper.crop(
+    this.crop = CharacterImageCropper.getCropData(
       img.naturalWidth,
       img.naturalHeight,
       this.charmd.imagePFP,

@@ -17,7 +17,7 @@
 </app-advanced-filter>
 
 <div class="row mt-4">
-  @for (team of teams; track $index) {
+  @for (team of teams; track team.code) {
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-3">
       <app-team-info [teamCode]="team.code" [showTags]="true"></app-team-info>
     </div>

@@ -759,7 +759,7 @@ let TextFormatterComponent = /*#__PURE__*/(() => {
     }
     modifyFormatsList() {
       const formatsList = this.allFormatsList.filter(f => f.games.includes(this.gameCode) || f.games == 'ALL').map(f => {
-        let rawText = f.regex.toString().replace(' ', '').replace('(.*?)', '').replace('/', '').replace('/g', '');
+        let rawText = f.regex.toString().replace(' ', '').replace('(.*?)', '').replace('/', '').replace('/g', '').replace('(?<![A-Za-z0-9])', '').replace('(?![A-Za-z0-9])', '');
         f.rawText = rawText;
         f.sample = rawText.substring(0, f.offset) + (f.offset > 0 && f.offset <= 3 ? 'Test' : '') + rawText.substring(f.offset);
         f.sample = this.sanitizer.bypassSecurityTrustHtml(f.sample.replace(f.regex, f.replace));
@@ -1275,7 +1275,7 @@ let CharacterImageCardComponent = /*#__PURE__*/(() => {
     }
     onImageLoad(event) {
       const img = event.target;
-      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.crop(img.naturalWidth, img.naturalHeight, this.charmd.imageCard, this.dimensions, this.dimensions * this.CARD_HEIGHT_ASPECT_RATIO, true);
+      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.getCropData(img.naturalWidth, img.naturalHeight, this.charmd.imageCard, this.dimensions, this.dimensions * this.CARD_HEIGHT_ASPECT_RATIO, true);
     }
     static {
       this.ɵfac = function CharacterImageCardComponent_Factory(t) {
@@ -1484,7 +1484,7 @@ let CharacterImageGalleryComponent = /*#__PURE__*/(() => {
       if (!currentImage) {
         return;
       }
-      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.crop(img.naturalWidth, img.naturalHeight, currentImage, this.dimensions, this.dimensions * this.CARD_HEIGHT_ASPECT_RATIO, true);
+      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.getCropData(img.naturalWidth, img.naturalHeight, currentImage, this.dimensions, this.dimensions * this.CARD_HEIGHT_ASPECT_RATIO, true);
     }
     nextGalleryImage(event) {
       event?.stopPropagation();
@@ -1763,7 +1763,7 @@ let CharacterImageInfoComponent = /*#__PURE__*/(() => {
     }
     onImageLoad(event) {
       const img = event.target;
-      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_2__.CharacterImageCropper.crop(img.naturalWidth, img.naturalHeight, this.charmd.imagePFP, this.dimensions, this.dimensions);
+      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_2__.CharacterImageCropper.getCropData(img.naturalWidth, img.naturalHeight, this.charmd.imagePFP, this.dimensions, this.dimensions);
     }
     static {
       this.ɵfac = function CharacterImageInfoComponent_Factory(t) {
@@ -1911,7 +1911,7 @@ let CharacterImagePfpComponent = /*#__PURE__*/(() => {
     }
     onImageLoad(event) {
       const img = event.target;
-      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.crop(img.naturalWidth, img.naturalHeight, this.charmd.imagePFP, this.dimensions, this.dimensions);
+      this.crop = _shared_utils_character_image_crop__WEBPACK_IMPORTED_MODULE_1__.CharacterImageCropper.getCropData(img.naturalWidth, img.naturalHeight, this.charmd.imagePFP, this.dimensions, this.dimensions);
     }
     static {
       this.ɵfac = function CharacterImagePfpComponent_Factory(t) {
@@ -3601,7 +3601,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function TeamNotesComponent_Conditional_5_For_2_Conditional_1_Template(rf, ctx) {
+function TeamNotesComponent_Conditional_0_For_7_Conditional_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "span", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](1, "span", 6);
@@ -3615,10 +3615,10 @@ function TeamNotesComponent_Conditional_5_For_2_Conditional_1_Template(rf, ctx) 
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("innerHTML", note_r1.formattedTitle, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeHtml"]);
   }
 }
-function TeamNotesComponent_Conditional_5_For_2_Template(rf, ctx) {
+function TeamNotesComponent_Conditional_0_For_7_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, TeamNotesComponent_Conditional_5_For_2_Conditional_1_Template, 4, 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, TeamNotesComponent_Conditional_0_For_7_Conditional_1_Template, 4, 1);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "span", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
   }
@@ -3630,15 +3630,19 @@ function TeamNotesComponent_Conditional_5_For_2_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("innerHTML", note_r1.formattedText, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsanitizeHtml"]);
   }
 }
-function TeamNotesComponent_Conditional_5_Template(rf, ctx) {
+function TeamNotesComponent_Conditional_0_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "ul", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterCreate"](1, TeamNotesComponent_Conditional_5_For_2_Template, 3, 2, "li", null, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "h5", 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "img", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3, " Notes ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "div")(5, "ul", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterCreate"](6, TeamNotesComponent_Conditional_0_For_7_Template, 3, 2, "li", null, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeaterTrackByIndex"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrepeater"](ctx_r1.notes);
   }
 }
@@ -3680,22 +3684,15 @@ let TeamNotesComponent = /*#__PURE__*/(() => {
         inputs: {
           teamCode: "teamCode"
         },
-        decls: 6,
+        decls: 1,
         vars: 1,
         consts: [[1, "notes-container"], [1, "content-header"], ["src", "assets/svg/notes.svg", "height", "20", 2, "margin-right", "5px"], [1, "team-notes"], [1, "team-notes__content", 3, "innerHTML"], [1, "team-notes__title"], [3, "innerHTML"]],
         template: function TeamNotesComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0)(1, "h5", 1);
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "img", 2);
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](3, " Notes ");
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "div");
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](5, TeamNotesComponent_Conditional_5_Template, 3, 0, "ul", 3);
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]()();
+            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](0, TeamNotesComponent_Conditional_0_Template, 8, 0, "div", 0);
           }
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵconditional"](5, ctx.notes.length > 0 ? 5 : -1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵconditional"](0, ctx.notes.length > 0 ? 0 : -1);
           }
         },
         styles: [".notes-container[_ngcontent-%COMP%] {\n  \n\n}\n\n.notes-container[_ngcontent-%COMP%]   ul.team-notes[_ngcontent-%COMP%] {\n  font-size: 1.2em;\n  list-style-type: disc;\n  padding-left: 20px;\n}\n\n.notes-container[_ngcontent-%COMP%]   .team-notes[_ngcontent-%COMP%]   .team-notes__title[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  font-weight: bold;\n}\n\n.notes-container[_ngcontent-%COMP%]   .team-notes[_ngcontent-%COMP%]   .team-notes__content[_ngcontent-%COMP%] {\n  \n\n}"]
@@ -4053,6 +4050,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const _forTrack0 = ($index, $item) => $item.code;
 function TeamListComponent_For_9_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 6);
@@ -4127,7 +4125,7 @@ let TeamListComponent = /*#__PURE__*/(() => {
             });
             _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
             _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "div", 5);
-            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeaterCreate"](8, TeamListComponent_For_9_Template, 2, 2, "div", 6, _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeaterTrackByIndex"]);
+            _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵrepeaterCreate"](8, TeamListComponent_For_9_Template, 2, 2, "div", 6, _forTrack0);
             _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
           }
           if (rf & 2) {
@@ -7083,38 +7081,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CharacterImageCropper: () => (/* binding */ CharacterImageCropper)
 /* harmony export */ });
-let CharacterImageCropper = /*#__PURE__*/(() => {
-  class CharacterImageCropper {
-    static {
-      this.EMPTY = {
-        containerWidth: 0,
-        containerHeight: 0,
-        imageWidth: 0,
-        imageHeight: 0,
-        imageLeft: 0,
-        imageTop: 0
-      };
-    }
-    static crop(naturalWidth, naturalHeight, image, maxWidth, maxHeight, fixedContainer = false) {
-      const hasCrop = image && image.width > 0 && image.height > 0;
-      const sourceWidth = hasCrop ? image.width : naturalWidth;
-      const sourceHeight = hasCrop ? image.height : naturalHeight;
-      if (naturalWidth <= 0 || naturalHeight <= 0 || sourceWidth <= 0 || sourceHeight <= 0 || maxWidth <= 0 || maxHeight <= 0) {
-        return this.EMPTY;
-      }
-      const scale = Math.min(maxWidth / sourceWidth, maxHeight / sourceHeight);
-      return {
-        containerWidth: fixedContainer ? maxWidth : sourceWidth * scale,
-        containerHeight: fixedContainer ? maxHeight : sourceHeight * scale,
-        imageWidth: naturalWidth * scale,
-        imageHeight: naturalHeight * scale,
-        imageLeft: -(hasCrop ? image.startX : 0) * scale,
-        imageTop: -(hasCrop ? image.startY : 0) * scale
-      };
-    }
+/* harmony import */ var C_Users_ascal_Desktop_game_guides_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 467);
+
+class CharacterImageCropper {
+  static {
+    this.croppedImageCache = new Map();
   }
-  return CharacterImageCropper;
-})();
+  static {
+    this.EMPTY = {
+      containerWidth: 0,
+      containerHeight: 0,
+      imageWidth: 0,
+      imageHeight: 0,
+      imageLeft: 0,
+      imageTop: 0
+    };
+  }
+  static getCropData(naturalWidth, naturalHeight, image, maxWidth, maxHeight, fixedContainer = false) {
+    const hasCrop = image && image.width > 0 && image.height > 0;
+    const sourceWidth = hasCrop ? image.width : naturalWidth;
+    const sourceHeight = hasCrop ? image.height : naturalHeight;
+    if (naturalWidth <= 0 || naturalHeight <= 0 || sourceWidth <= 0 || sourceHeight <= 0 || maxWidth <= 0 || maxHeight <= 0) {
+      return this.EMPTY;
+    }
+    const scale = Math.min(maxWidth / sourceWidth, maxHeight / sourceHeight);
+    return {
+      containerWidth: fixedContainer ? maxWidth : sourceWidth * scale,
+      containerHeight: fixedContainer ? maxHeight : sourceHeight * scale,
+      imageWidth: naturalWidth * scale,
+      imageHeight: naturalHeight * scale,
+      imageLeft: -(hasCrop ? image.startX : 0) * scale,
+      imageTop: -(hasCrop ? image.startY : 0) * scale
+    };
+  }
+  static getCropImageUrl(imageUrl, width, height, startX, startY) {
+    const key = `${imageUrl}|${startX}|${startY}|${width}|${height}`;
+    let result = this.croppedImageCache.get(key);
+    if (!result) {
+      result = this.buildCropImageUrl(imageUrl, width, height, startX, startY);
+      this.croppedImageCache.set(key, result);
+    }
+    return result;
+  }
+  static buildCropImageUrl(imageUrl, width, height, startX, startY) {
+    return (0,C_Users_ascal_Desktop_game_guides_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      if (!imageUrl || !Number.isFinite(width) || !Number.isFinite(height) || !Number.isFinite(startX) || !Number.isFinite(startY) || width <= 0 || height <= 0 || startX < 0 || startY < 0) {
+        return undefined;
+      }
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      yield new Promise((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error(`Failed to load image: ${imageUrl}`));
+        img.src = imageUrl;
+      });
+      if (startX + width > img.naturalWidth || startY + height > img.naturalHeight) {
+        return undefined;
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        return undefined;
+      }
+      ctx.drawImage(img, startX, startY, width, height, 0, 0, width, height);
+      return canvas.toDataURL('image/png');
+    })();
+  }
+}
 
 /***/ }),
 

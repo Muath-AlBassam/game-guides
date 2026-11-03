@@ -50,7 +50,7 @@ export class CharacterImageGalleryComponent implements OnInit {
     if (!currentImage) {
       return;
     }
-    this.crop = CharacterImageCropper.crop(
+    this.crop = CharacterImageCropper.getCropData(
       img.naturalWidth,
       img.naturalHeight,
       currentImage,
